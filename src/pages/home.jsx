@@ -478,19 +478,19 @@ function Home() {
                 <div className="col-lg-6 col-md-8">
                   <div className="features-products-thumb">
                     <div className="main-img">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/features_product01.png'} alt="img" />
+                      <img src={process.env.PUBLIC_URL + '/assets/images/features_product03.png'} alt="img" />
                     </div>
                     <img src={process.env.PUBLIC_URL + '/assets/images/features_product_shape01.png'} alt="img" className="shape-img" />
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
-                    <h2 className="title"><a href="shop-details.html">Seriour Mass</a></h2>
+                    <h2 className="title"><a href="/whey-protein">Whey Protein</a></h2>
                     <h6 className="features-product-quantity">High-strength, 5000IU</h6>
                     <p>Vitamin D3 supplements are commonly recommended for people at risk for vitamin D deficiency. Low vitamin D levels cause depression, fatigue, and muscle weakness. Over time, vitamin D deficiency can lead to weak bones, rickets in children, and osteoporosis in adults. </p>
                     <div className="features-product-bottom">
-                      <a href="shop-details.html" className="btn">Shop Now</a>
-                      <span className="price">$89.99 <span className="old-price">$117.99</span></span>
+                      <a href="/whey-protein" className="btn">Shop Now</a>
+                      <span className="price">₹1499.00 <span className="old-price">₹2499.00</span></span>
                     </div>
                   </div>
                 </div>
@@ -508,12 +508,12 @@ function Home() {
                 </div>
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
-                    <h2 className="title"><a href="shop-details.html">Protein Whey</a></h2>
+                    <h2 className="title"><a href="creatine">Creatine</a></h2>
                     <h6 className="features-product-quantity">High-strength, 4000IU</h6>
                     <p>Vitamin D3 supplements are commonly recommended for people at risk for vitamin D deficiency. Low vitamin D levels cause depression, fatigue, and muscle weakness. Over time, vitamin D deficiency can lead to weak bones, rickets in children, and osteoporosis in adults. </p>
                     <div className="features-product-bottom">
-                      <a href="shop-details.html" className="btn">Shop Now</a>
-                      <span className="price">$59.99 <span className="old-price">$79.99</span></span>
+                      <a href="creatine" className="btn">Shop Now</a>
+                      <span className="price">₹1299.00 <span className="old-price">₹1349.00</span></span>
                     </div>
                   </div>
                 </div>
@@ -524,19 +524,19 @@ function Home() {
                 <div className="col-lg-6 col-md-8">
                   <div className="features-products-thumb">
                     <div className="main-img">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/features_product03.png'} alt="img" />
+                      <img src={process.env.PUBLIC_URL + '/assets/images/features_product01.png'} alt="img" />
                     </div>
                     <img src={process.env.PUBLIC_URL + '/assets/images/features_product_shape03.png'} alt="img" className="shape-img" />
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
-                    <h2 className="title"><a href="shop-details.html">Max Mass 3xl</a></h2>
+                    <h2 className="title"><a href="mass-gainer">Mass Gainer</a></h2>
                     <h6 className="features-product-quantity">High-strength, 4000IU</h6>
                     <p>Vitamin D3 supplements are commonly recommended for people at risk for vitamin D deficiency. Low vitamin D levels cause depression, fatigue, and muscle weakness. Over time, vitamin D deficiency can lead to weak bones, rickets in children, and osteoporosis in adults. </p>
                     <div className="features-product-bottom">
-                      <a href="shop-details.html" className="btn">Shop Now</a>
-                      <span className="price">$69.99 <span className="old-price">$89.99</span></span>
+                      <a href="mass-gainer" className="btn">Shop Now</a>
+                      <span className="price">₹1899.00 <span className="old-price">₹1549.00</span></span>
                     </div>
                   </div>
                 </div>
