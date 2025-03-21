@@ -107,11 +107,11 @@ function HomeNutritionFooter() {
                   <div className="footer-widget">
                     <h4 className="fw-title">CONTACT US</h4>
                     <div className="footer-contact-wrap">
-                      <p>4140 Parker Rd. Allentown, New Mexico 31134</p>
+                      <p>547,548, First Floor, Rjd Textiles Park, Hazira Rd, Ichchhapor, Pal, Surat, Gujarat 394510</p>
                       <ul className="list-wrap">
-                        <li className="phone"><i className="fas fa-phone"></i> +1 31-6555-0116</li>
-                        <li className="mail"><i className="fas fa-envelope"></i> Pure-Go@example.com</li>
-                        <li className="website"><i className="fas fa-globe"></i> www.Pure-Godomain.com</li>
+                        <li className="phone"><i className="fas fa-phone"></i> +91 63540 51487</li>
+                        <li className="mail"><i className="fas fa-envelope"></i> sales@gomzilifesciences.in</li>
+                        <li className="website"><i className="fas fa-globe"></i> www.purego.gomzilifesciences.in</li>
                       </ul>
                     </div>
                   </div>

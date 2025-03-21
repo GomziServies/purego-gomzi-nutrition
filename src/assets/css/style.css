@@ -283,12 +283,7 @@ a:hover,
   color: var(--tg-primary-color);
   text-decoration: none;
 }
-a,
-button {
-  color: var(--tg-primary-color);
-  outline: medium none;
-  text-decoration: none;
-}
+
 .btn:focus,
 button:focus,
 input:focus,
@@ -9562,4 +9557,9 @@ body.search-visible {
   font-size: 14px;
   color: #282828;
   font-weight: 600;
+}
+
+.video-button-bg {
+  background: transparent;
+  border: none;
 }
