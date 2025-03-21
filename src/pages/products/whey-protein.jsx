@@ -20,9 +20,30 @@ import LoaderComponent from "../../components/PageLoader";
 function PureGoWheyProtein() {
   const canonicalUrl = window.location.href;
 
-  const [selectedImage, setSelectedImage] = useState(
-    process.env.PUBLIC_URL + "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
-  );
+  const product = {
+    chocolate: [
+      "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-chocolate-2.webp",
+      "/assets/images/products/whey-protein/whey-protein-chocolate-3.webp",
+      "/assets/images/products/whey-protein/whey-protein-chocolate-4.webp",
+    ],
+    mawa_kulfi: [
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-2.webp",
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-3.webp",
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-4.webp",
+    ],
+    mocha_coffee: [
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-2.webp",
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-3.webp",
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-4.webp",
+    ],
+  };
+
+  // Default selected flavor is Chocolate
+  const [selectedFlavor, setSelectedFlavor] = useState("chocolate");
+  const [selectedImage, setSelectedImage] = useState(product[selectedFlavor][0]);
 
   return (
     <>
@@ -157,39 +178,26 @@ function PureGoWheyProtein() {
         <section className="inner-shop-details-area">
           <div className="container">
             <div className="row">
-              <div className="col-lg-5">
+            <div className="col-lg-5">
                 <div className="inner-shop-details-flex-wrap">
                   <div className="inner-shop-details-img-wrap">
-                    {/* Show here a big image */}
                     <div className="inner-shop-details-img">
                       <img src={selectedImage} alt="Selected" />
                     </div>
                   </div>
                   <div className="inner-shop-details-nav-wrap">
-                    <ul className="nav nav-tabs" id="myTab" role="tablist">
-                      {[
-                        "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
-                        "/assets/images/products/whey-protein/whey-protein-chocolate-2.webp",
-                        "/assets/images/products/whey-protein/whey-protein-chocolate-3.webp",
-                        "/assets/images/products/whey-protein/whey-protein-chocolate-4.webp",
-                      ].map((image, index) => (
-                        <li
-                          className="nav-item"
-                          role="presentation"
-                          key={index}
-                        >
+                    <ul className="nav nav-tabs">
+                      {product[selectedFlavor].map((image, index) => (
+                        <li className="nav-item" key={index}>
                           <a
                             href="#"
                             className="nav-link"
                             onClick={(e) => {
                               e.preventDefault();
-                              setSelectedImage(process.env.PUBLIC_URL + image);
+                              setSelectedImage(image);
                             }}
                           >
-                            <img
-                              src={process.env.PUBLIC_URL + image}
-                              alt="Thumbnail"
-                            />
+                            <img src={image} alt="Thumbnail" />
                           </a>
                         </li>
                       ))}
@@ -229,9 +237,33 @@ function PureGoWheyProtein() {
                   </p>
                   <div>
                     <h4>Flavor:</h4>
-                    <button className="cart-btn">Chocolate</button>
-                    <button className="cart-btn">Mawa Kulfi</button>
-                    <button className="cart-btn">Mocha Coffee</button>
+                    <button
+                      className="cart-btn"
+                      onClick={() => {
+                        setSelectedFlavor("chocolate");
+                        setSelectedImage(product.chocolate[0]);
+                      }}
+                    >
+                      Chocolate
+                    </button>
+                    <button
+                      className="cart-btn"
+                      onClick={() => {
+                        setSelectedFlavor("mawa_kulfi");
+                        setSelectedImage(product.mawa_kulfi[0]);
+                      }}
+                    >
+                      Mawa Kulfi
+                    </button>
+                    <button
+                      className="cart-btn"
+                      onClick={() => {
+                        setSelectedFlavor("mocha_coffee");
+                        setSelectedImage(product.mocha_coffee[0]);
+                      }}
+                    >
+                      Mocha Coffee
+                    </button>
                   </div>
                   <div className="inner-shop-details-list">
                     <ul className="list-wrap">
@@ -247,13 +279,21 @@ function PureGoWheyProtein() {
                     <div className="sd-cart-wrap d-flex me-3">
                       <form action="#" className="d-flex">
                         <div>
-                          <input type="button" value="-" className="plus-minus w-25 me-2" />
+                          <input
+                            type="button"
+                            value="-"
+                            className="plus-minus w-25 me-2"
+                          />
                         </div>
                         <div className="quickview-cart-plus-minus">
                           <input type="text" value="1" />
                         </div>
                         <div className="quickview-cart-plus-minus w-25">
-                          <input type="button" value="+" className="px-1 w-25" />
+                          <input
+                            type="button"
+                            value="+"
+                            className="px-1 w-25"
+                          />
                         </div>
                       </form>
                     </div>
@@ -291,7 +331,9 @@ function PureGoWheyProtein() {
                       aria-labelledby="description-tab"
                     >
                       <div className="product-desc-content">
-                        <h4 className="title">The true strength of Pure-Go :</h4>
+                        <h4 className="title">
+                          The true strength of Pure-Go :
+                        </h4>
                         <p>
                           Whey Protein Isolates (WPIs) are the purest form of
                           whey protein that currently exists. WPIs are costly to
