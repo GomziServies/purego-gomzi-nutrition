@@ -4068,7 +4068,6 @@ body.search-visible {
 .b-details-list ul li {
   margin-bottom: 8px;
   font-size: 16px;
-  display: flex;
 }
 .b-details-list ul li:last-child {
   margin-bottom: 0;

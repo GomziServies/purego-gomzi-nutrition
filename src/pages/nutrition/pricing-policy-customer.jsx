@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -16,7 +16,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
 
-function ContactUs() {
+function PricingPolicyCustomer() {
     const canonicalUrl = window.location.href;
 
     // useEffect(() => {
@@ -253,10 +253,7 @@ function ContactUs() {
                     property="og:image"
                     content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
                 />
-                <meta
-                    property="og:url"
-                    content="https://www.gomzilifesciences.in/"
-                />
+                <meta property="og:url" content="https://www.gomzilifesciences.in/" />
                 <link rel="canonical" href={{ canonicalUrl }} />
 
                 <link rel="preconnect" href="https://connect.facebook.net" />
@@ -327,60 +324,129 @@ function ContactUs() {
                         <div className="row justify-content-center">
                             <div className="col-xl-10">
                                 <div className="breadcrumb-content text-center">
-                                    <h2 className="title">Contact Us</h2>
+                                    <h2 className="title">Blog Details</h2>
                                     <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                                         <ul className="breadcrumb">
                                             <li className="breadcrumb-item trail-item trail-begin">
-                                                <a href="index.html"><span>Home</span></a>
+                                                <a href="index.html">
+                                                    <span>Home</span>
+                                                </a>
                                             </li>
-                                            <li className="breadcrumb-item trail-item trail-end"><span>Contact Us</span></li>
+                                            <li className="breadcrumb-item trail-item trail-end">
+                                                <span>Blog Details</span>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="video-shape one"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape01.png'} alt="shape" /></div>
-                    <div className="video-shape two"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape02.png'} alt="shape" /></div>
-                </section>
-                <section className="contact-area">
-                    <div className="container">
-                        <div className="contact-box-wrapper">
-                            <div className="row justify-content-center">
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i class="fas fa-check"></i></span>
-                                            <i className="fas fa-phone"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Phone Number</h5>
-                                            <p className="contact-desc">+91 83200 77993 <br /> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i class="fas fa-check"></i></span>
-                                            <i className="fas fa-globe"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Web Connect</h5>
-                                            <p className="contact-desc">gomzinutrition@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="video-shape one">
+                        <img
+                            src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
+                            alt="shape"
+                        />
+                    </div>
+                    <div className="video-shape two">
+                        <img
+                            src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
+                            alt="shape"
+                        />
                     </div>
                 </section>
-                <section className="contact-form-area">
+                <section className="blog-area pt-120 pb-120">
                     <div className="container">
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <div className="col-12">
-                                <div id="contact-map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4616.206252088472!2d72.74192247600143!3d21.18855708226951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d6049b09c4b%3A0x2b5491773a2ee8f3!2sGomzi%20Lifesciences%20LLP%20%7C%20Best%20Nutraceutical%20and%20Ayurvedic%20products%20Manufacturer!5e1!3m2!1sen!2sin!4v1740216368608!5m2!1sen!2sin" allowfullscreen="" height="450" loading="lazy"></iframe>
+                                <div className="blog--post--item">
+                                    <div className="blog--post--content blog-details-content">
+                                        <h2 className="blog--post--title">
+                                            Pricing Policy for Gomzi Nutrition
+                                        </h2>
+                                        <div className="post-text">
+                                            <p>
+                                                At Gomzi Nutrition, we strive to provide our customers with transparent and fair pricing for our high-quality nutraceutical products. This Pricing Policy outlines how we determine and display prices on our website, including the inclusion of Goods and Services Tax (GST).
+                                            </p>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Price Display:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Inclusive Pricing: All prices listed on our website are inclusive of 18% Goods and Services Tax (GST). This means that the price you see is the total amount you will pay at checkout, with no additional taxes added at that time.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Currency: All prices are displayed in [insert currency, e.g., USD, INR] and are subject to change without prior notice. The currency will be clearly indicated on the website for your convenience.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Price Changes:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Adjustments: While we aim to maintain consistent pricing, we reserve the right to change our prices at any time due to factors such as supplier costs, demand, or market conditions. Any changes will be reflected on our website.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Current Prices: The price applicable to your order will be the price displayed at the time of purchase. If there is a discrepancy between the displayed price and the price you are charged, please contact our customer service team for clarification.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Discounts and Promotions:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Promotional Pricing: From time to time, we may offer discounts, special promotions, or bundle deals. These promotions will be clearly indicated on our website, including the duration and terms of the offer.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Applicability: Discounts are applied at checkout and will be clearly shown in your order summary. Please note that promotions may be subject to specific terms and conditions.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Payment Methods:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Accepted Payment Methods: We accept various payment methods for your convenience, including credit/debit cards, digital wallets, and bank transfers. All payment options will be listed at checkout.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Security: We utilize secure payment gateways to ensure that your payment information is processed safely and confidentially.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Customer Support:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Email: gomzinutrition@gmail.com
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Phone: +91 83200 77993.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                We are excited to have you on board with Gomzi Nutrition. Your health and wellness journey is important to us, and we are committed to providing you with the best experience possible. If you have any questions or concerns regarding these Terms and Conditions, please do not hesitate to reach out to us.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -392,4 +458,4 @@ function ContactUs() {
     );
 }
 
-export default ContactUs;
+export default PricingPolicyCustomer;

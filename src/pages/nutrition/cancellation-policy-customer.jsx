@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -16,7 +16,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
 
-function ContactUs() {
+function CancellationPolicyCustomer() {
     const canonicalUrl = window.location.href;
 
     // useEffect(() => {
@@ -253,10 +253,7 @@ function ContactUs() {
                     property="og:image"
                     content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
                 />
-                <meta
-                    property="og:url"
-                    content="https://www.gomzilifesciences.in/"
-                />
+                <meta property="og:url" content="https://www.gomzilifesciences.in/" />
                 <link rel="canonical" href={{ canonicalUrl }} />
 
                 <link rel="preconnect" href="https://connect.facebook.net" />
@@ -327,60 +324,156 @@ function ContactUs() {
                         <div className="row justify-content-center">
                             <div className="col-xl-10">
                                 <div className="breadcrumb-content text-center">
-                                    <h2 className="title">Contact Us</h2>
+                                    <h2 className="title">Blog Details</h2>
                                     <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                                         <ul className="breadcrumb">
                                             <li className="breadcrumb-item trail-item trail-begin">
-                                                <a href="index.html"><span>Home</span></a>
+                                                <a href="index.html">
+                                                    <span>Home</span>
+                                                </a>
                                             </li>
-                                            <li className="breadcrumb-item trail-item trail-end"><span>Contact Us</span></li>
+                                            <li className="breadcrumb-item trail-item trail-end">
+                                                <span>Blog Details</span>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="video-shape one"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape01.png'} alt="shape" /></div>
-                    <div className="video-shape two"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape02.png'} alt="shape" /></div>
-                </section>
-                <section className="contact-area">
-                    <div className="container">
-                        <div className="contact-box-wrapper">
-                            <div className="row justify-content-center">
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i class="fas fa-check"></i></span>
-                                            <i className="fas fa-phone"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Phone Number</h5>
-                                            <p className="contact-desc">+91 83200 77993 <br /> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i class="fas fa-check"></i></span>
-                                            <i className="fas fa-globe"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Web Connect</h5>
-                                            <p className="contact-desc">gomzinutrition@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="video-shape one">
+                        <img
+                            src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
+                            alt="shape"
+                        />
+                    </div>
+                    <div className="video-shape two">
+                        <img
+                            src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
+                            alt="shape"
+                        />
                     </div>
                 </section>
-                <section className="contact-form-area">
+                <section className="blog-area pt-120 pb-120">
                     <div className="container">
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <div className="col-12">
-                                <div id="contact-map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4616.206252088472!2d72.74192247600143!3d21.18855708226951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d6049b09c4b%3A0x2b5491773a2ee8f3!2sGomzi%20Lifesciences%20LLP%20%7C%20Best%20Nutraceutical%20and%20Ayurvedic%20products%20Manufacturer!5e1!3m2!1sen!2sin!4v1740216368608!5m2!1sen!2sin" allowfullscreen="" height="450" loading="lazy"></iframe>
+                                <div className="blog--post--item">
+                                    <div className="blog--post--content blog-details-content">
+                                        <h2 className="blog--post--title">
+                                            Cancellation Policy for Gomzi Nutrition
+                                        </h2>
+                                        <div className="post-text">
+                                            <p>
+                                                At Gomzi Nutrition, we are committed to providing our customers with high-quality nutraceutical products and an excellent shopping experience. We understand that situations can arise that may require you to cancel your order. This Cancellation Policy outlines the procedures and conditions regarding order cancellations. Our goal is to ensure clarity and convenience for our valued customers.
+                                            </p>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Order Cancellation Overview:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            We strive to process orders quickly to get our products to you as soon as possible. However, we recognize that you may need to cancel an order for various reasons. Our cancellation policy is designed to accommodate your needs while ensuring a smooth process.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Cancellation Before Shipment:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Immediate Action: If you decide to cancel your order, please contact us as soon as possible. We recommend reaching out within a few hours of placing your order, as this increases the likelihood that we can process your request before your order is shipped.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Refund Process: If your order has not yet been shipped, we will process your cancellation request promptly. You will receive a full refund, which will be issued to the original payment method. Please allow 5-7 business days for the refund to reflect in your account.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Cancellation After Shipment:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Post-Shipment Policy: Once an order has been shipped, we are unable to cancel it. In such cases, you will need to follow our Return Policy to return the item once it is delivered.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Return Process: If you receive your order and wish to return it, please review our Return Policy for instructions on how to proceed.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">How to Cancel Your Order:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Email: gomzinutrition@gmail.com
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Phone: +91 83200 77993
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Confirmation of Cancellation: Our customer service representative will verify the status of your order and confirm whether it can be canceled. We will communicate the next steps to you as quickly as possible.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Processing Your Refund: If your cancellation is approved, we will initiate a full refund to your original payment method. The processing time for refunds typically ranges from 5-7 business days, depending on your financial institution.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Subscription Services:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Recurring Orders: If you are subscribed to a recurring order or service, you can cancel your subscription at any time. To avoid being charged for the next billing cycle, please ensure that you cancel at least 24 hours before the scheduled billing date.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Subscription Cancellation Process: To cancel your subscription, please contact our customer service team for assistance. You will receive confirmation once your subscription has been successfully canceled.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Promotional Offers:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Special Promotions: Certain promotional offers may have specific terms and conditions related to cancellations. These terms will be clearly outlined at the time of purchase. Please review these terms carefully to understand any cancellation restrictions.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Important Considerations:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Timeliness: We encourage you to act quickly if you wish to cancel your order. Once an order is in the shipping process, it may be too late to cancel, and you will need to initiate a return.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Contacting Us: Our customer service team is here to assist you with any questions or concerns regarding your order cancellation. We strive to respond to all inquiries promptly.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -392,4 +485,4 @@ function ContactUs() {
     );
 }
 
-export default ContactUs;
+export default CancellationPolicyCustomer;

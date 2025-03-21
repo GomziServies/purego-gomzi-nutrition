@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -16,7 +16,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
 
-function ContactUs() {
+function ReturnRefundPolicyCustomer() {
     const canonicalUrl = window.location.href;
 
     // useEffect(() => {
@@ -253,10 +253,7 @@ function ContactUs() {
                     property="og:image"
                     content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
                 />
-                <meta
-                    property="og:url"
-                    content="https://www.gomzilifesciences.in/"
-                />
+                <meta property="og:url" content="https://www.gomzilifesciences.in/" />
                 <link rel="canonical" href={{ canonicalUrl }} />
 
                 <link rel="preconnect" href="https://connect.facebook.net" />
@@ -327,60 +324,129 @@ function ContactUs() {
                         <div className="row justify-content-center">
                             <div className="col-xl-10">
                                 <div className="breadcrumb-content text-center">
-                                    <h2 className="title">Contact Us</h2>
+                                    <h2 className="title">Blog Details</h2>
                                     <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                                         <ul className="breadcrumb">
                                             <li className="breadcrumb-item trail-item trail-begin">
-                                                <a href="index.html"><span>Home</span></a>
+                                                <a href="index.html">
+                                                    <span>Home</span>
+                                                </a>
                                             </li>
-                                            <li className="breadcrumb-item trail-item trail-end"><span>Contact Us</span></li>
+                                            <li className="breadcrumb-item trail-item trail-end">
+                                                <span>Blog Details</span>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="video-shape one"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape01.png'} alt="shape" /></div>
-                    <div className="video-shape two"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape02.png'} alt="shape" /></div>
-                </section>
-                <section className="contact-area">
-                    <div className="container">
-                        <div className="contact-box-wrapper">
-                            <div className="row justify-content-center">
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i class="fas fa-check"></i></span>
-                                            <i className="fas fa-phone"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Phone Number</h5>
-                                            <p className="contact-desc">+91 83200 77993 <br /> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i class="fas fa-check"></i></span>
-                                            <i className="fas fa-globe"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Web Connect</h5>
-                                            <p className="contact-desc">gomzinutrition@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="video-shape one">
+                        <img
+                            src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
+                            alt="shape"
+                        />
+                    </div>
+                    <div className="video-shape two">
+                        <img
+                            src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
+                            alt="shape"
+                        />
                     </div>
                 </section>
-                <section className="contact-form-area">
+                <section className="blog-area pt-120 pb-120">
                     <div className="container">
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <div className="col-12">
-                                <div id="contact-map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4616.206252088472!2d72.74192247600143!3d21.18855708226951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d6049b09c4b%3A0x2b5491773a2ee8f3!2sGomzi%20Lifesciences%20LLP%20%7C%20Best%20Nutraceutical%20and%20Ayurvedic%20products%20Manufacturer!5e1!3m2!1sen!2sin!4v1740216368608!5m2!1sen!2sin" allowfullscreen="" height="450" loading="lazy"></iframe>
+                                <div className="blog--post--item">
+                                    <div className="blog--post--content blog-details-content">
+                                        <h2 className="blog--post--title">
+                                            Return and Refund Policy for Nutraceutical Products
+                                        </h2>
+                                        <div className="post-text">
+                                            <p>
+                                                At Gomzi Nutrition, we strive to ensure that you are completely satisfied with your purchase. However, we understand that there may be instances where you need to return a product. Please read our Return and Refund Policy carefully.
+                                            </p>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Eligibility for Returns:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            <b>Product Condition:</b> To be eligible for a return, the product must be unopened, unused, and in its original packaging. Products that have been opened or partially used cannot be returned due to health and safety regulations.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            <b>Time Frame:</b> Returns must be initiated within 30 days of the purchase date. After this period, we regret that we cannot offer a refund or exchange.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Return Process:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            <b>Contact Us:</b> To initiate a return, please contact our customer service team at [customer service email/phone number]. Provide your order number and the reason for the return.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            <b>Shipping Costs:</b> Customers are responsible for return shipping costs unless the return is due to an error on our part (e.g., wrong item shipped, defective product).
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Refund Process:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            <b>Processing Time:</b> Refunds will be processed within 7-10 business days after we receive and inspect the returned item.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            <b>Refund Method:</b> Refunds will be issued to the original payment method used for the purchase. Please note that it may take additional time for your bank or credit card company to process and post the refund.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Non-Returnable Items:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            <b>Non-Returnable Items:</b> The following items are non-returnable: Opened or used nutraceutical products. Products purchased from unauthorized retailers.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Exchanges:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            <b>Exchanges for Defective Products:</b> If you receive a defective or damaged product, please contact us immediately at [customer service email/phone number]. We will arrange for a replacement at no additional cost to you.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Changes to Policy:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            We reserve the right to update or change our Return and Refund Policy at any time. Changes will be effective immediately upon posting on our website.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -392,4 +458,4 @@ function ContactUs() {
     );
 }
 
-export default ContactUs;
+export default ReturnRefundPolicyCustomer;

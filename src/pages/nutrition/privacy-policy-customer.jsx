@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -16,7 +16,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
 
-function ContactUs() {
+function PrivacyPolicyCustomer() {
     const canonicalUrl = window.location.href;
 
     // useEffect(() => {
@@ -253,10 +253,7 @@ function ContactUs() {
                     property="og:image"
                     content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
                 />
-                <meta
-                    property="og:url"
-                    content="https://www.gomzilifesciences.in/"
-                />
+                <meta property="og:url" content="https://www.gomzilifesciences.in/" />
                 <link rel="canonical" href={{ canonicalUrl }} />
 
                 <link rel="preconnect" href="https://connect.facebook.net" />
@@ -327,60 +324,179 @@ function ContactUs() {
                         <div className="row justify-content-center">
                             <div className="col-xl-10">
                                 <div className="breadcrumb-content text-center">
-                                    <h2 className="title">Contact Us</h2>
+                                    <h2 className="title">Blog Details</h2>
                                     <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                                         <ul className="breadcrumb">
                                             <li className="breadcrumb-item trail-item trail-begin">
-                                                <a href="index.html"><span>Home</span></a>
+                                                <a href="index.html">
+                                                    <span>Home</span>
+                                                </a>
                                             </li>
-                                            <li className="breadcrumb-item trail-item trail-end"><span>Contact Us</span></li>
+                                            <li className="breadcrumb-item trail-item trail-end">
+                                                <span>Blog Details</span>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="video-shape one"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape01.png'} alt="shape" /></div>
-                    <div className="video-shape two"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape02.png'} alt="shape" /></div>
-                </section>
-                <section className="contact-area">
-                    <div className="container">
-                        <div className="contact-box-wrapper">
-                            <div className="row justify-content-center">
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i class="fas fa-check"></i></span>
-                                            <i className="fas fa-phone"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Phone Number</h5>
-                                            <p className="contact-desc">+91 83200 77993 <br /> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i class="fas fa-check"></i></span>
-                                            <i className="fas fa-globe"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Web Connect</h5>
-                                            <p className="contact-desc">gomzinutrition@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="video-shape one">
+                        <img
+                            src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
+                            alt="shape"
+                        />
+                    </div>
+                    <div className="video-shape two">
+                        <img
+                            src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
+                            alt="shape"
+                        />
                     </div>
                 </section>
-                <section className="contact-form-area">
+                <section className="blog-area pt-120 pb-120">
                     <div className="container">
-                        <div className="row">
+                        <div className="row justify-content-center">
                             <div className="col-12">
-                                <div id="contact-map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4616.206252088472!2d72.74192247600143!3d21.18855708226951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d6049b09c4b%3A0x2b5491773a2ee8f3!2sGomzi%20Lifesciences%20LLP%20%7C%20Best%20Nutraceutical%20and%20Ayurvedic%20products%20Manufacturer!5e1!3m2!1sen!2sin!4v1740216368608!5m2!1sen!2sin" allowfullscreen="" height="450" loading="lazy"></iframe>
+                                <div className="blog--post--item">
+                                    <div className="blog--post--content blog-details-content">
+                                        <h2 className="blog--post--title">
+                                            Privacy Policy for Gomzi Nutrition
+                                        </h2>
+                                        <div className="post-text">
+                                            <p>
+                                                At Gomzi Nutrition, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your information when you interact with our website and services. By using our site, you consent to the practices described in this policy.
+                                            </p>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Information We Collect:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Personal Information: This includes any information that can identify you, such as your name, email address, phone number, shipping address, and payment information. We collect this information when you create an account, place an order, or subscribe to our newsletters.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Non-Personal Information: We may also collect non-personal information that cannot be used to identify you. This includes data about your device, browsing behavior, and usage patterns, which we collect through cookies and other tracking technologies.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">How We Use Your Information:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Order Processing: To process your orders, manage payments, and deliver products to you.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Customer Support: To respond to your inquiries, provide customer service, and assist you with your account.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Marketing Communications: To send you promotional materials, newsletters, and special offers, unless you have opted out of receiving such communications.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Website Improvement: To analyze usage patterns, enhance our website, and develop new products and services.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Compliance: To comply with legal obligations, resolve disputes, and enforce our terms and conditions.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Information Sharing and Disclosure:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Service Providers: We may engage third-party companies and individuals to perform services on our behalf, such as payment processing, shipping, and marketing. These third parties have access to your personal information only to perform these tasks on our behalf and are obligated to protect it.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Legal Compliance: We may disclose your information if required to do so by law or in response to valid requests by public authorities.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Business Transfers: In the event of a merger, acquisition, or sale of all or a portion of our assets, your personal information may be transferred as part of that business transaction.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Data Security:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction. However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your personal information, we cannot guarantee its absolute security.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Your Rights:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Access: You may request access to the personal information we hold about you.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Correction: You may request corrections to any inaccurate or incomplete information.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Deletion: You may request the deletion of your personal information, subject to our legal obligations to retain certain information.
+                                                        </li>
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Opt-Out: You may opt out of receiving promotional communications from us at any time by following the unsubscribe instructions in the emails or contacting us directly.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Cookies and Tracking Technologies:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Our website uses cookies and similar tracking technologies to enhance your experience. Cookies are small data files stored on your device that help us recognize you and track your preferences. You can manage your cookie preferences through your browser settings. However, disabling cookies may affect your ability to use certain features of our website.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Third-Party Links:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these websites. We encourage you to review the privacy policies of any third-party sites you visit.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="blog-details-wrap border-none">
+                                                <h3 className="title">Changes to This Privacy Policy:</h3>
+                                                <div className="b-details-list">
+                                                    <ul className="list-wrap">
+                                                        <li>
+                                                            <i className="fas fa-check"></i>
+                                                            We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. We will notify you of any significant changes by posting the new policy on our website with a revised effective date. We encourage you to review this policy periodically for any updates.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -392,4 +508,4 @@ function ContactUs() {
     );
 }
 
-export default ContactUs;
+export default PrivacyPolicyCustomer;
