@@ -15,216 +15,28 @@ import "../../assets/css/style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
+import LoaderComponent from "../../components/PageLoader";
 
-function ContactUs() {
-    const canonicalUrl = window.location.href;
+function PureGoMassGainer() {
+  const canonicalUrl = window.location.href;
 
-    // useEffect(() => {
-    //   const loadInitialProducts = () => {
-    //     const proteinProducts = gomzinutrition[0].protein.slice(
-    //       0,
-    //       productsPerPage
-    //     );
-    //     setProteinProducts(proteinProducts);
-    //   };
+  const [selectedImage, setSelectedImage] = useState(
+    process.env.PUBLIC_URL + "/assets/images/products/mass-gainer/mass-gainer-1.webp"
+  );
 
-    //   loadInitialProducts();
-    // }, []);
-
-    // useEffect(() => {
-    //   const observer = new IntersectionObserver(
-    //     (entries) => {
-    //       if (entries[0].isIntersecting && hasMore) {
-    //         loadMoreProducts();
-    //       }
-    //     },
-    //     { threshold: 1.0 }
-    //   );
-
-    //   if (loadMoreRef.current) {
-    //     observer.observe(loadMoreRef.current);
-    //   }
-
-    //   return () => {
-    //     if (loadMoreRef.current) {
-    //       observer.unobserve(loadMoreRef.current);
-    //     }
-    //   };
-    // }, [hasMore, page]);
-
-    // useEffect(() => {
-    //     const sections = document.querySelectorAll("section[id]");
-
-    //     const observer = new IntersectionObserver(
-    //         (entries) => {
-    //             entries.forEach((entry) => {
-    //                 if (entry.isIntersecting) {
-    //                     const id = `#${entry.target.id}`;
-    //                     setActiveSection(id);
-    //                 }
-    //             });
-    //         },
-    //         {
-    //             threshold: 0.6, // Adjust threshold for when to consider section in view
-    //         }
-    //     );
-
-    //     sections.forEach((section) => observer.observe(section));
-
-    //     return () => {
-    //         sections.forEach((section) => observer.unobserve(section));
-    //     };
-    // }, []);
-
-    // const loadMoreProducts = () => {
-    //   const start = page * productsPerPage;
-    //   const end = start + productsPerPage;
-    //   const nextProducts = gomzinutrition.slice(start, end);
-
-    //   setProteinProducts((prevProducts) => [...prevProducts, ...nextProducts]);
-
-    //   if (end >= gomzinutrition.length) {
-    //     setHasMore(false);
-    //   } else {
-    //     setPage(page + 1);
-    //   }
-    // };
-
-    // useEffect(() => {
-    //     const hash = window.location.hash || "#whey";
-    //     setActiveSection(hash);
-
-    //     const handleScrollToSection = (event) => {
-    //         event.preventDefault();
-    //         const targetId = event.currentTarget.getAttribute("href");
-    //         const targetElement = document.querySelector(targetId);
-
-    //         // Scroll to the target element
-    //         targetElement.scrollIntoView({
-    //             behavior: "smooth",
-    //             block: "start",
-    //         });
-
-    //         // Update active section
-    //         setActiveSection(targetId);
-    //     };
-
-    //     const links = document.querySelectorAll('a[href^="#"]');
-    //     links.forEach((link) => {
-    //         link.addEventListener("click", handleScrollToSection);
-    //     });
-
-    //     return () => {
-    //         links.forEach((link) => {
-    //             link.removeEventListener("click", handleScrollToSection);
-    //         });
-    //     };
-    // }, []);
-
-    // const gomzinutrition = [
-    //   {
-    //     protein: [
-    //       {
-    //         id: 5,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - concentrate - mawa - kulfi - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-refuel-whey-protein-concentrate",
-    //         productName: "Refuel 2.0 Whey Protein Concentrate",
-    //         rating: "4.4",
-    //         originalPrice: "₹4,500 /-",
-    //         discountedPrice: "₹4,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 6,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - isolate - chocobrownie - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-refuel-whey-protein-isolate",
-    //         productName: "Refuel 2.0 Whey Protein Isolate",
-    //         rating: "4.7",
-    //         originalPrice: "₹5,999 /-",
-    //         discountedPrice: "₹5,999 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 7,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - protein - chocolate - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-refuel-whey-protein",
-    //         productName: "Refuel 2.0 Whey Protein 100%",
-    //         rating: "4.8",
-    //         originalPrice: "₹3,500 /-",
-    //         discountedPrice: "₹3,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 8,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - muscle - matrix - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-refuel-mass-gainer-powder",
-    //         productName: "Refuel 2.0 Mass Gainer Powder",
-    //         rating: "4.6",
-    //         originalPrice: "₹2,500 /-",
-    //         discountedPrice: "₹2,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 1,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / whey - protein - concentrate - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-whey-protein-concentrate",
-    //         productName: "Whey Protein Concentrate",
-    //         rating: "4.4",
-    //         originalPrice: "₹3,500 /-",
-    //         discountedPrice: "₹3,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 2,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / whey - protein - isolate - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-whey-protein-isolate",
-    //         productName: "Whey Protein Isolate",
-    //         rating: "4.7",
-    //         originalPrice: "₹4,500 /-",
-    //         discountedPrice: "₹4,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 3,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / whey - protein - chocolate - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-whey-protein-chocolate",
-    //         productName: "Gomzi Whey Protein",
-    //         rating: "4.8",
-    //         originalPrice: "₹3,000 /-",
-    //         discountedPrice: "₹3,000 /-",
-    //         type: "protein",
-    //       },
-    //     ],
-    //   },
-    // ];
-
-    return (
-        <>
-            <Helmet>
-                <title>
-                    Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
-                </title>
-                <meta
-                    name="description"
-                    content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
-                />
-                <meta
-                    name="keyword"
-                    content="bowelease  Constipation Relief, constipation powder, digestive health, natural constipation relief, regular bowel movements, buy constipation powder, whey protein and, peanut butter peanut butter, peanut butters, why protein, protein in powder, whey product, wayne protein, whey protein protein, whey protein whey, whey in protein, whey whey protein, protein for protein shakes, wea protein, whey protein and protein, mass gainer mass gainer, and creatine, pre gym supplements, protein and whey powder, gainer mass gainer, pre gym supplement, whey in protein powder, protein whey supplements, protein powder whey protein, whey protein powder protein, carnitine and l carnitine, gyms bags, testosterone enhancer, on whey proteins, compressor t shirt, best of protein supplements, protein powder is best, protein powder the best, protein supplements best, protein supplement best, price peanut butter, best protein powders, gym bags for men, gym bag for man, gym bags for man, male gym bag, workout bags for men, gym bag for mens, price of peanut butter, workout bag mens, eaa amino acid, bodybuilders photos, body bodybuilding, images of bodybuilding, images bodybuilding, bottles and shakers, bottle shaking, shaker bottle, protein shaker, fat burns, shirts for gym, t shirts for the gym, gym fitness t shirt, shirts for the gym, shirt for gym, whey protein best in india, best indian whey protein, best whey protein supplements, isolate whey protein isolate, protein whey isolate, protein whey protein isolate, good whey protein, whey protein whey isolate, best protein whey protein, best protein whey, whey protein isolate protein, good whey proteins, whey isolate whey protein, whey iso protein, whey protein best, whey protein best whey, best whey proteins, supplement shop near me, women's protein supplement, men's protein powder, protein powders for women, whey pro isolate, best whey protein supplement, whey protein with isolate, whey isolate or protein, isolate protein and whey protein, whey protein the best, protein powder for females, protein isolate whey, female protein powder, nutrition supplement store near me, protein powder for female,
+  return (
+    <>
+      <Helmet>
+        <title>
+          Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+        </title>
+        <meta
+          name="description"
+          content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+        />
+        <meta
+          name="keyword"
+          content="bowelease  Constipation Relief, constipation powder, digestive health, natural constipation relief, regular bowel movements, buy constipation powder, whey protein and, peanut butter peanut butter, peanut butters, why protein, protein in powder, whey product, wayne protein, whey protein protein, whey protein whey, whey in protein, whey whey protein, protein for protein shakes, wea protein, whey protein and protein, mass gainer mass gainer, and creatine, pre gym supplements, protein and whey powder, gainer mass gainer, pre gym supplement, whey in protein powder, protein whey supplements, protein powder whey protein, whey protein powder protein, carnitine and l carnitine, gyms bags, testosterone enhancer, on whey proteins, compressor t shirt, best of protein supplements, protein powder is best, protein powder the best, protein supplements best, protein supplement best, price peanut butter, best protein powders, gym bags for men, gym bag for man, gym bags for man, male gym bag, workout bags for men, gym bag for mens, price of peanut butter, workout bag mens, eaa amino acid, bodybuilders photos, body bodybuilding, images of bodybuilding, images bodybuilding, bottles and shakers, bottle shaking, shaker bottle, protein shaker, fat burns, shirts for gym, t shirts for the gym, gym fitness t shirt, shirts for the gym, shirt for gym, whey protein best in india, best indian whey protein, best whey protein supplements, isolate whey protein isolate, protein whey isolate, protein whey protein isolate, good whey protein, whey protein whey isolate, best protein whey protein, best protein whey, whey protein isolate protein, good whey proteins, whey isolate whey protein, whey iso protein, whey protein best, whey protein best whey, best whey proteins, supplement shop near me, women's protein supplement, men's protein powder, protein powders for women, whey pro isolate, best whey protein supplement, whey protein with isolate, whey isolate or protein, isolate protein and whey protein, whey protein the best, protein powder for females, protein isolate whey, female protein powder, nutrition supplement store near me, protein powder for female,
            protein supplement women, whey and whey isolate, whey isolate and whey protein, protein isolate or whey, protein or isolate, protein iso whey, near me supplement store, protein powder for ladies, women and protein powder, women protein supplement, protein powder ladies, supplement store close to me, women's protein supplements, isolate or whey protein, whey protein and whey isolate, protein in whey protein isolate, protein in a peanut, gym clothes for men, nutritional supplements store near me, nutritional supplement store near me, near me supplements store, whey protein or isolate, gym belts, male gym wear, gym clothes for man, gym men wear, men's gym clothes, peanuts for protein, workout clothes men, gym apparel for men, fitness men's clothing, advantages of peanut butter, man in gym clothes, fat burning, fitness wear men, gym men clothing, gym dress man, workout gear men, gym wear male, fitness clothing men, gym apparel men, mens exercise clothing, gym clothes men's, gym clothes men, gym clothing for men, workout wear for men, men's exercise clothes, men in gym wear, workout clothes for men, men's exercise clothing, near me nutritionist, fitness clothing for men, fitness clothes for men, workout clothes for man, gym clothes for mens, workout clothing for men, women and protein shakes, top whey protein india, best indian protein powder, best protein supplements in india, india's best protein powder, indian best protein supplement, best indian protein supplement, good whey protein india, protein powder best in india, 
            top whey protein in india, best protein supplement india, india top whey protein, best pre workout protein supplement, protein supplement for men, protein supplements men, best protein drink india, protein powders for men, best body supplements in india, best protein powder india, men's protein supplements, best pre gym supplement, protein powder for man, shaker, gym tshirt for men, gym wear tshirts for men, pre workout top rated, shakers, gym clothing ladies, top rated pre workout, gym clothes for ladies, shirts for gym men, gym wear ladies, protein mass gainer, protein and mass gainer, mass gaining protein, protein for mass gainer, weight gain powder, preworkout best, best pre workout supplement for bodybuilding, weight gaining powder, weight gainer and protein powder, protein powder supplements, protein powder supplement, mass gainer and protein, protein powder and supplements, gainer mass protein, weight gain protein supplements, protein gainer mass, protein and supplements, and protein supplements, protein powders and supplements, supplements and protein, proteins and supplements, price whey protein, protein whey price, whey protein with price, protein supplements on, best creatine monohydrate, protein drink supplements, weight gain protein shake powder, gym shaker, protein food supplement, best creatine monohydrate supplements, peanut butter for protein, protein shakes and supplements, whey protein on price, peanut butter is protein, protein foods peanut butter, best creatine monohydrate supplement, 
            best monohydrate creatine, whey on protein price, on protein supplements, price of on whey protein, compression tshirt, best of peanut butter, big muscles nutrition india, best mass gainer, pre workout supplement, weight increase powder, fat burner for man, fat burn for men, fat burning for men, fat burning for man, increase weight powder, mass gainer 1 kg, clothes of gym, powder weight gain, powder to increase weight, mass gainer 1kg, supplement bcaa, bcaa supplement, fat burner for men, fat burners for men, protein powder shaker bottle, clothes for gym, protein shaker bottle, protein shake bottles, shaker protein bottle, shaker bottle for gym, shaker bottle for protein, protein shake bottle mixer, protein shaker bottle mixer, protein drink shaker bottle, protein powder shake bottle, protein powder bottle shaker, protein shake shaker bottle, whey protein 1kg, bottle protein shaker, bcaa dietary supplement, gymming clothes, clothes for the gym, gym accessories, gym clothes, shoes bags, shoes with bag, shoe bags, g y m clothing, food for fat burner, sports bag, bags for shoes, shoes in bag, shoe bag, gym bag for women, muscle mass gain diet plan, gym outfit men, best protein powder for weight gain, supplements with creatine, pre workout drink, muscle gain protein, best protein powder for gaining weight, best weight gain protein powder, best protein powder for weight gaining, weight gaining protein powder, best protein supplement for weight gain, best protein powder gain weight, weight gain best protein powder, best protein powder to gain weight, weight gain powder protein, best weight gain protein powders, best weight gainer protein shakes, weight gain protein powder best, best protein supplement for gaining weight, best weight gainer, pre workout supplement drink, best protein powder to increase weight, good protein powder to gain weight, best weight gainer protein powder,
@@ -248,20 +60,17 @@ function ContactUs() {
                  muscle growth protein powder, fat loss diet supplements, fat burning diet supplements, fat burning food supplements, mb whey protein 2kg, mass gainer protein powder, muscle building protein powder, best whey protein powder, supplements for fat burn, pre workout supplement powder, protein powder for building muscle mass, supplements for fat burning, which is best whey protein, which whey protein best, which whey protein is the best, cheap protein whey, which whey protein is better, protein whey 2kg, 4kg whey protein, protein 2kg whey, post workout, preworkout powder, workout post, bcaa protein, cheap whey protein, fat loss supplements, 1kg protein powder, fat burner supplement, protein whey weight loss, burn fat burner supplement, weight gainer powder for male, fat burning dietary supplements, which is the best whey protein supplement, muscle gaining protein powder, fat burner dietary supplement, low cost whey protein, whey protein & weight loss, supplements for burning fat, cheapest whey protein, whey protein cheapest, cheapest protein whey, fat loss whey protein, muscle recovery.in, whey protein affordable, muscle protein, gym backpack, fat burning supplements, fat burner supplements, which peanut butter is best for weight gain, whey protein in weight loss, gym bottle shaker, best pre workout supplement india, best pre workout supplements in india, protein whey lose weight, protein supplements to gain muscle, weight gain powder for male, protein shake for weight gain female, whey protein shop near me, gym bags backpack, peanut butter as protein, top rated whey protein powder, best pre workouts in india, weight gain protein powder for women, weight loss with whey protein,
                   weight gainer protein powder for women, protein powder for female weight gain, protein whey and weight loss, protein supplements for women weight gain, cheapest price whey protein, whey protein fat loss, protein for women, protein powder for weight gain for women, best pre workout in india, backpacks for gym, wrist protector for gym, whey protein and weight loss, whey protein for losing weight, whey protein unflavoured, supplements for weight gain for women, protein in a peanut butter, protein of peanut butter, whey protein 4kg, cheapest on whey protein, 4kg protein whey, big muscle whey, 5kg whey protein, protein peanut butter, nearby supplement shop, whey protein or whey isolate, which best whey protein, best creatine for men, weight gain supplements women, supplement shops near, protein powder for weight gain for females, gym bag backpack, supplements shop nearby, nearest supplement store, protein powder for weight gain women, 4 kg whey protein, supplement for weight gain for female, women's weight gain supplements, best brand peanut butter, gym backpack bag, supplements for weight gain women, weight gainer supplement for female, supplement for women's weight gain, whey 5 kg protein, whey protein 5kg, best multivitamin for men in india, nearby supplement store, whey protein 5 kg, whey protein vs isolate protein, iso protein vs whey protein, nutritional supplements near me, whey protein vs whey isolate, whey protein description, weight gain supplements for woman, protein of muscle, protein whey 5kg, supplement shops nearby, protein whey 5 kg, backpack for gym, full sleeve tshirt for gym, 5 kg whey protein, near supplement shop, weight gain supplements for women, whey vs whey isolate, whey protein and losing weight, peanut butter chocolate flavour, gym suit for men, full sleeve t shirts for gym, protein for woman, nutrition supplements near me, my fitness whey protein, weight gaining protein shakes for women, gym bag women's, whey vs isolate protein, pea protein supplement, near supplement store, weight gain supplements for females, mens gym wear, testosterone booster ayurveda, gym bags women's, 
                   weight gain banana, dietary supplement near me, chocolate protein powder, sports shop near by me, diet supplements near me, best multivitamins for men india, booster testosterone, how to fat burn, supplement shop near, whey isolate vs protein, whey protein vs whey protein isolate, women's protein powder for weight gain, protein powder for weight gain woman, which best peanut butter, nutrition in 100g oats, protein shakes for weight gain female, weight gain by banana, which is best peanut butter, isolate vs whey protein, weight gain protein shakes for women, isolate whey protein vs whey protein, weight gain protein powder women, big muscles whey, peanut butter content, fat burner workout, protein powder for women to gain weight, whey isolate vs whey, women protein powder for weight gain, gain weight protein shakes for women, whey isolate vs whey protein, whey protein isolate vs whey protein, protein shake for women to gain weight, protein shake to gain weight female, whey isolate vs, how do you use protein powder, difference between whey protein and whey isolate, difference between whey protein and whey isolate protein, which is the best peanut butter, peanut butter for weight loss, gain weight with creatine, guest snacks bar, protein shakes for female weight gain, creatine in body, a body of mass 5kg, 2 spoon peanut butter calories, watermelon calories 1kg, 1 tsp peanut butter protein, whey protein mean, protein shakes to gain weight female, myfitness chocolate peanut butter, 100 grams protein, top peanut butter brands, difference between whey and isolate protein, do peanut butter gain weight, peanut butter best brand, sports store coimbatore, 250 ml to grams, protein shakes for weight gain women, whey protein means, world no 1 nutrition company in india, fitness gym kolkata, banana for weight gain, whey vs plant protein"
-                />
-                <meta
-                    property="og:image"
-                    content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
-                />
-                <meta
-                    property="og:url"
-                    content="https://www.gomzilifesciences.in/"
-                />
-                <link rel="canonical" href={{ canonicalUrl }} />
+        />
+        <meta
+          property="og:image"
+          content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
+        />
+        <meta property="og:url" content="https://www.gomzilifesciences.in/" />
+        <link rel="canonical" href={{ canonicalUrl }} />
 
-                <link rel="preconnect" href="https://connect.facebook.net" />
-                <script>
-                    {`
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <script>
+          {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -273,123 +82,562 @@ function ContactUs() {
             fbq('init', '1144699046738070');
             fbq('track', 'PageView');
           `}
-                </script>
-                <noscript>
-                    {`<img height="1" width="1" style="display:none"
+        </script>
+        <noscript>
+          {`<img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
           />`}
-                </noscript>
-                <link
-                    rel="preload"
-                    href={`${process.env.PUBLIC_URL}/assets/process.env.PUBLIC_URL +  "/assets/images/nutrition/nutrition-banner-inner-14.webp`}
-                    as="image"
-                />
-                {/* Google tag (gtag.js) */}
-                <script
-                    async
-                    src="https://www.googletagmanager.com/gtag/js?id=G-J50WNKGW38"
-                ></script>
-                <script>
-                    {`
+        </noscript>
+        <link
+          rel="preload"
+          href={`${process.env.PUBLIC_URL}/assets/process.env.PUBLIC_URL +  "/assets/images/nutrition/nutrition-banner-inner-14.webp`}
+          as="image"
+        />
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-J50WNKGW38"
+        ></script>
+        <script>
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-J50WNKGW38');
           `}
-                </script>
-            </Helmet>
-            {/* <WhatsappHeaderApp
+        </script>
+      </Helmet>
+      {/* <WhatsappHeaderApp
         message={
           "Hello, I wanted to know more about all Gomzi Nutrition Products. "
         }
         options={{ pageRef: true }}
       /> */}
-            {/* <div id="preloader">
-        <div className="tg-cube-grid">
-          <div className="tg-cube tg-cube1"></div>
-          <div className="tg-cube tg-cube2"></div>
-          <div className="tg-cube tg-cube3"></div>
-          <div className="tg-cube tg-cube4"></div>
-          <div className="tg-cube tg-cube5"></div>
-          <div className="tg-cube tg-cube6"></div>
-          <div className="tg-cube tg-cube7"></div>
-          <div className="tg-cube tg-cube8"></div>
-          <div className="tg-cube tg-cube9"></div>
-        </div>
-      </div> */}
-            <NutritionHeader />
-            <button className="scroll-top scroll-to-target" data-target="html">
-                <i className="fas fa-angle-up"></i>
-            </button>
-            <main className="main-area fix">
-                <section className="breadcrumb-area breadcrumb-bg">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-xl-10">
-                                <div className="breadcrumb-content text-center">
-                                    <h2 className="title">Contact Us</h2>
-                                    <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
-                                        <ul className="breadcrumb">
-                                            <li className="breadcrumb-item trail-item trail-begin">
-                                                <a href="index.html"><span>Home</span></a>
-                                            </li>
-                                            <li className="breadcrumb-item trail-item trail-end"><span>Contact Us</span></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+      <LoaderComponent />
+      <NutritionHeader />
+      <button className="scroll-top scroll-to-target" data-target="html">
+        <i className="fas fa-angle-up"></i>
+      </button>
+      <main className="main-area fix">
+        <section className="breadcrumb-area breadcrumb-bg">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xl-10">
+                <div className="breadcrumb-content text-center">
+                  <h2 className="title">Shop Details</h2>
+                  <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
+                    <ul className="breadcrumb">
+                      <li className="breadcrumb-item trail-item trail-begin">
+                        <a href="index.html">
+                          <span>Home</span>
+                        </a>
+                      </li>
+                      <li className="breadcrumb-item trail-item trail-end">
+                        <span>Shop Details</span>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="video-shape one">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
+              alt="shape"
+            />
+          </div>
+          <div className="video-shape two">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
+              alt="shape"
+            />
+          </div>
+        </section>
+        <section className="inner-shop-details-area">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-5">
+                <div className="inner-shop-details-flex-wrap">
+                  <div className="inner-shop-details-img-wrap">
+                    {/* Show here a big image */}
+                    <div className="inner-shop-details-img">
+                      <img src={selectedImage} alt="Selected" />
                     </div>
-                    <div className="video-shape one"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape01.png'} alt="shape" /></div>
-                    <div className="video-shape two"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape02.png'} alt="shape" /></div>
-                </section>
-                <section className="contact-area">
-                    <div className="container">
-                        <div className="contact-box-wrapper">
-                            <div className="row justify-content-center">
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i className="fas fa-check"></i></span>
-                                            <i className="fas fa-phone"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Phone Number</h5>
-                                            <p className="contact-desc">+91 83200 77993 <br /> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-md-6">
-                                    <div className="contact-box">
-                                        <div className="contact-icon">
-                                            <span className="overlay-icon"><i className="fas fa-check"></i></span>
-                                            <i className="fas fa-globe"></i>
-                                        </div>
-                                        <div className="contact-content">
-                                            <h5 className="title">Web Connect</h5>
-                                            <p className="contact-desc">gomzinutrition@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                  </div>
+                  <div className="inner-shop-details-nav-wrap">
+                    <ul className="nav nav-tabs" id="myTab" role="tablist">
+                      {[
+                        "/assets/images/products/mass-gainer/mass-gainer-1.webp",
+                        "/assets/images/products/mass-gainer/mass-gainer-2.webp",
+                        "/assets/images/products/mass-gainer/mass-gainer-3.webp",
+                        "/assets/images/products/mass-gainer/mass-gainer-4.webp",
+                      ].map((image, index) => (
+                        <li
+                          className="nav-item"
+                          role="presentation"
+                          key={index}
+                        >
+                          <a
+                            href="#"
+                            className="nav-link"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setSelectedImage(process.env.PUBLIC_URL + image);
+                            }}
+                          >
+                            <img
+                              src={process.env.PUBLIC_URL + image}
+                              alt="Thumbnail"
+                            />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-7 d-flex align-items-center">
+                <div className="inner-shop-details-content">
+                  <h4 className="title">Lean Whey Gainer</h4>
+                  <div className="inner-shop-details-meta">
+                    <ul className="list-wrap">
+                      <li>
+                        Brands : <a href="shop.html">Pure-Go</a>
+                      </li>
+                      <li className="inner-shop-details-review">
+                        <div className="rating">
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
+                          <i className="fas fa-star"></i>
                         </div>
-                    </div>
-                </section>
-                <section className="contact-form-area">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <div id="contact-map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4616.206252088472!2d72.74192247600143!3d21.18855708226951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d6049b09c4b%3A0x2b5491773a2ee8f3!2sGomzi%20Lifesciences%20LLP%20%7C%20Best%20Nutraceutical%20and%20Ayurvedic%20products%20Manufacturer!5e1!3m2!1sen!2sin!4v1740216368608!5m2!1sen!2sin" allowfullscreen="" height="450" loading="lazy"></iframe>
-                                </div>
-                            </div>
+                        <span>(4.5)</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="inner-shop-details-price">
+                    <h2 className="price">₹2999.00</h2>
+                    <h5 className="stock-status">- IN Stock</h5>
+                  </div>
+                  <p>
+                    Pure-Go food is food produced by methods complying with the
+                    standards of Rrganic farming. Standards vary Lorem ipsum
+                    dolor sit amet, consectetur adipiscing worldwide, but
+                    organic farming.
+                  </p>
+                  <div>
+                    <h4>Flavor:</h4>
+                    <button className="cart-btn">Chocolate</button>
+                  </div>
+                  <div className="inner-shop-details-list">
+                    <ul className="list-wrap">
+                      <li>
+                        Type : <span>Supplement</span>
+                      </li>
+                      <li>
+                        CO : <span>Pure-Go</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="inner-shop-perched-info">
+                    <div className="sd-cart-wrap d-flex me-3">
+                      <form action="#" className="d-flex">
+                        <div>
+                          <input type="button" value="-" className="plus-minus w-25 me-2" />
                         </div>
+                        <div className="quickview-cart-plus-minus">
+                          <input type="text" value="1" />
+                        </div>
+                        <div className="quickview-cart-plus-minus w-25">
+                          <input type="button" value="+" className="px-1 w-25" />
+                        </div>
+                      </form>
                     </div>
-                </section>
-            </main>
-            <HomeNutritionFooter />
-        </>
-    );
+                    <a href="cart.html" className="cart-btn">
+                      add to cart
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                <div className="product-desc-wrap">
+                  <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
+                    <li className="nav-item">
+                      <a
+                        href="#"
+                        className="nav-link active"
+                        id="description-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#description"
+                        role="tab"
+                        aria-controls="description"
+                        aria-selected="true"
+                      >
+                        Description
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="tab-content" id="myTabContentTwo">
+                    <div
+                      className="tab-pane fade show active"
+                      id="description"
+                      role="tabpanel"
+                      aria-labelledby="description-tab"
+                    >
+                      <div className="product-desc-content">
+                        <h4 className="title">The true strength of Pure-Go :</h4>
+                        <p>
+                          Whey Protein Isolates (WPIs) are the purest form of
+                          whey protein that currently exists. WPIs are costly to
+                          use, but rate among the best proteins that money can
+                          buy. That’s why they’re the first ingredient you read
+                          on the Gold Standard 100% Whey™ label. By using WPI as
+                          the primary ingredient along with premium
+                          ultra-filtered whey protein concentrate (WPC), we’re
+                          able to pack 24 grams of protein into every serving to
+                          support your muscle building needs after training.
+                          ON’attention to detail also extends to mixability.
+                          This superior quality powder has been instantized to
+                          mix easliy using a shaker cup or just a glass and
+                          spoon. There’s no doubt that this is the standard by
+                          which all other whey proteins are measured.
+                        </p>
+                        <h4 className="title">Pure-Go the basics :</h4>
+                        <ul className="product-desc-list list-wrap">
+                          <li>
+                            82% Protein by Weight (24g of Protein Per 31.5g
+                            Serving Size).
+                          </li>
+                          <li>Whey Protein Isolates (WPI) Main Ingredient.</li>
+                          <li>
+                            Whey Protein Micro-functions from Whey Protein
+                            Isolate and Ultra-Filtered Whey Protein Concentrate.
+                          </li>
+                          <li>
+                            Over 4g of Naturally Occurring Glutamine & Glutamic
+                            Acid in Each Serving.
+                          </li>
+                          <li>
+                            More than 5g of the Naturally Occurring Branched
+                            Chain Amino Acids (BCAAs) Leucine, Isoleucine, and
+                            Valine in Each Serving.
+                          </li>
+                          <li>The “Gold Standard” for Protein Quality.</li>
+                          <li>Banned Substance Tested Protein</li>
+                          <li>
+                            French Vanilla Creme Flavored Whey Protein Powder
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div
+                      className="tab-pane fade"
+                      id="information"
+                      role="tabpanel"
+                      aria-labelledby="information-tab"
+                    >
+                      <div className="product-desc-content">
+                        <table className="table table-sm">
+                          <tbody>
+                            <tr>
+                              <th scope="row">Calories</th>
+                              <td>110</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Total Fat</th>
+                              <td>1kg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Saturated Fat</th>
+                              <td>0.5g</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Cholesterol</th>
+                              <td>40mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Total Carbohydrate</th>
+                              <td>2g</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Protein</th>
+                              <td>24g</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Total Sugars</th>
+                              <td>2g</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Sodium</th>
+                              <td>100mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Calcium</th>
+                              <td>140 mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Potassium</th>
+                              <td>160 mg</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                <div className="product-desc-wrap">
+                  <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
+                    <li className="nav-item">
+                      <a
+                        href="#"
+                        className="nav-link active"
+                        id="description-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#description"
+                        role="tab"
+                        aria-controls="description"
+                        aria-selected="true"
+                      >
+                        Additional information
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="tab-content" id="myTabContentTwo">
+                    <div
+                      className="tab-pane fade show active"
+                      id="information"
+                      role="tabpanel"
+                      aria-labelledby="information-tab"
+                    >
+                      <div className="product-desc-content">
+                        <table className="table table-sm">
+                          <tbody>
+                            <tr>
+                              <th scope="row">Calories</th>
+                              <td>110</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Total Fat</th>
+                              <td>1kg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Saturated Fat</th>
+                              <td>0.5g</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Cholesterol</th>
+                              <td>40mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Total Carbohydrate</th>
+                              <td>2g</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Protein</th>
+                              <td>24g</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Total Sugars</th>
+                              <td>2g</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Sodium</th>
+                              <td>100mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Calcium</th>
+                              <td>140 mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">Potassium</th>
+                              <td>160 mg</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                <div className="product-desc-wrap">
+                  <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
+                    <li className="nav-item">
+                      <a
+                        href="#"
+                        className="nav-link active"
+                        id="review-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#review"
+                        role="tab"
+                        aria-controls="review"
+                        aria-selected="false"
+                      >
+                        Reviews (3)
+                      </a>
+                    </li>
+                  </ul>
+                  <div className="tab-content" id="myTabContentTwo">
+                    <div
+                      className="tab-pane fade show active"
+                      id="review"
+                      role="tabpanel"
+                      aria-labelledby="review-tab"
+                    >
+                      <div className="product-desc-content">
+                        <div className="add-review">
+                          <h4 className="title">Add a review</h4>
+                          <form action="#">
+                            <p>
+                              Your email address will not be published.Required
+                              fields are marked
+                              <span>*</span>
+                            </p>
+                            <div className="from-grp">
+                              <label for="name">
+                                Your name <span>*</span>
+                              </label>
+                              <input type="text" id="name" />
+                            </div>
+                            <div className="from-grp">
+                              <label for="email">
+                                Your email <span>*</span>
+                              </label>
+                              <input type="text" id="email" />
+                            </div>
+                            <div className="from-grp checkbox-grp">
+                              <input type="checkbox" id="checkbox" />
+                              <label for="checkbox">
+                                Don’t show your email address
+                              </label>
+                            </div>
+                            <div className="form-rating">
+                              <label>your rating</label>
+                              <ul className="list-wrap">
+                                <li>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="from-grp">
+                              <label for="comment">
+                                Write Your review <span>*</span>
+                              </label>
+                              <textarea
+                                id="comment"
+                                cols="30"
+                                rows="10"
+                              ></textarea>
+                            </div>
+                            <button className="btn">Submit Now</button>
+                          </form>
+                        </div>
+                        <div className="reviews-comment">
+                          <div className="review-info">
+                            <div className="review-content">
+                              <ul className="review-rating list-wrap">
+                                <li>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                </li>
+                              </ul>
+                              <div className="review-meta">
+                                <h6>
+                                  Chenai Simon <span>-May 12, 2024</span>
+                                </h6>
+                              </div>
+                              <p>
+                                There are many variations of passages of lorem
+                                ipsum available, but the majority have suffered
+                                alteration in some form, by injected humour, or
+                                randomised words which don’t look even slightly
+                                believable. If you are going to use a passage of
+                                lorem ipsum.
+                              </p>
+                            </div>
+                          </div>
+                          <div className="review-info">
+                            <div className="review-content">
+                              <ul className="review-rating list-wrap">
+                                <li>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="far fa-star"></i>
+                                </li>
+                              </ul>
+                              <div className="review-meta">
+                                <h6>
+                                  Finn Castaneda <span>-June 17, 2024</span>
+                                </h6>
+                              </div>
+                              <p>
+                                There are many variations of passages of lorem
+                                ipsum available, but the majority have suffered
+                                alteration in some form, by injected humour, or
+                                randomised words which don’t look even slightly
+                                believable. If you are going to use a passage of
+                                lorem ipsum.
+                              </p>
+                            </div>
+                          </div>
+                          <div className="review-info">
+                            <div className="review-content">
+                              <ul className="review-rating list-wrap">
+                                <li>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="fas fa-star"></i>
+                                  <i className="far fa-star"></i>
+                                </li>
+                              </ul>
+                              <div className="review-meta">
+                                <h6>
+                                  Bayley Robertson <span>-May 28, 2024</span>
+                                </h6>
+                              </div>
+                              <p>
+                                There are many variations of passages of lorem
+                                ipsum available, but the majority have suffered
+                                alteration in some form, by injected humour, or
+                                randomised words which don’t look even slightly
+                                believable. If you are going to use a passage of
+                                lorem ipsum.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <HomeNutritionFooter />
+    </>
+  );
 }
 
-export default ContactUs;
+export default PureGoMassGainer;

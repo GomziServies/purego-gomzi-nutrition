@@ -242,8 +242,8 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, productData }) => {
     dots: false,
     nav: false,
     navText: [
-      '<i class="fas fa-arrow-left"></i>',
-      '<i class="fas fa-arrow-right"></i>',
+      '<i className="fas fa-arrow-left"></i>',
+      '<i className="fas fa-arrow-right"></i>',
     ],
     responsive: {
       0: {
@@ -287,7 +287,7 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, productData }) => {
         <div>
           {loading ? (
             <div className="d-flex justify-content-center align-items-center mb-4 my-7 loader-h">
-              <div class="loader"></div>
+              <div className="loader"></div>
             </div>
           ) : (
             productDataGet.length > 0 && (

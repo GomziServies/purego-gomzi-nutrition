@@ -9552,3 +9552,14 @@ body.search-visible {
     padding: 30px 30px 30px;
   }
 }
+
+.plus-minus {
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  height: 45px;
+  text-align: center;
+  padding: 0px 16px 0px 10px;
+  font-size: 14px;
+  color: #282828;
+  font-weight: 600;
+}

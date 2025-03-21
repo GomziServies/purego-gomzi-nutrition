@@ -279,8 +279,8 @@ function AddToCart(productData) {
     dots: false,
     nav: true,
     navText: [
-      '<i class="fas fa-arrow-left"></i>',
-      '<i class="fas fa-arrow-right"></i>',
+      '<i className="fas fa-arrow-left"></i>',
+      '<i className="fas fa-arrow-right"></i>',
     ],
     responsive: {
       0: {
@@ -401,7 +401,7 @@ function AddToCart(productData) {
             <div className="row py-4">
               {loading ? (
                 <div className="d-flex col-12 justify-content-center align-items-center mb-4 my-7 loader-h">
-                  <div class="loader"></div>
+                  <div className="loader"></div>
                 </div>
               ) : (
                 productDataGet.length > 0 && (
