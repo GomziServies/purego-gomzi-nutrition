@@ -21,18 +21,19 @@ function PureGoMassGainer() {
   const canonicalUrl = window.location.href;
 
   const [selectedImage, setSelectedImage] = useState(
-    process.env.PUBLIC_URL + "/assets/images/products/mass-gainer/mass-gainer-1.webp"
+    process.env.PUBLIC_URL +
+      "/assets/images/products/mass-gainer/mass-gainer-1.webp"
   );
 
   return (
     <>
       <Helmet>
         <title>
-          Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+          Pure Go | Best Whey Protein in India | Premium Supplements
         </title>
         <meta
           name="description"
-          content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+          content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
         />
         <meta
           name="keyword"
@@ -109,7 +110,7 @@ function PureGoMassGainer() {
       </Helmet>
       {/* <WhatsappHeaderApp
         message={
-          "Hello, I wanted to know more about all Gomzi Nutrition Products. "
+          "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
@@ -222,10 +223,11 @@ function PureGoMassGainer() {
                     <h5 className="stock-status">- IN Stock</h5>
                   </div>
                   <p>
-                    Pure-Go food is food produced by methods complying with the
-                    standards of Rrganic farming. Standards vary Lorem ipsum
-                    dolor sit amet, consectetur adipiscing worldwide, but
-                    organic farming.
+                    Achieve Your Bulking Goals with Pure Go Mass Gainer Powder.
+                    Our specially formulated blend is designed to support muscle
+                    growth, weight gain, and overall performance for
+                    bodybuilders and fitness enthusiasts seeking to pack on size
+                    and strength effectively.
                   </p>
                   <div>
                     <h4>Flavor:</h4>
@@ -245,13 +247,21 @@ function PureGoMassGainer() {
                     <div className="sd-cart-wrap d-flex me-3">
                       <form action="#" className="d-flex">
                         <div>
-                          <input type="button" value="-" className="plus-minus w-25 me-2" />
+                          <input
+                            type="button"
+                            value="-"
+                            className="plus-minus w-25 me-2"
+                          />
                         </div>
                         <div className="quickview-cart-plus-minus">
                           <input type="text" value="1" />
                         </div>
                         <div className="quickview-cart-plus-minus w-25">
-                          <input type="button" value="+" className="px-1 w-25" />
+                          <input
+                            type="button"
+                            value="+"
+                            className="px-1 w-25"
+                          />
                         </div>
                       </form>
                     </div>
@@ -289,49 +299,128 @@ function PureGoMassGainer() {
                       aria-labelledby="description-tab"
                     >
                       <div className="product-desc-content">
-                        <h4 className="title">The true strength of Pure-Go :</h4>
+                        <h4 className="title">Pure Go Mass Gainer Powder</h4>
                         <p>
-                          Whey Protein Isolates (WPIs) are the purest form of
-                          whey protein that currently exists. WPIs are costly to
-                          use, but rate among the best proteins that money can
-                          buy. That’s why they’re the first ingredient you read
-                          on the Gold Standard 100% Whey™ label. By using WPI as
-                          the primary ingredient along with premium
-                          ultra-filtered whey protein concentrate (WPC), we’re
-                          able to pack 24 grams of protein into every serving to
-                          support your muscle building needs after training.
-                          ON’attention to detail also extends to mixability.
-                          This superior quality powder has been instantized to
-                          mix easliy using a shaker cup or just a glass and
-                          spoon. There’s no doubt that this is the standard by
-                          which all other whey proteins are measured.
+                          Achieve Your Bulking Goals with Pure Go Mass Gainer
+                          Powder. Our specially formulated blend is designed to
+                          support muscle growth, weight gain, and overall
+                          performance for bodybuilders and fitness enthusiasts
+                          seeking to pack on size and strength effectively.
                         </p>
-                        <h4 className="title">Pure-Go the basics :</h4>
-                        <ul className="product-desc-list list-wrap">
-                          <li>
-                            82% Protein by Weight (24g of Protein Per 31.5g
-                            Serving Size).
-                          </li>
-                          <li>Whey Protein Isolates (WPI) Main Ingredient.</li>
-                          <li>
-                            Whey Protein Micro-functions from Whey Protein
-                            Isolate and Ultra-Filtered Whey Protein Concentrate.
-                          </li>
-                          <li>
-                            Over 4g of Naturally Occurring Glutamine & Glutamic
-                            Acid in Each Serving.
-                          </li>
-                          <li>
-                            More than 5g of the Naturally Occurring Branched
-                            Chain Amino Acids (BCAAs) Leucine, Isoleucine, and
-                            Valine in Each Serving.
-                          </li>
-                          <li>The “Gold Standard” for Protein Quality.</li>
-                          <li>Banned Substance Tested Protein</li>
-                          <li>
-                            French Vanilla Creme Flavored Whey Protein Powder
-                          </li>
-                        </ul>
+                        <h4 className="title">
+                          Performance-Enhancing Formula:
+                        </h4>
+                        <p>
+                          Our meticulously crafted blend provides an optimal
+                          combination of nutrients for maximum results. Each
+                          serving delivers a powerful 17.5 grams of premium
+                          protein, including a blend of fast and slow-digesting
+                          proteins, ensuring sustained amino acid delivery for
+                          muscle recovery and growth. The strategic mix of
+                          carbohydrates and healthy fats provides the necessary
+                          energy for intense workouts and promotes weight gain
+                          effectively.
+                        </p>
+                        <h4 className="title mb-2">Key Benefits:</h4>
+                        <div>
+                          <h6 className="sub-title d-contents">
+                            Muscle Growth:{" "}
+                          </h6>
+                          <p className="sub-title ms-2">
+                            Our meticulously crafted blend provides an optimal
+                            combination of nutrients for maximum results. Each
+                            serving delivers a powerful 17.5 grams of premium
+                            protein, including a blend of fast and
+                            slow-digesting proteins, ensuring sustained amino
+                            acid delivery for muscle recovery and growth. The
+                            strategic mix of carbohydrates and healthy fats
+                            provides the necessary energy for intense workouts
+                            and promotes weight gain effectively.
+                          </p>
+                        </div>
+                        <div>
+                          <h6 className="sub-title d-contents">
+                            Healthy Metabolism:{" "}
+                          </h6>
+                          <p className="sub-title ms-2">
+                            Fortified with essential vitamins and minerals, our
+                            mass gainer supports overall health and metabolism,
+                            ensuring optimal function during intense training.
+                          </p>
+                        </div>
+                        <div className="mb-3">
+                          <h6 className="sub-title d-contents">
+                            Reduced Muscle Loss:{" "}
+                          </h6>
+                          <p className="sub-title ms-2">
+                            By providing a steady supply of nutrients, our
+                            formula helps minimize muscle breakdown, preserving
+                            hard-earned gains and promoting muscle retention
+                            effectively.
+                          </p>
+                        </div>
+                        <h4 className="title mb-2">Ideal Usage:</h4>
+                        <div>
+                          <h6 className="sub-title d-contents">
+                            Pre-Workout:{" "}
+                          </h6>
+                          <p className="sub-title ms-2">
+                            Consume a serving approximately 30 minutes before
+                            your workout to prime your body with essential
+                            nutrients for optimal performance.
+                          </p>
+                        </div>
+                        <div>
+                          <h6 className="sub-title d-contents">
+                            Post-Workout:{" "}
+                          </h6>
+                          <p className="sub-title ms-2">
+                            Replenish your muscles immediately after your
+                            workout to kickstart the recovery process and
+                            support muscle repair and growth effectively.
+                          </p>
+                        </div>
+                        <div className="mb-3">
+                          <h6 className="sub-title d-contents">
+                            Between Meals:{" "}
+                          </h6>
+                          <p className="sub-title ms-2">
+                            Use as a convenient and nutritious snack between
+                            meals to increase calorie intake and promote weight
+                            gain efficiently.
+                          </p>
+                        </div>
+                        <h4 className="title">How to Consume:</h4>
+                        <p>
+                          Simply mix that can1 heaping scoop (approximately 80
+                          grams) with 180-200ml of water or milk in a shaker
+                          bottle or blender until smooth and creamy. Enjoy the
+                          delicious and nutritious shake as part of your daily
+                          routine to fuel your gains effectively.
+                        </p>
+                        <h4 className="title">Safe and Trusted:</h4>
+                        <p>
+                          Our commitment to delivering clean and safe
+                          supplements means our formula is free from artificial
+                          colors, GMOs, banned substances, and amino spiking,
+                          ensuring only the highest quality ingredients for your
+                          fitness goals.
+                        </p>
+                        <h4 className="title">
+                          Your Ultimate Workout Partner:
+                        </h4>
+                        <p>
+                          Trust Pure Go Mass Gainer Powder to fuel your gains
+                          and elevate your performance to the next level. With
+                          our uncompromising commitment to quality and taste,
+                          each shake mixes effortlessly and tastes consistently
+                          delicious, providing you with the perfect workout
+                          companion every time. By highlighting these points in
+                          a more engaging and effective manner, potential
+                          customers are more likely to understand the benefits
+                          of Pure Go Mass Gainer Powder and feel motivated to
+                          incorporate it into their fitness routine.
+                        </p>
                       </div>
                     </div>
                     <div

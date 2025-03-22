@@ -3397,6 +3397,8 @@ body.search-visible {
 }
 .testi-avatar-img {
   margin: 0 0 15px;
+  display: flex;
+  justify-content: center;
 }
 .testi-avatar-img img {
   max-width: 80px;
@@ -9562,4 +9564,27 @@ body.search-visible {
 .video-button-bg {
   background: transparent;
   border: none;
+}
+.owl-nav {
+  display: flex !important;
+  justify-content: center !important;
+}
+.owl-theme .owl-nav [class*='owl-'] {
+  color: #000 !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 0px !important;
+  background: white !important;
+}
+.owl-theme .owl-nav [class*='owl-']:hover {
+  color: #000 !important;
+  padding: 0px !important;
+  background: white !important;
+}
+.sub-title {
+  display: contents !important;
 }

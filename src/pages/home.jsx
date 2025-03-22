@@ -16,6 +16,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Accordion } from "react-bootstrap";
 import HomeNutritionFooter from "../components/partials/Footer/footer";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 function Home() {
   const canonicalUrl = window.location.href;
@@ -219,6 +222,45 @@ function Home() {
   //   },
   // ];
 
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const section = document.querySelector(".main-section");
+      if (!section) return;
+
+      const { clientX, clientY } = e;
+      const { width, height, left, top } = section.getBoundingClientRect();
+
+      // Normalize values between -1 and 1
+      const xMove = (clientX - left - width / 2) / (width / 2);
+      const yMove = (clientY - top - height / 2) / (height / 2);
+
+      // Select banner shapes
+      const shapes = document.querySelectorAll(".banner-shape");
+      shapes.forEach((shape, index) => {
+        const movementFactor = (index + 1) * 3; // Adjust movement intensity
+
+        // Reverse movement for alternate elements
+        const reverseX = index % 2 === 0 ? -1 : 1; // Reverse for even-indexed elements
+        const reverseY = index % 2 !== 0 ? -1 : 1; // Reverse for odd-indexed elements
+
+        shape.style.transform = `translate(${
+          xMove * movementFactor * reverseX
+        }px, ${yMove * movementFactor * reverseY}px)`;
+      });
+    };
+
+    const section = document.querySelector(".main-section");
+    if (section) {
+      section.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      if (section) {
+        section.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -260,10 +302,7 @@ function Home() {
           property="og:image"
           content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
         />
-        <meta
-          property="og:url"
-          content="https://www.gomzilifesciences.in/"
-        />
+        <meta property="og:url" content="https://www.gomzilifesciences.in/" />
         <link rel="canonical" href={{ canonicalUrl }} />
 
         <link rel="preconnect" href="https://connect.facebook.net" />
@@ -329,37 +368,78 @@ function Home() {
         <i className="fas fa-angle-up"></i>
       </button>
       <main className="main-area fix">
-        <section className="banner-area">
+        <section className="banner-area main-section">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-xxl-8 col-xl-7 col-lg-8 col-md-10">
                 <div className="banner-content text-center">
-                  <p className="banner-caption">.. Increased Energy With SUXNIX ..</p>
+                  <p className="banner-caption">
+                    .. Increased Energy With SUXNIX ..
+                  </p>
                   <h2 className="title">Mix Protein Provided Way To Growth</h2>
-                  <a href="shop.html" className="btn btn-two">Shop Now</a>
+                  <a href="shop.html" className="btn btn-two">
+                    Shop Now
+                  </a>
                 </div>
               </div>
             </div>
             <div className="row">
               <div className="col-12">
                 <div className="banner-images text-center">
-                  <img src={process.env.PUBLIC_URL + '/assets/images/banner_img01.png'} alt="img" className="main-img" />
-                  <img src={process.env.PUBLIC_URL + '/assets/images/banner_round_bg.png'} alt="img" className="bg-shape" />
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/assets/images/banner_img01.png"
+                    }
+                    alt="img"
+                    className="main-img"
+                  />
+                  <img
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/assets/images/banner_round_bg.png"
+                    }
+                    alt="img"
+                    className="bg-shape"
+                  />
                 </div>
               </div>
             </div>
           </div>
           <div className="banner-shape one">
-            <img src={process.env.PUBLIC_URL + '/assets/images/banner_shape01.png'} alt="shape" className="wow bannerFadeInLeft" data-wow-delay=".2s" data-wow-duration="2s" />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/banner_shape01.png"}
+              alt="shape"
+              className="wow bannerFadeInLeft"
+              data-wow-delay=".2s"
+              data-wow-duration="2s"
+            />
           </div>
           <div className="banner-shape two">
-            <img src={process.env.PUBLIC_URL + '/assets/images/banner_shape02.png'} alt="shape" className="wow bannerFadeInRight" data-wow-delay=".2s" data-wow-duration="2s" />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/banner_shape02.png"}
+              alt="shape"
+              className="wow bannerFadeInRight"
+              data-wow-delay=".2s"
+              data-wow-duration="2s"
+            />
           </div>
           <div className="banner-shape three">
-            <img src={process.env.PUBLIC_URL + '/assets/images/banner_shape03.png'} alt="shape" className="wow bannerFadeInDown" data-wow-delay=".2s" data-wow-duration="2s" />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/banner_shape03.png"}
+              alt="shape"
+              className="wow bannerFadeInDown"
+              data-wow-delay=".2s"
+              data-wow-duration="2s"
+            />
           </div>
           <div className="banner-shape four">
-            <img src={process.env.PUBLIC_URL + '/assets/images/banner_shape04.png'} alt="shape" className="wow bannerFadeInDown" data-wow-delay=".2s" data-wow-duration="2s" />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/banner_shape04.png"}
+              alt="shape"
+              className="wow bannerFadeInDown"
+              data-wow-delay=".2s"
+              data-wow-duration="2s"
+            />
           </div>
         </section>
         <div className="brand-area">
@@ -374,43 +454,97 @@ function Home() {
             <div className="row brand-active">
               <div className="col-2">
                 <div className="brand-item">
-                  <a href="#"><img src={process.env.PUBLIC_URL + '/assets/images/brand_01.png'} alt="brand" /></a>
+                  <a href="#">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + "/assets/images/brand_01.png"
+                      }
+                      alt="brand"
+                    />
+                  </a>
                 </div>
               </div>
               <div className="col-2">
                 <div className="brand-item">
-                  <a href="#"><img src={process.env.PUBLIC_URL + '/assets/images/brand_02.png'} alt="brand" /></a>
+                  <a href="#">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + "/assets/images/brand_02.png"
+                      }
+                      alt="brand"
+                    />
+                  </a>
                 </div>
               </div>
               <div className="col-2">
                 <div className="brand-item">
-                  <a href="#"><img src={process.env.PUBLIC_URL + '/assets/images/brand_04.png'} alt="brand" /></a>
+                  <a href="#">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + "/assets/images/brand_04.png"
+                      }
+                      alt="brand"
+                    />
+                  </a>
                 </div>
               </div>
               <div className="col-2">
                 <div className="brand-item">
-                  <a href="#"><img src={process.env.PUBLIC_URL + '/assets/images/brand_05.png'} alt="brand" /></a>
+                  <a href="#">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + "/assets/images/brand_05.png"
+                      }
+                      alt="brand"
+                    />
+                  </a>
                 </div>
               </div>
               <div className="col-2">
                 <div className="brand-item">
-                  <a href="#"><img src={process.env.PUBLIC_URL + '/assets/images/brand_06.png'} alt="brand" /></a>
+                  <a href="#">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + "/assets/images/brand_06.png"
+                      }
+                      alt="brand"
+                    />
+                  </a>
                 </div>
               </div>
               <div className="col-2">
                 <div className="brand-item">
-                  <a href="#"><img src={process.env.PUBLIC_URL + '/assets/images/brand_03.png'} alt="brand" /></a>
+                  <a href="#">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL + "/assets/images/brand_03.png"
+                      }
+                      alt="brand"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <section id="features" className="features-area features-bg" data-background="assets/img/bg/features_bg.jpg">
+        <section
+          id="features"
+          className="features-area features-bg"
+          data-background="assets/img/bg/features_bg.jpg"
+        >
           <div className="container">
             <div className="row align-items-center">
               <div className="col-xxl-6 col-lg-5 order-0 order-lg-2">
-                <div className="features-img wow featuresRollOut" data-wow-delay=".3s">
-                  <img src={process.env.PUBLIC_URL + '/assets/images/features_img.png'} alt="" />
+                <div
+                  className="features-img wow featuresRollOut"
+                  data-wow-delay=".3s"
+                >
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/assets/images/features_img.png"
+                    }
+                    alt=""
+                  />
                 </div>
               </div>
               <div className="col-xxl-6 col-lg-7">
@@ -423,7 +557,10 @@ function Home() {
                         </div>
                         <div className="features-content">
                           <h4 className="title">Multi Fruits Flavour</h4>
-                          <p>A thing added to something else in order to complete or enhance it.</p>
+                          <p>
+                            A thing added to something else in order to complete
+                            or enhance it.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -434,7 +571,10 @@ function Home() {
                         </div>
                         <div className="features-content">
                           <h4 className="title">Flower Formula</h4>
-                          <p>A thing added to something else in order to complete or enhance it.</p>
+                          <p>
+                            A thing added to something else in order to complete
+                            or enhance it.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -445,7 +585,10 @@ function Home() {
                         </div>
                         <div className="features-content">
                           <h4 className="title">Fishbone Diagram</h4>
-                          <p>A thing added to something else in order to complete or enhance it.</p>
+                          <p>
+                            A thing added to something else in order to complete
+                            or enhance it.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -456,7 +599,10 @@ function Home() {
                         </div>
                         <div className="features-content">
                           <h4 className="title">100% Fat Blasting</h4>
-                          <p>A thing added to something else in order to complete or enhance it.</p>
+                          <p>
+                            A thing added to something else in order to complete
+                            or enhance it.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -473,19 +619,46 @@ function Home() {
                 <div className="col-lg-6 col-md-8">
                   <div className="features-products-thumb">
                     <div className="main-img">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/features_product03.png'} alt="img" />
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/png/pre-workout-png.webp"
+                        }
+                        alt="img"
+                      />
                     </div>
-                    <img src={process.env.PUBLIC_URL + '/assets/images/features_product_shape01.png'} alt="img" className="shape-img" />
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/assets/images/features_product_shape03.png"
+                      }
+                      alt="img"
+                      className="shape-img"
+                    />
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
-                    <h2 className="title"><a href="/whey-protein">Whey Protein</a></h2>
-                    <h6 className="features-product-quantity">High-strength, 5000IU</h6>
-                    <p>Vitamin D3 supplements are commonly recommended for people at risk for vitamin D deficiency. Low vitamin D levels cause depression, fatigue, and muscle weakness. Over time, vitamin D deficiency can lead to weak bones, rickets in children, and osteoporosis in adults. </p>
+                    <h2 className="title">
+                      <a href="pre-workout">Pre Workout</a>
+                    </h2>
+                    <h6 className="features-product-quantity">
+                      High-strength, 4000IU
+                    </h6>
+                    <p>
+                      Vitamin D3 supplements are commonly recommended for people
+                      at risk for vitamin D deficiency. Low vitamin D levels
+                      cause depression, fatigue, and muscle weakness. Over time,
+                      vitamin D deficiency can lead to weak bones, rickets in
+                      children, and osteoporosis in adults.{" "}
+                    </p>
                     <div className="features-product-bottom">
-                      <a href="/whey-protein" className="btn">Shop Now</a>
-                      <span className="price">₹1499.00 <span className="old-price">₹2499.00</span></span>
+                      <a href="pre-workout" className="btn">
+                        Shop Now
+                      </a>
+                      <span className="price">
+                        ₹1899.00 <span className="old-price">₹1549.00</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -496,19 +669,46 @@ function Home() {
                 <div className="col-lg-6 col-md-8">
                   <div className="features-products-thumb">
                     <div className="main-img">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/features_product02.png'} alt="img" />
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/png/creatine-png.webp"
+                        }
+                        alt="img"
+                      />
                     </div>
-                    <img src={process.env.PUBLIC_URL + '/assets/images/features_product_shape02.png'} alt="img" className="shape-img" />
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/assets/images/features_product_shape02.png"
+                      }
+                      alt="img"
+                      className="shape-img"
+                    />
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
-                    <h2 className="title"><a href="creatine">Creatine</a></h2>
-                    <h6 className="features-product-quantity">High-strength, 4000IU</h6>
-                    <p>Vitamin D3 supplements are commonly recommended for people at risk for vitamin D deficiency. Low vitamin D levels cause depression, fatigue, and muscle weakness. Over time, vitamin D deficiency can lead to weak bones, rickets in children, and osteoporosis in adults. </p>
+                    <h2 className="title">
+                      <a href="pure-go-creatine">Creatine</a>
+                    </h2>
+                    <h6 className="features-product-quantity">
+                      High-strength, 4000IU
+                    </h6>
+                    <p>
+                      Vitamin D3 supplements are commonly recommended for people
+                      at risk for vitamin D deficiency. Low vitamin D levels
+                      cause depression, fatigue, and muscle weakness. Over time,
+                      vitamin D deficiency can lead to weak bones, rickets in
+                      children, and osteoporosis in adults.{" "}
+                    </p>
                     <div className="features-product-bottom">
-                      <a href="creatine" className="btn">Shop Now</a>
-                      <span className="price">₹1299.00 <span className="old-price">₹1349.00</span></span>
+                      <a href="pure-go-creatine" className="btn">
+                        Shop Now
+                      </a>
+                      <span className="price">
+                        ₹1299.00 <span className="old-price">₹1349.00</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -519,19 +719,246 @@ function Home() {
                 <div className="col-lg-6 col-md-8">
                   <div className="features-products-thumb">
                     <div className="main-img">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/features_product01.png'} alt="img" />
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/png/mass-gainer-png.webp"
+                        }
+                        alt="img"
+                      />
                     </div>
-                    <img src={process.env.PUBLIC_URL + '/assets/images/features_product_shape03.png'} alt="img" className="shape-img" />
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/assets/images/features_product_shape03.png"
+                      }
+                      alt="img"
+                      className="shape-img"
+                    />
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
-                    <h2 className="title"><a href="mass-gainer">Mass Gainer</a></h2>
-                    <h6 className="features-product-quantity">High-strength, 4000IU</h6>
-                    <p>Vitamin D3 supplements are commonly recommended for people at risk for vitamin D deficiency. Low vitamin D levels cause depression, fatigue, and muscle weakness. Over time, vitamin D deficiency can lead to weak bones, rickets in children, and osteoporosis in adults. </p>
+                    <h2 className="title">
+                      <a href="mass-gainer">Mass Gainer</a>
+                    </h2>
+                    <h6 className="features-product-quantity">
+                      High-strength, 4000IU
+                    </h6>
+                    <p>
+                      Vitamin D3 supplements are commonly recommended for people
+                      at risk for vitamin D deficiency. Low vitamin D levels
+                      cause depression, fatigue, and muscle weakness. Over time,
+                      vitamin D deficiency can lead to weak bones, rickets in
+                      children, and osteoporosis in adults.{" "}
+                    </p>
                     <div className="features-product-bottom">
-                      <a href="mass-gainer" className="btn">Shop Now</a>
-                      <span className="price">₹1899.00 <span className="old-price">₹1549.00</span></span>
+                      <a href="mass-gainer" className="btn">
+                        Shop Now
+                      </a>
+                      <span className="price">
+                        ₹1899.00 <span className="old-price">₹1549.00</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="features-products-wrap">
+              <div className="row justify-content-center">
+                <div className="col-lg-6 col-md-8">
+                  <div className="features-products-thumb">
+                    <div className="main-img">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/png/eaa-png.webp"
+                        }
+                        alt="img"
+                      />
+                    </div>
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/assets/images/features_product_shape02.png"
+                      }
+                      alt="img"
+                      className="shape-img"
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-10">
+                  <div className="features-product-content">
+                    <h2 className="title">
+                      <a href="eaa">EAA</a>
+                    </h2>
+                    <h6 className="features-product-quantity">
+                      High-strength, 4000IU
+                    </h6>
+                    <p>
+                      Vitamin D3 supplements are commonly recommended for people
+                      at risk for vitamin D deficiency. Low vitamin D levels
+                      cause depression, fatigue, and muscle weakness. Over time,
+                      vitamin D deficiency can lead to weak bones, rickets in
+                      children, and osteoporosis in adults.{" "}
+                    </p>
+                    <div className="features-product-bottom">
+                      <a href="eaa" className="btn">
+                        Shop Now
+                      </a>
+                      <span className="price">
+                        ₹999.00 <span className="old-price">₹1049.00</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="features-products-wrap">
+              <div className="row justify-content-center">
+                <div className="col-lg-6 col-md-8">
+                  <div className="features-products-thumb">
+                    <div className="main-img">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/png/whey-protein-chocolate-png.webp"
+                        }
+                        alt="img"
+                      />
+                    </div>
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/assets/images/features_product_shape01.png"
+                      }
+                      alt="img"
+                      className="shape-img"
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-10">
+                  <div className="features-product-content">
+                    <h2 className="title">
+                      <a href="/whey-protein">Whey Protein Chocolate</a>
+                    </h2>
+                    <h6 className="features-product-quantity">
+                      High-strength, 5000IU
+                    </h6>
+                    <p>
+                      Vitamin D3 supplements are commonly recommended for people
+                      at risk for vitamin D deficiency. Low vitamin D levels
+                      cause depression, fatigue, and muscle weakness. Over time,
+                      vitamin D deficiency can lead to weak bones, rickets in
+                      children, and osteoporosis in adults.{" "}
+                    </p>
+                    <div className="features-product-bottom">
+                      <a href="/whey-protein" className="btn">
+                        Shop Now
+                      </a>
+                      <span className="price">
+                        ₹1499.00 <span className="old-price">₹2499.00</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="features-products-wrap">
+              <div className="row justify-content-center">
+                <div className="col-lg-6 col-md-8">
+                  <div className="features-products-thumb">
+                    <div className="main-img">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/png/whey-protein-mawakulfi-png.webp"
+                        }
+                        alt="img"
+                      />
+                    </div>
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/assets/images/features_product_shape02.png"
+                      }
+                      alt="img"
+                      className="shape-img"
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-10">
+                  <div className="features-product-content">
+                    <h2 className="title">
+                      <a href="/whey-protein">Whey Protein Mawa Kulfi</a>
+                    </h2>
+                    <h6 className="features-product-quantity">
+                      High-strength, 4000IU
+                    </h6>
+                    <p>
+                      Vitamin D3 supplements are commonly recommended for people
+                      at risk for vitamin D deficiency. Low vitamin D levels
+                      cause depression, fatigue, and muscle weakness. Over time,
+                      vitamin D deficiency can lead to weak bones, rickets in
+                      children, and osteoporosis in adults.{" "}
+                    </p>
+                    <div className="features-product-bottom">
+                      <a href="/whey-protein" className="btn">
+                        Shop Now
+                      </a>
+                      <span className="price">
+                        ₹1299.00 <span className="old-price">₹1349.00</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="features-products-wrap">
+              <div className="row justify-content-center">
+                <div className="col-lg-6 col-md-8">
+                  <div className="features-products-thumb">
+                    <div className="main-img">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/png/whey-protein-mochacoffee-png.webp"
+                        }
+                        alt="img"
+                      />
+                    </div>
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/assets/images/features_product_shape03.png"
+                      }
+                      alt="img"
+                      className="shape-img"
+                    />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-10">
+                  <div className="features-product-content">
+                    <h2 className="title">
+                      <a href="/whey-protein">Whey Protein Mocha Coffee</a>
+                    </h2>
+                    <h6 className="features-product-quantity">
+                      High-strength, 4000IU
+                    </h6>
+                    <p>
+                      Vitamin D3 supplements are commonly recommended for people
+                      at risk for vitamin D deficiency. Low vitamin D levels
+                      cause depression, fatigue, and muscle weakness. Over time,
+                      vitamin D deficiency can lead to weak bones, rickets in
+                      children, and osteoporosis in adults.{" "}
+                    </p>
+                    <div className="features-product-bottom">
+                      <a href="/whey-protein" className="btn">
+                        Shop Now
+                      </a>
+                      <span className="price">
+                        ₹1899.00 <span className="old-price">₹1549.00</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -540,13 +967,52 @@ function Home() {
           </div>
           <div className="fp-shapes-wrap">
             <div className="fp-shape-one">
-              <img src={process.env.PUBLIC_URL + '/assets/images/features_sec_shape01.png'} alt="shape" className="paroller" data-paroller-factor="0.25" data-paroller-factor-lg="0.20" data-paroller-factor-md="0.25" data-paroller-factor-sm="0.10" data-paroller-type="foreground" data-paroller-direction="vertical" />
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/assets/images/features_sec_shape01.png"
+                }
+                alt="shape"
+                className="paroller"
+                data-paroller-factor="0.25"
+                data-paroller-factor-lg="0.20"
+                data-paroller-factor-md="0.25"
+                data-paroller-factor-sm="0.10"
+                data-paroller-type="foreground"
+                data-paroller-direction="vertical"
+              />
             </div>
             <div className="fp-shape-two">
-              <img src={process.env.PUBLIC_URL + '/assets/images/features_sec_shape02.png'} alt="shape" className="paroller" data-paroller-factor="-0.25" data-paroller-factor-lg="0.20" data-paroller-factor-md="0.25" data-paroller-factor-sm="0.10" data-paroller-type="foreground" data-paroller-direction="vertical" />
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/assets/images/features_sec_shape02.png"
+                }
+                alt="shape"
+                className="paroller"
+                data-paroller-factor="-0.25"
+                data-paroller-factor-lg="0.20"
+                data-paroller-factor-md="0.25"
+                data-paroller-factor-sm="0.10"
+                data-paroller-type="foreground"
+                data-paroller-direction="vertical"
+              />
             </div>
             <div className="fp-shape-three">
-              <img src={process.env.PUBLIC_URL + '/assets/images/features_sec_shape03.png'} alt="shape" className="paroller" data-paroller-factor="0.25" data-paroller-factor-lg="0.20" data-paroller-factor-md="0.25" data-paroller-factor-sm="0.10" data-paroller-type="foreground" data-paroller-direction="vertical" />
+              <img
+                src={
+                  process.env.PUBLIC_URL +
+                  "/assets/images/features_sec_shape03.png"
+                }
+                alt="shape"
+                className="paroller"
+                data-paroller-factor="0.25"
+                data-paroller-factor-lg="0.20"
+                data-paroller-factor-md="0.25"
+                data-paroller-factor-sm="0.10"
+                data-paroller-type="foreground"
+                data-paroller-direction="vertical"
+              />
             </div>
           </div>
           <div className="fp-circle one"></div>
@@ -699,13 +1165,28 @@ function Home() {
             <div className="row">
               <div className="col-12">
                 <div className="video-btn">
-                  <a href="https://www.youtube.com/watch?v=HQfF5XRVXjU" className="popup-video ripple-white"><i className="fas fa-play"></i></a>
+                  <a
+                    href="https://www.youtube.com/watch?v=HQfF5XRVXjU"
+                    className="popup-video ripple-white"
+                  >
+                    <i className="fas fa-play"></i>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-          <div className="video-shape one"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape01.png'} alt="shape" /></div>
-          <div className="video-shape two"><img src={process.env.PUBLIC_URL + '/assets/images/video_shape02.png'} alt="shape" /></div>
+          <div className="video-shape one">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
+              alt="shape"
+            />
+          </div>
+          <div className="video-shape two">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
+              alt="shape"
+            />
+          </div>
         </div>
         {/* <section className="fact-area">
           <div className="container">
@@ -753,58 +1234,127 @@ function Home() {
             <div className="row align-items-center justify-content-center">
               <div className="col-xl-5 col-lg-6 col-md-7">
                 <div className="ingredients-img">
-                  <img src={process.env.PUBLIC_URL + '/assets/images/ingredients_img.png'} alt="img" />
-                  <img src={process.env.PUBLIC_URL + '/assets/images/ingredients_shape.png'} alt="img" className="shape" />
+                  <img
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/assets/images/ingredients_img.png"
+                    }
+                    alt="img"
+                  />
+                  <img
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/assets/images/ingredients_shape.png"
+                    }
+                    alt="img"
+                    className="shape"
+                  />
                 </div>
               </div>
               <div className="col-xl-7 col-lg-9">
                 <div className="ingredients-items-wrap">
                   <div className="section-title mb-60">
-                    <p className="sub-title">.. Increased Energy With Suxnix ..</p>
+                    <p className="sub-title">
+                      .. Increased Energy With Suxnix ..
+                    </p>
                     <h2 className="title">Suxnix Ingredients</h2>
                   </div>
                   <div className="row justify-content-center justify-content-lg-start">
                     <div className="col-md-6 col-sm-8">
-                      <div className="ingredients-item wow fadeInUp" data-wow-delay=".2s">
+                      <div
+                        className="ingredients-item wow fadeInUp"
+                        data-wow-delay=".2s"
+                      >
                         <div className="ingredients-thumb">
-                          <img src={process.env.PUBLIC_URL + '/assets/images/ingredients_item01.png'} alt="img" />
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/ingredients_item01.png"
+                            }
+                            alt="img"
+                          />
                         </div>
                         <div className="ingredients-content">
-                          <h5 className="title">Helps You Stick To Your Diet</h5>
-                          <p>A thing added to something else in order to complete or enhance it.</p>
+                          <h5 className="title">
+                            Helps You Stick To Your Diet
+                          </h5>
+                          <p>
+                            A thing added to something else in order to complete
+                            or enhance it.
+                          </p>
                         </div>
                       </div>
                     </div>
                     <div className="col-md-6 col-sm-8">
-                      <div className="ingredients-item wow fadeInUp" data-wow-delay=".3s">
+                      <div
+                        className="ingredients-item wow fadeInUp"
+                        data-wow-delay=".3s"
+                      >
                         <div className="ingredients-thumb">
-                          <img src={process.env.PUBLIC_URL + '/assets/images/ingredients_item02.png'} alt="img" />
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/ingredients_item02.png"
+                            }
+                            alt="img"
+                          />
                         </div>
                         <div className="ingredients-content">
-                          <h5 className="title">Only 3g Net Carbs In Every Jar</h5>
-                          <p>A thing added to something else in order to complete or enhance it.</p>
+                          <h5 className="title">
+                            Only 3g Net Carbs In Every Jar
+                          </h5>
+                          <p>
+                            A thing added to something else in order to complete
+                            or enhance it.
+                          </p>
                         </div>
                       </div>
                     </div>
                     <div className="col-md-6 col-sm-8">
-                      <div className="ingredients-item wow fadeInUp" data-wow-delay=".4s">
+                      <div
+                        className="ingredients-item wow fadeInUp"
+                        data-wow-delay=".4s"
+                      >
                         <div className="ingredients-thumb">
-                          <img src={process.env.PUBLIC_URL + '/assets/images/ingredients_item03.png'} alt="img" />
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/ingredients_item03.png"
+                            }
+                            alt="img"
+                          />
                         </div>
                         <div className="ingredients-content">
-                          <h5 className="title">Ingredients To Fuel Your Body</h5>
-                          <p>A thing added to something else in order to complete or enhance it.</p>
+                          <h5 className="title">
+                            Ingredients To Fuel Your Body
+                          </h5>
+                          <p>
+                            A thing added to something else in order to complete
+                            or enhance it.
+                          </p>
                         </div>
                       </div>
                     </div>
                     <div className="col-md-6 col-sm-8">
-                      <div className="ingredients-item wow fadeInUp" data-wow-delay=".5s">
+                      <div
+                        className="ingredients-item wow fadeInUp"
+                        data-wow-delay=".5s"
+                      >
                         <div className="ingredients-thumb">
-                          <img src={process.env.PUBLIC_URL + '/assets/images/ingredients_item04.png'} alt="img" />
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/ingredients_item04.png"
+                            }
+                            alt="img"
+                          />
                         </div>
                         <div className="ingredients-content">
                           <h5 className="title">Clean Ingredients Only</h5>
-                          <p>A thing added to something else in order to complete or enhance it.</p>
+                          <p>
+                            A thing added to something else in order to complete
+                            or enhance it.
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -819,7 +1369,12 @@ function Home() {
             <div className="row align-items-center">
               <div className="col-lg-6 order-0 order-lg-2">
                 <div className="formula-img">
-                  <img src={process.env.PUBLIC_URL + '/assets/images/formula_img.png'} alt="img" />
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "/assets/images/formula_img.png"
+                    }
+                    alt="img"
+                  />
                 </div>
               </div>
               <div className="col-lg-6">
@@ -829,7 +1384,9 @@ function Home() {
                     <h2 className="title">Why We Chose This Formula</h2>
                   </div>
                   <ul className="formula-list list-wrap">
-                    <li>Tastes like dessert without added sugars or sugar alcohols</li>
+                    <li>
+                      Tastes like dessert without added sugars or sugar alcohols
+                    </li>
                     <li>No artificial sweeteners, dairy, say or corn fiber</li>
                     <li>10G of collagen protein from grass-fed cows</li>
                     <li>Formulated to reduce blood sugar intact</li>
@@ -837,72 +1394,133 @@ function Home() {
                     <li>No energy crashes. Collagen Protein, Stevia</li>
                     <li>10G of collagen protein from grass-fed cows</li>
                   </ul>
-                  <a href="contact.html" className="btn btn-two">Know More</a>
+                  <a href="contact.html" className="btn btn-two">
+                    Know More
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section className="testimonial-area testimonial-bg" data-background="assets/img/bg/testimonial_bg.jpg">
+        <section
+          className="testimonial-area testimonial-bg"
+          data-background="assets/img/bg/testimonial_bg.jpg"
+        >
           <div className="testimonial-overlay"></div>
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-xxl-8 col-xl-9 col-lg-11">
                 <div className="testimonial-active">
-                  <div className="testimonial-item text-center">
-                    <div className="testimonial-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
-                    </div>
-                    <p>“Becoming more involved in administration within the (MidMichigan) health system over the years, I had been researching options for further education that would assist in this transition and fit my busy schedule</p>
-                    <div className="testimonial-avatar-wrap">
-                      <div className="testi-avatar-img">
-                        <img src={process.env.PUBLIC_URL + '/assets/images/testi_avatar01.jpg'} alt="img" />
+                  <OwlCarousel
+                    loop
+                    nav
+                    autoplay
+                    dots={false}
+                    className="owl-carousel owl-theme owl-nav-1"
+                    navText={[
+                      '<i class="fas fa-arrow-left owl-nav-arrow"></i>',
+                      '<i class="fas fa-arrow-right owl-nav-arrow"></i>',
+                    ]}
+                    responsive={{
+                      0: {
+                        items: 1,
+                      },
+                      600: {
+                        items: 1,
+                      },
+                      1000: {
+                        items: 1,
+                      },
+                    }}
+                  >
+                    <div className="testimonial-item text-center">
+                      <div className="testimonial-rating">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
                       </div>
-                      <div className="testi-avatar-info">
-                        <h5 className="name">Janeta Cooper</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="testimonial-item text-center">
-                    <div className="testimonial-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
-                    </div>
-                    <p>“Becoming more involved in administration within the (MidMichigan) health system over the years, I had been researching options for further education that would assist in this transition and fit my busy schedule</p>
-                    <div className="testimonial-avatar-wrap">
-                      <div className="testi-avatar-img">
-                        <img src={process.env.PUBLIC_URL + '/assets/images/testi_avatar02.jpg'} alt="img" />
-                      </div>
-                      <div className="testi-avatar-info">
-                        <h5 className="name">Lempor Kooper</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="testimonial-item text-center">
-                    <div className="testimonial-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
-                    </div>
-                    <p>“Becoming more involved in administration within the (MidMichigan) health system over the years, I had been researching options for further education that would assist in this transition and fit my busy schedule</p>
-                    <div className="testimonial-avatar-wrap">
-                      <div className="testi-avatar-img">
-                        <img src={process.env.PUBLIC_URL + '/assets/images/testi_avatar03.jpg'} alt="img" />
-                      </div>
-                      <div className="testi-avatar-info">
-                        <h5 className="name">Zonalos Neko</h5>
+                      <p>
+                        “Becoming more involved in administration within the
+                        (MidMichigan) health system over the years, I had been
+                        researching options for further education that would
+                        assist in this transition and fit my busy schedule
+                      </p>
+                      <div className="testimonial-avatar-wrap">
+                        <div className="testi-avatar-img">
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/testi_avatar01.jpg"
+                            }
+                            alt="img"
+                          />
+                        </div>
+                        <div className="testi-avatar-info">
+                          <h5 className="name">Janeta Cooper</h5>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                    <div className="testimonial-item text-center">
+                      <div className="testimonial-rating">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
+                      </div>
+                      <p>
+                        “Becoming more involved in administration within the
+                        (MidMichigan) health system over the years, I had been
+                        researching options for further education that would
+                        assist in this transition and fit my busy schedule
+                      </p>
+                      <div className="testimonial-avatar-wrap">
+                        <div className="testi-avatar-img">
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/testi_avatar02.jpg"
+                            }
+                            alt="img"
+                          />
+                        </div>
+                        <div className="testi-avatar-info">
+                          <h5 className="name">Lempor Kooper</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="testimonial-item text-center">
+                      <div className="testimonial-rating">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
+                      </div>
+                      <p>
+                        “Becoming more involved in administration within the
+                        (MidMichigan) health system over the years, I had been
+                        researching options for further education that would
+                        assist in this transition and fit my busy schedule
+                      </p>
+                      <div className="testimonial-avatar-wrap">
+                        <div className="testi-avatar-img">
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/testi_avatar03.jpg"
+                            }
+                            alt="img"
+                          />
+                        </div>
+                        <div className="testi-avatar-info">
+                          <h5 className="name">Zonalos Neko</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </OwlCarousel>
                 </div>
               </div>
             </div>
@@ -924,10 +1542,11 @@ function Home() {
                           Is protein only used for muscle development?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          A lot of people think that protein is only used for muscle
-                          growth and repair, however it can provide a lot of other
-                          benefits, such as refueling your stores of nutrients and amino
-                          acids which have been lost during exercise.
+                          A lot of people think that protein is only used for
+                          muscle growth and repair, however it can provide a lot
+                          of other benefits, such as refueling your stores of
+                          nutrients and amino acids which have been lost during
+                          exercise.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="2" className="mt-3 p-4">
@@ -935,29 +1554,30 @@ function Home() {
                           What is whey protein?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Whey is a "complete" protein, meaning it contains all the
-                          essential amino acids that the human body requires for proper
-                          repair and function. Whey protein is also a rich source of the
-                          branched chain amino acids, L-Leucine, L-Isoleucine and
-                          L-Valine.
+                          Whey is a "complete" protein, meaning it contains all
+                          the essential amino acids that the human body requires
+                          for proper repair and function. Whey protein is also a
+                          rich source of the branched chain amino acids,
+                          L-Leucine, L-Isoleucine and L-Valine.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="3" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          Difference between whey protein isolate and whey protein
-                          concentrate?
+                          Difference between whey protein isolate and whey
+                          protein concentrate?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          According to the Food and Drug Administration, whey protein
-                          isolate is a natural dairy protein powder made up of at least
-                          90% protein.
+                          According to the Food and Drug Administration, whey
+                          protein isolate is a natural dairy protein powder made
+                          up of at least 90% protein.
                           <br />
-                          As a protein source, whey protein isolate contains more
-                          protein than whey protein concentrate, which contains about
-                          80% protein. In addition, whey protein isolate contains almost
-                          no sugar, lactose or fat. Although whey protein isolate packs
-                          more protein, whey protein concentrate is the most economical
-                          option per gram of protein.
+                          As a protein source, whey protein isolate contains
+                          more protein than whey protein concentrate, which
+                          contains about 80% protein. In addition, whey protein
+                          isolate contains almost no sugar, lactose or fat.
+                          Although whey protein isolate packs more protein, whey
+                          protein concentrate is the most economical option per
+                          gram of protein.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="4" className="mt-3 p-4">
@@ -965,23 +1585,25 @@ function Home() {
                           Can those who are lactose intolerant eat whey protein?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Whey protein isolate is virtually free of lactose, but may
-                          contain trace amounts (0.5g per serving). Most people who are
-                          lactose intolerant are able to safely consume whey without any
-                          negative side effects however a medical practitioner should
-                          always be consulted before taking if there are any doubts.
+                          Whey protein isolate is virtually free of lactose, but
+                          may contain trace amounts (0.5g per serving). Most
+                          people who are lactose intolerant are able to safely
+                          consume whey without any negative side effects however
+                          a medical practitioner should always be consulted
+                          before taking if there are any doubts.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="5" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          If whey protein concentrate is 80% protein, what is the other
-                          20%?
+                          If whey protein concentrate is 80% protein, what is
+                          the other 20%?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Every protein powder, whether it's whey, soy, casein, etc.,
-                          has moisture. In fact, 5% of the total formula is water.
-                          Another 3-5% is made up of naturally occurring minerals in
-                          whey. The remaining 10-12% is a combination of carbs and fat.
+                          Every protein powder, whether it's whey, soy, casein,
+                          etc., has moisture. In fact, 5% of the total formula
+                          is water. Another 3-5% is made up of naturally
+                          occurring minerals in whey. The remaining 10-12% is a
+                          combination of carbs and fat.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="6" className="mt-3 p-4">
@@ -989,13 +1611,14 @@ function Home() {
                           Will A Higher Protein Diet Harm My Kidneys?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          According to a study published in the "American Journal of
-                          Kidney Disease," anyone who is currently suffering from
-                          chronic kidney disease should avoid high-protein diets. For
-                          otherwise healthy folk, your high protein intake should not
-                          pose a threat to your kidneys; make sure to keep your total
-                          daily protein consumption reasonable and consume sufficient
-                          water to counteract the water loss. Check with your doctor
+                          According to a study published in the "American
+                          Journal of Kidney Disease," anyone who is currently
+                          suffering from chronic kidney disease should avoid
+                          high-protein diets. For otherwise healthy folk, your
+                          high protein intake should not pose a threat to your
+                          kidneys; make sure to keep your total daily protein
+                          consumption reasonable and consume sufficient water to
+                          counteract the water loss. Check with your doctor
                           first if you are concerned about this.
                         </Accordion.Body>
                       </Accordion.Item>
@@ -1004,31 +1627,34 @@ function Home() {
                           Will More Protein Help Me Build Muscle Faster?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Yes, but only to some degree. Not all dietary protein you eat
-                          goes toward protein synthesis. Once you eat enough protein to
-                          drive protein synthesis, your body will oxidize protein for
-                          energy. Driving your protein intake far beyond the realm of
-                          30-35 percent of your daily calories probably won't provide
-                          additional muscle-building benefits, but it will cut into your
-                          fat and carbohydrate intake, which may actually hinder your
-                          goals. This isn't exact, but eating at least 1 gram of protein
-                          per pound per day should cover your bases.
+                          Yes, but only to some degree. Not all dietary protein
+                          you eat goes toward protein synthesis. Once you eat
+                          enough protein to drive protein synthesis, your body
+                          will oxidize protein for energy. Driving your protein
+                          intake far beyond the realm of 30-35 percent of your
+                          daily calories probably won't provide additional
+                          muscle-building benefits, but it will cut into your
+                          fat and carbohydrate intake, which may actually hinder
+                          your goals. This isn't exact, but eating at least 1
+                          gram of protein per pound per day should cover your
+                          bases.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="8" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          Is It True The Body Can Only Use 30 Grams Of Protein At Once?
+                          Is It True The Body Can Only Use 30 Grams Of Protein
+                          At Once?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          You're going to digest all the protein you eat, but more isn't
-                          always better. Once you turn on protein synthesis and initiate
-                          the muscle-building process, you can't turn it on "more" in
-                          one meal.
+                          You're going to digest all the protein you eat, but
+                          more isn't always better. Once you turn on protein
+                          synthesis and initiate the muscle-building process,
+                          you can't turn it on "more" in one meal.
                           <br />
-                          Roughly 30 grams of protein per meal across multiple meals
-                          will actually help you boost protein synthesis many times over
-                          the course of a day. It will probably be easier on your
-                          digestive system, too.
+                          Roughly 30 grams of protein per meal across multiple
+                          meals will actually help you boost protein synthesis
+                          many times over the course of a day. It will probably
+                          be easier on your digestive system, too.
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>

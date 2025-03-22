@@ -43,17 +43,19 @@ function PureGoWheyProtein() {
 
   // Default selected flavor is Chocolate
   const [selectedFlavor, setSelectedFlavor] = useState("chocolate");
-  const [selectedImage, setSelectedImage] = useState(product[selectedFlavor][0]);
+  const [selectedImage, setSelectedImage] = useState(
+    product[selectedFlavor][0]
+  );
 
   return (
     <>
       <Helmet>
         <title>
-          Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+          Pure Go | Best Whey Protein in India | Premium Supplements
         </title>
         <meta
           name="description"
-          content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+          content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
         />
         <meta
           name="keyword"
@@ -130,7 +132,7 @@ function PureGoWheyProtein() {
       </Helmet>
       {/* <WhatsappHeaderApp
         message={
-          "Hello, I wanted to know more about all Gomzi Nutrition Products. "
+          "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
@@ -178,7 +180,7 @@ function PureGoWheyProtein() {
         <section className="inner-shop-details-area">
           <div className="container">
             <div className="row">
-            <div className="col-lg-5">
+              <div className="col-lg-5">
                 <div className="inner-shop-details-flex-wrap">
                   <div className="inner-shop-details-img-wrap">
                     <div className="inner-shop-details-img">
@@ -230,10 +232,11 @@ function PureGoWheyProtein() {
                     <h5 className="stock-status">- IN Stock</h5>
                   </div>
                   <p>
-                    Pure-Go food is food produced by methods complying with the
-                    standards of Rrganic farming. Standards vary Lorem ipsum
-                    dolor sit amet, consectetur adipiscing worldwide, but
-                    organic farming.
+                    Pure Go Whey Protein is a Mixture of Whey Isolate, Whey
+                    Concentrate, Skimmed Milk powder, Soy protein isolate and
+                    plant protein. It is packed with 24g of 100% High Quality
+                    whey protein per serving (30g scoop). The benchmark and
+                    premium source of protein powders.
                   </p>
                   <div>
                     <h4>Flavor:</h4>
@@ -331,51 +334,49 @@ function PureGoWheyProtein() {
                       aria-labelledby="description-tab"
                     >
                       <div className="product-desc-content">
-                        <h4 className="title">
-                          The true strength of Pure-Go :
-                        </h4>
+                        <h4 className="title">Whey Protein</h4>
                         <p>
-                          Whey Protein Isolates (WPIs) are the purest form of
-                          whey protein that currently exists. WPIs are costly to
-                          use, but rate among the best proteins that money can
-                          buy. That’s why they’re the first ingredient you read
-                          on the Gold Standard 100% Whey™ label. By using WPI as
-                          the primary ingredient along with premium
-                          ultra-filtered whey protein concentrate (WPC), we’re
-                          able to pack 24 grams of protein into every serving to
-                          support your muscle building needs after training.
-                          ON’attention to detail also extends to mixability.
-                          This superior quality powder has been instantized to
-                          mix easliy using a shaker cup or just a glass and
-                          spoon. There’s no doubt that this is the standard by
-                          which all other whey proteins are measured.
+                          Pure Go Whey Protein is a Mixture of Whey Isolate,
+                          Whey Concentrate, Skimmed Milk powder, Soy protein
+                          isolate and plant protein. It is packed with 24g of
+                          100% High Quality whey protein per serving (30g
+                          scoop). The benchmark and premium source of protein
+                          powders. Each serving delivers an excellent course of
+                          naturally occurring essential amino acids and Branch
+                          Chain Amino Acids (BCAA's). The protein found in
+                          Performance Whey Blend help support the growth and
+                          maintenance of lean muscle mass, ideal for everyone.
                         </p>
-                        <h4 className="title">Pure-Go the basics :</h4>
-                        <ul className="product-desc-list list-wrap">
-                          <li>
-                            82% Protein by Weight (24g of Protein Per 31.5g
-                            Serving Size).
-                          </li>
-                          <li>Whey Protein Isolates (WPI) Main Ingredient.</li>
-                          <li>
-                            Whey Protein Micro-functions from Whey Protein
-                            Isolate and Ultra-Filtered Whey Protein Concentrate.
-                          </li>
-                          <li>
-                            Over 4g of Naturally Occurring Glutamine & Glutamic
-                            Acid in Each Serving.
-                          </li>
-                          <li>
-                            More than 5g of the Naturally Occurring Branched
-                            Chain Amino Acids (BCAAs) Leucine, Isoleucine, and
-                            Valine in Each Serving.
-                          </li>
-                          <li>The “Gold Standard” for Protein Quality.</li>
-                          <li>Banned Substance Tested Protein</li>
-                          <li>
-                            French Vanilla Creme Flavored Whey Protein Powder
-                          </li>
-                        </ul>
+                        <h4 className="title">
+                          BETTER INGREDIENTS = BETTER RESULTS
+                        </h4>
+                        <h4 className="title">NO COLORS:</h4>
+                        <p>
+                          Pure Go Whey Protein does not contain any COLOR or
+                          PRESERVATIVES.
+                        </p>
+                        <h4 className="title">NO ADDED SUGAR:</h4>
+                        <p>
+                          Pure Go Whey Protein does not Contain any Added SUGAR.
+                        </p>
+                        <h4 className="title">CONTAINS SUCRALOSE:</h4>
+                        <p>
+                          It also contains SUCRALOSE as a sweetening agent and
+                          may taste bitter due to its natural properties.
+                        </p>
+                        <h4 className="title">TRUSTIFIED CERTIFIED:</h4>
+                        <p>
+                          Blind Testing for Protein & Macro Accuracy, Tested for
+                          Amino Spiking & Heavy Metals.
+                        </p>
+                        <h4 className="title">DIRECTIONS:</h4>
+                        <p>
+                          Add one rounded scoop (30 gm) of Whey Protein to 180 -
+                          200 ml of your favorite liquid such as water, skim
+                          milk or almond milk. Stir with a spoon or shake in a
+                          shaker for 20-25 seconds until protein powder fully
+                          dissolves.
+                        </p>
                       </div>
                     </div>
                     <div

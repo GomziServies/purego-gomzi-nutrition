@@ -69,37 +69,37 @@ function HomeNutritionFooter() {
                         <p>Making beauty especially relating complot especial common questions tend to recur through posts or queries standards vary orem donor command tei.</p>
                       </div>
                       <div className="footer-social">
-                        <a href="#"><i className="fab fa-facebook-f"></i></a>
-                        <a href="#"><i className="fab fa-twitter"></i></a>
-                        <a href="#"><i className="fab fa-pinterest-p"></i></a>
-                        <a href="#"><i className="fab fa-linkedin-in"></i></a>
+                        <Link to="#"><i className="fab fa-facebook-f"></i></Link>
+                        <Link to="#"><i className="fab fa-twitter"></i></Link>
+                        <Link to="#"><i className="fab fa-pinterest-p"></i></Link>
+                        <Link to="#"><i className="fab fa-linkedin-in"></i></Link>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-5 col-sm-6">
                   <div className="footer-widget">
-                    <h4 className="fw-title">About Us</h4>
+                    <h4 className="fw-title">Information</h4>
                     <ul className="list-wrap">
-                      <li><a href="#">About Company</a></li>
-                      <li><a href="#">Affiliate Program</a></li>
-                      <li><a href="#">Customer Spotlight</a></li>
-                      <li><a href="#">Reseller Program</a></li>
-                      <li><a href="shop.html">Our Shop</a></li>
-                      <li><a href="#">Price & Plans</a></li>
+                      <li><Link to="terms-conditions">Terms & Conditions</Link></li>
+                      <li><Link to="return-and-refund-policy-customer">Return & Refund</Link></li>
+                      <li><Link to="privacy-policy-customer">Privacy Policy</Link></li>
+                      <li><Link to="cancellation-policy-customer">Cancellation Policy</Link></li>
+                      <li><Link to="pricing-policy-customer">Pricing Policy</Link></li>
+                      <li><Link to="shipping-policy-customer">Shipping Policy</Link></li>
+                      <li><Link to="contact-us">Contact Us</Link></li>
                     </ul>
                   </div>
                 </div>
                 <div className="col-lg-2 col-md-5 col-sm-6">
                   <div className="footer-widget">
-                    <h4 className="fw-title">Support</h4>
+                    <h4 className="fw-title">Products</h4>
                     <ul className="list-wrap">
-                      <li><a href="#">Knowledge Base</a></li>
-                      <li><a href="blog.html">Blog</a></li>
-                      <li><a href="#">Developer API</a></li>
-                      <li><a href="#">FAQ</a></li>
-                      <li><a href="#">Team</a></li>
-                      <li><a href="contact.html">Contact</a></li>
+                      <li><Link to="pure-go-creatine">Creatine</Link></li>
+                      <li><Link to="pre-workout">Pre Workout</Link></li>
+                      <li><Link to="eaa">EAA</Link></li>
+                      <li><Link to="mass-gainer">Mass Gainer</Link></li>
+                      <li><Link to="whey-protein">Whey Protein</Link></li>
                     </ul>
                   </div>
                 </div>

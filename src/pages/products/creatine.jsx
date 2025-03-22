@@ -28,11 +28,11 @@ function PureGoCreatine() {
     <>
       <Helmet>
         <title>
-          Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+          Pure Go | Best Whey Protein in India | Premium Supplements
         </title>
         <meta
           name="description"
-          content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+          content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
         />
         <meta
           name="keyword"
@@ -109,7 +109,7 @@ function PureGoCreatine() {
       </Helmet>
       {/* <WhatsappHeaderApp
         message={
-          "Hello, I wanted to know more about all Gomzi Nutrition Products. "
+          "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
@@ -222,10 +222,11 @@ function PureGoCreatine() {
                     <h5 className="stock-status">- IN Stock</h5>
                   </div>
                   <p>
-                    Pure-Go food is food produced by methods complying with the
-                    standards of Rrganic farming. Standards vary Lorem ipsum
-                    dolor sit amet, consectetur adipiscing worldwide, but
-                    organic farming.
+                    Creatine monohydrate works by increasing the body's stores
+                    of phosphocreatine, a molecule that helps regenerate
+                    adenosine triphosphate, the primary energy source for muscle
+                    contractions during high-intensity activities like
+                    weightlifting and sprinting.
                   </p>
                   <div>
                     <h4>Flavor:</h4>
@@ -245,13 +246,21 @@ function PureGoCreatine() {
                     <div className="sd-cart-wrap d-flex me-3">
                       <form action="#" className="d-flex">
                         <div>
-                          <input type="button" value="-" className="plus-minus w-25 me-2" />
+                          <input
+                            type="button"
+                            value="-"
+                            className="plus-minus w-25 me-2"
+                          />
                         </div>
                         <div className="quickview-cart-plus-minus">
                           <input type="text" value="1" />
                         </div>
                         <div className="quickview-cart-plus-minus w-25">
-                          <input type="button" value="+" className="px-1 w-25" />
+                          <input
+                            type="button"
+                            value="+"
+                            className="px-1 w-25"
+                          />
                         </div>
                       </form>
                     </div>
@@ -289,47 +298,64 @@ function PureGoCreatine() {
                       aria-labelledby="description-tab"
                     >
                       <div className="product-desc-content">
-                        <h4 className="title">The true strength of Pure-Go :</h4>
+                        <h4 className="title">Pure Go Creatine Monohydrate</h4>
                         <p>
-                          Whey Protein Isolates (WPIs) are the purest form of
-                          whey protein that currently exists. WPIs are costly to
-                          use, but rate among the best proteins that money can
-                          buy. That’s why they’re the first ingredient you read
-                          on the Gold Standard 100% Whey™ label. By using WPI as
-                          the primary ingredient along with premium
-                          ultra-filtered whey protein concentrate (WPC), we’re
-                          able to pack 24 grams of protein into every serving to
-                          support your muscle building needs after training.
-                          ON’attention to detail also extends to mixability.
-                          This superior quality powder has been instantized to
-                          mix easliy using a shaker cup or just a glass and
-                          spoon. There’s no doubt that this is the standard by
-                          which all other whey proteins are measured.
+                          Creatine monohydrate works by increasing the body's
+                          stores of phosphocreatine, a molecule that helps
+                          regenerate adenosine triphosphate, the primary energy
+                          source for muscle contractions during high-intensity
+                          activities like weightlifting and sprinting.
                         </p>
-                        <h4 className="title">Pure-Go the basics :</h4>
+                        <h4 className="title">
+                          When To Consume Creatine Monohydrate?
+                        </h4>
+                        <p>
+                          Creatine is a compelling intra and post-exercise
+                          supplements. This implies that you ought to be
+                          consuming these during your exercise center meeting or
+                          following. This is because they are viable in
+                          assisting with building and fixing muscle harms from
+                          serious meetings. These impact the top around 30 to an
+                          hour post utilization. In turn, you should drink your
+                          supplements during that window to help build muscle
+                          and improve muscle recovery. This will assist with
+                          muscle irritation post-exercise.
+                        </p>
+                        <h4 className="title">
+                          Precautions To Take When Consuming Creatine Powder:
+                        </h4>
                         <ul className="product-desc-list list-wrap">
                           <li>
-                            82% Protein by Weight (24g of Protein Per 31.5g
-                            Serving Size).
-                          </li>
-                          <li>Whey Protein Isolates (WPI) Main Ingredient.</li>
-                          <li>
-                            Whey Protein Micro-functions from Whey Protein
-                            Isolate and Ultra-Filtered Whey Protein Concentrate.
+                            Following precautions must be taken when using
+                            creatine supplements either as pre-workout or
+                            post-workout.
                           </li>
                           <li>
-                            Over 4g of Naturally Occurring Glutamine & Glutamic
-                            Acid in Each Serving.
+                            Creatine supplements might obstruct blood glucose
+                            levels during and after medical procedures. You may
+                            likewise be at expanded risk if you have persistent
+                            liquor addiction or fanned-chain ketoaciduria.
                           </li>
                           <li>
-                            More than 5g of the Naturally Occurring Branched
-                            Chain Amino Acids (BCAAs) Leucine, Isoleucine, and
-                            Valine in Each Serving.
+                            Also, if you're pregnant or breastfeeding, don't
+                            indulge in creatine intake. These ought to be
+                            utilised warily previously or during exercises that
+                            require engine coordination, like driving.
                           </li>
-                          <li>The “Gold Standard” for Protein Quality.</li>
-                          <li>Banned Substance Tested Protein</li>
                           <li>
-                            French Vanilla Creme Flavored Whey Protein Powder
+                            Creatine powder could likewise cause stomach issues,
+                            including sickness, loose bowels, and swelling.
+                          </li>
+                          <li>
+                            You should likewise peruse the mark of the item
+                            cautiously to guarantee that you defeat results and
+                            face no difficulties in the later stages.
+                          </li>
+                          <li>
+                            It is important to consult a doctor before you begin
+                            with any kind of intake as he can guide you on your
+                            dosage and intake frequency based on your medical
+                            conditions.
                           </li>
                         </ul>
                       </div>

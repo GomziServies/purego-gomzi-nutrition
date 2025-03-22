@@ -28,11 +28,11 @@ function PureGoEaa() {
     <>
       <Helmet>
         <title>
-          Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+          Pure Go | Best Whey Protein in India | Premium Supplements
         </title>
         <meta
           name="description"
-          content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+          content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
         />
         <meta
           name="keyword"
@@ -109,7 +109,7 @@ function PureGoEaa() {
       </Helmet>
       {/* <WhatsappHeaderApp
         message={
-          "Hello, I wanted to know more about all Gomzi Nutrition Products. "
+          "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
@@ -222,10 +222,10 @@ function PureGoEaa() {
                     <h5 className="stock-status">- IN Stock</h5>
                   </div>
                   <p>
-                    Pure-Go food is food produced by methods complying with the
-                    standards of Rrganic farming. Standards vary Lorem ipsum
-                    dolor sit amet, consectetur adipiscing worldwide, but
-                    organic farming.
+                    EAA is an advanced science-based solution that contains 13
+                    Ultra amino acids as well as hydration and a vitamin booster
+                    combination. EAAs aid in muscle growth and regeneration
+                    while also lowering fatigue and soreness.
                   </p>
                   <div>
                     <h4>Flavor:</h4>
@@ -245,13 +245,21 @@ function PureGoEaa() {
                     <div className="sd-cart-wrap d-flex me-3">
                       <form action="#" className="d-flex">
                         <div>
-                          <input type="button" value="-" className="plus-minus w-25 me-2" />
+                          <input
+                            type="button"
+                            value="-"
+                            className="plus-minus w-25 me-2"
+                          />
                         </div>
                         <div className="quickview-cart-plus-minus">
                           <input type="text" value="1" />
                         </div>
                         <div className="quickview-cart-plus-minus w-25">
-                          <input type="button" value="+" className="px-1 w-25" />
+                          <input
+                            type="button"
+                            value="+"
+                            className="px-1 w-25"
+                          />
                         </div>
                       </form>
                     </div>
@@ -289,49 +297,86 @@ function PureGoEaa() {
                       aria-labelledby="description-tab"
                     >
                       <div className="product-desc-content">
-                        <h4 className="title">The true strength of Pure-Go :</h4>
+                        <h4 className="title">Pure Go EAA</h4>
                         <p>
-                          Whey Protein Isolates (WPIs) are the purest form of
-                          whey protein that currently exists. WPIs are costly to
-                          use, but rate among the best proteins that money can
-                          buy. That’s why they’re the first ingredient you read
-                          on the Gold Standard 100% Whey™ label. By using WPI as
-                          the primary ingredient along with premium
-                          ultra-filtered whey protein concentrate (WPC), we’re
-                          able to pack 24 grams of protein into every serving to
-                          support your muscle building needs after training.
-                          ON’attention to detail also extends to mixability.
-                          This superior quality powder has been instantized to
-                          mix easliy using a shaker cup or just a glass and
-                          spoon. There’s no doubt that this is the standard by
-                          which all other whey proteins are measured.
+                          EAA is an advanced science-based solution that
+                          contains 13 Ultra amino acids as well as hydration and
+                          a vitamin booster combination. EAAs aid in muscle
+                          growth and regeneration while also lowering fatigue
+                          and soreness. This formula contains taurine, which
+                          aids in muscle re-energizing and mending, as well as
+                          citrulline, which aids in the oxygenation and
+                          elimination of toxins from muscles.
                         </p>
-                        <h4 className="title">Pure-Go the basics :</h4>
-                        <ul className="product-desc-list list-wrap">
-                          <li>
-                            82% Protein by Weight (24g of Protein Per 31.5g
-                            Serving Size).
-                          </li>
-                          <li>Whey Protein Isolates (WPI) Main Ingredient.</li>
-                          <li>
-                            Whey Protein Micro-functions from Whey Protein
-                            Isolate and Ultra-Filtered Whey Protein Concentrate.
-                          </li>
-                          <li>
-                            Over 4g of Naturally Occurring Glutamine & Glutamic
-                            Acid in Each Serving.
-                          </li>
-                          <li>
-                            More than 5g of the Naturally Occurring Branched
-                            Chain Amino Acids (BCAAs) Leucine, Isoleucine, and
-                            Valine in Each Serving.
-                          </li>
-                          <li>The “Gold Standard” for Protein Quality.</li>
-                          <li>Banned Substance Tested Protein</li>
-                          <li>
-                            French Vanilla Creme Flavored Whey Protein Powder
-                          </li>
-                        </ul>
+                        <p>
+                          This drink has a smooth and creamy texture thanks to
+                          Ultra Granulation Technology. 13 Ultra Amino acids
+                          help in muscle recovery Muscle Hydrating Electrolytes
+                          help Hydrate Muscle Fibres for Proper Muscle & Nerve
+                          Function Added Vitamin booster blend that aids Muscle
+                          Growth and Health, Enhances Metabolism EAA is
+                          vegetarian, caffeine and banned substance free with no
+                          added sugar.
+                        </p>
+                        <h4 className="title">
+                          What Are The Benefits Of Consuming Intra-Training
+                          Drinks?
+                        </h4>
+                        <p>
+                          Intra-training supplements are those energy drinks
+                          that are consumed during training/workouts. They
+                          contain ingredients that are readily absorbed by the
+                          body to offer immediate effect with the aim to provide
+                          delay intra-workout fatigue, hydration, optimize
+                          muscle recovery and enhance performance.
+                        </p>
+                        <h4 className="title">How EAA Benefits?</h4>
+                        <p>
+                          Amino acids are organic substances that include
+                          nitrogen, carbon, hydrogen, and oxygen, as well as a
+                          variable side chain group. To develop and operate
+                          properly, our bodies require 20 distinct amino acids,
+                          out of which 9 are essential. Our bodies cannot
+                          produce these 9 amino acids; thus, they must be
+                          supplied through diet or supplementation, hence are
+                          considered essential amino acids. The best EAA
+                          supplement in India helps in increasing energy and
+                          endurance, provides better muscle recovery, boosts
+                          exercise and athletic performance, and better
+                          hydration to the muscles.
+                        </p>
+                        <h4 className="title">How Does EAA Help?</h4>
+                        <p>
+                          EAA is an advanced science-based formula designed with
+                          a complete spectrum of 9 essential amino acids with
+                          added hydration and a vitamin booster blend. EAAs help
+                          in muscle development and repair, as well as reducing
+                          muscle fatigue and soreness. This formula contains
+                          taurine, which aids in re-energizing and muscle
+                          healing, as well as citrulline, which helps oxygenate
+                          and eliminate toxins from muscles. The electrolytes
+                          combination will aid in the hydration of muscle fibers
+                          as well as healthy nerve and muscle function. The
+                          Vitamin Booster combination promotes muscular growth
+                          and metabolism. Designed with Ultra Granulation
+                          Technology this drink has a smooth and creamy texture,
+                          is banned substance free, and is available in
+                          delicious flavor.
+                        </p>
+                        <h4 className="title">Who Can Opt For EAA?</h4>
+                        <p>
+                          EAA can be consumed during intra-training/ workout by
+                          anyone who participates in sports, is body-building,
+                          fitness enthusiast looking to improve performance and
+                          recovery.
+                        </p>
+                        <h4 className="title">How To Use:</h4>
+                        <p>
+                          Add 1 scoop ( 10 gm ) of EAA in 400 - 420 ml of water
+                          or your favorite drink. Mix well. Drink!
+                        </p>
+                        <h4 className="title">When To Use:</h4>
+                        <p>During workouts or training</p>
                       </div>
                     </div>
                     <div

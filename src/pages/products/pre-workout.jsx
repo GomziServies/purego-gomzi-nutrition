@@ -21,18 +21,19 @@ function PureGoPreWorkout() {
   const canonicalUrl = window.location.href;
 
   const [selectedImage, setSelectedImage] = useState(
-    process.env.PUBLIC_URL + "/assets/images/products/pre-workout/pre-workout-1.webp"
+    process.env.PUBLIC_URL +
+      "/assets/images/products/pre-workout/pre-workout-1.webp"
   );
 
   return (
     <>
       <Helmet>
         <title>
-          Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+          Pure Go | Best Whey Protein in India | Premium Supplements
         </title>
         <meta
           name="description"
-          content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+          content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
         />
         <meta
           name="keyword"
@@ -109,7 +110,7 @@ function PureGoPreWorkout() {
       </Helmet>
       {/* <WhatsappHeaderApp
         message={
-          "Hello, I wanted to know more about all Gomzi Nutrition Products. "
+          "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
@@ -222,10 +223,9 @@ function PureGoPreWorkout() {
                     <h5 className="stock-status">- IN Stock</h5>
                   </div>
                   <p>
-                    Pure-Go food is food produced by methods complying with the
-                    standards of Rrganic farming. Standards vary Lorem ipsum
-                    dolor sit amet, consectetur adipiscing worldwide, but
-                    organic farming.
+                    It will suppress your appetite and provide you with a higher
+                    energy level in order to keep the adrenaline levels up. It
+                    will also boost your metabolism and burn calories for you.
                   </p>
                   <div>
                     <h4>Flavor:</h4>
@@ -245,13 +245,21 @@ function PureGoPreWorkout() {
                     <div className="sd-cart-wrap d-flex me-3">
                       <form action="#" className="d-flex">
                         <div>
-                          <input type="button" value="-" className="plus-minus w-25 me-2" />
+                          <input
+                            type="button"
+                            value="-"
+                            className="plus-minus w-25 me-2"
+                          />
                         </div>
                         <div className="quickview-cart-plus-minus">
                           <input type="text" value="1" />
                         </div>
                         <div className="quickview-cart-plus-minus w-25">
-                          <input type="button" value="+" className="px-1 w-25" />
+                          <input
+                            type="button"
+                            value="+"
+                            className="px-1 w-25"
+                          />
                         </div>
                       </form>
                     </div>
@@ -289,47 +297,75 @@ function PureGoPreWorkout() {
                       aria-labelledby="description-tab"
                     >
                       <div className="product-desc-content">
-                        <h4 className="title">The true strength of Pure-Go :</h4>
+                        <h4 className="title">Pure Go Pre Workout</h4>
                         <p>
-                          Whey Protein Isolates (WPIs) are the purest form of
-                          whey protein that currently exists. WPIs are costly to
-                          use, but rate among the best proteins that money can
-                          buy. That’s why they’re the first ingredient you read
-                          on the Gold Standard 100% Whey™ label. By using WPI as
-                          the primary ingredient along with premium
-                          ultra-filtered whey protein concentrate (WPC), we’re
-                          able to pack 24 grams of protein into every serving to
-                          support your muscle building needs after training.
-                          ON’attention to detail also extends to mixability.
-                          This superior quality powder has been instantized to
-                          mix easliy using a shaker cup or just a glass and
-                          spoon. There’s no doubt that this is the standard by
-                          which all other whey proteins are measured.
+                          It will suppress your appetite and provide you with a
+                          higher energy level in order to keep the adrenaline
+                          levels up. It will also boost your metabolism and burn
+                          calories for you. For permanent weight loss, it is
+                          recommended to use a fat burner which helps to reduce
+                          fat faster. Ignite The Fat Burner Pre-Workout is a
+                          sophisticated and comprehensive pre-workout fat burner
+                          supplement.
                         </p>
-                        <h4 className="title">Pure-Go the basics :</h4>
+                        <p>
+                          Delivering intense energy, supercharged strength, and
+                          power, heightened focus, vein-popping pump and
+                          endurance, and superior workouts with enhanced
+                          thermogenic and fat-burning properties are just a few
+                          of the benefits of its uniquely developed formula. For
+                          athletes of all levels, Ignite The Fat Burner
+                          Pre-Workout is a highly stimulating and effective
+                          pre-workout fat-burning supplement that can assist
+                          maximize workout performance, burning fat more
+                          quickly, and pushing your body beyond previous
+                          boundaries.
+                        </p>
+                        <h4 className="title">BENEFITS:</h4>
                         <ul className="product-desc-list list-wrap">
                           <li>
-                            82% Protein by Weight (24g of Protein Per 31.5g
-                            Serving Size).
-                          </li>
-                          <li>Whey Protein Isolates (WPI) Main Ingredient.</li>
-                          <li>
-                            Whey Protein Micro-functions from Whey Protein
-                            Isolate and Ultra-Filtered Whey Protein Concentrate.
+                            Experience real results & better performance with
+                            fat burning ingredients.
                           </li>
                           <li>
-                            Over 4g of Naturally Occurring Glutamine & Glutamic
-                            Acid in Each Serving.
+                            Clinically proven & versatile supplement solution.
+                          </li>
+                          <li>Controls Appetite & Hunger.</li>
+                        </ul>
+                        <h4 className="title mt-4">Caution:</h4>
+                        <ul className="product-desc-list list-wrap">
+                          <li>
+                            Not for use by persons under the age of 18 years.
                           </li>
                           <li>
-                            More than 5g of the Naturally Occurring Branched
-                            Chain Amino Acids (BCAAs) Leucine, Isoleucine, and
-                            Valine in Each Serving.
+                            Consult your doctor in case you are taking any
+                            medication.
                           </li>
-                          <li>The “Gold Standard” for Protein Quality.</li>
-                          <li>Banned Substance Tested Protein</li>
                           <li>
-                            French Vanilla Creme Flavored Whey Protein Powder
+                            This product is not intended to diagnose, treat,
+                            cure or prevent any disease.
+                          </li>
+                          <li>Do not exceed recommended serving size.</li>
+                          <li>Store in a cool and dry place.</li>
+                          <li>Keep out of reach of children.</li>
+                          <li>
+                            This product is not to be used as a substitute for a
+                            varied diet. Not recommended for children, pregnant
+                            or lactating women. and people sensitive to
+                            caffeine.
+                          </li>
+                        </ul>
+                        <h4 className="title mt-4">Direction For Use?</h4>
+                        <ul className="product-desc-list list-wrap">
+                          <li>
+                            Take 5g (scoop for beginners) once a day with 200 -
+                            220 ml chilled water for an adult or as per
+                            Healthcare Expert.
+                          </li>
+                          <li>
+                            Take 10g (scoop for professionals) once a day with
+                            380 - 400 ml for an adult or as per Healthcare
+                            Expert.
                           </li>
                         </ul>
                       </div>
