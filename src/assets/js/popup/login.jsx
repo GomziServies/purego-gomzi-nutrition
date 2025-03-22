@@ -159,20 +159,20 @@ const LoginModal = ({ onClose }) => {
     <>
       {/* Login Popup  */}
       <Modal show={showModal} onHide={handleClose} centered>
-        <Modal.Header closeButton className="border-0">
+        <Modal.Header closeButton className="border-0 pb-0">
+        </Modal.Header>
+        <Modal.Body>
           <Modal.Title>
-            <div className="text-center">
+            <div className="text-center mb-4">
               <img
                 src={
-                  process.env.PUBLIC_URL + "../assets/images/logo/fg_group.webp"
+                  process.env.PUBLIC_URL + "../assets/images/nutrition-logo.webp"
                 }
-                width="20%"
+                width="35%"
                 alt="Fg Group"
               />
             </div>
           </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
           <Form onSubmit={(e) => e.preventDefault()}>
             <Form.Group
               controlId="formBasicUsername"
@@ -190,7 +190,7 @@ const LoginModal = ({ onClose }) => {
             </Form.Group>
             <Button
               type="button"
-              className="submit_modal"
+              className="submit_modal mb-3"
               style={{
                 width: "100%",
                 color: "#fff",
@@ -203,7 +203,7 @@ const LoginModal = ({ onClose }) => {
               Log In
             </Button>
           </Form>
-          <div className="text-center">
+          {/* <div className="text-center">
             <Button
               onClick={handleSignUpInternational}
               style={{
@@ -218,25 +218,25 @@ const LoginModal = ({ onClose }) => {
             >
               Login For International Student
             </Button>
-          </div>
+          </div> */}
         </Modal.Body>
       </Modal>
       {/* Otp Popup  */}
       <Modal show={otpDialogOpen} onHide={handleCloseOtpModal} centered>
-        <Modal.Header closeButton className="border-0">
+        <Modal.Header closeButton className="border-0 pb-0">
+        </Modal.Header>
+        <Modal.Body>
           <Modal.Title>
-            <div className="text-center">
+            <div className="text-center mb-4">
               <img
                 src={
-                  process.env.PUBLIC_URL + "../assets/images/logo/fg_group.webp"
+                  process.env.PUBLIC_URL + "../assets/images/nutrition-logo.webp"
                 }
-                width="20%"
+                width="35%"
                 alt="Fg Group"
               />
             </div>
           </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
           <Form onSubmit={(e) => e.preventDefault()}>
             <Form.Group
               controlId="formBasicUsername"

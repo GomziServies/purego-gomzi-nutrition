@@ -255,7 +255,7 @@ function AddToCart() {
                 />
                 <meta
                     property="og:url"
-                    content="https://www.gomzilifesciences.in/"
+                    content="https://purego.gomzilifesciences.in/"
                 />
                 <link rel="canonical" href={{ canonicalUrl }} />
 

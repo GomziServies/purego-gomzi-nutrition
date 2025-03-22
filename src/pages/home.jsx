@@ -302,7 +302,10 @@ function Home() {
           property="og:image"
           content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
         />
-        <meta property="og:url" content="https://www.gomzilifesciences.in/" />
+        <meta
+          property="og:url"
+          content="https://purego.gomzilifesciences.in/"
+        />
         <link rel="canonical" href={{ canonicalUrl }} />
 
         <link rel="preconnect" href="https://connect.facebook.net" />
@@ -556,10 +559,10 @@ function Home() {
                           <i className="far fa-user"></i>
                         </div>
                         <div className="features-content">
-                          <h4 className="title">Multi Fruits Flavour</h4>
+                          <h4 className="title">Herbal Boost</h4>
                           <p>
-                            A thing added to something else in order to complete
-                            or enhance it.
+                            Natural wellness products to boost immunity and
+                            healthit.
                           </p>
                         </div>
                       </div>
@@ -570,10 +573,10 @@ function Home() {
                           <i className="far fa-user"></i>
                         </div>
                         <div className="features-content">
-                          <h4 className="title">Flower Formula</h4>
+                          <h4 className="title">100% Immunity Aid</h4>
                           <p>
-                            A thing added to something else in order to complete
-                            or enhance it.
+                            Enhance your immunity with Purego's herbal
+                            solutions.
                           </p>
                         </div>
                       </div>
@@ -584,10 +587,10 @@ function Home() {
                           <i className="far fa-user"></i>
                         </div>
                         <div className="features-content">
-                          <h4 className="title">Fishbone Diagram</h4>
+                          <h4 className="title">Energy Surge</h4>
                           <p>
-                            A thing added to something else in order to complete
-                            or enhance it.
+                            Boost your energy levels with Purego's natural
+                            supplements.
                           </p>
                         </div>
                       </div>
@@ -598,10 +601,10 @@ function Home() {
                           <i className="far fa-user"></i>
                         </div>
                         <div className="features-content">
-                          <h4 className="title">100% Fat Blasting</h4>
+                          <h4 className="title">Holistic Care</h4>
                           <p>
-                            A thing added to something else in order to complete
-                            or enhance it.
+                            Purego offers holistic products for overall
+                            well-being and health.
                           </p>
                         </div>
                       </div>
@@ -640,7 +643,7 @@ function Home() {
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
                     <h2 className="title">
-                      <a href="pre-workout">Pre Workout</a>
+                      <a href="weight-loss-supplement">Pre Workout</a>
                     </h2>
                     <h6 className="features-product-quantity">
                       High-strength, 4000IU
@@ -653,7 +656,7 @@ function Home() {
                       children, and osteoporosis in adults.{" "}
                     </p>
                     <div className="features-product-bottom">
-                      <a href="pre-workout" className="btn">
+                      <a href="weight-loss-supplement" className="btn">
                         Shop Now
                       </a>
                       <span className="price">
@@ -690,7 +693,7 @@ function Home() {
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
                     <h2 className="title">
-                      <a href="pure-go-creatine">Creatine</a>
+                      <a href="creatine-supplements">Creatine</a>
                     </h2>
                     <h6 className="features-product-quantity">
                       High-strength, 4000IU
@@ -703,7 +706,7 @@ function Home() {
                       children, and osteoporosis in adults.{" "}
                     </p>
                     <div className="features-product-bottom">
-                      <a href="pure-go-creatine" className="btn">
+                      <a href="creatine-supplements" className="btn">
                         Shop Now
                       </a>
                       <span className="price">
@@ -740,7 +743,7 @@ function Home() {
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
                     <h2 className="title">
-                      <a href="mass-gainer">Mass Gainer</a>
+                      <a href="mass-gainer-protein-powder">Mass Gainer</a>
                     </h2>
                     <h6 className="features-product-quantity">
                       High-strength, 4000IU
@@ -753,7 +756,7 @@ function Home() {
                       children, and osteoporosis in adults.{" "}
                     </p>
                     <div className="features-product-bottom">
-                      <a href="mass-gainer" className="btn">
+                      <a href="mass-gainer-protein-powder" className="btn">
                         Shop Now
                       </a>
                       <span className="price">
@@ -790,7 +793,7 @@ function Home() {
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
                     <h2 className="title">
-                      <a href="eaa">EAA</a>
+                      <a href="eaa-supplements">EAA</a>
                     </h2>
                     <h6 className="features-product-quantity">
                       High-strength, 4000IU
@@ -803,7 +806,7 @@ function Home() {
                       children, and osteoporosis in adults.{" "}
                     </p>
                     <div className="features-product-bottom">
-                      <a href="eaa" className="btn">
+                      <a href="eaa-supplements" className="btn">
                         Shop Now
                       </a>
                       <span className="price">
@@ -840,7 +843,7 @@ function Home() {
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
                     <h2 className="title">
-                      <a href="/whey-protein">Whey Protein Chocolate</a>
+                      <a href="whey-protein-powder">Whey Protein Chocolate</a>
                     </h2>
                     <h6 className="features-product-quantity">
                       High-strength, 5000IU
@@ -853,7 +856,7 @@ function Home() {
                       children, and osteoporosis in adults.{" "}
                     </p>
                     <div className="features-product-bottom">
-                      <a href="/whey-protein" className="btn">
+                      <a href="whey-protein-powder" className="btn">
                         Shop Now
                       </a>
                       <span className="price">
@@ -890,7 +893,7 @@ function Home() {
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
                     <h2 className="title">
-                      <a href="/whey-protein">Whey Protein Mawa Kulfi</a>
+                      <a href="whey-protein-powder">Whey Protein Mawa Kulfi</a>
                     </h2>
                     <h6 className="features-product-quantity">
                       High-strength, 4000IU
@@ -903,7 +906,7 @@ function Home() {
                       children, and osteoporosis in adults.{" "}
                     </p>
                     <div className="features-product-bottom">
-                      <a href="/whey-protein" className="btn">
+                      <a href="whey-protein-powder" className="btn">
                         Shop Now
                       </a>
                       <span className="price">
@@ -940,7 +943,9 @@ function Home() {
                 <div className="col-lg-6 col-md-10">
                   <div className="features-product-content">
                     <h2 className="title">
-                      <a href="/whey-protein">Whey Protein Mocha Coffee</a>
+                      <a href="whey-protein-powder">
+                        Whey Protein Mocha Coffee
+                      </a>
                     </h2>
                     <h6 className="features-product-quantity">
                       High-strength, 4000IU
@@ -953,7 +958,7 @@ function Home() {
                       children, and osteoporosis in adults.{" "}
                     </p>
                     <div className="features-product-bottom">
-                      <a href="/whey-protein" className="btn">
+                      <a href="whey-protein-powder" className="btn">
                         Shop Now
                       </a>
                       <span className="price">
@@ -1255,9 +1260,9 @@ function Home() {
                 <div className="ingredients-items-wrap">
                   <div className="section-title mb-60">
                     <p className="sub-title">
-                      .. Increased Energy With Suxnix ..
+                      .. Increased Wellness With Purego ..
                     </p>
-                    <h2 className="title">Suxnix Ingredients</h2>
+                    <h2 className="title">Purego Ingredients</h2>
                   </div>
                   <div className="row justify-content-center justify-content-lg-start">
                     <div className="col-md-6 col-sm-8">
@@ -1276,11 +1281,11 @@ function Home() {
                         </div>
                         <div className="ingredients-content">
                           <h5 className="title">
-                            Helps You Stick To Your Diet
+                            Enhances Your Immunity Naturally
                           </h5>
                           <p>
-                            A thing added to something else in order to complete
-                            or enhance it.
+                            Purego’s natural ingredients help strengthen your
+                            immune system.
                           </p>
                         </div>
                       </div>
@@ -1300,12 +1305,10 @@ function Home() {
                           />
                         </div>
                         <div className="ingredients-content">
-                          <h5 className="title">
-                            Only 3g Net Carbs In Every Jar
-                          </h5>
+                          <h5 className="title">Low Carbs</h5>
                           <p>
-                            A thing added to something else in order to complete
-                            or enhance it.
+                            Purego keeps carbs low while providing maximum
+                            benefits.
                           </p>
                         </div>
                       </div>
@@ -1326,11 +1329,10 @@ function Home() {
                         </div>
                         <div className="ingredients-content">
                           <h5 className="title">
-                            Ingredients To Fuel Your Body
+                            Ingredients That Energize You
                           </h5>
                           <p>
-                            A thing added to something else in order to complete
-                            or enhance it.
+                            Purego’s fuel your body for better energy levels.
                           </p>
                         </div>
                       </div>
@@ -1350,10 +1352,12 @@ function Home() {
                           />
                         </div>
                         <div className="ingredients-content">
-                          <h5 className="title">Clean Ingredients Only</h5>
+                          <h5 className="title">
+                            Clean, Pure Ingredients Always
+                          </h5>
                           <p>
-                            A thing added to something else in order to complete
-                            or enhance it.
+                            Purego uses only the finest natural ingredients for
+                            your health.
                           </p>
                         </div>
                       </div>
@@ -1380,19 +1384,24 @@ function Home() {
               <div className="col-lg-6">
                 <div className="formula-content">
                   <div className="section-title white-title mb-50">
-                    <p className="sub-title">.. Suxnix Formula ..</p>
-                    <h2 className="title">Why We Chose This Formula</h2>
+                    <p className="sub-title">.. Purego Wellness ..</p>
+                    <h2 className="title">Why We Chose Purego</h2>
                   </div>
                   <ul className="formula-list list-wrap">
                     <li>
-                      Tastes like dessert without added sugars or sugar alcohols
+                      100% natural ingredients for maximum health benefits.
                     </li>
-                    <li>No artificial sweeteners, dairy, say or corn fiber</li>
-                    <li>10G of collagen protein from grass-fed cows</li>
-                    <li>Formulated to reduce blood sugar intact</li>
-                    <li>Organic almond Butter, Sunflower Lecithin</li>
-                    <li>No energy crashes. Collagen Protein, Stevia</li>
-                    <li>10G of collagen protein from grass-fed cows</li>
+                    <li>
+                      Boosts immunity with carefully sourced herbal blends
+                    </li>
+                    <li>No artificial additives, preservatives, or fillers</li>
+                    <li>Promotes better digestion and gut health</li>
+                    <li>Gluten-free and suitable for all dietary needs</li>
+                    <li>Supports energy levels and mental clarity</li>
+                    <li>Rich in antioxidants for healthy skin</li>
+                    <li>Non-GMO, vegan, and cruelty-free products</li>
+                    <li>Free from harmful chemicals and toxins</li>
+                    <li>Trusted quality with every product</li>
                   </ul>
                   <a href="contact.html" className="btn btn-two">
                     Know More
@@ -1442,10 +1451,10 @@ function Home() {
                         <i className="fas fa-star-half-alt"></i>
                       </div>
                       <p>
-                        “Becoming more involved in administration within the
-                        (MidMichigan) health system over the years, I had been
-                        researching options for further education that would
-                        assist in this transition and fit my busy schedule
+                        “Purego products are amazing! The quality is top-notch,
+                        and I feel healthier since using them. Highly recommend
+                        for anyone looking for natural and effective
+                        supplements.
                       </p>
                       <div className="testimonial-avatar-wrap">
                         <div className="testi-avatar-img">
@@ -1458,7 +1467,7 @@ function Home() {
                           />
                         </div>
                         <div className="testi-avatar-info">
-                          <h5 className="name">Janeta Cooper</h5>
+                          <h5 className="name">Mukesh Gupta</h5>
                         </div>
                       </div>
                     </div>
@@ -1471,10 +1480,9 @@ function Home() {
                         <i className="fas fa-star-half-alt"></i>
                       </div>
                       <p>
-                        “Becoming more involved in administration within the
-                        (MidMichigan) health system over the years, I had been
-                        researching options for further education that would
-                        assist in this transition and fit my busy schedule
+                        “Purego Gomzi Lifesciences delivers on its promises! I
+                        tried their Pre Workout, and it worked wonders.
+                        Authentic, safe, and worth every penny. Will buy again!
                       </p>
                       <div className="testimonial-avatar-wrap">
                         <div className="testi-avatar-img">
@@ -1487,7 +1495,7 @@ function Home() {
                           />
                         </div>
                         <div className="testi-avatar-info">
-                          <h5 className="name">Lempor Kooper</h5>
+                          <h5 className="name">Shruti Shah</h5>
                         </div>
                       </div>
                     </div>
@@ -1500,10 +1508,9 @@ function Home() {
                         <i className="fas fa-star-half-alt"></i>
                       </div>
                       <p>
-                        “Becoming more involved in administration within the
-                        (MidMichigan) health system over the years, I had been
-                        researching options for further education that would
-                        assist in this transition and fit my busy schedule
+                        “Great range of wellness products at reasonable prices.
+                        Loved their herbal supplements. Packaging is good, and
+                        delivery was on time. Satisfied with purchase!
                       </p>
                       <div className="testimonial-avatar-wrap">
                         <div className="testi-avatar-img">
@@ -1516,7 +1523,36 @@ function Home() {
                           />
                         </div>
                         <div className="testi-avatar-info">
-                          <h5 className="name">Zonalos Neko</h5>
+                          <h5 className="name">Jaydeep Chauhan</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="testimonial-item text-center">
+                      <div className="testimonial-rating">
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
+                      </div>
+                      <p>
+                        “I was skeptical at first, but Purego proved me wrong!
+                        Their products are genuine and effective. Customer
+                        service is also responsive. Definitely a brand I trust
+                        now!
+                      </p>
+                      <div className="testimonial-avatar-wrap">
+                        <div className="testi-avatar-img">
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/testi_avatar03.jpg"
+                            }
+                            alt="img"
+                          />
+                        </div>
+                        <div className="testi-avatar-info">
+                          <h5 className="name">Neha Desai</h5>
                         </div>
                       </div>
                     </div>
@@ -1534,127 +1570,88 @@ function Home() {
                   <div className="faq-wrapper">
                     <div className="section-title mb-50">
                       <p className="sub-title">.. Ask Question ..</p>
-                      <h2 className="title">Get Every Answers</h2>
+                      <h2 className="title">Your Wellness FAQs</h2>
                     </div>
                     <Accordion defaultActiveKey={["1"]} alwaysOpen>
                       <Accordion.Item eventKey="1" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          Is protein only used for muscle development?
+                          What makes Purego products different?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          A lot of people think that protein is only used for
-                          muscle growth and repair, however it can provide a lot
-                          of other benefits, such as refueling your stores of
-                          nutrients and amino acids which have been lost during
-                          exercise.
+                          Purego stands out with 100% natural ingredients,
+                          ensuring maximum wellness benefits without any harmful
+                          additives.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="2" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          What is whey protein?
+                          Are Purego products vegan-friendly?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Whey is a "complete" protein, meaning it contains all
-                          the essential amino acids that the human body requires
-                          for proper repair and function. Whey protein is also a
-                          rich source of the branched chain amino acids,
-                          L-Leucine, L-Isoleucine and L-Valine.
+                          Yes, all Purego products are vegan, cruelty-free, and
+                          made with plant-based ingredients, offering a natural
+                          wellness solution for all.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="3" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          Difference between whey protein isolate and whey
-                          protein concentrate?
+                          Do Purego supplements have any side effects?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          According to the Food and Drug Administration, whey
-                          protein isolate is a natural dairy protein powder made
-                          up of at least 90% protein.
-                          <br />
-                          As a protein source, whey protein isolate contains
-                          more protein than whey protein concentrate, which
-                          contains about 80% protein. In addition, whey protein
-                          isolate contains almost no sugar, lactose or fat.
-                          Although whey protein isolate packs more protein, whey
-                          protein concentrate is the most economical option per
-                          gram of protein.
+                          Purego supplements are formulated with safe, organic
+                          ingredients and have no known side effects when used
+                          as directed.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="4" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          Can those who are lactose intolerant eat whey protein?
+                          Are Purego products gluten-free?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Whey protein isolate is virtually free of lactose, but
-                          may contain trace amounts (0.5g per serving). Most
-                          people who are lactose intolerant are able to safely
-                          consume whey without any negative side effects however
-                          a medical practitioner should always be consulted
-                          before taking if there are any doubts.
+                          Yes, all Purego products are 100% gluten-free, making
+                          them suitable for those with dietary restrictions or
+                          sensitivities.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="5" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          If whey protein concentrate is 80% protein, what is
-                          the other 20%?
+                          How do Purego products improve immunity?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Every protein powder, whether it's whey, soy, casein,
-                          etc., has moisture. In fact, 5% of the total formula
-                          is water. Another 3-5% is made up of naturally
-                          occurring minerals in whey. The remaining 10-12% is a
-                          combination of carbs and fat.
+                          Purego’s herbal ingredients are carefully selected to
+                          strengthen your immune system naturally, supporting
+                          overall health and wellness.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="6" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          Will A Higher Protein Diet Harm My Kidneys?
+                          Can I take Purego products on a daily basis?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          According to a study published in the "American
-                          Journal of Kidney Disease," anyone who is currently
-                          suffering from chronic kidney disease should avoid
-                          high-protein diets. For otherwise healthy folk, your
-                          high protein intake should not pose a threat to your
-                          kidneys; make sure to keep your total daily protein
-                          consumption reasonable and consume sufficient water to
-                          counteract the water loss. Check with your doctor
-                          first if you are concerned about this.
+                          Absolutely! Purego products are safe for daily use,
+                          designed to enhance long-term health when taken as
+                          part of a balanced routine.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="7" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          Will More Protein Help Me Build Muscle Faster?
+                          Where are Purego products made?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Yes, but only to some degree. Not all dietary protein
-                          you eat goes toward protein synthesis. Once you eat
-                          enough protein to drive protein synthesis, your body
-                          will oxidize protein for energy. Driving your protein
-                          intake far beyond the realm of 30-35 percent of your
-                          daily calories probably won't provide additional
-                          muscle-building benefits, but it will cut into your
-                          fat and carbohydrate intake, which may actually hinder
-                          your goals. This isn't exact, but eating at least 1
-                          gram of protein per pound per day should cover your
-                          bases.
+                          Purego products are manufactured in India, adhering to
+                          the highest quality standards and certifications to
+                          ensure premium wellness.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="8" className="mt-3 p-4">
                         <Accordion.Header className="f-18 lp-2">
-                          Is It True The Body Can Only Use 30 Grams Of Protein
-                          At Once?
+                          How long does it take to see results with Purego
+                          products?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          You're going to digest all the protein you eat, but
-                          more isn't always better. Once you turn on protein
-                          synthesis and initiate the muscle-building process,
-                          you can't turn it on "more" in one meal.
-                          <br />
-                          Roughly 30 grams of protein per meal across multiple
-                          meals will actually help you boost protein synthesis
-                          many times over the course of a day. It will probably
-                          be easier on your digestive system, too.
+                          Results vary by individual, but many customers report
+                          noticeable improvements in energy and wellness within
+                          a few weeks of consistent use.
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>

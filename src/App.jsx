@@ -32,11 +32,11 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/add-to-cart" element={<AddToCart />} />
         {/* Products */}
-        <Route path="/pure-go-creatine" element={<PureGoCreatine />} />
-        <Route path="/eaa" element={<PureGoEaa />} />
-        <Route path="/mass-gainer" element={<PureGoMassGainer />} />
-        <Route path="/pre-workout" element={<PureGoPreWorkout />} />
-        <Route path="/whey-protein" element={<PureGoWheyProtein />} />
+        <Route path="/creatine-supplements" element={<PureGoCreatine />} />
+        <Route path="/weight-loss-supplement" element={<PureGoPreWorkout />} />
+        <Route path="/mass-gainer-protein-powder" element={<PureGoMassGainer />} />
+        <Route path="/whey-protein-powder" element={<PureGoWheyProtein />} />
+        <Route path="/eaa-supplements" element={<PureGoEaa />} />
       </Routes>
     </>
   );

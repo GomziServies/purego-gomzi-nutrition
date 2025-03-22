@@ -66,7 +66,7 @@ function HomeNutritionFooter() {
                         <a href="index.html"><img src={process.env.PUBLIC_URL + '/assets/images/white_logo.png'} alt="Logo" /></a>
                       </div>
                       <div className="footer-text">
-                        <p>Making beauty especially relating complot especial common questions tend to recur through posts or queries standards vary orem donor command tei.</p>
+                        <p>Purego Gomzi Lifesciences offers natural, effective wellness products to enhance immunity, energy, and overall health. Trust the power of nature.</p>
                       </div>
                       <div className="footer-social">
                         <Link to="#"><i className="fab fa-facebook-f"></i></Link>
@@ -95,11 +95,11 @@ function HomeNutritionFooter() {
                   <div className="footer-widget">
                     <h4 className="fw-title">Products</h4>
                     <ul className="list-wrap">
-                      <li><Link to="pure-go-creatine">Creatine</Link></li>
-                      <li><Link to="pre-workout">Pre Workout</Link></li>
-                      <li><Link to="eaa">EAA</Link></li>
-                      <li><Link to="mass-gainer">Mass Gainer</Link></li>
-                      <li><Link to="whey-protein">Whey Protein</Link></li>
+                      <li><Link to="creatine-supplements">Creatine</Link></li>
+                      <li><Link to="weight-loss-supplement">Pre Workout</Link></li>
+                      <li><Link to="eaa-supplements">EAA</Link></li>
+                      <li><Link to="mass-gainer-protein-powder">Mass Gainer</Link></li>
+                      <li><Link to="whey-protein-powder">Whey Protein</Link></li>
                     </ul>
                   </div>
                 </div>
