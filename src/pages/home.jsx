@@ -243,9 +243,8 @@ function Home() {
         const reverseX = index % 2 === 0 ? -1 : 1; // Reverse for even-indexed elements
         const reverseY = index % 2 !== 0 ? -1 : 1; // Reverse for odd-indexed elements
 
-        shape.style.transform = `translate(${
-          xMove * movementFactor * reverseX
-        }px, ${yMove * movementFactor * reverseY}px)`;
+        shape.style.transform = `translate(${xMove * movementFactor * reverseX
+          }px, ${yMove * movementFactor * reverseY}px)`;
       });
     };
 
@@ -379,7 +378,7 @@ function Home() {
                   <p className="banner-caption">
                     .. Increased Energy With SUXNIX ..
                   </p>
-                  <h2 className="title">Mix Protein Provided Way To Growth</h2>
+                  <h2 className="title">Improve Your Body With Pure-Go Nutrition</h2>
                   <a href="shop.html" className="btn btn-two">
                     Shop Now
                   </a>
@@ -733,7 +732,7 @@ function Home() {
                     <img
                       src={
                         process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape03.png"
+                        "/assets/images/features_product_shape01.png"
                       }
                       alt="img"
                       className="shape-img"
@@ -783,7 +782,7 @@ function Home() {
                     <img
                       src={
                         process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape02.png"
+                        "/assets/images/features_product_shape05.png"
                       }
                       alt="img"
                       className="shape-img"
@@ -883,7 +882,7 @@ function Home() {
                     <img
                       src={
                         process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape02.png"
+                        "/assets/images/features_product_shape06.png"
                       }
                       alt="img"
                       className="shape-img"
@@ -933,7 +932,7 @@ function Home() {
                     <img
                       src={
                         process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape03.png"
+                        "/assets/images/features_product_shape04.png"
                       }
                       alt="img"
                       className="shape-img"
