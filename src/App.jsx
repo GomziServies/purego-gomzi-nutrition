@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 //User Account
 import Home from "./pages/home";
-import PureGoCreatine from "./pages/products/creatine";
+import PureGoCreatine from "./pages/products/creatine-supplements";
 import AddToCart from "./pages/nutrition/add-to-cart";
 import ContactUs from "./pages/nutrition/contact-us";
 import TermsConditions from "./pages/nutrition/terms-conditions";
@@ -12,10 +12,11 @@ import PrivacyPolicyCustomer from "./pages/nutrition/privacy-policy-customer";
 import PricingPolicyCustomer from "./pages/nutrition/pricing-policy-customer";
 import ShippingPolicyCustomer from "./pages/nutrition/shipping-policy-customer";
 import CancellationPolicyCustomer from "./pages/nutrition/cancellation-policy-customer";
-import PureGoEaa from "./pages/products/eaa";
-import PureGoMassGainer from "./pages/products/mass-gainer";
-import PureGoPreWorkout from "./pages/products/pre-workout";
-import PureGoWheyProtein from "./pages/products/whey-protein";
+import PureGoEaa from "./pages/products/eaa-supplements";
+import PureGoMassGainer from "./pages/products/mass-gainer-protein-powder";
+import PureGoPreWorkout from "./pages/products/weight-loss-supplement";
+import PureGoWheyProtein from "./pages/products/whey-protein-powder";
+import NotFoundPage from "./pages/404";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/mass-gainer-protein-powder" element={<PureGoMassGainer />} />
         <Route path="/whey-protein-powder" element={<PureGoWheyProtein />} />
         <Route path="/eaa-supplements" element={<PureGoEaa />} />
+        <Route path="/404" element={<NotFoundPage />} />
       </Routes>
     </>
   );

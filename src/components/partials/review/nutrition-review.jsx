@@ -121,31 +121,14 @@ function NutritionReviewSection({ product_id }) {
   return (
     <>
       {showModal && <LoginModal onClose={closeModal} />}
-      <section id="review_segment">
-        <div className="container-fluid">
-          <div className="container">
-            <div className="Info">
-              <h2>Customer Reviews</h2>
-            </div>
-            <div className="row">
-              <div className="col-md-3 revi">
-                <h6>OVERALL RATING</h6>
-                <h5 id="div_overall_rating">{averageRating}</h5>
-                <div className="mt-2 mb-3 mel">
-                  {[1, 2, 3, 4, 5].map((value) => (
-                    <i
-                      key={value}
-                      className="fas fa-star"
-                      style={{
-                        color: averageRating >= value ? "#f7c434" : "gray",
-                      }}
-                    ></i>
-                  ))}
-                  <p id="div_total_review">{totalReviews} reviews</p>
-                </div>
-              </div>
-              <div className="col-md-5">
-                <div className="mt-2 mb-3 mel">
+      <div className="product-desc-content">
+        <div className="add-review">
+          <h4 className="title">Add a review</h4>
+          <form action="#">
+            <div className="form-rating">
+              <label>your rating</label>
+              <ul className="list-wrap">
+                <li>
                   {[1, 2, 3, 4, 5].map((value) => (
                     <i
                       key={value}
@@ -154,198 +137,67 @@ function NutritionReviewSection({ product_id }) {
                       onClick={() => handleStarClick(value)}
                     ></i>
                   ))}
+                </li>
+              </ul>
+            </div>
+            <div className="from-grp">
+              <label for="comment">
+                Write Your review <span>*</span>
+              </label>
+              <textarea
+                className="form-control fr mt-3"
+                id="txt_review"
+                placeholder="Please enter your reviews"
+                cols="30"
+                rows="10"
+                value={review}
+                onChange={handleReviewChange}
+              ></textarea>
+            </div>
+            <input type="hidden" id="txt_book_star" value={star} />
+            <button
+              type="button"
+              className="btn"
+              onClick={() => handleSubmit(product_id)}
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+        <div className="reviews-comment">
+          {reviews.map((feedback, index) => (
+            <div className="review-info">
+              <div className="review-content">
+                <ul className="review-rating list-wrap">
+                  <li>
+                    {[1, 2, 3, 4, 5].map((value) => (
+                      <i
+                        key={value}
+                        className="fas fa-star"
+                        style={{
+                          color:
+                            feedback.feedback_point >= value
+                              ? "#f7c434"
+                              : "gray",
+                        }}
+                      ></i>
+                    ))}
+                  </li>
+                </ul>
+                <div className="review-meta">
+                  <h6>
+                    {feedback?.user?.first_name || "FG User"}{" "}
+                    {feedback?.user?.last_name || ""}
+                  </h6>
                 </div>
-                <textarea
-                  className="form-control fr mt-3"
-                  id="txt_review"
-                  placeholder="Please enter your reviews"
-                  rows="5"
-                  value={review}
-                  onChange={handleReviewChange}
-                ></textarea>
-                <input type="hidden" id="txt_book_star" value={star} />
-                <button
-                  type="button"
-                  className="btn btn-success mt-3"
-                  onClick={() => handleSubmit(product_id)}
-                >
-                  Submit
-                </button>
-              </div>
-              <div className="col-md-4">
-                {/* Star 5 */}
-                <div>
-                  <div className="mell">
-                    <p className="my-2" id="star_5">
-                      {starPercentages[5].toFixed(2)}%
-                    </p>
-                    <div className="d-inline-block my-2 float-right">
-                      {[...Array(5)].map((_, index) => (
-                        <i
-                          key={index}
-                          className="fas fa-star"
-                          style={{ color: "#f7c434" }}
-                        ></i>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="progress" style={{ height: "2px" }}>
-                    <div
-                      className="progress-bar bg-warning"
-                      role="progressbar"
-                      style={{ width: `${starPercentages[5]}%` }}
-                      aria-valuenow={starPercentages[5]}
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Star 4 */}
-                <div>
-                  <div className="mell">
-                    <p className="my-2" id="star_4">
-                      {starPercentages[4].toFixed(2)}%
-                    </p>
-                    <div className="d-inline-block my-2 float-right">
-                      {[...Array(4)].map((_, index) => (
-                        <i
-                          key={index}
-                          className="fas fa-star"
-                          style={{ color: "#f7c434" }}
-                        ></i>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="progress" style={{ height: "2px" }}>
-                    <div
-                      className="progress-bar bg-warning"
-                      role="progressbar"
-                      style={{ width: `${starPercentages[4]}%` }}
-                      aria-valuenow={starPercentages[4]}
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Repeat for Star 3, 2, and 1 */}
-                {/* Star 3 */}
-                <div>
-                  <div className="mell">
-                    <p className="my-2" id="star_3">
-                      {starPercentages[3].toFixed(2)}%
-                    </p>
-                    <div className="d-inline-block my-2 float-right">
-                      {[...Array(3)].map((_, index) => (
-                        <i
-                          key={index}
-                          className="fas fa-star"
-                          style={{ color: "#f7c434" }}
-                        ></i>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="progress" style={{ height: "2px" }}>
-                    <div
-                      className="progress-bar bg-warning"
-                      role="progressbar"
-                      style={{ width: `${starPercentages[3]}%` }}
-                      aria-valuenow={starPercentages[3]}
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Star 2 */}
-                <div>
-                  <div className="mell">
-                    <p className="my-2" id="star_2">
-                      {starPercentages[2].toFixed(2)}%
-                    </p>
-                    <div className="d-inline-block my-2 float-right">
-                      {[...Array(2)].map((_, index) => (
-                        <i
-                          key={index}
-                          className="fas fa-star"
-                          style={{ color: "#f7c434" }}
-                        ></i>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="progress" style={{ height: "2px" }}>
-                    <div
-                      className="progress-bar bg-warning"
-                      role="progressbar"
-                      style={{ width: `${starPercentages[2]}%` }}
-                      aria-valuenow={starPercentages[2]}
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Star 1 */}
-                <div>
-                  <div className="mell">
-                    <p className="my-2" id="star_1">
-                      {starPercentages[1].toFixed(2)}%
-                    </p>
-                    <div className="d-inline-block my-2 float-right">
-                      {[...Array(1)].map((_, index) => (
-                        <i
-                          key={index}
-                          className="fas fa-star"
-                          style={{ color: "#f7c434" }}
-                        ></i>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="progress" style={{ height: "2px" }}>
-                    <div
-                      className="progress-bar bg-warning"
-                      role="progressbar"
-                      style={{ width: `${starPercentages[1]}%` }}
-                      aria-valuenow={starPercentages[1]}
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 mt-5">
-                <h6 style={{ fontSize: "25px" }}>Reviews</h6>
-                <div className="revi" id="div_review_codeblock">
-                  {reviews.map((feedback, index) => (
-                    <div key={index} className="mt-2 mb-4 meal">
-                      <p className="d-inline-block mt-0 mr-2">
-                        {feedback?.user?.first_name || "FG User"}{" "}
-                        {feedback?.user?.last_name || ""}
-                      </p>
-                      {[1, 2, 3, 4, 5].map((value) => (
-                        <i
-                          key={value}
-                          className="fas fa-star"
-                          style={{
-                            color:
-                              feedback.feedback_point >= value
-                                ? "#f7c434"
-                                : "gray",
-                          }}
-                        ></i>
-                      ))}
-                      <span className="w-100 d-block">
-                        {feedback.feedback_comment}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                <p>
+                  {feedback.feedback_comment}
+                </p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
     </>
   );
 }

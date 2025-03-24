@@ -16,6 +16,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
 import LoaderComponent from "../../components/PageLoader";
+import NutritionReviewSection from "../../components/partials/review/nutrition-review";
 
 function PureGoWheyProtein() {
   const canonicalUrl = window.location.href;
@@ -229,7 +230,7 @@ function PureGoWheyProtein() {
                         </div>
                       </form>
                     </div>
-                    <a href="cart.html" className="cart-btn">
+                    <a href="/add-to-cart" className="cart-btn">
                       add to cart
                     </a>
                   </div>
@@ -468,139 +469,7 @@ function PureGoWheyProtein() {
                       role="tabpanel"
                       aria-labelledby="review-tab"
                     >
-                      <div className="product-desc-content">
-                        <div className="add-review">
-                          <h4 className="title">Add a review</h4>
-                          <form action="#">
-                            <p>
-                              Your email address will not be published.Required
-                              fields are marked
-                              <span>*</span>
-                            </p>
-                            <div className="from-grp">
-                              <label for="name">
-                                Your name <span>*</span>
-                              </label>
-                              <input type="text" id="name" />
-                            </div>
-                            <div className="from-grp">
-                              <label for="email">
-                                Your email <span>*</span>
-                              </label>
-                              <input type="text" id="email" />
-                            </div>
-                            <div className="from-grp checkbox-grp">
-                              <input type="checkbox" id="checkbox" />
-                              <label for="checkbox">
-                                Don't show your email address
-                              </label>
-                            </div>
-                            <div className="form-rating">
-                              <label>your rating</label>
-                              <ul className="list-wrap">
-                                <li>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                </li>
-                              </ul>
-                            </div>
-                            <div className="from-grp">
-                              <label for="comment">
-                                Write Your review <span>*</span>
-                              </label>
-                              <textarea
-                                id="comment"
-                                cols="30"
-                                rows="10"
-                              ></textarea>
-                            </div>
-                            <button className="btn">Submit Now</button>
-                          </form>
-                        </div>
-                        <div className="reviews-comment">
-                          <div className="review-info">
-                            <div className="review-content">
-                              <ul className="review-rating list-wrap">
-                                <li>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                </li>
-                              </ul>
-                              <div className="review-meta">
-                                <h6>
-                                  Chenai Simon <span>-May 12, 2024</span>
-                                </h6>
-                              </div>
-                              <p>
-                                There are many variations of passages of lorem
-                                ipsum available, but the majority have suffered
-                                alteration in some form, by injected humour, or
-                                randomised words which don't look even slightly
-                                believable. If you are going to use a passage of
-                                lorem ipsum.
-                              </p>
-                            </div>
-                          </div>
-                          <div className="review-info">
-                            <div className="review-content">
-                              <ul className="review-rating list-wrap">
-                                <li>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="far fa-star"></i>
-                                </li>
-                              </ul>
-                              <div className="review-meta">
-                                <h6>
-                                  Finn Castaneda <span>-June 17, 2024</span>
-                                </h6>
-                              </div>
-                              <p>
-                                There are many variations of passages of lorem
-                                ipsum available, but the majority have suffered
-                                alteration in some form, by injected humour, or
-                                randomised words which don't look even slightly
-                                believable. If you are going to use a passage of
-                                lorem ipsum.
-                              </p>
-                            </div>
-                          </div>
-                          <div className="review-info">
-                            <div className="review-content">
-                              <ul className="review-rating list-wrap">
-                                <li>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="far fa-star"></i>
-                                </li>
-                              </ul>
-                              <div className="review-meta">
-                                <h6>
-                                  Bayley Robertson <span>-May 28, 2024</span>
-                                </h6>
-                              </div>
-                              <p>
-                                There are many variations of passages of lorem
-                                ipsum available, but the majority have suffered
-                                alteration in some form, by injected humour, or
-                                randomised words which don't look even slightly
-                                believable. If you are going to use a passage of
-                                lorem ipsum.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <NutritionReviewSection product_id="660e4e81d8ff4f8d9f2a51da" />
                     </div>
                   </div>
                 </div>

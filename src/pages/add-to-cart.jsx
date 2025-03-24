@@ -333,11 +333,11 @@ function AddToCart(productData) {
         />
         <meta
           property="og:image"
-          content="https://www.gomzilifesciences.in/assets/images/logo/nutrition-logo.webp"
+          content="https://www.gomzilifesciences.in/assets/images/nutrition-logo.webp"
         />
         <meta
           property="og:url"
-          content="https://www.gomzilifesciences.in/nutrition/cart"
+          content="https://www.gomzilifesciences.in/nutrition/add-to-cart"
         />
         <link rel="canonical" href={{ canonicalUrl }} />
 

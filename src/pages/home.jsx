@@ -299,7 +299,7 @@ function Home() {
         />
         <meta
           property="og:image"
-          content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
+          content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.webp"
         />
         <meta
           property="og:url"
@@ -644,15 +644,9 @@ function Home() {
                     <h2 className="title">
                       <a href="weight-loss-supplement">Pre Workout</a>
                     </h2>
-                    <h6 className="features-product-quantity">
-                      High-strength, 4000IU
-                    </h6>
                     <p>
-                      Vitamin D3 supplements are commonly recommended for people
-                      at risk for vitamin D deficiency. Low vitamin D levels
-                      cause depression, fatigue, and muscle weakness. Over time,
-                      vitamin D deficiency can lead to weak bones, rickets in
-                      children, and osteoporosis in adults.{" "}
+                      Boost energy, metabolism, and fat loss with PureGo Pre-Workout. Designed for athletes of all levels, it enhances endurance, strength, and focus while controlling appetite. Its thermogenic formula supports faster calorie burn for maximum results. Take daily as per expert advice for peak performance.
+                      {" "}
                     </p>
                     <div className="features-product-bottom">
                       <a href="weight-loss-supplement" className="btn">
@@ -694,15 +688,8 @@ function Home() {
                     <h2 className="title">
                       <a href="creatine-supplements">Creatine</a>
                     </h2>
-                    <h6 className="features-product-quantity">
-                      High-strength, 4000IU
-                    </h6>
                     <p>
-                      Vitamin D3 supplements are commonly recommended for people
-                      at risk for vitamin D deficiency. Low vitamin D levels
-                      cause depression, fatigue, and muscle weakness. Over time,
-                      vitamin D deficiency can lead to weak bones, rickets in
-                      children, and osteoporosis in adults.{" "}
+                      Enhance muscle strength, endurance, and recovery with PureGo Creatine Monohydrate. It boosts ATP production for high-intensity workouts, improving performance and reducing fatigue. Consume intra or post-workout for best results. Consult a doctor before use and follow recommended dosage for optimal benefits{" "}
                     </p>
                     <div className="features-product-bottom">
                       <a href="creatine-supplements" className="btn">
@@ -744,15 +731,9 @@ function Home() {
                     <h2 className="title">
                       <a href="mass-gainer-protein-powder">Mass Gainer</a>
                     </h2>
-                    <h6 className="features-product-quantity">
-                      High-strength, 4000IU
-                    </h6>
                     <p>
-                      Vitamin D3 supplements are commonly recommended for people
-                      at risk for vitamin D deficiency. Low vitamin D levels
-                      cause depression, fatigue, and muscle weakness. Over time,
-                      vitamin D deficiency can lead to weak bones, rickets in
-                      children, and osteoporosis in adults.{" "}
+                      Achieve your bulking goals with PureGo Mass Gainer Powder! Packed with 17.5g of premium protein, essential carbs, and healthy fats, it fuels muscle growth, enhances recovery, and boosts energy. Ideal for pre or post-workout and between meals. Mix with water or milk for a delicious, high-calorie shake!
+                      {" "}
                     </p>
                     <div className="features-product-bottom">
                       <a href="mass-gainer-protein-powder" className="btn">
@@ -794,15 +775,9 @@ function Home() {
                     <h2 className="title">
                       <a href="eaa-supplements">EAA</a>
                     </h2>
-                    <h6 className="features-product-quantity">
-                      High-strength, 4000IU
-                    </h6>
                     <p>
-                      Vitamin D3 supplements are commonly recommended for people
-                      at risk for vitamin D deficiency. Low vitamin D levels
-                      cause depression, fatigue, and muscle weakness. Over time,
-                      vitamin D deficiency can lead to weak bones, rickets in
-                      children, and osteoporosis in adults.{" "}
+                      Power up your workouts with PureGo EAA, a science-backed blend of 13 ultra-essential amino acids, electrolytes, and vitamins. It accelerates muscle growth, reduces fatigue, and increases hydration. With taurine for energy and citrulline for oxygen, it optimizes performance. Mix 1 scoop with water during your workout for best results!
+                      {" "}
                     </p>
                     <div className="features-product-bottom">
                       <a href="eaa-supplements" className="btn">
@@ -844,15 +819,9 @@ function Home() {
                     <h2 className="title">
                       <a href="whey-protein-powder">Whey Protein Chocolate</a>
                     </h2>
-                    <h6 className="features-product-quantity">
-                      High-strength, 5000IU
-                    </h6>
                     <p>
-                      Vitamin D3 supplements are commonly recommended for people
-                      at risk for vitamin D deficiency. Low vitamin D levels
-                      cause depression, fatigue, and muscle weakness. Over time,
-                      vitamin D deficiency can lead to weak bones, rickets in
-                      children, and osteoporosis in adults.{" "}
+                      Boost muscle growth with PureGo Whey Protein - Chocolate Flavor. Packed with 24g of high-quality whey protein per serving, it supports lean muscle development and recovery. No added sugar, preservatives, or artificial colors. Mix with water or milk for a delicious, protein-rich shake!
+                      {" "}
                     </p>
                     <div className="features-product-bottom">
                       <a href="whey-protein-powder" className="btn">
@@ -894,15 +863,9 @@ function Home() {
                     <h2 className="title">
                       <a href="whey-protein-powder">Whey Protein Mawa Kulfi</a>
                     </h2>
-                    <h6 className="features-product-quantity">
-                      High-strength, 4000IU
-                    </h6>
                     <p>
-                      Vitamin D3 supplements are commonly recommended for people
-                      at risk for vitamin D deficiency. Low vitamin D levels
-                      cause depression, fatigue, and muscle weakness. Over time,
-                      vitamin D deficiency can lead to weak bones, rickets in
-                      children, and osteoporosis in adults.{" "}
+                      Enjoy the rich taste of PureGo Whey Protein - Mawa Kulfi Flavor, packed with 24g of premium whey protein per serving. Supports muscle growth, recovery, and strength. No added sugar, colors, or preservatives. Mix with water or milk for a delicious, protein-packed shake!
+                      {" "}
                     </p>
                     <div className="features-product-bottom">
                       <a href="whey-protein-powder" className="btn">
@@ -946,15 +909,8 @@ function Home() {
                         Whey Protein Mocha Coffee
                       </a>
                     </h2>
-                    <h6 className="features-product-quantity">
-                      High-strength, 4000IU
-                    </h6>
                     <p>
-                      Vitamin D3 supplements are commonly recommended for people
-                      at risk for vitamin D deficiency. Low vitamin D levels
-                      cause depression, fatigue, and muscle weakness. Over time,
-                      vitamin D deficiency can lead to weak bones, rickets in
-                      children, and osteoporosis in adults.{" "}
+                      Power up your day with PureGo Whey Protein - Mocha Coffee Flavor, delivering 24g of high-quality whey protein per serving. Supports muscle growth, recovery, and strength. No added sugar, colors, or preservatives. Mix with water or milk for a rich, energizing protein boost!{" "}
                     </p>
                     <div className="features-product-bottom">
                       <a href="whey-protein-powder" className="btn">
@@ -1049,7 +1005,7 @@ function Home() {
                       <span className="total-rating">(30)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="cart.html" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
+                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
                       <a href="shop-details.html" className="btn btn-two">Buy Now</a>
                     </div>
                   </div>
@@ -1075,7 +1031,7 @@ function Home() {
                       <span className="total-rating">(30)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="cart.html" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
+                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
                       <a href="shop-details.html" className="btn btn-two">Buy Now</a>
                     </div>
                   </div>
@@ -1102,7 +1058,7 @@ function Home() {
                       <span className="total-rating">(24)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="cart.html" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
+                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
                       <a href="shop-details.html" className="btn btn-two">Buy Now</a>
                     </div>
                   </div>
@@ -1128,7 +1084,7 @@ function Home() {
                       <span className="total-rating">(24)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="cart.html" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
+                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
                       <a href="shop-details.html" className="btn btn-two">Buy Now</a>
                     </div>
                   </div>
@@ -1154,7 +1110,7 @@ function Home() {
                       <span className="total-rating">(12)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="cart.html" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
+                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
                       <a href="shop-details.html" className="btn btn-two">Buy Now</a>
                     </div>
                   </div>
@@ -1545,7 +1501,7 @@ function Home() {
                           <img
                             src={
                               process.env.PUBLIC_URL +
-                              "/assets/images/testi_avatar03.jpg"
+                              "/assets/images/testi_avatar04.jpg"
                             }
                             alt="img"
                           />

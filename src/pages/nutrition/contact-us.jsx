@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -251,7 +251,7 @@ function ContactUs() {
                 />
                 <meta
                     property="og:image"
-                    content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
+                    content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.webp"
                 />
                 <meta
                     property="og:url"
@@ -380,7 +380,7 @@ function ContactUs() {
                         <div className="row">
                             <div className="col-12">
                                 <div id="contact-map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4616.206252088472!2d72.74192247600143!3d21.18855708226951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d6049b09c4b%3A0x2b5491773a2ee8f3!2sGomzi%20Lifesciences%20LLP%20%7C%20Best%20Nutraceutical%20and%20Ayurvedic%20products%20Manufacturer!5e1!3m2!1sen!2sin!4v1740216368608!5m2!1sen!2sin" allowfullscreen="" height="450" loading="lazy"></iframe>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4616.206252088472!2d72.74192247600143!3d21.18855708226951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d6049b09c4b%3A0x2b5491773a2ee8f3!2sGomzi%20Lifesciences%20LLP%20%7C%20Best%20Nutraceutical%20and%20Ayurvedic%20products%20Manufacturer!5e1!3m2!1sen!2sin!4v1740216368608!5m2!1sen!2sin" title="map" allowfullscreen="" height="450" loading="lazy" />
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import HomeFooter from "../components/partials/Footer/nutritionfooter";
 import NutritionHeader from "../components/partials/Header/nutritionsheader";
+import HomeNutritionFooter from "../components/partials/Footer/footer";
 
 const NotFoundPage = () => {
   return (
@@ -29,7 +29,7 @@ const NotFoundPage = () => {
                 <img
                   src={
                     process.env.PUBLIC_URL +
-                    "/assets/images/nutrition/404-error.webp"
+                    "/assets/images/404-error.webp"
                   }
                   className="img-fluid"
                   alt="404 Error"
@@ -47,7 +47,7 @@ const NotFoundPage = () => {
           </div>
         </div>
       </section>
-      <HomeFooter />
+      <HomeNutritionFooter />
     </>
   );
 };

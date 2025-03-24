@@ -16,6 +16,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
 import LoaderComponent from "../../components/PageLoader";
+import NutritionReviewSection from "../../components/partials/review/nutrition-review";
 
 function PureGoEaa() {
   const canonicalUrl = window.location.href;
@@ -192,7 +193,7 @@ function PureGoEaa() {
                         </div>
                       </form>
                     </div>
-                    <a href="cart.html" className="cart-btn">
+                    <a href="/add-to-cart" className="cart-btn">
                       add to cart
                     </a>
                   </div>
@@ -308,59 +309,6 @@ function PureGoEaa() {
                         <p>During workouts or training</p>
                       </div>
                     </div>
-                    <div
-                      className="tab-pane fade"
-                      id="information"
-                      role="tabpanel"
-                      aria-labelledby="information-tab"
-                    >
-                      <div className="product-desc-content">
-                        <table className="table table-sm">
-                          <tbody>
-                            <tr>
-                              <th scope="row">Calories</th>
-                              <td>110</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Total Fat</th>
-                              <td>1kg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Saturated Fat</th>
-                              <td>0.5g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Cholesterol</th>
-                              <td>40mg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Total Carbohydrate</th>
-                              <td>2g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Protein</th>
-                              <td>24g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Total Sugars</th>
-                              <td>2g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Sodium</th>
-                              <td>100mg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Calcium</th>
-                              <td>140 mg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Potassium</th>
-                              <td>160 mg</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -395,44 +343,68 @@ function PureGoEaa() {
                         <table className="table table-sm">
                           <tbody>
                             <tr>
-                              <th scope="row">Calories</th>
-                              <td>110</td>
+                              <th scope="row">CALORIES</th>
+                              <td>6.12 Kcal</td>
                             </tr>
                             <tr>
-                              <th scope="row">Total Fat</th>
-                              <td>1kg</td>
+                              <th scope="row">TOTAL CARBOHYDRATE</th>
+                              <td>0.20 gm</td>
                             </tr>
                             <tr>
-                              <th scope="row">Saturated Fat</th>
-                              <td>0.5g</td>
+                              <th scope="row">TOTAL SUGAR</th>
+                              <td>0</td>
                             </tr>
                             <tr>
-                              <th scope="row">Cholesterol</th>
-                              <td>40mg</td>
+                              <th scope="row">ADDED SUGAR</th>
+                              <td>0</td>
                             </tr>
                             <tr>
-                              <th scope="row">Total Carbohydrate</th>
-                              <td>2g</td>
+                              <th scope="row">PROTEIN</th>
+                              <td>0</td>
                             </tr>
                             <tr>
-                              <th scope="row">Protein</th>
-                              <td>24g</td>
+                              <th scope="row">TOTAL FAT</th>
+                              <td>0</td>
                             </tr>
                             <tr>
-                              <th scope="row">Total Sugars</th>
-                              <td>2g</td>
+                              <th scope="row">ESSENTIAL AMINO ACIDS (EAA BLEND)</th>
+                              <td>7.8 gm</td>
                             </tr>
                             <tr>
-                              <th scope="row">Sodium</th>
-                              <td>100mg</td>
+                              <th scope="row">L-LEUCINE</th>
+                              <td>1.73 gm</td>
                             </tr>
                             <tr>
-                              <th scope="row">Calcium</th>
-                              <td>140 mg</td>
+                              <th scope="row">L-ISOLEUCINE</th>
+                              <td>0.86 gm</td>
                             </tr>
                             <tr>
-                              <th scope="row">Potassium</th>
-                              <td>160 mg</td>
+                              <th scope="row">L-VALINE</th>
+                              <td>0.86 gm</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">L-LYSINE</th>
+                              <td>288.88 mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">L-THREONINE</th>
+                              <td>288.88 mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">L-PHENYLALANINE</th>
+                              <td>150.22 mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">L-HISTIDINE</th>
+                              <td>115.55 mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">L-TRYPTOPHAN</th>
+                              <td>86.66 mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">DL-METHIONINE</th>
+                              <td>52 mg</td>
                             </tr>
                           </tbody>
                         </table>
@@ -468,139 +440,7 @@ function PureGoEaa() {
                       role="tabpanel"
                       aria-labelledby="review-tab"
                     >
-                      <div className="product-desc-content">
-                        <div className="add-review">
-                          <h4 className="title">Add a review</h4>
-                          <form action="#">
-                            <p>
-                              Your email address will not be published.Required
-                              fields are marked
-                              <span>*</span>
-                            </p>
-                            <div className="from-grp">
-                              <label for="name">
-                                Your name <span>*</span>
-                              </label>
-                              <input type="text" id="name" />
-                            </div>
-                            <div className="from-grp">
-                              <label for="email">
-                                Your email <span>*</span>
-                              </label>
-                              <input type="text" id="email" />
-                            </div>
-                            <div className="from-grp checkbox-grp">
-                              <input type="checkbox" id="checkbox" />
-                              <label for="checkbox">
-                                Don't show your email address
-                              </label>
-                            </div>
-                            <div className="form-rating">
-                              <label>your rating</label>
-                              <ul className="list-wrap">
-                                <li>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                </li>
-                              </ul>
-                            </div>
-                            <div className="from-grp">
-                              <label for="comment">
-                                Write Your review <span>*</span>
-                              </label>
-                              <textarea
-                                id="comment"
-                                cols="30"
-                                rows="10"
-                              ></textarea>
-                            </div>
-                            <button className="btn">Submit Now</button>
-                          </form>
-                        </div>
-                        <div className="reviews-comment">
-                          <div className="review-info">
-                            <div className="review-content">
-                              <ul className="review-rating list-wrap">
-                                <li>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                </li>
-                              </ul>
-                              <div className="review-meta">
-                                <h6>
-                                  Chenai Simon <span>-May 12, 2024</span>
-                                </h6>
-                              </div>
-                              <p>
-                                There are many variations of passages of lorem
-                                ipsum available, but the majority have suffered
-                                alteration in some form, by injected humour, or
-                                randomised words which don't look even slightly
-                                believable. If you are going to use a passage of
-                                lorem ipsum.
-                              </p>
-                            </div>
-                          </div>
-                          <div className="review-info">
-                            <div className="review-content">
-                              <ul className="review-rating list-wrap">
-                                <li>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="far fa-star"></i>
-                                </li>
-                              </ul>
-                              <div className="review-meta">
-                                <h6>
-                                  Finn Castaneda <span>-June 17, 2024</span>
-                                </h6>
-                              </div>
-                              <p>
-                                There are many variations of passages of lorem
-                                ipsum available, but the majority have suffered
-                                alteration in some form, by injected humour, or
-                                randomised words which don't look even slightly
-                                believable. If you are going to use a passage of
-                                lorem ipsum.
-                              </p>
-                            </div>
-                          </div>
-                          <div className="review-info">
-                            <div className="review-content">
-                              <ul className="review-rating list-wrap">
-                                <li>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="fas fa-star"></i>
-                                  <i className="far fa-star"></i>
-                                </li>
-                              </ul>
-                              <div className="review-meta">
-                                <h6>
-                                  Bayley Robertson <span>-May 28, 2024</span>
-                                </h6>
-                              </div>
-                              <p>
-                                There are many variations of passages of lorem
-                                ipsum available, but the majority have suffered
-                                alteration in some form, by injected humour, or
-                                randomised words which don't look even slightly
-                                believable. If you are going to use a passage of
-                                lorem ipsum.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <NutritionReviewSection product_id="660e4e81d8ff4f8d9f2a51da" />
                     </div>
                   </div>
                 </div>

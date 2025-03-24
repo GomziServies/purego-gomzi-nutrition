@@ -251,7 +251,7 @@ function TermsConditions() {
         />
         <meta
           property="og:image"
-          content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/logo/nutrition-logo.webp"
+          content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.webp"
         />
         <meta property="og:url" content="https://purego.gomzilifesciences.in/" />
         <link rel="canonical" href={{ canonicalUrl }} />
