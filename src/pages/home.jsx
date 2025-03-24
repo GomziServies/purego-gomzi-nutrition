@@ -1283,7 +1283,7 @@ function Home() {
                             Enhances Your Immunity Naturally
                           </h5>
                           <p>
-                            Purego’s natural ingredients help strengthen your
+                            Purego's natural ingredients help strengthen your
                             immune system.
                           </p>
                         </div>
@@ -1331,7 +1331,7 @@ function Home() {
                             Ingredients That Energize You
                           </h5>
                           <p>
-                            Purego’s fuel your body for better energy levels.
+                            Purego's fuel your body for better energy levels.
                           </p>
                         </div>
                       </div>
@@ -1617,7 +1617,7 @@ function Home() {
                           How do Purego products improve immunity?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Purego’s herbal ingredients are carefully selected to
+                          Purego's herbal ingredients are carefully selected to
                           strengthen your immune system naturally, supporting
                           overall health and wellness.
                         </Accordion.Body>

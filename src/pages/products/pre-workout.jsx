@@ -22,7 +22,7 @@ function PureGoPreWorkout() {
 
   const [selectedImage, setSelectedImage] = useState(
     process.env.PUBLIC_URL +
-      "/assets/images/products/pre-workout/pre-workout-1.webp"
+    "/assets/images/products/pre-workout/pre-workout-1.webp"
   );
 
   return (
@@ -448,7 +448,7 @@ function PureGoPreWorkout() {
                         aria-controls="review"
                         aria-selected="false"
                       >
-                        Reviews (3)
+                        Reviews
                       </a>
                     </li>
                   </ul>
@@ -483,7 +483,7 @@ function PureGoPreWorkout() {
                             <div className="from-grp checkbox-grp">
                               <input type="checkbox" id="checkbox" />
                               <label for="checkbox">
-                                Don’t show your email address
+                                Don't show your email address
                               </label>
                             </div>
                             <div className="form-rating">
@@ -532,7 +532,7 @@ function PureGoPreWorkout() {
                                 There are many variations of passages of lorem
                                 ipsum available, but the majority have suffered
                                 alteration in some form, by injected humour, or
-                                randomised words which don’t look even slightly
+                                randomised words which don't look even slightly
                                 believable. If you are going to use a passage of
                                 lorem ipsum.
                               </p>
@@ -558,7 +558,7 @@ function PureGoPreWorkout() {
                                 There are many variations of passages of lorem
                                 ipsum available, but the majority have suffered
                                 alteration in some form, by injected humour, or
-                                randomised words which don’t look even slightly
+                                randomised words which don't look even slightly
                                 believable. If you are going to use a passage of
                                 lorem ipsum.
                               </p>
@@ -584,7 +584,7 @@ function PureGoPreWorkout() {
                                 There are many variations of passages of lorem
                                 ipsum available, but the majority have suffered
                                 alteration in some form, by injected humour, or
-                                randomised words which don’t look even slightly
+                                randomised words which don't look even slightly
                                 believable. If you are going to use a passage of
                                 lorem ipsum.
                               </p>
