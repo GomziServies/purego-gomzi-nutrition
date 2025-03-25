@@ -444,91 +444,197 @@ function Home() {
             />
           </div>
         </section>
-        <div className="brand-area">
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <div className="brand-title text-center mb-50">
-                  <p className="title">Perfect Brand is Featured on</p>
+        <section className="features-products">
+          <div className="section-title text-center mb-60">
+            <p className="sub-title">
+              .. Increased Wellness With Purego ..
+            </p>
+            <h2 className="title">Purego Products</h2>
+          </div>
+          <div className="container text-center">
+            <div className="row home-shop-active">
+              <div className="col-lg-4">
+                <div className="home-shop-item ">
+                  <div className="home-shop-thumb">
+                    <a href="/whey-protein-powder">
+                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb01.png'} alt="img" />
+                      {/* <span className="discount"> -15%</span> */}
+                    </a>
+                    <div className="shop-thumb-shape blue"></div>
+                  </div>
+                  <div className="home-shop-content">
+                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein Chocolate</a></h4>
+                    <span className="home-shop-price">$85.99</span>
+                    <div className="home-shop-rating">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
+                      <span className="total-rating">(30)</span>
+                    </div>
+                    <div className="shop-content-bottom">
+                      <a href="/whey-protein-powder" className="btn btn-two">Buy Now</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="row brand-active">
-              <div className="col-2">
-                <div className="brand-item">
-                  <a href="#">
-                    <img
-                      src={
-                        process.env.PUBLIC_URL + "/assets/images/brand_01.png"
-                      }
-                      alt="brand"
-                    />
-                  </a>
+              <div className="col-lg-4">
+                <div className="home-shop-item">
+                  <div className="home-shop-thumb">
+                    <a href="/whey-protein-powder">
+                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb02.png'} alt="img" />
+                    </a>
+                    <div className="shop-thumb-shape yellow"></div>
+                  </div>
+                  <div className="home-shop-content">
+                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein MAwa Kulfi</a></h4>
+                    <span className="home-shop-price">$55.99</span>
+                    <div className="home-shop-rating">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
+                      <span className="total-rating">(30)</span>
+                    </div>
+                    <div className="shop-content-bottom">
+                      <a href="/whey-protein-powder" className="btn btn-two">Buy Now</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="col-2">
-                <div className="brand-item">
-                  <a href="#">
-                    <img
-                      src={
-                        process.env.PUBLIC_URL + "/assets/images/brand_02.png"
-                      }
-                      alt="brand"
-                    />
-                  </a>
+              <div className="col-lg-4">
+                <div className="home-shop-item">
+                  <div className="home-shop-thumb">
+                    <a href="/whey-protein-powder">
+                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb03.png'} alt="img" />
+                      {/* <span className="discount"> -15%</span> */}
+                    </a>
+                    <div className="shop-thumb-shape red"></div>
+                  </div>
+                  <div className="home-shop-content">
+                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein Mocha Coffee</a></h4>
+                    <span className="home-shop-price">$79.99</span>
+                    <div className="home-shop-rating">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
+                      <span className="total-rating">(24)</span>
+                    </div>
+                    <div className="shop-content-bottom">
+                      <a href="/whey-protein-powder" className="btn btn-two">Buy Now</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="col-2">
-                <div className="brand-item">
-                  <a href="#">
-                    <img
-                      src={
-                        process.env.PUBLIC_URL + "/assets/images/brand_04.png"
-                      }
-                      alt="brand"
-                    />
-                  </a>
+              <div className="col-lg-4">
+                <div className="home-shop-item">
+                  <div className="home-shop-thumb">
+                    <a href="/mass-gainer-protein-powder">
+                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb04.png'} alt="img" />
+                    </a>
+                    <div className="shop-thumb-shape gray"></div>
+                  </div>
+                  <div className="home-shop-content">
+                    <h4 className="title"><a href="/mass-gainer-protein-powder">Mass Gainer Chocolate</a></h4>
+                    <span className="home-shop-price">$79.99</span>
+                    <div className="home-shop-rating">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
+                      <span className="total-rating">(24)</span>
+                    </div>
+                    <div className="shop-content-bottom">
+                      <a href="/mass-gainer-protein-powder" className="btn btn-two">Buy Now</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="col-2">
-                <div className="brand-item">
-                  <a href="#">
-                    <img
-                      src={
-                        process.env.PUBLIC_URL + "/assets/images/brand_05.png"
-                      }
-                      alt="brand"
-                    />
-                  </a>
+              <div className="col-lg-4">
+                <div className="home-shop-item">
+                  <div className="home-shop-thumb">
+                    <a href="/weight-loss-supplement">
+                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb05.png'} alt="img" />
+                    </a>
+                    <div className="shop-thumb-shape purple"></div>
+                  </div>
+                  <div className="home-shop-content">
+                    <h4 className="title"><a href="/weight-loss-supplement">Pre Workout</a></h4>
+                    <span className="home-shop-price">$39.99</span>
+                    <div className="home-shop-rating">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
+                      <span className="total-rating">(12)</span>
+                    </div>
+                    <div className="shop-content-bottom">
+                      <a href="/weight-loss-supplement" className="btn btn-two">Buy Now</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="col-2">
-                <div className="brand-item">
-                  <a href="#">
-                    <img
-                      src={
-                        process.env.PUBLIC_URL + "/assets/images/brand_06.png"
-                      }
-                      alt="brand"
-                    />
-                  </a>
+              <div className="col-lg-4">
+                <div className="home-shop-item">
+                  <div className="home-shop-thumb">
+                    <a href="/eaa-supplements">
+                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb06.png'} alt="img" />
+                    </a>
+                    <div className="shop-thumb-shape green"></div>
+                  </div>
+                  <div className="home-shop-content">
+                    <h4 className="title"><a href="/eaa-supplements">EAA Powder</a></h4>
+                    <span className="home-shop-price">$39.99</span>
+                    <div className="home-shop-rating">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
+                      <span className="total-rating">(12)</span>
+                    </div>
+                    <div className="shop-content-bottom">
+                      <a href="/eaa-supplements" className="btn btn-two">Buy Now</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="col-2">
-                <div className="brand-item">
-                  <a href="#">
-                    <img
-                      src={
-                        process.env.PUBLIC_URL + "/assets/images/brand_03.png"
-                      }
-                      alt="brand"
-                    />
-                  </a>
+              <div className="col"></div>
+              <div className="col-lg-4">
+                <div className="home-shop-item">
+                  <div className="home-shop-thumb">
+                    <a href="/creatine-supplements">
+                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb07.png'} alt="img" />
+                    </a>
+                    <div className="shop-thumb-shape"></div>
+                  </div>
+                  <div className="home-shop-content">
+                    <h4 className="title"><a href="/creatine-supplements">Creatine Monohydrate</a></h4>
+                    <span className="home-shop-price">$39.99</span>
+                    <div className="home-shop-rating">
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
+                      <span className="total-rating">(12)</span>
+                    </div>
+                    <div className="shop-content-bottom">
+                      <a href="/creatine-supplements" className="btn btn-two">Buy Now</a>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div className="col"></div>
             </div>
           </div>
-        </div>
+        </section>
         <section
           id="features"
           className="features-area features-bg"
@@ -614,7 +720,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <section id="paroller" className="features-products">
+        {/* <section id="paroller" className="features-products">
           <div className="container">
             <div className="features-products-wrap">
               <div className="row justify-content-center">
@@ -980,145 +1086,141 @@ function Home() {
           <div className="fp-circle three"></div>
           <div className="fp-circle four"></div>
           <div className="fp-circle five"></div>
-        </section>
-        {/* <section className="home-shop-area">
+        </section> */}
+        <section id="ingredient" className="ingredients-area">
           <div className="container">
-            <div className="row home-shop-active">
-              <div className="col-xl-3">
-                <div className="home-shop-item">
-                  <div className="home-shop-thumb">
-                    <a href="shop-details.html">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb01.png'} alt="img" />
-                      <span className="discount"> -15%</span>
-                    </a>
-                    <div className="shop-thumb-shape"></div>
-                  </div>
-                  <div className="home-shop-content">
-                    <h4 className="title"><a href="shop-details.html">Box Full of Muscles</a></h4>
-                    <span className="home-shop-price">$85.99</span>
-                    <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
-                      <span className="total-rating">(30)</span>
-                    </div>
-                    <div className="shop-content-bottom">
-                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
-                      <a href="shop-details.html" className="btn btn-two">Buy Now</a>
-                    </div>
-                  </div>
+            <div className="row align-items-center justify-content-center">
+              <div className="col-xl-5 col-lg-6 col-md-7">
+                <div className="ingredients-img">
+                  <img
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/assets/images/ingredients_img.png"
+                    }
+                    alt="img"
+                  />
+                  <img
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/assets/images/ingredients_shape.png"
+                    }
+                    alt="img"
+                    className="shape"
+                  />
                 </div>
               </div>
-              <div className="col-xl-3">
-                <div className="home-shop-item">
-                  <div className="home-shop-thumb">
-                    <a href="shop-details.html">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb02.png'} alt="img" />
-                    </a>
-                    <div className="shop-thumb-shape yellow"></div>
+              <div className="col-xl-7 col-lg-9">
+                <div className="ingredients-items-wrap">
+                  <div className="section-title mb-60">
+                    <p className="sub-title">
+                      .. Increased Wellness With Purego ..
+                    </p>
+                    <h2 className="title">Purego Ingredients</h2>
                   </div>
-                  <div className="home-shop-content">
-                    <h4 className="title"><a href="shop-details.html">Protein Powder 2kg</a></h4>
-                    <span className="home-shop-price">$55.99</span>
-                    <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
-                      <span className="total-rating">(30)</span>
+                  <div className="row justify-content-center justify-content-lg-start">
+                    <div className="col-md-6 col-sm-8">
+                      <div
+                        className="ingredients-item wow fadeInUp"
+                        data-wow-delay=".2s"
+                      >
+                        <div className="ingredients-thumb">
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/ingredients_item01.png"
+                            }
+                            alt="img"
+                          />
+                        </div>
+                        <div className="ingredients-content">
+                          <h5 className="title">
+                            Enhances Your Immunity Naturally
+                          </h5>
+                          <p>
+                            Purego's natural ingredients help strengthen your
+                            immune system.
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="shop-content-bottom">
-                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
-                      <a href="shop-details.html" className="btn btn-two">Buy Now</a>
+                    <div className="col-md-6 col-sm-8">
+                      <div
+                        className="ingredients-item wow fadeInUp"
+                        data-wow-delay=".3s"
+                      >
+                        <div className="ingredients-thumb">
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/ingredients_item02.png"
+                            }
+                            alt="img"
+                          />
+                        </div>
+                        <div className="ingredients-content">
+                          <h5 className="title">Low Carbs</h5>
+                          <p>
+                            Purego keeps carbs low while providing maximum
+                            benefits.
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3">
-                <div className="home-shop-item">
-                  <div className="home-shop-thumb">
-                    <a href="shop-details.html">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb03.png'} alt="img" />
-                      <span className="discount"> -15%</span>
-                    </a>
-                    <div className="shop-thumb-shape purple"></div>
-                  </div>
-                  <div className="home-shop-content">
-                    <h4 className="title"><a href="shop-details.html">Amino Energy Health 2kg</a></h4>
-                    <span className="home-shop-price">$79.99</span>
-                    <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
-                      <span className="total-rating">(24)</span>
+                    <div className="col-md-6 col-sm-8">
+                      <div
+                        className="ingredients-item wow fadeInUp"
+                        data-wow-delay=".4s"
+                      >
+                        <div className="ingredients-thumb">
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/ingredients_item03.png"
+                            }
+                            alt="img"
+                          />
+                        </div>
+                        <div className="ingredients-content">
+                          <h5 className="title">
+                            Ingredients That Energize You
+                          </h5>
+                          <p>
+                            Purego's fuel your body for better energy levels.
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="shop-content-bottom">
-                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
-                      <a href="shop-details.html" className="btn btn-two">Buy Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3">
-                <div className="home-shop-item">
-                  <div className="home-shop-thumb">
-                    <a href="shop-details.html">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb04.png'} alt="img" />
-                    </a>
-                    <div className="shop-thumb-shape gray"></div>
-                  </div>
-                  <div className="home-shop-content">
-                    <h4 className="title"><a href="shop-details.html">Antiaging and Longevity</a></h4>
-                    <span className="home-shop-price">$79.99</span>
-                    <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
-                      <span className="total-rating">(24)</span>
-                    </div>
-                    <div className="shop-content-bottom">
-                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
-                      <a href="shop-details.html" className="btn btn-two">Buy Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3">
-                <div className="home-shop-item">
-                  <div className="home-shop-thumb">
-                    <a href="shop-details.html">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb05.png'} alt="img" />
-                    </a>
-                    <div className="shop-thumb-shape blue"></div>
-                  </div>
-                  <div className="home-shop-content">
-                    <h4 className="title"><a href="shop-details.html">SERIOUR MASS 2kg</a></h4>
-                    <span className="home-shop-price">$39.99</span>
-                    <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
-                      <span className="total-rating">(12)</span>
-                    </div>
-                    <div className="shop-content-bottom">
-                      <a href="/add-to-cart" className="cart"><i className="flaticon-shopping-cart-1"></i></a>
-                      <a href="shop-details.html" className="btn btn-two">Buy Now</a>
+                    <div className="col-md-6 col-sm-8">
+                      <div
+                        className="ingredients-item wow fadeInUp"
+                        data-wow-delay=".5s"
+                      >
+                        <div className="ingredients-thumb">
+                          <img
+                            src={
+                              process.env.PUBLIC_URL +
+                              "/assets/images/ingredients_item04.png"
+                            }
+                            alt="img"
+                          />
+                        </div>
+                        <div className="ingredients-content">
+                          <h5 className="title">
+                            Clean, Pure Ingredients Always
+                          </h5>
+                          <p>
+                            Purego uses only the finest natural ingredients for
+                            your health.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
         <div className="video-area video-bg">
           <div className="video-bg-overlay"></div>
           <div className="container">

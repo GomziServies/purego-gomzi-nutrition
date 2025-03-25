@@ -442,8 +442,6 @@ label {
 
 /* button style */
 .btn {
-  user-select: none;
-  -moz-user-select: none;
   background: var(--tg-secondary-color) none repeat scroll 0 0;
   border: medium none;
   border-radius: 50px;
@@ -1823,7 +1821,7 @@ body.search-visible {
 }
 .home-shop-item {
   background: var(--tg-white);
-  box-shadow: 0px 15px 26px rgba(173, 185, 202, 0.17);
+  box-shadow: 0px 15px 26px rgba(173, 185, 202, 1);
   margin: 106px 0 50px;
   padding: 0 40px 40px;
 }
@@ -1864,7 +1862,7 @@ body.search-visible {
   z-index: -1;
 }
 .shop-thumb-shape.yellow {
-  background: #f0de5a;
+  background: #b19f63;
 }
 .shop-thumb-shape.purple {
   background: #996bac;
@@ -1875,9 +1873,14 @@ body.search-visible {
 .shop-thumb-shape.blue {
   background: #25a1d0;
 }
+.shop-thumb-shape.red {
+  background: #f74c4c;
+}
+.shop-thumb-shape.green {
+  background: #4ab940;
+}
 .home-shop-content .title {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 24px;
 }
 .home-shop-price {
   font-size: 20px;
@@ -1890,8 +1893,6 @@ body.search-visible {
   margin: 0 0 30px;
 }
 .home-shop-rating {
-  display: flex;
-  align-items: center;
   color: var(--tg-primary-color);
   letter-spacing: 3px;
   line-height: 1;
@@ -1901,10 +1902,8 @@ body.search-visible {
   font-weight: 500;
   letter-spacing: 0;
   color: var(--tg-body-font-color);
-  margin-left: 10px;
 }
 .shop-content-bottom {
-  display: flex;
   align-items: center;
   margin-top: 35px;
 }
@@ -1923,9 +1922,6 @@ body.search-visible {
 .shop-content-bottom .btn {
   padding: 15px 38px;
   font-size: 14px;
-  margin-left: 15px;
-  opacity: 0;
-  visibility: hidden;
 }
 .shop-content-bottom .cart:hover {
   background: var(--tg-primary-color);
@@ -2863,8 +2859,6 @@ body.search-visible {
   color: #696868;
   cursor: pointer;
   border-right: 1px solid #e1e1e1;
-  user-select: none;
-  -moz-user-select: none;
 }
 .quickview-cart-plus-minus .qtybutton.inc {
   left: auto;
@@ -4924,8 +4918,6 @@ body.search-visible {
         New Home CSS
 ================================*/
 .tg-btn {
-  user-select: none;
-  -moz-user-select: none;
   border: medium none;
   border-radius: 2px;
   color: var(--tg-white);
@@ -7496,7 +7488,6 @@ body.search-visible {
   margin-top: 2px;
 }
 .account__check-remember label {
-  user-select: none;
   color: var(--tg-heading-font-color);
 }
 .account__check-remember input:focus {
