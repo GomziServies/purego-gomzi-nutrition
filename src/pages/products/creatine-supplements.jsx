@@ -19,6 +19,7 @@ import LoaderComponent from "../../components/PageLoader";
 import { Link } from "react-router-dom";
 import NutritionReviewSection from "../../components/partials/review/nutrition-review";
 import { axiosInstance } from "../../assets/js/config/api";
+import HowToUse from "../../components/howToUse";
 
 function PureGoCreatine() {
   const canonicalUrl = window.location.href;
@@ -165,7 +166,7 @@ function PureGoCreatine() {
                     </ul>
                   </div>
                   <div className="inner-shop-details-price">
-                    <h2 className="price">₹2999.00</h2>
+                    <h2 className="price">₹350.00</h2>
                     <h5 className="stock-status">- IN Stock</h5>
                   </div>
                   <p>
@@ -367,6 +368,18 @@ function PureGoCreatine() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        <HowToUse
+          src1="step-1.mp4"
+          src2="step-2.mp4"
+          src3="step-3.mp4"
+          src4="step-4.mp4"
+          step1="Add 300 ml of water/milk"
+          step2="Mix 1 scoop of Protein"
+        />
+        <section className="inner-shop-details-area">
+          <div className="container">
             <div className="row">
               <div className="col-12">
                 <div className="product-desc-wrap">

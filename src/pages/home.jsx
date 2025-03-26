@@ -464,7 +464,7 @@ function Home() {
                   </div>
                   <div className="home-shop-content">
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein Chocolate</a></h4>
-                    <span className="home-shop-price">$85.99</span>
+                    <span className="home-shop-price">₹1250/-</span>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -489,7 +489,7 @@ function Home() {
                   </div>
                   <div className="home-shop-content">
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein MAwa Kulfi</a></h4>
-                    <span className="home-shop-price">$55.99</span>
+                    <span className="home-shop-price">₹1250/-</span>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -515,7 +515,7 @@ function Home() {
                   </div>
                   <div className="home-shop-content">
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein Mocha Coffee</a></h4>
-                    <span className="home-shop-price">$79.99</span>
+                    <span className="home-shop-price">₹1250/-</span>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -540,7 +540,7 @@ function Home() {
                   </div>
                   <div className="home-shop-content">
                     <h4 className="title"><a href="/mass-gainer-protein-powder">Mass Gainer Chocolate</a></h4>
-                    <span className="home-shop-price">$79.99</span>
+                    <span className="home-shop-price">₹420/-</span>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -565,7 +565,7 @@ function Home() {
                   </div>
                   <div className="home-shop-content">
                     <h4 className="title"><a href="/weight-loss-supplement">Pre Workout</a></h4>
-                    <span className="home-shop-price">$39.99</span>
+                    <span className="home-shop-price">₹440/-</span>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -590,7 +590,7 @@ function Home() {
                   </div>
                   <div className="home-shop-content">
                     <h4 className="title"><a href="/eaa-supplements">EAA Powder</a></h4>
-                    <span className="home-shop-price">$39.99</span>
+                    <span className="home-shop-price">₹490/-</span>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -616,7 +616,7 @@ function Home() {
                   </div>
                   <div className="home-shop-content">
                     <h4 className="title"><a href="/creatine-supplements">Creatine Monohydrate</a></h4>
-                    <span className="home-shop-price">$39.99</span>
+                    <span className="home-shop-price">₹350/-</span>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -1204,17 +1204,17 @@ function Home() {
         <section id="ingredient" className="ingredients-area">
           <div className="container">
             <div className="row align-items-center justify-content-center">
-              <div className="col-xl-5 col-lg-6 col-md-7">
+              <div className="col-lg-6">
                 <div className="">
                   <img
                     src={
-                      process.env.PUBLIC_URL + "/assets/images/features_img.png"
+                      process.env.PUBLIC_URL + "/assets/images/features_img03.png"
                     }
                     alt=""
                   />
                 </div>
               </div>
-              <div className="col-xl-7 col-lg-9">
+              <div className="col-lg-6">
                 <div className="ingredients-items-wrap">
                   <div className="section-title mb-60">
                     <p className="sub-title">
@@ -1223,20 +1223,11 @@ function Home() {
                     <h2 className="title">Purego Ingredients</h2>
                   </div>
                   <div className="row justify-content-center justify-content-lg-start">
-                    <div className="col-md-6 col-sm-8">
+                    <div className="col-12">
                       <div
                         className="ingredients-item wow fadeInUp"
                         data-wow-delay=".2s"
                       >
-                        <div className="ingredients-thumb">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/ingredients_item01.png"
-                            }
-                            alt="img"
-                          />
-                        </div>
                         <div className="ingredients-content">
                           <h5 className="title">
                             Enhances Your Immunity Naturally
@@ -1248,20 +1239,11 @@ function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-6 col-sm-8">
+                    <div className="col-12">
                       <div
                         className="ingredients-item wow fadeInUp"
                         data-wow-delay=".3s"
                       >
-                        <div className="ingredients-thumb">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/ingredients_item02.png"
-                            }
-                            alt="img"
-                          />
-                        </div>
                         <div className="ingredients-content">
                           <h5 className="title">Low Carbs</h5>
                           <p>
@@ -1271,20 +1253,11 @@ function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-6 col-sm-8">
+                    <div className="col-12">
                       <div
                         className="ingredients-item wow fadeInUp"
                         data-wow-delay=".4s"
                       >
-                        <div className="ingredients-thumb">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/ingredients_item03.png"
-                            }
-                            alt="img"
-                          />
-                        </div>
                         <div className="ingredients-content">
                           <h5 className="title">
                             Ingredients That Energize You
@@ -1295,20 +1268,11 @@ function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-6 col-sm-8">
+                    <div className="col-12">
                       <div
                         className="ingredients-item wow fadeInUp"
                         data-wow-delay=".5s"
                       >
-                        <div className="ingredients-thumb">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/ingredients_item04.png"
-                            }
-                            alt="img"
-                          />
-                        </div>
                         <div className="ingredients-content">
                           <h5 className="title">
                             Clean, Pure Ingredients Always
@@ -1553,8 +1517,8 @@ function Home() {
             <div className="row justify-content-center">
               <div className="col-xl-6 col-lg-8">
                 <div className="section-title text-center white-title mb-50">
-                  <p className="sub-title">.. Are Client Says ..</p>
-                  <h2>Testimonials</h2>
+                  <p className="sub-title">.. Increased Wellness With Purego ..</p>
+                  <h2>Blogs</h2>
                 </div>
               </div>
             </div>
@@ -1563,13 +1527,10 @@ function Home() {
                 <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".2s">
                   <div className="tg-blog-post-thumb">
                     <a href="blog-details.html"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb01.webp'} alt="" /></a>
-                    <div className="tg-blog-overlay-tag">
-                      <a href="#">Foods</a>
-                    </div>
                   </div>
                   <div className="tg-blog-post-content">
                     <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
-                    <h4 className="title"><a href="blog-details.html">Lorem ipsum dolor consectetur sit amet adipisicing</a></h4>
+                    <h4 className="title"><a href="blog-details.html">Top Supplements for Weight Gain: A Comparative Analysis</a></h4>
                     <a href="blog-details.html" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
                   </div>
                 </div>
@@ -1578,13 +1539,10 @@ function Home() {
                 <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".4s">
                   <div className="tg-blog-post-thumb">
                     <a href="blog-details.html"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb02.webp'} alt="" /></a>
-                    <div className="tg-blog-overlay-tag">
-                      <a href="#">Gym</a>
-                    </div>
                   </div>
                   <div className="tg-blog-post-content">
                     <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
-                    <h4 className="title"><a href="blog-details.html">Best ways to support your healthy immune system</a></h4>
+                    <h4 className="title"><a href="blog-details.html">How Supplements Help you live a healthy life</a></h4>
                     <a href="blog-details.html" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
                   </div>
                 </div>
@@ -1593,13 +1551,10 @@ function Home() {
                 <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".6s">
                   <div className="tg-blog-post-thumb">
                     <a href="blog-details.html"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb03.webp'} alt="" /></a>
-                    <div className="tg-blog-overlay-tag">
-                      <a href="#">Fitness</a>
-                    </div>
                   </div>
                   <div className="tg-blog-post-content">
                     <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
-                    <h4 className="title"><a href="blog-details.html">Organic food is produced methods complying</a></h4>
+                    <h4 className="title"><a href="blog-details.html">The Ultimate Guide to the Best Whey Protein to Try in India</a></h4>
                     <a href="blog-details.html" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
                   </div>
                 </div>

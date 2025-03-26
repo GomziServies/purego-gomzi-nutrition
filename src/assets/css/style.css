@@ -3101,13 +3101,6 @@ body.search-visible {
   font-size: 18px;
   letter-spacing: 1px;
 }
-.ingredients-items-wrap .row > *:nth-child(4n + 2) .ingredients-item,
-.ingredients-items-wrap .row > *:nth-child(4n) .ingredients-item {
-  margin: 0 0 55px 50px;
-}
-.ingredients-items-wrap .row > *:nth-last-child(-n + 2) .ingredients-item {
-  margin-bottom: 0;
-}
 .ingredients-img .shape {
   position: absolute;
   left: -125px;
@@ -6603,7 +6596,6 @@ body.search-visible {
   justify-content: center;
   font-size: 38px;
   color: var(--tg-heading-font-color);
-  user-select: none;
 }
 .product-bottom .cart-plus-minus .qtybutton.inc {
   left: auto;
@@ -7898,13 +7890,6 @@ body.search-visible {
   }
   .ingredients-item {
     margin: 0 0 40px;
-  }
-  .ingredients-items-wrap .row > :nth-child(4n + 2) .ingredients-item,
-  .ingredients-items-wrap .row > :nth-child(4n) .ingredients-item {
-    margin: 0 0 40px 15px;
-  }
-  .ingredients-items-wrap .row > :nth-last-child(-n + 2) .ingredients-item {
-    margin-bottom: 0;
   }
   .formula-img {
     margin-right: -30px;
