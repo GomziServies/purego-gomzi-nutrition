@@ -331,7 +331,7 @@ function ContactUs() {
                                     <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                                         <ul className="breadcrumb">
                                             <li className="breadcrumb-item trail-item trail-begin">
-                                                <a href="index.html"><span>Home</span></a>
+                                                <a href="/"><span>Home</span></a>
                                             </li>
                                             <li className="breadcrumb-item trail-item trail-end"><span>Contact Us</span></li>
                                         </ul>

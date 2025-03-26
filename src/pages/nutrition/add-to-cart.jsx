@@ -188,7 +188,7 @@ function AddToCart() {
                   <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                     <ul className="breadcrumb">
                       <li className="breadcrumb-item trail-item trail-begin">
-                        <a href="index.html">
+                        <a href="/">
                           <span>Home</span>
                         </a>
                       </li>

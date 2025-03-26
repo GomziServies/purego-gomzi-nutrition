@@ -71,16 +71,16 @@ function PureGoMassGainer() {
             <div className="row justify-content-center">
               <div className="col-xl-10">
                 <div className="breadcrumb-content text-center">
-                  <h2 className="title">Shop Details</h2>
+                  <h2 className="title">Mass Gainer</h2>
                   <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                     <ul className="breadcrumb">
                       <li className="breadcrumb-item trail-item trail-begin">
-                        <a href="index.html">
+                        <a href="/">
                           <span>Home</span>
                         </a>
                       </li>
                       <li className="breadcrumb-item trail-item trail-end">
-                        <span>Shop Details</span>
+                        <span>Mass Gainer</span>
                       </li>
                     </ul>
                   </nav>

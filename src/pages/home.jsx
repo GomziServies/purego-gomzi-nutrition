@@ -367,7 +367,7 @@ function Home() {
       </div> */}
       <NutritionHeader />
       <button className="scroll-top scroll-to-target" data-target="html">
-        <i className="fas fa-angle-up"></i>
+        <i class="fas fa-angle-up"></i>
       </button>
       <main className="main-area fix">
         <section className="banner-area main-section">
@@ -466,11 +466,11 @@ function Home() {
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein Chocolate</a></h4>
                     <span className="home-shop-price">$85.99</span>
                     <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
                       <span className="total-rating">(30)</span>
                     </div>
                     <div className="shop-content-bottom">
@@ -491,11 +491,11 @@ function Home() {
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein MAwa Kulfi</a></h4>
                     <span className="home-shop-price">$55.99</span>
                     <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
                       <span className="total-rating">(30)</span>
                     </div>
                     <div className="shop-content-bottom">
@@ -517,11 +517,11 @@ function Home() {
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein Mocha Coffee</a></h4>
                     <span className="home-shop-price">$79.99</span>
                     <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
                       <span className="total-rating">(24)</span>
                     </div>
                     <div className="shop-content-bottom">
@@ -542,11 +542,11 @@ function Home() {
                     <h4 className="title"><a href="/mass-gainer-protein-powder">Mass Gainer Chocolate</a></h4>
                     <span className="home-shop-price">$79.99</span>
                     <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
                       <span className="total-rating">(24)</span>
                     </div>
                     <div className="shop-content-bottom">
@@ -567,11 +567,11 @@ function Home() {
                     <h4 className="title"><a href="/weight-loss-supplement">Pre Workout</a></h4>
                     <span className="home-shop-price">$39.99</span>
                     <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
                       <span className="total-rating">(12)</span>
                     </div>
                     <div className="shop-content-bottom">
@@ -592,11 +592,11 @@ function Home() {
                     <h4 className="title"><a href="/eaa-supplements">EAA Powder</a></h4>
                     <span className="home-shop-price">$39.99</span>
                     <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
                       <span className="total-rating">(12)</span>
                     </div>
                     <div className="shop-content-bottom">
@@ -618,11 +618,11 @@ function Home() {
                     <h4 className="title"><a href="/creatine-supplements">Creatine Monohydrate</a></h4>
                     <span className="home-shop-price">$39.99</span>
                     <div className="home-shop-rating">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star-half-alt"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
                       <span className="total-rating">(12)</span>
                     </div>
                     <div className="shop-content-bottom">
@@ -661,7 +661,7 @@ function Home() {
                     <div className="col-md-6 col-sm-8">
                       <div className="features-item">
                         <div className="features-icon">
-                          <i className="far fa-user"></i>
+                          <i class="far fa-user"></i>
                         </div>
                         <div className="features-content">
                           <h4 className="title">Herbal Boost</h4>
@@ -675,7 +675,7 @@ function Home() {
                     <div className="col-md-6 col-sm-8">
                       <div className="features-item">
                         <div className="features-icon">
-                          <i className="far fa-user"></i>
+                          <i class="far fa-user"></i>
                         </div>
                         <div className="features-content">
                           <h4 className="title">100% Immunity Aid</h4>
@@ -689,7 +689,7 @@ function Home() {
                     <div className="col-md-6 col-sm-8">
                       <div className="features-item">
                         <div className="features-icon">
-                          <i className="far fa-user"></i>
+                          <i class="far fa-user"></i>
                         </div>
                         <div className="features-content">
                           <h4 className="title">Energy Surge</h4>
@@ -703,7 +703,7 @@ function Home() {
                     <div className="col-md-6 col-sm-8">
                       <div className="features-item">
                         <div className="features-icon">
-                          <i className="far fa-user"></i>
+                          <i class="far fa-user"></i>
                         </div>
                         <div className="features-content">
                           <h4 className="title">Holistic Care</h4>
@@ -1091,126 +1091,36 @@ function Home() {
           <div className="container">
             <div className="row align-items-center justify-content-center">
               <div className="col-xl-5 col-lg-6 col-md-7">
-                <div className="ingredients-img">
+                <div className="">
                   <img
                     src={
                       process.env.PUBLIC_URL +
-                      "/assets/images/ingredients_img.png"
+                      "/assets/images/features_img02.png"
                     }
                     alt="img"
-                  />
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/assets/images/ingredients_shape.png"
-                    }
-                    alt="img"
-                    className="shape"
                   />
                 </div>
               </div>
               <div className="col-xl-7 col-lg-9">
                 <div className="ingredients-items-wrap">
-                  <div className="section-title mb-60">
+                  <div className="section-title mb-60 text-center">
                     <p className="sub-title">
-                      .. Increased Wellness With Purego ..
+                      .. Product Design By ..
                     </p>
-                    <h2 className="title">Purego Ingredients</h2>
+                    <h2 className="title">Dr. Gautam Jani</h2>
                   </div>
                   <div className="row justify-content-center justify-content-lg-start">
-                    <div className="col-md-6 col-sm-8">
+                    <div className="col-12">
                       <div
                         className="ingredients-item wow fadeInUp"
                         data-wow-delay=".2s"
                       >
-                        <div className="ingredients-thumb">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/ingredients_item01.png"
-                            }
-                            alt="img"
-                          />
-                        </div>
                         <div className="ingredients-content">
                           <h5 className="title">
-                            Enhances Your Immunity Naturally
+                            Founder & CEO of FG Group / CEO GCS PVT LTD / Core member of INPTA
                           </h5>
                           <p>
-                            Purego's natural ingredients help strengthen your
-                            immune system.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6 col-sm-8">
-                      <div
-                        className="ingredients-item wow fadeInUp"
-                        data-wow-delay=".3s"
-                      >
-                        <div className="ingredients-thumb">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/ingredients_item02.png"
-                            }
-                            alt="img"
-                          />
-                        </div>
-                        <div className="ingredients-content">
-                          <h5 className="title">Low Carbs</h5>
-                          <p>
-                            Purego keeps carbs low while providing maximum
-                            benefits.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6 col-sm-8">
-                      <div
-                        className="ingredients-item wow fadeInUp"
-                        data-wow-delay=".4s"
-                      >
-                        <div className="ingredients-thumb">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/ingredients_item03.png"
-                            }
-                            alt="img"
-                          />
-                        </div>
-                        <div className="ingredients-content">
-                          <h5 className="title">
-                            Ingredients That Energize You
-                          </h5>
-                          <p>
-                            Purego's fuel your body for better energy levels.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6 col-sm-8">
-                      <div
-                        className="ingredients-item wow fadeInUp"
-                        data-wow-delay=".5s"
-                      >
-                        <div className="ingredients-thumb">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/ingredients_item04.png"
-                            }
-                            alt="img"
-                          />
-                        </div>
-                        <div className="ingredients-content">
-                          <h5 className="title">
-                            Clean, Pure Ingredients Always
-                          </h5>
-                          <p>
-                            Purego uses only the finest natural ingredients for
-                            your health.
+                            He finished his Civil Engineer and turned fitness enthusiast in 2014 began his personal training journey in Gujarat, India, in 2016. Certified by ACSM, ISSA, and VLCC. he specializes in Clinical and weight loss nutrition, Strength Training, Exercise Science, and Performance Enhancement Drugs. In 2019 finished his MBA for better training and placement services for their student of FGIIT. In 2024, he earned his Ph.D. in Health & Fitness from Thames university. As the Founder of FGIIT, Gautam is dedicated to promoting holistic well-being through personalized training and nutritional guidance.
                           </p>
                         </div>
                       </div>
@@ -1231,7 +1141,7 @@ function Home() {
                     href="https://www.youtube.com/watch?v=HQfF5XRVXjU"
                     className="popup-video ripple-white"
                   >
-                    <i className="fas fa-play"></i>
+                    <i class="fas fa-play"></i>
                   </a>
                 </div>
               </div>
@@ -1295,21 +1205,12 @@ function Home() {
           <div className="container">
             <div className="row align-items-center justify-content-center">
               <div className="col-xl-5 col-lg-6 col-md-7">
-                <div className="ingredients-img">
+                <div className="">
                   <img
                     src={
-                      process.env.PUBLIC_URL +
-                      "/assets/images/ingredients_img.png"
+                      process.env.PUBLIC_URL + "/assets/images/features_img.png"
                     }
-                    alt="img"
-                  />
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/assets/images/ingredients_shape.png"
-                    }
-                    alt="img"
-                    className="shape"
+                    alt=""
                   />
                 </div>
               </div>
@@ -1426,45 +1327,69 @@ function Home() {
           </div>
         </section>
         <section className="formula-area formula-bg">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-lg-6 order-0 order-lg-2">
-                <div className="formula-img">
-                  <img
-                    src={
-                      process.env.PUBLIC_URL + "/assets/images/formula_img.png"
-                    }
-                    alt="img"
-                  />
-                </div>
+          <div className="">
+            <div className="section-title text-center white-title mb-50">
+              <p className="sub-title">.. Purego Wellness ..</p>
+              <h2 className="title">Certificates</h2>
+            </div>
+            <div className="row">
+              <div className="col"></div>
+              <div className="col-lg-2 mt-3">
+                <img
+                  className="img-fluid"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/nutri-certi-5.webp"
+                  }
+                  alt="Certificate"
+                  loading="lazy"
+                />
               </div>
-              <div className="col-lg-6">
-                <div className="formula-content">
-                  <div className="section-title white-title mb-50">
-                    <p className="sub-title">.. Purego Wellness ..</p>
-                    <h2 className="title">Why We Chose Purego</h2>
-                  </div>
-                  <ul className="formula-list list-wrap">
-                    <li>
-                      100% natural ingredients for maximum health benefits.
-                    </li>
-                    <li>
-                      Boosts immunity with carefully sourced herbal blends
-                    </li>
-                    <li>No artificial additives, preservatives, or fillers</li>
-                    <li>Promotes better digestion and gut health</li>
-                    <li>Gluten-free and suitable for all dietary needs</li>
-                    <li>Supports energy levels and mental clarity</li>
-                    <li>Rich in antioxidants for healthy skin</li>
-                    <li>Non-GMO, vegan, and cruelty-free products</li>
-                    <li>Free from harmful chemicals and toxins</li>
-                    <li>Trusted quality with every product</li>
-                  </ul>
-                  <a href="contact.html" className="btn btn-two">
-                    Know More
-                  </a>
-                </div>
+              <div className="col-lg-2 mt-3">
+                <img
+                  className="img-fluid"
+                  src={
+                    process.env.PUBLIC_URL +
+                    `/assets/images/nutri-certi-1.webp`
+                  }
+                  alt="Certificate"
+                  loading="lazy"
+                />
               </div>
+              <div className="col-lg-2 mt-3">
+                <img
+                  className="img-fluid"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/nutri-certi-2.webp"
+                  }
+                  alt="Certificate"
+                  loading="lazy"
+                />
+              </div>
+              <div className="col-lg-2 mt-3">
+                <img
+                  className="img-fluid"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/nutri-certi-3.webp"
+                  }
+                  alt="Certificate"
+                  loading="lazy"
+                />
+              </div>
+              <div className="col-lg-2 mt-3">
+                <img
+                  className="img-fluid"
+                  src={
+                    process.env.PUBLIC_URL +
+                    "/assets/images/nutri-certi-4.webp"
+                  }
+                  alt="Certificate"
+                  loading="lazy"
+                />
+              </div>
+              <div className="col"></div>
             </div>
           </div>
         </section>
@@ -1474,6 +1399,10 @@ function Home() {
         >
           <div className="testimonial-overlay"></div>
           <div className="container">
+            <div className="section-title text-center white-title mb-50">
+              <p className="sub-title">.. Are Client Says ..</p>
+              <h2 className="title">Testimonials</h2>
+            </div>
             <div className="row justify-content-center">
               <div className="col-xxl-8 col-xl-9 col-lg-11">
                 <div className="testimonial-active">
@@ -1501,11 +1430,11 @@ function Home() {
                   >
                     <div className="testimonial-item text-center">
                       <div className="testimonial-rating">
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star-half-alt"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                       </div>
                       <p>
                         “Purego products are amazing! The quality is top-notch,
@@ -1530,11 +1459,11 @@ function Home() {
                     </div>
                     <div className="testimonial-item text-center">
                       <div className="testimonial-rating">
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star-half-alt"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                       </div>
                       <p>
                         “Purego Gomzi Lifesciences delivers on its promises! I
@@ -1558,11 +1487,11 @@ function Home() {
                     </div>
                     <div className="testimonial-item text-center">
                       <div className="testimonial-rating">
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star-half-alt"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                       </div>
                       <p>
                         “Great range of wellness products at reasonable prices.
@@ -1586,11 +1515,11 @@ function Home() {
                     </div>
                     <div className="testimonial-item text-center">
                       <div className="testimonial-rating">
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star"></i>
-                        <i className="fas fa-star-half-alt"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                       </div>
                       <p>
                         “I was skeptical at first, but Purego proved me wrong!
@@ -1614,6 +1543,65 @@ function Home() {
                       </div>
                     </div>
                   </OwlCarousel>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="news" className="tg-blog-area pt-120 pb-90">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xl-6 col-lg-8">
+                <div className="section-title text-center white-title mb-50">
+                  <p className="sub-title">.. Are Client Says ..</p>
+                  <h2>Testimonials</h2>
+                </div>
+              </div>
+            </div>
+            <div className="row justify-content-center">
+              <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".2s">
+                  <div className="tg-blog-post-thumb">
+                    <a href="blog-details.html"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb01.webp'} alt="" /></a>
+                    <div className="tg-blog-overlay-tag">
+                      <a href="#">Foods</a>
+                    </div>
+                  </div>
+                  <div className="tg-blog-post-content">
+                    <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
+                    <h4 className="title"><a href="blog-details.html">Lorem ipsum dolor consectetur sit amet adipisicing</a></h4>
+                    <a href="blog-details.html" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".4s">
+                  <div className="tg-blog-post-thumb">
+                    <a href="blog-details.html"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb02.webp'} alt="" /></a>
+                    <div className="tg-blog-overlay-tag">
+                      <a href="#">Gym</a>
+                    </div>
+                  </div>
+                  <div className="tg-blog-post-content">
+                    <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
+                    <h4 className="title"><a href="blog-details.html">Best ways to support your healthy immune system</a></h4>
+                    <a href="blog-details.html" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".6s">
+                  <div className="tg-blog-post-thumb">
+                    <a href="blog-details.html"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb03.webp'} alt="" /></a>
+                    <div className="tg-blog-overlay-tag">
+                      <a href="#">Fitness</a>
+                    </div>
+                  </div>
+                  <div className="tg-blog-post-content">
+                    <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
+                    <h4 className="title"><a href="blog-details.html">Organic food is produced methods complying</a></h4>
+                    <a href="blog-details.html" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -70,16 +70,16 @@ function PureGoEaa() {
             <div className="row justify-content-center">
               <div className="col-xl-10">
                 <div className="breadcrumb-content text-center">
-                  <h2 className="title">Shop Details</h2>
+                  <h2 className="title">EAA Powder</h2>
                   <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
                     <ul className="breadcrumb">
                       <li className="breadcrumb-item trail-item trail-begin">
-                        <a href="index.html">
+                        <a href="/">
                           <span>Home</span>
                         </a>
                       </li>
                       <li className="breadcrumb-item trail-item trail-end">
-                        <span>Shop Details</span>
+                        <span>EAA Powder</span>
                       </li>
                     </ul>
                   </nav>

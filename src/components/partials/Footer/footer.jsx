@@ -63,7 +63,7 @@ function HomeNutritionFooter() {
                   <div className="footer-widget">
                     <div className="footer-about">
                       <div className="footer-logo logo">
-                        <a href="index.html"><img src={process.env.PUBLIC_URL + '/assets/images/white_logo.png'} alt="Logo" /></a>
+                        <a href="/"><img src={process.env.PUBLIC_URL + '/assets/images/white_logo.png'} alt="Logo" /></a>
                       </div>
                       <div className="footer-text">
                         <p>Purego Gomzi Lifesciences offers natural, effective wellness products to enhance immunity, energy, and overall health. Trust the power of nature.</p>
