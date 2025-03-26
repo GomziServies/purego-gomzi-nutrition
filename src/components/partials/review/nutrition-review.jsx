@@ -65,11 +65,11 @@ function NutritionReviewSection({ product_id }) {
           setShowModal(true);
         } else {
           console.error("Error:", error);
-          // Swal.fire({
-          //     title: 'Error',
-          //     text: error.message || 'Failed to submit feedback. Please try again later.',
-          //     icon: 'error',
-          // });
+          Swal.fire({
+              title: 'Error',
+              text: error.message || 'Failed to submit feedback. Please try again later.',
+              icon: 'error',
+          });
         }
       });
   };
@@ -88,12 +88,13 @@ function NutritionReviewSection({ product_id }) {
           if (feedback && feedback.length > 0) {
             let totalPoints = 0;
             let feedbackCount = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
             feedback.forEach((feedbackItem) => {
               totalPoints += feedbackItem.feedback_point;
               feedbackCount[feedbackItem.feedback_point]++;
             });
-
             const averagePoints = totalPoints / feedback.length;
+
             setAverageRating(averagePoints.toFixed(1));
             setTotalReviews(feedback.length);
 
@@ -102,8 +103,8 @@ function NutritionReviewSection({ product_id }) {
               feedbackCountPercentage[i] =
                 (feedbackCount[i] / feedback.length) * 100 || 0;
             }
-            setStarPercentages(feedbackCountPercentage);
 
+            setStarPercentages(feedbackCountPercentage);
             setReviews(feedback);
           }
         }

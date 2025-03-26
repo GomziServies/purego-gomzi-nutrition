@@ -17,6 +17,7 @@ import PureGoMassGainer from "./pages/products/mass-gainer-protein-powder";
 import PureGoPreWorkout from "./pages/products/weight-loss-supplement";
 import PureGoWheyProtein from "./pages/products/whey-protein-powder";
 import NotFoundPage from "./pages/404";
+import CheckOut from "./pages/check-out";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/terms-conditions" element={<TermsConditions />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/add-to-cart" element={<AddToCart />} />
+        <Route path="/check-out" element={<CheckOut />} />
         {/* Products */}
         <Route path="/creatine-supplements" element={<PureGoCreatine />} />
         <Route path="/weight-loss-supplement" element={<PureGoPreWorkout />} />

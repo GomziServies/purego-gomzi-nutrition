@@ -44,7 +44,6 @@ function UserOrder() {
         console.error("Error fetching order details:", error);
       });
   };
-  console.log(orderData);
 
   const convertDate = (date) => {
     return dayjs(date).format("MM/DD/YYYY");

@@ -41,7 +41,7 @@ export const directBuyBookAction = () => {
       try {
         findPayload = JSON.parse(findPayload);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   }
@@ -257,7 +257,7 @@ export const createProductOrder = async (
     }
   } catch (error) {
     if (error.response && error.response.data.status === 401) {
-      console.log("error response");
+      console.error("error response");
       return { showLoginModal: true };
     } else {
       Swal.fire({

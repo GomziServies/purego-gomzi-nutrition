@@ -68,9 +68,9 @@ const UserInfo = () => {
                             <li>
                                 <a href={`/user/profile`}><i className="far fa-user"></i> Profile</a>
                             </li>
-                            <li className="mr-0">
+                            <li className="me-0">
                                 <a href={`/user/order`}>
-                                    <i className="fas fa-box mr-1" style={{ fontSize: "18px" }}></i>Orders
+                                    <i className="fas fa-box me-1" style={{ fontSize: "18px" }}></i>Orders
                                 </a>
                             </li>
 

@@ -17,6 +17,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
 import LoaderComponent from "../../components/PageLoader";
 import NutritionReviewSection from "../../components/partials/review/nutrition-review";
+import { axiosInstance } from "../../assets/js/config/api";
 
 function PureGoMassGainer() {
   const canonicalUrl = window.location.href;
@@ -25,6 +26,21 @@ function PureGoMassGainer() {
     process.env.PUBLIC_URL +
     "/assets/images/products/mass-gainer/mass-gainer-1.webp"
   );
+
+  const addProductInCart = async (product_id) => {
+    try {
+      const response = await axiosInstance.post("/order-cart/add-item", {
+        item_id: product_id,
+        quantity: 1,
+        item_type: "PURE_GO_MEAL_PRODUCT",
+      });
+      if (response.data.response === "OK") {
+        window.location.href = "/add-to-cart";
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -195,9 +211,14 @@ function PureGoMassGainer() {
                         </div>
                       </form>
                     </div>
-                    <a href="/add-to-cart" className="cart-btn">
+                    <button
+                      onClick={() =>
+                        addProductInCart("674b01f227420607a74da20c")
+                      }
+                      className="cart-btn"
+                    >
                       add to cart
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

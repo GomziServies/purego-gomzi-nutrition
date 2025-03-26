@@ -190,7 +190,6 @@ export const sendNutritionInquiry = async (data) => {
       "/contact-inquiry",
       payload
     );
-    console.log(payload);
 
     if (!response.data.response === "OK") {
       const error = await response.data;

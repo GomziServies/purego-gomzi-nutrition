@@ -18,6 +18,7 @@ import HomeNutritionFooter from "../../components/partials/Footer/footer";
 import LoaderComponent from "../../components/PageLoader";
 import { Link } from "react-router-dom";
 import NutritionReviewSection from "../../components/partials/review/nutrition-review";
+import { axiosInstance } from "../../assets/js/config/api";
 
 function PureGoCreatine() {
   const canonicalUrl = window.location.href;
@@ -25,6 +26,21 @@ function PureGoCreatine() {
   const [selectedImage, setSelectedImage] = useState(
     process.env.PUBLIC_URL + "/assets/images/products/creatine/creatine-1.webp"
   );
+
+  const addProductInCart = async (product_id) => {
+    try {
+      const response = await axiosInstance.post("/order-cart/add-item", {
+        item_id: product_id,
+        quantity: 1,
+        item_type: "PURE_GO_MEAL_PRODUCT",
+      });
+      if (response.data.response === "OK") {
+        window.location.href = "/add-to-cart";
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -195,9 +211,14 @@ function PureGoCreatine() {
                         </div>
                       </form>
                     </div>
-                    <Link to="/add-to-cart" className="cart-btn">
+                    <button
+                      onClick={() =>
+                        addProductInCart("67483a501d93a5dadbb229e4")
+                      }
+                      className="cart-btn"
+                    >
                       add to cart
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -325,7 +346,9 @@ function PureGoCreatine() {
                         <table className="table table-sm">
                           <tbody>
                             <tr>
-                              <th scope="row">Creatine Monohydrate (Micronised)</th>
+                              <th scope="row">
+                                Creatine Monohydrate (Micronised)
+                              </th>
                               <td>4.5 gm</td>
                             </tr>
                             <tr>
