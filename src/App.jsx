@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 //User Account
@@ -18,7 +18,9 @@ import PureGoPreWorkout from "./pages/products/weight-loss-supplement";
 import PureGoWheyProtein from "./pages/products/whey-protein-powder";
 import NotFoundPage from "./pages/404";
 import CheckOut from "./pages/check-out";
-import Blog1 from "./pages/blog/blog-1";
+import Blog1 from "./pages/blog/top-supplements-for-weight-gain";
+import Blog2 from "./pages/blog/how-supplements-help-you-live-healthy-life";
+import Blog3 from "./pages/blog/best-whey-protein-in-india";
 
 
 function App() {
@@ -42,7 +44,9 @@ function App() {
         <Route path="/whey-protein-powder" element={<PureGoWheyProtein />} />
         <Route path="/eaa-supplements" element={<PureGoEaa />} />
         {/* Blogs */}
-        <Route path="/blog-1" element={<Blog1 />} />
+        <Route path="/top-supplements-for-weight-gain" element={<Blog1 />} />
+        <Route path="/how-supplements-help-you-live-healthy-life" element={<Blog2 />} />
+        <Route path="/best-whey-protein-in-india" element={<Blog3 />} />
         <Route path="/404" element={<NotFoundPage />} />
       </Routes>
     </>

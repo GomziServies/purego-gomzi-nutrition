@@ -4475,9 +4475,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .avail-other-size.active {
-  background: #e7fdce;
-  color: black;
-  border: 3px dashed #86c33a !important;
+  background: #d9f5b6;
+  color: #3b3b3b !important;
+  border: 3px dashed #5fad00 !important;
   padding: 3px 10px;
   border-radius: 10px;
 }

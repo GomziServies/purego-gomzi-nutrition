@@ -1,60 +1,11 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import {
-  faInstagram,
-  faYoutube,
-  faLinkedinIn,
-} from "@fortawesome/free-brands-svg-icons";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function HomeNutritionFooter() {
-  const [visibleCount, setVisibleCount] = useState(2);
-
-  const moreKeyword = () => {
-    setVisibleCount((prevCount) => prevCount + 40);
-  };
 
   return (
     <>
       <footer className="footer-area">
-        <div className="footer-instagram">
-          <div className="container">
-            <div className="row g-0 instagram-active">
-              <div className="col-2">
-                <div className="footer-insta-item">
-                  <a href="assets/img/others/instagram_post01.jpg" className="popup-image"><img src={process.env.PUBLIC_URL + '/assets/images/instagram_post01.jpg'} alt="img" /></a>
-                </div>
-              </div>
-              <div className="col-2">
-                <div className="footer-insta-item">
-                  <a href="assets/img/others/instagram_post02.jpg" className="popup-image"><img src={process.env.PUBLIC_URL + '/assets/images/instagram_post02.jpg'} alt="img" /></a>
-                </div>
-              </div>
-              <div className="col-2">
-                <div className="footer-insta-item">
-                  <a href="assets/img/others/instagram_post03.jpg" className="popup-image"><img src={process.env.PUBLIC_URL + '/assets/images/instagram_post03.jpg'} alt="img" /></a>
-                </div>
-              </div>
-              <div className="col-2">
-                <div className="footer-insta-item">
-                  <a href="assets/img/others/instagram_post04.jpg" className="popup-image"><img src={process.env.PUBLIC_URL + '/assets/images/instagram_post04.jpg'} alt="img" /></a>
-                </div>
-              </div>
-              <div className="col-2">
-                <div className="footer-insta-item">
-                  <a href="assets/img/others/instagram_post05.jpg" className="popup-image"><img src={process.env.PUBLIC_URL + '/assets/images/instagram_post05.jpg'} alt="img" /></a>
-                </div>
-              </div>
-              <div className="col-2">
-                <div className="footer-insta-item">
-                  <a href="assets/img/others/instagram_post06.jpg" className="popup-image"><img src={process.env.PUBLIC_URL + '/assets/images/instagram_post06.jpg'} alt="img" /></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="footer-top-wrap">
           <div className="container">
             <div className="footer-widgets-wrap">

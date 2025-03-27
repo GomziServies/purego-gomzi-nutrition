@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -19,13 +19,73 @@ import LoaderComponent from "../../components/PageLoader";
 import NutritionReviewSection from "../../components/partials/review/nutrition-review";
 import { axiosInstance } from "../../assets/js/config/api";
 import HowToUse from "../../components/howToUse";
+import SelectableList from "../../components/SelectableList";
+import Review from "../../components/review";
+import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 
 function PureGoEaa() {
   const canonicalUrl = window.location.href;
+  const [currentProduct, setCurrentProduct] = useState("250g-Watermelon");
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [activeSize, setActiveSize] = useState("250g");
+  const [activeFlavor, setActiveFlavor] = useState("Watermelon");
+  const [opacity, setOpacity] = useState(1);
+  const imageRef = useRef(null);
 
-  const [selectedImage, setSelectedImage] = useState(
-    process.env.PUBLIC_URL + "/assets/images/products/eaa/eaa-1.webp"
-  );
+  const productImages = {
+    "250g-Watermelon": [
+      "/assets/images/products/eaa/eaa-1.webp",
+      "/assets/images/products/eaa/eaa-2.webp",
+      "/assets/images/products/eaa/eaa-3.webp",
+      "/assets/images/products/eaa/eaa-4.webp",
+    ]
+  };
+
+  const products = [
+    {
+      key: "250g-Watermelon",
+      data: {
+        id: "66b0c8b48db3bcc2c0cbb8f6",
+        img: "/assets/images/products/eaa/eaa-1.webp",
+        name: "EAA Powder",
+        price: "2099",
+        discount: "490",
+        size: "250 g",
+        dis_point: "15%",
+      },
+    }
+  ];
+
+  const sizeOptions = [
+    { id: "250g", label: "250g" },
+  ];
+
+  const flavorOptions = [
+    { id: "Watermelon", label: "Watermelon" }
+  ];
+
+  const handleSelectSize = (id) => {
+    setOpacity(0.3);
+    setTimeout(() => {
+      setActiveSize(id);
+      setCurrentProduct(`${id}-${activeFlavor}`);
+      setActiveImageIndex(0);
+      setOpacity(1);
+    }, 500);
+  };
+
+  const handleSelectFlavor = (id) => {
+    setOpacity(0.3);
+    setTimeout(() => {
+      setActiveFlavor(id);
+      setCurrentProduct(`${activeSize}-${id}`);
+      setActiveImageIndex(0);
+      setOpacity(1);
+    }, 500);
+  };
+
+  const currentProductData =
+    products.find((product) => product.key === currentProduct)?.data || {};
 
   const addProductInCart = async (product_id) => {
     try {
@@ -66,87 +126,28 @@ function PureGoEaa() {
         <i className="fas fa-angle-up"></i>
       </button>
       <main className="main-area fix">
-        <section className="breadcrumb-area breadcrumb-bg">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-xl-10">
-                <div className="breadcrumb-content text-center">
-                  <h2 className="title">EAA Powder</h2>
-                  <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
-                    <ul className="breadcrumb">
-                      <li className="breadcrumb-item trail-item trail-begin">
-                        <a href="/">
-                          <span>Home</span>
-                        </a>
-                      </li>
-                      <li className="breadcrumb-item trail-item trail-end">
-                        <span>EAA Powder</span>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="video-shape one">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
-              alt="shape"
-            />
-          </div>
-          <div className="video-shape two">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
-              alt="shape"
-            />
-          </div>
-        </section>
         <section className="inner-shop-details-area">
           <div className="container">
             <div className="row">
               <div className="col-lg-5">
-                <div className="inner-shop-details-flex-wrap">
-                  <div className="inner-shop-details-img-wrap">
-                    {/* Show here a big image */}
-                    <div className="inner-shop-details-img">
-                      <img src={selectedImage} alt="Selected" />
-                    </div>
-                  </div>
-                  <div className="inner-shop-details-nav-wrap">
-                    <ul className="nav nav-tabs" id="myTab" role="tablist">
-                      {[
-                        "/assets/images/products/eaa/eaa-1.webp",
-                        "/assets/images/products/eaa/eaa-2.webp",
-                        "/assets/images/products/eaa/eaa-3.webp",
-                        "/assets/images/products/eaa/eaa-4.webp",
-                      ].map((image, index) => (
-                        <li
-                          className="nav-item"
-                          role="presentation"
-                          key={index}
-                        >
-                          <a
-                            href="#"
-                            className="nav-link"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setSelectedImage(process.env.PUBLIC_URL + image);
-                            }}
-                          >
-                            <img
-                              src={process.env.PUBLIC_URL + image}
-                              alt="Thumbnail"
-                            />
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div
+                  className="product-image-container"
+                  ref={imageRef}
+                  style={{
+                    opacity: opacity,
+                    transition: "opacity 0.3s ease-in-out",
+                  }}
+                >
+                  <ProductPhotoSection1
+                    images={productImages[currentProduct]}
+                    activeImageIndex={activeImageIndex}
+                    setActiveImageIndex={setActiveImageIndex}
+                  />
                 </div>
               </div>
               <div className="col-lg-7 d-flex align-items-center">
                 <div className="inner-shop-details-content">
-                  <h4 className="title">EAA</h4>
+                  <h4 className="title">{currentProductData.name}</h4>
                   <div className="inner-shop-details-meta">
                     <ul className="list-wrap">
                       <li>
@@ -165,7 +166,7 @@ function PureGoEaa() {
                     </ul>
                   </div>
                   <div className="inner-shop-details-price">
-                    <h2 className="price">₹490.00</h2>
+                    <h2 className="price d-flex">₹{currentProductData.discount}/-<span className="old-prices">₹{currentProductData.price}/-</span></h2>
                     <h5 className="stock-status">- IN Stock</h5>
                   </div>
                   <p>
@@ -175,44 +176,25 @@ function PureGoEaa() {
                     while also lowering fatigue and soreness.
                   </p>
                   <div>
-                    <h4>Flavor:</h4>
-                    <button className="cart-btn">Watermelon</button>
+                    <SelectableList
+                      items={sizeOptions}
+                      activeItem={activeSize}
+                      onItemClick={handleSelectSize}
+                      title="Size"
+                    />
                   </div>
-                  <div className="inner-shop-details-list">
-                    <ul className="list-wrap">
-                      <li>
-                        Type : <span>Supplement</span>
-                      </li>
-                      <li>
-                        CO : <span>Pure-Go</span>
-                      </li>
-                    </ul>
+                  <div>
+                    <SelectableList
+                      items={flavorOptions}
+                      activeItem={activeFlavor}
+                      onItemClick={handleSelectFlavor}
+                      title="Flavor"
+                    />
                   </div>
-                  <div className="inner-shop-perched-info">
-                    <div className="sd-cart-wrap d-flex me-3">
-                      <form action="#" className="d-flex">
-                        <div>
-                          <input
-                            type="button"
-                            value="-"
-                            className="plus-minus w-25 me-2"
-                          />
-                        </div>
-                        <div className="quickview-cart-plus-minus">
-                          <input type="text" value="1" />
-                        </div>
-                        <div className="quickview-cart-plus-minus w-25">
-                          <input
-                            type="button"
-                            value="+"
-                            className="px-1 w-25"
-                          />
-                        </div>
-                      </form>
-                    </div>
+                  <div className="inner-shop-perched-info mt-3">
                     <button
                       onClick={() =>
-                        addProductInCart("674b01f227420607a74da20c")
+                        addProductInCart("67483a501d93a5dadbb229e4")
                       }
                       className="cart-btn"
                     >
@@ -440,12 +422,13 @@ function PureGoEaa() {
         </section>
         <HowToUse
           src1="step-1.mp4"
-          src2="step-2.mp4"
+          src2="eaa-step-2.mp4"
           src3="step-3.mp4"
-          src4="step-4.mp4"
-          step1="Add 300 ml of water/milk"
-          step2="Mix 1 scoop of Protein"
+          src4="eaa-step-4.mp4"
+          step1="Add 300 ml of water"
+          step2="Mix 1 scoop of EAA"
         />
+        <Review />
         <section className="inner-shop-details-area">
           <div className="container">
             <div className="row">

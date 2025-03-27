@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -22,12 +22,6 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 function Home() {
   const canonicalUrl = window.location.href;
-  const [activeSection, setActiveSection] = useState("#whey");
-  const [proteinProducts, setProteinProducts] = useState([]);
-  const [hasMore, setHasMore] = useState(true);
-  const [page, setPage] = useState(1);
-  const loadMoreRef = useRef(null);
-  const productsPerPage = 9;
 
   // useEffect(() => {
   //   const loadInitialProducts = () => {
@@ -62,29 +56,29 @@ function Home() {
   //   };
   // }, [hasMore, page]);
 
-  useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
+  // useEffect(() => {
+  //   const sections = document.querySelectorAll("section[id]");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = `#${entry.target.id}`;
-            setActiveSection(id);
-          }
-        });
-      },
-      {
-        threshold: 0.6, // Adjust threshold for when to consider section in view
-      }
-    );
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           const id = `#${entry.target.id}`;
+  //           setActiveSection(id);
+  //         }
+  //       });
+  //     },
+  //     {
+  //       threshold: 0.6, // Adjust threshold for when to consider section in view
+  //     }
+  //   );
 
-    sections.forEach((section) => observer.observe(section));
+  //   sections.forEach((section) => observer.observe(section));
 
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
+  //   return () => {
+  //     sections.forEach((section) => observer.unobserve(section));
+  //   };
+  // }, []);
 
   // const loadMoreProducts = () => {
   //   const start = page * productsPerPage;
@@ -100,36 +94,36 @@ function Home() {
   //   }
   // };
 
-  useEffect(() => {
-    const hash = window.location.hash || "#whey";
-    setActiveSection(hash);
+  // useEffect(() => {
+  //   const hash = window.location.hash || "#whey";
+  //   setActiveSection(hash);
 
-    const handleScrollToSection = (event) => {
-      event.preventDefault();
-      const targetId = event.currentTarget.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
+  //   const handleScrollToSection = (event) => {
+  //     event.preventDefault();
+  //     const targetId = event.currentTarget.getAttribute("href");
+  //     const targetElement = document.querySelector(targetId);
 
-      // Scroll to the target element
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+  //     // Scroll to the target element
+  //     targetElement.scrollIntoView({
+  //       behavior: "smooth",
+  //       block: "start",
+  //     });
 
-      // Update active section
-      setActiveSection(targetId);
-    };
+  //     // Update active section
+  //     setActiveSection(targetId);
+  //   };
 
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach((link) => {
-      link.addEventListener("click", handleScrollToSection);
-    });
+  //   const links = document.querySelectorAll('a[href^="#"]');
+  //   links.forEach((link) => {
+  //     link.addEventListener("click", handleScrollToSection);
+  //   });
 
-    return () => {
-      links.forEach((link) => {
-        link.removeEventListener("click", handleScrollToSection);
-      });
-    };
-  }, []);
+  //   return () => {
+  //     links.forEach((link) => {
+  //       link.removeEventListener("click", handleScrollToSection);
+  //     });
+  //   };
+  // }, []);
 
   // const gomzinutrition = [
   //   {
@@ -463,8 +457,11 @@ function Home() {
                     <div className="shop-thumb-shape blue"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein Chocolate</a></h4>
-                    <span className="home-shop-price">₹1250/-</span>
+                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein 1kg Chocolate</a></h4>
+                    {/* <span className="home-shop-price">₹1250/-</span> */}
+                    <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
+                      <span class="price">₹1250/- <span class="old-price">₹3000</span></span>
+                    </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -488,8 +485,11 @@ function Home() {
                     <div className="shop-thumb-shape yellow"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein MAwa Kulfi</a></h4>
-                    <span className="home-shop-price">₹1250/-</span>
+                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein 1kg Mawa Kulfi</a></h4>
+                    {/* <span className="home-shop-price">₹1250/-</span> */}
+                    <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
+                      <span class="price">₹1250/- <span class="old-price">₹3000</span></span>
+                    </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -514,8 +514,11 @@ function Home() {
                     <div className="shop-thumb-shape red"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein Mocha Coffee</a></h4>
-                    <span className="home-shop-price">₹1250/-</span>
+                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein 1kg Mocha Coffee</a></h4>
+                    {/* <span className="home-shop-price">₹1250/-</span> */}
+                    <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
+                      <span class="price">₹1250/- <span class="old-price">₹3000</span></span>
+                    </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -539,8 +542,11 @@ function Home() {
                     <div className="shop-thumb-shape gray"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/mass-gainer-protein-powder">Mass Gainer Chocolate</a></h4>
-                    <span className="home-shop-price">₹420/-</span>
+                    <h4 className="title"><a href="/mass-gainer-protein-powder">Mass Gainer 1kg Chocolate</a></h4>
+                    {/* <span className="home-shop-price">₹420/-</span> */}
+                    <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
+                      <span class="price">₹420/- <span class="old-price">₹1500</span></span>
+                    </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -564,8 +570,11 @@ function Home() {
                     <div className="shop-thumb-shape purple"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/weight-loss-supplement">Pre Workout</a></h4>
-                    <span className="home-shop-price">₹440/-</span>
+                    <h4 className="title"><a href="/weight-loss-supplement">Pre Workout 250g</a></h4>
+                    {/* <span className="home-shop-price">₹440/-</span> */}
+                    <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
+                      <span class="price">₹440/- <span class="old-price">₹2500</span></span>
+                    </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -589,8 +598,11 @@ function Home() {
                     <div className="shop-thumb-shape green"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/eaa-supplements">EAA Powder</a></h4>
-                    <span className="home-shop-price">₹490/-</span>
+                    <h4 className="title"><a href="/eaa-supplements">EAA Powder 250g</a></h4>
+                    {/* <span className="home-shop-price">₹490/-</span> */}
+                    <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
+                      <span class="price">₹490/- <span class="old-price">₹2099</span></span>
+                    </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -615,8 +627,11 @@ function Home() {
                     <div className="shop-thumb-shape"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/creatine-supplements">Creatine Monohydrate</a></h4>
-                    <span className="home-shop-price">₹350/-</span>
+                    <h4 className="title"><a href="/creatine-supplements">Creatine Monohydrate 250g</a></h4>
+                    {/* <span className="home-shop-price">₹350/-</span> */}
+                    <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
+                      <span class="price">₹350/- <span class="old-price">₹1499</span></span>
+                    </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
@@ -720,373 +735,6 @@ function Home() {
             </div>
           </div>
         </section>
-        {/* <section id="paroller" className="features-products">
-          <div className="container">
-            <div className="features-products-wrap">
-              <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-8">
-                  <div className="features-products-thumb">
-                    <div className="main-img">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/png/pre-workout-png.webp"
-                        }
-                        alt="img"
-                      />
-                    </div>
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape03.png"
-                      }
-                      alt="img"
-                      className="shape-img"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-10">
-                  <div className="features-product-content">
-                    <h2 className="title">
-                      <a href="weight-loss-supplement">Pre Workout</a>
-                    </h2>
-                    <p>
-                      Boost energy, metabolism, and fat loss with PureGo Pre-Workout. Designed for athletes of all levels, it enhances endurance, strength, and focus while controlling appetite. Its thermogenic formula supports faster calorie burn for maximum results. Take daily as per expert advice for peak performance.
-                      {" "}
-                    </p>
-                    <div className="features-product-bottom">
-                      <a href="weight-loss-supplement" className="btn">
-                        Shop Now
-                      </a>
-                      <span className="price">
-                        ₹1899.00 <span className="old-price">₹1549.00</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="features-products-wrap">
-              <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-8">
-                  <div className="features-products-thumb">
-                    <div className="main-img">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/png/creatine-png.webp"
-                        }
-                        alt="img"
-                      />
-                    </div>
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape02.png"
-                      }
-                      alt="img"
-                      className="shape-img"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-10">
-                  <div className="features-product-content">
-                    <h2 className="title">
-                      <a href="creatine-supplements">Creatine</a>
-                    </h2>
-                    <p>
-                      Enhance muscle strength, endurance, and recovery with PureGo Creatine Monohydrate. It boosts ATP production for high-intensity workouts, improving performance and reducing fatigue. Consume intra or post-workout for best results. Consult a doctor before use and follow recommended dosage for optimal benefits{" "}
-                    </p>
-                    <div className="features-product-bottom">
-                      <a href="creatine-supplements" className="btn">
-                        Shop Now
-                      </a>
-                      <span className="price">
-                        ₹1299.00 <span className="old-price">₹1349.00</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="features-products-wrap">
-              <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-8">
-                  <div className="features-products-thumb">
-                    <div className="main-img">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/png/mass-gainer-png.webp"
-                        }
-                        alt="img"
-                      />
-                    </div>
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape01.png"
-                      }
-                      alt="img"
-                      className="shape-img"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-10">
-                  <div className="features-product-content">
-                    <h2 className="title">
-                      <a href="mass-gainer-protein-powder">Mass Gainer</a>
-                    </h2>
-                    <p>
-                      Achieve your bulking goals with PureGo Mass Gainer Powder! Packed with 17.5g of premium protein, essential carbs, and healthy fats, it fuels muscle growth, enhances recovery, and boosts energy. Ideal for pre or post-workout and between meals. Mix with water or milk for a delicious, high-calorie shake!
-                      {" "}
-                    </p>
-                    <div className="features-product-bottom">
-                      <a href="mass-gainer-protein-powder" className="btn">
-                        Shop Now
-                      </a>
-                      <span className="price">
-                        ₹1899.00 <span className="old-price">₹1549.00</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="features-products-wrap">
-              <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-8">
-                  <div className="features-products-thumb">
-                    <div className="main-img">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/png/eaa-png.webp"
-                        }
-                        alt="img"
-                      />
-                    </div>
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape05.png"
-                      }
-                      alt="img"
-                      className="shape-img"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-10">
-                  <div className="features-product-content">
-                    <h2 className="title">
-                      <a href="eaa-supplements">EAA</a>
-                    </h2>
-                    <p>
-                      Power up your workouts with PureGo EAA, a science-backed blend of 13 ultra-essential amino acids, electrolytes, and vitamins. It accelerates muscle growth, reduces fatigue, and increases hydration. With taurine for energy and citrulline for oxygen, it optimizes performance. Mix 1 scoop with water during your workout for best results!
-                      {" "}
-                    </p>
-                    <div className="features-product-bottom">
-                      <a href="eaa-supplements" className="btn">
-                        Shop Now
-                      </a>
-                      <span className="price">
-                        ₹999.00 <span className="old-price">₹1049.00</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="features-products-wrap">
-              <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-8">
-                  <div className="features-products-thumb">
-                    <div className="main-img">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/png/whey-protein-chocolate-png.webp"
-                        }
-                        alt="img"
-                      />
-                    </div>
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape01.png"
-                      }
-                      alt="img"
-                      className="shape-img"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-10">
-                  <div className="features-product-content">
-                    <h2 className="title">
-                      <a href="whey-protein-powder">Whey Protein Chocolate</a>
-                    </h2>
-                    <p>
-                      Boost muscle growth with PureGo Whey Protein - Chocolate Flavor. Packed with 24g of high-quality whey protein per serving, it supports lean muscle development and recovery. No added sugar, preservatives, or artificial colors. Mix with water or milk for a delicious, protein-rich shake!
-                      {" "}
-                    </p>
-                    <div className="features-product-bottom">
-                      <a href="whey-protein-powder" className="btn">
-                        Shop Now
-                      </a>
-                      <span className="price">
-                        ₹1499.00 <span className="old-price">₹2499.00</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="features-products-wrap">
-              <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-8">
-                  <div className="features-products-thumb">
-                    <div className="main-img">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/png/whey-protein-mawakulfi-png.webp"
-                        }
-                        alt="img"
-                      />
-                    </div>
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape06.png"
-                      }
-                      alt="img"
-                      className="shape-img"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-10">
-                  <div className="features-product-content">
-                    <h2 className="title">
-                      <a href="whey-protein-powder">Whey Protein Mawa Kulfi</a>
-                    </h2>
-                    <p>
-                      Enjoy the rich taste of PureGo Whey Protein - Mawa Kulfi Flavor, packed with 24g of premium whey protein per serving. Supports muscle growth, recovery, and strength. No added sugar, colors, or preservatives. Mix with water or milk for a delicious, protein-packed shake!
-                      {" "}
-                    </p>
-                    <div className="features-product-bottom">
-                      <a href="whey-protein-powder" className="btn">
-                        Shop Now
-                      </a>
-                      <span className="price">
-                        ₹1299.00 <span className="old-price">₹1349.00</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="features-products-wrap">
-              <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-8">
-                  <div className="features-products-thumb">
-                    <div className="main-img">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/png/whey-protein-mochacoffee-png.webp"
-                        }
-                        alt="img"
-                      />
-                    </div>
-                    <img
-                      src={
-                        process.env.PUBLIC_URL +
-                        "/assets/images/features_product_shape04.png"
-                      }
-                      alt="img"
-                      className="shape-img"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-10">
-                  <div className="features-product-content">
-                    <h2 className="title">
-                      <a href="whey-protein-powder">
-                        Whey Protein Mocha Coffee
-                      </a>
-                    </h2>
-                    <p>
-                      Power up your day with PureGo Whey Protein - Mocha Coffee Flavor, delivering 24g of high-quality whey protein per serving. Supports muscle growth, recovery, and strength. No added sugar, colors, or preservatives. Mix with water or milk for a rich, energizing protein boost!{" "}
-                    </p>
-                    <div className="features-product-bottom">
-                      <a href="whey-protein-powder" className="btn">
-                        Shop Now
-                      </a>
-                      <span className="price">
-                        ₹1899.00 <span className="old-price">₹1549.00</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="fp-shapes-wrap">
-            <div className="fp-shape-one">
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/features_sec_shape01.png"
-                }
-                alt="shape"
-                className="paroller"
-                data-paroller-factor="0.25"
-                data-paroller-factor-lg="0.20"
-                data-paroller-factor-md="0.25"
-                data-paroller-factor-sm="0.10"
-                data-paroller-type="foreground"
-                data-paroller-direction="vertical"
-              />
-            </div>
-            <div className="fp-shape-two">
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/features_sec_shape02.png"
-                }
-                alt="shape"
-                className="paroller"
-                data-paroller-factor="-0.25"
-                data-paroller-factor-lg="0.20"
-                data-paroller-factor-md="0.25"
-                data-paroller-factor-sm="0.10"
-                data-paroller-type="foreground"
-                data-paroller-direction="vertical"
-              />
-            </div>
-            <div className="fp-shape-three">
-              <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "/assets/images/features_sec_shape03.png"
-                }
-                alt="shape"
-                className="paroller"
-                data-paroller-factor="0.25"
-                data-paroller-factor-lg="0.20"
-                data-paroller-factor-md="0.25"
-                data-paroller-factor-sm="0.10"
-                data-paroller-type="foreground"
-                data-paroller-direction="vertical"
-              />
-            </div>
-          </div>
-          <div className="fp-circle one"></div>
-          <div className="fp-circle two"></div>
-          <div className="fp-circle three"></div>
-          <div className="fp-circle four"></div>
-          <div className="fp-circle five"></div>
-        </section> */}
         <section id="ingredient" className="ingredients-area">
           <div className="container">
             <div className="row align-items-center justify-content-center">
@@ -1160,47 +808,6 @@ function Home() {
             />
           </div>
         </div>
-        {/* <section className="fact-area">
-          <div className="container">
-            <div className="fact-items-wrapper">
-              <div className="row g-0 justify-content-center">
-                <div className="col-lg-4 col-md-6 col-sm-9">
-                  <div className="fact-item">
-                    <div className="chart" data-percent="65">
-                      <span className="percentage">65<small>%</small></span>
-                    </div>
-                    <div className="fact-content">
-                      <h4 className="title">Active Members</h4>
-                      <span>Yes we did it asap software</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-9">
-                  <div className="fact-item">
-                    <div className="chart" data-percent="90">
-                      <span className="percentage">90<small>%</small></span>
-                    </div>
-                    <div className="fact-content">
-                      <h4 className="title">Projects Done</h4>
-                      <span>Yes we did it asap software</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-md-6 col-sm-9">
-                  <div className="fact-item">
-                    <div className="chart" data-percent="80">
-                      <span className="percentage">80<small>%</small></span>
-                    </div>
-                    <div className="fact-content">
-                      <h4 className="title">Get Rewards</h4>
-                      <span>Yes we did it asap software</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
         <section id="ingredient" className="ingredients-area">
           <div className="container">
             <div className="row align-items-center justify-content-center">
@@ -1526,36 +1133,36 @@ function Home() {
               <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
                 <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".2s">
                   <div className="tg-blog-post-thumb">
-                    <a href="blog-details.html"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb01.webp'} alt="" /></a>
+                    <a href="/top-supplements-for-weight-gain"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb01.webp'} alt="" /></a>
                   </div>
                   <div className="tg-blog-post-content">
                     <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
-                    <h4 className="title"><a href="blog-details.html">Top Supplements for Weight Gain: A Comparative Analysis</a></h4>
-                    <a href="blog-details.html" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
+                    <h4 className="title"><a href="/top-supplements-for-weight-gain">Top Supplements for Weight Gain: A Comparative Analysis</a></h4>
+                    <a href="/top-supplements-for-weight-gain" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
                 <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".4s">
                   <div className="tg-blog-post-thumb">
-                    <a href="blog-details.html"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb02.webp'} alt="" /></a>
+                    <a href="/how-supplements-help-you-live-healthy-life"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb02.webp'} alt="" /></a>
                   </div>
                   <div className="tg-blog-post-content">
                     <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
-                    <h4 className="title"><a href="blog-details.html">How Supplements Help you live a healthy life</a></h4>
-                    <a href="blog-details.html" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
+                    <h4 className="title"><a href="/how-supplements-help-you-live-healthy-life">How Supplements Help you live a healthy life</a></h4>
+                    <a href="/how-supplements-help-you-live-healthy-life" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
                 <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".6s">
                   <div className="tg-blog-post-thumb">
-                    <a href="blog-details.html"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb03.webp'} alt="" /></a>
+                    <a href="/best-whey-protein-in-india"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb03.webp'} alt="" /></a>
                   </div>
                   <div className="tg-blog-post-content">
                     <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
-                    <h4 className="title"><a href="blog-details.html">The Ultimate Guide to the Best Whey Protein to Try in India</a></h4>
-                    <a href="blog-details.html" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
+                    <h4 className="title"><a href="/best-whey-protein-in-india">The Ultimate Guide to the Best Whey Protein to Try in India</a></h4>
+                    <a href="/best-whey-protein-in-india" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
