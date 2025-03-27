@@ -18,6 +18,7 @@ import PureGoPreWorkout from "./pages/products/weight-loss-supplement";
 import PureGoWheyProtein from "./pages/products/whey-protein-powder";
 import NotFoundPage from "./pages/404";
 import CheckOut from "./pages/check-out";
+import Blog1 from "./pages/blog/blog-1";
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
         <Route path="/mass-gainer-protein-powder" element={<PureGoMassGainer />} />
         <Route path="/whey-protein-powder" element={<PureGoWheyProtein />} />
         <Route path="/eaa-supplements" element={<PureGoEaa />} />
+        {/* Blogs */}
+        <Route path="/blog-1" element={<Blog1 />} />
         <Route path="/404" element={<NotFoundPage />} />
       </Routes>
     </>
