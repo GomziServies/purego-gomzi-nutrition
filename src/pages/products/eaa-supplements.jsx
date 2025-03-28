@@ -167,7 +167,7 @@ function PureGoEaa() {
                   </div>
                   <div className="inner-shop-details-price">
                     <h2 className="price d-flex">₹{currentProductData.discount}/-<span className="old-prices">₹{currentProductData.price}/-</span></h2>
-                    <h5 className="stock-status">- IN Stock</h5>
+                    <h5 className="stock-status">76%</h5>
                   </div>
                   <p>
                     EAA is an advanced science-based solution that contains 13

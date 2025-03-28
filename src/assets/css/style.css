@@ -1725,6 +1725,12 @@ body.search-visible {
   margin-left: 10px;
 }
 
+.discount-price {
+  font-size: 18px;
+  color: #62b100;
+  margin-left: 10px;
+}
+
 .features-products-thumb .main-img {
   display: inline-block;
   position: relative;
@@ -2352,7 +2358,7 @@ body.search-visible {
   margin-right: 0;
 }
 .inner-shop-details-price .stock-status {
-  font-size: 12px;
+  font-size: 18px;
   line-height: 1;
   margin-bottom: 0;
   font-weight: 900;

@@ -205,7 +205,7 @@ function PureGoWheyProtein() {
                   </div>
                   <div className="inner-shop-details-price">
                     <h2 className="price d-flex">₹{currentProductData.discount}/-<span className="old-prices">₹{currentProductData.price}/-</span></h2>
-                    <h5 className="stock-status">- IN Stock</h5>
+                    <h5 className="stock-status">58%</h5>
                   </div>
                   <p>
                     Pure Go Whey Protein is a Mixture of Whey Isolate, Whey

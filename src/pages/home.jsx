@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -19,9 +19,22 @@ import HomeNutritionFooter from "../components/partials/Footer/footer";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import ModalVideo from "react-modal-video";
 
 function Home() {
   const canonicalUrl = window.location.href;
+  const [videoUrl, setVideoUrl] = useState("");
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+  const openVideoModal = (url) => {
+    setIsVideoOpen(true);
+    setVideoUrl(url);
+  };
+
+  const closeVideoModal = () => {
+    setIsVideoOpen(false);
+    setVideoUrl("");
+  };
 
   // useEffect(() => {
   //   const loadInitialProducts = () => {
@@ -460,7 +473,11 @@ function Home() {
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein 1kg Chocolate</a></h4>
                     {/* <span className="home-shop-price">₹1250/-</span> */}
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">₹1250/- <span class="old-price">₹3000</span></span>
+                      <span class="price">
+                        ₹1250/-
+                        <span class="old-price">₹3000</span>
+                        <span class="discount-price">58%</span>
+                      </span>
                     </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
@@ -488,7 +505,11 @@ function Home() {
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein 1kg Mawa Kulfi</a></h4>
                     {/* <span className="home-shop-price">₹1250/-</span> */}
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">₹1250/- <span class="old-price">₹3000</span></span>
+                      <span class="price">
+                        ₹1250/-
+                        <span class="old-price">₹3000</span>
+                        <span class="discount-price">58%</span>
+                      </span>
                     </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
@@ -517,7 +538,11 @@ function Home() {
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein 1kg Mocha Coffee</a></h4>
                     {/* <span className="home-shop-price">₹1250/-</span> */}
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">₹1250/- <span class="old-price">₹3000</span></span>
+                      <span class="price">
+                        ₹1250/-
+                        <span class="old-price">₹3000</span>
+                        <span class="discount-price">58%</span>
+                      </span>
                     </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
@@ -545,7 +570,11 @@ function Home() {
                     <h4 className="title"><a href="/mass-gainer-protein-powder">Mass Gainer 1kg Chocolate</a></h4>
                     {/* <span className="home-shop-price">₹420/-</span> */}
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">₹420/- <span class="old-price">₹1500</span></span>
+                      <span class="price">
+                        ₹420/-
+                        <span class="old-price">₹1500</span>
+                        <span class="discount-price">72%</span>
+                      </span>
                     </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
@@ -573,7 +602,11 @@ function Home() {
                     <h4 className="title"><a href="/weight-loss-supplement">Pre Workout 250g</a></h4>
                     {/* <span className="home-shop-price">₹440/-</span> */}
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">₹440/- <span class="old-price">₹2500</span></span>
+                      <span class="price">
+                        ₹440/-
+                        <span class="old-price">₹2500</span>
+                        <span class="discount-price">82%</span>
+                      </span>
                     </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
@@ -601,7 +634,11 @@ function Home() {
                     <h4 className="title"><a href="/eaa-supplements">EAA Powder 250g</a></h4>
                     {/* <span className="home-shop-price">₹490/-</span> */}
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">₹490/- <span class="old-price">₹2099</span></span>
+                      <span class="price">
+                        ₹490/-
+                        <span class="old-price">₹2099</span>
+                        <span class="discount-price">76%</span>
+                      </span>
                     </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
@@ -630,7 +667,11 @@ function Home() {
                     <h4 className="title"><a href="/creatine-supplements">Creatine Monohydrate 250g</a></h4>
                     {/* <span className="home-shop-price">₹350/-</span> */}
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">₹350/- <span class="old-price">₹1499</span></span>
+                      <span class="price">
+                        ₹350/-
+                        <span class="old-price">₹1499</span>
+                        <span class="discount-price">76%</span>
+                      </span>
                     </div>
                     <div className="home-shop-rating">
                       <i class="fas fa-star"></i>
@@ -786,8 +827,8 @@ function Home() {
               <div className="col-12">
                 <div className="video-btn">
                   <a
-                    href="https://www.youtube.com/watch?v=HQfF5XRVXjU"
                     className="popup-video ripple-white"
+                    onClick={() => openVideoModal("4X2pTMgb1og")}
                   >
                     <i class="fas fa-play"></i>
                   </a>
@@ -1270,6 +1311,12 @@ function Home() {
           <div className="blog-bg-shape one"></div>
           <div className="blog-bg-shape two"></div>
         </section>
+        <ModalVideo
+          channel="youtube"
+          isOpen={isVideoOpen}
+          videoId={videoUrl}
+          onClose={closeVideoModal}
+        />
       </main>
       <HomeNutritionFooter />
     </>
