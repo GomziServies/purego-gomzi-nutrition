@@ -159,14 +159,14 @@ function UserProfile() {
                 type="file"
                 onChange={handlePhotoChange}
               />
-              <label htmlFor="profile-photo-upload" className="btn btn-primary">
+              <label htmlFor="profile-photo-upload" className="btn btn-success btn-blue px-4 py-2 me-2">
                 Upload New Photo
               </label>
               {formData.profilePhoto && (
                 <button
                   type="button"
                   onClick={handleRemovePhoto}
-                  className="btn btn-outline-primary ml-2"
+                  className="btn btn-outline-danger btn-remove ml-2 px-4 py-2"
                 >
                   Remove
                 </button>
@@ -238,7 +238,7 @@ function UserProfile() {
           </Row>
           <Button
             type="submit"
-            className="btn-primary mt-4"
+            className="btn-success mt-4 py-3 px-5"
             style={{ marginRight: "10px" }}
           >
             Save Changes

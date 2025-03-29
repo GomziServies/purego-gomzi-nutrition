@@ -17,6 +17,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
 import LoaderComponent from "../../components/PageLoader";
 import { axiosInstance } from "../../assets/js/config/api";
+import { Link } from "react-router-dom";
 
 function AddToCart() {
   const canonicalUrl = window.location.href;
@@ -25,6 +26,8 @@ function AddToCart() {
   const [totalAmount, setTotalAmount] = useState(0);
   const [serverDataID, setServerDataID] = useState("");
   const [productDataGet, setProductDataGet] = useState([]);
+  const [previousProductData, setPreviousProductData] = useState([]);
+  const [totalMRP, setTotalMRP] = React.useState(0);
 
   const fetchProductData = async () => {
     // setLoading(true);
@@ -68,9 +71,11 @@ function AddToCart() {
           mrpPrice: priceMap[product.item_id] || product.mrpPrice,
         };
       });
+      setPreviousProductData(updatedServerData);
       setProductData(updatedServerData);
       totalAmountCalculation(updatedServerData);
       setProductDataGet(updatedServerData);
+      totalMRPCalculation(updatedServerData);
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
@@ -107,6 +112,128 @@ function AddToCart() {
       fetchProductData();
     } catch (error) {
       console.error("Error removing product:", error);
+    }
+  };
+
+  const totalMRPCalculation = (data) => {
+    const totalMrp = data.map((product) => {
+      const mrp = product.mrpPrice * product.quantity;
+      return mrp;
+    });
+    const amount = totalMrp.reduce((sum, product) => sum + product, 0);
+    setTotalMRP(amount || 0);
+    return amount;
+  };
+
+  const minusQuantity = (productId) => {
+    setProductDataGet((prevData) => {
+      const updatedData = prevData.map((product) =>
+        product._id === productId
+          ? { ...product, quantity: Math.max(1, product.quantity - 1) }
+          : product
+      );
+      const changedProducts = updatedData.filter((product) => {
+        const originalProduct = prevData.find((p) => p._id === product._id);
+        return originalProduct && originalProduct.quantity !== product.quantity;
+      });
+      totalAmountCalculation(updatedData);
+      totalMRPCalculation(updatedData);
+      setTimeout(async () => {
+        handleUpdateCart(changedProducts);
+      }, 1000);
+      return updatedData;
+    });
+  };
+
+  const plusQuantity = (productId) => {
+    setProductDataGet((prevData) => {
+      const updatedData = prevData.map((product) =>
+        product._id === productId
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      );
+
+      const changedProducts = updatedData.filter((product) => {
+        const originalProduct = prevData.find((p) => p._id === product._id);
+        return originalProduct && originalProduct.quantity !== product.quantity;
+      });
+
+      totalAmountCalculation(updatedData);
+      totalMRPCalculation(updatedData);
+
+      setTimeout(() => {
+        handleUpdateCart(changedProducts);
+      }, 1000);
+
+      return updatedData;
+    });
+  };
+
+  const handleUpdateCart = async (updatedData) => {
+    try {
+      await axiosInstance.post("/order-cart/add-item", updatedData[0]);
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  };
+
+  const handleAddToCart = async () => {
+    try {
+      const changedProducts = productDataGet.filter((currentProduct) => {
+        const previousProduct = previousProductData.find(
+          (p) => p._id === currentProduct._id
+        );
+        return (
+          previousProduct &&
+          previousProduct.quantity !== currentProduct.quantity
+        );
+      });
+
+      if (changedProducts.length > 0) {
+        const products = productDataGet.map((product) => ({
+          product_id: product._id,
+          quantity: product.quantity,
+        }));
+
+        const response = await axiosInstance.post(
+          "/order-cart/add-item",
+          changedProducts[0]
+        );
+
+        if (response.data.status === 200) {
+          setPreviousProductData(productDataGet);
+          localStorage.setItem(
+            "productsData",
+            JSON.stringify({
+              products,
+              totalAmount,
+              totalMRP,
+            })
+          );
+
+          window.location.href = `/check-out`;
+        }
+      } else {
+        const products = productDataGet.map((product) => ({
+          product_id: product._id,
+          quantity: product.quantity,
+        }));
+
+        localStorage.setItem(
+          "productsData",
+          JSON.stringify({
+            products,
+            totalAmount,
+            totalMRP,
+          })
+        );
+
+        localStorage.setItem("serverDataID", serverDataID);
+
+        window.location.href = `/check-out`;
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
     }
   };
 
@@ -230,7 +357,7 @@ function AddToCart() {
                     </tr>
                   </thead>
                   <tbody>
-                    {productData.map((product, index) => {
+                    {productDataGet.map((product, index) => {
                       const totalPrice = product.price * product.quantity;
                       return (
                         <tr key={index}>
@@ -248,9 +375,19 @@ function AddToCart() {
                           <td className="product__price">
                             ₹{product.price?.toFixed(2)}
                           </td>
-                          <td className="product__quantity">
-                            <div className="quickview-cart-plus-minus">
-                              <input type="text" value={product.quantity} />
+                          <td>
+                            <div className="product__quantity d-flex align-items-center">
+                              <i
+                                className="fas fa-minus text-dark me-2 fs-6"
+                                onClick={() => minusQuantity(product._id)}
+                              ></i>
+                              <div className="quickview-cart-plus-minus">
+                                <input type="text" value={product.quantity} />
+                              </div>
+                              <i
+                                className="fas fa-plus text-dark ms-2 fs-6"
+                                onClick={() => plusQuantity(product._id)}
+                              ></i>
                             </div>
                           </td>
                           <td className="product__subtotal">
@@ -332,9 +469,9 @@ function AddToCart() {
                       <span className="amount">₹{totalAmount?.toFixed(2)}</span>
                     </li>
                   </ul>
-                  <a href="checkout.html" className="btn btn-sm">
+                  <button onClick={handleAddToCart} className="btn btn-sm">
                     Proceed to checkout
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

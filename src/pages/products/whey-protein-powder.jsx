@@ -57,7 +57,7 @@ function PureGoWheyProtein() {
     {
       key: "1kg-Chocolate",
       data: {
-        id: "66b0c8b48db3bcc2c0cbb8f6",
+        id: "67e7749163f930dcc6a2715d",
         img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
         name: "Whey Protein 1kg Chocolate",
         price: "3000",
@@ -69,7 +69,7 @@ function PureGoWheyProtein() {
     {
       key: "1kg-Mocha Coffee",
       data: {
-        id: "66b0c8b48db3bcc2c0cbb8f6",
+        id: "67e774c463f930dcc6a27161",
         img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
         name: "Whey Protein 1kg Mocha Coffee",
         price: "3000",
@@ -81,7 +81,7 @@ function PureGoWheyProtein() {
     {
       key: "1kg-Mawa Kulfi",
       data: {
-        id: "66b0c8b48db3bcc2c0cbb8f6",
+        id: "67e774a963f930dcc6a2715f",
         img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
         name: "Whey Protein 1kg Mawa Kulfi",
         price: "3000",
@@ -233,7 +233,7 @@ function PureGoWheyProtein() {
                   <div className="inner-shop-perched-info mt-3">
                     <button
                       onClick={() =>
-                        addProductInCart("67483a501d93a5dadbb229e4")
+                        addProductInCart(currentProductData.id)
                       }
                       className="cart-btn"
                     >
@@ -488,7 +488,7 @@ function PureGoWheyProtein() {
                       role="tabpanel"
                       aria-labelledby="review-tab"
                     >
-                      <NutritionReviewSection product_id="660e4e81d8ff4f8d9f2a51da" />
+                      <NutritionReviewSection product_id={products[0].data.id} />
                     </div>
                   </div>
                 </div>

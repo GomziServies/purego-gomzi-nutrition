@@ -17,7 +17,28 @@ function UserOrder() {
       .get(`/meals/get-product-tracking`)
       .then((response) => {
         if (response.data.data && response.data.data.length > 0) {
-          const productResponse = response.data.data.map((responseData) => {
+          const itemsDataList = [
+            "67e773f463f930dcc6a27155",
+            "67e7740363f930dcc6a27157",
+            "67e7742d63f930dcc6a27159",
+            "67e7745f63f930dcc6a2715b",
+            "67e7749163f930dcc6a2715d",
+            "67e774a963f930dcc6a2715f",
+            "67e774c463f930dcc6a27161",
+          ];
+
+          let filteredData = response.data.data.filter((order) => {
+            const isDateValid =
+              new Date(order.createdAt) > new Date("2025-03-01");
+
+            const hasMatchingItem = order.multiple_items.some((item) =>
+              itemsDataList.includes(item.item_id)
+            );
+
+            return isDateValid && hasMatchingItem;
+          });
+
+          const productResponse = filteredData.map((responseData) => {
             const productItemData = responseData.multiple_items.map((item) => {
               const productData =
                 responseData.user_meal_product.product_details.find(
@@ -37,6 +58,7 @@ function UserOrder() {
               items: productItemData,
             };
           });
+
           setOrderData(productResponse.reverse());
         }
       })
@@ -79,15 +101,15 @@ function UserOrder() {
               {order?.user_meal_product?.tracking.some(
                 (trackingElem) => trackingElem.shipment_status === "DELIVERED"
               ) && (
-                  <div className="col-12 meal">
-                    <p
-                      className="mt-2"
-                      style={{ fontSize: "20px", color: "green" }}
-                    >
-                      Delivered {convertDate(order.updatedAt)}
-                    </p>
-                  </div>
-                )}
+                <div className="col-12 meal">
+                  <p
+                    className="mt-2"
+                    style={{ fontSize: "20px", color: "green" }}
+                  >
+                    Delivered {convertDate(order.updatedAt)}
+                  </p>
+                </div>
+              )}
               {order.items.map((ItemDetails, index) => (
                 <div key={index} className="col-md-8 mt-2 meal">
                   <div className="Grocery2 float-left mt-3 w-100">
@@ -145,13 +167,14 @@ function UserOrder() {
                     </div>
                     <div className="row meal">
                       <div
-                        className={`order-tracking ${order.user_meal_product?.tracking.find(
-                          (trackingElem) =>
-                            trackingElem.shipment_status === "PLACED"
-                        )
-                          ? "completed"
-                          : ""
-                          }`}
+                        className={`order-tracking ${
+                          order.user_meal_product?.tracking.find(
+                            (trackingElem) =>
+                              trackingElem.shipment_status === "PLACED"
+                          )
+                            ? "completed"
+                            : ""
+                        }`}
                       >
                         <span className="is-complete"></span>
                         <p>
@@ -167,13 +190,14 @@ function UserOrder() {
                         </p>
                       </div>
                       <div
-                        className={`order-tracking ${order.user_meal_product?.tracking.find(
-                          (trackingElem) =>
-                            trackingElem.shipment_status === "DISPATCHED"
-                        )
-                          ? "completed"
-                          : ""
-                          }`}
+                        className={`order-tracking ${
+                          order.user_meal_product?.tracking.find(
+                            (trackingElem) =>
+                              trackingElem.shipment_status === "DISPATCHED"
+                          )
+                            ? "completed"
+                            : ""
+                        }`}
                       >
                         <span className="is-complete"></span>
                         <p>
@@ -184,24 +208,25 @@ function UserOrder() {
                                 trackingElem.shipment_status === "DISPATCHED"
                             )
                               ? convertDate(
-                                order.user_meal_product?.tracking.find(
-                                  (trackingElem) =>
-                                    trackingElem.shipment_status ===
-                                    "DISPATCHED"
-                                )?.updatedAt
-                              )
+                                  order.user_meal_product?.tracking.find(
+                                    (trackingElem) =>
+                                      trackingElem.shipment_status ===
+                                      "DISPATCHED"
+                                  )?.updatedAt
+                                )
                               : ""}
                           </span>
                         </p>
                       </div>
                       <div
-                        className={`order-tracking ${order.user_meal_product?.tracking.find(
-                          (trackingElem) =>
-                            trackingElem.shipment_status === "DELIVERED"
-                        )
-                          ? "completed"
-                          : ""
-                          }`}
+                        className={`order-tracking ${
+                          order.user_meal_product?.tracking.find(
+                            (trackingElem) =>
+                              trackingElem.shipment_status === "DELIVERED"
+                          )
+                            ? "completed"
+                            : ""
+                        }`}
                       >
                         <span className="is-complete"></span>
                         <p>
@@ -212,12 +237,12 @@ function UserOrder() {
                                 trackingElem.shipment_status === "DELIVERED"
                             )
                               ? convertDate(
-                                order.user_meal_product?.tracking.find(
-                                  (trackingElem) =>
-                                    trackingElem.shipment_status ===
-                                    "DELIVERED"
-                                )?.updatedAt
-                              )
+                                  order.user_meal_product?.tracking.find(
+                                    (trackingElem) =>
+                                      trackingElem.shipment_status ===
+                                      "DELIVERED"
+                                  )?.updatedAt
+                                )
                               : ""}
                           </span>
                         </p>

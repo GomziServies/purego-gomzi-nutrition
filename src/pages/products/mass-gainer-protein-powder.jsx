@@ -45,7 +45,7 @@ function PureGoMassGainer() {
     {
       key: "1kg-Chocolate",
       data: {
-        id: "66b0c8b48db3bcc2c0cbb8f6",
+        id: "67e7745f63f930dcc6a2715b",
         img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
         name: "Mass Gainer 1kg Chocolate",
         price: "1500",
@@ -195,7 +195,7 @@ function PureGoMassGainer() {
                   <div className="inner-shop-perched-info mt-3">
                     <button
                       onClick={() =>
-                        addProductInCart("67483a501d93a5dadbb229e4")
+                        addProductInCart(products[0].data.id)
                       }
                       className="cart-btn"
                     >
@@ -476,7 +476,7 @@ function PureGoMassGainer() {
                       role="tabpanel"
                       aria-labelledby="review-tab"
                     >
-                      <NutritionReviewSection product_id="660e4e81d8ff4f8d9f2a51da" />
+                      <NutritionReviewSection product_id={products[0].data.id} />
                     </div>
                   </div>
                 </div>

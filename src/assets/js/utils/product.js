@@ -173,6 +173,8 @@ export const createProductOrder = async (
       })
     );
 
+    // console.log('payload :- ', payload)
+
     // Check Authentication
     if (
       localStorage.getItem("fg_group_user_authorization") === null ||
@@ -212,17 +214,30 @@ export const createProductOrder = async (
       return { showLoginModal: false, success: true };
     } else if (result && result.data) {
       result.data.data.handler = () => {
-        localStorage.removeItem("tmp_ProductPurchasePayload");
         Swal.fire({
           title: "Success",
           text: "Please check your email for the invoice.",
           icon: "success",
-        }).then(() => {
+        }).then(async () => {
           // Remove coupon id
           localStorage.removeItem("coupon_id");
 
+          let serverDataID = localStorage.getItem("serverDataID");
+          console.log("serverDataID :- ", serverDataID);
+          let productData = localStorage.getItem("tmp_ProductPurchasePayload");
+
+          productData = JSON.parse(productData);
+
+          productData.products.map(async (data) => {
+            await axiosInstance.delete(
+              `/order-cart/remove-item?item_id=${data.product_id}&cart_id=${serverDataID}`
+            );
+            console.log("data :- ", data.product_id);
+          });
+
+          localStorage.removeItem("tmp_ProductPurchasePayload");
           // Redirect to Order Page
-          window.location.href = "/user/order";
+          // window.location.href = "/user/order";
         });
       };
 

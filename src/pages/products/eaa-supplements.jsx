@@ -45,7 +45,7 @@ function PureGoEaa() {
     {
       key: "250g-Watermelon",
       data: {
-        id: "66b0c8b48db3bcc2c0cbb8f6",
+        id: "67e7742d63f930dcc6a27159",
         img: "/assets/images/products/eaa/eaa-1.webp",
         name: "EAA Powder",
         price: "2099",
@@ -194,7 +194,7 @@ function PureGoEaa() {
                   <div className="inner-shop-perched-info mt-3">
                     <button
                       onClick={() =>
-                        addProductInCart("67483a501d93a5dadbb229e4")
+                        addProductInCart(products[0].data.id)
                       }
                       className="cart-btn"
                     >
@@ -457,7 +457,7 @@ function PureGoEaa() {
                       role="tabpanel"
                       aria-labelledby="review-tab"
                     >
-                      <NutritionReviewSection product_id="660e4e81d8ff4f8d9f2a51da" />
+                      <NutritionReviewSection product_id={products[0].data.id} />
                     </div>
                   </div>
                 </div>

@@ -21,6 +21,8 @@ import CheckOut from "./pages/check-out";
 import Blog1 from "./pages/blog/top-supplements-for-weight-gain";
 import Blog2 from "./pages/blog/how-supplements-help-you-live-healthy-life";
 import Blog3 from "./pages/blog/best-whey-protein-in-india";
+import UserOrder from "./pages/account/order";
+import UserProfile from "./pages/account/profile";
 
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/add-to-cart" element={<AddToCart />} />
         <Route path="/check-out" element={<CheckOut />} />
+        <Route path="/user/order" element={<UserOrder />} />
+        <Route path="/user/profile" element={<UserProfile />} />
         {/* Products */}
         <Route path="/creatine-supplements" element={<PureGoCreatine />} />
         <Route path="/weight-loss-supplement" element={<PureGoPreWorkout />} />
