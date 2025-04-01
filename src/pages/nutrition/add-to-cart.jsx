@@ -253,7 +253,7 @@ function AddToCart() {
         />
         <meta
           property="og:image"
-          content="https://www.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.webp"
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.webp"
         />
         <meta
           property="og:url"

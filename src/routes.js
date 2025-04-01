@@ -49,7 +49,6 @@ const routes = [
   { path: "/nutrition/check-out" },
   { path: "/nutrition/terms-condition-customer" },
   { path: "/nutrition/shipping-policy-customer" },
-  { path: "/nutrition/thank-you-for-order" },
   { path: "/nutrition/return-and-refund-policy-customer" },
   { path: "/nutrition/privacy-policy-customer" },
   { path: "/nutrition/cancellation-policy-customer" },

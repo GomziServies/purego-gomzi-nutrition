@@ -19,21 +19,6 @@ window.jQuery = $;
 window.BASE_URL = process.env.PUBLIC_URL;
 
 const RedirectFromHtml = ({ children }) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const cleanPath = location.pathname.replace(/\.html$/, "");
-
-    if (location.pathname !== cleanPath) {
-      navigate(cleanPath);
-    }
-
-    if (cleanPath === "/nutrition") {
-      window.location.href = "https://www.gomzilifesciences.in/";
-    }
-  }, [location, navigate]);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       const script = document.createElement("script");

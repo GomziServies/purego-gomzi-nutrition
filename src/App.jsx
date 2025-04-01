@@ -17,13 +17,12 @@ import PureGoMassGainer from "./pages/products/mass-gainer-protein-powder";
 import PureGoPreWorkout from "./pages/products/weight-loss-supplement";
 import PureGoWheyProtein from "./pages/products/whey-protein-powder";
 import NotFoundPage from "./pages/404";
-import CheckOut from "./pages/check-out";
 import Blog1 from "./pages/blog/top-supplements-for-weight-gain";
 import Blog2 from "./pages/blog/how-supplements-help-you-live-healthy-life";
 import Blog3 from "./pages/blog/best-whey-protein-in-india";
 import UserOrder from "./pages/account/order";
 import UserProfile from "./pages/account/profile";
-
+import CheckOut from "./pages/check-out";
 
 function App() {
   return (
