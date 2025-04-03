@@ -20,6 +20,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import ModalVideo from "react-modal-video";
+import { Link } from "react-router-dom";
 
 function Home() {
   const canonicalUrl = window.location.href;
@@ -250,8 +251,9 @@ function Home() {
         const reverseX = index % 2 === 0 ? -1 : 1; // Reverse for even-indexed elements
         const reverseY = index % 2 !== 0 ? -1 : 1; // Reverse for odd-indexed elements
 
-        shape.style.transform = `translate(${xMove * movementFactor * reverseX
-          }px, ${yMove * movementFactor * reverseY}px)`;
+        shape.style.transform = `translate(${
+          xMove * movementFactor * reverseX
+        }px, ${yMove * movementFactor * reverseY}px)`;
       });
     };
 
@@ -374,7 +376,7 @@ function Home() {
       </div> */}
       <NutritionHeader />
       <button className="scroll-top scroll-to-target" data-target="html">
-        <i class="fas fa-angle-up"></i>
+        <i className="fas fa-angle-up"></i>
       </button>
       <main className="main-area fix">
         <section className="banner-area main-section">
@@ -385,7 +387,9 @@ function Home() {
                   <p className="banner-caption">
                     .. Increased Energy With SUXNIX ..
                   </p>
-                  <h2 className="title">Improve Your Body With Pure-Go Nutrition</h2>
+                  <h2 className="title">
+                    Improve Your Body With Pure-Go Nutrition
+                  </h2>
                   <a href="shop.html" className="btn btn-two">
                     Shop Now
                   </a>
@@ -453,38 +457,699 @@ function Home() {
         </section>
         <section className="features-products">
           <div className="section-title text-center mb-60">
-            <p className="sub-title">
-              .. Increased Wellness With Purego ..
-            </p>
+            <p className="sub-title">.. Increased Wellness With Purego ..</p>
             <h2 className="title">Purego Products</h2>
           </div>
           <div className="container text-center">
-            <div className="row home-shop-active">
-              <div className="col-lg-4">
+            <div className="row justify-content-center">
+              <div className="col-lg-3 text-start">
+                <div className="item">
+                  <div className="item-img-sec text-center py-3">
+                    <Link to="/whey-protein-powder">
+                      <img
+                        className="lazy"
+                        height="100%"
+                        src="/assets/images/home_shop_thumb01.png"
+                        alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                      />
+                    </Link>
+                    <div className="wishlist">
+                      <img
+                        alt="inWishlist"
+                        width="80%"
+                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
+                      />
+                    </div>
+                  </div>
+                  <div className="item-card">
+                    <a
+                      className="block"
+                      title="Fit Food Range | Upto 25% Off"
+                      target="_blank"
+                      href="/"
+                    >
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              4.5
+                              <img
+                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
+                                alt="star"
+                                className="ms-1"
+                              />
+                            </span>
+                            <div className="item-reviews ms-1">30 reviews</div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/whey-protein-powder">
+                        <div
+                          className="item-title"
+                          style={{ webkitBoxOrient: "vertical" }}
+                        >
+                          Whey Protein 1kg Chocolate{" "}
+                        </div>
+                      </Link>
+                    </a>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹1250/-</span>
+                            <span className="variant-old-price">₹3000</span>
+                            <span className="variant-offer">58% off</span>
+                          </div>
+                          <div className="item-msg-content mt-1">
+                            <img
+                              className="premium-icon me-1"
+                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
+                              alt="premium-icon"
+                            />
+                            <span className="bold item-price"> ₹1200</span>
+                            <span>for Premium Member</span>
+                          </div>
+                          <div className="">
+                            <Link
+                              to="/whey-protein-powder"
+                              className="item-add-to-cart-btn"
+                            >
+                              <i class="fa-solid fa-cart-shopping me-2"></i>
+                              Add to Cart
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mt-md-0 mt-3 text-start">
+                <div className="item">
+                  <div className="item-img-sec text-center py-3">
+                    <Link to="/whey-protein-powder">
+                      <img
+                        className="lazy"
+                        height="100%"
+                        src="/assets/images/home_shop_thumb02.png"
+                        alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                      />
+                    </Link>
+                    <div className="wishlist">
+                      <img
+                        alt="inWishlist"
+                        width="80%"
+                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
+                      />
+                    </div>
+                  </div>
+                  <div className="item-card">
+                    <a
+                      className="block"
+                      title="Fit Food Range | Upto 25% Off"
+                      target="_blank"
+                      href="/"
+                    >
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              4.5
+                              <img
+                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
+                                alt="star"
+                                className="ms-1"
+                              />
+                            </span>
+                            <div className="item-reviews ms-1">30 reviews</div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/whey-protein-powder">
+                        <div
+                          className="item-title"
+                          style={{ webkitBoxOrient: "vertical" }}
+                        >
+                          Whey Protein 1kg Mawa Kulfi{" "}
+                        </div>
+                      </Link>
+                    </a>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹1250/-</span>
+                            <span className="variant-old-price">₹3000</span>
+                            <span className="variant-offer">58% off</span>
+                          </div>
+                          <div className="item-msg-content mt-1">
+                            <img
+                              className="premium-icon me-1"
+                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
+                              alt="premium-icon"
+                            />
+                            <span className="bold item-price"> ₹1200</span>
+                            <span>for Premium Member</span>
+                          </div>
+                          <div className="">
+                            <Link
+                              to="/whey-protein-powder"
+                              className="item-add-to-cart-btn"
+                            >
+                              <i class="fa-solid fa-cart-shopping me-2"></i>
+                              Add to Cart
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mt-md-0 mt-3 text-start">
+                <div className="item">
+                  <div className="item-img-sec text-center py-3">
+                    <Link to="/whey-protein-powder">
+                      <img
+                        className="lazy"
+                        height="100%"
+                        src="/assets/images/home_shop_thumb03.png"
+                        alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                      />
+                    </Link>
+                    <div className="wishlist">
+                      <img
+                        alt="inWishlist"
+                        width="80%"
+                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
+                      />
+                    </div>
+                  </div>
+                  <div className="item-card">
+                    <a
+                      className="block"
+                      title="Fit Food Range | Upto 25% Off"
+                      target="_blank"
+                      href="/"
+                    >
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              4.5
+                              <img
+                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
+                                alt="star"
+                                className="ms-1"
+                              />
+                            </span>
+                            <div className="item-reviews ms-1">30 reviews</div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/whey-protein-powder">
+                        <div
+                          className="item-title"
+                          style={{ webkitBoxOrient: "vertical" }}
+                        >
+                          Whey Protein 1kg Mocha Coffee{" "}
+                        </div>
+                      </Link>
+                    </a>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹1250/-</span>
+                            <span className="variant-old-price">₹3000</span>
+                            <span className="variant-offer">58% off</span>
+                          </div>
+                          <div className="item-msg-content mt-1">
+                            <img
+                              className="premium-icon me-1"
+                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
+                              alt="premium-icon"
+                            />
+                            <span className="bold item-price"> ₹1200</span>
+                            <span>for Premium Member</span>
+                          </div>
+                          <div className="">
+                            <Link
+                              to="/whey-protein-powder"
+                              className="item-add-to-cart-btn"
+                            >
+                              <i class="fa-solid fa-cart-shopping me-2"></i>
+                              Add to Cart
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mt-md-0 mt-3 text-start">
+                <div className="item">
+                  <div className="item-img-sec text-center py-3">
+                    <Link to="/mass-gainer-protein-powder">
+                      <img
+                        className="lazy"
+                        height="100%"
+                        src="/assets/images/home_shop_thumb04.png"
+                        alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                      />
+                    </Link>
+                    <div className="wishlist">
+                      <img
+                        alt="inWishlist"
+                        width="80%"
+                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
+                      />
+                    </div>
+                  </div>
+                  <div className="item-card">
+                    <a
+                      className="block"
+                      title="Fit Food Range | Upto 25% Off"
+                      target="_blank"
+                      href="/"
+                    >
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              4.5
+                              <img
+                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
+                                alt="star"
+                                className="ms-1"
+                              />
+                            </span>
+                            <div className="item-reviews ms-1">24 reviews</div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/mass-gainer-protein-powder">
+                        <div
+                          className="item-title"
+                          style={{ webkitBoxOrient: "vertical" }}
+                        >
+                          Mass Gainer 1kg Chocolate{" "}
+                        </div>
+                      </Link>
+                    </a>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹420/-</span>
+                            <span className="variant-old-price">₹1500</span>
+                            <span className="variant-offer">72% off</span>
+                          </div>
+                          <div className="item-msg-content mt-1">
+                            <img
+                              className="premium-icon me-1"
+                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
+                              alt="premium-icon"
+                            />
+                            <span className="bold item-price"> ₹400</span>
+                            <span>for Premium Member</span>
+                          </div>
+                          <div className="">
+                            <Link
+                              to="/mass-gainer-protein-powder"
+                              className="item-add-to-cart-btn"
+                            >
+                              <i class="fa-solid fa-cart-shopping me-2"></i>
+                              Add to Cart
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mt-3 text-start">
+                <div className="item">
+                  <div className="item-img-sec text-center py-3">
+                    <Link to="/weight-loss-supplement">
+                      <img
+                        className="lazy"
+                        height="100%"
+                        src="/assets/images/home_shop_thumb05.png"
+                        alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                      />
+                    </Link>
+                    <div className="wishlist">
+                      <img
+                        alt="inWishlist"
+                        width="80%"
+                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
+                      />
+                    </div>
+                  </div>
+                  <div className="item-card">
+                    <a
+                      className="block"
+                      title="Fit Food Range | Upto 25% Off"
+                      target="_blank"
+                      href="/"
+                    >
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              4.5
+                              <img
+                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
+                                alt="star"
+                                className="ms-1"
+                              />
+                            </span>
+                            <div className="item-reviews ms-1">12 reviews</div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/weight-loss-supplement">
+                        <div
+                          className="item-title"
+                          style={{ webkitBoxOrient: "vertical" }}
+                        >
+                          Pre Workout 250g{" "}
+                        </div>
+                      </Link>
+                    </a>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹440/-</span>
+                            <span className="variant-old-price">₹2500</span>
+                            <span className="variant-offer">82% off</span>
+                          </div>
+                          <div className="item-msg-content mt-1">
+                            <img
+                              className="premium-icon me-1"
+                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
+                              alt="premium-icon"
+                            />
+                            <span className="bold item-price"> ₹420</span>
+                            <span>for Premium Member</span>
+                          </div>
+                          <div className="">
+                            <Link
+                              to="/weight-loss-supplement"
+                              className="item-add-to-cart-btn"
+                            >
+                              <i class="fa-solid fa-cart-shopping me-2"></i>
+                              Add to Cart
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mt-3 text-start">
+                <div className="item">
+                  <div className="item-img-sec text-center py-3">
+                    <Link to="/eaa-supplements">
+                      <img
+                        className="lazy"
+                        height="100%"
+                        src="/assets/images/home_shop_thumb06.png"
+                        alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                      />
+                    </Link>
+                    <div className="wishlist">
+                      <img
+                        alt="inWishlist"
+                        width="80%"
+                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
+                      />
+                    </div>
+                  </div>
+                  <div className="item-card">
+                    <a
+                      className="block"
+                      title="Fit Food Range | Upto 25% Off"
+                      target="_blank"
+                      href="/"
+                    >
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              4.5
+                              <img
+                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
+                                alt="star"
+                                className="ms-1"
+                              />
+                            </span>
+                            <div className="item-reviews ms-1">12 reviews</div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/eaa-supplements">
+                        <div
+                          className="item-title"
+                          style={{ webkitBoxOrient: "vertical" }}
+                        >
+                          EAA Powder 250g{" "}
+                        </div>
+                      </Link>
+                    </a>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹490/-</span>
+                            <span className="variant-old-price">₹2099</span>
+                            <span className="variant-offer">76% off</span>
+                          </div>
+                          <div className="item-msg-content mt-1">
+                            <img
+                              className="premium-icon me-1"
+                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
+                              alt="premium-icon"
+                            />
+                            <span className="bold item-price"> ₹470</span>
+                            <span>for Premium Member</span>
+                          </div>
+                          <div className="">
+                            <Link
+                              to="/eaa-supplements"
+                              className="item-add-to-cart-btn"
+                            >
+                              <i class="fa-solid fa-cart-shopping me-2"></i>
+                              Add to Cart
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mt-3 text-start">
+                <div className="item">
+                  <div className="item-img-sec text-center py-3">
+                    <Link to="/creatine-supplements">
+                      <img
+                        className="lazy"
+                        height="100%"
+                        src="/assets/images/home_shop_thumb07.png"
+                        alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                      />
+                    </Link>
+                    <div className="wishlist">
+                      <img
+                        alt="inWishlist"
+                        width="80%"
+                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
+                      />
+                    </div>
+                  </div>
+                  <div className="item-card">
+                    <a
+                      className="block"
+                      title="Fit Food Range | Upto 25% Off"
+                      target="_blank"
+                      href="/"
+                    >
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              4.5
+                              <img
+                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
+                                alt="star"
+                                className="ms-1"
+                              />
+                            </span>
+                            <div className="item-reviews ms-1">12 reviews</div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/creatine-supplements">
+                        <div
+                          className="item-title"
+                          style={{ webkitBoxOrient: "vertical" }}
+                        >
+                          Creatine Monohydrate 250g{" "}
+                        </div>
+                      </Link>
+                    </a>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹350/-</span>
+                            <span className="variant-old-price">₹1499</span>
+                            <span className="variant-offer">76% off</span>
+                          </div>
+                          <div className="item-msg-content mt-1">
+                            <img
+                              className="premium-icon me-1"
+                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
+                              alt="premium-icon"
+                            />
+                            <span className="bold item-price"> ₹330</span>
+                            <span>for Premium Member</span>
+                          </div>
+                          <div className="">
+                            <Link
+                              to="/creatine-supplements"
+                              className="item-add-to-cart-btn"
+                            >
+                              <i class="fa-solid fa-cart-shopping me-2"></i>
+                              Add to Cart
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* <div className="col-lg-4">
                 <div className="home-shop-item ">
                   <div className="home-shop-thumb">
                     <a href="/whey-protein-powder">
                       <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb01.png'} alt="img" />
-                      {/* <span className="discount"> -15%</span> */}
                     </a>
                     <div className="shop-thumb-shape blue"></div>
                   </div>
                   <div className="home-shop-content">
                     <h4 className="title"><a href="/whey-protein-powder">Whey Protein 1kg Chocolate</a></h4>
-                    {/* <span className="home-shop-price">₹1250/-</span> */}
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">
+                      <span className="price">
                         ₹1250/-
-                        <span class="old-price">₹3000</span>
-                        <span class="discount-price">58%</span>
+                        <span className="old-price">₹3000</span>
+                        <span className="discount-price">58%</span>
                       </span>
                     </div>
                     <div className="home-shop-rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
                       <span className="total-rating">(30)</span>
                     </div>
                     <div className="shop-content-bottom">
@@ -497,30 +1162,41 @@ function Home() {
                 <div className="home-shop-item">
                   <div className="home-shop-thumb">
                     <a href="/whey-protein-powder">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb02.png'} alt="img" />
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/home_shop_thumb02.png"
+                        }
+                        alt="img"
+                      />
                     </a>
                     <div className="shop-thumb-shape yellow"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein 1kg Mawa Kulfi</a></h4>
-                    {/* <span className="home-shop-price">₹1250/-</span> */}
+                    <h4 className="title">
+                      <a href="/whey-protein-powder">
+                        Whey Protein 1kg Mawa Kulfi
+                      </a>
+                    </h4>
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">
+                      <span className="price">
                         ₹1250/-
-                        <span class="old-price">₹3000</span>
-                        <span class="discount-price">58%</span>
+                        <span className="old-price">₹3000</span>
+                        <span className="discount-price">58%</span>
                       </span>
                     </div>
                     <div className="home-shop-rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
                       <span className="total-rating">(30)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="/whey-protein-powder" className="btn btn-two">Buy Now</a>
+                      <a href="/whey-protein-powder" className="btn btn-two">
+                        Buy Now
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -529,31 +1205,41 @@ function Home() {
                 <div className="home-shop-item">
                   <div className="home-shop-thumb">
                     <a href="/whey-protein-powder">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb03.png'} alt="img" />
-                      {/* <span className="discount"> -15%</span> */}
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/home_shop_thumb03.png"
+                        }
+                        alt="img"
+                      />
                     </a>
                     <div className="shop-thumb-shape red"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/whey-protein-powder">Whey Protein 1kg Mocha Coffee</a></h4>
-                    {/* <span className="home-shop-price">₹1250/-</span> */}
+                    <h4 className="title">
+                      <a href="/whey-protein-powder">
+                        Whey Protein 1kg Mocha Coffee
+                      </a>
+                    </h4>
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">
+                      <span className="price">
                         ₹1250/-
-                        <span class="old-price">₹3000</span>
-                        <span class="discount-price">58%</span>
+                        <span className="old-price">₹3000</span>
+                        <span className="discount-price">58%</span>
                       </span>
                     </div>
                     <div className="home-shop-rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
                       <span className="total-rating">(24)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="/whey-protein-powder" className="btn btn-two">Buy Now</a>
+                      <a href="/whey-protein-powder" className="btn btn-two">
+                        Buy Now
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -562,30 +1248,44 @@ function Home() {
                 <div className="home-shop-item">
                   <div className="home-shop-thumb">
                     <a href="/mass-gainer-protein-powder">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb04.png'} alt="img" />
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/home_shop_thumb04.png"
+                        }
+                        alt="img"
+                      />
                     </a>
                     <div className="shop-thumb-shape gray"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/mass-gainer-protein-powder">Mass Gainer 1kg Chocolate</a></h4>
-                    {/* <span className="home-shop-price">₹420/-</span> */}
+                    <h4 className="title">
+                      <a href="/mass-gainer-protein-powder">
+                        Mass Gainer 1kg Chocolate
+                      </a>
+                    </h4>
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">
+                      <span className="price">
                         ₹420/-
-                        <span class="old-price">₹1500</span>
-                        <span class="discount-price">72%</span>
+                        <span className="old-price">₹1500</span>
+                        <span className="discount-price">72%</span>
                       </span>
                     </div>
                     <div className="home-shop-rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
                       <span className="total-rating">(24)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="/mass-gainer-protein-powder" className="btn btn-two">Buy Now</a>
+                      <a
+                        href="/mass-gainer-protein-powder"
+                        className="btn btn-two"
+                      >
+                        Buy Now
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -594,30 +1294,39 @@ function Home() {
                 <div className="home-shop-item">
                   <div className="home-shop-thumb">
                     <a href="/weight-loss-supplement">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb05.png'} alt="img" />
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/home_shop_thumb05.png"
+                        }
+                        alt="img"
+                      />
                     </a>
                     <div className="shop-thumb-shape purple"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/weight-loss-supplement">Pre Workout 250g</a></h4>
-                    {/* <span className="home-shop-price">₹440/-</span> */}
+                    <h4 className="title">
+                      <a href="/weight-loss-supplement">Pre Workout 250g</a>
+                    </h4>
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">
+                      <span className="price">
                         ₹440/-
-                        <span class="old-price">₹2500</span>
-                        <span class="discount-price">82%</span>
+                        <span className="old-price">₹2500</span>
+                        <span className="discount-price">82%</span>
                       </span>
                     </div>
                     <div className="home-shop-rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
                       <span className="total-rating">(12)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="/weight-loss-supplement" className="btn btn-two">Buy Now</a>
+                      <a href="/weight-loss-supplement" className="btn btn-two">
+                        Buy Now
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -626,68 +1335,86 @@ function Home() {
                 <div className="home-shop-item">
                   <div className="home-shop-thumb">
                     <a href="/eaa-supplements">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb06.png'} alt="img" />
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/home_shop_thumb06.png"
+                        }
+                        alt="img"
+                      />
                     </a>
                     <div className="shop-thumb-shape green"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/eaa-supplements">EAA Powder 250g</a></h4>
-                    {/* <span className="home-shop-price">₹490/-</span> */}
+                    <h4 className="title">
+                      <a href="/eaa-supplements">EAA Powder 250g</a>
+                    </h4>
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">
+                      <span className="price">
                         ₹490/-
-                        <span class="old-price">₹2099</span>
-                        <span class="discount-price">76%</span>
+                        <span className="old-price">₹2099</span>
+                        <span className="discount-price">76%</span>
                       </span>
                     </div>
                     <div className="home-shop-rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
                       <span className="total-rating">(12)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="/eaa-supplements" className="btn btn-two">Buy Now</a>
+                      <a href="/eaa-supplements" className="btn btn-two">
+                        Buy Now
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col"></div>
               <div className="col-lg-4">
                 <div className="home-shop-item">
                   <div className="home-shop-thumb">
                     <a href="/creatine-supplements">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb07.png'} alt="img" />
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/home_shop_thumb07.png"
+                        }
+                        alt="img"
+                      />
                     </a>
                     <div className="shop-thumb-shape"></div>
                   </div>
                   <div className="home-shop-content">
-                    <h4 className="title"><a href="/creatine-supplements">Creatine Monohydrate 250g</a></h4>
-                    {/* <span className="home-shop-price">₹350/-</span> */}
+                    <h4 className="title">
+                      <a href="/creatine-supplements">
+                        Creatine Monohydrate 250g
+                      </a>
+                    </h4>
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
-                      <span class="price">
+                      <span className="price">
                         ₹350/-
-                        <span class="old-price">₹1499</span>
-                        <span class="discount-price">76%</span>
+                        <span className="old-price">₹1499</span>
+                        <span className="discount-price">76%</span>
                       </span>
                     </div>
                     <div className="home-shop-rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star-half-alt"></i>
                       <span className="total-rating">(12)</span>
                     </div>
                     <div className="shop-content-bottom">
-                      <a href="/creatine-supplements" className="btn btn-two">Buy Now</a>
+                      <a href="/creatine-supplements" className="btn btn-two">
+                        Buy Now
+                      </a>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="col"></div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -698,75 +1425,94 @@ function Home() {
         >
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-xxl-6 col-lg-5 order-0 order-lg-2">
-                <div
-                  className="features-img wow featuresRollOut"
-                  data-wow-delay=".3s"
-                >
-                  <img
-                    src={
-                      process.env.PUBLIC_URL + "/assets/images/features_img.png"
-                    }
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div className="col-xxl-6 col-lg-7">
+              <div className="col-xxl-12 col-lg-7">
                 <div className="features-items-wrap">
                   <div className="row justify-content-center">
-                    <div className="col-md-6 col-sm-8">
-                      <div className="features-item">
-                        <div className="features-icon">
-                          <i class="far fa-user"></i>
+                    <div className="col-md-4 row justify-content-center">
+                      <div className="col-md-12">
+                        <div className="features-item">
+                          <div className="features-icon">
+                            <i className="far fa-user"></i>
+                          </div>
+                          <div className="features-content">
+                            <h4 className="title">Herbal Boost</h4>
+                            <p>
+                              Natural wellness products to boost immunity and
+                              healthit.
+                            </p>
+                          </div>
                         </div>
-                        <div className="features-content">
-                          <h4 className="title">Herbal Boost</h4>
-                          <p>
-                            Natural wellness products to boost immunity and
-                            healthit.
-                          </p>
+                      </div>
+                      <div className="col-md-12">
+                        <div className="features-item">
+                          <div className="features-icon">
+                            <i className="far fa-user"></i>
+                          </div>
+                          <div className="features-content">
+                            <h4 className="title">100% Immunity Aid</h4>
+                            <p>
+                              Enhance your immunity with Purego's herbal
+                              solutions.
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-6 col-sm-8">
-                      <div className="features-item">
-                        <div className="features-icon">
-                          <i class="far fa-user"></i>
-                        </div>
-                        <div className="features-content">
-                          <h4 className="title">100% Immunity Aid</h4>
-                          <p>
-                            Enhance your immunity with Purego's herbal
-                            solutions.
-                          </p>
-                        </div>
+                    <div className="col-md-4">
+                      <div
+                        className="features-img wow featuresRollOut"
+                        data-wow-delay=".3s"
+                      >
+                        <img
+                          src={
+                            process.env.PUBLIC_URL +
+                            "/assets/images/features_img.png"
+                          }
+                          alt=""
+                        />
                       </div>
                     </div>
-                    <div className="col-md-6 col-sm-8">
-                      <div className="features-item">
-                        <div className="features-icon">
-                          <i class="far fa-user"></i>
+                    <div className="col-md-4 row justify-content-center">
+                      {/* <div className="col-md-12">
+                        <div className="features-item">
+                          <div className="features-icon">
+                            <i className="far fa-user"></i>
+                          </div>
+                          <div className="features-content">
+                            <h4 className="title">Energy Surge</h4>
+                            <p>
+                              Boost your energy levels with Purego's natural
+                              supplements.
+                            </p>
+                          </div>
                         </div>
-                        <div className="features-content">
-                          <h4 className="title">Energy Surge</h4>
-                          <p>
+                      </div> */}
+                      <div className="col-md-12">
+                        <div className="features-item">
+                          <div className="features-icon">
+                            <i className="far fa-user"></i>
+                          </div>
+                          <div className="features-content">
+                            <h4 className="title">Energy Surge</h4>
+                            <p>
                             Boost your energy levels with Purego's natural
                             supplements.
-                          </p>
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-md-6 col-sm-8">
-                      <div className="features-item">
-                        <div className="features-icon">
-                          <i class="far fa-user"></i>
-                        </div>
-                        <div className="features-content">
-                          <h4 className="title">Holistic Care</h4>
-                          <p>
-                            Purego offers holistic products for overall
-                            well-being and health.
-                          </p>
+                      <div className="col-md-12">
+                        <div className="features-item">
+                          <div className="features-icon">
+                            <i className="far fa-user"></i>
+                          </div>
+                          <div className="features-content">
+                            <h4 className="title">Holistic Care</h4>
+                            <p>
+                              Purego offers holistic products for overall
+                              well-being and health.
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -793,9 +1539,7 @@ function Home() {
               <div className="col-xl-7 col-lg-9">
                 <div className="ingredients-items-wrap">
                   <div className="section-title mb-60 text-center">
-                    <p className="sub-title">
-                      .. Product Design By ..
-                    </p>
+                    <p className="sub-title">.. Product Design By ..</p>
                     <h2 className="title">Dr. Gautam Jani</h2>
                   </div>
                   <div className="row justify-content-center justify-content-lg-start">
@@ -806,10 +1550,22 @@ function Home() {
                       >
                         <div className="ingredients-content">
                           <h5 className="title">
-                            Founder & CEO of FG Group / CEO GCS PVT LTD / Core member of INPTA
+                            Founder & CEO of FG Group / CEO GCS PVT LTD / Core
+                            member of INPTA
                           </h5>
                           <p>
-                            He finished his Civil Engineer and turned fitness enthusiast in 2014 began his personal training journey in Gujarat, India, in 2016. Certified by ACSM, ISSA, and VLCC. he specializes in Clinical and weight loss nutrition, Strength Training, Exercise Science, and Performance Enhancement Drugs. In 2019 finished his MBA for better training and placement services for their student of FGIIT. In 2024, he earned his Ph.D. in Health & Fitness from Thames university. As the Founder of FGIIT, Gautam is dedicated to promoting holistic well-being through personalized training and nutritional guidance.
+                            He finished his Civil Engineer and turned fitness
+                            enthusiast in 2014 began his personal training
+                            journey in Gujarat, India, in 2016. Certified by
+                            ACSM, ISSA, and VLCC. he specializes in Clinical and
+                            weight loss nutrition, Strength Training, Exercise
+                            Science, and Performance Enhancement Drugs. In 2019
+                            finished his MBA for better training and placement
+                            services for their student of FGIIT. In 2024, he
+                            earned his Ph.D. in Health & Fitness from Thames
+                            university. As the Founder of FGIIT, Gautam is
+                            dedicated to promoting holistic well-being through
+                            personalized training and nutritional guidance.
                           </p>
                         </div>
                       </div>
@@ -830,7 +1586,7 @@ function Home() {
                     className="popup-video ripple-white"
                     onClick={() => openVideoModal("4X2pTMgb1og")}
                   >
-                    <i class="fas fa-play"></i>
+                    <i className="fas fa-play"></i>
                   </a>
                 </div>
               </div>
@@ -849,14 +1605,15 @@ function Home() {
             />
           </div>
         </div>
-        <section id="ingredient" className="ingredients-area">
+        {/* <section id="ingredient" className="ingredients-area">
           <div className="container">
             <div className="row align-items-center justify-content-center">
               <div className="col-lg-6">
                 <div className="">
                   <img
                     src={
-                      process.env.PUBLIC_URL + "/assets/images/features_img03.png"
+                      process.env.PUBLIC_URL +
+                      "/assets/images/features_img03.png"
                     }
                     alt=""
                   />
@@ -937,7 +1694,7 @@ function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         <section className="formula-area formula-bg">
           <div className="">
             <div className="section-title text-center white-title mb-50">
@@ -950,8 +1707,7 @@ function Home() {
                 <img
                   className="img-fluid"
                   src={
-                    process.env.PUBLIC_URL +
-                    "/assets/images/nutri-certi-5.webp"
+                    process.env.PUBLIC_URL + "/assets/images/nutri-certi-5.webp"
                   }
                   alt="Certificate"
                   loading="lazy"
@@ -961,8 +1717,7 @@ function Home() {
                 <img
                   className="img-fluid"
                   src={
-                    process.env.PUBLIC_URL +
-                    `/assets/images/nutri-certi-1.webp`
+                    process.env.PUBLIC_URL + `/assets/images/nutri-certi-1.webp`
                   }
                   alt="Certificate"
                   loading="lazy"
@@ -972,8 +1727,7 @@ function Home() {
                 <img
                   className="img-fluid"
                   src={
-                    process.env.PUBLIC_URL +
-                    "/assets/images/nutri-certi-2.webp"
+                    process.env.PUBLIC_URL + "/assets/images/nutri-certi-2.webp"
                   }
                   alt="Certificate"
                   loading="lazy"
@@ -983,8 +1737,7 @@ function Home() {
                 <img
                   className="img-fluid"
                   src={
-                    process.env.PUBLIC_URL +
-                    "/assets/images/nutri-certi-3.webp"
+                    process.env.PUBLIC_URL + "/assets/images/nutri-certi-3.webp"
                   }
                   alt="Certificate"
                   loading="lazy"
@@ -994,8 +1747,7 @@ function Home() {
                 <img
                   className="img-fluid"
                   src={
-                    process.env.PUBLIC_URL +
-                    "/assets/images/nutri-certi-4.webp"
+                    process.env.PUBLIC_URL + "/assets/images/nutri-certi-4.webp"
                   }
                   alt="Certificate"
                   loading="lazy"
@@ -1025,8 +1777,8 @@ function Home() {
                     dots={false}
                     className="owl-carousel owl-theme owl-nav-1"
                     navText={[
-                      '<i class="fas fa-arrow-left owl-nav-arrow"></i>',
-                      '<i class="fas fa-arrow-right owl-nav-arrow"></i>',
+                      '<i className="fas fa-arrow-left owl-nav-arrow"></i>',
+                      '<i className="fas fa-arrow-right owl-nav-arrow"></i>',
                     ]}
                     responsive={{
                       0: {
@@ -1042,11 +1794,11 @@ function Home() {
                   >
                     <div className="testimonial-item text-center">
                       <div className="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
                       </div>
                       <p>
                         “Purego products are amazing! The quality is top-notch,
@@ -1071,11 +1823,11 @@ function Home() {
                     </div>
                     <div className="testimonial-item text-center">
                       <div className="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
                       </div>
                       <p>
                         “Purego Gomzi Lifesciences delivers on its promises! I
@@ -1099,11 +1851,11 @@ function Home() {
                     </div>
                     <div className="testimonial-item text-center">
                       <div className="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
                       </div>
                       <p>
                         “Great range of wellness products at reasonable prices.
@@ -1127,11 +1879,11 @@ function Home() {
                     </div>
                     <div className="testimonial-item text-center">
                       <div className="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star"></i>
+                        <i className="fas fa-star-half-alt"></i>
                       </div>
                       <p>
                         “I was skeptical at first, but Purego proved me wrong!
@@ -1165,45 +1917,117 @@ function Home() {
             <div className="row justify-content-center">
               <div className="col-xl-6 col-lg-8">
                 <div className="section-title text-center white-title mb-50">
-                  <p className="sub-title">.. Increased Wellness With Purego ..</p>
+                  <p className="sub-title">
+                    .. Increased Wellness With Purego ..
+                  </p>
                   <h2>Blogs</h2>
                 </div>
               </div>
             </div>
             <div className="row justify-content-center">
               <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
-                <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".2s">
+                <div
+                  className="tg-blog-post-item mb-30 wow fadeInUp"
+                  data-wow-delay=".2s"
+                >
                   <div className="tg-blog-post-thumb">
-                    <a href="/top-supplements-for-weight-gain"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb01.webp'} alt="" /></a>
+                    <a href="/top-supplements-for-weight-gain">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "assets/images/blog_post_thumb01.webp"
+                        }
+                        alt=""
+                      />
+                    </a>
                   </div>
                   <div className="tg-blog-post-content">
-                    <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
-                    <h4 className="title"><a href="/top-supplements-for-weight-gain">Top Supplements for Weight Gain: A Comparative Analysis</a></h4>
-                    <a href="/top-supplements-for-weight-gain" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
+                    <div className="post-date">
+                      <i className="far fa-calendar-alt"></i> 24th September
+                      2024
+                    </div>
+                    <h4 className="title">
+                      <a href="/top-supplements-for-weight-gain">
+                        Top Supplements for Weight Gain: A Comparative Analysis
+                      </a>
+                    </h4>
+                    <a
+                      href="/top-supplements-for-weight-gain"
+                      className="read-more"
+                    >
+                      <span>Read More</span>{" "}
+                      <i className="fas fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
-                <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".4s">
+                <div
+                  className="tg-blog-post-item mb-30 wow fadeInUp"
+                  data-wow-delay=".4s"
+                >
                   <div className="tg-blog-post-thumb">
-                    <a href="/how-supplements-help-you-live-healthy-life"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb02.webp'} alt="" /></a>
+                    <a href="/how-supplements-help-you-live-healthy-life">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "assets/images/blog_post_thumb02.webp"
+                        }
+                        alt=""
+                      />
+                    </a>
                   </div>
                   <div className="tg-blog-post-content">
-                    <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
-                    <h4 className="title"><a href="/how-supplements-help-you-live-healthy-life">How Supplements Help you live a healthy life</a></h4>
-                    <a href="/how-supplements-help-you-live-healthy-life" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
+                    <div className="post-date">
+                      <i className="far fa-calendar-alt"></i> 24th September
+                      2024
+                    </div>
+                    <h4 className="title">
+                      <a href="/how-supplements-help-you-live-healthy-life">
+                        How Supplements Help you live a healthy life
+                      </a>
+                    </h4>
+                    <a
+                      href="/how-supplements-help-you-live-healthy-life"
+                      className="read-more"
+                    >
+                      <span>Read More</span>{" "}
+                      <i className="fas fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>
               <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
-                <div className="tg-blog-post-item mb-30 wow fadeInUp" data-wow-delay=".6s">
+                <div
+                  className="tg-blog-post-item mb-30 wow fadeInUp"
+                  data-wow-delay=".6s"
+                >
                   <div className="tg-blog-post-thumb">
-                    <a href="/best-whey-protein-in-india"><img src={process.env.PUBLIC_URL + 'assets/images/blog_post_thumb03.webp'} alt="" /></a>
+                    <a href="/best-whey-protein-in-india">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "assets/images/blog_post_thumb03.webp"
+                        }
+                        alt=""
+                      />
+                    </a>
                   </div>
                   <div className="tg-blog-post-content">
-                    <div className="post-date"><i class="far fa-calendar-alt"></i> 24th September 2024</div>
-                    <h4 className="title"><a href="/best-whey-protein-in-india">The Ultimate Guide to the Best Whey Protein to Try in India</a></h4>
-                    <a href="/best-whey-protein-in-india" className="read-more"><span>Read More</span> <i class="fas fa-arrow-right"></i></a>
+                    <div className="post-date">
+                      <i className="far fa-calendar-alt"></i> 24th September
+                      2024
+                    </div>
+                    <h4 className="title">
+                      <a href="/best-whey-protein-in-india">
+                        The Ultimate Guide to the Best Whey Protein to Try in
+                        India
+                      </a>
+                    </h4>
+                    <a href="/best-whey-protein-in-india" className="read-more">
+                      <span>Read More</span>{" "}
+                      <i className="fas fa-arrow-right"></i>
+                    </a>
                   </div>
                 </div>
               </div>
