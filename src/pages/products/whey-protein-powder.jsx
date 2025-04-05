@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -22,8 +22,13 @@ import HowToUse from "../../components/howToUse";
 import SelectableList from "../../components/SelectableList";
 import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
+import { useLocation } from "react-router";
+import LoginModal from "../../assets/js/popup/login";
 
 function PureGoWheyProtein() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const ProductFlavor = searchParams.get("flavor");
   const canonicalUrl = window.location.href;
   const [currentProduct, setCurrentProduct] = useState("1kg-Chocolate");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -31,13 +36,22 @@ function PureGoWheyProtein() {
   const [activeFlavor, setActiveFlavor] = useState("Chocolate");
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const productImages = {
     "1kg-Chocolate": [
       "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
       "/assets/images/products/whey-protein/whey-protein-chocolate-2.webp",
       "/assets/images/products/whey-protein/whey-protein-chocolate-3.webp",
-      "/assets/images/products/whey-protein/whey-protein-chocolate-3.webp",
+      "/assets/images/products/whey-protein/whey-protein-chocolate-4.webp",
     ],
     "1kg-Mocha Coffee": [
       "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
@@ -92,9 +106,7 @@ function PureGoWheyProtein() {
     },
   ];
 
-  const sizeOptions = [
-    { id: "1kg", label: "1kg" },
-  ];
+  const sizeOptions = [{ id: "1kg", label: "1kg" }];
 
   const flavorOptions = [
     { id: "Chocolate", label: "Chocolate" },
@@ -127,6 +139,10 @@ function PureGoWheyProtein() {
 
   const addProductInCart = async (product_id) => {
     try {
+      const isLogin = localStorage.getItem("fg_group_user_authorization");
+      if (!isLogin) {
+        return openModal();
+      }
       const response = await axiosInstance.post("/order-cart/add-item", {
         item_id: product_id,
         quantity: 1,
@@ -139,6 +155,13 @@ function PureGoWheyProtein() {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    if (ProductFlavor) {
+      setActiveFlavor(ProductFlavor);
+      setCurrentProduct(`${activeSize}-${ProductFlavor}`);
+    }
+  }, []);
 
   return (
     <>
@@ -156,9 +179,14 @@ function PureGoWheyProtein() {
           property="og:url"
           content="https://purego.gomzilifesciences.in/"
         />
+        <meta
+          property="og:image"
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+        />
         <link rel="canonical" href={{ canonicalUrl }} />
       </Helmet>
-      <LoaderComponent />
+      {/* <LoaderComponent /> */}
+      {showModal && <LoginModal onClose={closeModal} />}
       <NutritionHeader />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
@@ -204,7 +232,12 @@ function PureGoWheyProtein() {
                     </ul>
                   </div>
                   <div className="inner-shop-details-price">
-                    <h2 className="price d-flex">₹{currentProductData.discount}/-<span className="old-prices">₹{currentProductData.price}/-</span></h2>
+                    <h2 className="price d-flex">
+                      ₹{currentProductData.discount}/-
+                      <span className="old-prices">
+                        ₹{currentProductData.price}/-
+                      </span>
+                    </h2>
                     <h5 className="stock-status">58%</h5>
                   </div>
                   <p>
@@ -232,9 +265,7 @@ function PureGoWheyProtein() {
                   </div>
                   <div className="inner-shop-perched-info mt-3">
                     <button
-                      onClick={() =>
-                        addProductInCart(currentProductData.id)
-                      }
+                      onClick={() => addProductInCart(currentProductData.id)}
                       className="cart-btn"
                     >
                       add to cart
@@ -488,7 +519,9 @@ function PureGoWheyProtein() {
                       role="tabpanel"
                       aria-labelledby="review-tab"
                     >
-                      <NutritionReviewSection product_id={products[0].data.id} />
+                      <NutritionReviewSection
+                        product_id={products[0].data.id}
+                      />
                     </div>
                   </div>
                 </div>

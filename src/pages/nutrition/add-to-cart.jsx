@@ -18,19 +18,31 @@ import HomeNutritionFooter from "../../components/partials/Footer/footer";
 import LoaderComponent from "../../components/PageLoader";
 import { axiosInstance } from "../../assets/js/config/api";
 import { Link } from "react-router-dom";
+import LoginModal from "../../assets/js/popup/login";
+import LoadingComponent from "../../components/loadingComponent";
 
 function AddToCart() {
   const canonicalUrl = window.location.href;
-
+  const [loading, setLoading] = useState(false);
+  const [loading1, setLoading1] = useState(false);
   const [productData, setProductData] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [serverDataID, setServerDataID] = useState("");
   const [productDataGet, setProductDataGet] = useState([]);
   const [previousProductData, setPreviousProductData] = useState([]);
   const [totalMRP, setTotalMRP] = React.useState(0);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const fetchProductData = async () => {
-    // setLoading(true);
+    setLoading(true);
     try {
       const response = await axiosInstance.get(
         "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
@@ -79,11 +91,16 @@ function AddToCart() {
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
-    // setLoading(false);
+    setLoading(false);
   };
 
   useEffect(() => {
     fetchProductData();
+
+    const isLogin = localStorage.getItem("fg_group_user_authorization");
+    if (!isLogin) {
+      return openModal();
+    }
   }, []);
 
   const totalAmountCalculation = (data) => {
@@ -178,6 +195,7 @@ function AddToCart() {
   };
 
   const handleAddToCart = async () => {
+    setLoading1(true)
     try {
       const changedProducts = productDataGet.filter((currentProduct) => {
         const previousProduct = previousProductData.find(
@@ -235,6 +253,7 @@ function AddToCart() {
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
+    setLoading1(false)
   };
 
   return (
@@ -251,10 +270,10 @@ function AddToCart() {
           name="keyword"
           content="bowelease  Constipation Relief, shop near by me, diet supplements near me, best multivitamins for men india, booster testosterone, how to fat burn, supplement shop near, whey isolate vs protein, whey protein vs whey protein isolate, women's protein powder for weight gain, protein powder for weight gain woman, which best peanut butter, nutrition in 100g oats"
         />
-        <meta
+        {/* <meta
           property="og:image"
-          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.webp"
-        />
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+        /> */}
         <meta
           property="og:url"
           content="https://purego.gomzilifesciences.in/"
@@ -300,47 +319,14 @@ function AddToCart() {
           `}
         </script>
       </Helmet>
-      <LoaderComponent />
+      {/* <LoaderComponent /> */}
+      {showModal && <LoginModal onClose={closeModal} />}
+      {(loading || loading1) && <LoadingComponent />}
       <NutritionHeader />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
       <main className="main-area fix">
-        <section className="breadcrumb-area breadcrumb-bg">
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-xl-10">
-                <div className="breadcrumb-content text-center">
-                  <h2 className="title">Cart Page</h2>
-                  <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
-                    <ul className="breadcrumb">
-                      <li className="breadcrumb-item trail-item trail-begin">
-                        <a href="/">
-                          <span>Home</span>
-                        </a>
-                      </li>
-                      <li className="breadcrumb-item trail-item trail-end">
-                        <span>Cart</span>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="video-shape one">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
-              alt="shape"
-            />
-          </div>
-          <div className="video-shape two">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
-              alt="shape"
-            />
-          </div>
-        </section>
         <div className="cart__area section-py-130">
           <div className="container">
             <div className="row">
@@ -452,6 +438,9 @@ function AddToCart() {
                     </tr> */}
                   </tbody>
                 </table>
+                {productDataGet.length === 0 && (
+                  <h5 className="text-center mt-3">No items found</h5>
+                )}
               </div>
               <div className="col-lg-4">
                 <div className="cart__collaterals-wrap">
@@ -469,9 +458,15 @@ function AddToCart() {
                       <span className="amount">₹{totalAmount?.toFixed(2)}</span>
                     </li>
                   </ul>
-                  <button onClick={handleAddToCart} className="btn btn-sm">
-                    Proceed to checkout
-                  </button>
+                  <div className="inner-shop-perched-info mt-3">
+                    <button
+                      onClick={handleAddToCart}
+                      className="cart-btn w-100 m-0"
+                      disabled={productDataGet.length === 0}
+                    >
+                      Proceed to checkout
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

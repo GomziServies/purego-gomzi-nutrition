@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet";
 import { axiosInstance } from "../assets/js/config/api";
 import { createPaymentProduct } from "../assets/js/utils/product";
 import NutritionHeader from "../components/partials/Header/nutritionsheader";
+import LoginModal from "../assets/js/popup/login";
+import LoadingComponent from "../components/loadingComponent";
 
 function CheckOut() {
   const location = useLocation();
@@ -29,6 +31,16 @@ function CheckOut() {
     state: "",
     country: "",
   });
+  const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const handlePaymentModeChange = (e) => {
     const selectedMode = e.target.value;
@@ -57,6 +69,13 @@ function CheckOut() {
     }
   }, [productData]);
 
+  useEffect(() => {
+    const isLogin = localStorage.getItem('fg_group_user_authorization')
+    if(!isLogin){
+      return openModal()
+    }
+  }, []);
+
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
   };
@@ -72,6 +91,7 @@ function CheckOut() {
   };
 
   const handleFormSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     try {
       const updatedUserData = {
@@ -109,6 +129,7 @@ function CheckOut() {
     } catch (error) {
       console.error("Error in handleFormSubmit:", error);
     }
+    setLoading(false)
   };
 
   const updateUserData = async (data) => {
@@ -197,8 +218,14 @@ function CheckOut() {
           property="og:url"
           content="https://www.purego.gomzilifesciences.in/nutrition/check-out"
         />
+        <meta
+          property="og:image"
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+        />
         <link rel="canonical" href={{ canonicalUrl }} />
       </Helmet>
+      {showModal && <LoginModal onClose={closeModal} />}
+      {loading && <LoadingComponent />}
       <NutritionHeader />
       <main className="main-area fix">
         <div className="checkout__area section-py-130">
@@ -441,23 +468,24 @@ function CheckOut() {
                       </div>
                     </div>
                   </div>
-                  <button
-                    type="button"
-                    className="btn btn-sm bg-yellow my-2 text-uppercase text-white f-16 f-rob-bol checkout-add-edit-address"
-                    onClick={() => {
-                      if (paymentMode) {
-                        document.querySelector("form").requestSubmit();
-                      } else {
-                        Swal.fire({
-                          icon: "error",
-                          title: "Error!",
-                          text: "Please select a payment method.",
-                        });
-                      }
-                    }}
-                  >
-                    SAVE &amp; PAY
-                  </button>
+                  <div className="inner-shop-perched-info mt-3">
+                    <button
+                      onClick={() => {
+                        if (paymentMode) {
+                          document.querySelector("form").requestSubmit();
+                        } else {
+                          Swal.fire({
+                            icon: "error",
+                            title: "Error!",
+                            text: "Please select a payment method.",
+                          });
+                        }
+                      }}
+                      className="cart-btn w-100 m-0"
+                    >
+                      SAVE &amp; PAY
+                    </button>
+                  </div>
                   {/* <button className="btn btn-sm">Place order</button> */}
                 </div>
               </div>

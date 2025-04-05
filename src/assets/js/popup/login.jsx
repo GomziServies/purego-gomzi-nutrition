@@ -166,9 +166,9 @@ const LoginModal = ({ onClose }) => {
             <div className="text-center mb-4">
               <img
                 src={
-                  process.env.PUBLIC_URL + "../assets/images/nutrition-logo.webp"
+                  process.env.PUBLIC_URL + "../assets/images/nutrition-logo.png"
                 }
-                width="35%"
+                width="15%"
                 alt="Fg Group"
               />
             </div>
@@ -230,7 +230,7 @@ const LoginModal = ({ onClose }) => {
             <div className="text-center mb-4">
               <img
                 src={
-                  process.env.PUBLIC_URL + "../assets/images/nutrition-logo.webp"
+                  process.env.PUBLIC_URL + "../assets/images/nutrition-logo.png"
                 }
                 width="35%"
                 alt="Fg Group"

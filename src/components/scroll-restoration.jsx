@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-function App() {
+function ScrollRestoration() {
   const location = useLocation();
   const isFirstRender = useRef(true);
 
@@ -23,4 +23,4 @@ function App() {
   }, [location]);
 }
 
-export default App;
+export default ScrollRestoration;

@@ -22,6 +22,7 @@ import HowToUse from "../../components/howToUse";
 import SelectableList from "../../components/SelectableList";
 import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
+import LoginModal from "../../assets/js/popup/login";
 
 function PureGoPreWorkout() {
   const canonicalUrl = window.location.href;
@@ -31,6 +32,15 @@ function PureGoPreWorkout() {
   const [activeFlavor, setActiveFlavor] = useState("Fruit Punch");
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const productImages = {
     "250g-Fruit Punch": [
@@ -38,7 +48,7 @@ function PureGoPreWorkout() {
       "/assets/images/products/pre-workout/pre-workout-2.webp",
       "/assets/images/products/pre-workout/pre-workout-3.webp",
       "/assets/images/products/pre-workout/pre-workout-4.webp",
-    ]
+    ],
   };
 
   const products = [
@@ -53,16 +63,12 @@ function PureGoPreWorkout() {
         size: "250 g",
         dis_point: "15%",
       },
-    }
+    },
   ];
 
-  const sizeOptions = [
-    { id: "250g", label: "250g" },
-  ];
+  const sizeOptions = [{ id: "250g", label: "250g" }];
 
-  const flavorOptions = [
-    { id: "Fruit Punch", label: "Fruit Punch" }
-  ];
+  const flavorOptions = [{ id: "Fruit Punch", label: "Fruit Punch" }];
 
   const handleSelectSize = (id) => {
     setOpacity(0.3);
@@ -89,6 +95,10 @@ function PureGoPreWorkout() {
 
   const addProductInCart = async (product_id) => {
     try {
+      const isLogin = localStorage.getItem("fg_group_user_authorization");
+      if (!isLogin) {
+        return openModal();
+      }
       const response = await axiosInstance.post("/order-cart/add-item", {
         item_id: product_id,
         quantity: 1,
@@ -118,9 +128,14 @@ function PureGoPreWorkout() {
           property="og:url"
           content="https://purego.gomzilifesciences.in/"
         />
+        <meta
+          property="og:image"
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+        />
         <link rel="canonical" href={{ canonicalUrl }} />
       </Helmet>
-      <LoaderComponent />
+      {/* <LoaderComponent /> */}
+      {showModal && <LoginModal onClose={closeModal} />}
       <NutritionHeader />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
@@ -166,7 +181,12 @@ function PureGoPreWorkout() {
                     </ul>
                   </div>
                   <div className="inner-shop-details-price">
-                    <h2 className="price d-flex">₹{currentProductData.discount}/-<span className="old-prices">₹{currentProductData.price}/-</span></h2>
+                    <h2 className="price d-flex">
+                      ₹{currentProductData.discount}/-
+                      <span className="old-prices">
+                        ₹{currentProductData.price}/-
+                      </span>
+                    </h2>
                     <h5 className="stock-status">82%</h5>
                   </div>
                   <p>
@@ -192,9 +212,7 @@ function PureGoPreWorkout() {
                   </div>
                   <div className="inner-shop-perched-info mt-3">
                     <button
-                      onClick={() =>
-                        addProductInCart(products[0].data.id)
-                      }
+                      onClick={() => addProductInCart(products[0].data.id)}
                       className="cart-btn"
                     >
                       add to cart
@@ -411,7 +429,9 @@ function PureGoPreWorkout() {
                       role="tabpanel"
                       aria-labelledby="review-tab"
                     >
-                      <NutritionReviewSection product_id={products[0].data.id} />
+                      <NutritionReviewSection
+                        product_id={products[0].data.id}
+                      />
                     </div>
                   </div>
                 </div>

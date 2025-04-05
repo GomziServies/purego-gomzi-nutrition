@@ -131,6 +131,10 @@ function UserProfile() {
           content="These Are The Diseases Is Can Not Be Controlled By Medicine Only, You Need To Have The Support Of Nutrition, Exercises, Recovery, And Rehab Parts Also."
         />
         <meta name="keywords" content="" />
+        <meta
+          property="og:image"
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+        />
       </Helmet>
       <NutritionHeader />
       <Container className="margintop-nutrition mb-5" >

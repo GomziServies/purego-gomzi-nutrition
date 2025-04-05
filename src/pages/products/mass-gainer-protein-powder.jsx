@@ -22,6 +22,7 @@ import HowToUse from "../../components/howToUse";
 import SelectableList from "../../components/SelectableList";
 import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
+import LoginModal from "../../assets/js/popup/login";
 
 function PureGoMassGainer() {
   const canonicalUrl = window.location.href;
@@ -31,6 +32,15 @@ function PureGoMassGainer() {
   const [activeFlavor, setActiveFlavor] = useState("Chocolate");
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const productImages = {
     "1kg-Chocolate": [
@@ -38,7 +48,7 @@ function PureGoMassGainer() {
       "/assets/images/products/mass-gainer/mass-gainer-2.webp",
       "/assets/images/products/mass-gainer/mass-gainer-3.webp",
       "/assets/images/products/mass-gainer/mass-gainer-4.webp",
-    ]
+    ],
   };
 
   const products = [
@@ -53,16 +63,12 @@ function PureGoMassGainer() {
         size: "1 Kg",
         dis_point: "15%",
       },
-    }
+    },
   ];
 
-  const sizeOptions = [
-    { id: "1kg", label: "1kg" },
-  ];
+  const sizeOptions = [{ id: "1kg", label: "1kg" }];
 
-  const flavorOptions = [
-    { id: "Chocolate", label: "Chocolate" }
-  ];
+  const flavorOptions = [{ id: "Chocolate", label: "Chocolate" }];
 
   const handleSelectSize = (id) => {
     setOpacity(0.3);
@@ -89,6 +95,10 @@ function PureGoMassGainer() {
 
   const addProductInCart = async (product_id) => {
     try {
+      const isLogin = localStorage.getItem("fg_group_user_authorization");
+      if (!isLogin) {
+        return openModal();
+      }
       const response = await axiosInstance.post("/order-cart/add-item", {
         item_id: product_id,
         quantity: 1,
@@ -118,9 +128,14 @@ function PureGoMassGainer() {
           property="og:url"
           content="https://purego.gomzilifesciences.in/"
         />
+        <meta
+          property="og:image"
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+        />
         <link rel="canonical" href={{ canonicalUrl }} />
       </Helmet>
-      <LoaderComponent />
+      {/* <LoaderComponent /> */}
+      {showModal && <LoginModal onClose={closeModal} />}
       <NutritionHeader />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
@@ -166,7 +181,12 @@ function PureGoMassGainer() {
                     </ul>
                   </div>
                   <div className="inner-shop-details-price">
-                    <h2 className="price d-flex">₹{currentProductData.discount}/-<span className="old-prices">₹{currentProductData.price}/-</span></h2>
+                    <h2 className="price d-flex">
+                      ₹{currentProductData.discount}/-
+                      <span className="old-prices">
+                        ₹{currentProductData.price}/-
+                      </span>
+                    </h2>
                     <h5 className="stock-status">72%</h5>
                   </div>
                   <p>
@@ -194,9 +214,7 @@ function PureGoMassGainer() {
                   </div>
                   <div className="inner-shop-perched-info mt-3">
                     <button
-                      onClick={() =>
-                        addProductInCart(products[0].data.id)
-                      }
+                      onClick={() => addProductInCart(products[0].data.id)}
                       className="cart-btn"
                     >
                       add to cart
@@ -418,11 +436,15 @@ function PureGoMassGainer() {
                               <td>0.47</td>
                             </tr>
                             <tr>
-                              <th scope="row">Polyunsaturated fatty acid (g)</th>
+                              <th scope="row">
+                                Polyunsaturated fatty acid (g)
+                              </th>
                               <td>0.38</td>
                             </tr>
                             <tr>
-                              <th scope="row">Monounsaturated fatty acid (mg)</th>
+                              <th scope="row">
+                                Monounsaturated fatty acid (mg)
+                              </th>
                               <td>0.97</td>
                             </tr>
                             <tr>
@@ -476,7 +498,9 @@ function PureGoMassGainer() {
                       role="tabpanel"
                       aria-labelledby="review-tab"
                     >
-                      <NutritionReviewSection product_id={products[0].data.id} />
+                      <NutritionReviewSection
+                        product_id={products[0].data.id}
+                      />
                     </div>
                   </div>
                 </div>

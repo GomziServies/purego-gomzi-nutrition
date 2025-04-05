@@ -251,7 +251,7 @@ function CancellationPolicyCustomer() {
                 />
                 <meta
                     property="og:image"
-                    content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.webp"
+                    content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
                 />
                 <meta property="og:url" content="https://purego.gomzilifesciences.in/" />
                 <link rel="canonical" href={{ canonicalUrl }} />

@@ -22,11 +22,22 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import ModalVideo from "react-modal-video";
 import { Link } from "react-router-dom";
 import HappyClientReview from "../components/happyClient";
+import { axiosInstance } from "../assets/js/config/api";
+import LoginModal from "../assets/js/popup/login";
 
 function Home() {
   const canonicalUrl = window.location.href;
   const [videoUrl, setVideoUrl] = useState("");
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const openVideoModal = (url) => {
     setIsVideoOpen(true);
@@ -96,21 +107,36 @@ function Home() {
     },
   };
 
-  const carouselOptions1 = {
+  const addProductInCart = async (product_id) => {
+    try {
+      const isLogin = localStorage.getItem("fg_group_user_authorization");
+      if (!isLogin) {
+        return openModal();
+      }
+      const response = await axiosInstance.post("/order-cart/add-item", {
+        item_id: product_id,
+        quantity: 1,
+        item_type: "PURE_GO_MEAL_PRODUCT",
+      });
+      if (response.data.response === "OK") {
+        window.location.href = "/add-to-cart";
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const options = {
     loop: true,
-    autoplay: true,
-    dots: false,
+    dots: true,
+    dotsEach: true,
     nav: false,
+    autoplayTimeout: 3000,
+    smartSpeed: 500,
     responsive: {
-      0: {
-        items: 1,
-      },
-      600: {
-        items: 3,
-      },
-      1000: {
-        items: 3,
-      },
+      0: { items: 1 },
+      600: { items: 1 },
+      1000: { items: 1 },
     },
   };
 
@@ -130,7 +156,7 @@ function Home() {
         />
         <meta
           property="og:image"
-          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.webp"
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         <meta
           property="og:url"
@@ -177,6 +203,7 @@ function Home() {
           `}
         </script>
       </Helmet>
+      {showModal && <LoginModal onClose={closeModal} />}
       <NutritionHeader />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
@@ -202,12 +229,12 @@ function Home() {
                 },
               }}
             >
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_1.webp"}
-              alt="shape"
-              width="100%"
-            />
-            {/* <img
+              <img
+                src={process.env.PUBLIC_URL + "/assets/images/banner_1.webp"}
+                alt="shape"
+                width="100%"
+              />
+              {/* <img
               src={process.env.PUBLIC_URL + "/assets/images/banner_1.webp"}
               alt="shape"
               width="100%"
@@ -238,21 +265,27 @@ function Home() {
                 },
               }}
             >
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"}
-              alt="shape"
-              width="100%"
-            />
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"}
-              alt="shape"
-              width="100%"
-            />
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"}
-              alt="shape"
-              width="100%"
-            />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"
+                }
+                alt="shape"
+                width="100%"
+              />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"
+                }
+                alt="shape"
+                width="100%"
+              />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"
+                }
+                alt="shape"
+                width="100%"
+              />
             </OwlCarousel>
           </div>
           {/* <div className="container">
@@ -345,24 +378,8 @@ function Home() {
                 <div className="item-card">
                   <div className="item-img-sec text-center py-md-3 py-4">
                     <OwlCarousel
-                      loop
-                      autoplay
-                      dots={false}
-                      nav="false"
-                      className="product-slide"
-                      autoplayTimeout={3000}
-                      smartSpeed={500}
-                      responsive={{
-                        0: {
-                          items: 1,
-                        },
-                        600: {
-                          items: 1,
-                        },
-                        1000: {
-                          items: 1,
-                        },
-                      }}
+                      {...options}
+                      className="product-slide owl-theme"
                     >
                       <div className="d-flex justify-content-center">
                         <img
@@ -393,13 +410,6 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist">
-                      <img
-                        alt="inWishlist"
-                        width="80%"
-                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
-                      />
-                    </div>
                   </div>
                   <div className="item-card-detail">
                     <a
@@ -416,11 +426,7 @@ function Home() {
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
                               4.5
-                              <img
-                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
-                                alt="star"
-                                className="ms-1"
-                              />
+                              <i class="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">30 reviews</div>
                           </div>
@@ -436,7 +442,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder">
+                      <Link to="/whey-protein-powder?flavor=Chocolate">
                         <div
                           className="item-title"
                           style={{ webkitBoxOrient: "vertical" }}
@@ -444,6 +450,10 @@ function Home() {
                           Whey Protein 1kg Chocolate{" "}
                         </div>
                       </Link>
+                      <p className="item-description">
+                        Pure Go Whey Protein Chocolate is a Mixture of Whey
+                        Isolate, Whey Concentrate, Skimmed Milk powder, So...
+                      </p>
                     </a>
                     <div>
                       <div className="item-desc">
@@ -453,24 +463,18 @@ function Home() {
                             <span className="variant-old-price">₹3000</span>
                             <span className="variant-offer">58% off</span>
                           </div>
-                          <div className="item-msg-content mt-1">
-                            <img
-                              className="premium-icon me-1"
-                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
-                              alt="premium-icon"
-                            />
-                            <span>₹1200 for Premium Member</span>
-                          </div>
                           <div className="d-flex">
-                            <Link
-                              to="/whey-protein-powder"
+                            <button
+                              onClick={() =>
+                                addProductInCart("67e7749163f930dcc6a2715d")
+                              }
                               className="product-btn item-add-to-cart-btn"
                             >
                               <i class="fa-solid fa-cart-shopping me-2"></i>
                               Add to Cart
-                            </Link>
+                            </button>
                             <Link
-                              to="/whey-protein-powder"
+                              to="/whey-protein-powder?flavor=Chocolate"
                               className="product-btn item-view-btn"
                             >
                               <i class="fa-solid fa-eye me-2"></i>
@@ -487,24 +491,8 @@ function Home() {
                 <div className="item-card">
                   <div className="item-img-sec text-center py-md-3 py-4">
                     <OwlCarousel
-                      loop
-                      autoplay
-                      dots={false}
-                      nav="false"
-                      className="product-slide"
-                      autoplayTimeout={3000}
-                      smartSpeed={500}
-                      responsive={{
-                        0: {
-                          items: 1,
-                        },
-                        600: {
-                          items: 1,
-                        },
-                        1000: {
-                          items: 1,
-                        },
-                      }}
+                      {...options}
+                      className="product-slide owl-theme"
                     >
                       <div className="d-flex justify-content-center">
                         <img
@@ -539,13 +527,6 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist">
-                      <img
-                        alt="inWishlist"
-                        width="80%"
-                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
-                      />
-                    </div>
                   </div>
                   <div className="item-card-detail">
                     <a
@@ -562,11 +543,7 @@ function Home() {
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
                               4.5
-                              <img
-                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
-                                alt="star"
-                                className="ms-1"
-                              />
+                              <i class="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">30 reviews</div>
                           </div>
@@ -582,7 +559,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder">
+                      <Link to="/whey-protein-powder?flavor=Mawa Kulfi">
                         <div
                           className="item-title"
                           style={{ webkitBoxOrient: "vertical" }}
@@ -590,6 +567,10 @@ function Home() {
                           Whey Protein 1kg Mawa Kulfi{" "}
                         </div>
                       </Link>
+                      <p className="item-description">
+                        Pure Go Whey Protein Mawa Kulfi is a Mixture of Whey
+                        Isolate, Whey Concentrate, Skimmed Milk powder, So...
+                      </p>
                     </a>
                     <div>
                       <div className="item-desc">
@@ -599,24 +580,18 @@ function Home() {
                             <span className="variant-old-price">₹3000</span>
                             <span className="variant-offer">58% off</span>
                           </div>
-                          <div className="item-msg-content mt-1">
-                            <img
-                              className="premium-icon me-1"
-                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
-                              alt="premium-icon"
-                            />
-                            <span>₹1200 for Premium Member</span>
-                          </div>
                           <div className="d-flex">
-                            <Link
-                              to="/whey-protein-powder"
+                            <button
+                              onClick={() =>
+                                addProductInCart("67e774a963f930dcc6a2715f")
+                              }
                               className="product-btn item-add-to-cart-btn"
                             >
                               <i class="fa-solid fa-cart-shopping me-2"></i>
                               Add to Cart
-                            </Link>
+                            </button>
                             <Link
-                              to="/whey-protein-powder"
+                              to="/whey-protein-powder?flavor=Mawa Kulfi"
                               className="product-btn item-view-btn"
                             >
                               <i class="fa-solid fa-eye me-2"></i>
@@ -633,24 +608,8 @@ function Home() {
                 <div className="item-card">
                   <div className="item-img-sec text-center py-md-3 py-4">
                     <OwlCarousel
-                      loop
-                      autoplay
-                      dots={false}
-                      nav="false"
-                      className="product-slide"
-                      autoplayTimeout={3000}
-                      smartSpeed={500}
-                      responsive={{
-                        0: {
-                          items: 1,
-                        },
-                        600: {
-                          items: 1,
-                        },
-                        1000: {
-                          items: 1,
-                        },
-                      }}
+                      {...options}
+                      className="product-slide owl-theme"
                     >
                       <div className="d-flex justify-content-center">
                         <img
@@ -685,13 +644,6 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist">
-                      <img
-                        alt="inWishlist"
-                        width="80%"
-                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
-                      />
-                    </div>
                   </div>
                   <div className="item-card-detail">
                     <a
@@ -708,11 +660,7 @@ function Home() {
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
                               4.5
-                              <img
-                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
-                                alt="star"
-                                className="ms-1"
-                              />
+                              <i class="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">30 reviews</div>
                           </div>
@@ -728,7 +676,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder">
+                      <Link to="/whey-protein-powder?flavor=Mocha Coffee">
                         <div
                           className="item-title"
                           style={{ webkitBoxOrient: "vertical" }}
@@ -736,6 +684,10 @@ function Home() {
                           Whey Protein 1kg Mocha Coffee{" "}
                         </div>
                       </Link>
+                      <p className="item-description">
+                        Pure Go Whey Protein Mocha Coffee is a Mixture of Whey
+                        Isolate, Whey Concentrate, Skimmed Milk powder, So...
+                      </p>
                     </a>
                     <div>
                       <div className="item-desc">
@@ -745,24 +697,18 @@ function Home() {
                             <span className="variant-old-price">₹3000</span>
                             <span className="variant-offer">58% off</span>
                           </div>
-                          <div className="item-msg-content mt-1">
-                            <img
-                              className="premium-icon me-1"
-                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
-                              alt="premium-icon"
-                            />
-                            <span>₹1200 for Premium Member</span>
-                          </div>
                           <div className="d-flex">
-                            <Link
-                              to="/whey-protein-powder"
+                            <button
+                              onClick={() =>
+                                addProductInCart("67e774c463f930dcc6a27161")
+                              }
                               className="product-btn item-add-to-cart-btn"
                             >
                               <i class="fa-solid fa-cart-shopping me-2"></i>
                               Add to Cart
-                            </Link>
+                            </button>
                             <Link
-                              to="/whey-protein-powder"
+                              to="/whey-protein-powder?flavor=Mocha Coffee"
                               className="product-btn item-view-btn"
                             >
                               <i class="fa-solid fa-eye me-2"></i>
@@ -779,24 +725,8 @@ function Home() {
                 <div className="item-card">
                   <div className="item-img-sec text-center py-md-3 py-4">
                     <OwlCarousel
-                      loop
-                      autoplay
-                      dots={false}
-                      nav="false"
-                      className="product-slide"
-                      autoplayTimeout={3000}
-                      smartSpeed={500}
-                      responsive={{
-                        0: {
-                          items: 1,
-                        },
-                        600: {
-                          items: 1,
-                        },
-                        1000: {
-                          items: 1,
-                        },
-                      }}
+                      {...options}
+                      className="product-slide owl-theme"
                     >
                       <div className="d-flex justify-content-center">
                         <img
@@ -831,13 +761,6 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist">
-                      <img
-                        alt="inWishlist"
-                        width="80%"
-                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
-                      />
-                    </div>
                   </div>
                   <div className="item-card-detail">
                     <a
@@ -854,11 +777,7 @@ function Home() {
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
                               4.5
-                              <img
-                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
-                                alt="star"
-                                className="ms-1"
-                              />
+                              <i class="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">24 reviews</div>
                           </div>
@@ -882,6 +801,11 @@ function Home() {
                           Mass Gainer 1kg Chocolate{" "}
                         </div>
                       </Link>
+                      <p className="item-description">
+                        Achieve Your Bulking Goals with Pure Go Mass Gainer
+                        Powder. Our specially formulated blend is designed to
+                        support...
+                      </p>
                     </a>
                     <div>
                       <div className="item-desc">
@@ -891,22 +815,16 @@ function Home() {
                             <span className="variant-old-price">₹1500</span>
                             <span className="variant-offer">72% off</span>
                           </div>
-                          <div className="item-msg-content mt-1">
-                            <img
-                              className="premium-icon me-1"
-                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
-                              alt="premium-icon"
-                            />
-                            <span>₹400 for Premium Member</span>
-                          </div>
                           <div className="d-flex">
-                            <Link
-                              to="/mass-gainer-protein-powder"
+                            <button
+                              onClick={() =>
+                                addProductInCart("67e7745f63f930dcc6a2715b")
+                              }
                               className="product-btn item-add-to-cart-btn"
                             >
                               <i class="fa-solid fa-cart-shopping me-2"></i>
                               Add to Cart
-                            </Link>
+                            </button>
                             <Link
                               to="/mass-gainer-protein-powder"
                               className="product-btn item-view-btn"
@@ -930,24 +848,8 @@ function Home() {
                 <div className="item-card">
                   <div className="item-img-sec text-center py-md-3 py-4">
                     <OwlCarousel
-                      loop
-                      autoplay
-                      dots={false}
-                      nav="false"
-                      className="product-slide"
-                      autoplayTimeout={3000}
-                      smartSpeed={500}
-                      responsive={{
-                        0: {
-                          items: 1,
-                        },
-                        600: {
-                          items: 1,
-                        },
-                        1000: {
-                          items: 1,
-                        },
-                      }}
+                      {...options}
+                      className="product-slide owl-theme"
                     >
                       <div className="d-flex justify-content-center">
                         <img
@@ -982,13 +884,6 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist">
-                      <img
-                        alt="inWishlist"
-                        width="80%"
-                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
-                      />
-                    </div>
                   </div>
                   <div className="item-card-detail">
                     <a
@@ -1005,11 +900,7 @@ function Home() {
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
                               4.5
-                              <img
-                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
-                                alt="star"
-                                className="ms-1"
-                              />
+                              <i class="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">12 reviews</div>
                           </div>
@@ -1033,6 +924,11 @@ function Home() {
                           Pre Workout 250g{" "}
                         </div>
                       </Link>
+                      <p className="item-description">
+                        It will suppress your appetite and provide you with a
+                        higher energy level in order to keep the adrenaline
+                        levels up. It will also...
+                      </p>
                     </a>
                     <div>
                       <div className="item-desc">
@@ -1042,22 +938,16 @@ function Home() {
                             <span className="variant-old-price">₹2500</span>
                             <span className="variant-offer">82% off</span>
                           </div>
-                          <div className="item-msg-content mt-1">
-                            <img
-                              className="premium-icon me-1"
-                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
-                              alt="premium-icon"
-                            />
-                            <span>₹420 for Premium Member</span>
-                          </div>
                           <div className="d-flex">
-                            <Link
-                              to="/weight-loss-supplement"
+                            <button
+                              onClick={() =>
+                                addProductInCart("67e7740363f930dcc6a27157")
+                              }
                               className="product-btn item-add-to-cart-btn"
                             >
                               <i class="fa-solid fa-cart-shopping me-2"></i>
                               Add to Cart
-                            </Link>
+                            </button>
                             <Link
                               to="/weight-loss-supplement"
                               className="product-btn item-view-btn"
@@ -1076,24 +966,8 @@ function Home() {
                 <div className="item-card">
                   <div className="item-img-sec text-center py-md-3 py-4">
                     <OwlCarousel
-                      loop
-                      autoplay
-                      dots={false}
-                      nav="false"
-                      className="product-slide"
-                      autoplayTimeout={3000}
-                      smartSpeed={500}
-                      responsive={{
-                        0: {
-                          items: 1,
-                        },
-                        600: {
-                          items: 1,
-                        },
-                        1000: {
-                          items: 1,
-                        },
-                      }}
+                      {...options}
+                      className="product-slide owl-theme"
                     >
                       <div className="d-flex justify-content-center">
                         <img
@@ -1128,13 +1002,6 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist">
-                      <img
-                        alt="inWishlist"
-                        width="80%"
-                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
-                      />
-                    </div>
                   </div>
                   <div className="item-card-detail">
                     <a
@@ -1151,11 +1018,7 @@ function Home() {
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
                               4.5
-                              <img
-                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
-                                alt="star"
-                                className="ms-1"
-                              />
+                              <i class="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">12 reviews</div>
                           </div>
@@ -1179,6 +1042,11 @@ function Home() {
                           EAA Powder 250g{" "}
                         </div>
                       </Link>
+                      <p className="item-description">
+                        EAA is an advanced science-based solution that contains
+                        13 Ultra amino acids as well as hydration and a vitamin
+                        boost...
+                      </p>
                     </a>
                     <div>
                       <div className="item-desc">
@@ -1188,22 +1056,16 @@ function Home() {
                             <span className="variant-old-price">₹2099</span>
                             <span className="variant-offer">76% off</span>
                           </div>
-                          <div className="item-msg-content mt-1">
-                            <img
-                              className="premium-icon me-1"
-                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
-                              alt="premium-icon"
-                            />
-                            <span>₹470 for Premium Member</span>
-                          </div>
                           <div className="d-flex">
-                            <Link
-                              to="/eaa-supplements"
+                            <button
+                              onClick={() =>
+                                addProductInCart("67e7742d63f930dcc6a27159")
+                              }
                               className="product-btn item-add-to-cart-btn"
                             >
                               <i class="fa-solid fa-cart-shopping me-2"></i>
                               Add to Cart
-                            </Link>
+                            </button>
                             <Link
                               to="/eaa-supplements"
                               className="product-btn item-view-btn"
@@ -1222,24 +1084,8 @@ function Home() {
                 <div className="item-card">
                   <div className="item-img-sec text-center py-md-3 py-4">
                     <OwlCarousel
-                      loop
-                      autoplay
-                      dots={false}
-                      nav="false"
-                      className="product-slide"
-                      autoplayTimeout={3000}
-                      smartSpeed={500}
-                      responsive={{
-                        0: {
-                          items: 1,
-                        },
-                        600: {
-                          items: 1,
-                        },
-                        1000: {
-                          items: 1,
-                        },
-                      }}
+                      {...options}
+                      className="product-slide owl-theme"
                     >
                       <div className="d-flex justify-content-center">
                         <img
@@ -1274,13 +1120,6 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist">
-                      <img
-                        alt="inWishlist"
-                        width="80%"
-                        src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/wishlist/heart.svg"
-                      />
-                    </div>
                   </div>
                   <div className="item-card-detail">
                     <a
@@ -1297,11 +1136,7 @@ function Home() {
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
                               4.5
-                              <img
-                                src="https://static1.hkrtcdn.com/hknext/static/media/common/misc/small_star_empty.svg"
-                                alt="star"
-                                className="ms-1"
-                              />
+                              <i class="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">12 reviews</div>
                           </div>
@@ -1325,6 +1160,11 @@ function Home() {
                           Creatine Monohydrate 250g{" "}
                         </div>
                       </Link>
+                      <p className="item-description">
+                        Creatine monohydrate works by increasing the body's
+                        stores of phosphocreatine, a molecule that helps
+                        regenerate adenosi...
+                      </p>
                     </a>
                     <div>
                       <div className="item-desc">
@@ -1334,22 +1174,16 @@ function Home() {
                             <span className="variant-old-price">₹1499</span>
                             <span className="variant-offer">76% off</span>
                           </div>
-                          <div className="item-msg-content mt-1">
-                            <img
-                              className="premium-icon me-1"
-                              src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg"
-                              alt="premium-icon"
-                            />
-                            <span>₹330 for Premium Member</span>
-                          </div>
                           <div className="d-flex">
-                            <Link
-                              to="/creatine-supplements"
+                            <button
+                              onClick={() =>
+                                addProductInCart("67e773f463f930dcc6a27155")
+                              }
                               className="product-btn item-add-to-cart-btn"
                             >
                               <i class="fa-solid fa-cart-shopping me-2"></i>
                               Add to Cart
-                            </Link>
+                            </button>
                             <Link
                               to="/creatine-supplements"
                               className="product-btn item-view-btn"

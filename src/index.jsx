@@ -66,7 +66,7 @@ root.render(
                   <img
                     src={
                       process.env.PUBLIC_URL +
-                      "../assets/images/nutrition-logo.webp"
+                      "../assets/images/nutrition-logo.png"
                     }
                     className="img-fluid"
                     width={120}

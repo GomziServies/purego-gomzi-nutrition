@@ -36,9 +36,13 @@ function Blog2() {
                     property="og:url"
                     content="https://purego.gomzilifesciences.in/"
                 />
+                <meta
+                  property="og:image"
+                  content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+                />
                 <link rel="canonical" href={{ canonicalUrl }} />
             </Helmet>
-            <LoaderComponent />
+            {/* <LoaderComponent /> */}
             <NutritionHeader />
             <>
                 <main className="main-area fix">

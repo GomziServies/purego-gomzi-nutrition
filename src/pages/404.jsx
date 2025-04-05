@@ -8,6 +8,10 @@ const NotFoundPage = () => {
     <>
       <Helmet>
         <title>404 error page</title>
+        <meta
+          property="og:image"
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+        />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-J50WNKGW38"></script>
         <script>
