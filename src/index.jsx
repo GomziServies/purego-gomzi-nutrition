@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, useLocation, useNavigate } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import $ from "jquery";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

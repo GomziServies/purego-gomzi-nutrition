@@ -15,7 +15,6 @@ import "../../assets/css/style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
-import LoaderComponent from "../../components/PageLoader";
 
 function Blog3() {
     const canonicalUrl = window.location.href;
@@ -37,8 +36,8 @@ function Blog3() {
                     content="https://purego.gomzilifesciences.in/"
                 />
                 <meta
-                  property="og:image"
-                  content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+                    property="og:image"
+                    content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
                 />
                 <link rel="canonical" href={{ canonicalUrl }} />
             </Helmet>

@@ -15,7 +15,6 @@ import "../../assets/css/style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
-import LoaderComponent from "../../components/PageLoader";
 
 function Blog1() {
   const canonicalUrl = window.location.href;

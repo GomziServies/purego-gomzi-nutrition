@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -15,9 +15,7 @@ import "../../assets/css/style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
-import LoaderComponent from "../../components/PageLoader";
 import { axiosInstance } from "../../assets/js/config/api";
-import { Link } from "react-router-dom";
 import LoginModal from "../../assets/js/popup/login";
 import LoadingComponent from "../../components/loadingComponent";
 
