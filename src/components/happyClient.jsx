@@ -46,7 +46,7 @@ function HappyClientReview() {
 
   return (
     <>
-      <div className="container mt-5 mb-5">
+      <div className="container">
         <div className="col-12 d-flex align-items-center justify-content-center">
           <div className="section-title mb-30 text-center">
             <p className="sub-title">.. Words from Clients ..</p>

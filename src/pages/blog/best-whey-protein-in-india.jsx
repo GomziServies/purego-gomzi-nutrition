@@ -22,7 +22,7 @@ function Blog3() {
     return (
         <>
             <Helmet>
-                <title>Best Whey Protein in India | Gomzi Nutrition Pure Go</title>
+                <title>Best Whey Protein in India | Pure Go Pure Go</title>
                 <meta
                     name="description"
                     content="Discover the best whey protein in India and explore the diverse range of whey proteins and find out the best in whey protein for your health."
@@ -59,15 +59,15 @@ function Blog3() {
                                                     In the world of fitness and bodybuilding, whey protein has become an essential element for athletes and fitness enthusiasts aiming to enhance muscle growth, recovery, and overall health. As India's fitness community expands, the market is flooded with whey products, each claiming to be the best whey protein available. With so many options, selecting the most effective whey protein that aligns with your fitness goals can be a challenging task.
                                                 </p>
                                                 <p>
-                                                    Enter Gomzi Nutrition, which offers a curated list of the best whey protein supplements, including our very own acclaimed Whey Protein Hydrolyzed Blend. Whether you're looking for pre-gym supplements or mass gainers, our guide covers everything you need to make an informed choice and achieve your fitness objectives.
+                                                    Enter Pure Go, which offers a curated list of the best whey protein supplements, including our very own acclaimed Whey Protein Hydrolyzed Blend. Whether you're looking for pre-gym supplements or mass gainers, our guide covers everything you need to make an informed choice and achieve your fitness objectives.
                                                 </p>
                                                 <div className="blog-details-wrap">
                                                     <h3 className="title">
-                                                        Gomzi Nutrition's Whey Protein Hydrolyzed
+                                                        Pure Go's Whey Protein Hydrolyzed
                                                     </h3>
                                                     <img src={process.env.PUBLIC_URL + '/assets/images/best-whey-protein-in-india-1.webp'} width="100%" alt="img" />
                                                     <p className="mt-2">
-                                                        As we dive into the wide range of whey products available in India, Gomzi Nutrition proudly presents its flagship Whey Protein Hydrolyzed. This specially formulated blend addresses the dynamic needs of fitness enthusiasts, offering a perfect balance of taste and nutrition.
+                                                        As we dive into the wide range of whey products available in India, Pure Go proudly presents its flagship Whey Protein Hydrolyzed. This specially formulated blend addresses the dynamic needs of fitness enthusiasts, offering a perfect balance of taste and nutrition.
                                                     </p>
                                                     <p className="mt-2">
                                                         - Protein per Serving : 23g

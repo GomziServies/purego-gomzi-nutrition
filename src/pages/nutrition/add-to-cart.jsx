@@ -258,11 +258,11 @@ function AddToCart() {
     <>
       <Helmet>
         <title>
-          Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+          Pure Go | Best Whey Protein in India | Premium Supplements
         </title>
         <meta
           name="description"
-          content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+          content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
         />
         <meta
           name="keyword"
@@ -349,7 +349,7 @@ function AddToCart() {
                             <span className="text-dark">
                               <img
                                 src={`https://files.fggroup.in/${product.display_image}`}
-                                alt=""
+                                alt="product"
                               />
                             </span>
                           </td>
@@ -401,7 +401,7 @@ function AddToCart() {
                               process.env.PUBLIC_URL +
                               "/assets/images/home_shop_thumb02.png"
                             }
-                            alt=""
+                            alt="product"
                           />
                         </a>
                       </td>

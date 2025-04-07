@@ -216,11 +216,11 @@ function ShippingPolicyCustomer() {
         <>
             <Helmet>
                 <title>
-                    Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+                    Pure Go | Best Whey Protein in India | Premium Supplements
                 </title>
                 <meta
                     name="description"
-                    content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+                    content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
                 />
                 <meta
                     name="keyword"
@@ -297,7 +297,7 @@ function ShippingPolicyCustomer() {
             </Helmet>
             {/* <WhatsappHeaderApp
         message={
-          "Hello, I wanted to know more about all Gomzi Nutrition Products. "
+          "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
@@ -361,7 +361,7 @@ function ShippingPolicyCustomer() {
                                 <div className="blog--post--item">
                                     <div className="blog--post--content blog-details-content">
                                         <h2 className="blog--post--title">
-                                            Shipping Policy for Gomzi Nutrition
+                                            Shipping Policy for Pure Go
                                         </h2>
                                         <div className="post-text">
                                             <p>

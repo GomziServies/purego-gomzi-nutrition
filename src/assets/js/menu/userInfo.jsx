@@ -84,7 +84,7 @@ const UserInfo = () => {
               </li>
 
               <li onClick={logout}>
-                <button className="video-button-bg">
+                <button className="video-button-bg p-0">
                   <i className="fas fa-sign-out-alt"></i> Log Out
                 </button>
               </li>

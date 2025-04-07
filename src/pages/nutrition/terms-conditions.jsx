@@ -216,11 +216,11 @@ function TermsConditions() {
     <>
       <Helmet>
         <title>
-          Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+          Pure Go | Best Whey Protein in India | Premium Supplements
         </title>
         <meta
           name="description"
-          content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+          content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
         />
         <meta
           name="keyword"
@@ -297,7 +297,7 @@ function TermsConditions() {
       </Helmet>
       {/* <WhatsappHeaderApp
         message={
-          "Hello, I wanted to know more about all Gomzi Nutrition Products. "
+          "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
@@ -365,9 +365,9 @@ function TermsConditions() {
                     </h2>
                     <div className="post-text">
                       <p>
-                        Welcome to the Gomzi Nutrition family! We are thrilled
+                        Welcome to the Pure Go family! We are thrilled
                         to be your ultimate destination for health and wellness.
-                        At Gomzi Nutrition, our commitment is to provide you
+                        At Pure Go, our commitment is to provide you
                         with top-notch products and services to support your
                         journey towards a healthier lifestyle. Before you embark
                         on this journey with us, we kindly ask you to
@@ -415,7 +415,7 @@ function TermsConditions() {
                         </div>
                       </div>
                       <p>
-                        We are excited to have you on board with Gomzi Nutrition. Your health and wellness journey is important to us, and we are committed to providing you with the best experience possible. If you have any questions or concerns regarding these Terms and Conditions, please do not hesitate to reach out to us.
+                        We are excited to have you on board with Pure Go. Your health and wellness journey is important to us, and we are committed to providing you with the best experience possible. If you have any questions or concerns regarding these Terms and Conditions, please do not hesitate to reach out to us.
                       </p>
                     </div>
                   </div>

@@ -22,7 +22,7 @@ function Blog2() {
     return (
         <>
             <Helmet>
-                <title>How Supplements Help you live a healthy life | Gomzi Nutrition</title>
+                <title>How Supplements Help you live a healthy life | Pure Go</title>
                 <meta
                     name="description"
                     content="Explore the role of supplements in enhancing immunity, physical performance, heart health, and managing stress in this comprehensive guide. Learn how supplements can support your health goals and promote holistic well-being."

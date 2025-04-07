@@ -216,11 +216,11 @@ function PrivacyPolicyCustomer() {
         <>
             <Helmet>
                 <title>
-                    Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+                    Pure Go | Best Whey Protein in India | Premium Supplements
                 </title>
                 <meta
                     name="description"
-                    content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+                    content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
                 />
                 <meta
                     name="keyword"
@@ -297,7 +297,7 @@ function PrivacyPolicyCustomer() {
             </Helmet>
             {/* <WhatsappHeaderApp
         message={
-          "Hello, I wanted to know more about all Gomzi Nutrition Products. "
+          "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
@@ -361,11 +361,11 @@ function PrivacyPolicyCustomer() {
                                 <div className="blog--post--item">
                                     <div className="blog--post--content blog-details-content">
                                         <h2 className="blog--post--title">
-                                            Privacy Policy for Gomzi Nutrition
+                                            Privacy Policy for Pure Go
                                         </h2>
                                         <div className="post-text">
                                             <p>
-                                                At Gomzi Nutrition, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your information when you interact with our website and services. By using our site, you consent to the practices described in this policy.
+                                                At Pure Go, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your information when you interact with our website and services. By using our site, you consent to the practices described in this policy.
                                             </p>
                                             <div className="blog-details-wrap border-none">
                                                 <h3 className="title">Information We Collect:</h3>

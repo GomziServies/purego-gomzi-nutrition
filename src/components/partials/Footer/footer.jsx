@@ -25,22 +25,22 @@ function HomeNutritionFooter() {
                       </div>
                       <div className="footer-text">
                         <p>
-                          Purego Gomzi Lifesciences offers natural, effective
-                          wellness products to enhance immunity, energy, and
-                          overall health. Trust the power of nature.
+                          Pure Go offers natural, effective wellness products to
+                          enhance immunity, energy, and overall health. Trust
+                          the power of nature.
                         </p>
                       </div>
                       <div className="footer-social">
-                        <Link to="#">
+                        <Link to="https://www.facebook.com/gajani2/">
                           <i className="fab fa-facebook-f"></i>
                         </Link>
-                        <Link to="#">
-                          <i className="fab fa-twitter"></i>
+                        <Link to="https://www.youtube.com/channel/UCLyvtq55YZORdV-SN8OQSzQ">
+                          <i className="fab fa-youtube"></i>
                         </Link>
-                        <Link to="#">
-                          <i className="fab fa-pinterest-p"></i>
+                        <Link to="https://www.instagram.com/gomzi_nutrition/?igsh=NTc4MTIwNjQ2YQ%3D%3D#">
+                          <i className="fab fa-instagram"></i>
                         </Link>
-                        <Link to="#">
+                        <Link to="https://www.linkedin.com/in/dt-gautam-jani-561a50161/">
                           <i className="fab fa-linkedin-in"></i>
                         </Link>
                       </div>
@@ -113,7 +113,7 @@ function HomeNutritionFooter() {
                       </p>
                       <ul className="list-wrap">
                         <li className="phone">
-                          <i className="fas fa-phone"></i> +91 63540 51487
+                          <i className="fas fa-phone"></i> +91 83200 77993
                         </li>
                         <li className="mail">
                           <i className="fas fa-envelope"></i>{" "}

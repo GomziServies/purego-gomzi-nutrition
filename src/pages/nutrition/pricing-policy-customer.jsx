@@ -216,11 +216,11 @@ function PricingPolicyCustomer() {
         <>
             <Helmet>
                 <title>
-                    Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+                    Pure Go | Best Whey Protein in India | Premium Supplements
                 </title>
                 <meta
                     name="description"
-                    content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+                    content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
                 />
                 <meta
                     name="keyword"
@@ -297,7 +297,7 @@ function PricingPolicyCustomer() {
             </Helmet>
             {/* <WhatsappHeaderApp
         message={
-          "Hello, I wanted to know more about all Gomzi Nutrition Products. "
+          "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
@@ -361,11 +361,11 @@ function PricingPolicyCustomer() {
                                 <div className="blog--post--item">
                                     <div className="blog--post--content blog-details-content">
                                         <h2 className="blog--post--title">
-                                            Pricing Policy for Gomzi Nutrition
+                                            Pricing Policy for Pure Go
                                         </h2>
                                         <div className="post-text">
                                             <p>
-                                                At Gomzi Nutrition, we strive to provide our customers with transparent and fair pricing for our high-quality nutraceutical products. This Pricing Policy outlines how we determine and display prices on our website, including the inclusion of Goods and Services Tax (GST).
+                                                At Pure Go, we strive to provide our customers with transparent and fair pricing for our high-quality nutraceutical products. This Pricing Policy outlines how we determine and display prices on our website, including the inclusion of Goods and Services Tax (GST).
                                             </p>
                                             <div className="blog-details-wrap border-none">
                                                 <h3 className="title">Price Display:</h3>
@@ -443,7 +443,7 @@ function PricingPolicyCustomer() {
                                                 </div>
                                             </div>
                                             <p>
-                                                We are excited to have you on board with Gomzi Nutrition. Your health and wellness journey is important to us, and we are committed to providing you with the best experience possible. If you have any questions or concerns regarding these Terms and Conditions, please do not hesitate to reach out to us.
+                                                We are excited to have you on board with Pure Go. Your health and wellness journey is important to us, and we are committed to providing you with the best experience possible. If you have any questions or concerns regarding these Terms and Conditions, please do not hesitate to reach out to us.
                                             </p>
                                         </div>
                                     </div>

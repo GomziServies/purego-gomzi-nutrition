@@ -144,11 +144,11 @@ function Home() {
     <>
       <Helmet>
         <title>
-          Gomzi Nutrition | Best Whey Protein in India | Premium Supplements
+        PureGo Nutrition | Premium Supplements for Fitness & Health
         </title>
         <meta
           name="description"
-          content="Discover Gomzi Nutrition, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+          content="Shop PureGo for high-quality nutrition, fitness supplements & wellness products. Fuel your body & boost performance."
         />
         <meta
           name="keyword"
@@ -366,7 +366,7 @@ function Home() {
         <section className="features-products">
           <div className="section-title text-center mb-60">
             <p className="sub-title">.. Increased Wellness With Purego ..</p>
-            <h2 className="title">Purego Products</h2>
+            <h1 className="title">Purego Products</h1>
           </div>
           <div className="container text-center">
             {/* justify-content-center */}
@@ -376,7 +376,7 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 text-start">
                 <div className="item-card">
-                  <div className="item-img-sec text-center py-md-3 py-4">
+                  <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
                       className="product-slide owl-theme"
@@ -384,40 +384,35 @@ function Home() {
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
-                          src="/assets/images/home_shop_thumb01.png"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
-                          src="/assets/images/home_shop_thumb01.png"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
-                          src="/assets/images/home_shop_thumb01.png"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
-                          src="/assets/images/home_shop_thumb01.png"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                     </OwlCarousel>
                   </div>
                   <div className="item-card-detail">
-                    <a
-                      className="block"
-                      title="Fit Food Range | Upto 25% Off"
-                      target="_blank"
-                      href="/"
-                    >
+                    <div>
                       <span
                         className="item-rating-count"
                         style={{ lineHeight: "26px", marginTop: "10px" }}
@@ -454,7 +449,7 @@ function Home() {
                         Pure Go Whey Protein Chocolate is a Mixture of Whey
                         Isolate, Whey Concentrate, Skimmed Milk powder, So...
                       </p>
-                    </a>
+                    </div>
                     <div>
                       <div className="item-desc">
                         <div className="">
@@ -489,7 +484,7 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-sm-0 mt-3 text-start">
                 <div className="item-card">
-                  <div className="item-img-sec text-center py-md-3 py-4">
+                  <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
                       className="product-slide owl-theme"
@@ -498,7 +493,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb02.png"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -506,7 +501,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb02.png"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -514,7 +509,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb02.png"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -522,19 +517,14 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb02.png"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                     </OwlCarousel>
                   </div>
                   <div className="item-card-detail">
-                    <a
-                      className="block"
-                      title="Fit Food Range | Upto 25% Off"
-                      target="_blank"
-                      href="/"
-                    >
+                    <div>
                       <span
                         className="item-rating-count"
                         style={{ lineHeight: "26px", marginTop: "10px" }}
@@ -571,7 +561,7 @@ function Home() {
                         Pure Go Whey Protein Mawa Kulfi is a Mixture of Whey
                         Isolate, Whey Concentrate, Skimmed Milk powder, So...
                       </p>
-                    </a>
+                    </div>
                     <div>
                       <div className="item-desc">
                         <div className="">
@@ -606,7 +596,7 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
                 <div className="item-card">
-                  <div className="item-img-sec text-center py-md-3 py-4">
+                  <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
                       className="product-slide owl-theme"
@@ -615,7 +605,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb03.png"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -623,7 +613,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb03.png"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -631,7 +621,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb03.png"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -639,19 +629,14 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb03.png"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                     </OwlCarousel>
                   </div>
                   <div className="item-card-detail">
-                    <a
-                      className="block"
-                      title="Fit Food Range | Upto 25% Off"
-                      target="_blank"
-                      href="/"
-                    >
+                    <div>
                       <span
                         className="item-rating-count"
                         style={{ lineHeight: "26px", marginTop: "10px" }}
@@ -688,7 +673,7 @@ function Home() {
                         Pure Go Whey Protein Mocha Coffee is a Mixture of Whey
                         Isolate, Whey Concentrate, Skimmed Milk powder, So...
                       </p>
-                    </a>
+                    </div>
                     <div>
                       <div className="item-desc">
                         <div className="">
@@ -723,7 +708,7 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
                 <div className="item-card">
-                  <div className="item-img-sec text-center py-md-3 py-4">
+                  <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
                       className="product-slide owl-theme"
@@ -732,7 +717,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb04.png"
+                          src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -740,7 +725,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb04.png"
+                          src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -748,7 +733,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb04.png"
+                          src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -756,19 +741,14 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb04.png"
+                          src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                     </OwlCarousel>
                   </div>
                   <div className="item-card-detail">
-                    <a
-                      className="block"
-                      title="Fit Food Range | Upto 25% Off"
-                      target="_blank"
-                      href="/"
-                    >
+                    <div>
                       <span
                         className="item-rating-count"
                         style={{ lineHeight: "26px", marginTop: "10px" }}
@@ -806,7 +786,7 @@ function Home() {
                         Powder. Our specially formulated blend is designed to
                         support...
                       </p>
-                    </a>
+                    </div>
                     <div>
                       <div className="item-desc">
                         <div className="">
@@ -846,7 +826,7 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-md-0 mt-3 text-start">
                 <div className="item-card">
-                  <div className="item-img-sec text-center py-md-3 py-4">
+                  <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
                       className="product-slide owl-theme"
@@ -855,7 +835,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb05.png"
+                          src="/assets/images/products/pre-workout/pre-workout-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -863,7 +843,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb05.png"
+                          src="/assets/images/products/pre-workout/pre-workout-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -871,7 +851,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb05.png"
+                          src="/assets/images/products/pre-workout/pre-workout-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -879,19 +859,14 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb05.png"
+                          src="/assets/images/products/pre-workout/pre-workout-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                     </OwlCarousel>
                   </div>
                   <div className="item-card-detail">
-                    <a
-                      className="block"
-                      title="Fit Food Range | Upto 25% Off"
-                      target="_blank"
-                      href="/"
-                    >
+                    <div>
                       <span
                         className="item-rating-count"
                         style={{ lineHeight: "26px", marginTop: "10px" }}
@@ -929,7 +904,7 @@ function Home() {
                         higher energy level in order to keep the adrenaline
                         levels up. It will also...
                       </p>
-                    </a>
+                    </div>
                     <div>
                       <div className="item-desc">
                         <div className="">
@@ -964,7 +939,7 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-md-0 mt-3 text-start">
                 <div className="item-card">
-                  <div className="item-img-sec text-center py-md-3 py-4">
+                  <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
                       className="product-slide owl-theme"
@@ -973,7 +948,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb06.png"
+                          src="/assets/images/products/eaa/eaa-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -981,7 +956,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb06.png"
+                          src="/assets/images/products/eaa/eaa-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -989,7 +964,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb06.png"
+                          src="/assets/images/products/eaa/eaa-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -997,19 +972,14 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb06.png"
+                          src="/assets/images/products/eaa/eaa-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                     </OwlCarousel>
                   </div>
                   <div className="item-card-detail">
-                    <a
-                      className="block"
-                      title="Fit Food Range | Upto 25% Off"
-                      target="_blank"
-                      href="/"
-                    >
+                    <div>
                       <span
                         className="item-rating-count"
                         style={{ lineHeight: "26px", marginTop: "10px" }}
@@ -1047,7 +1017,7 @@ function Home() {
                         13 Ultra amino acids as well as hydration and a vitamin
                         boost...
                       </p>
-                    </a>
+                    </div>
                     <div>
                       <div className="item-desc">
                         <div className="">
@@ -1082,7 +1052,7 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
                 <div className="item-card">
-                  <div className="item-img-sec text-center py-md-3 py-4">
+                  <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
                       className="product-slide owl-theme"
@@ -1091,7 +1061,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb07.png"
+                          src="/assets/images/products/creatine/creatine-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -1099,7 +1069,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb07.png"
+                          src="/assets/images/products/creatine/creatine-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -1107,7 +1077,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb07.png"
+                          src="/assets/images/products/creatine/creatine-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
@@ -1115,19 +1085,14 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/home_shop_thumb07.png"
+                          src="/assets/images/products/creatine/creatine-1.webp"
                           alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
                         />
                       </div>
                     </OwlCarousel>
                   </div>
                   <div className="item-card-detail">
-                    <a
-                      className="block"
-                      title="Fit Food Range | Upto 25% Off"
-                      target="_blank"
-                      href="/"
-                    >
+                    <div>
                       <span
                         className="item-rating-count"
                         style={{ lineHeight: "26px", marginTop: "10px" }}
@@ -1165,7 +1130,7 @@ function Home() {
                         stores of phosphocreatine, a molecule that helps
                         regenerate adenosi...
                       </p>
-                    </a>
+                    </div>
                     <div>
                       <div className="item-desc">
                         <div className="">
@@ -1203,7 +1168,7 @@ function Home() {
                 <div className="home-shop-item ">
                   <div className="home-shop-thumb">
                     <a href="/whey-protein-powder">
-                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb01.png'} alt="img" />
+                      <img src={process.env.PUBLIC_URL + '/assets/images/home_shop_thumb01.webp'} alt="img" />
                     </a>
                     <div className="shop-thumb-shape blue"></div>
                   </div>
@@ -1496,14 +1461,28 @@ function Home() {
         >
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-xxl-12 col-lg-7">
+              <div className="col-md-12">
                 <div className="features-items-wrap">
                   <div className="row justify-content-center">
-                    <div className="col-md-4 d-md-block d-none row justify-content-center">
-                      <div className="col-md-12">
+                    <div className="col-xxl-6 d-lg-none d-block col-lg-5">
+                      <div
+                        className="features-img wow featuresRollOut"
+                        data-wow-delay=".3s"
+                      >
+                        <img
+                          src={
+                            process.env.PUBLIC_URL +
+                            "/assets/images/features_img.png"
+                          }
+                          alt="features"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-lg-4 d-md-block d-none row justify-content-center">
+                      <div className="col-lg-12">
                         <div className="features-item">
                           <div className="features-icon">
-                            <i className="far fa-user"></i>
+                            <i className="fas fa-leaf"></i>
                           </div>
                           <div className="features-content">
                             <h4 className="title">Herbal Boost</h4>
@@ -1514,10 +1493,10 @@ function Home() {
                           </div>
                         </div>
                       </div>
-                      <div className="col-md-12">
+                      <div className="col-lg-12">
                         <div className="features-item">
                           <div className="features-icon">
-                            <i className="far fa-user"></i>
+                            <i className="fa-solid fa-kit-medical"></i>
                           </div>
                           <div className="features-content">
                             <h4 className="title">100% Immunity Aid</h4>
@@ -1529,7 +1508,7 @@ function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-4 d-md-block d-none">
+                    <div className="col-lg-4 d-lg-block d-none">
                       <div
                         className="features-img wow featuresRollOut"
                         data-wow-delay=".3s"
@@ -1539,15 +1518,15 @@ function Home() {
                             process.env.PUBLIC_URL +
                             "/assets/images/features_img.png"
                           }
-                          alt=""
+                          alt="features"
                         />
                       </div>
                     </div>
-                    <div className="col-md-4 d-md-block d-none row ps-4 justify-content-center">
-                      <div className="col-md-12">
+                    <div className="col-lg-4 d-md-block d-none row ps-lg-4 justify-content-center">
+                      <div className="col-lg-12">
                         <div className="features-item">
                           <div className="features-icon">
-                            <i className="far fa-user"></i>
+                            <i className="fas fa-bolt ps-lg-1 ps-0"></i>
                           </div>
                           <div className="features-content">
                             <h4 className="title">Energy Surge</h4>
@@ -1558,10 +1537,10 @@ function Home() {
                           </div>
                         </div>
                       </div>
-                      <div className="col-md-12">
+                      <div className="col-lg-12">
                         <div className="features-item">
                           <div className="features-icon">
-                            <i className="far fa-user"></i>
+                            <i className="fa-solid fa-hands-holding-child"></i>
                           </div>
                           <div className="features-content">
                             <h4 className="title">Holistic Care</h4>
@@ -1573,27 +1552,13 @@ function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-xxl-6 d-md-none d-block col-lg-5 order-0 order-lg-2">
-                      <div
-                        className="features-img wow featuresRollOut"
-                        data-wow-delay=".3s"
-                      >
-                        <img
-                          src={
-                            process.env.PUBLIC_URL +
-                            "/assets/images/features_img.png"
-                          }
-                          alt=""
-                        />
-                      </div>
-                    </div>
                     <div className="col-xxl-6 d-md-none d-block col-lg-7">
                       <div className="features-items-wrap">
                         <div className="row justify-content-center">
-                          <div className="col-md-6 col-sm-8">
+                          <div className="col-lg-6 col-sm-8">
                             <div className="features-item">
                               <div className="features-icon">
-                                <i class="far fa-user"></i>
+                                <i className="fas fa-leaf"></i>
                               </div>
                               <div className="features-content">
                                 <h4 className="title">Herbal Boost</h4>
@@ -1604,10 +1569,10 @@ function Home() {
                               </div>
                             </div>
                           </div>
-                          <div className="col-md-6 mt-4 col-sm-8">
+                          <div className="col-lg-6 mt-4 col-sm-8">
                             <div className="features-item">
                               <div className="features-icon">
-                                <i class="far fa-user"></i>
+                                <i className="fa-solid fa-kit-medical"></i>
                               </div>
                               <div className="features-content">
                                 <h4 className="title">100% Immunity Aid</h4>
@@ -1618,10 +1583,10 @@ function Home() {
                               </div>
                             </div>
                           </div>
-                          <div className="col-md-6 mt-4 col-sm-8">
+                          <div className="col-lg-6 mt-4 col-sm-8">
                             <div className="features-item">
                               <div className="features-icon">
-                                <i class="far fa-user"></i>
+                                <i className="fas fa-bolt ps-1"></i>
                               </div>
                               <div className="features-content">
                                 <h4 className="title">Energy Surge</h4>
@@ -1632,10 +1597,10 @@ function Home() {
                               </div>
                             </div>
                           </div>
-                          <div className="col-md-6 mt-4 col-sm-8">
+                          <div className="col-lg-6 mt-4 col-sm-8">
                             <div className="features-item">
                               <div className="features-icon">
-                                <i class="far fa-user"></i>
+                                <i className="fa-solid fa-hands-holding-child"></i>
                               </div>
                               <div className="features-content">
                                 <h4 className="title">Holistic Care</h4>
@@ -1748,7 +1713,7 @@ function Home() {
                       process.env.PUBLIC_URL +
                       "/assets/images/features_img03.png"
                     }
-                    alt=""
+                    alt="features"
                   />
                 </div>
               </div>
@@ -1961,7 +1926,11 @@ function Home() {
             </div>
           </div>
         </section>
+        <section
+          className="bg-happy-client pt-5 pb-5"
+        >
         <HappyClientReview />
+        </section>
         <section
           className="testimonial-area testimonial-bg"
           data-background="assets/img/bg/testimonial_bg.jpg"
@@ -2036,7 +2005,7 @@ function Home() {
                         </div>
                       </div>
                       <p>
-                        “Purego Gomzi Lifesciences delivers on its promises! I
+                        “Pure Go delivers on its promises! I
                         tried their Pre Workout, and it worked wonders.
                         Authentic, safe, and worth every penny. Will buy again!
                       </p>
@@ -2122,7 +2091,7 @@ function Home() {
                           process.env.PUBLIC_URL +
                           "assets/images/blog_post_thumb01.webp"
                         }
-                        alt=""
+                        alt="blog"
                       />
                     </a>
                   </div>
@@ -2158,7 +2127,7 @@ function Home() {
                           process.env.PUBLIC_URL +
                           "assets/images/blog_post_thumb02.webp"
                         }
-                        alt=""
+                        alt="blog"
                       />
                     </a>
                   </div>
@@ -2194,7 +2163,7 @@ function Home() {
                           process.env.PUBLIC_URL +
                           "assets/images/blog_post_thumb03.webp"
                         }
-                        alt=""
+                        alt="blog"
                       />
                     </a>
                   </div>

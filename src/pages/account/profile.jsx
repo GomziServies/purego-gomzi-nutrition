@@ -128,7 +128,7 @@ function UserProfile() {
         <title>User Profile</title>
         <meta
           name="description"
-          content="These Are The Diseases Is Can Not Be Controlled By Medicine Only, You Need To Have The Support Of Nutrition, Exercises, Recovery, And Rehab Parts Also."
+          content="Access your PureGo profile to view orders, manage account details & track your fitness journey with ease."
         />
         <meta name="keywords" content="" />
         <meta
