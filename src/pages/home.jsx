@@ -49,6 +49,28 @@ function Home() {
     setVideoUrl("");
   };
 
+  const [cartItemName, setCartItemName] = useState([]);
+
+  const fetchProductData = async () => {
+    try {
+      const response = await axiosInstance.get(
+        "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
+      );
+      const cartData = response.data.data[0];
+      const cartItemData = cartData.items_details.map((data) => data.name);
+      setCartItemName(cartItemData);
+    } catch (error) {
+      console.error("Error fetching product data:", error);
+    }
+  };
+
+  useEffect(() => {
+    const isLogin = localStorage.getItem("fg_group_user_authorization");
+    if (isLogin) {
+      fetchProductData();
+    }
+  }, []);
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       const section = document.querySelector(".main-section");
@@ -119,7 +141,7 @@ function Home() {
         item_type: "PURE_GO_MEAL_PRODUCT",
       });
       if (response.data.response === "OK") {
-        window.location.href = "/add-to-cart";
+        fetchProductData()
       }
     } catch (error) {
       console.error(error);
@@ -152,7 +174,7 @@ function Home() {
         />
         <meta
           name="keyword"
-          content="bowelease  Constipation Relief, constipation powder, digestive health, natural constipation relief, regular bowel movements, buy constipation powder, whey protein and, peanut butter peanut butter, peanut butters, why protein, protein in powder, whey product, wayne protein, whey protein protein, whey protein whey, whey in protein, whey whey protein, protein for protein shakes, wea protein, whey protein and protein, mass gainer mass gainer, and creatine, pre gym supplements, protein and whey powder, gainer mass gainer, pre gym supplement, whey in protein powder, protein whey supplements, protein powder whey protein, whey protein powder protein"
+          content="purego, protein powder, creatine protein powder, preworkout, bodybuilding supplement, lean whey protein powder, whey protein powder, eaa powder, bcaa supplement, vegan protein powder, best protein powder, bcaa, best pre workout, vegan protein, whey protein isolate, best protein powder for women, best vegan protein powder, protein powder for weight loss, best protein powder for weight loss, organic protein powder, isolate protein, best supplements for muscle growth, whey isolate protein powder, best pre workout for men, best whey protein powder, best pre workout for women, best whey protein, bcaa powder, protein whey, pre workout for women, creatine monohydrate powder, best protein powder for muscle gain, best muscle building supplements, chocolate protein powder"
         />
         <meta
           property="og:image"
@@ -203,8 +225,22 @@ function Home() {
           `}
         </script>
       </Helmet>
+      <p className="d-none">
+        purego, protein powder, creatine protein powder, preworkout,
+        bodybuilding supplement, lean whey protein powder, whey protein powder,
+        eaa powder, bcaa supplement, vegan protein powder, best protein powder,
+        bcaa, best pre workout, vegan protein, whey protein isolate, best
+        protein powder for women, best vegan protein powder, protein powder for
+        weight loss, best protein powder for weight loss, organic protein
+        powder, isolate protein, best supplements for muscle growth, whey
+        isolate protein powder, best pre workout for men, best whey protein
+        powder, best pre workout for women, best whey protein, bcaa powder,
+        protein whey, pre workout for women, creatine monohydrate powder, best
+        protein powder for muscle gain, best muscle building supplements,
+        chocolate protein powder
+      </p>
       {showModal && <LoginModal onClose={closeModal} />}
-      <NutritionHeader />
+      <NutritionHeader cartItemName={cartItemName} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
@@ -459,15 +495,23 @@ function Home() {
                             <span className="variant-offer">58% off</span>
                           </div>
                           <div className="d-flex">
-                            <button
-                              onClick={() =>
-                                addProductInCart("67e7749163f930dcc6a2715d")
-                              }
-                              className="product-btn item-add-to-cart-btn"
-                            >
-                              <i class="fa-solid fa-cart-shopping me-2"></i>
-                              Add to Cart
-                            </button>
+                            {cartItemName.some((item) =>
+                              item.includes("Whey Protein 1kg Chocolate")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("67e7749163f930dcc6a2715d")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
                             <Link
                               to="/whey-protein-powder?flavor=Chocolate"
                               className="product-btn item-view-btn"
@@ -571,15 +615,23 @@ function Home() {
                             <span className="variant-offer">56% off</span>
                           </div>
                           <div className="d-flex">
-                            <button
-                              onClick={() =>
-                                addProductInCart("67e774a963f930dcc6a2715f")
-                              }
-                              className="product-btn item-add-to-cart-btn"
-                            >
-                              <i class="fa-solid fa-cart-shopping me-2"></i>
-                              Add to Cart
-                            </button>
+                            {cartItemName.some((item) =>
+                              item.includes("Whey Protein 1kg Mawa Kulfi")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("67e774a963f930dcc6a2715f")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
                             <Link
                               to="/whey-protein-powder?flavor=Mawa Kulfi"
                               className="product-btn item-view-btn"
@@ -683,15 +735,23 @@ function Home() {
                             <span className="variant-offer">55% off</span>
                           </div>
                           <div className="d-flex">
-                            <button
-                              onClick={() =>
-                                addProductInCart("67e774c463f930dcc6a27161")
-                              }
-                              className="product-btn item-add-to-cart-btn"
-                            >
-                              <i class="fa-solid fa-cart-shopping me-2"></i>
-                              Add to Cart
-                            </button>
+                            {cartItemName.some((item) =>
+                              item.includes("Whey Protein 1kg Mocha Coffee")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("67e774c463f930dcc6a27161")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
                             <Link
                               to="/whey-protein-powder?flavor=Mocha Coffee"
                               className="product-btn item-view-btn"
@@ -796,15 +856,23 @@ function Home() {
                             <span className="variant-offer">66% off</span>
                           </div>
                           <div className="d-flex">
-                            <button
-                              onClick={() =>
-                                addProductInCart("67e7745f63f930dcc6a2715b")
-                              }
-                              className="product-btn item-add-to-cart-btn"
-                            >
-                              <i class="fa-solid fa-cart-shopping me-2"></i>
-                              Add to Cart
-                            </button>
+                            {cartItemName.some((item) =>
+                              item.includes("Mass Gainer 1kg Chocolate")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("67e7745f63f930dcc6a2715b")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
                             <Link
                               to="/mass-gainer-protein-powder"
                               className="product-btn item-view-btn"
@@ -914,15 +982,23 @@ function Home() {
                             <span className="variant-offer">82% off</span>
                           </div>
                           <div className="d-flex">
-                            <button
-                              onClick={() =>
-                                addProductInCart("67e7740363f930dcc6a27157")
-                              }
-                              className="product-btn item-add-to-cart-btn"
-                            >
-                              <i class="fa-solid fa-cart-shopping me-2"></i>
-                              Add to Cart
-                            </button>
+                            {cartItemName.some((item) =>
+                              item.includes("Pre Workout")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("67e7740363f930dcc6a27157")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
                             <Link
                               to="/weight-loss-supplement"
                               className="product-btn item-view-btn"
@@ -1027,15 +1103,23 @@ function Home() {
                             <span className="variant-offer">76% off</span>
                           </div>
                           <div className="d-flex">
-                            <button
-                              onClick={() =>
-                                addProductInCart("67e7742d63f930dcc6a27159")
-                              }
-                              className="product-btn item-add-to-cart-btn"
-                            >
-                              <i class="fa-solid fa-cart-shopping me-2"></i>
-                              Add to Cart
-                            </button>
+                            {cartItemName.some((item) =>
+                              item.includes("EAA Powder")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("67e7742d63f930dcc6a27159")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
                             <Link
                               to="/eaa-supplements"
                               className="product-btn item-view-btn"
@@ -1140,15 +1224,23 @@ function Home() {
                             <span className="variant-offer">76% off</span>
                           </div>
                           <div className="d-flex">
-                            <button
-                              onClick={() =>
-                                addProductInCart("67e773f463f930dcc6a27155")
-                              }
-                              className="product-btn item-add-to-cart-btn"
-                            >
-                              <i class="fa-solid fa-cart-shopping me-2"></i>
-                              Add to Cart
-                            </button>
+                            {cartItemName.some((item) =>
+                              item.includes("Creatine Monohydrate")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("67e773f463f930dcc6a27155")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
                             <Link
                               to="/creatine-supplements"
                               className="product-btn item-view-btn"

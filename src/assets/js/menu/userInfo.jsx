@@ -3,7 +3,7 @@ import LoginModal from "../popup/login";
 import { axiosInstance } from "../config/api";
 import { toast } from "react-toastify";
 
-const UserInfo = () => {
+const UserInfo = ({ cartCount }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [isUserMenuVisible, setIsUserMenuVisible] = useState(false);
@@ -67,7 +67,7 @@ const UserInfo = () => {
             Hi, {userInfo.user.last_name} <i className="far fa-user"></i>
           </li>
           <li className="mx-0">
-            <a href="/user/order" aria-label="Fg Group">
+            <a href="/add-to-cart" aria-label="Fg Group">
               {/* <img
                 src={process.env.PUBLIC_URL + "/assets/images/cart-img.webp"}
                 width="21px"
@@ -75,7 +75,7 @@ const UserInfo = () => {
                 className="mb-1"
               /> */}
               <div id="ex4">
-                <span className="p1" data-count="4">
+                <span className="p1" data-count={cartCount}>
                   <img
                     src={
                       process.env.PUBLIC_URL + "../assets/images/cart-img.webp"

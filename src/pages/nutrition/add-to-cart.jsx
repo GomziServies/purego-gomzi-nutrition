@@ -320,7 +320,7 @@ function AddToCart() {
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
       {(loading || loading1) && <LoadingComponent />}
-      <NutritionHeader />
+      <NutritionHeader productDataGet={productDataGet} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>

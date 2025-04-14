@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UserInfo from "../../../assets/js/menu/userInfo";
 import MobileUserInfo from "../../../assets/js/menu/mobileUserInfo";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../../../assets/js/config/api";
 
-function NutritionHeader() {
+function NutritionHeader({ productDataGet, cartItemName }) {
   function openside() {
     document.getElementById("demo").style.width = "100%";
   }
@@ -11,6 +12,27 @@ function NutritionHeader() {
   function sideclose() {
     document.getElementById("demo").style.width = "0px";
   }
+
+  const [cartCount, setCartCount] = useState(0);
+
+  const fetchProductData = async () => {
+    try {
+      const response = await axiosInstance.get(
+        "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
+      );
+      const cartData = response.data.data[0];
+      setCartCount(cartData.items.length);
+    } catch (error) {
+      console.error("Error fetching product data:", error);
+    }
+  };
+
+  useEffect(() => {
+    const isLogin = localStorage.getItem("fg_group_user_authorization");
+    if (isLogin) {
+      fetchProductData();
+    }
+  }, [productDataGet, cartItemName]);
 
   return (
     <>
@@ -77,10 +99,10 @@ function NutritionHeader() {
           ☰
         </span>
         <div className="d-lg-none d-sm-block mt-4">
-          <Link to="/user/order">
+          <Link to="/add-to-cart">
             <div className="cart-btnn">
               <div id="ex4">
-                <span className="p1" data-count="4">
+                <span className="p1" data-count={cartCount}>
                   <img
                     src={
                       process.env.PUBLIC_URL + "../assets/images/cart-img.webp"
@@ -95,7 +117,7 @@ function NutritionHeader() {
         </div>
         <div className="login d-lg-block d-none">
           <ul>
-            <UserInfo />
+            <UserInfo cartCount={cartCount} />
           </ul>
         </div>
       </div>

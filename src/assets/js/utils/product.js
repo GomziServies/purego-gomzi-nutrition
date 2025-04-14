@@ -173,8 +173,6 @@ export const createProductOrder = async (
       })
     );
 
-    // console.log('payload :- ', payload)
-
     // Check Authentication
     if (
       localStorage.getItem("fg_group_user_authorization") === null ||
