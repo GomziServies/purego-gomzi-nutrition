@@ -60,7 +60,7 @@ function PureGoMassGainer() {
         price: "1500",
         discount: "420",
         size: "1 Kg",
-        dis_point: "15%",
+        dis_point: "72%",
       },
     },
   ];
@@ -186,7 +186,9 @@ function PureGoMassGainer() {
                         ₹{currentProductData.price}/-
                       </span>
                     </h2>
-                    <h5 className="stock-status">72%</h5>
+                    <h5 className="stock-status">
+                      {currentProductData.dis_point}
+                    </h5>
                   </div>
                   <p>
                     Achieve Your Bulking Goals with Pure Go Mass Gainer Powder.

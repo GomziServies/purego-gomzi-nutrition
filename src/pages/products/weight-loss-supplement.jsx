@@ -60,7 +60,7 @@ function PureGoPreWorkout() {
         price: "2500",
         discount: "440",
         size: "250 g",
-        dis_point: "15%",
+        dis_point: "82%",
       },
     },
   ];
@@ -186,7 +186,9 @@ function PureGoPreWorkout() {
                         ₹{currentProductData.price}/-
                       </span>
                     </h2>
-                    <h5 className="stock-status">82%</h5>
+                    <h5 className="stock-status">
+                      {currentProductData.dis_point}
+                    </h5>
                   </div>
                   <p>
                     It will suppress your appetite and provide you with a higher

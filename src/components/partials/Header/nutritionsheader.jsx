@@ -41,8 +41,7 @@ function NutritionHeader() {
             </div>
           </Link>
         </div>
-        <div className="lang">
-        </div>
+        <div className="lang"></div>
         <div className="side" id="demo">
           <span className="closebtn" onClick={sideclose}>
             ×
@@ -77,6 +76,23 @@ function NutritionHeader() {
         >
           ☰
         </span>
+        <div className="d-lg-none d-sm-block mt-4">
+          <Link to="/user/order">
+            <div className="cart-btnn">
+              <div id="ex4">
+                <span className="p1" data-count="4">
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "../assets/images/cart-img.webp"
+                    }
+                    width="28px"
+                    alt="Fg Group"
+                  />
+                </span>
+              </div>
+            </div>
+          </Link>
+        </div>
         <div className="login d-lg-block d-none">
           <ul>
             <UserInfo />

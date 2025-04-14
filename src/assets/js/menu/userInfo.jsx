@@ -66,6 +66,27 @@ const UserInfo = () => {
           >
             Hi, {userInfo.user.last_name} <i className="far fa-user"></i>
           </li>
+          <li className="mx-0">
+            <a href="/user/order" aria-label="Fg Group">
+              {/* <img
+                src={process.env.PUBLIC_URL + "/assets/images/cart-img.webp"}
+                width="21px"
+                alt="Cart"
+                className="mb-1"
+              /> */}
+              <div id="ex4">
+                <span className="p1" data-count="4">
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "../assets/images/cart-img.webp"
+                    }
+                    width="28px"
+                    alt="Fg Group"
+                  />
+                </span>
+              </div>
+            </a>
+          </li>
           {isUserMenuVisible && (
             <ul>
               <li>
@@ -82,7 +103,6 @@ const UserInfo = () => {
                   Orders
                 </a>
               </li>
-
               <li onClick={logout}>
                 <button className="video-button-bg p-0">
                   <i className="fas fa-sign-out-alt"></i> Log Out

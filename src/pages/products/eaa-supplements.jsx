@@ -60,7 +60,7 @@ function PureGoEaa() {
         price: "2099",
         discount: "490",
         size: "250 g",
-        dis_point: "15%",
+        dis_point: "76%",
       },
     },
   ];
@@ -186,7 +186,9 @@ function PureGoEaa() {
                         ₹{currentProductData.price}/-
                       </span>
                     </h2>
-                    <h5 className="stock-status">76%</h5>
+                    <h5 className="stock-status">
+                      {currentProductData.dis_point}
+                    </h5>
                   </div>
                   <p>
                     EAA is an advanced science-based solution that contains 13

@@ -144,7 +144,7 @@ function Home() {
     <>
       <Helmet>
         <title>
-        PureGo Nutrition | Premium Supplements for Fitness & Health
+          PureGo Nutrition | Premium Supplements for Fitness & Health
         </title>
         <meta
           name="description"
@@ -385,28 +385,28 @@ function Home() {
                         <img
                           className="lazy"
                           src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="whey-protein-chocolate"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
                           src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="whey-protein-chocolate"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
                           src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="whey-protein-chocolate"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
                           src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="whey-protein-chocolate"
                         />
                       </div>
                     </OwlCarousel>
@@ -494,7 +494,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Whey Protein 1kg Mawa Kulfi"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -502,7 +502,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Whey Protein 1kg Mawa Kulfi"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -510,7 +510,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Whey Protein 1kg Mawa Kulfi"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -518,7 +518,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Whey Protein 1kg Mawa Kulfi"
                         />
                       </div>
                     </OwlCarousel>
@@ -566,9 +566,9 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1250/-</span>
+                            <span className="variant-price"> ₹1300/-</span>
                             <span className="variant-old-price">₹3000</span>
-                            <span className="variant-offer">58% off</span>
+                            <span className="variant-offer">56% off</span>
                           </div>
                           <div className="d-flex">
                             <button
@@ -606,7 +606,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="whey-protein-mocha-coffee"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -614,7 +614,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="whey-protein-mocha-coffee"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -622,7 +622,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="whey-protein-mocha-coffee"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -630,7 +630,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="whey-protein-mocha-coffee"
                         />
                       </div>
                     </OwlCarousel>
@@ -678,9 +678,9 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1250/-</span>
+                            <span className="variant-price"> ₹1350/-</span>
                             <span className="variant-old-price">₹3000</span>
-                            <span className="variant-offer">58% off</span>
+                            <span className="variant-offer">55% off</span>
                           </div>
                           <div className="d-flex">
                             <button
@@ -718,7 +718,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Mass Gainer"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -726,7 +726,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Mass Gainer"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -734,7 +734,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Mass Gainer"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -742,7 +742,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Mass Gainer"
                         />
                       </div>
                     </OwlCarousel>
@@ -791,9 +791,9 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹420/-</span>
+                            <span className="variant-price"> ₹499/-</span>
                             <span className="variant-old-price">₹1500</span>
-                            <span className="variant-offer">72% off</span>
+                            <span className="variant-offer">66% off</span>
                           </div>
                           <div className="d-flex">
                             <button
@@ -836,7 +836,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/pre-workout/pre-workout-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Pre Workout"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -844,7 +844,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/pre-workout/pre-workout-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Pre Workout"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -852,7 +852,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/pre-workout/pre-workout-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Pre Workout"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -860,7 +860,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/pre-workout/pre-workout-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Pre Workout"
                         />
                       </div>
                     </OwlCarousel>
@@ -949,7 +949,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/eaa/eaa-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="EAA Powder"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -957,7 +957,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/eaa/eaa-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="EAA Powder"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -965,7 +965,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/eaa/eaa-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="EAA Powder"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -973,7 +973,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/eaa/eaa-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="EAA Powder"
                         />
                       </div>
                     </OwlCarousel>
@@ -1062,7 +1062,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/creatine/creatine-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Creatine Monohydrate"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -1070,7 +1070,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/creatine/creatine-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Creatine Monohydrate"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -1078,7 +1078,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/creatine/creatine-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Creatine Monohydrate"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
@@ -1086,7 +1086,7 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/creatine/creatine-1.webp"
-                          alt="MuscleBlaze High Protein Oats,  2 kg  Dark Chocolate "
+                          alt="Creatine Monohydrate"
                         />
                       </div>
                     </OwlCarousel>
@@ -1303,7 +1303,7 @@ function Home() {
                     </h4>
                     <div className="features-product-bottom mt-0 mb-3 mx-auto d-block">
                       <span className="price">
-                        ₹420/-
+                        ₹499/-
                         <span className="old-price">₹1500</span>
                         <span className="discount-price">72%</span>
                       </span>
@@ -1926,10 +1926,8 @@ function Home() {
             </div>
           </div>
         </section>
-        <section
-          className="bg-happy-client pt-5 pb-5"
-        >
-        <HappyClientReview />
+        <section className="bg-happy-client pt-5 pb-5">
+          <HappyClientReview />
         </section>
         <section
           className="testimonial-area testimonial-bg"
@@ -2005,9 +2003,9 @@ function Home() {
                         </div>
                       </div>
                       <p>
-                        “Pure Go delivers on its promises! I
-                        tried their Pre Workout, and it worked wonders.
-                        Authentic, safe, and worth every penny. Will buy again!
+                        “Pure Go delivers on its promises! I tried their Pre
+                        Workout, and it worked wonders. Authentic, safe, and
+                        worth every penny. Will buy again!
                       </p>
                     </div>
                     <div className="testimonial-item text-center">

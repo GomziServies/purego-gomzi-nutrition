@@ -76,7 +76,7 @@ function PureGoWheyProtein() {
         price: "3000",
         discount: "1250",
         size: "1 Kg",
-        dis_point: "15%",
+        dis_point: "58%",
       },
     },
     {
@@ -86,9 +86,9 @@ function PureGoWheyProtein() {
         img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
         name: "Whey Protein 1kg Mocha Coffee",
         price: "3000",
-        discount: "1250",
+        discount: "1300",
         size: "1 Kg",
-        dis_point: "15%",
+        dis_point: "56%",
       },
     },
     {
@@ -98,9 +98,9 @@ function PureGoWheyProtein() {
         img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
         name: "Whey Protein 1kg Mawa Kulfi",
         price: "3000",
-        discount: "1250",
+        discount: "1350",
         size: "1 Kg",
-        dis_point: "15%",
+        dis_point: "55%",
       },
     },
   ];
@@ -237,7 +237,9 @@ function PureGoWheyProtein() {
                         ₹{currentProductData.price}/-
                       </span>
                     </h2>
-                    <h5 className="stock-status">58%</h5>
+                    <h5 className="stock-status">
+                      {currentProductData.dis_point}
+                    </h5>
                   </div>
                   <p>
                     Pure Go Whey Protein is a Mixture of Whey Isolate, Whey

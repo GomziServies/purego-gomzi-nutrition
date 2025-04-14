@@ -195,6 +195,7 @@
 .login ul li {
   display: inline-block;
   margin-right: 20px;
+  color: #000;
 }
 
 .login ul li a {
@@ -235,6 +236,22 @@
   left: 30px;
   top: 50%;
   transform: translate(0, -50%);
+}
+
+#ex4 .p1[data-count]:after {
+  position: absolute;
+  right: -10%;
+  top: -25%;
+  content: attr(data-count);
+  font-size: 10px;
+  padding: 6px;
+  border-radius: 50%;
+  height: 20px;
+  line-height: 1em;
+  color: white;
+  background: rgba(255, 0, 0, 0.85);
+  text-align: center;
+  min-width: 20px;
 }
 
 :root {
@@ -523,6 +540,17 @@ label {
   padding: 3px 10px;
   border-radius: 10px;
   margin: 0px 5px;
+}
+
+.cart-btnn {
+  position: absolute;
+  z-index: 2;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  right: 30px;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .breadcrumb > .active {
@@ -8987,6 +9015,22 @@ body.search-visible {
   .order__info-wrap {
     margin-top: 50px;
   }
+
+  #ex4 .p1[data-count]:after {
+    position: absolute;
+    right: -25%;
+    top: -25%;
+    content: attr(data-count);
+    font-size: 10px;
+    padding: 6px;
+    border-radius: 50%;
+    height: 20px;
+    line-height: 1em;
+    color: white;
+    background: rgba(255, 0, 0, 0.85);
+    text-align: center;
+    min-width: 20px;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -10711,9 +10755,6 @@ body.search-visible {
 
   #fwg-owl .owl-prev {
     left: 72%;
-  }
-  .product-slide img {
-    height: 230px !important;
   }
 }
 
