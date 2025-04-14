@@ -893,7 +893,8 @@ function Home() {
                 <h2 className="title text-start mt-5">Performance Drinks</h2>
               </div>
               <div className="col-lg-3 col-sm-6 mt-md-0 mt-3 text-start">
-                <div className="item-card">
+                <div className="item-card position-relative">
+                  <span class="labeling">Pre workout + fat burner</span>
                   <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
@@ -1135,7 +1136,8 @@ function Home() {
                 </div>
               </div>
               <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
-                <div className="item-card">
+                <div className="item-card position-relative">
+                  <span class="labeling">India's first flavored creatine</span>
                   <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
