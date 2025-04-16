@@ -10802,6 +10802,15 @@ body.search-visible {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .product-detail-main .product-detail-left {
+    position: -webkit-sticky;
+    position: sticky;
+    height: 100%;
+    top: 150px;
+  }
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
   #fwg-owl .owl-prev,
   #fwg-owl .owl-next {

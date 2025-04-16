@@ -132,6 +132,27 @@ function PureGoMassGainer() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         <link rel="canonical" href={{ canonicalUrl }} />
+        {/* Preconnect to Facebook CDN */}
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <script>
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1144699046738070');
+            fbq('track', 'PageView');
+          `}
+        </script>
+        <noscript>
+          {`<img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
+          />`}
+        </noscript>
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
@@ -463,10 +484,10 @@ function PureGoMassGainer() {
           </div>
         </section>
         <HowToUse
-          src1="step-1.mp4"
-          src2="step-2.mp4"
-          src3="step-3.mp4"
-          src4="step-4.mp4"
+          src1="mocha-coffee-1.mp4"
+          src2="mocha-coffee-2.mp4"
+          src3="mocha-coffee-3.mp4"
+          src4="mocha-coffee-4.mp4"
           step1="Add 300 ml of water/milk"
           step2="Mix 1 scoop of Mass Gainer"
         />

@@ -229,7 +229,7 @@ function TermsConditions() {
            top whey protein in india, best protein supplement india, india top whey protein, best pre workout protein supplement, protein supplement for men, protein supplements men, best protein drink india, protein powders for men, best body supplements in india, best protein powder india, men's protein supplements, best pre gym supplement, protein powder for man, shaker, gym tshirt for men, gym wear tshirts for men, pre workout top rated, shakers, gym clothing ladies, top rated pre workout, gym clothes for ladies, shirts for gym men, gym wear ladies, protein mass gainer, protein and mass gainer, mass gaining protein, protein for mass gainer, weight gain powder, preworkout best, best pre workout supplement for bodybuilding, weight gaining powder, weight gainer and protein powder, protein powder supplements, protein powder supplement, mass gainer and protein, protein powder and supplements, gainer mass protein, weight gain protein supplements, protein gainer mass, protein and supplements, and protein supplements, protein powders and supplements, supplements and protein, proteins and supplements, price whey protein, protein whey price, whey protein with price, protein supplements on, best creatine monohydrate, protein drink supplements, weight gain protein shake powder, gym shaker, protein food supplement, best creatine monohydrate supplements, peanut butter for protein, protein shakes and supplements, whey protein on price, peanut butter is protein, protein foods peanut butter, best creatine monohydrate supplement, 
            best monohydrate creatine, whey on protein price, on protein supplements, price of on whey protein, compression tshirt, best of peanut butter, big muscles nutrition india, best mass gainer, pre workout supplement, weight increase powder, fat burner for man, fat burn for men, fat burning for men, fat burning for man, increase weight powder, mass gainer 1 kg, clothes of gym, powder weight gain, powder to increase weight, mass gainer 1kg, supplement bcaa, bcaa supplement, fat burner for men, fat burners for men, protein powder shaker bottle, clothes for gym, protein shaker bottle, protein shake bottles, shaker protein bottle, shaker bottle for gym, shaker bottle for protein, protein shake bottle mixer, protein shaker bottle mixer, protein drink shaker bottle, protein powder shake bottle, protein powder bottle shaker, protein shake shaker bottle, whey protein 1kg, bottle protein shaker, bcaa dietary supplement, gymming clothes, clothes for the gym, gym accessories, gym clothes, shoes bags, shoes with bag, shoe bags, g y m clothing, food for fat burner, sports bag, bags for shoes, shoes in bag, shoe bag, gym bag for women, muscle mass gain diet plan, gym outfit men, best protein powder for weight gain, supplements with creatine, pre workout drink, muscle gain protein, best protein powder for gaining weight, best weight gain protein powder, best protein powder for weight gaining, weight gaining protein powder, best protein supplement for weight gain, best protein powder gain weight, weight gain best protein powder, best protein powder to gain weight, weight gain powder protein, best weight gain protein powders, best weight gainer protein shakes, weight gain protein powder best, best protein supplement for gaining weight, best weight gainer, pre workout supplement drink, best protein powder to increase weight, good protein powder to gain weight, best weight gainer protein powder,
             gain muscle mass protein, muscle build protein, protein powder best for weight gain, bodybuilding supplements shop near me, bodybuilding supplement stores near me, best weight gain, best protein supplement to gain weight, good weight gainer protein shakes, gym supplement store near me, gym supplement shop near me, top weight gainer, top weight gainers, protein powder for weight loss, protein shakes best for weight gain, protein and weight loss powder, good weight gain protein shakes, protein supplement for weight loss, pre training drink, protein muscle builder, workout supplements creatine, weight loss protein supplements, protein powder for fat loss, protein supplement weight loss, best weight gaining protein shakes, protein supplements weight loss, fat loss protein supplements, best protein shakes gain weight, bcaa powder, workout supplements store near me, body supplement shop near me, supplement with creatine, gym shaker bottle, plant protein powder, workout supplement creatine, muscle building protein, protein for muscle gain, fat loss protein powder, protein powder in weight loss, pre exercise drink, muscle supplements creatine, tablet weight loss, muscle supplement creatine, best protein shakes for gaining weight, bodybuilding supplement shop near me, gym supplements creatine, creatine gym supplement, weight loss and protein powder, proteins for muscle gain, protein supplements for weight loss, creatine gym supplements, powder weight loss, weight loss powder protein, protein supplements and weight loss, protein supplement and weight loss, protein to gain muscles, best weight gain protein shakes, weight loss with protein powder, creatine supplement, bcaa benefits, bodybuilding supplement store near me,
-             sports supplements store near me, protein powder shop near me, build muscle protein, lose weight powder, peanut butter 1kg, protein powder and weight loss, protein powder store near me, workout supplement store near me, power mass gainer, protein supplement shop near me, creatine in supplements, protein powder with pea protein, protein powders and weight loss, protein supplements to lose weight, weight losing powder, powder for weight loss, muscle building and protein, protein to muscle growth, protein whey standard gold, bcaa advantage, weight gainer women's, weight gainer woman, creatine as supplement, weight reduction powder, gym outfits for ladies, protein for muscle mass gain, lose weight with protein powder, weight loss powder, protein supplement for vegetarians, vegan protein powder, protein supplements vegetarian, best protein muscle gain, best muscle gainer protein, best protein for muscle gaining, best protein gain muscle, best muscle mass protein, best protein muscle gainer, gym supplements, supplements gym, wait gainer shakes, weight gainer shakes, top protein for muscle building, fat burner for women, protein supplement vegetarian, protein vegetarian powder, weight gainer shake, fat burner for ladies, best muscle builder protein, best protein muscle builder, fat burning for women, fat burn for women, fat burn for woman, best protein, best protein for gain muscle, protein supplements vegan, eaa supplements, whey isolates, eaa supplement, weight gain shake, whey protein one scoop, protein in 1 scoop of whey protein, one scoop whey protein, what is the whey protein, 1 scoop whey protein,
+             sports supplements store near me, protein powder shop near me, build muscle protein, lose weight powder, peanut butter 1kg, protein powder and weight loss, protein powder store near me, workout supplement store near me, power mass gainer, protein supplement shop near me, creatine in supplements, protein powder with pea protein, protein powders and weight loss, protein supplements to lose weight, weight losing powder, powder for weight loss, muscle building and protein, protein to muscle growth, protein whey standard gold, bcaa advantage, weight gainer women's, weight gainer woman, creatine as supplement, weight reduction powder, gym outfits for ladies, protein for muscle mass gain, lose weight with protein powder, weight loss powder, protein supplement for vegetarians, protein powder, protein supplements vegetarian, best protein muscle gain, best muscle gainer protein, best protein for muscle gaining, best protein gain muscle, best muscle mass protein, best protein muscle gainer, gym supplements, supplements gym, wait gainer shakes, weight gainer shakes, top protein for muscle building, fat burner for women, protein supplement vegetarian, protein vegetarian powder, weight gainer shake, fat burner for ladies, best muscle builder protein, best protein muscle builder, fat burning for women, fat burn for women, fat burn for woman, best protein, best protein for gain muscle, protein supplements, eaa supplements, whey isolates, eaa supplement, weight gain shake, whey protein one scoop, protein in 1 scoop of whey protein, one scoop whey protein, what is the whey protein, 1 scoop whey protein,
               what is whey protein, whey isolate protein on, on mass gainer, gold whey protein, gold protein whey, weight gaining shakes, protein isolate on, creatine monohydrate cost, isolate protein on, whey protein one scoop protein, weight gaining powder for women, female weight gain powder, weight gainer powder for women, weight gain powder for women, weight gainer powder for female, what are whey protein, best creatine monohydrate in india, on whey isolate, weight gain powder for females, weight gain powder female, what are whey products, weight gain powder for ladies, weight gainer for ladies, whey protein for what, women's weight gain powder, weight gainer for woman, weight gainer for women, 1 scoop of on whey protein, what is protein whey, weight gainer for females, price of creatine monohydrate, testosterone supplements, supplement testosterone, one scoop of whey protein, supplements for testosterone, weight gainer for female, gym bodybuilding, what.is whey protein, shakes for weight gain, body building in gym, testosterone hormone supplement, best peanut butter in india, best protein for building muscle, ladies weight gain powder, shake for weight gain, best source for protein for vegetarians, ladies weight gainer powder, weight gainer for men, best muscle mass gain supplement, supplements for gaining weight, gym protein powder, gain weight supplement, muscle mass gainer, weight gainer food supplement, best products for fat loss, best fat loss products,
                protein gym powder, supplement weight gainer, weight gainers men, supplements weight gain, increase weight supplement, weight gainers for men, best muscle gainer supplement, gain weight supplements, weight gaining supplements, best product for fat loss, best muscle enhancing supplements, best food supplement for muscle gain, best peanut butter for weight gain, top supplements to build muscle, best mass gainers india, best mass gainer in india, best workout supplement for muscle gain, best products for muscle gain, best workout supplements for muscle gain, best product for muscle gain, best peanut butter for weight gaining, gain weight with supplements, whey protein isolate best, best supplements for gaining muscle, india best mass gainer, gym protein, isolate protein best, supplements that gain weight, best weight loss products, indian best mass gainer, top weight loss products, best products for lose weight, good weight loss products, weight gainer for man, best products for weight loss, best multiple vitamin, best test booster, weight gain food supplements, weight loss best products, good weight loss product, best product for lose weight, good product for weight loss, best products for losing weight, best losing weight products, best product for losing weight, protein shops, top rated whey protein isolate, best creatine supplement in india, best peanut butter for gaining weight, good products for weight loss,protein bar chocolate, weight gain diet supplements, best multiple vitamins, best creatine powder in india, accessories for gym men, best product weight loss, whey isolate, 
                best peanut butter india, gym accessories for guys, protein bars chocolate, outfits for gym, weight gain for males, peanut butter for weight gain, whey protein one scoop nutrition, best peanut butter to gain weight, best protein isolate whey, best whey protein powder for building muscle, best protein powder for gaining muscle mass, best protein powder to gain muscle mass, best whey protein powder for muscle building, best protein supplement for weight loss, supplements for weight gain, protein powder weight gain, best protein supplement to gain muscle, gaining weight supplements, best protein supplement to build muscle, best protein powder for women, weight gainer protein, protein supplement to gain weight, protein powder gain weight, protein powder weight gainer, best protein whey for building muscle, best protein powder for gain muscle, best protein powder for ladies, best protein powder weight loss, weight gain whey protein, best protein powder for muscle building, whey protein gain weight,
@@ -253,7 +253,10 @@ function TermsConditions() {
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <meta property="og:url" content="https://purego.gomzilifesciences.in/" />
+        <meta
+          property="og:url"
+          content="https://purego.gomzilifesciences.in/"
+        />
         <link rel="canonical" href={{ canonicalUrl }} />
 
         <link rel="preconnect" href="https://connect.facebook.net" />
@@ -365,14 +368,13 @@ function TermsConditions() {
                     </h2>
                     <div className="post-text">
                       <p>
-                        Welcome to the Pure Go family! We are thrilled
-                        to be your ultimate destination for health and wellness.
-                        At Pure Go, our commitment is to provide you
-                        with top-notch products and services to support your
-                        journey towards a healthier lifestyle. Before you embark
-                        on this journey with us, we kindly ask you to
-                        familiarize yourself with our Terms and Conditions
-                        outlined below.
+                        Welcome to the Pure Go family! We are thrilled to be
+                        your ultimate destination for health and wellness. At
+                        Pure Go, our commitment is to provide you with top-notch
+                        products and services to support your journey towards a
+                        healthier lifestyle. Before you embark on this journey
+                        with us, we kindly ask you to familiarize yourself with
+                        our Terms and Conditions outlined below.
                       </p>
                       <div className="blog-details-wrap border-none">
                         <h3 className="title">Agreement Acceptance:</h3>
@@ -389,33 +391,54 @@ function TermsConditions() {
                             </li>
                             <li>
                               <i className="fas fa-check"></i>
-                              <b>Accessing Our Services:</b> By accessing or utilizing our services, you are consenting to adhere to these Terms. If you disagree with any portion of these terms, you are not permitted to access our services.
+                              <b>Accessing Our Services:</b> By accessing or
+                              utilizing our services, you are consenting to
+                              adhere to these Terms. If you disagree with any
+                              portion of these terms, you are not permitted to
+                              access our services.
                             </li>
                             <li>
                               <i className="fas fa-check"></i>
-                              <b>Conditions of Engagement:</b> When you engage with our website or services, you agree to the following.
+                              <b>Conditions of Engagement:</b> When you engage
+                              with our website or services, you agree to the
+                              following.
                             </li>
                             <li>
                               <i className="fas fa-check"></i>
-                              <b>Acknowledgment:</b> You acknowledge that you have read and understood the stipulations of this Agreement.
+                              <b>Acknowledgment:</b> You acknowledge that you
+                              have read and understood the stipulations of this
+                              Agreement.
                             </li>
                             <li>
                               <i className="fas fa-check"></i>
-                              <b>Binding Agreement:</b> You agree to be bound by the terms outlined in this Agreement.
+                              <b>Binding Agreement:</b> You agree to be bound by
+                              the terms outlined in this Agreement.
                             </li>
                             <li>
                               <i className="fas fa-check"></i>
-                              <b>Compliance:</b> You consent to comply with all relevant laws and regulations concerning the subject matter of this Agreement.
+                              <b>Compliance:</b> You consent to comply with all
+                              relevant laws and regulations concerning the
+                              subject matter of this Agreement.
                             </li>
                             <li>
                               <i className="fas fa-check"></i>
-                              <b>Refraining from Use:</b> If you do not consent to the terms of this Agreement, we kindly ask you to refrain from: (a)Accessing or utilizing the website. (b)Participating in the Rewards or Reviews Program. (c)Disclosing any personal information to us.
+                              <b>Refraining from Use:</b> If you do not consent
+                              to the terms of this Agreement, we kindly ask you
+                              to refrain from: (a)Accessing or utilizing the
+                              website. (b)Participating in the Rewards or
+                              Reviews Program. (c)Disclosing any personal
+                              information to us.
                             </li>
                           </ul>
                         </div>
                       </div>
                       <p>
-                        We are excited to have you on board with Pure Go. Your health and wellness journey is important to us, and we are committed to providing you with the best experience possible. If you have any questions or concerns regarding these Terms and Conditions, please do not hesitate to reach out to us.
+                        We are excited to have you on board with Pure Go. Your
+                        health and wellness journey is important to us, and we
+                        are committed to providing you with the best experience
+                        possible. If you have any questions or concerns
+                        regarding these Terms and Conditions, please do not
+                        hesitate to reach out to us.
                       </p>
                     </div>
                   </div>

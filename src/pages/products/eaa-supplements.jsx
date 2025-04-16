@@ -132,6 +132,27 @@ function PureGoEaa() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         <link rel="canonical" href={{ canonicalUrl }} />
+        {/* Preconnect to Facebook CDN */}
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <script>
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1144699046738070');
+            fbq('track', 'PageView');
+          `}
+        </script>
+        <noscript>
+          {`<img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
+          />`}
+        </noscript>
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
@@ -142,7 +163,7 @@ function PureGoEaa() {
       <main className="main-area fix">
         <section className="inner-shop-details-area">
           <div className="container">
-            <div className="row">
+            <div className="row product-detail-main">
               <div className="col-lg-5">
                 <div
                   className="product-image-container"
@@ -219,6 +240,92 @@ function PureGoEaa() {
                     >
                       add to cart
                     </button>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-3 shipping">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/fast-delivery.png"
+                        }
+                        alt="img"
+                        width="45px"
+                      />
+                      <div className="product-desc-content">
+                        <h4 className="title">Pure Go EAA</h4>
+                      </div>
+                    </div>
+                    <div className="col-md-3 shipping">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL + "/assets/images/original.png"
+                        }
+                        alt="img"
+                        width="45px"
+                      />
+                    </div>
+                    <div className="col-md-3 shipping">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL + "/assets/images/return.png"
+                        }
+                        alt="img"
+                        width="45px"
+                      />
+                    </div>
+                    <div className="col-md-3 shipping">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/cash-on-delivery.png"
+                        }
+                        alt="img"
+                        width="45px"
+                      />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-3 shipping">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/fast-delivery.png"
+                        }
+                        alt="img"
+                        width="45px"
+                      />
+                      <div className="product-desc-content">
+                        <h4 className="title">Pure Go EAA</h4>
+                      </div>
+                    </div>
+                    <div className="col-md-3 shipping">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL + "/assets/images/original.png"
+                        }
+                        alt="img"
+                        width="45px"
+                      />
+                    </div>
+                    <div className="col-md-3 shipping">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL + "/assets/images/return.png"
+                        }
+                        alt="img"
+                        width="45px"
+                      />
+                    </div>
+                    <div className="col-md-3 shipping">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "/assets/images/cash-on-delivery.png"
+                        }
+                        alt="img"
+                        width="45px"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

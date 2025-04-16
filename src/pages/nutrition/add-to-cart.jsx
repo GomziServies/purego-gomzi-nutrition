@@ -193,7 +193,7 @@ function AddToCart() {
   };
 
   const handleAddToCart = async () => {
-    setLoading1(true)
+    setLoading1(true);
     try {
       const changedProducts = productDataGet.filter((currentProduct) => {
         const previousProduct = previousProductData.find(
@@ -251,7 +251,7 @@ function AddToCart() {
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
-    setLoading1(false)
+    setLoading1(false);
   };
 
   return (

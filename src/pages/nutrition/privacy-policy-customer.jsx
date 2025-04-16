@@ -17,219 +17,219 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
 
 function PrivacyPolicyCustomer() {
-    const canonicalUrl = window.location.href;
+  const canonicalUrl = window.location.href;
 
-    // useEffect(() => {
-    //   const loadInitialProducts = () => {
-    //     const proteinProducts = gomzinutrition[0].protein.slice(
-    //       0,
-    //       productsPerPage
-    //     );
-    //     setProteinProducts(proteinProducts);
-    //   };
+  // useEffect(() => {
+  //   const loadInitialProducts = () => {
+  //     const proteinProducts = gomzinutrition[0].protein.slice(
+  //       0,
+  //       productsPerPage
+  //     );
+  //     setProteinProducts(proteinProducts);
+  //   };
 
-    //   loadInitialProducts();
-    // }, []);
+  //   loadInitialProducts();
+  // }, []);
 
-    // useEffect(() => {
-    //   const observer = new IntersectionObserver(
-    //     (entries) => {
-    //       if (entries[0].isIntersecting && hasMore) {
-    //         loadMoreProducts();
-    //       }
-    //     },
-    //     { threshold: 1.0 }
-    //   );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       if (entries[0].isIntersecting && hasMore) {
+  //         loadMoreProducts();
+  //       }
+  //     },
+  //     { threshold: 1.0 }
+  //   );
 
-    //   if (loadMoreRef.current) {
-    //     observer.observe(loadMoreRef.current);
-    //   }
+  //   if (loadMoreRef.current) {
+  //     observer.observe(loadMoreRef.current);
+  //   }
 
-    //   return () => {
-    //     if (loadMoreRef.current) {
-    //       observer.unobserve(loadMoreRef.current);
-    //     }
-    //   };
-    // }, [hasMore, page]);
+  //   return () => {
+  //     if (loadMoreRef.current) {
+  //       observer.unobserve(loadMoreRef.current);
+  //     }
+  //   };
+  // }, [hasMore, page]);
 
-    // useEffect(() => {
-    //     const sections = document.querySelectorAll("section[id]");
+  // useEffect(() => {
+  //     const sections = document.querySelectorAll("section[id]");
 
-    //     const observer = new IntersectionObserver(
-    //         (entries) => {
-    //             entries.forEach((entry) => {
-    //                 if (entry.isIntersecting) {
-    //                     const id = `#${entry.target.id}`;
-    //                     setActiveSection(id);
-    //                 }
-    //             });
-    //         },
-    //         {
-    //             threshold: 0.6, // Adjust threshold for when to consider section in view
-    //         }
-    //     );
+  //     const observer = new IntersectionObserver(
+  //         (entries) => {
+  //             entries.forEach((entry) => {
+  //                 if (entry.isIntersecting) {
+  //                     const id = `#${entry.target.id}`;
+  //                     setActiveSection(id);
+  //                 }
+  //             });
+  //         },
+  //         {
+  //             threshold: 0.6, // Adjust threshold for when to consider section in view
+  //         }
+  //     );
 
-    //     sections.forEach((section) => observer.observe(section));
+  //     sections.forEach((section) => observer.observe(section));
 
-    //     return () => {
-    //         sections.forEach((section) => observer.unobserve(section));
-    //     };
-    // }, []);
+  //     return () => {
+  //         sections.forEach((section) => observer.unobserve(section));
+  //     };
+  // }, []);
 
-    // const loadMoreProducts = () => {
-    //   const start = page * productsPerPage;
-    //   const end = start + productsPerPage;
-    //   const nextProducts = gomzinutrition.slice(start, end);
+  // const loadMoreProducts = () => {
+  //   const start = page * productsPerPage;
+  //   const end = start + productsPerPage;
+  //   const nextProducts = gomzinutrition.slice(start, end);
 
-    //   setProteinProducts((prevProducts) => [...prevProducts, ...nextProducts]);
+  //   setProteinProducts((prevProducts) => [...prevProducts, ...nextProducts]);
 
-    //   if (end >= gomzinutrition.length) {
-    //     setHasMore(false);
-    //   } else {
-    //     setPage(page + 1);
-    //   }
-    // };
+  //   if (end >= gomzinutrition.length) {
+  //     setHasMore(false);
+  //   } else {
+  //     setPage(page + 1);
+  //   }
+  // };
 
-    // useEffect(() => {
-    //     const hash = window.location.hash || "#whey";
-    //     setActiveSection(hash);
+  // useEffect(() => {
+  //     const hash = window.location.hash || "#whey";
+  //     setActiveSection(hash);
 
-    //     const handleScrollToSection = (event) => {
-    //         event.preventDefault();
-    //         const targetId = event.currentTarget.getAttribute("href");
-    //         const targetElement = document.querySelector(targetId);
+  //     const handleScrollToSection = (event) => {
+  //         event.preventDefault();
+  //         const targetId = event.currentTarget.getAttribute("href");
+  //         const targetElement = document.querySelector(targetId);
 
-    //         // Scroll to the target element
-    //         targetElement.scrollIntoView({
-    //             behavior: "smooth",
-    //             block: "start",
-    //         });
+  //         // Scroll to the target element
+  //         targetElement.scrollIntoView({
+  //             behavior: "smooth",
+  //             block: "start",
+  //         });
 
-    //         // Update active section
-    //         setActiveSection(targetId);
-    //     };
+  //         // Update active section
+  //         setActiveSection(targetId);
+  //     };
 
-    //     const links = document.querySelectorAll('a[href^="#"]');
-    //     links.forEach((link) => {
-    //         link.addEventListener("click", handleScrollToSection);
-    //     });
+  //     const links = document.querySelectorAll('a[href^="#"]');
+  //     links.forEach((link) => {
+  //         link.addEventListener("click", handleScrollToSection);
+  //     });
 
-    //     return () => {
-    //         links.forEach((link) => {
-    //             link.removeEventListener("click", handleScrollToSection);
-    //         });
-    //     };
-    // }, []);
+  //     return () => {
+  //         links.forEach((link) => {
+  //             link.removeEventListener("click", handleScrollToSection);
+  //         });
+  //     };
+  // }, []);
 
-    // const gomzinutrition = [
-    //   {
-    //     protein: [
-    //       {
-    //         id: 5,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - concentrate - mawa - kulfi - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-refuel-whey-protein-concentrate",
-    //         productName: "Refuel 2.0 Whey Protein Concentrate",
-    //         rating: "4.4",
-    //         originalPrice: "₹4,500 /-",
-    //         discountedPrice: "₹4,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 6,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - isolate - chocobrownie - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-refuel-whey-protein-isolate",
-    //         productName: "Refuel 2.0 Whey Protein Isolate",
-    //         rating: "4.7",
-    //         originalPrice: "₹5,999 /-",
-    //         discountedPrice: "₹5,999 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 7,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - protein - chocolate - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-refuel-whey-protein",
-    //         productName: "Refuel 2.0 Whey Protein 100%",
-    //         rating: "4.8",
-    //         originalPrice: "₹3,500 /-",
-    //         discountedPrice: "₹3,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 8,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - muscle - matrix - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-refuel-mass-gainer-powder",
-    //         productName: "Refuel 2.0 Mass Gainer Powder",
-    //         rating: "4.6",
-    //         originalPrice: "₹2,500 /-",
-    //         discountedPrice: "₹2,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 1,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / whey - protein - concentrate - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-whey-protein-concentrate",
-    //         productName: "Whey Protein Concentrate",
-    //         rating: "4.4",
-    //         originalPrice: "₹3,500 /-",
-    //         discountedPrice: "₹3,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 2,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / whey - protein - isolate - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-whey-protein-isolate",
-    //         productName: "Whey Protein Isolate",
-    //         rating: "4.7",
-    //         originalPrice: "₹4,500 /-",
-    //         discountedPrice: "₹4,500 /-",
-    //         type: "protein",
-    //       },
-    //       {
-    //         id: 3,
-    //         imageSrc:
-    //           process.env.PUBLIC_URL +
-    //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / whey - protein - chocolate - 1 - 1kg.webp",
-    //         productLink: "/nutrition/gomzi-nutrition-whey-protein-chocolate",
-    //         productName: "Gomzi Whey Protein",
-    //         rating: "4.8",
-    //         originalPrice: "₹3,000 /-",
-    //         discountedPrice: "₹3,000 /-",
-    //         type: "protein",
-    //       },
-    //     ],
-    //   },
-    // ];
+  // const gomzinutrition = [
+  //   {
+  //     protein: [
+  //       {
+  //         id: 5,
+  //         imageSrc:
+  //           process.env.PUBLIC_URL +
+  //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - concentrate - mawa - kulfi - 1 - 1kg.webp",
+  //         productLink: "/nutrition/gomzi-nutrition-refuel-whey-protein-concentrate",
+  //         productName: "Refuel 2.0 Whey Protein Concentrate",
+  //         rating: "4.4",
+  //         originalPrice: "₹4,500 /-",
+  //         discountedPrice: "₹4,500 /-",
+  //         type: "protein",
+  //       },
+  //       {
+  //         id: 6,
+  //         imageSrc:
+  //           process.env.PUBLIC_URL +
+  //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - isolate - chocobrownie - 1 - 1kg.webp",
+  //         productLink: "/nutrition/gomzi-nutrition-refuel-whey-protein-isolate",
+  //         productName: "Refuel 2.0 Whey Protein Isolate",
+  //         rating: "4.7",
+  //         originalPrice: "₹5,999 /-",
+  //         discountedPrice: "₹5,999 /-",
+  //         type: "protein",
+  //       },
+  //       {
+  //         id: 7,
+  //         imageSrc:
+  //           process.env.PUBLIC_URL +
+  //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - protein - chocolate - 1 - 1kg.webp",
+  //         productLink: "/nutrition/gomzi-nutrition-refuel-whey-protein",
+  //         productName: "Refuel 2.0 Whey Protein 100%",
+  //         rating: "4.8",
+  //         originalPrice: "₹3,500 /-",
+  //         discountedPrice: "₹3,500 /-",
+  //         type: "protein",
+  //       },
+  //       {
+  //         id: 8,
+  //         imageSrc:
+  //           process.env.PUBLIC_URL +
+  //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / refuel - muscle - matrix - 1 - 1kg.webp",
+  //         productLink: "/nutrition/gomzi-nutrition-refuel-mass-gainer-powder",
+  //         productName: "Refuel 2.0 Mass Gainer Powder",
+  //         rating: "4.6",
+  //         originalPrice: "₹2,500 /-",
+  //         discountedPrice: "₹2,500 /-",
+  //         type: "protein",
+  //       },
+  //       {
+  //         id: 1,
+  //         imageSrc:
+  //           process.env.PUBLIC_URL +
+  //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / whey - protein - concentrate - 1 - 1kg.webp",
+  //         productLink: "/nutrition/gomzi-nutrition-whey-protein-concentrate",
+  //         productName: "Whey Protein Concentrate",
+  //         rating: "4.4",
+  //         originalPrice: "₹3,500 /-",
+  //         discountedPrice: "₹3,500 /-",
+  //         type: "protein",
+  //       },
+  //       {
+  //         id: 2,
+  //         imageSrc:
+  //           process.env.PUBLIC_URL +
+  //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / whey - protein - isolate - 1 - 1kg.webp",
+  //         productLink: "/nutrition/gomzi-nutrition-whey-protein-isolate",
+  //         productName: "Whey Protein Isolate",
+  //         rating: "4.7",
+  //         originalPrice: "₹4,500 /-",
+  //         discountedPrice: "₹4,500 /-",
+  //         type: "protein",
+  //       },
+  //       {
+  //         id: 3,
+  //         imageSrc:
+  //           process.env.PUBLIC_URL +
+  //           "/assets/process.env.PUBLIC_URL +  " / assets / images / nutrition / whey - protein - chocolate - 1 - 1kg.webp",
+  //         productLink: "/nutrition/gomzi-nutrition-whey-protein-chocolate",
+  //         productName: "Gomzi Whey Protein",
+  //         rating: "4.8",
+  //         originalPrice: "₹3,000 /-",
+  //         discountedPrice: "₹3,000 /-",
+  //         type: "protein",
+  //       },
+  //     ],
+  //   },
+  // ];
 
-    return (
-        <>
-            <Helmet>
-                <title>
-                    Pure Go | Best Whey Protein in India | Premium Supplements
-                </title>
-                <meta
-                    name="description"
-                    content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
-                />
-                <meta
-                    name="keyword"
-                    content="bowelease  Constipation Relief, constipation powder, digestive health, natural constipation relief, regular bowel movements, buy constipation powder, whey protein and, peanut butter peanut butter, peanut butters, why protein, protein in powder, whey product, wayne protein, whey protein protein, whey protein whey, whey in protein, whey whey protein, protein for protein shakes, wea protein, whey protein and protein, mass gainer mass gainer, and creatine, pre gym supplements, protein and whey powder, gainer mass gainer, pre gym supplement, whey in protein powder, protein whey supplements, protein powder whey protein, whey protein powder protein, carnitine and l carnitine, gyms bags, testosterone enhancer, on whey proteins, compressor t shirt, best of protein supplements, protein powder is best, protein powder the best, protein supplements best, protein supplement best, price peanut butter, best protein powders, gym bags for men, gym bag for man, gym bags for man, male gym bag, workout bags for men, gym bag for mens, price of peanut butter, workout bag mens, eaa amino acid, bodybuilders photos, body bodybuilding, images of bodybuilding, images bodybuilding, bottles and shakers, bottle shaking, shaker bottle, protein shaker, fat burns, shirts for gym, t shirts for the gym, gym fitness t shirt, shirts for the gym, shirt for gym, whey protein best in india, best indian whey protein, best whey protein supplements, isolate whey protein isolate, protein whey isolate, protein whey protein isolate, good whey protein, whey protein whey isolate, best protein whey protein, best protein whey, whey protein isolate protein, good whey proteins, whey isolate whey protein, whey iso protein, whey protein best, whey protein best whey, best whey proteins, supplement shop near me, women's protein supplement, men's protein powder, protein powders for women, whey pro isolate, best whey protein supplement, whey protein with isolate, whey isolate or protein, isolate protein and whey protein, whey protein the best, protein powder for females, protein isolate whey, female protein powder, nutrition supplement store near me, protein powder for female,
+  return (
+    <>
+      <Helmet>
+        <title>
+          Pure Go | Best Whey Protein in India | Premium Supplements
+        </title>
+        <meta
+          name="description"
+          content="Discover Pure Go, your go-to destination for the best whey protein and premium nutrition supplements in India. Boost your fitness journey with our high-quality products tailored for muscle growth, weight loss, and overall health."
+        />
+        <meta
+          name="keyword"
+          content="bowelease  Constipation Relief, constipation powder, digestive health, natural constipation relief, regular bowel movements, buy constipation powder, whey protein and, peanut butter peanut butter, peanut butters, why protein, protein in powder, whey product, wayne protein, whey protein protein, whey protein whey, whey in protein, whey whey protein, protein for protein shakes, wea protein, whey protein and protein, mass gainer mass gainer, and creatine, pre gym supplements, protein and whey powder, gainer mass gainer, pre gym supplement, whey in protein powder, protein whey supplements, protein powder whey protein, whey protein powder protein, carnitine and l carnitine, gyms bags, testosterone enhancer, on whey proteins, compressor t shirt, best of protein supplements, protein powder is best, protein powder the best, protein supplements best, protein supplement best, price peanut butter, best protein powders, gym bags for men, gym bag for man, gym bags for man, male gym bag, workout bags for men, gym bag for mens, price of peanut butter, workout bag mens, eaa amino acid, bodybuilders photos, body bodybuilding, images of bodybuilding, images bodybuilding, bottles and shakers, bottle shaking, shaker bottle, protein shaker, fat burns, shirts for gym, t shirts for the gym, gym fitness t shirt, shirts for the gym, shirt for gym, whey protein best in india, best indian whey protein, best whey protein supplements, isolate whey protein isolate, protein whey isolate, protein whey protein isolate, good whey protein, whey protein whey isolate, best protein whey protein, best protein whey, whey protein isolate protein, good whey proteins, whey isolate whey protein, whey iso protein, whey protein best, whey protein best whey, best whey proteins, supplement shop near me, women's protein supplement, men's protein powder, protein powders for women, whey pro isolate, best whey protein supplement, whey protein with isolate, whey isolate or protein, isolate protein and whey protein, whey protein the best, protein powder for females, protein isolate whey, female protein powder, nutrition supplement store near me, protein powder for female,
            protein supplement women, whey and whey isolate, whey isolate and whey protein, protein isolate or whey, protein or isolate, protein iso whey, near me supplement store, protein powder for ladies, women and protein powder, women protein supplement, protein powder ladies, supplement store close to me, women's protein supplements, isolate or whey protein, whey protein and whey isolate, protein in whey protein isolate, protein in a peanut, gym clothes for men, nutritional supplements store near me, nutritional supplement store near me, near me supplements store, whey protein or isolate, gym belts, male gym wear, gym clothes for man, gym men wear, men's gym clothes, peanuts for protein, workout clothes men, gym apparel for men, fitness men's clothing, advantages of peanut butter, man in gym clothes, fat burning, fitness wear men, gym men clothing, gym dress man, workout gear men, gym wear male, fitness clothing men, gym apparel men, mens exercise clothing, gym clothes men's, gym clothes men, gym clothing for men, workout wear for men, men's exercise clothes, men in gym wear, workout clothes for men, men's exercise clothing, near me nutritionist, fitness clothing for men, fitness clothes for men, workout clothes for man, gym clothes for mens, workout clothing for men, women and protein shakes, top whey protein india, best indian protein powder, best protein supplements in india, india's best protein powder, indian best protein supplement, best indian protein supplement, good whey protein india, protein powder best in india, 
            top whey protein in india, best protein supplement india, india top whey protein, best pre workout protein supplement, protein supplement for men, protein supplements men, best protein drink india, protein powders for men, best body supplements in india, best protein powder india, men's protein supplements, best pre gym supplement, protein powder for man, shaker, gym tshirt for men, gym wear tshirts for men, pre workout top rated, shakers, gym clothing ladies, top rated pre workout, gym clothes for ladies, shirts for gym men, gym wear ladies, protein mass gainer, protein and mass gainer, mass gaining protein, protein for mass gainer, weight gain powder, preworkout best, best pre workout supplement for bodybuilding, weight gaining powder, weight gainer and protein powder, protein powder supplements, protein powder supplement, mass gainer and protein, protein powder and supplements, gainer mass protein, weight gain protein supplements, protein gainer mass, protein and supplements, and protein supplements, protein powders and supplements, supplements and protein, proteins and supplements, price whey protein, protein whey price, whey protein with price, protein supplements on, best creatine monohydrate, protein drink supplements, weight gain protein shake powder, gym shaker, protein food supplement, best creatine monohydrate supplements, peanut butter for protein, protein shakes and supplements, whey protein on price, peanut butter is protein, protein foods peanut butter, best creatine monohydrate supplement, 
            best monohydrate creatine, whey on protein price, on protein supplements, price of on whey protein, compression tshirt, best of peanut butter, big muscles nutrition india, best mass gainer, pre workout supplement, weight increase powder, fat burner for man, fat burn for men, fat burning for men, fat burning for man, increase weight powder, mass gainer 1 kg, clothes of gym, powder weight gain, powder to increase weight, mass gainer 1kg, supplement bcaa, bcaa supplement, fat burner for men, fat burners for men, protein powder shaker bottle, clothes for gym, protein shaker bottle, protein shake bottles, shaker protein bottle, shaker bottle for gym, shaker bottle for protein, protein shake bottle mixer, protein shaker bottle mixer, protein drink shaker bottle, protein powder shake bottle, protein powder bottle shaker, protein shake shaker bottle, whey protein 1kg, bottle protein shaker, bcaa dietary supplement, gymming clothes, clothes for the gym, gym accessories, gym clothes, shoes bags, shoes with bag, shoe bags, g y m clothing, food for fat burner, sports bag, bags for shoes, shoes in bag, shoe bag, gym bag for women, muscle mass gain diet plan, gym outfit men, best protein powder for weight gain, supplements with creatine, pre workout drink, muscle gain protein, best protein powder for gaining weight, best weight gain protein powder, best protein powder for weight gaining, weight gaining protein powder, best protein supplement for weight gain, best protein powder gain weight, weight gain best protein powder, best protein powder to gain weight, weight gain powder protein, best weight gain protein powders, best weight gainer protein shakes, weight gain protein powder best, best protein supplement for gaining weight, best weight gainer, pre workout supplement drink, best protein powder to increase weight, good protein powder to gain weight, best weight gainer protein powder,
             gain muscle mass protein, muscle build protein, protein powder best for weight gain, bodybuilding supplements shop near me, bodybuilding supplement stores near me, best weight gain, best protein supplement to gain weight, good weight gainer protein shakes, gym supplement store near me, gym supplement shop near me, top weight gainer, top weight gainers, protein powder for weight loss, protein shakes best for weight gain, protein and weight loss powder, good weight gain protein shakes, protein supplement for weight loss, pre training drink, protein muscle builder, workout supplements creatine, weight loss protein supplements, protein powder for fat loss, protein supplement weight loss, best weight gaining protein shakes, protein supplements weight loss, fat loss protein supplements, best protein shakes gain weight, bcaa powder, workout supplements store near me, body supplement shop near me, supplement with creatine, gym shaker bottle, plant protein powder, workout supplement creatine, muscle building protein, protein for muscle gain, fat loss protein powder, protein powder in weight loss, pre exercise drink, muscle supplements creatine, tablet weight loss, muscle supplement creatine, best protein shakes for gaining weight, bodybuilding supplement shop near me, gym supplements creatine, creatine gym supplement, weight loss and protein powder, proteins for muscle gain, protein supplements for weight loss, creatine gym supplements, powder weight loss, weight loss powder protein, protein supplements and weight loss, protein supplement and weight loss, protein to gain muscles, best weight gain protein shakes, weight loss with protein powder, creatine supplement, bcaa benefits, bodybuilding supplement store near me,
-             sports supplements store near me, protein powder shop near me, build muscle protein, lose weight powder, peanut butter 1kg, protein powder and weight loss, protein powder store near me, workout supplement store near me, power mass gainer, protein supplement shop near me, creatine in supplements, protein powder with pea protein, protein powders and weight loss, protein supplements to lose weight, weight losing powder, powder for weight loss, muscle building and protein, protein to muscle growth, protein whey standard gold, bcaa advantage, weight gainer women's, weight gainer woman, creatine as supplement, weight reduction powder, gym outfits for ladies, protein for muscle mass gain, lose weight with protein powder, weight loss powder, protein supplement for vegetarians, vegan protein powder, protein supplements vegetarian, best protein muscle gain, best muscle gainer protein, best protein for muscle gaining, best protein gain muscle, best muscle mass protein, best protein muscle gainer, gym supplements, supplements gym, wait gainer shakes, weight gainer shakes, top protein for muscle building, fat burner for women, protein supplement vegetarian, protein vegetarian powder, weight gainer shake, fat burner for ladies, best muscle builder protein, best protein muscle builder, fat burning for women, fat burn for women, fat burn for woman, best protein, best protein for gain muscle, protein supplements vegan, eaa supplements, whey isolates, eaa supplement, weight gain shake, whey protein one scoop, protein in 1 scoop of whey protein, one scoop whey protein, what is the whey protein, 1 scoop whey protein,
+             sports supplements store near me, protein powder shop near me, build muscle protein, lose weight powder, peanut butter 1kg, protein powder and weight loss, protein powder store near me, workout supplement store near me, power mass gainer, protein supplement shop near me, creatine in supplements, protein powder with pea protein, protein powders and weight loss, protein supplements to lose weight, weight losing powder, powder for weight loss, muscle building and protein, protein to muscle growth, protein whey standard gold, bcaa advantage, weight gainer women's, weight gainer woman, creatine as supplement, weight reduction powder, gym outfits for ladies, protein for muscle mass gain, lose weight with protein powder, weight loss powder, protein supplement for vegetarians, protein powder, protein supplements vegetarian, best protein muscle gain, best muscle gainer protein, best protein for muscle gaining, best protein gain muscle, best muscle mass protein, best protein muscle gainer, gym supplements, supplements gym, wait gainer shakes, weight gainer shakes, top protein for muscle building, fat burner for women, protein supplement vegetarian, protein vegetarian powder, weight gainer shake, fat burner for ladies, best muscle builder protein, best protein muscle builder, fat burning for women, fat burn for women, fat burn for woman, best protein, best protein for gain muscle, protein supplements, eaa supplements, whey isolates, eaa supplement, weight gain shake, whey protein one scoop, protein in 1 scoop of whey protein, one scoop whey protein, what is the whey protein, 1 scoop whey protein,
               what is whey protein, whey isolate protein on, on mass gainer, gold whey protein, gold protein whey, weight gaining shakes, protein isolate on, creatine monohydrate cost, isolate protein on, whey protein one scoop protein, weight gaining powder for women, female weight gain powder, weight gainer powder for women, weight gain powder for women, weight gainer powder for female, what are whey protein, best creatine monohydrate in india, on whey isolate, weight gain powder for females, weight gain powder female, what are whey products, weight gain powder for ladies, weight gainer for ladies, whey protein for what, women's weight gain powder, weight gainer for woman, weight gainer for women, 1 scoop of on whey protein, what is protein whey, weight gainer for females, price of creatine monohydrate, testosterone supplements, supplement testosterone, one scoop of whey protein, supplements for testosterone, weight gainer for female, gym bodybuilding, what.is whey protein, shakes for weight gain, body building in gym, testosterone hormone supplement, best peanut butter in india, best protein for building muscle, ladies weight gain powder, shake for weight gain, best source for protein for vegetarians, ladies weight gainer powder, weight gainer for men, best muscle mass gain supplement, supplements for gaining weight, gym protein powder, gain weight supplement, muscle mass gainer, weight gainer food supplement, best products for fat loss, best fat loss products,
                protein gym powder, supplement weight gainer, weight gainers men, supplements weight gain, increase weight supplement, weight gainers for men, best muscle gainer supplement, gain weight supplements, weight gaining supplements, best product for fat loss, best muscle enhancing supplements, best food supplement for muscle gain, best peanut butter for weight gain, top supplements to build muscle, best mass gainers india, best mass gainer in india, best workout supplement for muscle gain, best products for muscle gain, best workout supplements for muscle gain, best product for muscle gain, best peanut butter for weight gaining, gain weight with supplements, whey protein isolate best, best supplements for gaining muscle, india best mass gainer, gym protein, isolate protein best, supplements that gain weight, best weight loss products, indian best mass gainer, top weight loss products, best products for lose weight, good weight loss products, weight gainer for man, best products for weight loss, best multiple vitamin, best test booster, weight gain food supplements, weight loss best products, good weight loss product, best product for lose weight, good product for weight loss, best products for losing weight, best losing weight products, best product for losing weight, protein shops, top rated whey protein isolate, best creatine supplement in india, best peanut butter for gaining weight, good products for weight loss,protein bar chocolate, weight gain diet supplements, best multiple vitamins, best creatine powder in india, accessories for gym men, best product weight loss, whey isolate, 
                best peanut butter india, gym accessories for guys, protein bars chocolate, outfits for gym, weight gain for males, peanut butter for weight gain, whey protein one scoop nutrition, best peanut butter to gain weight, best protein isolate whey, best whey protein powder for building muscle, best protein powder for gaining muscle mass, best protein powder to gain muscle mass, best whey protein powder for muscle building, best protein supplement for weight loss, supplements for weight gain, protein powder weight gain, best protein supplement to gain muscle, gaining weight supplements, best protein supplement to build muscle, best protein powder for women, weight gainer protein, protein supplement to gain weight, protein powder gain weight, protein powder weight gainer, best protein whey for building muscle, best protein powder for gain muscle, best protein powder for ladies, best protein powder weight loss, weight gain whey protein, best protein powder for muscle building, whey protein gain weight,
@@ -248,17 +248,20 @@ function PrivacyPolicyCustomer() {
                  muscle growth protein powder, fat loss diet supplements, fat burning diet supplements, fat burning food supplements, mb whey protein 2kg, mass gainer protein powder, muscle building protein powder, best whey protein powder, supplements for fat burn, pre workout supplement powder, protein powder for building muscle mass, supplements for fat burning, which is best whey protein, which whey protein best, which whey protein is the best, cheap protein whey, which whey protein is better, protein whey 2kg, 4kg whey protein, protein 2kg whey, post workout, preworkout powder, workout post, bcaa protein, cheap whey protein, fat loss supplements, 1kg protein powder, fat burner supplement, protein whey weight loss, burn fat burner supplement, weight gainer powder for male, fat burning dietary supplements, which is the best whey protein supplement, muscle gaining protein powder, fat burner dietary supplement, low cost whey protein, whey protein & weight loss, supplements for burning fat, cheapest whey protein, whey protein cheapest, cheapest protein whey, fat loss whey protein, muscle recovery.in, whey protein affordable, muscle protein, gym backpack, fat burning supplements, fat burner supplements, which peanut butter is best for weight gain, whey protein in weight loss, gym bottle shaker, best pre workout supplement india, best pre workout supplements in india, protein whey lose weight, protein supplements to gain muscle, weight gain powder for male, protein shake for weight gain female, whey protein shop near me, gym bags backpack, peanut butter as protein, top rated whey protein powder, best pre workouts in india, weight gain protein powder for women, weight loss with whey protein,
                   weight gainer protein powder for women, protein powder for female weight gain, protein whey and weight loss, protein supplements for women weight gain, cheapest price whey protein, whey protein fat loss, protein for women, protein powder for weight gain for women, best pre workout in india, backpacks for gym, wrist protector for gym, whey protein and weight loss, whey protein for losing weight, whey protein unflavoured, supplements for weight gain for women, protein in a peanut butter, protein of peanut butter, whey protein 4kg, cheapest on whey protein, 4kg protein whey, big muscle whey, 5kg whey protein, protein peanut butter, nearby supplement shop, whey protein or whey isolate, which best whey protein, best creatine for men, weight gain supplements women, supplement shops near, protein powder for weight gain for females, gym bag backpack, supplements shop nearby, nearest supplement store, protein powder for weight gain women, 4 kg whey protein, supplement for weight gain for female, women's weight gain supplements, best brand peanut butter, gym backpack bag, supplements for weight gain women, weight gainer supplement for female, supplement for women's weight gain, whey 5 kg protein, whey protein 5kg, best multivitamin for men in india, nearby supplement store, whey protein 5 kg, whey protein vs isolate protein, iso protein vs whey protein, nutritional supplements near me, whey protein vs whey isolate, whey protein description, weight gain supplements for woman, protein of muscle, protein whey 5kg, supplement shops nearby, protein whey 5 kg, backpack for gym, full sleeve tshirt for gym, 5 kg whey protein, near supplement shop, weight gain supplements for women, whey vs whey isolate, whey protein and losing weight, peanut butter chocolate flavour, gym suit for men, full sleeve t shirts for gym, protein for woman, nutrition supplements near me, my fitness whey protein, weight gaining protein shakes for women, gym bag women's, whey vs isolate protein, pea protein supplement, near supplement store, weight gain supplements for females, mens gym wear, testosterone booster ayurveda, gym bags women's, 
                   weight gain banana, dietary supplement near me, chocolate protein powder, sports shop near by me, diet supplements near me, best multivitamins for men india, booster testosterone, how to fat burn, supplement shop near, whey isolate vs protein, whey protein vs whey protein isolate, women's protein powder for weight gain, protein powder for weight gain woman, which best peanut butter, nutrition in 100g oats, protein shakes for weight gain female, weight gain by banana, which is best peanut butter, isolate vs whey protein, weight gain protein shakes for women, isolate whey protein vs whey protein, weight gain protein powder women, big muscles whey, peanut butter content, fat burner workout, protein powder for women to gain weight, whey isolate vs whey, women protein powder for weight gain, gain weight protein shakes for women, whey isolate vs whey protein, whey protein isolate vs whey protein, protein shake for women to gain weight, protein shake to gain weight female, whey isolate vs, how do you use protein powder, difference between whey protein and whey isolate, difference between whey protein and whey isolate protein, which is the best peanut butter, peanut butter for weight loss, gain weight with creatine, guest snacks bar, protein shakes for female weight gain, creatine in body, a body of mass 5kg, 2 spoon peanut butter calories, watermelon calories 1kg, 1 tsp peanut butter protein, whey protein mean, protein shakes to gain weight female, myfitness chocolate peanut butter, 100 grams protein, top peanut butter brands, difference between whey and isolate protein, do peanut butter gain weight, peanut butter best brand, sports store coimbatore, 250 ml to grams, protein shakes for weight gain women, whey protein means, world no 1 nutrition company in india, fitness gym kolkata, banana for weight gain, whey vs plant protein"
-                />
-                <meta
-                    property="og:image"
-                    content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
-                />
-                <meta property="og:url" content="https://purego.gomzilifesciences.in/" />
-                <link rel="canonical" href={{ canonicalUrl }} />
+        />
+        <meta
+          property="og:image"
+          content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
+        />
+        <meta
+          property="og:url"
+          content="https://purego.gomzilifesciences.in/"
+        />
+        <link rel="canonical" href={{ canonicalUrl }} />
 
-                <link rel="preconnect" href="https://connect.facebook.net" />
-                <script>
-                    {`
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <script>
+          {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -270,38 +273,38 @@ function PrivacyPolicyCustomer() {
             fbq('init', '1144699046738070');
             fbq('track', 'PageView');
           `}
-                </script>
-                <noscript>
-                    {`<img height="1" width="1" style="display:none"
+        </script>
+        <noscript>
+          {`<img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
           />`}
-                </noscript>
-                <link
-                    rel="preload"
-                    href={`${process.env.PUBLIC_URL}/assets/process.env.PUBLIC_URL +  "/assets/images/nutrition/nutrition-banner-inner-14.webp`}
-                    as="image"
-                />
-                {/* Google tag (gtag.js) */}
-                <script
-                    async
-                    src="https://www.googletagmanager.com/gtag/js?id=G-J50WNKGW38"
-                ></script>
-                <script>
-                    {`
+        </noscript>
+        <link
+          rel="preload"
+          href={`${process.env.PUBLIC_URL}/assets/process.env.PUBLIC_URL +  "/assets/images/nutrition/nutrition-banner-inner-14.webp`}
+          as="image"
+        />
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-J50WNKGW38"
+        ></script>
+        <script>
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-J50WNKGW38');
           `}
-                </script>
-            </Helmet>
-            {/* <WhatsappHeaderApp
+        </script>
+      </Helmet>
+      {/* <WhatsappHeaderApp
         message={
           "Hello, I wanted to know more about all Pure Go Products. "
         }
         options={{ pageRef: true }}
       /> */}
-            {/* <div id="preloader">
+      {/* <div id="preloader">
         <div className="tg-cube-grid">
           <div className="tg-cube tg-cube1"></div>
           <div className="tg-cube tg-cube2"></div>
@@ -314,198 +317,271 @@ function PrivacyPolicyCustomer() {
           <div className="tg-cube tg-cube9"></div>
         </div>
       </div> */}
-            <NutritionHeader />
-            <button className="scroll-top scroll-to-target" data-target="html">
-                <i className="fas fa-angle-up"></i>
-            </button>
-            <main className="main-area fix">
-                <section className="breadcrumb-area breadcrumb-bg">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-xl-10">
-                                <div className="breadcrumb-content text-center">
-                                    <h2 className="title">Blog Details</h2>
-                                    <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
-                                        <ul className="breadcrumb">
-                                            <li className="breadcrumb-item trail-item trail-begin">
-                                                <a href="/">
-                                                    <span>Home</span>
-                                                </a>
-                                            </li>
-                                            <li className="breadcrumb-item trail-item trail-end">
-                                                <span>Blog Details</span>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
+      <NutritionHeader />
+      <button className="scroll-top scroll-to-target" data-target="html">
+        <i className="fas fa-angle-up"></i>
+      </button>
+      <main className="main-area fix">
+        <section className="breadcrumb-area breadcrumb-bg">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xl-10">
+                <div className="breadcrumb-content text-center">
+                  <h2 className="title">Blog Details</h2>
+                  <nav aria-label="Breadcrumbs" className="breadcrumb-trail">
+                    <ul className="breadcrumb">
+                      <li className="breadcrumb-item trail-item trail-begin">
+                        <a href="/">
+                          <span>Home</span>
+                        </a>
+                      </li>
+                      <li className="breadcrumb-item trail-item trail-end">
+                        <span>Blog Details</span>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="video-shape one">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
+              alt="shape"
+            />
+          </div>
+          <div className="video-shape two">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
+              alt="shape"
+            />
+          </div>
+        </section>
+        <section className="blog-area pt-120 pb-120">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-12">
+                <div className="blog--post--item">
+                  <div className="blog--post--content blog-details-content">
+                    <h2 className="blog--post--title">
+                      Privacy Policy for Pure Go
+                    </h2>
+                    <div className="post-text">
+                      <p>
+                        At Pure Go, we value your privacy and are committed to
+                        protecting your personal information. This Privacy
+                        Policy outlines how we collect, use, and safeguard your
+                        information when you interact with our website and
+                        services. By using our site, you consent to the
+                        practices described in this policy.
+                      </p>
+                      <div className="blog-details-wrap border-none">
+                        <h3 className="title">Information We Collect:</h3>
+                        <div className="b-details-list">
+                          <ul className="list-wrap">
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Personal Information: This includes any
+                              information that can identify you, such as your
+                              name, email address, phone number, shipping
+                              address, and payment information. We collect this
+                              information when you create an account, place an
+                              order, or subscribe to our newsletters.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Non-Personal Information: We may also collect
+                              non-personal information that cannot be used to
+                              identify you. This includes data about your
+                              device, browsing behavior, and usage patterns,
+                              which we collect through cookies and other
+                              tracking technologies.
+                            </li>
+                          </ul>
                         </div>
-                    </div>
-                    <div className="video-shape one">
-                        <img
-                            src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
-                            alt="shape"
-                        />
-                    </div>
-                    <div className="video-shape two">
-                        <img
-                            src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
-                            alt="shape"
-                        />
-                    </div>
-                </section>
-                <section className="blog-area pt-120 pb-120">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-12">
-                                <div className="blog--post--item">
-                                    <div className="blog--post--content blog-details-content">
-                                        <h2 className="blog--post--title">
-                                            Privacy Policy for Pure Go
-                                        </h2>
-                                        <div className="post-text">
-                                            <p>
-                                                At Pure Go, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your information when you interact with our website and services. By using our site, you consent to the practices described in this policy.
-                                            </p>
-                                            <div className="blog-details-wrap border-none">
-                                                <h3 className="title">Information We Collect:</h3>
-                                                <div className="b-details-list">
-                                                    <ul className="list-wrap">
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Personal Information: This includes any information that can identify you, such as your name, email address, phone number, shipping address, and payment information. We collect this information when you create an account, place an order, or subscribe to our newsletters.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Non-Personal Information: We may also collect non-personal information that cannot be used to identify you. This includes data about your device, browsing behavior, and usage patterns, which we collect through cookies and other tracking technologies.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="blog-details-wrap border-none">
-                                                <h3 className="title">How We Use Your Information:</h3>
-                                                <div className="b-details-list">
-                                                    <ul className="list-wrap">
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Order Processing: To process your orders, manage payments, and deliver products to you.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Customer Support: To respond to your inquiries, provide customer service, and assist you with your account.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Marketing Communications: To send you promotional materials, newsletters, and special offers, unless you have opted out of receiving such communications.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Website Improvement: To analyze usage patterns, enhance our website, and develop new products and services.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Compliance: To comply with legal obligations, resolve disputes, and enforce our terms and conditions.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="blog-details-wrap border-none">
-                                                <h3 className="title">Information Sharing and Disclosure:</h3>
-                                                <div className="b-details-list">
-                                                    <ul className="list-wrap">
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Service Providers: We may engage third-party companies and individuals to perform services on our behalf, such as payment processing, shipping, and marketing. These third parties have access to your personal information only to perform these tasks on our behalf and are obligated to protect it.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Legal Compliance: We may disclose your information if required to do so by law or in response to valid requests by public authorities.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Business Transfers: In the event of a merger, acquisition, or sale of all or a portion of our assets, your personal information may be transferred as part of that business transaction.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="blog-details-wrap border-none">
-                                                <h3 className="title">Data Security:</h3>
-                                                <div className="b-details-list">
-                                                    <ul className="list-wrap">
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction. However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your personal information, we cannot guarantee its absolute security.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="blog-details-wrap border-none">
-                                                <h3 className="title">Your Rights:</h3>
-                                                <div className="b-details-list">
-                                                    <ul className="list-wrap">
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Access: You may request access to the personal information we hold about you.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Correction: You may request corrections to any inaccurate or incomplete information.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Deletion: You may request the deletion of your personal information, subject to our legal obligations to retain certain information.
-                                                        </li>
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Opt-Out: You may opt out of receiving promotional communications from us at any time by following the unsubscribe instructions in the emails or contacting us directly.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="blog-details-wrap border-none">
-                                                <h3 className="title">Cookies and Tracking Technologies:</h3>
-                                                <div className="b-details-list">
-                                                    <ul className="list-wrap">
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Our website uses cookies and similar tracking technologies to enhance your experience. Cookies are small data files stored on your device that help us recognize you and track your preferences. You can manage your cookie preferences through your browser settings. However, disabling cookies may affect your ability to use certain features of our website.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="blog-details-wrap border-none">
-                                                <h3 className="title">Third-Party Links:</h3>
-                                                <div className="b-details-list">
-                                                    <ul className="list-wrap">
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these websites. We encourage you to review the privacy policies of any third-party sites you visit.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="blog-details-wrap border-none">
-                                                <h3 className="title">Changes to This Privacy Policy:</h3>
-                                                <div className="b-details-list">
-                                                    <ul className="list-wrap">
-                                                        <li>
-                                                            <i className="fas fa-check"></i>
-                                                            We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. We will notify you of any significant changes by posting the new policy on our website with a revised effective date. We encourage you to review this policy periodically for any updates.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                      </div>
+                      <div className="blog-details-wrap border-none">
+                        <h3 className="title">How We Use Your Information:</h3>
+                        <div className="b-details-list">
+                          <ul className="list-wrap">
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Order Processing: To process your orders, manage
+                              payments, and deliver products to you.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Customer Support: To respond to your inquiries,
+                              provide customer service, and assist you with your
+                              account.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Marketing Communications: To send you promotional
+                              materials, newsletters, and special offers, unless
+                              you have opted out of receiving such
+                              communications.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Website Improvement: To analyze usage patterns,
+                              enhance our website, and develop new products and
+                              services.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Compliance: To comply with legal obligations,
+                              resolve disputes, and enforce our terms and
+                              conditions.
+                            </li>
+                          </ul>
                         </div>
+                      </div>
+                      <div className="blog-details-wrap border-none">
+                        <h3 className="title">
+                          Information Sharing and Disclosure:
+                        </h3>
+                        <div className="b-details-list">
+                          <ul className="list-wrap">
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Service Providers: We may engage third-party
+                              companies and individuals to perform services on
+                              our behalf, such as payment processing, shipping,
+                              and marketing. These third parties have access to
+                              your personal information only to perform these
+                              tasks on our behalf and are obligated to protect
+                              it.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Legal Compliance: We may disclose your information
+                              if required to do so by law or in response to
+                              valid requests by public authorities.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Business Transfers: In the event of a merger,
+                              acquisition, or sale of all or a portion of our
+                              assets, your personal information may be
+                              transferred as part of that business transaction.
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="blog-details-wrap border-none">
+                        <h3 className="title">Data Security:</h3>
+                        <div className="b-details-list">
+                          <ul className="list-wrap">
+                            <li>
+                              <i className="fas fa-check"></i>
+                              We implement reasonable security measures to
+                              protect your personal information from
+                              unauthorized access, disclosure, alteration, and
+                              destruction. However, no method of transmission
+                              over the internet or electronic storage is 100%
+                              secure. While we strive to protect your personal
+                              information, we cannot guarantee its absolute
+                              security.
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="blog-details-wrap border-none">
+                        <h3 className="title">Your Rights:</h3>
+                        <div className="b-details-list">
+                          <ul className="list-wrap">
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Access: You may request access to the personal
+                              information we hold about you.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Correction: You may request corrections to any
+                              inaccurate or incomplete information.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Deletion: You may request the deletion of your
+                              personal information, subject to our legal
+                              obligations to retain certain information.
+                            </li>
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Opt-Out: You may opt out of receiving promotional
+                              communications from us at any time by following
+                              the unsubscribe instructions in the emails or
+                              contacting us directly.
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="blog-details-wrap border-none">
+                        <h3 className="title">
+                          Cookies and Tracking Technologies:
+                        </h3>
+                        <div className="b-details-list">
+                          <ul className="list-wrap">
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Our website uses cookies and similar tracking
+                              technologies to enhance your experience. Cookies
+                              are small data files stored on your device that
+                              help us recognize you and track your preferences.
+                              You can manage your cookie preferences through
+                              your browser settings. However, disabling cookies
+                              may affect your ability to use certain features of
+                              our website.
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="blog-details-wrap border-none">
+                        <h3 className="title">Third-Party Links:</h3>
+                        <div className="b-details-list">
+                          <ul className="list-wrap">
+                            <li>
+                              <i className="fas fa-check"></i>
+                              Our website may contain links to third-party
+                              websites. We are not responsible for the privacy
+                              practices or content of these websites. We
+                              encourage you to review the privacy policies of
+                              any third-party sites you visit.
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="blog-details-wrap border-none">
+                        <h3 className="title">
+                          Changes to This Privacy Policy:
+                        </h3>
+                        <div className="b-details-list">
+                          <ul className="list-wrap">
+                            <li>
+                              <i className="fas fa-check"></i>
+                              We may update this Privacy Policy from time to
+                              time to reflect changes in our practices or
+                              applicable laws. We will notify you of any
+                              significant changes by posting the new policy on
+                              our website with a revised effective date. We
+                              encourage you to review this policy periodically
+                              for any updates.
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                </section>
-            </main>
-            <HomeNutritionFooter />
-        </>
-    );
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <HomeNutritionFooter />
+    </>
+  );
 }
 
 export default PrivacyPolicyCustomer;

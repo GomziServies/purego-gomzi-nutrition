@@ -141,7 +141,7 @@ function Home() {
         item_type: "PURE_GO_MEAL_PRODUCT",
       });
       if (response.data.response === "OK") {
-        fetchProductData()
+        fetchProductData();
       }
     } catch (error) {
       console.error(error);
@@ -174,7 +174,7 @@ function Home() {
         />
         <meta
           name="keyword"
-          content="purego, protein powder, creatine protein powder, preworkout, bodybuilding supplement, lean whey protein powder, whey protein powder, eaa powder, bcaa supplement, vegan protein powder, best protein powder, bcaa, best pre workout, vegan protein, whey protein isolate, best protein powder for women, best vegan protein powder, protein powder for weight loss, best protein powder for weight loss, organic protein powder, isolate protein, best supplements for muscle growth, whey isolate protein powder, best pre workout for men, best whey protein powder, best pre workout for women, best whey protein, bcaa powder, protein whey, pre workout for women, creatine monohydrate powder, best protein powder for muscle gain, best muscle building supplements, chocolate protein powder"
+          content="purego, protein powder, creatine protein powder, preworkout, bodybuilding supplement, lean whey protein powder, whey protein powder, eaa powder, bcaa supplement, protein powder, best protein powder, bcaa, best pre workout, protein powder, whey protein isolate, best protein powder for women, best protein powder, protein powder for weight loss, best protein powder for weight loss, organic protein powder, isolate protein, best supplements for muscle growth, whey isolate protein powder, best pre workout for men, best whey protein powder, best pre workout for women, best whey protein, bcaa powder, protein whey, pre workout for women, creatine monohydrate powder, best protein powder for muscle gain, best muscle building supplements, chocolate protein powder"
         />
         <meta
           property="og:image"
@@ -186,6 +186,7 @@ function Home() {
         />
         <link rel="canonical" href={{ canonicalUrl }} />
 
+        {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
           {`
@@ -228,16 +229,15 @@ function Home() {
       <p className="d-none">
         purego, protein powder, creatine protein powder, preworkout,
         bodybuilding supplement, lean whey protein powder, whey protein powder,
-        eaa powder, bcaa supplement, vegan protein powder, best protein powder,
-        bcaa, best pre workout, vegan protein, whey protein isolate, best
-        protein powder for women, best vegan protein powder, protein powder for
-        weight loss, best protein powder for weight loss, organic protein
-        powder, isolate protein, best supplements for muscle growth, whey
-        isolate protein powder, best pre workout for men, best whey protein
-        powder, best pre workout for women, best whey protein, bcaa powder,
-        protein whey, pre workout for women, creatine monohydrate powder, best
-        protein powder for muscle gain, best muscle building supplements,
-        chocolate protein powder
+        eaa powder, bcaa supplement, protein powder, best protein powder, bcaa,
+        best pre workout, protein powder, whey protein isolate, best protein
+        powder for women, best protein powder, protein powder for weight loss,
+        best protein powder for weight loss, organic protein powder, isolate
+        protein, best supplements for muscle growth, whey isolate protein
+        powder, best pre workout for men, best whey protein powder, best pre
+        workout for women, best whey protein, bcaa powder, protein whey, pre
+        workout for women, creatine monohydrate powder, best protein powder for
+        muscle gain, best muscle building supplements, chocolate protein powder
       </p>
       {showModal && <LoginModal onClose={closeModal} />}
       <NutritionHeader cartItemName={cartItemName} />
@@ -2293,83 +2293,119 @@ function Home() {
                     <Accordion defaultActiveKey={["1"]} alwaysOpen>
                       <Accordion.Item eventKey="1" className="mt-3 p-md-4 p-3">
                         <Accordion.Header className="f-18 lp-2">
-                          What makes Purego products different?
+                          Is protein only used for muscle development?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Purego stands out with 100% natural ingredients,
-                          ensuring maximum wellness benefits without any harmful
-                          additives.
+                          A lot of people think that protein is only used for
+                          muscle growth and repair, however it can provide a lot
+                          of other benefits, such as refueling your stores of
+                          nutrients and amino acids which have been lost during
+                          exercise.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="2" className="mt-3 p-md-4 p-3">
                         <Accordion.Header className="f-18 lp-2">
-                          Are Purego products vegan-friendly?
+                          What is whey protein?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Yes, all Purego products are vegan, cruelty-free, and
-                          made with plant-based ingredients, offering a natural
-                          wellness solution for all.
+                          Whey is a "complete" protein, meaning it contains all
+                          the essential amino acids that the human body requires
+                          for proper repair and function. Whey protein is also a
+                          rich source of the branched chain amino acids,
+                          L-Leucine, L-Isoleucine and L-Valine.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="3" className="mt-3 p-md-4 p-3">
                         <Accordion.Header className="f-18 lp-2">
-                          Do Purego supplements have any side effects?
+                          Difference between whey protein isolate and whey
+                          protein concentrate?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Purego supplements are formulated with safe, organic
-                          ingredients and have no known side effects when used
-                          as directed.
+                          According to the Food and Drug Administration, whey
+                          protein isolate is a natural dairy protein powder made
+                          up of at least 90% protein. As a protein source, whey
+                          protein isolate contains more protein than whey
+                          protein concentrate, which contains about 80% protein.
+                          In addition, whey protein isolate contains almost no
+                          sugar, lactose or fat. Although whey protein isolate
+                          packs more protein, whey protein concentrate is the
+                          most economical option per gram of protein.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="4" className="mt-3 p-md-4 p-3">
                         <Accordion.Header className="f-18 lp-2 me-2">
-                          Are Purego products gluten-free?
+                          Can those who are lactose intolerant eat whey protein?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Yes, all Purego products are 100% gluten-free, making
-                          them suitable for those with dietary restrictions or
-                          sensitivities.
+                          Whey protein isolate is virtually free of lactose, but
+                          may contain trace amounts (0.5g per serving). Most
+                          people who are lactose intolerant are able to safely
+                          consume whey without any negative side effects however
+                          a medical practitioner should always be consulted
+                          before taking if there are any doubts.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="5" className="mt-3 p-md-4 p-3">
                         <Accordion.Header className="f-18 lp-2">
-                          How do Purego products improve immunity?
+                          If whey protein concentrate is 80% protein, what is
+                          the other 20%?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Purego's herbal ingredients are carefully selected to
-                          strengthen your immune system naturally, supporting
-                          overall health and wellness.
+                          Every protein powder, whether it's whey, soy, casein,
+                          etc., has moisture. In fact, 5% of the total formula
+                          is water. Another 3-5% is made up of naturally
+                          occurring minerals in whey. The remaining 10-12% is a
+                          combination of carbs and fat.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="6" className="mt-3 p-md-4 p-3">
                         <Accordion.Header className="f-18 lp-2">
-                          Can I take Purego products on a daily basis?
+                          Will A Higher Protein Diet Harm My Kidneys?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Absolutely! Purego products are safe for daily use,
-                          designed to enhance long-term health when taken as
-                          part of a balanced routine.
+                          According to a study published in the "American
+                          Journal of Kidney Disease," anyone who is currently
+                          suffering from chronic kidney disease should avoid
+                          high-protein diets. For otherwise healthy folk, your
+                          high protein intake should not pose a threat to your
+                          kidneys; make sure to keep your total daily protein
+                          consumption reasonable and consume sufficient water to
+                          counteract the water loss. Check with your doctor
+                          first if you are concerned about this.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="7" className="mt-3 p-md-4 p-3">
                         <Accordion.Header className="f-18 lp-2 me-2">
-                          Where are Purego products made?
+                          Will More Protein Help Me Build Muscle Faster?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Purego products are manufactured in India, adhering to
-                          the highest quality standards and certifications to
-                          ensure premium wellness.
+                          Yes, but only to some degree. Not all dietary protein
+                          you eat goes toward protein synthesis. Once you eat
+                          enough protein to drive protein synthesis, your body
+                          will oxidize protein for energy. Driving your protein
+                          intake far beyond the realm of 30-35 percent of your
+                          daily calories probably won't provide additional
+                          muscle-building benefits, but it will cut into your
+                          fat and carbohydrate intake, which may actually hinder
+                          your goals. This isn't exact, but eating at least 1
+                          gram of protein per pound per day should cover your
+                          bases.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="8" className="mt-3 p-md-4 p-3">
                         <Accordion.Header className="f-18 lp-2">
-                          How long does it take to see results with Purego
-                          products?
+                          Is It True The Body Can Only Use 30 Grams Of Protein
+                          At Once?
                         </Accordion.Header>
                         <Accordion.Body className="mt-3 f-rob-reg f-14 lp-2">
-                          Results vary by individual, but many customers report
-                          noticeable improvements in energy and wellness within
-                          a few weeks of consistent use.
+                          You're going to digest all the protein you eat, but
+                          more isn't always better. Once you turn on protein
+                          synthesis and initiate the muscle-building process,
+                          you can't turn it on "more" in one meal. Roughly 30
+                          grams of protein per meal across multiple meals will
+                          actually help you boost protein synthesis many times
+                          over the course of a day. It will probably be easier
+                          on your digestive system, too.
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
