@@ -400,7 +400,7 @@ function PureGoCreatine() {
           step2="Mix 1 scoop of Creatine Monohydrate"
         />
         <Review />
-        <section className="inner-shop-details-area">
+        <section className="inner-shop-details-area pt-0">
           <div className="container">
             <div className="row">
               <div className="col-12">

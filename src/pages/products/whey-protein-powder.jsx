@@ -507,15 +507,29 @@ function PureGoWheyProtein() {
           </div>
         </section>
         <HowToUse
-          src1="step-1.mp4"
-          src2="step-2.mp4"
-          src3="step-3.mp4"
-          src4="step-4.mp4"
+          src1={
+            currentProductData.name === "Whey Protein 1kg Mawa Kulfi"
+              ? "step-1.mp4"
+              : currentProductData.name === "Whey Protein 1kg Chocolate" ||
+                currentProductData.name === "Whey Protein 1kg Mocha Coffee"
+              ? "mocha-coffee-1.mp4"
+              : "step-1.mp4"
+          }
+          src2="mocha-coffee-2.mp4"
+          src3="mocha-coffee-3.mp4"
+          src4={
+            currentProductData.name === "Whey Protein 1kg Mawa Kulfi"
+              ? "step-4.mp4"
+              : currentProductData.name === "Whey Protein 1kg Chocolate" ||
+                currentProductData.name === "Whey Protein 1kg Mocha Coffee"
+              ? "mocha-coffee-4.mp4"
+              : "step-4.mp4"
+          }
           step1="Add 300 ml of water/milk"
           step2="Mix 1 scoop of Protein"
         />
         <Review />
-        <section className="inner-shop-details-area">
+        <section className="inner-shop-details-area pt-0 pb-5">
           <div className="container">
             <div className="row">
               <div className="col-12">

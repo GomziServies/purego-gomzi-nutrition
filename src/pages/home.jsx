@@ -22,8 +22,9 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import ModalVideo from "react-modal-video";
 import { Link } from "react-router-dom";
 import HappyClientReview from "../components/happyClient";
-import { axiosInstance } from "../assets/js/config/api";
+import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import LoginModal from "../assets/js/popup/login";
+import Swal from "sweetalert2";
 
 function Home() {
   const canonicalUrl = window.location.href;
@@ -50,6 +51,16 @@ function Home() {
   };
 
   const [cartItemName, setCartItemName] = useState([]);
+  const [productsId, setProductsId] = useState([
+    "67e7749163f930dcc6a2715d",
+    "67e774a963f930dcc6a2715f",
+    "67e774c463f930dcc6a27161",
+    "67e7745f63f930dcc6a2715b",
+    "67e7740363f930dcc6a27157",
+    "67e7742d63f930dcc6a27159",
+    "67e773f463f930dcc6a27155",
+  ]);
+  const [productReviewsData, setProductReviewsData] = useState([]);
 
   const fetchProductData = async () => {
     try {
@@ -59,9 +70,51 @@ function Home() {
       const cartData = response.data.data[0];
       const cartItemData = cartData.items_details.map((data) => data.name);
       setCartItemName(cartItemData);
+      productsId.map((data) => fetchProductRatingData(data));
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
+  };
+
+  const fetchProductRatingData = (product_id) => {
+    publicAxiosInstance
+      .get(`/feedback/products?product_id=${product_id}`)
+      .then((response) => {
+        const { data } = response;
+        if (data && data.status === 200) {
+          const feedback = data.data;
+          if (feedback && feedback.length > 0) {
+            let totalPoints = 0;
+            let feedbackCount = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
+            feedback.forEach((feedbackItem) => {
+              totalPoints += feedbackItem.feedback_point;
+              feedbackCount[feedbackItem.feedback_point]++;
+            });
+            const averagePoints = totalPoints / feedback.length;
+
+            setProductReviewsData((prevData) => {
+              const filteredData = prevData.filter(
+                (item) => item._id !== product_id
+              );
+              const newEntry = {
+                _id: product_id,
+                average_points: averagePoints.toFixed(1),
+                total_count: feedback.length,
+              };
+              return [...filteredData, newEntry];
+            });
+          }
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching product feedback:", error);
+        Swal.fire({
+          title: "Error",
+          text: "Failed to fetch product feedback. Please try again later.",
+          icon: "error",
+        });
+      });
   };
 
   useEffect(() => {
@@ -456,10 +509,22 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                              4.5
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.average_points
+                              )}
+                              {/* 4.5 */}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">30 reviews</div>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -576,10 +641,18 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                              4.5
+                            {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.average_points
+                              )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">30 reviews</div>
+                            <div className="item-reviews ms-1">{productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.total_count
+                              )}{" "} reviews</div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -696,10 +769,18 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                              4.5
+                            {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.average_points
+                              )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">30 reviews</div>
+                            <div className="item-reviews ms-1">{productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.total_count
+                              )}{" "} reviews</div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -816,10 +897,18 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                              4.5
+                            {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7745f63f930dcc6a2715b" &&
+                                  product.average_points
+                              )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">24 reviews</div>
+                            <div className="item-reviews ms-1">{productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7745f63f930dcc6a2715b" &&
+                                  product.total_count
+                              )}{" "} reviews</div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -943,10 +1032,18 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                              4.5
+                            {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7740363f930dcc6a27157" &&
+                                  product.average_points
+                              )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">12 reviews</div>
+                            <div className="item-reviews ms-1">{productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7740363f930dcc6a27157" &&
+                                  product.total_count
+                              )}{" "} reviews</div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -1064,10 +1161,18 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                              4.5
+                            {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7742d63f930dcc6a27159" &&
+                                  product.average_points
+                              )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">12 reviews</div>
+                            <div className="item-reviews ms-1">{productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7742d63f930dcc6a27159" &&
+                                  product.total_count
+                              )}{" "} reviews</div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -1186,10 +1291,18 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                              4.5
+                            {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e773f463f930dcc6a27155" &&
+                                  product.average_points
+                              )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">12 reviews</div>
+                            <div className="item-reviews ms-1">{productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e773f463f930dcc6a27155" &&
+                                  product.total_count
+                              )}{" "} reviews</div>
                           </div>
                           <span className="item-veg">
                             <img
