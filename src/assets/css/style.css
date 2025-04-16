@@ -11091,3 +11091,14 @@ body.search-visible {
 .bg-happy-client {
   background-color: #f5f5f5;
 }
+
+.shipping .box {
+  border: 3.5px dashed #86c33a;
+  padding: 10px;
+}
+
+.box-title {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}

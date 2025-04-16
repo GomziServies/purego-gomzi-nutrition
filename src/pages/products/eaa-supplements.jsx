@@ -22,6 +22,7 @@ import SelectableList from "../../components/SelectableList";
 import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 import LoginModal from "../../assets/js/popup/login";
+import Features from "../../components/Features";
 
 function PureGoEaa() {
   const canonicalUrl = window.location.href;
@@ -241,92 +242,7 @@ function PureGoEaa() {
                       add to cart
                     </button>
                   </div>
-                  <div className="row">
-                    <div className="col-md-3 shipping">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/fast-delivery.png"
-                        }
-                        alt="img"
-                        width="45px"
-                      />
-                      <div className="product-desc-content">
-                        <h4 className="title">Pure Go EAA</h4>
-                      </div>
-                    </div>
-                    <div className="col-md-3 shipping">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL + "/assets/images/original.png"
-                        }
-                        alt="img"
-                        width="45px"
-                      />
-                    </div>
-                    <div className="col-md-3 shipping">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL + "/assets/images/return.png"
-                        }
-                        alt="img"
-                        width="45px"
-                      />
-                    </div>
-                    <div className="col-md-3 shipping">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/cash-on-delivery.png"
-                        }
-                        alt="img"
-                        width="45px"
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-3 shipping">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/fast-delivery.png"
-                        }
-                        alt="img"
-                        width="45px"
-                      />
-                      <div className="product-desc-content">
-                        <h4 className="title">Pure Go EAA</h4>
-                      </div>
-                    </div>
-                    <div className="col-md-3 shipping">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL + "/assets/images/original.png"
-                        }
-                        alt="img"
-                        width="45px"
-                      />
-                    </div>
-                    <div className="col-md-3 shipping">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL + "/assets/images/return.png"
-                        }
-                        alt="img"
-                        width="45px"
-                      />
-                    </div>
-                    <div className="col-md-3 shipping">
-                      <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          "/assets/images/cash-on-delivery.png"
-                        }
-                        alt="img"
-                        width="45px"
-                      />
-                    </div>
-                  </div>
+                  <Features />
                 </div>
               </div>
             </div>

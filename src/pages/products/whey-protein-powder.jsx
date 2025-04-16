@@ -23,6 +23,7 @@ import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 import { useLocation } from "react-router";
 import LoginModal from "../../assets/js/popup/login";
+import Features from "../../components/Features";
 
 function PureGoWheyProtein() {
   const location = useLocation();
@@ -293,6 +294,7 @@ function PureGoWheyProtein() {
                       add to cart
                     </button>
                   </div>
+                  <Features />
                 </div>
               </div>
             </div>

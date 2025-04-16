@@ -22,6 +22,7 @@ import SelectableList from "../../components/SelectableList";
 import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 import LoginModal from "../../assets/js/popup/login";
+import Features from "../../components/Features";
 
 function PureGoPreWorkout() {
   const canonicalUrl = window.location.href;
@@ -240,6 +241,7 @@ function PureGoPreWorkout() {
                       add to cart
                     </button>
                   </div>
+                  <Features />
                 </div>
               </div>
             </div>
