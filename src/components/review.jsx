@@ -3,7 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import ModalVideo from "react-modal-video";
 import OwlCarousel from "react-owl-carousel";
 
-const Review = ({}) => {
+const Review = () => {
   const [videoUrl, setVideoUrl] = useState("");
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
@@ -189,7 +189,7 @@ const Review = ({}) => {
                         <LazyLoadImage
                           src={
                             process.env.PUBLIC_URL +
-                            "/assets/images/nutri-review-video-1.webp"
+                            "/assets/images/nutrition/nutri-review-video-1.webp"
                           }
                           width="100%"
                           style={{ borderRadius: "10px" }}
@@ -198,7 +198,7 @@ const Review = ({}) => {
                         />
                         <div className="video-btn play-btn">
                           <button
-                            onClick={() => openVideoModal("JwFMBFESiMc")}
+                            onClick={() => openVideoModal("csBhPw9y9Tg")}
                             className="custom clickof video-button-bg"
                           >
                             <span className="newthing">
@@ -210,14 +210,14 @@ const Review = ({}) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-4 mt-lg-4 ">
+                <div className="col-lg-4 mt-md-4 mt-3">
                   <div className="item">
                     <div className="blog p-0" style={{ borderRadius: "10px" }}>
                       <div className="ply position-relative">
                         <LazyLoadImage
                           src={
                             process.env.PUBLIC_URL +
-                            "/assets/images/nutri-review-video-2.webp"
+                            "/assets/images/nutrition/nutri-review-video-2.webp"
                           }
                           width="100%"
                           style={{ borderRadius: "10px" }}
@@ -226,7 +226,7 @@ const Review = ({}) => {
                         />
                         <div className="video-btn play-btn">
                           <button
-                            onClick={() => openVideoModal("xd_w8FefEHw")}
+                            onClick={() => openVideoModal("O0GamLskFzY")}
                             className="custom clickof video-button-bg"
                           >
                             <span className="newthing">
@@ -238,14 +238,14 @@ const Review = ({}) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-4 mt-lg-4 ">
+                <div className="col-lg-4 mt-md-4 mt-3">
                   <div className="item">
                     <div className="blog p-0" style={{ borderRadius: "10px" }}>
                       <div className="ply position-relative">
                         <LazyLoadImage
                           src={
                             process.env.PUBLIC_URL +
-                            "/assets/images/nutri-review-video-3.webp"
+                            "/assets/images/nutrition/nutri-review-video-3.webp"
                           }
                           width="100%"
                           style={{ borderRadius: "10px" }}
@@ -254,7 +254,7 @@ const Review = ({}) => {
                         />
                         <div className="video-btn play-btn">
                           <button
-                            onClick={() => openVideoModal("EKZBQchoO4E")}
+                            onClick={() => openVideoModal("Xo_W-xYsL5w")}
                             className="custom clickof video-button-bg"
                           >
                             <span className="newthing">
