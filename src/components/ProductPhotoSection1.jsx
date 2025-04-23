@@ -30,7 +30,7 @@ function ProductPhotoSection1({
   }
 
   return (
-    <div className="col-12 p-0 product-hori-slider-main">
+    <div className="col-12 p-0 product-hori-slider-main position-relative">
       <div className="product-imgs one-book singal-product-img d-none d-lg-block">
         <div className="row">
           <div className="col-12">

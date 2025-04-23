@@ -499,6 +499,13 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
+                    <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="25%"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                    </div>
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -631,6 +638,13 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
+                    <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="25%"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                    </div>
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -759,6 +773,13 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
+                    <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="25%"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                    </div>
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -887,6 +908,13 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
+                    <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="25%"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                    </div>
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -1022,6 +1050,13 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
+                    <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="25%"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                    </div>
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -1151,6 +1186,13 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
+                    <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="25%"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                    </div>
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -1281,6 +1323,13 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
+                    <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="25%"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                    </div>
                   </div>
                   <div className="item-card-detail">
                     <div>

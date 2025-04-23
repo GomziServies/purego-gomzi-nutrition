@@ -1,8 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
+import { axiosInstance } from "../assets/js/config/api";
+import { toast } from "react-toastify";
 const Features = () => {
+  const [pincode, setPincode] = useState(null);
+
+  const searchPincode = async () => {
+    try {
+      const payload = {
+        pincode: pincode,
+      };
+      const response = await axiosInstance.post(
+        "/insights/icarry/check-pincode",
+        payload
+      );
+
+      const data = response.data;
+      console.log("data :- ", data.data.msg[0].cod);
+
+      if (data.data.msg[0].cod === "Y") {
+        toast.success("Success! Your city is available for delivery.");
+      } else if (data.data.msg[0].cod === "N") {
+        toast.error(
+          "Sorry, your city is currently not available for delivery."
+        );
+      }
+    } catch (error) {
+      console.error("Error submitting pincode:", error);
+      toast.error("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <>
-      <div className="row border-top pt-3 mt-3">
+      <div className="row border-top pt-4 mt-3 pb-3">
+        <div className="col-12 pt-1">
+          <label className="delivery-label">Check Delivery Date</label>
+          <div className="d-flex">
+            <input
+              type="text"
+              className="delivery-input w-100"
+              placeholder="Enter Delivery Pincode"
+              onChange={(e) => setPincode(e.target.value)}
+              maxLength={6}
+            />
+            <button
+              className="cart-btn delivery-btn m-0"
+              onClick={searchPincode}
+            >
+              Check
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="row border-top pt-3 mt-4">
         <div className="col-md-3 shipping p-2 text-center col-6">
           <div className="box">
             <img

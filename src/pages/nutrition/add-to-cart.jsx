@@ -448,10 +448,10 @@ function AddToCart() {
                       Subtotal <span>₹{totalAmount?.toFixed(2)}</span>
                     </li>
                     <li>
-                      Delivery Charges{" "}
-                      <span>{totalAmount <= 499 ? "₹85" : "FREE"}</span>
+                      Extra Charges{" "}
+                      <span>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     </li>
-                    <li>
+                    <li className="fs-5">
                       Total{" "}
                       <span className="amount">₹{totalAmount?.toFixed(2)}</span>
                     </li>

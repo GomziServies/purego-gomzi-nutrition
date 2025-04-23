@@ -218,7 +218,7 @@ function PureGoWheyProtein() {
             <div className="row">
               <div className="col-lg-5">
                 <div
-                  className="product-image-container"
+                  className="product-image-container black-before"
                   ref={imageRef}
                   style={{
                     opacity: opacity,
@@ -253,14 +253,14 @@ function PureGoWheyProtein() {
                     </ul>
                   </div>
                   <div className="inner-shop-details-price">
-                    <h2 className="price d-flex">
+                    <h2 className="price d-flex mb-0">
                       ₹{currentProductData.discount}/-
                       <span className="old-prices">
                         ₹{currentProductData.price}/-
                       </span>
                     </h2>
                     <h5 className="stock-status">
-                      {currentProductData.dis_point}
+                      ({currentProductData.dis_point} OFF)
                     </h5>
                   </div>
                   <p>
@@ -303,8 +303,7 @@ function PureGoWheyProtein() {
                 <div className="product-desc-wrap">
                   <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
                     <li className="nav-item">
-                      <a
-                        href="#"
+                      <button
                         className="nav-link active"
                         id="description-tab"
                         data-bs-toggle="tab"
@@ -314,7 +313,7 @@ function PureGoWheyProtein() {
                         aria-selected="true"
                       >
                         Description
-                      </a>
+                      </button>
                     </li>
                   </ul>
                   <div className="tab-content" id="myTabContentTwo">

@@ -187,71 +187,71 @@ export const createProductOrder = async (
 
     const result = await axiosInstance.post("/meals/create-order", payload);
 
-    if (
-      (result &&
-        result.data &&
-        result.data.status === 200 &&
-        result.data.message === "COD Order Created Successfully") ||
-      (result &&
-        result.status === 200 &&
-        result.response === "OK" &&
-        result.message === "COD Order Created Successfully")
-    ) {
-      Swal.fire({
-        title: "Success",
-        text: "Please check your email for the invoice.",
-        icon: "success",
-      }).then(() => {
-        // Remove temporary data and coupon id
-        localStorage.removeItem("tmp_ProductPurchasePayload");
-        localStorage.removeItem("coupon_id");
-        // Redirect to Order Page
-        window.location.href = "/user/order";
-      });
+    // if (
+    //   (result &&
+    //     result.data &&
+    //     result.data.status === 200 &&
+    //     result.data.message === "COD Order Created Successfully") ||
+    //   (result &&
+    //     result.status === 200 &&
+    //     result.response === "OK" &&
+    //     result.message === "COD Order Created Successfully")
+    // ) {
+    //   Swal.fire({
+    //     title: "Success",
+    //     text: "Please check your email for the invoice.",
+    //     icon: "success",
+    //   }).then(() => {
+    //     // Remove temporary data and coupon id
+    //     localStorage.removeItem("tmp_ProductPurchasePayload");
+    //     localStorage.removeItem("coupon_id");
+    //     // Redirect to Order Page
+    //     window.location.href = "/user/order";
+    //   });
 
-      return { showLoginModal: false, success: true };
-    } else if (result && result.data) {
-      result.data.data.handler = () => {
-        localStorage.removeItem("tmp_ProductPurchasePayload");
-        Swal.fire({
-          title: "Success",
-          text: "Please check your email for the invoice.",
-          icon: "success",
-        }).then(() => {
-          localStorage.removeItem("coupon_id");
-          window.location.href = "/user/order";
-        });
-      };
+    //   return { showLoginModal: false, success: true };
+    // } else if (result && result.data) {
+    //   result.data.data.handler = () => {
+    //     localStorage.removeItem("tmp_ProductPurchasePayload");
+    //     Swal.fire({
+    //       title: "Success",
+    //       text: "Please check your email for the invoice.",
+    //       icon: "success",
+    //     }).then(() => {
+    //       localStorage.removeItem("coupon_id");
+    //       window.location.href = "/user/order";
+    //     });
+    //   };
 
-      result.data.data.hidden = {
-        contact: false,
-        email: false,
-      };
-      new window.Razorpay(result.data.data).open();
-      return { showLoginModal: false, success: true };
-    } else if (result && result.status === 200) {
-      result.data.data.handler = () => {
-        localStorage.removeItem("tmp_ProductPurchasePayload");
-        Swal.fire({
-          title: "Success",
-          text: "Please check your email for the invoice.",
-          icon: "success",
-        }).then(() => {
-          // Remove coupon id
-          localStorage.removeItem("coupon_id");
+    //   result.data.data.hidden = {
+    //     contact: false,
+    //     email: false,
+    //   };
+    //   new window.Razorpay(result.data.data).open();
+    //   return { showLoginModal: false, success: true };
+    // } else if (result && result.status === 200) {
+    //   result.data.data.handler = () => {
+    //     localStorage.removeItem("tmp_ProductPurchasePayload");
+    //     Swal.fire({
+    //       title: "Success",
+    //       text: "Please check your email for the invoice.",
+    //       icon: "success",
+    //     }).then(() => {
+    //       // Remove coupon id
+    //       localStorage.removeItem("coupon_id");
 
-          // Redirect to Order Page
-          window.location.href = "/user/order";
-        });
-      };
+    //       // Redirect to Order Page
+    //       window.location.href = "/user/order";
+    //     });
+    //   };
 
-      result.data.data.hidden = {
-        contact: false,
-        email: false,
-      };
-      new window.Razorpay(result.data.data).open();
-      return { showLoginModal: false, success: true };
-    }
+    //   result.data.data.hidden = {
+    //     contact: false,
+    //     email: false,
+    //   };
+    //   new window.Razorpay(result.data.data).open();
+    //   return { showLoginModal: false, success: true };
+    // }
   } catch (error) {
     if (error.response && error.response.data.status === 401) {
       console.error("error response");
