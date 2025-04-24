@@ -52,24 +52,7 @@ const Features = () => {
           </div>
         </div>
       </div>
-      <div className="row border-top pt-4 mt-3 pb-3">
-        <div className="col-12 pt-1 px-0">
-          <label className="delivery-label">Offers</label>
-          <div className="col-md-4 shipping p-2 text-center col-6">
-            <div className="offer-box">
-              <img
-                src={
-                  process.env.PUBLIC_URL + "/assets/images/fast-delivery.png"
-                }
-                alt="img"
-                width="45px"
-              />
-              <h4 className="box-title">Fast delivery</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row border-top pt-3 mt-4">
+      <div className="row border-top pt-3 mt-4 mx-0">
         <div className="col-md-3 shipping p-2 text-center col-6">
           <div className="box">
             <img
@@ -110,6 +93,49 @@ const Features = () => {
               width="45px"
             />
             <h4 className="box-title">Cash on delivery</h4>
+          </div>
+        </div>
+      </div>
+      <div className="border-top pt-4 mt-3 pb-3">
+        <div className="offer-main-box">
+          <label className="delivery-label">Offers</label>
+          <div className="row pt-1 px-0">
+            <div className="col-md-12 my-2 shipping text-center p-0 col-6">
+              <div className="offer-box mx-2 px-3">
+                <h4 className="box-title m-0 text-start me-2 text-danger">
+                  Cashback :{" "}
+                  <span className="offer-desc">
+                    Get GST invoice and save up to 28% on business purchGet GST
+                    invoice and save up to 28% on business purchGet GST invoice
+                    and save up to 28% on business purch...
+                  </span>
+                </h4>
+              </div>
+            </div>
+            <div className="col-md-12 my-2 shipping text-center p-0 col-6">
+              <div className="offer-box mx-2 px-3">
+                <h4 className="box-title m-0 text-start me-2 text-danger">
+                  Bank Offer :{" "}
+                  <span className="offer-desc">
+                    Get GST invoice and save up to 28% on business purchGet GST
+                    invoice and save up to 28% on business purchGet GST invoice
+                    and save up to 28% on business purch...
+                  </span>
+                </h4>
+              </div>
+            </div>
+            <div className="col-md-12 my-2 shipping text-center p-0 col-6">
+              <div className="offer-box mx-2 px-3">
+                <h4 className="box-title m-0 text-start me-2 text-danger">
+                  Partner Offers :{" "}
+                  <span className="offer-desc">
+                    Get GST invoice and save up to 28% on business purchGet GST
+                    invoice and save up to 28% on business purchGet GST invoice
+                    and save up to 28% on business purch...
+                  </span>
+                </h4>
+              </div>
+            </div>
           </div>
         </div>
       </div>

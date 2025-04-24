@@ -583,7 +583,6 @@ function AddToCart() {
             </div>
           </div>
         </div>
-
         <section className="features-products">
           <div className="section-title text-center mb-60">
             <p className="sub-title">.. Increased Wellness With Purego ..</p>

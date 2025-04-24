@@ -273,21 +273,23 @@ function PureGoWheyProtein() {
                     whey protein per serving (30g scoop). The benchmark and
                     premium source of protein powders.
                   </p>
-                  <div>
-                    <SelectableList
-                      items={sizeOptions}
-                      activeItem={activeSize}
-                      onItemClick={handleSelectSize}
-                      title="Size"
-                    />
-                  </div>
-                  <div>
-                    <SelectableList
-                      items={flavorOptions}
-                      activeItem={activeFlavor}
-                      onItemClick={handleSelectFlavor}
-                      title="Flavor"
-                    />
+                  <div className="d-flex">
+                    <div className="pe-3 me-3" style={{borderRight: '1px solid #ccc'}}>
+                      <SelectableList
+                        items={sizeOptions}
+                        activeItem={activeSize}
+                        onItemClick={handleSelectSize}
+                        title="Size"
+                      />
+                    </div>
+                    <div>
+                      <SelectableList
+                        items={flavorOptions}
+                        activeItem={activeFlavor}
+                        onItemClick={handleSelectFlavor}
+                        title="Flavor"
+                      />
+                    </div>
                   </div>
                   <div className="inner-shop-perched-info mt-3">
                     <button

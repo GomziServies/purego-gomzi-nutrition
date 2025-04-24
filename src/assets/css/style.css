@@ -11169,6 +11169,24 @@ body.search-visible {
 }
 
 .offer-box {
-  border: 2px solid green;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   padding: 10px 5px;
+  background-color: #fff;
+}
+
+.offer-desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #777777;
+  text-transform: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.offer-main-box {
+  border: 1px solid #ccc;
+  padding: 10px 25px;
+  border-radius: 10px;
+  background-color: #fbfbfb;
 }
