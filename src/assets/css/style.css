@@ -2153,7 +2153,8 @@ body.search-visible {
 /* inner-shop */
 .inner-shop-details-area,
 .inner-shop-area {
-  padding: 120px 0 120px;
+  /* padding: 120px 0 120px; */
+  padding: 120px 0 20px;
 }
 .inner-shop-area .shop-top-wrap {
   border: 1px solid #f1f1f1;
@@ -11133,4 +11134,18 @@ body.search-visible {
     min-width: auto;
     padding: 12px 22px;
   }
+}
+
+.promo-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 0.75rem;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.offer-box {
+  border: 2px solid green;
+  padding: 10px 5px;
 }

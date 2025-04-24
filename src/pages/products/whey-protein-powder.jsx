@@ -24,6 +24,7 @@ import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 import { useLocation } from "react-router";
 import LoginModal from "../../assets/js/popup/login";
 import Features from "../../components/Features";
+import MoreProduct from "../../components/MoreProduct";
 
 function PureGoWheyProtein() {
   const location = useLocation();
@@ -505,6 +506,7 @@ function PureGoWheyProtein() {
             </div>
           </div>
         </section>
+        <MoreProduct />
         <HowToUse
           src1={
             currentProductData.name === "Whey Protein 1kg Mawa Kulfi"

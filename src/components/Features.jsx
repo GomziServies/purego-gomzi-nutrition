@@ -34,7 +34,7 @@ const Features = () => {
     <>
       <div className="row border-top pt-4 mt-3 pb-3">
         <div className="col-12 pt-1">
-          <label className="delivery-label">Check Delivery Date</label>
+          <label className="delivery-label">Check Delivery Pincode</label>
           <div className="d-flex">
             <input
               type="text"
@@ -49,6 +49,23 @@ const Features = () => {
             >
               Check
             </button>
+          </div>
+        </div>
+      </div>
+      <div className="row border-top pt-4 mt-3 pb-3">
+        <div className="col-12 pt-1 px-0">
+          <label className="delivery-label">Offers</label>
+          <div className="col-md-4 shipping p-2 text-center col-6">
+            <div className="offer-box">
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/fast-delivery.png"
+                }
+                alt="img"
+                width="45px"
+              />
+              <h4 className="box-title">Fast delivery</h4>
+            </div>
           </div>
         </div>
       </div>

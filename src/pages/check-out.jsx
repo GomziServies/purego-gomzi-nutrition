@@ -251,261 +251,339 @@ function CheckOut() {
           <div className="container">
             <div className="row">
               <div className="col-lg-7">
-                <form
-                  onSubmit={handleFormSubmit}
-                  className="customer__form-wrap"
-                >
-                  <span className="title">Billing Details</span>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="form-grp">
-                        <label htmlFor="first-name">First name *</label>
-                        <input
-                          type="text"
-                          id="first-name"
-                          placeholder="Enter First Name"
-                          name="first_name"
-                          required
-                          defaultValue={userData.first_name}
-                        />
+                <div className="black-before">
+                  <form
+                    onSubmit={handleFormSubmit}
+                    className="customer__form-wrap position-relative"
+                  >
+                    <span className="title">Billing Details</span>
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="form-grp">
+                          <label htmlFor="first-name">First name *</label>
+                          <input
+                            type="text"
+                            id="first-name"
+                            placeholder="Enter First Name"
+                            name="first_name"
+                            required
+                            defaultValue={userData.first_name}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="form-grp">
+                          <label htmlFor="last-name">Last name *</label>
+                          <input
+                            type="text"
+                            id="last-name"
+                            placeholder="Enter Last Name"
+                            name="last_name"
+                            required
+                            defaultValue={userData.last_name}
+                          />
+                        </div>
                       </div>
                     </div>
-                    <div className="col-md-6">
-                      <div className="form-grp">
-                        <label htmlFor="last-name">Last name *</label>
-                        <input
-                          type="text"
-                          id="last-name"
-                          placeholder="Enter Last Name"
-                          name="last_name"
-                          required
-                          defaultValue={userData.last_name}
-                        />
+                    <div className="form-grp">
+                      <label htmlFor="email">Email address *</label>
+                      <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter Email"
+                        name="email"
+                        required
+                        defaultValue={userData.email}
+                      />
+                    </div>
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="form-grp">
+                          <label htmlFor="street-address">
+                            Street address *
+                          </label>
+                          <input
+                            type="text"
+                            id="street-address"
+                            placeholder="House No/Building Name/Office Name"
+                            name="officeName"
+                            required
+                            defaultValue={userData.address_line_1}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="form-grp">
+                          <label htmlFor="street-address">
+                            Road Name/Area/Colony *
+                          </label>
+                          <input
+                            type="text"
+                            id="street-address-two"
+                            placeholder="Road Name/Area/Colony"
+                            name="roadName"
+                            required
+                            defaultValue={userData.address_line_2}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="form-grp">
-                    <label htmlFor="email">Email address *</label>
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="Enter Email"
-                      name="email"
-                      required
-                      defaultValue={userData.email}
-                    />
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="form-grp">
-                        <label htmlFor="street-address">Street address *</label>
-                        <input
-                          type="text"
-                          id="street-address"
-                          placeholder="House No/Building Name/Office Name"
-                          name="officeName"
-                          required
-                          defaultValue={userData.address_line_1}
-                        />
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="form-grp">
+                          <label htmlFor="town-name">City *</label>
+                          <input
+                            type="text"
+                            id="town-name"
+                            placeholder="City"
+                            name="city"
+                            required
+                            defaultValue={userData.city}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="form-grp">
+                          <label htmlFor="district-name">State *</label>
+                          <input
+                            type="text"
+                            id="state"
+                            placeholder="Enter State Name"
+                            name="state"
+                            required
+                            defaultValue={userData.state}
+                          />
+                        </div>
                       </div>
                     </div>
-                    <div className="col-md-6">
-                      <div className="form-grp">
-                        <label htmlFor="street-address">
-                          Road Name/Area/Colony *
-                        </label>
-                        <input
-                          type="text"
-                          id="street-address-two"
-                          placeholder="Road Name/Area/Colony"
-                          name="roadName"
-                          required
-                          defaultValue={userData.address_line_2}
-                        />
+                    <div className="row">
+                      <div className="col-md-6">
+                        <div className="form-grp">
+                          <label htmlFor="country-name">
+                            Country / Region *
+                          </label>
+                          <input
+                            type="text"
+                            id="country"
+                            placeholder="Enter Country"
+                            name="country"
+                            required
+                            defaultValue={userData.country}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="form-grp">
+                          <label htmlFor="zip-code">PostalCode *</label>
+                          <input
+                            type="text"
+                            id="postalCode"
+                            placeholder="Postal Code"
+                            name="postalCode"
+                            required
+                            maxLength="6"
+                            defaultValue={userData.pin_code}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="form-grp">
-                        <label htmlFor="town-name">City *</label>
-                        <input
-                          type="text"
-                          id="town-name"
-                          placeholder="City"
-                          name="city"
-                          required
-                          defaultValue={userData.city}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-grp">
-                        <label htmlFor="district-name">State *</label>
-                        <input
-                          type="text"
-                          id="state"
-                          placeholder="Enter State Name"
-                          name="state"
-                          required
-                          defaultValue={userData.state}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="form-grp">
-                        <label htmlFor="country-name">Country / Region *</label>
-                        <input
-                          type="text"
-                          id="country"
-                          placeholder="Enter Country"
-                          name="country"
-                          required
-                          defaultValue={userData.country}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-grp">
-                        <label htmlFor="zip-code">PostalCode *</label>
-                        <input
-                          type="text"
-                          id="postalCode"
-                          placeholder="Postal Code"
-                          name="postalCode"
-                          required
-                          maxLength="6"
-                          defaultValue={userData.pin_code}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
-              <div className="col-lg-5">
-                <div className="order__info-wrap">
-                  <h2 className="title">YOUR ORDER</h2>
-                  <ul className="list-wrap">
-                    <li className="title text-dark">
-                      Product <span>Subtotal</span>
-                    </li>
-                    <li>
-                      Order Total{" "}
-                      <span>₹{Math.round(mainPrice).toFixed(2)}</span>
-                    </li>
-                    {totalDiscount !== 0 && (
+              <div className="col-lg-5 row">
+                <div className="col-12">
+                  <div className="order__info-wrap mb-3">
+                    <div className="m-0 w-100">
+                      <div className="br-15">
+                        <div className="d-flex bg-transparent">
+                          <div className="col-12 px-0">
+                            <h2 className="promo-title">Apply Promo Code</h2>
+                          </div>
+                        </div>
+                        <div className="d-flex mt-3 align-items-center justify-content-between border p-3 br-15">
+                          <input
+                            id="coupon_code"
+                            type="text"
+                            placeholder="Enter Coupon Code"
+                            name="coupon_code"
+                            className="form-control me-2"
+                            style={{ height: "46.8px" }}
+                            // value={manualCouponCode}
+                            // onChange={handleOnChange}
+                            maxLength="100"
+                          />
+                          <div className="d-inline-block inner-shop-perched-info">
+                            <button
+                              id="apply_main_btn"
+                              type="button"
+                              // onClick={() => handleApplyClick()}
+                              className="cart-btn m-0"
+                            >
+                              Apply
+                            </button>
+                          </div>
+                        </div>
+                        {/* <div className="col-12 apply-promo-modal">
+                          <div className="mb-3 p-3 border br-15">
+                            <label className="radio-main m-0 d-block">
+                              <span className="promo-code py-1 px-3 f-rob-bol f-14">
+                                GOMZI15
+                              </span>
+                              {appliedCodes.includes("GOMZI15") ? (
+                                      <span
+                                        className="remove-btn px-3 text-red f-rob-bol f-14 d-inline-block float-right"
+                                        onClick={() =>
+                                          removePromoCode("GOMZI15")
+                                        }
+                                      >
+                                        Remove
+                                      </span>
+                                    ) : (
+                              <span
+                                className="apply-btn px-3 text-green f-rob-bol f-14 d-inline-block float-right"
+                                onClick={() =>
+                                  applyPromoCode("GOMZI15")
+                                }
+                              >
+                                Apply
+                              </span>
+                              )}
+                              <p className="f-rob-med f-16 mt-2 mb-1">
+                                Use Code "GOMZI15". For 15% Off
+                              </p>
+                            </label>
+                          </div>
+                        </div> */}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="order__info-wrap">
+                    <h2 className="title">YOUR ORDER</h2>
+                    <ul className="list-wrap">
+                      <li className="title text-dark">
+                        Product <span>Subtotal</span>
+                      </li>
                       <li>
-                        Discount{" "}
+                        Order Total{" "}
+                        <span>₹{Math.round(mainPrice).toFixed(2)}</span>
+                      </li>
+                      {totalDiscount !== 0 && (
+                        <li>
+                          Discount{" "}
+                          <span>
+                            -{" "}
+                            {totalDiscount !== undefined &&
+                            totalDiscount !== null
+                              ? totalDiscount
+                              : 0}
+                            %
+                          </span>
+                        </li>
+                      )}
+                      <li>
+                        Delivery Charges{" "}
+                        <span>₹{mainPrice <= 499 ? 85 : "FREE"}</span>
+                      </li>
+                      <li className="text-dark">
+                        Amount Payable{" "}
                         <span>
-                          -{" "}
-                          {totalDiscount !== undefined && totalDiscount !== null
-                            ? totalDiscount
-                            : 0}
-                          %
+                          ₹
+                          {mainPrice <= 499
+                            ? mainPrice + 85
+                            : Math.round(mainPrice)}
                         </span>
                       </li>
-                    )}
-                    <li>
-                      Delivery Charges{" "}
-                      <span>₹{mainPrice <= 499 ? 85 : "FREE"}</span>
-                    </li>
-                    <li className="text-dark">
-                      Amount Payable{" "}
-                      <span>
-                        ₹
-                        {mainPrice <= 499
-                          ? mainPrice + 85
-                          : Math.round(mainPrice)}
-                      </span>
-                    </li>
-                  </ul>
-                  <div className="br-15 mb-3">
-                    <div className=" bg-white pt-2">
-                      <div>
-                        <span className="f-rob-bol f-16 text-uppercase text-secondary">
-                          <i className="fas fa-check-circle me-2"></i>
-                          SELECT PAYMENT MODE
-                        </span>
+                    </ul>
+                    <div className="br-15 mb-3">
+                      <div className=" bg-white pt-2">
+                        <div>
+                          <span className="f-rob-bol f-16 text-uppercase text-secondary">
+                            <i className="fas fa-check-circle me-2"></i>
+                            SELECT PAYMENT MODE
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="py-3">
-                      <div className="row">
-                        <div className="col-12">
-                          <div className="checkbox-wrapper-16">
-                            <label className="checkbox-wrapper mx-2">
-                              <input
-                                type="radio"
-                                className="checkbox-input"
-                                name="paymentMode"
-                                value="Cash On Delivery"
-                                onChange={handlePaymentModeChange}
-                              />
-                              <span className="checkbox-tile">
-                                <span className="checkbox-icon">
-                                  <img
-                                    src={
-                                      process.env.PUBLIC_URL +
-                                      "/assets/images/loan.png"
-                                    }
-                                    className="border-radius-20"
-                                    width="32px"
-                                    alt="fggroup"
-                                  />
+                      <div className="py-3">
+                        <div className="row">
+                          <div className="col-12">
+                            <div className="checkbox-wrapper-16">
+                              <label className="checkbox-wrapper mx-2">
+                                <input
+                                  type="radio"
+                                  className="checkbox-input"
+                                  name="paymentMode"
+                                  value="Cash On Delivery"
+                                  onChange={handlePaymentModeChange}
+                                />
+                                <span className="checkbox-tile">
+                                  <span className="checkbox-icon">
+                                    <img
+                                      src={
+                                        process.env.PUBLIC_URL +
+                                        "/assets/images/loan.png"
+                                      }
+                                      className="border-radius-20"
+                                      width="32px"
+                                      alt="fggroup"
+                                    />
+                                  </span>
+                                  <span className="checkbox-label">COD</span>
                                 </span>
-                                <span className="checkbox-label">COD</span>
-                              </span>
-                            </label>
-                            <label className="checkbox-wrapper mx-2">
-                              <input
-                                type="radio"
-                                checked
-                                className="checkbox-input"
-                                name="paymentMode"
-                                value="ONLINE"
-                                onChange={handlePaymentModeChange}
-                              />
-                              <span className="checkbox-tile">
-                                <span className="checkbox-icon">
-                                  <img
-                                    src={
-                                      process.env.PUBLIC_URL +
-                                      "/assets/images/cashless-payment.webp"
-                                    }
-                                    className="border-radius-20"
-                                    width="32px"
-                                    alt="fggroup"
-                                  />
+                              </label>
+                              <label className="checkbox-wrapper mx-2">
+                                <input
+                                  type="radio"
+                                  checked
+                                  className="checkbox-input"
+                                  name="paymentMode"
+                                  value="ONLINE"
+                                  onChange={handlePaymentModeChange}
+                                />
+                                <span className="checkbox-tile">
+                                  <span className="checkbox-icon">
+                                    <img
+                                      src={
+                                        process.env.PUBLIC_URL +
+                                        "/assets/images/cashless-payment.webp"
+                                      }
+                                      className="border-radius-20"
+                                      width="32px"
+                                      alt="fggroup"
+                                    />
+                                  </span>
+                                  <span className="checkbox-label">Online</span>
+                                  <p className="offer-label">
+                                    Free Consultation
+                                  </p>
                                 </span>
-                                <span className="checkbox-label">Online</span>
-                                <p className="offer-label">Free Consultation</p>
-                              </span>
-                            </label>
+                              </label>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                    <div className="inner-shop-perched-info mt-3">
+                      <button
+                        onClick={() => {
+                          if (paymentMode) {
+                            document.querySelector("form").requestSubmit();
+                          } else {
+                            Swal.fire({
+                              icon: "error",
+                              title: "Error!",
+                              text: "Please select a payment method.",
+                            });
+                          }
+                        }}
+                        className="cart-btn w-100 m-0"
+                      >
+                        SAVE &amp; PAY
+                      </button>
+                    </div>
+                    {/* <button className="btn btn-sm">Place order</button> */}
                   </div>
-                  <div className="inner-shop-perched-info mt-3">
-                    <button
-                      onClick={() => {
-                        if (paymentMode) {
-                          document.querySelector("form").requestSubmit();
-                        } else {
-                          Swal.fire({
-                            icon: "error",
-                            title: "Error!",
-                            text: "Please select a payment method.",
-                          });
-                        }
-                      }}
-                      className="cart-btn w-100 m-0"
-                    >
-                      SAVE &amp; PAY
-                    </button>
-                  </div>
-                  {/* <button className="btn btn-sm">Place order</button> */}
                 </div>
               </div>
             </div>
