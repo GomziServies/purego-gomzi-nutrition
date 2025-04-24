@@ -213,24 +213,26 @@ function PureGoWheyProtein() {
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
-      <main className="main-area fix">
+      <main className="main-area">
         <section className="inner-shop-details-area">
           <div className="container">
             <div className="row">
               <div className="col-lg-5">
-                <div
-                  className="product-image-container black-before"
-                  ref={imageRef}
-                  style={{
-                    opacity: opacity,
-                    transition: "opacity 0.3s ease-in-out",
-                  }}
-                >
-                  <ProductPhotoSection1
-                    images={productImages[currentProduct]}
-                    activeImageIndex={activeImageIndex}
-                    setActiveImageIndex={setActiveImageIndex}
-                  />
+                <div className="black-before">
+                  <div
+                    className="product-image-container"
+                    ref={imageRef}
+                    style={{
+                      opacity: opacity,
+                      transition: "opacity 0.3s ease-in-out",
+                    }}
+                  >
+                    <ProductPhotoSection1
+                      images={productImages[currentProduct]}
+                      activeImageIndex={activeImageIndex}
+                      setActiveImageIndex={setActiveImageIndex}
+                    />
+                  </div>
                 </div>
               </div>
               <div className="col-lg-7 d-flex align-items-center">
