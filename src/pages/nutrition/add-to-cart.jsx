@@ -586,9 +586,9 @@ function AddToCart() {
         <section className="features-products">
           <div className="section-title text-center mb-60">
             <p className="sub-title">.. Increased Wellness With Purego ..</p>
-            <h1 className="title">Purego Products</h1>
+            <h2 className="title">Purego Products</h2>
           </div>
-          <div className="container text-center">
+          <div className="container">
             {/* justify-content-center */}
             <div className="row">
               <OwlCarousel {...options} className="owl-theme d-block">

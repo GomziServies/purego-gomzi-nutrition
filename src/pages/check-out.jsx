@@ -192,6 +192,44 @@ function CheckOut() {
     }
   };
 
+  const searchPincode = async () => {
+    try {
+      const payload = {
+        destination_pincode: "395004",
+        origin_pincode: "395009",
+        destination_country_code: "IN",
+        origin_country_code: "IN",
+        shipment_mode: "E",
+        shipment_type: "C",
+        shipment_value: "1000",
+        boxes: [
+          {
+            quantity: 1,
+            length: 10,
+            breadth: 10,
+            height: 25,
+            dimension_unit: "cm",
+            weight: 520,
+            weight_unit: "gm",
+          },
+        ],
+      };
+      const response = await axiosInstance.post(
+        "/insights/icarry/get-multi-box-estimate",
+        payload
+      );
+
+      const data = response.data;
+      console.log("data :- ", data);
+    } catch (error) {
+      console.error("Error submitting pincode:", error);
+    }
+  };
+
+  useEffect(() => {
+    searchPincode()
+  }, []);
+
   return (
     <>
       <Helmet>
