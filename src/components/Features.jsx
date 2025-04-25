@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { axiosInstance } from "../assets/js/config/api";
 import { toast } from "react-toastify";
-const Features = () => {
+
+const Features = ({ USPData, removeUSP }) => {
   const [pincode, setPincode] = useState(null);
 
   const searchPincode = async () => {
@@ -96,6 +97,37 @@ const Features = () => {
           </div>
         </div>
       </div>
+      {removeUSP ? (
+        ""
+      ) : (
+        <div className="row border-top pt-3 mt-4 mx-0">
+          <div className="col-12 return-policy-main">
+            <div className="mt-3 editor-text">
+              <h4 className="d-inline-block f-rob-med f-14">
+                <i
+                  className="fas fa-check-circle right me-2"
+                  style={{ fontSize: "24px", color: "#86c33a" }}
+                ></i>
+                100% Authentic
+              </h4>
+              <ul className="list-unstyled mb-0">
+                <li className="d-block mb-0">
+                  <div className="mb-2 ql-editor descriptionShow text-secondary">
+                    {USPData?.map((data) => {
+                      return (
+                        <p className="ql-align-justify mb-1">
+                          <b className="text-secondary">{data?.title}</b>{" "}
+                          {data?.description}
+                        </p>
+                      );
+                    })}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="border-top pt-4 mt-3 pb-3">
         <div className="offer-main-box">
           <label className="delivery-label">Offers</label>

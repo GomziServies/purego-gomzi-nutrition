@@ -21,6 +21,7 @@ function CheckOut() {
   const canonicalUrl = window.location.href;
   const [prepaidCouponCode, setPrepaidCouponCode] = useState({});
   const [totalDiscount, setTotalDiscount] = useState(0);
+  const [discountCost, setDiscountCost] = useState(null);
   const [userData, setUserData] = useState({
     username: "",
     email: "",
@@ -192,42 +193,46 @@ function CheckOut() {
     }
   };
 
-  const searchPincode = async () => {
+  const getEstimate = async () => {
     try {
       const payload = {
+        length: 10,
+        breadth: 10,
+        height: 25,
+        weight: 1000,
         destination_pincode: "395004",
-        origin_pincode: "395009",
+        origin_pincode: "394520",
         destination_country_code: "IN",
         origin_country_code: "IN",
-        shipment_mode: "E",
+        shipment_mode: "S",
         shipment_type: "C",
         shipment_value: "1000",
-        boxes: [
-          {
-            quantity: 1,
-            length: 10,
-            breadth: 10,
-            height: 25,
-            dimension_unit: "cm",
-            weight: 520,
-            weight_unit: "gm",
-          },
-        ],
       };
+
       const response = await axiosInstance.post(
-        "/insights/icarry/get-multi-box-estimate",
+        "/insights/icarry/get-estimate",
         payload
       );
 
-      const data = response.data;
-      console.log("data :- ", data);
+      const estimateData = response.data.data.estimate;
+      const courierArray = Object.values(estimateData);
+
+      const deliveryCouriers = courierArray.filter((data) =>
+        data.courier_group_name.includes("Delhivery")
+      );
+
+      const cheapCostData = deliveryCouriers.reduce((min, current) =>
+        current.courier_cost < min.courier_cost ? current : min
+      );
+
+      setDiscountCost(cheapCostData.courier_cost);
     } catch (error) {
       console.error("Error submitting pincode:", error);
     }
   };
 
   useEffect(() => {
-    searchPincode()
+    getEstimate();
   }, []);
 
   return (
@@ -522,14 +527,15 @@ function CheckOut() {
                       )}
                       <li>
                         Delivery Charges{" "}
-                        <span>₹{mainPrice <= 499 ? 85 : "FREE"}</span>
+                        {/* <span>₹{mainPrice <= 499 ? 85 : "FREE"}</span> */}
+                        <span>₹{discountCost ? discountCost : "FREE"}</span>
                       </li>
                       <li className="text-dark">
                         Amount Payable{" "}
                         <span>
                           ₹
-                          {mainPrice <= 499
-                            ? mainPrice + 85
+                          {discountCost
+                            ? (mainPrice + parseFloat(discountCost)).toFixed(2)
                             : Math.round(mainPrice)}
                         </span>
                       </li>

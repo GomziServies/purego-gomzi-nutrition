@@ -244,7 +244,7 @@ function PureGoEaa() {
                       add to cart
                     </button>
                   </div>
-                  <Features />
+                  <Features removeUSP={true} />
                 </div>
               </div>
             </div>
@@ -307,6 +307,50 @@ function PureGoEaa() {
                           body to offer immediate effect with the aim to provide
                           delay intra-workout fatigue, hydration, optimize
                           muscle recovery and enhance performance.
+                        </p>
+                        <h4 className="title">INGREDIENTS</h4>
+                        <p>
+                          EAA Blend (Essential Amino acid), Citric acid INS 330,
+                          potassium Chloride INS 508, Silicon dioxide color -INS
+                          122.
+                        </p>
+                        <h4 className="title">WHAT ARE EAA?</h4>
+                        <p>
+                          Essential Amino Acid Supplements are made of specific
+                          Amino Acids that are considered Essential. Of the 20
+                          Amino Acids, 9 are considered Essential with Leucine,
+                          Valine and Isoleucine the BCAAs being amongst the most
+                          well known EAAs. Remember that all BCAAs are EAAs, but
+                          not all EAAs are BCAAs.
+                        </p>
+                        <h4 className="title">DIRECTIONS FOR EAA POWDER:</h4>
+                        <p>
+                          Consume 1 Scoop (05 gm) of EAA Powder with 200ml water
+                          between meals, 30-45 minutes before workouts and/or
+                          immediately after workouts. Combine with a sensible
+                          diet and regular exercise. For best results consume 2
+                          Scoop per day.
+                        </p>
+                        <h4 className="title">WARNINGS:</h4>
+                        <p>
+                          Keep out of reach of children. Do not use if pregnant
+                          or nursing. Not intended for use by person under 18.
+                          Consult a physician if you have been treated for or
+                          diagnosed with or have a family history of any medical
+                          condition. Do not use if safety seal on the package
+                          has been broken.
+                        </p>
+                        <h4 className="title">NOT FOR MEDICINAL USE.</h4>
+                        <h4 className="title">STORAGE:</h4>
+                        <p>
+                          Store in Cool & dry place. Keep away from direct
+                          sunlight, heat & moisture. Keep the bottle tightly
+                          closed.
+                        </p>
+                        <h4 className="title">ALLERGEN ADVICE:</h4>
+                        <p>
+                          This product contains EAA blend and is not recommended
+                          for those with EAA blend intolerance.
                         </p>
                         <h4 className="title">How EAA Benefits?</h4>
                         <p>

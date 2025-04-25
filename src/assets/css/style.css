@@ -11129,29 +11129,6 @@ body.search-visible {
   top: 100px;
 }
 
-.black-before-2 {
-  position: sticky !important;
-  top: 120px;
-}
-
-.black-before .course-scroll {
-  position: relative !important;
-}
-
-.black-before::before {
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  opacity: 0.4;
-  content: "";
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  border-radius: 10px;
-  z-index: 1;
-  height: 100%;
-}
-
 @media (max-width: 767.98px) {
   .delivery-btn {
     min-width: auto;
@@ -11189,4 +11166,19 @@ body.search-visible {
   padding: 10px 25px;
   border-radius: 10px;
   background-color: #fbfbfb;
+}
+
+.return-policy-main h4 {
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.return-policy-main h4:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 120%;
+  background-color: #86c33a;
 }

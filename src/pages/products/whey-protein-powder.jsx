@@ -164,6 +164,28 @@ function PureGoWheyProtein() {
     }
   }, []);
 
+  const USPData = [
+    {
+      title: "No Colors:",
+      description:
+        "Pure Go Whey Protein does not contain any COLOR or PRESERVATIVES.",
+    },
+    {
+      title: "No Added Sugar:",
+      description: "Pure Go Whey Protein does not Contain any Added SUGAR.",
+    },
+    {
+      title: "Contains Sucralose:",
+      description:
+        "It also contains SUCRALOSE as a sweetening agent and may taste bitter due to its natural properties.",
+    },
+    {
+      title: "Trustified Certified:",
+      description:
+        "Blind Testing for Protein & Macro Accuracy, Tested for Amino Spiking & Heavy Metals.",
+    },
+  ];
+
   return (
     <>
       <Helmet>
@@ -274,7 +296,10 @@ function PureGoWheyProtein() {
                     premium source of protein powders.
                   </p>
                   <div className="d-flex">
-                    <div className="pe-3 me-3" style={{borderRight: '1px solid #ccc'}}>
+                    <div
+                      className="pe-3 me-3"
+                      style={{ borderRight: "1px solid #ccc" }}
+                    >
                       <SelectableList
                         items={sizeOptions}
                         activeItem={activeSize}
@@ -299,7 +324,7 @@ function PureGoWheyProtein() {
                       add to cart
                     </button>
                   </div>
-                  <Features />
+                  <Features USPData={USPData} />
                 </div>
               </div>
             </div>
@@ -342,27 +367,45 @@ function PureGoWheyProtein() {
                           Performance Whey Blend help support the growth and
                           maintenance of lean muscle mass, ideal for everyone.
                         </p>
-                        <h4 className="title">
-                          BETTER INGREDIENTS = BETTER RESULTS
-                        </h4>
-                        <h4 className="title">NO COLORS:</h4>
+                        <h4 className="title">INGREDIENTS:</h4>
                         <p>
-                          Pure Go Whey Protein does not contain any COLOR or
-                          PRESERVATIVES.
+                          Protein Blend(Whey protein concentrate, Whey protein
+                          Isolate, Whey powder), Cocoa Powder, Chocolate
+                          Flavour, Soy Lecithin-INS 322 (i), xanthangum-INS 415,
+                          Sucralose - INS
                         </p>
-                        <h4 className="title">NO ADDED SUGAR:</h4>
+                        <h4 className="title">ALLERGEN ADVICE:</h4>
                         <p>
-                          Pure Go Whey Protein does not Contain any Added SUGAR.
+                          This product contains lactose and is not recommended
+                          for those with lactose.
                         </p>
-                        <h4 className="title">CONTAINS SUCRALOSE:</h4>
+                        <h4 className="title">TASTE ADVICE:</h4>
                         <p>
-                          It also contains SUCRALOSE as a sweetening agent and
-                          may taste bitter due to its natural properties.
+                          For a thick, creamy and delicious shake use nonfat
+                          milk/skimmed milk, chocolate chips and nuts can be
+                          added as per calorie intake.
                         </p>
-                        <h4 className="title">TRUSTIFIED CERTIFIED:</h4>
+                        <h4 className="title">RECOMMENDED DURATION OF USE:</h4>
                         <p>
-                          Blind Testing for Protein & Macro Accuracy, Tested for
-                          Amino Spiking & Heavy Metals.
+                          Use the product for at least 30 days for effective
+                          results or as suggested by your healthcare
+                          professional. chips and nuts can be added as per
+                          calorie intake.
+                        </p>
+                        <h4 className="title">RECOMMENDED USE:</h4>
+                        <p>FOUR SERVING PER DAY.</p>
+                        <h4 className="title">STORAGE:</h4>
+                        <p>
+                          Store under 25°C Temperature, dry and hygienic place.
+                          Keep away from direct sunlight. Keep out of reach of
+                          children.
+                        </p>
+                        <h4 className="title">CAUTION:</h4>
+                        <p>
+                          Consult a healthcare practitioner prior to use if you
+                          are pregnant or you have liver disease or if you've
+                          been instructed to follow a low-protein diet. Not to
+                          exceed the recommended daily usage.
                         </p>
                         <h4 className="title">DIRECTIONS:</h4>
                         <p>

@@ -243,7 +243,7 @@ function PureGoCreatine() {
                       add to cart
                     </button>
                   </div>
-                  <Features />
+                  <Features removeUSP={true} />
                 </div>
               </div>
             </div>
@@ -296,6 +296,33 @@ function PureGoCreatine() {
                           supplements during that window to help build muscle
                           and improve muscle recovery. This will assist with
                           muscle irritation post-exercise.
+                        </p>
+                        <h4 className="title">
+                          DIRECTIONS FOR CREATINE POWDER:
+                        </h4>
+                        <p>
+                          As a dietary supplement, Mix 1 leveled scoop (approx.
+                          05g) to 200-220 ml of water or your favorite sports
+                          beverages.
+                        </p>
+                        <h4 className="title">
+                          DRINK ATLEAST 4-5 LITERS OF WATER PER DAY DURING
+                          CREATINE INTAKE
+                        </h4>
+                        <h4 className="title">WARNINGS:</h4>
+                        <p>
+                          Consult a healthcare practitioner prior to use if you
+                          are pregnant or you have liver disease or if you've
+                          been instructed to follow a low-protein diet. Not to
+                          exceed the recommended daily usage. Do not use if
+                          safety seal on the package has been broken.
+                        </p>
+                        <h4 className="title">NOT FOR MEDICINAL USE.</h4>
+                        <h4 className="title">STORAGE:</h4>
+                        <p>
+                          Store under 25°C Temperature, dry and hygienic place.
+                          Keep away from direct sunlight. Keep out of reach of
+                          children.
                         </p>
                         <h4 className="title">
                           Precautions To Take When Consuming Creatine Powder:

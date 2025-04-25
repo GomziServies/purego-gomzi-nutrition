@@ -112,6 +112,41 @@ function PureGoMassGainer() {
     }
   };
 
+  const USPData = [
+    { title: "Key Benefits:", description: "" },
+    {
+      title: "Muscle Growth:",
+      description:
+        "Our meticulously crafted blend provides an optimal combination of nutrients for maximum results. Each serving delivers a powerful 17.5 grams of premium protein, including a blend of fast and slow-digesting proteins, ensuring sustained amino acid delivery for muscle recovery and growth. The strategic mix of carbohydrates and healthy fats provides the necessary energy for intense workouts and promotes weight gain effectively.",
+    },
+    {
+      title: "Healthy Metabolism:",
+      description:
+        "Fortified with essential vitamins and minerals, our mass gainer supports overall health and metabolism, ensuring optimal function during intense training.",
+    },
+    {
+      title: "Reduced Muscle Loss:",
+      description:
+        "By providing a steady supply of nutrients, our formula helps minimize muscle breakdown, preserving hard-earned gains and promoting muscle retention effectively.",
+    },
+    { title: "Ideal Usage:", description: "" },
+    {
+      title: "Pre-Workout:",
+      description:
+        "Consume a serving approximately 30 minutes before your workout to prime your body with essential nutrients for optimal performance.",
+    },
+    {
+      title: "Post-Workout:",
+      description:
+        "Replenish your muscles immediately after your workout to kickstart the recovery process and support muscle repair and growth effectively.",
+    },
+    {
+      title: "Between Meals:",
+      description:
+        "Use as a convenient and nutritious snack between meals to increase calorie intake and promote weight gain efficiently.",
+    },
+  ];
+
   return (
     <>
       <Helmet>
@@ -245,7 +280,7 @@ function PureGoMassGainer() {
                       add to cart
                     </button>
                   </div>
-                  <Features />
+                  <Features USPData={USPData} />
                 </div>
               </div>
             </div>
@@ -298,7 +333,48 @@ function PureGoMassGainer() {
                           energy for intense workouts and promotes weight gain
                           effectively.
                         </p>
-                        <h4 className="title mb-2">Key Benefits:</h4>
+                        <h4 className="title">INGREDIENTS:</h4>
+                        <p>
+                          Maltodextrin, Protein Blend (Skimmed Milk Powder, whey
+                          protein concentrate, whey protein isolate). Cocoa
+                          powder. Ashwagandha, BCAA blend. Soy Lecithin-INS 322
+                          (1). xanthangum-INS 415, Sucralo-se-INS 955, Chocolate
+                          Flavour.
+                        </p>
+                        <h4 className="title">ALLERGEN ADVICE:</h4>
+                        <p>
+                          This product contains lactose and is not recommended
+                          for those with lactose.
+                        </p>
+                        <h4 className="title">TASTE ADVICE:</h4>
+                        <p>
+                          For a thick, creamy and delicious shake use nonfat
+                          milk/skimmed milk, chocolate chips and nuts can be
+                          added as per calorie intake.
+                        </p>
+                        <h4 className="title">RECOMMENDED DURATION OF USE:</h4>
+                        <p>
+                          Use the product for at least 30 days for effective
+                          results or as suggested by your healthcare
+                          professional. chips and nuts can be added as per
+                          calorie intake.
+                        </p>
+                        <h4 className="title">RECOMMENDED USE:</h4>
+                        <p>FOUR SERVING PER DAY.</p>
+                        <h4 className="title">STORAGE:</h4>
+                        <p>
+                          Store under 25°C Temperature, dry and hygienic place.
+                          Keep away from direct sunlight. Keep out of reach of
+                          children.
+                        </p>
+                        <h4 className="title">CAUTION:</h4>
+                        <p>
+                          Consult a healthcare practitioner prior to use if you
+                          are pregnant or you have liver disease or if you've
+                          been instructed to follow a low-protein diet. Not to
+                          exceed the recommended daily usage.
+                        </p>
+                        {/* <h4 className="title mb-2">Key Benefits:</h4>
                         <div>
                           <h6 className="sub-title d-contents">
                             Muscle Growth:{" "}
@@ -366,7 +442,7 @@ function PureGoMassGainer() {
                             meals to increase calorie intake and promote weight
                             gain efficiently.
                           </p>
-                        </div>
+                        </div> */}
                         <h4 className="title">How to Consume:</h4>
                         <p>
                           Simply mix that can1 heaping scoop (approximately 80

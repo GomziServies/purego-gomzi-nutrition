@@ -112,6 +112,54 @@ function PureGoPreWorkout() {
     }
   };
 
+  const USPData = [
+    { title: "BENEFITS:", description: "" },
+    {
+      title: "",
+      description:
+        "Experience real results & better performance with fat burning ingredients.",
+    },
+    {
+      title: "",
+      description: "Clinically proven & versatile supplement solution.",
+    },
+    {
+      title: "",
+      description: "Controls Appetite & Hunger.",
+    },
+    { title: "Caution:", description: "" },
+    {
+      title: "",
+      description: "Not for use by persons under the age of 18 years.",
+    },
+    {
+      title: "",
+      description: "Consult your doctor in case you are taking any medication.",
+    },
+    {
+      title: "",
+      description:
+        "This product is not intended to diagnose, treat, cure or prevent any disease.",
+    },
+    {
+      title: "",
+      description: "Do not exceed recommended serving size.",
+    },
+    {
+      title: "",
+      description: "Store in a cool and dry place.",
+    },
+    {
+      title: "",
+      description: "Keep out of reach of children.",
+    },
+    {
+      title: "",
+      description:
+        "This product is not to be used as a substitute for a varied diet. Not recommended for children, pregnant or lactating women. and people sensitive to caffeine.",
+    },
+  ];
+
   return (
     <>
       <Helmet>
@@ -243,7 +291,7 @@ function PureGoPreWorkout() {
                       add to cart
                     </button>
                   </div>
-                  <Features />
+                  <Features USPData={USPData} />
                 </div>
               </div>
             </div>
@@ -298,7 +346,21 @@ function PureGoPreWorkout() {
                           quickly, and pushing your body beyond previous
                           boundaries.
                         </p>
-                        <h4 className="title">BENEFITS:</h4>
+                        <h4 className="title">DIRECTIONS FOR IGNITE POWDER:</h4>
+                        <p>
+                          Use This powder 15-30 minutes before intense exercise
+                          Add 1 scoop (05g) to 220ml of ice-cold water and shake
+                          for approximately 10 seconds before consuming. Consume
+                          once per day.
+                        </p>
+                        <h4 className="title">NOT FOR MEDICINAL USE.</h4>
+                        <h4 className="title">STORAGE:</h4>
+                        <p>
+                          Store under 25°C Temperature, dry and hygienic place.
+                          Keep away from direct sunlight. Keep out of reach of
+                          children.
+                        </p>
+                        {/* <h4 className="title">BENEFITS:</h4>
                         <ul className="product-desc-list list-wrap">
                           <li>
                             Experience real results & better performance with
@@ -331,7 +393,7 @@ function PureGoPreWorkout() {
                             or lactating women. and people sensitive to
                             caffeine.
                           </li>
-                        </ul>
+                        </ul> */}
                         <h4 className="title mt-4">Direction For Use?</h4>
                         <ul className="product-desc-list list-wrap">
                           <li>
