@@ -502,9 +502,12 @@ function Home() {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        width="25%"
+                        width="70px"
+                        className="position-relative"
                         src="/assets/images/fifty-discount.png"
                       />
+                      <p className="wishlist-text-first">58%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -564,7 +567,7 @@ function Home() {
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹1250/-</span>
                             <span className="variant-old-price">₹3000</span>
-                            <span className="variant-offer">58% off</span>
+                            {/* <span className="variant-offer">58% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -641,9 +644,12 @@ function Home() {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        width="25%"
+                        width="70px"
+                        className="position-relative"
                         src="/assets/images/fifty-discount.png"
                       />
+                      <p className="wishlist-text-first">56%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -655,18 +661,21 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                            {productReviewsData.map(
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
                                   product.average_points
                               )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">{productReviewsData.map(
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
                                   product.total_count
-                              )}{" "} reviews</div>
+                              )}{" "}
+                              reviews
+                            </div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -699,7 +708,7 @@ function Home() {
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹1300/-</span>
                             <span className="variant-old-price">₹3000</span>
-                            <span className="variant-offer">56% off</span>
+                            {/* <span className="variant-offer">56% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -776,9 +785,12 @@ function Home() {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        width="25%"
+                        width="70px"
+                        className="position-relative"
                         src="/assets/images/fifty-discount.png"
                       />
+                      <p className="wishlist-text-first">55%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -790,18 +802,21 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                            {productReviewsData.map(
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
                                   product.average_points
                               )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">{productReviewsData.map(
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
                                   product.total_count
-                              )}{" "} reviews</div>
+                              )}{" "}
+                              reviews
+                            </div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -834,7 +849,7 @@ function Home() {
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹1350/-</span>
                             <span className="variant-old-price">₹3000</span>
-                            <span className="variant-offer">55% off</span>
+                            {/* <span className="variant-offer">55% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -911,9 +926,12 @@ function Home() {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        width="25%"
+                        width="70px"
+                        className="position-relative"
                         src="/assets/images/fifty-discount.png"
                       />
+                      <p className="wishlist-text-first">66%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -925,18 +943,21 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                            {productReviewsData.map(
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7745f63f930dcc6a2715b" &&
                                   product.average_points
                               )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">{productReviewsData.map(
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7745f63f930dcc6a2715b" &&
                                   product.total_count
-                              )}{" "} reviews</div>
+                              )}{" "}
+                              reviews
+                            </div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -970,7 +991,7 @@ function Home() {
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹499/-</span>
                             <span className="variant-old-price">₹1500</span>
-                            <span className="variant-offer">66% off</span>
+                            {/* <span className="variant-offer">66% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1053,9 +1074,12 @@ function Home() {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        width="25%"
+                        width="70px"
+                        className="position-relative"
                         src="/assets/images/fifty-discount.png"
                       />
+                      <p className="wishlist-text-first">82%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -1067,18 +1091,21 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                            {productReviewsData.map(
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
                                   product.average_points
                               )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">{productReviewsData.map(
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
                                   product.total_count
-                              )}{" "} reviews</div>
+                              )}{" "}
+                              reviews
+                            </div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -1112,7 +1139,7 @@ function Home() {
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹440/-</span>
                             <span className="variant-old-price">₹2500</span>
-                            <span className="variant-offer">82% off</span>
+                            {/* <span className="variant-offer">82% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1189,9 +1216,12 @@ function Home() {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        width="25%"
+                        width="70px"
+                        className="position-relative"
                         src="/assets/images/fifty-discount.png"
                       />
+                      <p className="wishlist-text-first">76%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -1203,18 +1233,21 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                            {productReviewsData.map(
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7742d63f930dcc6a27159" &&
                                   product.average_points
                               )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">{productReviewsData.map(
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7742d63f930dcc6a27159" &&
                                   product.total_count
-                              )}{" "} reviews</div>
+                              )}{" "}
+                              reviews
+                            </div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -1248,7 +1281,7 @@ function Home() {
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹490/-</span>
                             <span className="variant-old-price">₹2099</span>
-                            <span className="variant-offer">76% off</span>
+                            {/* <span className="variant-offer">76% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1326,9 +1359,12 @@ function Home() {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        width="25%"
+                        width="70px"
+                        className="position-relative"
                         src="/assets/images/fifty-discount.png"
                       />
+                      <p className="wishlist-text-first">76%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -1340,18 +1376,21 @@ function Home() {
                         <div className="item-ratings d-flex justify-content-between">
                           <div className="item-normal-div d-flex">
                             <span className="item-rating-child d-flex align-items-center">
-                            {productReviewsData.map(
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e773f463f930dcc6a27155" &&
                                   product.average_points
                               )}
                               <i class="fa-solid fa-star ms-1"></i>
                             </span>
-                            <div className="item-reviews ms-1">{productReviewsData.map(
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e773f463f930dcc6a27155" &&
                                   product.total_count
-                              )}{" "} reviews</div>
+                              )}{" "}
+                              reviews
+                            </div>
                           </div>
                           <span className="item-veg">
                             <img
@@ -1385,7 +1424,7 @@ function Home() {
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹350/-</span>
                             <span className="variant-old-price">₹1499</span>
-                            <span className="variant-offer">76% off</span>
+                            {/* <span className="variant-offer">76% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>

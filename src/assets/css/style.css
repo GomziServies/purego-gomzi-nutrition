@@ -10555,9 +10555,31 @@ body.search-visible {
 
 .wishlist {
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: 15px;
+  right: 5px;
   z-index: 99;
+}
+
+.wishlist-text-first {
+  position: absolute;
+  top: 30px;
+  right: 7px;
+  transform: translate(-50%, -50%);
+  color: white;
+  margin: 0px;
+  font-size: 18px;
+  text-shadow: 1.5px 1.5px black;
+}
+
+.wishlist-text-second {
+  position: absolute;
+  top: 47px;
+  right: 2px;
+  transform: translate(-50%, -50%);
+  color: white;
+  margin: 0px;
+  font-size: 16px;
+  text-shadow: 1.5px 1.5px black;
 }
 
 .item-rating-child {
