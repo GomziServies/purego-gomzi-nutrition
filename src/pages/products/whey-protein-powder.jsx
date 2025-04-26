@@ -38,6 +38,7 @@ function PureGoWheyProtein() {
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState("1kg-Chocolate");
 
   const openModal = () => {
     setShowModal(true);
@@ -115,21 +116,31 @@ function PureGoWheyProtein() {
     { id: "Mawa Kulfi", label: "Mawa Kulfi" },
   ];
 
-  const handleSelectSize = (id) => {
-    setOpacity(0.3);
-    setTimeout(() => {
-      setActiveSize(id);
-      setCurrentProduct(`${id}-${activeFlavor}`);
-      setActiveImageIndex(0);
-      setOpacity(1);
-    }, 500);
-  };
+  // const handleSelectSize = (id) => {
+  //   setOpacity(0.3);
+  //   setTimeout(() => {
+  //     setActiveSize(id);
+  //     setCurrentProduct(`${id}-${activeFlavor}`);
+  //     setActiveImageIndex(0);
+  //     setOpacity(1);
+  //   }, 500);
+  // };
 
-  const handleSelectFlavor = (id) => {
+  // const handleSelectFlavor = (id) => {
+  //   setOpacity(0.3);
+  //   setTimeout(() => {
+  //     setActiveFlavor(id);
+  //     setCurrentProduct(`${activeSize}-${id}`);
+  //     setActiveImageIndex(0);
+  //     setOpacity(1);
+  //   }, 500);
+  // };
+
+  const handleSelectProduct = (id) => {
     setOpacity(0.3);
     setTimeout(() => {
-      setActiveFlavor(id);
-      setCurrentProduct(`${activeSize}-${id}`);
+      setSelectedProduct(id);
+      setCurrentProduct(`${id}`);
       setActiveImageIndex(0);
       setOpacity(1);
     }, 500);
@@ -255,6 +266,9 @@ function PureGoWheyProtein() {
                       setActiveImageIndex={setActiveImageIndex}
                     />
                   </div>
+                  <div className="mt-4">
+                    <img src="/assets/images/government-approved.png" alt="Approved By government" />
+                  </div>
                 </div>
               </div>
               <div className="col-lg-7 d-flex align-items-center">
@@ -295,7 +309,7 @@ function PureGoWheyProtein() {
                     whey protein per serving (30g scoop). The benchmark and
                     premium source of protein powders.
                   </p>
-                  <div className="d-flex">
+                  {/* <div className="d-flex">
                     <div
                       className="pe-3 me-3"
                       style={{ borderRight: "1px solid #ccc" }}
@@ -315,14 +329,69 @@ function PureGoWheyProtein() {
                         title="Flavor"
                       />
                     </div>
+                  </div> */}
+                  <div className="row border-top pt-3 mt-4 mx-0">
+                    <div
+                      className="col-md-4 product-detail p-2 text-center col-6 ps-0"
+                      onClick={() => handleSelectProduct("1kg-Chocolate")}
+                    >
+                      <div
+                        className={`product-box ${
+                          selectedProduct === "1kg-Chocolate" ? "select" : ""
+                        }`}
+                      >
+                        <h4 className="product-box-title my-3">
+                          1 KG Chocolate
+                        </h4>
+                      </div>
+                    </div>
+                    <div
+                      className="col-md-4 product-detail p-2 text-center col-6"
+                      onClick={() => handleSelectProduct("1kg-Mawa Kulfi")}
+                    >
+                      <div
+                        className={`product-box ${
+                          selectedProduct === "1kg-Mawa Kulfi" ? "select" : ""
+                        }`}
+                      >
+                        <h4 className="product-box-title my-3">
+                          1 KG Mawa Kulfi
+                        </h4>
+                      </div>
+                    </div>
+                    <div
+                      className="col-md-4 product-detail p-2 text-center col-6"
+                      onClick={() => handleSelectProduct("1kg-Mocha Coffee")}
+                    >
+                      <div
+                        className={`product-box ${
+                          selectedProduct === "1kg-Mocha Coffee" ? "select" : ""
+                        }`}
+                      >
+                        <h4 className="product-box-title my-3">
+                          1 KG Mocha Coffee
+                        </h4>
+                      </div>
+                    </div>
                   </div>
-                  <div className="inner-shop-perched-info mt-3">
+                  <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
                     <button
                       onClick={() => addProductInCart(currentProductData.id)}
-                      className="cart-btn"
+                      className="col-3 cart-btn m-0"
                     >
                       add to cart
                     </button>
+                    <div className="col">
+                      <h4 className="product-box-title m-0 d-flex align-items-center text-yellow">
+                        <img
+                          src="/assets/images/discount.png"
+                          alt="Special Offer"
+                          width="24px"
+                          className="me-1"
+                        />
+                        Hurry! Special Offer Available at Checkout.
+                      </h4>
+                    </div>
                   </div>
                   <Features USPData={USPData} />
                 </div>

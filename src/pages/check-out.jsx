@@ -20,6 +20,7 @@ function CheckOut() {
   const [mainPrice, setMainPrice] = useState();
   const canonicalUrl = window.location.href;
   const [prepaidCouponCode, setPrepaidCouponCode] = useState({});
+  const [orderUserData, setOrderUserData] = useState({});
   const [totalDiscount, setTotalDiscount] = useState(0);
   const [discountCost, setDiscountCost] = useState(null);
   const [userData, setUserData] = useState({
@@ -106,12 +107,34 @@ function CheckOut() {
         first_name: e.target.first_name.value,
         last_name: e.target.last_name.value,
       };
-      const payment_mode = paymentMode;
+      setOrderUserData(updatedUserData);
       if (!userData.username) {
         await updateUserData(updatedUserData);
       } else if (!compareUserData(updatedUserData)) {
         await updateUserData(updatedUserData);
       }
+      getEstimate(e.target.postalCode.value);
+    } catch (error) {
+      console.error("Error in handleFormSubmit:", error);
+    }
+    setLoading(false);
+  };
+
+  const handleOrderPayment = async () => {
+    setLoading(true);
+    try {
+      const updatedUserData = {
+        pin_code: orderUserData.postalCode,
+        address_line_1: orderUserData.officeName,
+        address_line_2: orderUserData.roadName,
+        city: orderUserData.city,
+        state: orderUserData.state,
+        country: orderUserData.country,
+        email: orderUserData.email,
+        first_name: orderUserData.first_name,
+        last_name: orderUserData.last_name,
+      };
+      const payment_mode = paymentMode;
       try {
         const coupon_ids = [prepaidCouponCode._id].filter(Boolean);
         await createPaymentProduct(
@@ -193,20 +216,27 @@ function CheckOut() {
     }
   };
 
-  const getEstimate = async () => {
+  const getEstimate = async (pin_code) => {
     try {
+      console.log('totalDiscount :- ', totalDiscount);
+      
       const payload = {
         length: 10,
         breadth: 10,
         height: 25,
         weight: 1000,
-        destination_pincode: "395004",
-        origin_pincode: "394520",
+        destination_pincode: pin_code,
+        origin_pincode: "395004",
         destination_country_code: "IN",
         origin_country_code: "IN",
         shipment_mode: "S",
-        shipment_type: "C",
-        shipment_value: "1000",
+        shipment_type:
+          paymentMode === "ONLINE"
+            ? "P"
+            : paymentMode === "Cash On Delivery"
+            ? "C"
+            : "C",
+        shipment_value: `${Math.round(mainPrice)}`,
       };
 
       const response = await axiosInstance.post(
@@ -221,9 +251,17 @@ function CheckOut() {
         data.courier_group_name.includes("Delhivery")
       );
 
-      const cheapCostData = deliveryCouriers.reduce((min, current) =>
-        current.courier_cost < min.courier_cost ? current : min
-      );
+      let cheapCostData;
+
+      if (deliveryCouriers.length > 0) {
+        cheapCostData = deliveryCouriers.reduce((min, current) =>
+          current.courier_cost < min.courier_cost ? current : min
+        );
+      } else {
+        cheapCostData = courierArray.reduce((min, current) =>
+          current.courier_cost < min.courier_cost ? current : min
+        );
+      }
 
       setDiscountCost(cheapCostData.courier_cost);
     } catch (error) {
@@ -231,9 +269,9 @@ function CheckOut() {
     }
   };
 
-  useEffect(() => {
-    getEstimate();
-  }, []);
+  // useEffect(() => {
+  //   getEstimate();
+  // }, []);
 
   return (
     <>
@@ -417,17 +455,37 @@ function CheckOut() {
                       </div>
                       <div className="col-md-6">
                         <div className="form-grp">
-                          <label htmlFor="zip-code">PostalCode *</label>
+                          <label htmlFor="pincode">Pincode *</label>
                           <input
                             type="text"
-                            id="postalCode"
-                            placeholder="Postal Code"
+                            id="pincode"
+                            placeholder="PinCode"
                             name="postalCode"
                             required
                             maxLength="6"
                             defaultValue={userData.pin_code}
                           />
                         </div>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-12 mt-3">
+                        <button
+                          onClick={() => {
+                            if (paymentMode) {
+                              document.querySelector("form").requestSubmit();
+                            } else {
+                              Swal.fire({
+                                icon: "error",
+                                title: "Error!",
+                                text: "Please select a payment method.",
+                              });
+                            }
+                          }}
+                          className="cart-btn w-100 m-0"
+                        >
+                          Continue
+                        </button>
                       </div>
                     </div>
                   </form>
@@ -528,7 +586,19 @@ function CheckOut() {
                       <li>
                         Delivery Charges{" "}
                         {/* <span>₹{mainPrice <= 499 ? 85 : "FREE"}</span> */}
-                        <span>₹{discountCost ? discountCost : "FREE"}</span>
+                        <span
+                          onClick={() => {
+                            if (!orderUserData.pin_code) {
+                              Swal.fire({
+                                icon: "warning",
+                                title: "Billing Details",
+                                text: "Please fill out all billing details before proceeding.",
+                              });
+                            }
+                          }}
+                        >
+                          {discountCost ? "₹" + discountCost : "Enter Pincode"}
+                        </span>
                       </li>
                       <li className="text-dark">
                         Amount Payable{" "}

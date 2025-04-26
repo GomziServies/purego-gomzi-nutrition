@@ -152,9 +152,11 @@ const MoreProduct = () => {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        className="w-25"
                         src="/assets/images/fifty-discount.png"
+                        className="position-relative discount-img-size"
                       />
+                      <p className="wishlist-text-first">58%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -262,9 +264,11 @@ const MoreProduct = () => {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        className="w-25"
                         src="/assets/images/fifty-discount.png"
+                        className="position-relative discount-img-size"
                       />
+                      <p className="wishlist-text-first">56%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -371,9 +375,11 @@ const MoreProduct = () => {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        className="w-25"
                         src="/assets/images/fifty-discount.png"
+                        className="position-relative discount-img-size"
                       />
+                      <p className="wishlist-text-first">55%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -480,9 +486,11 @@ const MoreProduct = () => {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        className="w-25"
                         src="/assets/images/fifty-discount.png"
+                        className="position-relative discount-img-size"
                       />
+                      <p className="wishlist-text-first">66%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -591,9 +599,11 @@ const MoreProduct = () => {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        className="w-25"
                         src="/assets/images/fifty-discount.png"
+                        className="position-relative discount-img-size"
                       />
+                      <p className="wishlist-text-first">82%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -701,9 +711,11 @@ const MoreProduct = () => {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        className="w-25"
                         src="/assets/images/fifty-discount.png"
+                        className="position-relative discount-img-size"
                       />
+                      <p className="wishlist-text-first">76%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">
@@ -812,9 +824,11 @@ const MoreProduct = () => {
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
-                        className="w-25"
                         src="/assets/images/fifty-discount.png"
+                        className="position-relative discount-img-size"
                       />
+                      <p className="wishlist-text-first">76%</p>
+                      <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
                   <div className="item-card-detail">

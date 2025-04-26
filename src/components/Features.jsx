@@ -16,7 +16,6 @@ const Features = ({ USPData, removeUSP }) => {
       );
 
       const data = response.data;
-      console.log("data :- ", data.data.msg[0].cod);
 
       if (data.data.msg[0].cod === "Y") {
         toast.success("Success! Your city is available for delivery.");

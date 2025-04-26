@@ -36,6 +36,32 @@ function NutritionHeader({ productDataGet, cartItemName }) {
 
   return (
     <>
+      <div className="container-fluid offer-main bg-yellow p-0 m-0 d-flex align-items-center">
+        <marquee className="text-white py-2">
+          🎉 Get 25% off on orders above ₹3999 and enjoy an extra 5% off on
+          prepaid orders (up to ₹50)! 💸🛍️ Enjoy exclusive customer support,
+          Monday to Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🎉 Get 25% off on
+          orders above ₹3999 and enjoy an extra 5% off on prepaid orders (up to
+          ₹50)! 💸🛍️ Enjoy exclusive customer support, Monday to Friday, 11 AM
+          to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; 🎉 Get 25% off on orders above ₹3999 and
+          enjoy an extra 5% off on prepaid orders (up to ₹50)! 💸🛍️ Enjoy
+          exclusive customer support, Monday to Friday, 11 AM to 5 PM! 📞 &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; 🎉 Get 25% off on orders above ₹3999 and
+          enjoy an extra 5% off on prepaid orders (up to ₹50)! 💸🛍️ Enjoy
+          exclusive customer support, Monday to Friday, 11 AM to 5 PM! 📞 &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; 🎉 Get 25% off on orders above ₹3999 and enjoy an extra
+          5% off on prepaid orders (up to ₹50)! 💸🛍️ Enjoy exclusive customer
+          support, Monday to Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🎉
+          Get 25% off on orders above ₹3999 and enjoy an extra 5% off on prepaid
+          orders (up to ₹50)! 💸🛍️ Enjoy exclusive customer support, Monday to
+          Friday, 11 AM to 5 PM! 📞
+        </marquee>
+      </div>
       <div className="container-fluid main p-0 m-0">
         <div className="d-lg-block d-none log-new">
           <Link to="/">
