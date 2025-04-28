@@ -50,6 +50,12 @@ const Features = ({ USPData, removeUSP }) => {
               Check
             </button>
           </div>
+          <p className="mt-2 text-success">
+            Creatine monohydrate works by increasing.
+          </p>
+          <p className="mt-2 text-danger">
+            Creatine monohydrate works by increasing.
+          </p>
         </div>
       </div>
       <div className="row border-top pt-3 mt-4 mx-0">
