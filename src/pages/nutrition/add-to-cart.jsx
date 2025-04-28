@@ -35,6 +35,7 @@ function AddToCart() {
   const [previousProductData, setPreviousProductData] = useState([]);
   const [totalMRP, setTotalMRP] = React.useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [cartDataClick, setCartDataClick] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
@@ -80,6 +81,7 @@ function AddToCart() {
         };
       });
 
+      console.log('itemDataForGetImgName :- ',itemDataForGetImgName);
       const updatedServerData = combinedData.map((product) => {
         return {
           ...product,
@@ -91,6 +93,8 @@ function AddToCart() {
       totalAmountCalculation(updatedServerData);
       setProductDataGet(updatedServerData);
       totalMRPCalculation(updatedServerData);
+
+      setCartDataClick(false)
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
@@ -104,7 +108,7 @@ function AddToCart() {
     if (!isLogin) {
       return openModal();
     }
-  }, []);
+  }, [cartDataClick]);
 
   const totalAmountCalculation = (data) => {
     const amount = data.reduce(
@@ -130,6 +134,7 @@ function AddToCart() {
       );
       localStorage.setItem("addItemInCart", JSON.stringify(existingData));
       fetchProductData();
+      setCartDataClick(true)
     } catch (error) {
       console.error("Error removing product:", error);
     }
@@ -359,9 +364,9 @@ function AddToCart() {
         item_type: "PURE_GO_MEAL_PRODUCT",
       });
       if (response.data.response === "OK") {
-        toast.success("Product added in cart.")
+        toast.success("Product added in cart.");
         fetchProductData();
-        fetchProductCartData()
+        fetchProductCartData();
       }
     } catch (error) {
       console.error(error);
@@ -584,7 +589,7 @@ function AddToCart() {
             </div>
           </div>
         </div>
-        <MoreProduct />
+        <MoreProduct setCartDataClick={setCartDataClick} cartDataClick={cartDataClick} />
       </main>
       <HomeNutritionFooter />
     </>

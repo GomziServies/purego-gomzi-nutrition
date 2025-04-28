@@ -39,6 +39,7 @@ function PureGoWheyProtein() {
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState("1kg-Chocolate");
+  const [cartDataClick, setCartDataClick] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
@@ -242,7 +243,7 @@ function PureGoWheyProtein() {
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
-      <NutritionHeader />
+      <NutritionHeader cartDataClick={cartDataClick} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
@@ -622,7 +623,7 @@ function PureGoWheyProtein() {
             </div>
           </div>
         </section>
-        <MoreProduct />
+        <MoreProduct setCartDataClick={setCartDataClick} cartDataClick={cartDataClick} />
         <HowToUse
           src1={
             currentProductData.name === "Whey Protein 1kg Mawa Kulfi"

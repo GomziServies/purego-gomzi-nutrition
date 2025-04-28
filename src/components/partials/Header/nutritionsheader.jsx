@@ -4,7 +4,7 @@ import MobileUserInfo from "../../../assets/js/menu/mobileUserInfo";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../../assets/js/config/api";
 
-function NutritionHeader({ productDataGet, cartItemName }) {
+function NutritionHeader({ productDataGet, cartItemName, cartDataClick }) {
   function openside() {
     document.getElementById("demo").style.width = "100%";
   }
@@ -32,7 +32,7 @@ function NutritionHeader({ productDataGet, cartItemName }) {
     if (isLogin) {
       fetchProductData();
     }
-  }, [productDataGet, cartItemName]);
+  }, [productDataGet, cartItemName, cartDataClick]);
 
   return (
     <>

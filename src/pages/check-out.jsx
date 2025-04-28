@@ -20,10 +20,7 @@ function CheckOut() {
   const [mainPrice, setMainPrice] = useState();
   const canonicalUrl = window.location.href;
   const [prepaidCouponCode, setPrepaidCouponCode] = useState({});
-  const [orderUserData, setOrderUserData] = useState({});
-  const [totalDiscount, setTotalDiscount] = useState(0);
-  const [discountCost, setDiscountCost] = useState(null);
-  const [userData, setUserData] = useState({
+  const [orderUserData, setOrderUserData] = useState({
     username: "",
     email: "",
     pin_code: "",
@@ -33,6 +30,8 @@ function CheckOut() {
     state: "",
     country: "",
   });
+  const [totalDiscount, setTotalDiscount] = useState(0);
+  const [discountCost, setDiscountCost] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -84,11 +83,11 @@ function CheckOut() {
 
   const compareUserData = (updatedUserData) => {
     return (
-      updatedUserData.pin_code === userData.pin_code &&
-      updatedUserData.address_line_1 === userData.address_line_1 &&
-      updatedUserData.address_line_2 === userData.address_line_2 &&
-      updatedUserData.city === userData.city &&
-      updatedUserData.email === userData.email
+      updatedUserData.pin_code === orderUserData.pin_code &&
+      updatedUserData.address_line_1 === orderUserData.address_line_1 &&
+      updatedUserData.address_line_2 === orderUserData.address_line_2 &&
+      updatedUserData.city === orderUserData.city &&
+      updatedUserData.email === orderUserData.email
     );
   };
 
@@ -108,7 +107,7 @@ function CheckOut() {
         last_name: e.target.last_name.value,
       };
       setOrderUserData(updatedUserData);
-      if (!userData.username) {
+      if (!orderUserData.username) {
         await updateUserData(updatedUserData);
       } else if (!compareUserData(updatedUserData)) {
         await updateUserData(updatedUserData);
@@ -124,9 +123,9 @@ function CheckOut() {
     setLoading(true);
     try {
       const updatedUserData = {
-        pin_code: orderUserData.postalCode,
-        address_line_1: orderUserData.officeName,
-        address_line_2: orderUserData.roadName,
+        pin_code: orderUserData.pin_code,
+        address_line_1: orderUserData.address_line_1,
+        address_line_2: orderUserData.address_line_2,
         city: orderUserData.city,
         state: orderUserData.state,
         country: orderUserData.country,
@@ -135,6 +134,7 @@ function CheckOut() {
         last_name: orderUserData.last_name,
       };
       const payment_mode = paymentMode;
+      
       try {
         const coupon_ids = [prepaidCouponCode._id].filter(Boolean);
         await createPaymentProduct(
@@ -143,7 +143,8 @@ function CheckOut() {
             : productDatas,
           updatedUserData,
           coupon_ids,
-          payment_mode
+          payment_mode,
+          discountCost
         );
       } catch (error) {
         console.error("Error during order:", error);
@@ -199,7 +200,7 @@ function CheckOut() {
       const response = await axiosInstance.get("/account/profile");
       const userData = response.data.data;
       if (userData) {
-        setUserData({
+        setOrderUserData({
           pin_code: userData.user?.address?.pin_code || "",
           address_line_1: userData.user?.address?.address_line_1 || "",
           address_line_2: userData.user?.address?.address_line_2 || "",
@@ -210,6 +211,7 @@ function CheckOut() {
           state: userData.user?.address?.state || "",
           country: userData.user?.address?.country || "",
         });
+        getEstimate(userData.user?.address?.pin_code);
       }
     } catch (error) {
       console.error("Error in getUserData:", error);
@@ -218,8 +220,6 @@ function CheckOut() {
 
   const getEstimate = async (pin_code) => {
     try {
-      console.log('totalDiscount :- ', totalDiscount);
-      
       const payload = {
         length: 10,
         breadth: 10,
@@ -348,7 +348,7 @@ function CheckOut() {
                             placeholder="Enter First Name"
                             name="first_name"
                             required
-                            defaultValue={userData.first_name}
+                            defaultValue={orderUserData.first_name}
                           />
                         </div>
                       </div>
@@ -361,7 +361,7 @@ function CheckOut() {
                             placeholder="Enter Last Name"
                             name="last_name"
                             required
-                            defaultValue={userData.last_name}
+                            defaultValue={orderUserData.last_name}
                           />
                         </div>
                       </div>
@@ -374,7 +374,7 @@ function CheckOut() {
                         placeholder="Enter Email"
                         name="email"
                         required
-                        defaultValue={userData.email}
+                        defaultValue={orderUserData.email}
                       />
                     </div>
                     <div className="row">
@@ -389,13 +389,13 @@ function CheckOut() {
                             placeholder="House No/Building Name/Office Name"
                             name="officeName"
                             required
-                            defaultValue={userData.address_line_1}
+                            defaultValue={orderUserData.address_line_1}
                           />
                         </div>
                       </div>
                       <div className="col-md-6">
                         <div className="form-grp">
-                          <label htmlFor="street-address">
+                          <label htmlFor="street-address-two">
                             Road Name/Area/Colony *
                           </label>
                           <input
@@ -404,7 +404,7 @@ function CheckOut() {
                             placeholder="Road Name/Area/Colony"
                             name="roadName"
                             required
-                            defaultValue={userData.address_line_2}
+                            defaultValue={orderUserData.address_line_2}
                           />
                         </div>
                       </div>
@@ -419,7 +419,7 @@ function CheckOut() {
                             placeholder="City"
                             name="city"
                             required
-                            defaultValue={userData.city}
+                            defaultValue={orderUserData.city}
                           />
                         </div>
                       </div>
@@ -432,7 +432,7 @@ function CheckOut() {
                             placeholder="Enter State Name"
                             name="state"
                             required
-                            defaultValue={userData.state}
+                            defaultValue={orderUserData.state}
                           />
                         </div>
                       </div>
@@ -449,7 +449,7 @@ function CheckOut() {
                             placeholder="Enter Country"
                             name="country"
                             required
-                            defaultValue={userData.country}
+                            defaultValue={orderUserData.country}
                           />
                         </div>
                       </div>
@@ -463,7 +463,7 @@ function CheckOut() {
                             name="postalCode"
                             required
                             maxLength="6"
-                            defaultValue={userData.pin_code}
+                            defaultValue={orderUserData.pin_code}
                           />
                         </div>
                       </div>
@@ -484,7 +484,7 @@ function CheckOut() {
                           }}
                           className="cart-btn w-100 m-0"
                         >
-                          Continue
+                          Save &amp; Continue
                         </button>
                       </div>
                     </div>
@@ -681,13 +681,13 @@ function CheckOut() {
                     <div className="inner-shop-perched-info mt-3">
                       <button
                         onClick={() => {
-                          if (paymentMode) {
-                            document.querySelector("form").requestSubmit();
+                          if(discountCost) {
+                            handleOrderPayment();
                           } else {
                             Swal.fire({
-                              icon: "error",
-                              title: "Error!",
-                              text: "Please select a payment method.",
+                              icon: "warning",
+                              title: "Billing Details",
+                              text: "Please fill out all billing details before proceeding.",
                             });
                           }
                         }}

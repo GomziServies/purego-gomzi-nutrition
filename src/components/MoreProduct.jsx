@@ -8,7 +8,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import LoginModal from "../assets/js/popup/login";
 
-const MoreProduct = () => {
+const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -91,7 +91,7 @@ const MoreProduct = () => {
     if (isLogin) {
       fetchProductData();
     }
-  }, []);
+  }, [cartDataClick]);
 
   const options = {
     loop: true,
@@ -121,6 +121,7 @@ const MoreProduct = () => {
       if (response.data.response === "OK") {
         toast.success("Product added in cart.");
         fetchProductData();
+        setCartDataClick(true);
       }
     } catch (error) {
       console.error(error);
