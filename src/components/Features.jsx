@@ -4,8 +4,11 @@ import { toast } from "react-toastify";
 
 const Features = ({ USPData, removeUSP }) => {
   const [pincode, setPincode] = useState(null);
+  const [pincodeAvailable, setPincodeAvailable] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const searchPincode = async () => {
+    setLoading(true);
     try {
       const payload = {
         pincode: pincode,
@@ -18,21 +21,30 @@ const Features = ({ USPData, removeUSP }) => {
       const data = response.data;
 
       if (data.data.msg[0].cod === "Y") {
-        toast.success("Success! Your city is available for delivery.");
+        // toast.success("Success! Your city is available for delivery.");
+        setPincodeAvailable("success");
       } else if (data.data.msg[0].cod === "N") {
-        toast.error(
-          "Sorry, your city is currently not available for delivery."
-        );
+        setPincodeAvailable("error");
+        // toast.error(
+        //   "Sorry, your city is currently not available for delivery."
+        // );
       }
     } catch (error) {
       console.error("Error submitting pincode:", error);
       toast.error("Something went wrong. Please try again later.");
     }
+    setLoading(false);
   };
 
   return (
     <>
-      <div className="row border-top pt-4 mt-3 pb-3">
+      <div
+        className={`row border-top pt-4 mt-3 position-relative  ${
+          pincodeAvailable === "success" || pincodeAvailable === "error"
+            ? "pb-0 mb-0"
+            : "pb-3"
+        }`}
+      >
         <div className="col-12 pt-1">
           <label className="delivery-label">Check Delivery Pincode</label>
           <div className="d-flex">
@@ -50,12 +62,34 @@ const Features = ({ USPData, removeUSP }) => {
               Check
             </button>
           </div>
-          <p className="mt-2 text-success">
-            Creatine monohydrate works by increasing.
-          </p>
-          <p className="mt-2 text-danger">
-            Creatine monohydrate works by increasing.
-          </p>
+          {loading && (
+            <div id="pincode_loader">
+              <div className="tg-cube-grid pincode">
+                <div className="tg-cube tg-cube1"></div>
+                <div className="tg-cube tg-cube2"></div>
+                <div className="tg-cube tg-cube3"></div>
+                <div className="tg-cube tg-cube4"></div>
+                <div className="tg-cube tg-cube5"></div>
+                <div className="tg-cube tg-cube6"></div>
+                <div className="tg-cube tg-cube7"></div>
+                <div className="tg-cube tg-cube8"></div>
+                <div className="tg-cube tg-cube9"></div>
+              </div>
+            </div>
+          )}
+          {pincodeAvailable === "success" ? (
+            <p className="mt-2 mb-0 text-yellow fw-bold">
+              <i class="fa-solid fa-circle-check"></i> Your city is
+              available for delivery.
+            </p>
+          ) : pincodeAvailable === "error" ? (
+            <p className="mt-2 mb-0 text-danger fw-bold">
+              <i class="fa-solid fa-circle-xmark"></i> Sorry, your city is
+              currently not available for delivery.
+            </p>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       <div className="row border-top pt-3 mt-4 mx-0">

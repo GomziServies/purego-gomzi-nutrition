@@ -58,7 +58,7 @@ function PureGoFatLossCombo() {
       data: {
         id: "67e773f463f930dcc6a27155",
         img: "/assets/images/products/creatine/creatine-1.webp",
-        name: "Mass Gainer Powder-1kg + Creatine Monohydrate",
+        name: "Whey Protein 1kg + Pre-Workout + EAA Powder",
         price: "1499",
         discount: "350",
         size: "250 g",

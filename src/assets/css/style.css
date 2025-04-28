@@ -4961,9 +4961,25 @@ body.search-visible {
   background: transparent;
   z-index: 9999;
 }
+#pincode_loader {
+  position: absolute;
+  top: 92px;
+  left: 542px;
+  background: transparent;
+}
 .tg-cube-grid {
   width: 45px;
   height: 45px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+.tg-cube-grid.pincode {
+  width: 25px;
+  height: 25px;
   position: absolute;
   left: 0;
   right: 0;
