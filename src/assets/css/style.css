@@ -27,7 +27,7 @@
   background-color: #fff;
   box-shadow: 0 3px 16px 0 rgb(0 0 0 / 10%);
   position: fixed;
-  top: 42px;
+  top: 40px;
   z-index: 998;
 }
 
@@ -9108,7 +9108,7 @@ body.search-visible {
     top: 9px;
   }
   .banner-area {
-    padding: 70px 0 0;
+    padding: 112px 0 0;
   }
   .brand-area {
     padding: 80px 0 85px;

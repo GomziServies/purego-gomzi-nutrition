@@ -131,7 +131,7 @@ const Features = ({ USPData, removeUSP }) => {
         <div className="offer-main-box">
           <label className="delivery-label">Offers</label>
           <div className="row pt-1 px-0">
-            <div className="col-md-12 my-2 shipping text-center p-0 col-6">
+            <div className="col-md-12 my-2 shipping text-center p-0">
               <div className="offer-box mx-2 px-3">
                 <h4 className="box-title m-0 text-start me-2 text-danger">
                   Cashback :{" "}
@@ -143,7 +143,7 @@ const Features = ({ USPData, removeUSP }) => {
                 </h4>
               </div>
             </div>
-            <div className="col-md-12 my-2 shipping text-center p-0 col-6">
+            <div className="col-md-12 my-2 shipping text-center p-0">
               <div className="offer-box mx-2 px-3">
                 <h4 className="box-title m-0 text-start me-2 text-danger">
                   Bank Offer :{" "}
@@ -155,7 +155,7 @@ const Features = ({ USPData, removeUSP }) => {
                 </h4>
               </div>
             </div>
-            <div className="col-md-12 my-2 shipping text-center p-0 col-6">
+            <div className="col-md-12 my-2 shipping text-center p-0">
               <div className="offer-box mx-2 px-3">
                 <h4 className="box-title m-0 text-start me-2 text-danger">
                   Partner Offers :{" "}
