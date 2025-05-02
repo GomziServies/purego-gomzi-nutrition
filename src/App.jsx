@@ -25,6 +25,7 @@ import UserProfile from "./pages/account/profile";
 import CheckOut from "./pages/check-out";
 import ScrollRestoration from "./components/scroll-restoration";
 import PureGoFatLossCombo from "./pages/products/fat-loss-combo";
+import AASProducts from "./pages/anabolic-products";
 
 function App() {
   return (
@@ -75,6 +76,7 @@ function App() {
         />
         <Route path="/best-whey-protein-in-india" element={<Blog3 />} />
         <Route path="/404" element={<NotFoundPage />} />
+        <Route path="/aas-products" element={<AASProducts />} />
       </Routes>
       <ScrollRestoration />
     </>

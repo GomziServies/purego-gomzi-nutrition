@@ -79,12 +79,12 @@ const Features = ({ USPData, removeUSP }) => {
           )}
           {pincodeAvailable === "success" ? (
             <p className="mt-2 mb-0 text-yellow fw-bold">
-              <i class="fa-solid fa-circle-check"></i> Your city is
-              available for delivery.
+              <i class="fa-solid fa-circle-check"></i> Your area is available
+              for delivery.
             </p>
           ) : pincodeAvailable === "error" ? (
             <p className="mt-2 mb-0 text-danger fw-bold">
-              <i class="fa-solid fa-circle-xmark"></i> Sorry, your city is
+              <i class="fa-solid fa-circle-xmark"></i> Sorry, your area is
               currently not available for delivery.
             </p>
           ) : (
