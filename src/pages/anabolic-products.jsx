@@ -417,6 +417,19 @@ function AASProducts() {
           </div>
         </section>
       </main>
+      <section className="aas-checkout">
+        <div className="container text-center">
+          <form>
+            <div className="row">
+              <div className="form-group col-12">
+                <button type="submit" class="cart-btn m-0">
+                  View Cart
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
     </>
   );
 }
