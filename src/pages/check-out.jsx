@@ -270,7 +270,6 @@ function CheckOut() {
     try {
       const allProductsData = localStorage.getItem("allProductsData");
       const cartProductData = JSON.parse(allProductsData);
-      console.log('cartProductData :- ', cartProductData);
       
       const totalProduct = cartProductData.allProductsData.length;
       const oneKgProduct = cartProductData.allProductsData.filter((data) =>
@@ -374,7 +373,6 @@ function CheckOut() {
       const estimateData = response.data.data.estimate;
       const courierArray = Object.values(estimateData);
 
-      console.log("courierArray :- ", courierArray);
       const deliveryCouriers = courierArray.filter((data) =>
         data.courier_group_name.includes("Delhivery")
       );
@@ -390,8 +388,6 @@ function CheckOut() {
           current.courier_cost < min.courier_cost ? current : min
         );
       }
-
-      console.log("cheapCostData :- ", cheapCostData);
 
       setDiscountCost(cheapCostData.courier_cost);
       setCourierId(cheapCostData.courier_id);
