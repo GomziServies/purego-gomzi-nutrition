@@ -49,29 +49,28 @@ export const directBuyBookAction = () => {
 
 export const createPaymentProduct = (
   products,
-  data,
+  address,
   coupon_id,
   payment_mode,
-  discountCost
+  discountCost,
+  courierId
 ) => {
-  let quantity = data.quantity;
-  let address_line_1 = data.address_line_1;
-  let address_line_2 = data.address_line_2;
-  let city = data.city;
-  let pin_code = data.pin_code;
-  let state = data.state;
-  let country = data.country;
+  let quantity = address.quantity;
+  let address_line_1 = address.address_line_1;
+  let address_line_2 = address.address_line_2;
+  let city = address.city;
+  let pin_code = address.pin_code;
+  let state = address.state;
+  let country = address.country;
 
-  let address = {
-    address_line_1: address_line_1,
-    address_line_2: address_line_2,
-    city: city,
-    pin_code: pin_code,
-    state: state,
-    country: country,
-  };
-
-  if (!address_line_1 || !city || !pin_code || !state || !country) {
+  if (
+    !address_line_1 ||
+    !address_line_2 ||
+    !city ||
+    !pin_code ||
+    !state ||
+    !country
+  ) {
     return Swal.fire({
       title: "Error",
       text: "Address, City and Pin code are required",
@@ -85,7 +84,8 @@ export const createPaymentProduct = (
     address,
     coupon_id,
     payment_mode,
-    discountCost
+    discountCost,
+    courierId
   );
 };
 
@@ -95,7 +95,8 @@ export const createProductOrder = async (
   address,
   coupon_id,
   payment_mode,
-  discountCost
+  discountCost,
+  courierId
 ) => {
   try {
     if (!products) {
@@ -125,7 +126,7 @@ export const createProductOrder = async (
       products,
       quantity: parseInt(quantity),
       payment_mode,
-      delivery_charges: parseInt(discountCost)
+      delivery_charges: parseInt(discountCost),
     };
 
     if (coupon_id) {
@@ -209,8 +210,10 @@ export const createProductOrder = async (
         // Remove temporary data and coupon id
         localStorage.removeItem("tmp_ProductPurchasePayload");
         localStorage.removeItem("coupon_id");
+
+        AddShipmentOrder(address, products, payment_mode, courierId);
         // Redirect to Order Page
-        window.location.href = "/user/order";
+        // window.location.href = "/user/order";
       });
 
       return { showLoginModal: false, success: true };
@@ -221,9 +224,11 @@ export const createProductOrder = async (
           title: "Success",
           text: "Please check your email for the invoice.",
           icon: "success",
-        }).then(() => {
+        }).then(async () => {
           localStorage.removeItem("coupon_id");
-          window.location.href = "/user/order";
+          AddShipmentOrder(address, products, payment_mode, courierId);
+
+          // window.location.href = "/user/order";
         });
       };
 
@@ -240,12 +245,13 @@ export const createProductOrder = async (
           title: "Success",
           text: "Please check your email for the invoice.",
           icon: "success",
-        }).then(() => {
+        }).then(async () => {
           // Remove coupon id
           localStorage.removeItem("coupon_id");
+          AddShipmentOrder(address, products, payment_mode, courierId);
 
           // Redirect to Order Page
-          window.location.href = "/user/order";
+          // window.location.href = "/user/order";
         });
       };
 
@@ -268,4 +274,154 @@ export const createProductOrder = async (
       });
     }
   }
+};
+
+const AddShipmentOrder = async (address, products, payment_mode, courierId) => {
+  let productData = localStorage.getItem("allProductsData");
+  productData = JSON.parse(productData);
+
+  const productsName = productData.allProductsData
+    .map((data) => data.name)
+    .join(", ");
+
+  const totalProduct = productData.allProductsData.length;
+  const oneKgProduct = productData.allProductsData.filter((data) =>
+    data.name.includes("1kg")
+  );
+  const twentyFiveGmProduct = productData.allProductsData.filter(
+    (data) => !data.name.includes("1kg")
+  );
+
+  let parcelSize = {
+    dimensions: {
+      length: 10,
+      breadth: 10,
+      height: 15,
+      unit: "cm",
+    },
+    weight: {
+      weight: 1050,
+      unit: "gm",
+    },
+  };
+
+  // 1 KG 1 product size
+  if (totalProduct === 1 && oneKgProduct.length === 1) {
+    parcelSize = {
+      dimensions: {
+        breadth: 10,
+        height: 10,
+        length: 15,
+        unit: "cm",
+      },
+      weight: {
+        weight: 1050,
+        unit: "gm",
+      },
+    };
+  }
+  // 250 gm 1 product size
+  if (totalProduct === 1 && twentyFiveGmProduct.length === 1) {
+    parcelSize = {
+      dimensions: {
+        breadth: 10,
+        height: 10,
+        length: 15,
+        unit: "cm",
+      },
+      weight: {
+        weight: 300,
+        unit: "gm",
+      },
+    };
+  }
+  // 1 KG and 250 gm less than 4 product size
+  if (
+    totalProduct !== 1 &&
+    totalProduct <= 4 &&
+    (oneKgProduct.length > 0 || twentyFiveGmProduct.length > 0)
+  ) {
+    let oneKgWeight = 0;
+    let twentyFiveGmWeight = 0;
+    if (oneKgProduct.length > 0) {
+      oneKgWeight = oneKgProduct.length * 1000;
+    }
+    if (twentyFiveGmProduct.length > 0) {
+      twentyFiveGmWeight = twentyFiveGmProduct.length * 250;
+    }
+    const weight = oneKgWeight + twentyFiveGmWeight + 50;
+    parcelSize = {
+      dimensions: {
+        breadth: 23,
+        height: 19,
+        length: 30,
+        unit: "cm",
+      },
+      weight: {
+        weight: weight,
+        unit: "gm",
+      },
+    };
+  }
+  // 1 KG and 250 gm more than 4 product size
+  if (
+    totalProduct !== 1 &&
+    totalProduct > 4 &&
+    (oneKgProduct.length > 0 || twentyFiveGmProduct.length > 0)
+  ) {
+    let oneKgWeight = 0;
+    let twentyFiveGmWeight = 0;
+    if (oneKgProduct.length > 0) {
+      oneKgWeight = oneKgProduct.length * 1000;
+    }
+    if (twentyFiveGmProduct.length > 0) {
+      twentyFiveGmWeight = twentyFiveGmProduct.length * 250;
+    }
+    const weight = oneKgWeight + twentyFiveGmWeight + 50;
+    parcelSize = {
+      dimensions: {
+        breadth: 20,
+        height: 30,
+        length: 20,
+        unit: "cm",
+      },
+      weight: {
+        weight: weight,
+        unit: "gm",
+      },
+    };
+  }
+
+  const payload = {
+    pickup_address_id: 38608,
+    courier_id: courierId,
+    consignee: {
+      name: address.first_name + " " + address.last_name,
+      mobile: address.mobile,
+      address: `${address.address_line_1}, ${address.address_line_2}, ${address.city}, ${address.country} - ${address.pin_code}`,
+      city: address.city,
+      pincode: address.pin_code,
+      state: address.state,
+      country_code: "IN",
+      country: "IN",
+    },
+    parcel: {
+      type:
+        payment_mode === "Cash On Delivery"
+          ? "COD"
+          : payment_mode === "ONLINE"
+          ? "Prepaid"
+          : "",
+      value: productData.totalAmount,
+      contents: "This is " + productsName,
+      // items: productData.allProductsData,
+      dimensions: parcelSize.dimensions,
+      weight: parcelSize.weight,
+    },
+  };
+
+  await axiosInstance.post(
+    "/insights/icarry/add-shipment-surface",
+    payload
+  );
 };

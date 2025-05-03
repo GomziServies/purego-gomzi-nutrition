@@ -81,7 +81,6 @@ function AddToCart() {
         };
       });
 
-      console.log('itemDataForGetImgName :- ',itemDataForGetImgName);
       const updatedServerData = combinedData.map((product) => {
         return {
           ...product,
@@ -220,6 +219,12 @@ function AddToCart() {
           product_id: product._id,
           quantity: product.quantity,
         }));
+        const allProductsData = productDataGet.map((product) => ({
+          product_id: product._id,
+          name: product.name,
+          price: product.price,
+          quantity: product.quantity,
+        }));
 
         const response = await axiosInstance.post(
           "/order-cart/add-item",
@@ -236,6 +241,14 @@ function AddToCart() {
               totalMRP,
             })
           );
+          localStorage.setItem(
+            "allProductsData",
+            JSON.stringify({
+              allProductsData,
+              totalAmount,
+              totalMRP,
+            })
+          );
 
           window.location.href = `/check-out`;
         }
@@ -244,11 +257,25 @@ function AddToCart() {
           product_id: product._id,
           quantity: product.quantity,
         }));
+        const allProductsData = productDataGet.map((product) => ({
+          product_id: product._id,
+          name: product.name,
+          price: product.price,
+          quantity: product.quantity,
+        }));
 
         localStorage.setItem(
           "productsData",
           JSON.stringify({
             products,
+            totalAmount,
+            totalMRP,
+          })
+        );
+        localStorage.setItem(
+          "allProductsData",
+          JSON.stringify({
+            allProductsData,
             totalAmount,
             totalMRP,
           })

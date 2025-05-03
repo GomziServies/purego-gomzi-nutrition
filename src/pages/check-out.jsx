@@ -7,6 +7,8 @@ import { createPaymentProduct } from "../assets/js/utils/product";
 import NutritionHeader from "../components/partials/Header/nutritionsheader";
 import LoginModal from "../assets/js/popup/login";
 import LoadingComponent from "../components/loadingComponent";
+import lookup from "india-pincode-lookup";
+import { toast } from "react-toastify";
 
 function CheckOut() {
   const location = useLocation();
@@ -14,6 +16,45 @@ function CheckOut() {
   const item_id = searchParams.get("item_id");
   const [totalPrice, setTotalPrice] = useState();
   const [productDatas, setProductDatas] = useState([[]]);
+  const [stateData, setStateData] = useState([
+    { stateName: "Andaman and Nicobar Islands", stateCode: "AN" },
+    { stateName: "Andhra Pradesh", stateCode: "AP" },
+    { stateName: "Arunachal Pradesh", stateCode: "AR" },
+    { stateName: "Assam", stateCode: "AS" },
+    { stateName: "Bihar", stateCode: "BI" },
+    { stateName: "Chandigarh", stateCode: "CH" },
+    { stateName: "Dadra and Nagar Haveli", stateCode: "DA" },
+    { stateName: "Daman and Diu", stateCode: "DM" },
+    { stateName: "Delhi", stateCode: "DE" },
+    { stateName: "Goa", stateCode: "GO" },
+    { stateName: "Gujarat", stateCode: "GU" },
+    { stateName: "Haryana", stateCode: "HA" },
+    { stateName: "Himachal Pradesh", stateCode: "HP" },
+    { stateName: "Jammu and Kashmir", stateCode: "JA" },
+    { stateName: "Karnataka", stateCode: "KA" },
+    { stateName: "Kerala", stateCode: "KE" },
+    { stateName: "Lakshadweep Islands", stateCode: "LI" },
+    { stateName: "Madhya Pradesh", stateCode: "MP" },
+    { stateName: "Maharashtra", stateCode: "MA" },
+    { stateName: "Manipur", stateCode: "MN" },
+    { stateName: "Meghalaya", stateCode: "ME" },
+    { stateName: "Mizoram", stateCode: "MI" },
+    { stateName: "Nagaland", stateCode: "NA" },
+    { stateName: "Odisha", stateCode: "OD" },
+    { stateName: "Puducherry", stateCode: "PO" },
+    { stateName: "Punjab", stateCode: "PU" },
+    { stateName: "Rajasthan", stateCode: "RA" },
+    { stateName: "Sikkim", stateCode: "SI" },
+    { stateName: "Tamil Nadu", stateCode: "TN" },
+    { stateName: "Tripura", stateCode: "TR" },
+    { stateName: "Uttar Pradesh", stateCode: "UP" },
+    { stateName: "West Bengal", stateCode: "WB" },
+    { stateName: "Telangana", stateCode: "TS" },
+    { stateName: "Jharkhand", stateCode: "JH" },
+    { stateName: "Uttarakhand", stateCode: "UK" },
+    { stateName: "Chattisgarh", stateCode: "CG" },
+    { stateName: "Ladakh", stateCode: "LA" },
+  ]);
   const [paymentMode, setPaymentMode] = useState("ONLINE");
   const productData = localStorage.getItem("productsData");
   const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +70,11 @@ function CheckOut() {
     city: "",
     state: "",
     country: "",
+    mobile: "",
   });
   const [totalDiscount, setTotalDiscount] = useState(0);
   const [discountCost, setDiscountCost] = useState(null);
+  const [courierId, setCourierId] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -106,6 +149,7 @@ function CheckOut() {
         first_name: e.target.first_name.value,
         last_name: e.target.last_name.value,
       };
+
       setOrderUserData(updatedUserData);
       if (!orderUserData.username) {
         await updateUserData(updatedUserData);
@@ -113,6 +157,7 @@ function CheckOut() {
         await updateUserData(updatedUserData);
       }
       getEstimate(e.target.postalCode.value);
+      toast.success("User Details save successfully.");
     } catch (error) {
       console.error("Error in handleFormSubmit:", error);
     }
@@ -132,9 +177,10 @@ function CheckOut() {
         email: orderUserData.email,
         first_name: orderUserData.first_name,
         last_name: orderUserData.last_name,
+        mobile: orderUserData.mobile,
       };
       const payment_mode = paymentMode;
-      
+
       try {
         const coupon_ids = [prepaidCouponCode._id].filter(Boolean);
         await createPaymentProduct(
@@ -144,7 +190,8 @@ function CheckOut() {
           updatedUserData,
           coupon_ids,
           payment_mode,
-          discountCost
+          discountCost,
+          courierId
         );
       } catch (error) {
         console.error("Error during order:", error);
@@ -208,6 +255,7 @@ function CheckOut() {
           email: userData.user?.email || "",
           first_name: userData.user?.first_name || "",
           last_name: userData.user?.last_name || "",
+          mobile: userData.user?.mobile || "",
           state: userData.user?.address?.state || "",
           country: userData.user?.address?.country || "",
         });
@@ -220,13 +268,92 @@ function CheckOut() {
 
   const getEstimate = async (pin_code) => {
     try {
-      const payload = {
-        length: 10,
+      const allProductsData = localStorage.getItem("allProductsData");
+      const cartProductData = JSON.parse(allProductsData);
+      console.log('cartProductData :- ', cartProductData);
+      
+      const totalProduct = cartProductData.allProductsData.length;
+      const oneKgProduct = cartProductData.allProductsData.filter((data) =>
+        data.name.includes("1kg")
+      );
+      const twentyFiveGmProduct = cartProductData.allProductsData.filter(
+        (data) => !data.name.includes("1kg")
+      );
+
+      let parcelSize = {
         breadth: 10,
-        height: 25,
-        weight: 1000,
+        height: 15,
+        length: 10,
+        weight: 1050,
+      };
+
+      // 1 KG 1 product size
+      if (totalProduct === 1 && oneKgProduct.length === 1) {
+        parcelSize = {
+          breadth: 10,
+          height: 10,
+          length: 15,
+          weight: 1050,
+        };
+      }
+      // 250 gm 1 product size
+      if (totalProduct === 1 && twentyFiveGmProduct.length === 1) {
+        parcelSize = {
+          breadth: 10,
+          height: 10,
+          length: 15,
+          weight: 300,
+        };
+      }
+      // 1 KG and 250 gm less than 4 product size
+      if (
+        totalProduct !== 1 &&
+        totalProduct <= 4 &&
+        (oneKgProduct.length > 0 || twentyFiveGmProduct.length > 0)
+      ) {
+        let oneKgWeight = 0;
+        let twentyFiveGmWeight = 0;
+        if (oneKgProduct.length > 0) {
+          oneKgWeight = oneKgProduct.length * 1000;
+        }
+        if (twentyFiveGmProduct.length > 0) {
+          twentyFiveGmWeight = twentyFiveGmProduct.length * 250;
+        }
+        const weight = oneKgWeight + twentyFiveGmWeight + 50;
+        parcelSize = {
+          breadth: 23,
+          height: 19,
+          length: 30,
+          weight: weight,
+        };
+      }
+      // 1 KG and 250 gm more than 4 product size
+      if (
+        totalProduct !== 1 &&
+        totalProduct > 4 &&
+        (oneKgProduct.length > 0 || twentyFiveGmProduct.length > 0)
+      ) {
+        let oneKgWeight = 0;
+        let twentyFiveGmWeight = 0;
+        if (oneKgProduct.length > 0) {
+          oneKgWeight = oneKgProduct.length * 1000;
+        }
+        if (twentyFiveGmProduct.length > 0) {
+          twentyFiveGmWeight = twentyFiveGmProduct.length * 250;
+        }
+        const weight = oneKgWeight + twentyFiveGmWeight + 50;
+        parcelSize = {
+          breadth: 20,
+          height: 30,
+          length: 20,
+          weight: weight,
+        };
+      }
+
+      const payload = {
+        ...parcelSize,
         destination_pincode: pin_code,
-        origin_pincode: "395004",
+        origin_pincode: "394510",
         destination_country_code: "IN",
         origin_country_code: "IN",
         shipment_mode: "S",
@@ -247,6 +374,7 @@ function CheckOut() {
       const estimateData = response.data.data.estimate;
       const courierArray = Object.values(estimateData);
 
+      console.log("courierArray :- ", courierArray);
       const deliveryCouriers = courierArray.filter((data) =>
         data.courier_group_name.includes("Delhivery")
       );
@@ -263,7 +391,10 @@ function CheckOut() {
         );
       }
 
+      console.log("cheapCostData :- ", cheapCostData);
+
       setDiscountCost(cheapCostData.courier_cost);
+      setCourierId(cheapCostData.courier_id);
     } catch (error) {
       console.error("Error submitting pincode:", error);
     }
@@ -272,6 +403,50 @@ function CheckOut() {
   // useEffect(() => {
   //   getEstimate();
   // }, []);
+
+  const handleStateChange = (event) => {
+    try {
+      const state = event.target.value;
+      if (state) {
+        const result = lookup.lookup(state);
+        if (result?.[0]) {
+          setOrderUserData((prev) => ({
+            ...prev,
+            city: result[0].districtName,
+            state: event.target.value,
+            pin_code: result[0].pincode,
+          }));
+        }
+      }
+    } catch (error) {
+      console.error("Error submitting state:", error);
+    }
+  };
+
+  const handlePincodeChange = (event) => {
+    try {
+      const pincode = event.target.value;
+
+      if (pincode.length === 6) {
+        const result = lookup.lookup(pincode);
+        if (result?.[0]) {
+          const matchedStateName = result[0].stateName.trim().toLowerCase();
+
+          const selectedStateData = stateData.find(
+            (data) => data.stateName.toLowerCase() === matchedStateName
+          );
+
+          setOrderUserData((prev) => ({
+            ...prev,
+            city: result[0].districtName,
+            state: selectedStateData?.stateCode || "",
+          }));
+        }
+      }
+    } catch (error) {
+      console.error("Error submitting pincode:", error);
+    }
+  };
 
   return (
     <>
@@ -412,6 +587,21 @@ function CheckOut() {
                     <div className="row">
                       <div className="col-md-6">
                         <div className="form-grp">
+                          <label htmlFor="pincode">Pincode *</label>
+                          <input
+                            type="text"
+                            id="pincode"
+                            placeholder="PinCode"
+                            name="postalCode"
+                            required
+                            maxLength="6"
+                            defaultValue={orderUserData.pin_code}
+                            onChange={handlePincodeChange}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="form-grp">
                           <label htmlFor="town-name">City *</label>
                           <input
                             type="text"
@@ -419,25 +609,74 @@ function CheckOut() {
                             placeholder="City"
                             name="city"
                             required
+                            disabled
                             defaultValue={orderUserData.city}
                           />
                         </div>
                       </div>
+                    </div>
+                    <div className="row">
                       <div className="col-md-6">
                         <div className="form-grp">
                           <label htmlFor="district-name">State *</label>
-                          <input
+                          <select
+                            id="state"
+                            name="state"
+                            required
+                            value={orderUserData.state}
+                            onChange={(e) => handleStateChange(e)}
+                          >
+                            <option value="select">Select State</option>
+                            <option value="AN">
+                              Andaman and Nicobar Islands
+                            </option>
+                            <option value="AP">Andhra Pradesh</option>
+                            <option value="AR">Arunachal Pradesh</option>
+                            <option value="AS">Assam</option>
+                            <option value="BI">Bihar</option>
+                            <option value="CH">Chandigarh</option>
+                            <option value="DA">Dadra and Nagar Haveli</option>
+                            <option value="DM">Daman and Diu</option>
+                            <option value="DE">Delhi</option>
+                            <option value="GO">Goa</option>
+                            <option value="GU">Gujarat</option>
+                            <option value="HA">Haryana</option>
+                            <option value="HP">Himachal Pradesh</option>
+                            <option value="JA">Jammu and Kashmir</option>
+                            <option value="KA">Karnataka</option>
+                            <option value="KE">Kerala</option>
+                            <option value="LI">Lakshadweep Islands</option>
+                            <option value="MP">Madhya Pradesh</option>
+                            <option value="MA">Maharashtra</option>
+                            <option value="MN">Manipur</option>
+                            <option value="ME">Meghalaya</option>
+                            <option value="MI">Mizoram</option>
+                            <option value="NA">Nagaland</option>
+                            <option value="OD">Odisha</option>
+                            <option value="PO">Puducherry</option>
+                            <option value="PU">Punjab</option>
+                            <option value="RA">Rajasthan</option>
+                            <option value="SI">Sikkim</option>
+                            <option value="TN">Tamil Nadu</option>
+                            <option value="TR">Tripura</option>
+                            <option value="UP">Uttar Pradesh</option>
+                            <option value="WB">West Bengal</option>
+                            <option value="TS">Telangana</option>
+                            <option value="JH">Jharkhand</option>
+                            <option value="UK">Uttarakhand</option>
+                            <option value="CG">Chattisgarh</option>
+                            <option value="LA">Ladakh</option>
+                          </select>
+                          {/* <input
                             type="text"
                             id="state"
                             placeholder="Enter State Name"
                             name="state"
                             required
                             defaultValue={orderUserData.state}
-                          />
+                          /> */}
                         </div>
                       </div>
-                    </div>
-                    <div className="row">
                       <div className="col-md-6">
                         <div className="form-grp">
                           <label htmlFor="country-name">
@@ -450,20 +689,6 @@ function CheckOut() {
                             name="country"
                             required
                             defaultValue={orderUserData.country}
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="form-grp">
-                          <label htmlFor="pincode">Pincode *</label>
-                          <input
-                            type="text"
-                            id="pincode"
-                            placeholder="PinCode"
-                            name="postalCode"
-                            required
-                            maxLength="6"
-                            defaultValue={orderUserData.pin_code}
                           />
                         </div>
                       </div>
@@ -492,7 +717,7 @@ function CheckOut() {
                 </div>
               </div>
               <div className="col-lg-5 row">
-                <div className="col-12">
+                {/* <div className="col-12">
                   <div className="order__info-wrap mb-3">
                     <div className="m-0 w-100">
                       <div className="br-15">
@@ -524,7 +749,11 @@ function CheckOut() {
                             </button>
                           </div>
                         </div>
-                        {/* <div className="col-12 apply-promo-modal">
+                      </div>
+                    </div>
+                  </div>
+                </div> */}
+                {/* <div className="col-12 apply-promo-modal">
                           <div className="mb-3 p-3 border br-15">
                             <label className="radio-main m-0 d-block">
                               <span className="promo-code py-1 px-3 f-rob-bol f-14">
@@ -555,10 +784,6 @@ function CheckOut() {
                             </label>
                           </div>
                         </div> */}
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 <div className="col-12">
                   <div className="order__info-wrap">
                     <h2 className="title">YOUR ORDER</h2>
@@ -681,7 +906,7 @@ function CheckOut() {
                     <div className="inner-shop-perched-info mt-3">
                       <button
                         onClick={() => {
-                          if(discountCost) {
+                          if (discountCost) {
                             handleOrderPayment();
                           } else {
                             Swal.fire({
