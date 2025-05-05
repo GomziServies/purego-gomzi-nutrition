@@ -1,4 +1,3 @@
-import React from "react";
 import { Helmet } from "react-helmet";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../assets/css/animate.min.css";
@@ -9,6 +8,9 @@ import "../assets/css/magnific-popup.css";
 import "../assets/css/odometer.css";
 import "../assets/css/slick.css";
 import "../assets/css/style.css";
+import { Link } from "react-router-dom";
+import { axiosInstance } from "../assets/js/config/api";
+import { useEffect, useState } from "react";
 
 const products = [
   {
@@ -349,6 +351,26 @@ const products = [
 ];
 
 function AASProducts() {
+  const [productData, setProductData] = useState([]);
+
+  const getUserData = async () => {
+    try {
+      const response = await axiosInstance.get("/medical-product/get");
+      const userData = response.data.data;
+      if (userData) {
+        setProductData(userData);
+      }
+    } catch (error) {
+      console.error("Error in getUserData:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (productData) {
+      getUserData();
+    }
+  }, [productData]);
+
   return (
     <>
       <Helmet>
@@ -422,9 +444,9 @@ function AASProducts() {
           <form>
             <div className="row">
               <div className="form-group col-12">
-                <button type="submit" class="cart-btn m-0">
+                <Link to="/aas-check-out" class="cart-btn m-0">
                   View Cart
-                </button>
+                </Link>
               </div>
             </div>
           </form>
