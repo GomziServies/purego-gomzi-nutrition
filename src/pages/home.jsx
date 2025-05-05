@@ -454,7 +454,9 @@ function Home() {
         </section>
         <section className="features-products">
           <div className="section-title text-center mb-60">
-            <p className="sub-title">.. Increased Wellness With Purego ..</p>
+            <p className="sub-title">
+              .. PureGo: Where Quality Meets Wellness ..
+            </p>
             <h1 className="title">Purego Products</h1>
           </div>
           <div className="container text-center">
@@ -480,21 +482,21 @@ function Home() {
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
-                          src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-2.webp"
                           alt="whey-protein-chocolate"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
-                          src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-3.webp"
                           alt="whey-protein-chocolate"
                         />
                       </div>
                       <div className="d-flex justify-content-center">
                         <img
                           className="lazy"
-                          src="/assets/images/products/whey-protein/whey-protein-chocolate-1.webp"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-4.webp"
                           alt="whey-protein-chocolate"
                         />
                       </div>
@@ -620,7 +622,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-2.webp"
                           alt="Whey Protein 1kg Mawa Kulfi"
                         />
                       </div>
@@ -628,7 +630,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-3.webp"
                           alt="Whey Protein 1kg Mawa Kulfi"
                         />
                       </div>
@@ -636,7 +638,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-4.webp"
                           alt="Whey Protein 1kg Mawa Kulfi"
                         />
                       </div>
@@ -761,7 +763,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-2.webp"
                           alt="whey-protein-mocha-coffee"
                         />
                       </div>
@@ -769,7 +771,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-3.webp"
                           alt="whey-protein-mocha-coffee"
                         />
                       </div>
@@ -777,7 +779,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-4.webp"
                           alt="whey-protein-mocha-coffee"
                         />
                       </div>
@@ -902,7 +904,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
+                          src="/assets/images/products/mass-gainer/mass-gainer-2.webp"
                           alt="Mass Gainer"
                         />
                       </div>
@@ -910,7 +912,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
+                          src="/assets/images/products/mass-gainer/mass-gainer-3.webp"
                           alt="Mass Gainer"
                         />
                       </div>
@@ -918,7 +920,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/mass-gainer/mass-gainer-1.webp"
+                          src="/assets/images/products/mass-gainer/mass-gainer-4.webp"
                           alt="Mass Gainer"
                         />
                       </div>
@@ -1028,7 +1030,9 @@ function Home() {
             </div>
             <div className="row">
               <div className="col-12">
-                <h2 className="title text-start mt-5">Performance Drinks</h2>
+                <h2 className="title text-start mt-5">
+                  Performance Enhancement Drinks
+                </h2>
               </div>
               <div className="col-lg-3 col-sm-6 mt-md-0 mt-3 text-start">
                 <div className="item-card position-relative">
@@ -1050,7 +1054,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/pre-workout/pre-workout-1.webp"
+                          src="/assets/images/products/pre-workout/pre-workout-2.webp"
                           alt="Pre Workout"
                         />
                       </div>
@@ -1058,7 +1062,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/pre-workout/pre-workout-1.webp"
+                          src="/assets/images/products/pre-workout/pre-workout-3.webp"
                           alt="Pre Workout"
                         />
                       </div>
@@ -1066,7 +1070,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/pre-workout/pre-workout-1.webp"
+                          src="/assets/images/products/pre-workout/pre-workout-4.webp"
                           alt="Pre Workout"
                         />
                       </div>
@@ -1192,7 +1196,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/eaa/eaa-1.webp"
+                          src="/assets/images/products/eaa/eaa-2.webp"
                           alt="EAA Powder"
                         />
                       </div>
@@ -1200,7 +1204,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/eaa/eaa-1.webp"
+                          src="/assets/images/products/eaa/eaa-3.webp"
                           alt="EAA Powder"
                         />
                       </div>
@@ -1208,7 +1212,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/eaa/eaa-1.webp"
+                          src="/assets/images/products/eaa/eaa-4.webp"
                           alt="EAA Powder"
                         />
                       </div>
@@ -1335,7 +1339,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/creatine/creatine-1.webp"
+                          src="/assets/images/products/creatine/creatine-2.webp"
                           alt="Creatine Monohydrate"
                         />
                       </div>
@@ -1343,7 +1347,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/creatine/creatine-1.webp"
+                          src="/assets/images/products/creatine/creatine-3.webp"
                           alt="Creatine Monohydrate"
                         />
                       </div>
@@ -1351,7 +1355,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/creatine/creatine-1.webp"
+                          src="/assets/images/products/creatine/creatine-4.webp"
                           alt="Creatine Monohydrate"
                         />
                       </div>
@@ -2016,7 +2020,7 @@ function Home() {
                 <div className="ingredients-items-wrap">
                   <div className="section-title mb-60">
                     <p className="sub-title">
-                      .. Increased Wellness With Purego ..
+                      .. PureGo: Where Quality Meets Wellness ..
                     </p>
                     <h2 className="title">Purego Ingredients</h2>
                   </div>
@@ -2365,7 +2369,7 @@ function Home() {
               <div className="col-xl-6 col-lg-8">
                 <div className="section-title text-center white-title mb-50">
                   <p className="sub-title">
-                    .. Increased Wellness With Purego ..
+                    .. PureGo: Where Quality Meets Wellness ..
                   </p>
                   <h2>Blogs</h2>
                 </div>

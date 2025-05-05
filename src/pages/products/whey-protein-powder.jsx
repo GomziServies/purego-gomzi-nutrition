@@ -268,7 +268,10 @@ function PureGoWheyProtein() {
                     />
                   </div>
                   <div className="mt-4">
-                    <img src="/assets/images/government-approved.png" alt="Approved By government" />
+                    <img
+                      src="/assets/images/government-approved.png"
+                      alt="Approved By government"
+                    />
                   </div>
                 </div>
               </div>
@@ -623,7 +626,10 @@ function PureGoWheyProtein() {
             </div>
           </div>
         </section>
-        <MoreProduct setCartDataClick={setCartDataClick} cartDataClick={cartDataClick} />
+        <MoreProduct
+          setCartDataClick={setCartDataClick}
+          cartDataClick={cartDataClick}
+        />
         <HowToUse
           src1={
             currentProductData.name === "Whey Protein 1kg Mawa Kulfi"
