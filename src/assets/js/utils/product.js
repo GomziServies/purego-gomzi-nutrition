@@ -213,7 +213,7 @@ export const createProductOrder = async (
 
         AddShipmentOrder(address, products, payment_mode, courierId);
         // Redirect to Order Page
-        // window.location.href = "/user/order";
+        window.location.href = "/user/order";
       });
 
       return { showLoginModal: false, success: true };
@@ -228,7 +228,7 @@ export const createProductOrder = async (
           localStorage.removeItem("coupon_id");
           AddShipmentOrder(address, products, payment_mode, courierId);
 
-          // window.location.href = "/user/order";
+          window.location.href = "/user/order";
         });
       };
 
@@ -251,7 +251,7 @@ export const createProductOrder = async (
           AddShipmentOrder(address, products, payment_mode, courierId);
 
           // Redirect to Order Page
-          // window.location.href = "/user/order";
+          window.location.href = "/user/order";
         });
       };
 
