@@ -300,82 +300,20 @@ function Home() {
       <main className="main-area fix">
         <section className="banner-area main-section">
           <div className="d-md-block d-none">
-            <OwlCarousel
-              loop
-              autoplay
-              dots={false}
-              nav="false"
-              className="banner-slide"
-              responsive={{
-                0: {
-                  items: 1,
-                },
-                600: {
-                  items: 1,
-                },
-                1000: {
-                  items: 1,
-                },
-              }}
-            >
-              <img
-                src={process.env.PUBLIC_URL + "/assets/images/banner_1.webp"}
-                alt="shape"
-                width="100%"
-              />
-              {/* <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_1.webp"}
-              alt="shape"
-              width="100%"
-            />
             <img
               src={process.env.PUBLIC_URL + "/assets/images/banner_1.webp"}
               alt="shape"
               width="100%"
-            /> */}
-            </OwlCarousel>
+            />
           </div>
           <div className="d-md-none d-block">
-            <OwlCarousel
-              loop
-              autoplay
-              dots={false}
-              nav="false"
-              className="banner-slide"
-              responsive={{
-                0: {
-                  items: 1,
-                },
-                600: {
-                  items: 1,
-                },
-                1000: {
-                  items: 1,
-                },
-              }}
-            >
-              <img
-                src={
-                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"
-                }
-                alt="shape"
-                width="100%"
-              />
-              <img
-                src={
-                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"
-                }
-                alt="shape"
-                width="100%"
-              />
-              <img
-                src={
-                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"
-                }
-                alt="shape"
-                width="100%"
-              />
-            </OwlCarousel>
+            <img
+              src={
+                process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
           </div>
           {/* <div className="container">
             <div className="row justify-content-center">
@@ -1753,12 +1691,8 @@ function Home() {
               </div> */}
           </div>
         </section>
-        <section
-          id="features"
-          className="features-area features-bg"
-          data-background="assets/img/bg/features_bg.jpg"
-        >
-          <div className="container">
+        <section id="features" className="features-area">
+          {/* <div className="container">
             <div className="row align-items-center">
               <div className="col-md-12">
                 <div className="features-items-wrap">
@@ -1917,6 +1851,23 @@ function Home() {
                 </div>
               </div>
             </div>
+          </div> */}
+          <div className="d-md-block d-none">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/features-bg.webp"}
+              alt="shape"
+              width="100%"
+            />
+          </div>
+          <div className="d-md-none d-block">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/features-bg-mobile.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
           </div>
         </section>
         <section id="ingredient" className="ingredients-area">
