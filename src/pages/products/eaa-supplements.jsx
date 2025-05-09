@@ -23,6 +23,7 @@ import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 import LoginModal from "../../assets/js/popup/login";
 import Features from "../../components/Features";
+import MoreProduct from "../../components/MoreProduct";
 
 function PureGoEaa() {
   const canonicalUrl = window.location.href;
@@ -33,6 +34,7 @@ function PureGoEaa() {
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
+  const [cartDataClick, setCartDataClick] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
@@ -510,6 +512,32 @@ function PureGoEaa() {
             </div>
           </div>
         </section>
+        <section>
+          <div className="d-md-block d-none">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/direct-by-menufacturer.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
+          </div>
+          <div className="d-md-none d-block">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/direct-by-menufacturer-mobile.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
+          </div>
+        </section>
+        <MoreProduct
+          setCartDataClick={setCartDataClick}
+          cartDataClick={cartDataClick}
+        />
         <HowToUse
           src1="step-1.mp4"
           src2="eaa-step-2.mp4"

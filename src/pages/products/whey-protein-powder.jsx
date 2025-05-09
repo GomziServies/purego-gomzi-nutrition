@@ -626,6 +626,28 @@ function PureGoWheyProtein() {
             </div>
           </div>
         </section>
+        <section>
+          <div className="d-md-block d-none">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/direct-by-menufacturer.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
+          </div>
+          <div className="d-md-none d-block">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/direct-by-menufacturer-mobile.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
+          </div>
+        </section>
         <MoreProduct
           setCartDataClick={setCartDataClick}
           cartDataClick={cartDataClick}

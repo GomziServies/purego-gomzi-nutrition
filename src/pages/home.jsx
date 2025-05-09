@@ -1869,6 +1869,26 @@ function Home() {
               width="100%"
             />
           </div>
+          <div className="d-md-block d-none">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/direct-by-menufacturer.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
+          </div>
+          <div className="d-md-none d-block">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/direct-by-menufacturer-mobile.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
+          </div>
         </section>
         <section id="ingredient" className="ingredients-area">
           <div className="container">
@@ -2227,7 +2247,7 @@ function Home() {
                           />
                         </div>
                         <div className="testi-avatar-info">
-                          <h5 className="name">Mukesh Gupta</h5>
+                          <h5 className="name">Nisha Choudhary</h5>
                         </div>
                       </div>
                       <p>
@@ -2249,7 +2269,7 @@ function Home() {
                           />
                         </div>
                         <div className="testi-avatar-info">
-                          <h5 className="name">Shruti Shah</h5>
+                          <h5 className="name">Shalin Jariwala</h5>
                         </div>
                       </div>
                       <p>
@@ -2270,13 +2290,13 @@ function Home() {
                           />
                         </div>
                         <div className="testi-avatar-info">
-                          <h5 className="name">Jaydeep Chauhan</h5>
+                          <h5 className="name">Pathik Patel</h5>
                         </div>
                       </div>
                       <p>
                         “Great range of wellness products at reasonable prices.
-                        Loved their herbal supplements. Packaging is good, and
-                        delivery was on time. Satisfied with purchase!
+                        Loved their whey protein supplements. Packaging is good,
+                        and delivery was on time. Satisfied with purchase!
                       </p>
                     </div>
                     <div className="testimonial-item text-center">
@@ -2291,7 +2311,7 @@ function Home() {
                           />
                         </div>
                         <div className="testi-avatar-info">
-                          <h5 className="name">Neha Desai</h5>
+                          <h5 className="name">Satish Nishad</h5>
                         </div>
                       </div>
                       <p>
