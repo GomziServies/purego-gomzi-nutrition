@@ -78,9 +78,9 @@ function PureGoWheyProtein() {
         img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
         name: "Whey Protein 1kg Chocolate",
         price: "3000",
-        discount: "1250",
+        discount: "1390",
         size: "1 Kg",
-        dis_point: "58%",
+        dis_point: "53%",
       },
     },
     {
@@ -90,9 +90,9 @@ function PureGoWheyProtein() {
         img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
         name: "Whey Protein 1kg Mocha Coffee",
         price: "3000",
-        discount: "1300",
+        discount: "1490",
         size: "1 Kg",
-        dis_point: "56%",
+        dis_point: "50%",
       },
     },
     {
@@ -102,9 +102,9 @@ function PureGoWheyProtein() {
         img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
         name: "Whey Protein 1kg Mawa Kulfi",
         price: "3000",
-        discount: "1350",
+        discount: "1490",
         size: "1 Kg",
-        dis_point: "55%",
+        dis_point: "50%",
       },
     },
   ];
@@ -275,7 +275,7 @@ function PureGoWheyProtein() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-7 d-flex align-items-center">
+              <div className="col-lg-7 d-flex align-items-center mt-md-0 mt-3">
                 <div className="inner-shop-details-content">
                   <h4 className="title">{currentProductData.name}</h4>
                   <div className="inner-shop-details-meta">
@@ -336,7 +336,7 @@ function PureGoWheyProtein() {
                   </div> */}
                   <div className="row border-top pt-3 mt-4 mx-0">
                     <div
-                      className="col-md-4 product-detail p-2 text-center col-6 ps-0"
+                      className="col-4 product-detail py-2 px-md-2 px-1 text-center ps-0"
                       onClick={() => handleSelectProduct("1kg-Chocolate")}
                     >
                       <div
@@ -344,13 +344,13 @@ function PureGoWheyProtein() {
                           selectedProduct === "1kg-Chocolate" ? "select" : ""
                         }`}
                       >
-                        <h4 className="product-box-title my-3">
+                        <h4 className="product-box-title my-md-3">
                           1 KG Chocolate
                         </h4>
                       </div>
                     </div>
                     <div
-                      className="col-md-4 product-detail p-2 text-center col-6"
+                      className="col-4 product-detail py-2 px-md-2 px-1 text-center"
                       onClick={() => handleSelectProduct("1kg-Mawa Kulfi")}
                     >
                       <div
@@ -358,13 +358,13 @@ function PureGoWheyProtein() {
                           selectedProduct === "1kg-Mawa Kulfi" ? "select" : ""
                         }`}
                       >
-                        <h4 className="product-box-title my-3">
+                        <h4 className="product-box-title my-md-3">
                           1 KG Mawa Kulfi
                         </h4>
                       </div>
                     </div>
                     <div
-                      className="col-md-4 product-detail p-2 text-center col-6"
+                      className="col-4 product-detail py-2 px-md-2 px-1 text-center"
                       onClick={() => handleSelectProduct("1kg-Mocha Coffee")}
                     >
                       <div
@@ -372,7 +372,7 @@ function PureGoWheyProtein() {
                           selectedProduct === "1kg-Mocha Coffee" ? "select" : ""
                         }`}
                       >
-                        <h4 className="product-box-title my-3">
+                        <h4 className="product-box-title my-md-3">
                           1 KG Mocha Coffee
                         </h4>
                       </div>

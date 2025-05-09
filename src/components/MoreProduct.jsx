@@ -156,7 +156,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                         src="/assets/images/fifty-discount.png"
                         className="position-relative discount-img-size"
                       />
-                      <p className="wishlist-text-first">58%</p>
+                      <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
@@ -215,9 +215,9 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1250/-</span>
+                            <span className="variant-price"> ₹1390/-</span>
                             <span className="variant-old-price">₹3000</span>
-                            <span className="variant-offer">58% off</span>
+                            <span className="variant-offer">53% off</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -268,7 +268,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                         src="/assets/images/fifty-discount.png"
                         className="position-relative discount-img-size"
                       />
-                      <p className="wishlist-text-first">56%</p>
+                      <p className="wishlist-text-first">50%</p>
                       <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
@@ -326,9 +326,9 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1300/-</span>
+                            <span className="variant-price"> ₹1490/-</span>
                             <span className="variant-old-price">₹3000</span>
-                            <span className="variant-offer">56% off</span>
+                            <span className="variant-offer">50% off</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -379,7 +379,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                         src="/assets/images/fifty-discount.png"
                         className="position-relative discount-img-size"
                       />
-                      <p className="wishlist-text-first">55%</p>
+                      <p className="wishlist-text-first">50%</p>
                       <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
@@ -437,9 +437,9 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1350/-</span>
+                            <span className="variant-price"> ₹1490/-</span>
                             <span className="variant-old-price">₹3000</span>
-                            <span className="variant-offer">55% off</span>
+                            <span className="variant-offer">50% off</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -603,7 +603,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                         src="/assets/images/fifty-discount.png"
                         className="position-relative discount-img-size"
                       />
-                      <p className="wishlist-text-first">82%</p>
+                      <p className="wishlist-text-first">76%</p>
                       <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
@@ -662,9 +662,9 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹440/-</span>
+                            <span className="variant-price"> ₹600/-</span>
                             <span className="variant-old-price">₹2500</span>
-                            <span className="variant-offer">82% off</span>
+                            <span className="variant-offer">76% off</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -715,7 +715,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                         src="/assets/images/fifty-discount.png"
                         className="position-relative discount-img-size"
                       />
-                      <p className="wishlist-text-first">76%</p>
+                      <p className="wishlist-text-first">73%</p>
                       <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
@@ -774,9 +774,9 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹490/-</span>
+                            <span className="variant-price"> ₹550/-</span>
                             <span className="variant-old-price">₹2099</span>
-                            <span className="variant-offer">76% off</span>
+                            <span className="variant-offer">73% off</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -828,7 +828,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                         src="/assets/images/fifty-discount.png"
                         className="position-relative discount-img-size"
                       />
-                      <p className="wishlist-text-first">76%</p>
+                      <p className="wishlist-text-first">69%</p>
                       <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
@@ -887,9 +887,9 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹350/-</span>
+                            <span className="variant-price"> ₹450/-</span>
                             <span className="variant-old-price">₹1499</span>
-                            <span className="variant-offer">76% off</span>
+                            <span className="variant-offer">69% off</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>

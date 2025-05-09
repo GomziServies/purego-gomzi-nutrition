@@ -61,7 +61,7 @@ function PureGoCreatine() {
         img: "/assets/images/products/creatine/creatine-1.webp",
         name: "Creatine Monohydrate",
         price: "1499",
-        discount: "350",
+        discount: "450",
         size: "250 g",
         dis_point: "15%",
       },
@@ -183,9 +183,15 @@ function PureGoCreatine() {
                       setActiveImageIndex={setActiveImageIndex}
                     />
                   </div>
+                  <div className="mt-4 mb-md-0 mb-3">
+                    <img
+                      src="/assets/images/government-approved.png"
+                      alt="Approved By government"
+                    />
+                  </div>
                 </div>
               </div>
-              <div className="col-lg-7 d-flex align-items-center">
+              <div className="col-lg-7 d-flex align-items-center mt-md-0 mt-3">
                 <div className="inner-shop-details-content">
                   <h4 className="title">{currentProductData.name}</h4>
                   <div className="inner-shop-details-meta">
@@ -212,7 +218,7 @@ function PureGoCreatine() {
                         ₹{currentProductData.price}/-
                       </span>
                     </h2>
-                    <h5 className="stock-status">76%</h5>
+                    <h5 className="stock-status">69%</h5>
                   </div>
                   <p>
                     Creatine monohydrate works by increasing the body's stores

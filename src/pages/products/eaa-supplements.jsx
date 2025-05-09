@@ -61,9 +61,9 @@ function PureGoEaa() {
         img: "/assets/images/products/eaa/eaa-1.webp",
         name: "EAA Powder",
         price: "2099",
-        discount: "490",
+        discount: "550",
         size: "250 g",
-        dis_point: "76%",
+        dis_point: "73%",
       },
     },
   ];
@@ -183,9 +183,15 @@ function PureGoEaa() {
                       setActiveImageIndex={setActiveImageIndex}
                     />
                   </div>
+                  <div className="mt-4">
+                    <img
+                      src="/assets/images/government-approved.png"
+                      alt="Approved By government"
+                    />
+                  </div>
                 </div>
               </div>
-              <div className="col-lg-7 d-flex align-items-center">
+              <div className="col-lg-7 d-flex align-items-center mt-md-0 mt-3">
                 <div className="inner-shop-details-content">
                   <h4 className="title">{currentProductData.name}</h4>
                   <div className="inner-shop-details-meta">

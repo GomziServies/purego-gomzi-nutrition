@@ -11167,6 +11167,17 @@ body.search-visible {
   margin-bottom: 0px;
 }
 
+@media (max-width: 767.98px) {
+  .product-detail .product-box {
+    padding: 5px;
+  }
+
+  .product-box-title {
+    font-size: 14px;
+    margin: 0px 0px 0px;
+}
+}
+
 .delivery-label {
   color: rgb(53, 53, 67);
   font-style: normal;

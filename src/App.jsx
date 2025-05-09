@@ -24,7 +24,6 @@ import UserOrder from "./pages/account/order";
 import UserProfile from "./pages/account/profile";
 import CheckOut from "./pages/check-out";
 import ScrollRestoration from "./components/scroll-restoration";
-import PureGoFatLossCombo from "./pages/products/fat-loss-combo";
 
 function App() {
   return (
@@ -66,7 +65,6 @@ function App() {
         />
         <Route path="/whey-protein-powder" element={<PureGoWheyProtein />} />
         <Route path="/eaa-supplements" element={<PureGoEaa />} />
-        <Route path="/fat-loss-combo" element={<PureGoFatLossCombo />} />
         {/* Blogs */}
         <Route path="/top-supplements-for-weight-gain" element={<Blog1 />} />
         <Route
