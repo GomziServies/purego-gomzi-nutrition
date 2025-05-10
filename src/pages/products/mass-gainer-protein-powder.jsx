@@ -51,6 +51,12 @@ function PureGoMassGainer() {
       "/assets/images/products/mass-gainer/mass-gainer-3.webp",
       "/assets/images/products/mass-gainer/mass-gainer-4.webp",
     ],
+    "3kg-Chocolate": [
+      "/assets/images/products/mass-gainer/mass-gainer-3kg-1.webp",
+      "/assets/images/products/mass-gainer/mass-gainer-3kg-2.webp",
+      "/assets/images/products/mass-gainer/mass-gainer-3kg-3.webp",
+      "/assets/images/products/mass-gainer/mass-gainer-3kg-4.webp",
+    ],
   };
 
   const products = [
@@ -66,9 +72,21 @@ function PureGoMassGainer() {
         dis_point: "72%",
       },
     },
+    {
+      key: "3kg-Chocolate",
+      data: {
+        id: "67e7745f63f930dcc6a2715b",
+        img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
+        name: "Mass Gainer 3kg Chocolate",
+        price: "4500",
+        discount: "1399",
+        size: "3 Kg",
+        dis_point: "68%",
+      },
+    },
   ];
 
-  const sizeOptions = [{ id: "1kg", label: "1kg" }];
+  const sizeOptions = [{ id: "1kg", label: "1kg" }, { id: "3kg", label: "3kg" }];
 
   const flavorOptions = [{ id: "Chocolate", label: "Chocolate" }];
 
@@ -115,6 +133,18 @@ function PureGoMassGainer() {
   };
 
   const USPData = [
+    {
+      title: "FSSAI Approved",
+      description: "Certified by FSSAI, ensuring safety and quality in every serving.",
+    },
+    {
+      title: "Direct from Manufacturers",
+      description: "Sourced straight from manufacturers for guaranteed freshness and quality.",
+    },
+    {
+      title: "International Raw Protein Usage",
+      description: "Uses globally sourced raw protein for consistent purity and quality.",
+    },
     { title: "Key Benefits:", description: "" },
     {
       title: "Muscle Growth:",
@@ -247,14 +277,14 @@ function PureGoMassGainer() {
                     </ul>
                   </div>
                   <div className="inner-shop-details-price">
-                    <h2 className="price d-flex">
+                    <h2 className="price d-flex mb-0">
                       ₹{currentProductData.discount}/-
                       <span className="old-prices">
                         ₹{currentProductData.price}/-
                       </span>
                     </h2>
                     <h5 className="stock-status">
-                      {currentProductData.dis_point}
+                      ({currentProductData.dis_point} OFF)
                     </h5>
                   </div>
                   <p>
@@ -287,6 +317,17 @@ function PureGoMassGainer() {
                     >
                       add to cart
                     </button>
+                    <div className="col">
+                      <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow">
+                        <img
+                          src="/assets/images/discount.png"
+                          alt="Special Offer"
+                          width="24px"
+                          className="me-1"
+                        />
+                        Hurry! Special Offer Available at Checkout.
+                      </h4>
+                    </div>
                   </div>
                   <Features USPData={USPData} />
                 </div>
@@ -298,7 +339,7 @@ function PureGoMassGainer() {
                   <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
                     <li className="nav-item">
                       <a
-                        href="#"
+                        href="#0"
                         className="nav-link active"
                         id="description-tab"
                         data-bs-toggle="tab"
@@ -494,7 +535,7 @@ function PureGoMassGainer() {
                   <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
                     <li className="nav-item">
                       <a
-                        href="#"
+                        href="#0"
                         className="nav-link active"
                         id="description-tab"
                         data-bs-toggle="tab"
@@ -519,15 +560,15 @@ function PureGoMassGainer() {
                           <tbody>
                             <tr>
                               <th scope="row">Energy (kcal)</th>
-                              <td>262.5</td>
+                              <td>363.65</td>
                             </tr>
                             <tr>
                               <th scope="row">Total Protein (g)</th>
-                              <td>17.5</td>
+                              <td>20.00</td>
                             </tr>
                             <tr>
                               <th scope="row">Carbohydrates (g)</th>
-                              <td>73.2</td>
+                              <td>68.46</td>
                             </tr>
                             <tr>
                               <th scope="row">Added Sugar (g)</th>
@@ -549,17 +590,17 @@ function PureGoMassGainer() {
                               <th scope="row">
                                 Polyunsaturated fatty acid (g)
                               </th>
-                              <td>0.38</td>
+                              <td>0.30</td>
                             </tr>
                             <tr>
                               <th scope="row">
                                 Monounsaturated fatty acid (mg)
                               </th>
-                              <td>0.97</td>
+                              <td>1.54</td>
                             </tr>
                             <tr>
                               <th scope="row">Trans Fatty Acid (g)</th>
-                              <td>0.07</td>
+                              <td>0.39</td>
                             </tr>
                           </tbody>
                         </table>
@@ -614,7 +655,7 @@ function PureGoMassGainer() {
                   <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
                     <li className="nav-item">
                       <a
-                        href="#"
+                        href="#0"
                         className="nav-link active"
                         id="review-tab"
                         data-bs-toggle="tab"

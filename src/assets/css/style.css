@@ -11151,17 +11151,24 @@ body.search-visible {
 
 .product-detail .product-box {
   cursor: pointer;
-  border: 3.5px solid #86c33a;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
 }
 
-.product-detail .product-box.select {
+.product-detail .product-box.select,
+.product-detail .product-box .active {
   background-color: #dbf0c0;
 }
 
 .product-box-title {
+  background-color: #fff;
+  padding: 9px 13px;
+  border-radius: 6px;
+  border: 3.5px solid #86c33a;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.product-offer-title {
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: 0px;
@@ -11175,7 +11182,12 @@ body.search-visible {
   .product-box-title {
     font-size: 14px;
     margin: 0px 0px 0px;
-}
+  }
+
+  .product-offer-title {
+    font-size: 14px;
+    margin: 0px 0px 0px;
+  }
 }
 
 .delivery-label {
@@ -11287,4 +11299,9 @@ body.search-visible {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.feature-review video {
+  overflow: hidden;
+  border-radius: 8px;
 }

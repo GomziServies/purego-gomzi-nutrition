@@ -113,6 +113,22 @@ function PureGoCreatine() {
       console.error(error);
     }
   };
+  
+
+  const USPData = [
+    {
+      title: "FSSAI Approved",
+      description: "Certified by FSSAI, ensuring safety and quality in every serving.",
+    },
+    {
+      title: "Direct from Manufacturers",
+      description: "Sourced straight from manufacturers for guaranteed freshness and quality.",
+    },
+    {
+      title: "International Raw Protein Usage",
+      description: "Uses globally sourced raw protein for consistent purity and quality.",
+    },
+  ];
 
   return (
     <>
@@ -212,13 +228,13 @@ function PureGoCreatine() {
                     </ul>
                   </div>
                   <div className="inner-shop-details-price">
-                    <h2 className="price d-flex">
+                    <h2 className="price d-flex mb-0">
                       ₹{currentProductData.discount}/-
                       <span className="old-prices">
                         ₹{currentProductData.price}/-
                       </span>
                     </h2>
-                    <h5 className="stock-status">69%</h5>
+                    <h5 className="stock-status">(69% OFF)</h5>
                   </div>
                   <p>
                     Creatine monohydrate works by increasing the body's stores
@@ -250,8 +266,19 @@ function PureGoCreatine() {
                     >
                       add to cart
                     </button>
+                    <div className="col">
+                      <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow">
+                        <img
+                          src="/assets/images/discount.png"
+                          alt="Special Offer"
+                          width="24px"
+                          className="me-1"
+                        />
+                        Hurry! Special Offer Available at Checkout.
+                      </h4>
+                    </div>
                   </div>
-                  <Features removeUSP={true} />
+                  <Features USPData={USPData} />
                 </div>
               </div>
             </div>
@@ -261,7 +288,7 @@ function PureGoCreatine() {
                   <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
                     <li className="nav-item">
                       <a
-                        href="#"
+                        href="#0"
                         className="nav-link active"
                         id="description-tab"
                         data-bs-toggle="tab"
@@ -381,7 +408,7 @@ function PureGoCreatine() {
                   <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
                     <li className="nav-item">
                       <a
-                        href="#"
+                        href="#0"
                         className="nav-link active"
                         id="description-tab"
                         data-bs-toggle="tab"
@@ -471,7 +498,7 @@ function PureGoCreatine() {
                   <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
                     <li className="nav-item">
                       <a
-                        href="#"
+                        href="#0"
                         className="nav-link active"
                         id="review-tab"
                         data-bs-toggle="tab"

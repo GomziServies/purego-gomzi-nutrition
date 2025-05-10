@@ -68,6 +68,24 @@ function PureGoWheyProtein() {
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-3.webp",
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-4.webp",
     ],
+    "2kg-Chocolate": [
+      "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-2.webp",
+      "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-3.webp",
+      "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-4.webp",
+    ],
+    "2kg-Mocha Coffee": [
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-2.webp",
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-3.webp",
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-4.webp",
+    ],
+    "2kg-Mawa Kulfi": [
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-2.webp",
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-3.webp",
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-4.webp",
+    ],
   };
 
   const products = [
@@ -107,9 +125,48 @@ function PureGoWheyProtein() {
         dis_point: "50%",
       },
     },
+    {
+      key: "2kg-Chocolate",
+      data: {
+        id: "67e7749163f930dcc6a2715d",
+        img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
+        name: "Whey Protein 2kg Chocolate",
+        price: "5599",
+        discount: "2679",
+        size: "2 Kg",
+        dis_point: "52%",
+      },
+    },
+    {
+      key: "2kg-Mocha Coffee",
+      data: {
+        id: "67e774c463f930dcc6a27161",
+        img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
+        name: "Whey Protein 2kg Mocha Coffee",
+        price: "5999",
+        discount: "2879",
+        size: "2 Kg",
+        dis_point: "52%",
+      },
+    },
+    {
+      key: "2kg-Mawa Kulfi",
+      data: {
+        id: "67e774a963f930dcc6a2715f",
+        img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
+        name: "Whey Protein 2kg Mawa Kulfi",
+        price: "5999",
+        discount: "2879",
+        size: "2 Kg",
+        dis_point: "52%",
+      },
+    },
   ];
 
-  const sizeOptions = [{ id: "1kg", label: "1kg" }];
+  const sizeOptions = [
+    { id: "1kg", label: "1kg" },
+    { id: "2kg", label: "2kg" },
+  ];
 
   const flavorOptions = [
     { id: "Chocolate", label: "Chocolate" },
@@ -117,35 +174,35 @@ function PureGoWheyProtein() {
     { id: "Mawa Kulfi", label: "Mawa Kulfi" },
   ];
 
-  // const handleSelectSize = (id) => {
-  //   setOpacity(0.3);
-  //   setTimeout(() => {
-  //     setActiveSize(id);
-  //     setCurrentProduct(`${id}-${activeFlavor}`);
-  //     setActiveImageIndex(0);
-  //     setOpacity(1);
-  //   }, 500);
-  // };
-
-  // const handleSelectFlavor = (id) => {
-  //   setOpacity(0.3);
-  //   setTimeout(() => {
-  //     setActiveFlavor(id);
-  //     setCurrentProduct(`${activeSize}-${id}`);
-  //     setActiveImageIndex(0);
-  //     setOpacity(1);
-  //   }, 500);
-  // };
-
-  const handleSelectProduct = (id) => {
+  const handleSelectSize = (id) => {
     setOpacity(0.3);
     setTimeout(() => {
-      setSelectedProduct(id);
-      setCurrentProduct(`${id}`);
+      setActiveSize(id);
+      setCurrentProduct(`${id}-${activeFlavor}`);
       setActiveImageIndex(0);
       setOpacity(1);
     }, 500);
   };
+
+  const handleSelectFlavor = (id) => {
+    setOpacity(0.3);
+    setTimeout(() => {
+      setActiveFlavor(id);
+      setCurrentProduct(`${activeSize}-${id}`);
+      setActiveImageIndex(0);
+      setOpacity(1);
+    }, 500);
+  };
+
+  // const handleSelectProduct = (id) => {
+  //   setOpacity(0.3);
+  //   setTimeout(() => {
+  //     setSelectedProduct(id);
+  //     setCurrentProduct(`${id}`);
+  //     setActiveImageIndex(0);
+  //     setOpacity(1);
+  //   }, 500);
+  // };
 
   const currentProductData =
     products.find((product) => product.key === currentProduct)?.data || {};
@@ -175,8 +232,20 @@ function PureGoWheyProtein() {
       setCurrentProduct(`${activeSize}-${ProductFlavor}`);
     }
   }, []);
-
+  
   const USPData = [
+    {
+      title: "FSSAI Approved",
+      description: "Certified by FSSAI, ensuring safety and quality in every serving.",
+    },
+    {
+      title: "Direct from Manufacturers",
+      description: "Sourced straight from manufacturers for guaranteed freshness and quality.",
+    },
+    {
+      title: "International Raw Protein Usage",
+      description: "Uses globally sourced raw protein for consistent purity and quality.",
+    },
     {
       title: "No Colors:",
       description:
@@ -195,6 +264,37 @@ function PureGoWheyProtein() {
       title: "Trustified Certified:",
       description:
         "Blind Testing for Protein & Macro Accuracy, Tested for Amino Spiking & Heavy Metals.",
+    },
+  ];
+
+  const additionalData = [
+    {
+      label: "Total Fat",
+      value: "0.76",
+    },
+    {
+      label: "Saturated Fat",
+      value: "0.60",
+    },
+    {
+      label: "Cholesterol",
+      value: "0.02",
+    },
+    {
+      label: "Total Carbohydrate",
+      value: "4.02",
+    },
+    {
+      label: "Protein",
+      value: "28.00",
+    },
+    {
+      label: "Total Sugars",
+      value: "0",
+    },
+    {
+      label: "Sodium",
+      value: "135.0",
     },
   ];
 
@@ -313,6 +413,20 @@ function PureGoWheyProtein() {
                     whey protein per serving (30g scoop). The benchmark and
                     premium source of protein powders.
                   </p>
+                  <div>
+                    <SelectableList
+                      items={sizeOptions}
+                      activeItem={activeSize}
+                      onItemClick={handleSelectSize}
+                      title="Size"
+                    />
+                    <SelectableList
+                      items={flavorOptions}
+                      activeItem={activeFlavor}
+                      onItemClick={handleSelectFlavor}
+                      title="Flavor"
+                    />
+                  </div>
                   {/* <div className="d-flex">
                     <div
                       className="pe-3 me-3"
@@ -334,7 +448,7 @@ function PureGoWheyProtein() {
                       />
                     </div>
                   </div> */}
-                  <div className="row border-top pt-3 mt-4 mx-0">
+                  {/* <div className="row border-top pt-3 mt-4 mx-0">
                     <div
                       className="col-4 product-detail py-2 px-md-2 px-1 text-center ps-0"
                       onClick={() => handleSelectProduct("1kg-Chocolate")}
@@ -377,7 +491,7 @@ function PureGoWheyProtein() {
                         </h4>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
                     <button
                       onClick={() => addProductInCart(currentProductData.id)}
@@ -386,7 +500,7 @@ function PureGoWheyProtein() {
                       add to cart
                     </button>
                     <div className="col">
-                      <h4 className="product-box-title m-0 d-flex align-items-center text-yellow">
+                      <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow">
                         <img
                           src="/assets/images/discount.png"
                           alt="Special Offer"
@@ -490,59 +604,6 @@ function PureGoWheyProtein() {
                         </p>
                       </div>
                     </div>
-                    <div
-                      className="tab-pane fade"
-                      id="information"
-                      role="tabpanel"
-                      aria-labelledby="information-tab"
-                    >
-                      <div className="product-desc-content">
-                        <table className="table table-sm">
-                          <tbody>
-                            <tr>
-                              <th scope="row">Calories</th>
-                              <td>110</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Total Fat</th>
-                              <td>1kg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Saturated Fat</th>
-                              <td>0.5g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Cholesterol</th>
-                              <td>40mg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Total Carbohydrate</th>
-                              <td>2g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Protein</th>
-                              <td>24g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Total Sugars</th>
-                              <td>2g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Sodium</th>
-                              <td>100mg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Calcium</th>
-                              <td>140 mg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Potassium</th>
-                              <td>160 mg</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -553,7 +614,7 @@ function PureGoWheyProtein() {
                   <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
                     <li className="nav-item">
                       <a
-                        href="#"
+                        href="#0"
                         className="nav-link active"
                         id="description-tab"
                         data-bs-toggle="tab"
@@ -576,46 +637,14 @@ function PureGoWheyProtein() {
                       <div className="product-desc-content">
                         <table className="table table-sm">
                           <tbody>
-                            <tr>
-                              <th scope="row">Calories</th>
-                              <td>110</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Total Fat</th>
-                              <td>1kg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Saturated Fat</th>
-                              <td>0.5g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Cholesterol</th>
-                              <td>40mg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Total Carbohydrate</th>
-                              <td>2g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Protein</th>
-                              <td>24g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Total Sugars</th>
-                              <td>2g</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Sodium</th>
-                              <td>100mg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Calcium</th>
-                              <td>140 mg</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Potassium</th>
-                              <td>160 mg</td>
-                            </tr>
+                            {additionalData.map((data, index) => {
+                              return (
+                                <tr>
+                                  <th scope="row">{data.label}</th>
+                                  <td>{data.value}</td>
+                                </tr>
+                              );
+                            })}
                           </tbody>
                         </table>
                       </div>
@@ -683,7 +712,7 @@ function PureGoWheyProtein() {
                   <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
                     <li className="nav-item">
                       <a
-                        href="#"
+                        href="#0"
                         className="nav-link active"
                         id="review-tab"
                         data-bs-toggle="tab"

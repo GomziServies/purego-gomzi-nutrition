@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { axiosInstance } from "../assets/js/config/api";
 import { toast } from "react-toastify";
+import ReactPlayer from "react-player";
 
 const Features = ({ USPData, removeUSP }) => {
   const [pincode, setPincode] = useState(null);
@@ -134,6 +135,44 @@ const Features = ({ USPData, removeUSP }) => {
             />
             <h4 className="box-title">Cash on delivery</h4>
           </div>
+        </div>
+      </div>
+      <div className="row border-top pt-3 mt-4 mx-0">
+        <div className="col-md-4 feature-review p-2 text-center col-6">
+          <ReactPlayer
+            url={process.env.PUBLIC_URL + `/assets/video/review-1.mp4`}
+            width="100%"
+            height="auto"
+            className="how-to-make-stap-video"
+            playing
+            loop
+            muted
+            playsinline
+          />
+        </div>
+        <div className="col-md-4 feature-review p-2 text-center col-6">
+          <ReactPlayer
+            url={process.env.PUBLIC_URL + `/assets/video/review-2.mp4`}
+            width="100%"
+            height="auto"
+            className="how-to-make-stap-video"
+            playing
+            loop
+            muted
+            playsinline
+          />
+        </div>
+        <div className="col-md-4 feature-review p-2 text-center col-6">
+          <ReactPlayer
+            url={process.env.PUBLIC_URL + `/assets/video/review-3.mp4`}
+            width="100%"
+            height="auto"
+            className="how-to-make-stap-video"
+            playing
+            loop
+            muted
+            playsinline
+          />
         </div>
       </div>
       {removeUSP ? (

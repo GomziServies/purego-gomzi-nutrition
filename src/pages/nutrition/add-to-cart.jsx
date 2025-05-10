@@ -562,7 +562,7 @@ function AddToCart() {
                       </td>
                       <td className="product__subtotal">$19.00</td>
                       <td className="product__remove">
-                        <a href="#">×</a>
+                        <a href="#0">×</a>
                       </td>
                     </tr>
                     <tr>
