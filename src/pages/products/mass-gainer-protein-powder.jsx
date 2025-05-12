@@ -75,7 +75,7 @@ function PureGoMassGainer() {
     {
       key: "3kg-Chocolate",
       data: {
-        id: "67e7745f63f930dcc6a2715b",
+        id: "68219f4d28bd0ff3b2083fb1",
         img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
         name: "Mass Gainer 3kg Chocolate",
         price: "4500",
@@ -312,7 +312,7 @@ function PureGoMassGainer() {
                   </div>
                   <div className="inner-shop-perched-info mt-3">
                     <button
-                      onClick={() => addProductInCart(products[0].data.id)}
+                      onClick={() => addProductInCart(currentProductData.id)}
                       className="cart-btn"
                     >
                       add to cart

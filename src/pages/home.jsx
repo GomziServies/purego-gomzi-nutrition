@@ -506,7 +506,7 @@ function Home() {
                         <div className="">
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹1390/-</span>
-                            <span className="variant-old-price">₹3000</span>
+                            <span className="variant-old-price">₹2999</span>
                             {/* <span className="variant-offer">53% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -588,7 +588,7 @@ function Home() {
                         className="position-relative"
                         src="/assets/images/fifty-discount.png"
                       />
-                      <p className="wishlist-text-first">50%</p>
+                      <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
@@ -647,8 +647,8 @@ function Home() {
                         <div className="">
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹1490/-</span>
-                            <span className="variant-old-price">₹3000</span>
-                            {/* <span className="variant-offer">50% off</span> */}
+                            <span className="variant-old-price">₹3190</span>
+                            {/* <span className="variant-offer">53% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -729,7 +729,7 @@ function Home() {
                         className="position-relative"
                         src="/assets/images/fifty-discount.png"
                       />
-                      <p className="wishlist-text-first">50%</p>
+                      <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
                     </div>
                   </div>
@@ -788,8 +788,8 @@ function Home() {
                         <div className="">
                           <div className="d-flex align-items-center">
                             <span className="variant-price"> ₹1490/-</span>
-                            <span className="variant-old-price">₹3000</span>
-                            {/* <span className="variant-offer">50% off</span> */}
+                            <span className="variant-old-price">₹3190</span>
+                            {/* <span className="variant-offer">53% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>

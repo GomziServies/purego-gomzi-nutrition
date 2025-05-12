@@ -3,6 +3,7 @@ import UserInfo from "../../../assets/js/menu/userInfo";
 import MobileUserInfo from "../../../assets/js/menu/mobileUserInfo";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../../assets/js/config/api";
+import LogoComponent from "../../logoComponent";
 
 function NutritionHeader({ productDataGet, cartItemName, cartDataClick }) {
   function openside() {
@@ -36,6 +37,7 @@ function NutritionHeader({ productDataGet, cartItemName, cartDataClick }) {
 
   return (
     <>
+      <LogoComponent />
       <div className="container-fluid offer-main bg-yellow p-0 m-0 d-flex align-items-center">
         <marquee className="text-white py-2">
           🎉Get upto 50% off on all products! 💸🛍️ Enjoy exclusive customer

@@ -23,6 +23,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import MoreProduct from "../../components/MoreProduct";
+import LogoComponent from "../../components/logoComponent";
 
 function AddToCart() {
   const canonicalUrl = window.location.href;
@@ -465,7 +466,8 @@ function AddToCart() {
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
-      {(loading || loading1) && <LoadingComponent />}
+      {/* {(loading || loading1) && <LoadingComponent />} */}
+      <LoadingComponent isLoading={loading || loading1} />
       <NutritionHeader productDataGet={productDataGet} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>

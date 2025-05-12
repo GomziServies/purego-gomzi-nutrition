@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import $ from "jquery";
@@ -12,6 +12,7 @@ import "./assets/css/magnific-popup.css";
 import "./assets/css/odometer.css";
 import "./assets/css/slick.css";
 import "./assets/css/style.css";
+
 const App = lazy(() => import("./App"));
 
 window.$ = $;
@@ -19,11 +20,11 @@ window.jQuery = $;
 window.BASE_URL = process.env.PUBLIC_URL;
 
 const RedirectFromHtml = ({ children }) => {
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setTimeout(() => {
       const script = document.createElement("script");
       script.src = "https://www.googletagmanager.com/gtag/js?id=UA-209915471-2";
-      script.async = true; // Ensure async loading
+      script.async = true;
       document.head.appendChild(script);
 
       script.onload = () => {
@@ -46,39 +47,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <RedirectFromHtml>
-      <Suspense
-        fallback={
-          <div>
-            <div className="main-loading-logo">
-              <div className="">
-                {/* <div className='m-auto'>
-              <Oval
-                visible={true}
-                height="60"
-                width="60"
-                color="#4fa94d"
-                ariaLabel="oval-loading"
-                wrapperStyle={{}}
-                wrapperclassName=""
-              />
-            </div> */}
-                <div>
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      "../assets/images/nutrition-logo.png"
-                    }
-                    className="img-fluid"
-                    width={120}
-                    height="auto"
-                    alt="Fg Group"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        }
-      >
+      <Suspense fallback={null}>
         <App />
       </Suspense>
     </RedirectFromHtml>

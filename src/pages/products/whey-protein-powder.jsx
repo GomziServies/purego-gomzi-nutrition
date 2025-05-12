@@ -95,7 +95,7 @@ function PureGoWheyProtein() {
         id: "67e7749163f930dcc6a2715d",
         img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
         name: "Whey Protein 1kg Chocolate",
-        price: "3000",
+        price: "2999",
         discount: "1390",
         size: "1 Kg",
         dis_point: "53%",
@@ -107,10 +107,10 @@ function PureGoWheyProtein() {
         id: "67e774c463f930dcc6a27161",
         img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
         name: "Whey Protein 1kg Mocha Coffee",
-        price: "3000",
+        price: "3199",
         discount: "1490",
         size: "1 Kg",
-        dis_point: "50%",
+        dis_point: "53%",
       },
     },
     {
@@ -119,16 +119,16 @@ function PureGoWheyProtein() {
         id: "67e774a963f930dcc6a2715f",
         img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
         name: "Whey Protein 1kg Mawa Kulfi",
-        price: "3000",
+        price: "3199",
         discount: "1490",
         size: "1 Kg",
-        dis_point: "50%",
+        dis_point: "53%",
       },
     },
     {
       key: "2kg-Chocolate",
       data: {
-        id: "67e7749163f930dcc6a2715d",
+        id: "68219edf28bd0ff3b2083fa6",
         img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
         name: "Whey Protein 2kg Chocolate",
         price: "5599",
@@ -140,7 +140,7 @@ function PureGoWheyProtein() {
     {
       key: "2kg-Mocha Coffee",
       data: {
-        id: "67e774c463f930dcc6a27161",
+        id: "68219f0d28bd0ff3b2083fad",
         img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
         name: "Whey Protein 2kg Mocha Coffee",
         price: "5999",
@@ -152,7 +152,7 @@ function PureGoWheyProtein() {
     {
       key: "2kg-Mawa Kulfi",
       data: {
-        id: "67e774a963f930dcc6a2715f",
+        id: "68219ef928bd0ff3b2083fa8",
         img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
         name: "Whey Protein 2kg Mawa Kulfi",
         price: "5999",
