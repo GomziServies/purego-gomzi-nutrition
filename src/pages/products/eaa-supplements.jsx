@@ -114,20 +114,21 @@ function PureGoEaa() {
     }
   };
 
-  
-
   const USPData = [
     {
       title: "FSSAI Approved",
-      description: "Certified by FSSAI, ensuring safety and quality in every serving.",
+      description:
+        "Certified by FSSAI, ensuring safety and quality in every serving.",
     },
     {
       title: "Direct from Manufacturers",
-      description: "Sourced straight from manufacturers for guaranteed freshness and quality.",
+      description:
+        "Sourced straight from manufacturers for guaranteed freshness and quality.",
     },
     {
       title: "International Raw Protein Usage",
-      description: "Uses globally sourced raw protein for consistent purity and quality.",
+      description:
+        "Uses globally sourced raw protein for consistent purity and quality.",
     },
   ];
 
@@ -200,7 +201,7 @@ function PureGoEaa() {
                       setActiveImageIndex={setActiveImageIndex}
                     />
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-4 px-0 d-md-block d-none">
                     <img
                       src="/assets/images/government-approved.png"
                       alt="Approved By government"
@@ -208,79 +209,89 @@ function PureGoEaa() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-7 d-flex align-items-center mt-md-0 mt-3">
+              <div className="col-lg-7 d-flex align-items-center mt-md-0 p-0">
                 <div className="inner-shop-details-content">
-                  <h4 className="title">{currentProductData.name}</h4>
-                  <div className="inner-shop-details-meta">
-                    <ul className="list-wrap">
-                      <li>
-                        Brands : <a href="shop.html">Pure-Go</a>
-                      </li>
-                      <li className="inner-shop-details-review">
-                        <div className="rating">
-                          <i className="fas fa-star"></i>
-                          <i className="fas fa-star"></i>
-                          <i className="fas fa-star"></i>
-                          <i className="fas fa-star"></i>
-                          <i className="fas fa-star"></i>
-                        </div>
-                        <span>(4.5)</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="inner-shop-details-price">
-                    <h2 className="price d-flex mb-0">
-                      ₹{currentProductData.discount}/-
-                      <span className="old-prices">
-                        ₹{currentProductData.price}/-
-                      </span>
-                    </h2>
-                    <h5 className="stock-status">
-                    ({currentProductData.dis_point} OFF)
-                    </h5>
-                  </div>
-                  <p>
-                    EAA is an advanced science-based solution that contains 13
-                    Ultra amino acids as well as hydration and a vitamin booster
-                    combination. EAAs aid in muscle growth and regeneration
-                    while also lowering fatigue and soreness.
-                  </p>
-                  <div>
-                    <SelectableList
-                      items={sizeOptions}
-                      activeItem={activeSize}
-                      onItemClick={handleSelectSize}
-                      title="Size"
+                  <div className="px-0 d-md-none d-block">
+                    <img
+                      src="/assets/images/government-approved.png"
+                      alt="Approved By government"
                     />
                   </div>
-                  <div>
-                    <SelectableList
-                      items={flavorOptions}
-                      activeItem={activeFlavor}
-                      onItemClick={handleSelectFlavor}
-                      title="Flavor"
-                    />
-                  </div>
-                  <div className="inner-shop-perched-info mt-3">
-                    <button
-                      onClick={() => addProductInCart(products[0].data.id)}
-                      className="cart-btn"
-                    >
-                      add to cart
-                    </button>
-                    <div className="col">
-                      <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow">
-                        <img
-                          src="/assets/images/discount.png"
-                          alt="Special Offer"
-                          width="24px"
-                          className="me-1"
-                        />
-                        Hurry! Special Offer Available at Checkout.
-                      </h4>
+                  <div className="bg-product px-3 pb-3 pt-3">
+                    <h4 className="title">{currentProductData.name}</h4>
+                    <div className="inner-shop-details-meta">
+                      <ul className="list-wrap">
+                        <li>
+                          Brands : <a href="shop.html">Pure-Go</a>
+                        </li>
+                        <li className="inner-shop-details-review">
+                          <div className="rating">
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                          </div>
+                          <span>(4.5)</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="inner-shop-details-price">
+                      <h2 className="price d-flex mb-0">
+                        ₹{currentProductData.discount}/-
+                        <span className="old-prices">
+                          ₹{currentProductData.price}/-
+                        </span>
+                      </h2>
+                      <h5 className="stock-status">
+                        ({currentProductData.dis_point} OFF)
+                      </h5>
+                    </div>
+                    <p>
+                      EAA is an advanced science-based solution that contains 13
+                      Ultra amino acids as well as hydration and a vitamin
+                      booster combination. EAAs aid in muscle growth and
+                      regeneration while also lowering fatigue and soreness.
+                    </p>
+                    <div>
+                      <SelectableList
+                        items={sizeOptions}
+                        activeItem={activeSize}
+                        onItemClick={handleSelectSize}
+                        title="Size"
+                      />
+                    </div>
+                    <div>
+                      <SelectableList
+                        items={flavorOptions}
+                        activeItem={activeFlavor}
+                        onItemClick={handleSelectFlavor}
+                        title="Flavor"
+                      />
+                    </div>
+                    <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
+                      <button
+                        onClick={() => addProductInCart(currentProductData.id)}
+                        className="col-11 cart-btn m-0 ms-2"
+                      >
+                        add to cart
+                      </button>
+                      <div className="col">
+                        <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow mt-md-0 mt-3">
+                          <img
+                            src="/assets/images/discount.png"
+                            alt="Special Offer"
+                            width="24px"
+                            className="me-1"
+                          />
+                          Hurry! Special Offer Available at Checkout.
+                        </h4>
+                      </div>
                     </div>
                   </div>
-                  <Features USPData={USPData} />
+                  <div className="px-3">
+                    <Features USPData={USPData} />
+                  </div>
                 </div>
               </div>
             </div>

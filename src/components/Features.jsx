@@ -94,6 +94,44 @@ const Features = ({ USPData, removeUSP }) => {
         </div>
       </div>
       <div className="row border-top pt-3 mt-4 mx-0">
+        <div className="col-4 feature-review p-md-2 px-1 text-center">
+          <ReactPlayer
+            url={process.env.PUBLIC_URL + `/assets/video/review-1.mp4`}
+            width="100%"
+            height="auto"
+            className="how-to-make-stap-video"
+            playing
+            loop
+            muted
+            playsinline
+          />
+        </div>
+        <div className="col-4 feature-review p-md-2 px-1 text-center">
+          <ReactPlayer
+            url={process.env.PUBLIC_URL + `/assets/video/review-2.mp4`}
+            width="100%"
+            height="auto"
+            className="how-to-make-stap-video"
+            playing
+            loop
+            muted
+            playsinline
+          />
+        </div>
+        <div className="col-4 feature-review p-md-2 px-1 text-center">
+          <ReactPlayer
+            url={process.env.PUBLIC_URL + `/assets/video/review-3.mp4`}
+            width="100%"
+            height="auto"
+            className="how-to-make-stap-video"
+            playing
+            loop
+            muted
+            playsinline
+          />
+        </div>
+      </div>
+      <div className="row border-top pt-3 mt-4 mx-0">
         <div className="col-md-3 shipping p-2 text-center col-6">
           <div className="box">
             <img
@@ -101,7 +139,8 @@ const Features = ({ USPData, removeUSP }) => {
               alt="img"
               width="45px"
             />
-            <h4 className="box-title">Fast delivery</h4>
+            <h4 className="box-title d-md-block d-none">Fast delivery</h4>
+            <h4 className="box-title d-md-none d-block">Fast <br /> delivery</h4>
           </div>
         </div>
         <div className="col-md-3 shipping p-2 text-center col-6">
@@ -137,49 +176,11 @@ const Features = ({ USPData, removeUSP }) => {
           </div>
         </div>
       </div>
-      <div className="row border-top pt-3 mt-4 mx-0">
-        <div className="col-md-4 feature-review p-2 text-center col-6">
-          <ReactPlayer
-            url={process.env.PUBLIC_URL + `/assets/video/review-1.mp4`}
-            width="100%"
-            height="auto"
-            className="how-to-make-stap-video"
-            playing
-            loop
-            muted
-            playsinline
-          />
-        </div>
-        <div className="col-md-4 feature-review p-2 text-center col-6">
-          <ReactPlayer
-            url={process.env.PUBLIC_URL + `/assets/video/review-2.mp4`}
-            width="100%"
-            height="auto"
-            className="how-to-make-stap-video"
-            playing
-            loop
-            muted
-            playsinline
-          />
-        </div>
-        <div className="col-md-4 feature-review p-2 text-center col-6">
-          <ReactPlayer
-            url={process.env.PUBLIC_URL + `/assets/video/review-3.mp4`}
-            width="100%"
-            height="auto"
-            className="how-to-make-stap-video"
-            playing
-            loop
-            muted
-            playsinline
-          />
-        </div>
-      </div>
       {removeUSP ? (
         ""
       ) : (
         <div className="row border-top pt-3 mt-4 mx-0">
-          <div className="col-12 return-policy-main">
+          <div className="col-12 return-policy-main px-2">
             <div className="mt-3 editor-text">
               <h4 className="d-inline-block f-rob-med f-14">
                 <i

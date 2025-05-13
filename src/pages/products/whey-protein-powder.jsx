@@ -232,19 +232,22 @@ function PureGoWheyProtein() {
       setCurrentProduct(`${activeSize}-${ProductFlavor}`);
     }
   }, []);
-  
+
   const USPData = [
     {
       title: "FSSAI Approved",
-      description: "Certified by FSSAI, ensuring safety and quality in every serving.",
+      description:
+        "Certified by FSSAI, ensuring safety and quality in every serving.",
     },
     {
       title: "Direct from Manufacturers",
-      description: "Sourced straight from manufacturers for guaranteed freshness and quality.",
+      description:
+        "Sourced straight from manufacturers for guaranteed freshness and quality.",
     },
     {
       title: "International Raw Protein Usage",
-      description: "Uses globally sourced raw protein for consistent purity and quality.",
+      description:
+        "Uses globally sourced raw protein for consistent purity and quality.",
     },
     {
       title: "No Colors:",
@@ -367,7 +370,7 @@ function PureGoWheyProtein() {
                       setActiveImageIndex={setActiveImageIndex}
                     />
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-4 px-0 d-md-block d-none">
                     <img
                       src="/assets/images/government-approved.png"
                       alt="Approved By government"
@@ -375,71 +378,58 @@ function PureGoWheyProtein() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-7 d-flex align-items-center mt-md-0 mt-3">
+              <div className="col-lg-7 d-flex align-items-center mt-md-0 p-0">
                 <div className="inner-shop-details-content">
-                  <h4 className="title">{currentProductData.name}</h4>
-                  <div className="inner-shop-details-meta">
-                    <ul className="list-wrap">
-                      <li>
-                        Brands : <a href="shop.html">Pure-Go</a>
-                      </li>
-                      <li className="inner-shop-details-review">
-                        <div className="rating">
-                          <i className="fas fa-star"></i>
-                          <i className="fas fa-star"></i>
-                          <i className="fas fa-star"></i>
-                          <i className="fas fa-star"></i>
-                          <i className="fas fa-star"></i>
-                        </div>
-                        <span>(4.5)</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="inner-shop-details-price">
-                    <h2 className="price d-flex mb-0">
-                      ₹{currentProductData.discount}/-
-                      <span className="old-prices">
-                        ₹{currentProductData.price}/-
-                      </span>
-                    </h2>
-                    <h5 className="stock-status">
-                      ({currentProductData.dis_point} OFF)
-                    </h5>
-                  </div>
-                  <p>
-                    Pure Go Whey Protein is a Mixture of Whey Isolate, Whey
-                    Concentrate, Skimmed Milk powder, Soy protein isolate and
-                    plant protein. It is packed with 24g of 100% High Quality
-                    whey protein per serving (30g scoop). The benchmark and
-                    premium source of protein powders.
-                  </p>
-                  <div>
-                    <SelectableList
-                      items={sizeOptions}
-                      activeItem={activeSize}
-                      onItemClick={handleSelectSize}
-                      title="Size"
-                    />
-                    <SelectableList
-                      items={flavorOptions}
-                      activeItem={activeFlavor}
-                      onItemClick={handleSelectFlavor}
-                      title="Flavor"
+                  <div className="px-0 d-md-none d-block">
+                    <img
+                      src="/assets/images/government-approved.png"
+                      alt="Approved By government"
                     />
                   </div>
-                  {/* <div className="d-flex">
-                    <div
-                      className="pe-3 me-3"
-                      style={{ borderRight: "1px solid #ccc" }}
-                    >
+                  <div className="bg-product px-3 pb-3 pt-3">
+                    <h4 className="title">{currentProductData.name}</h4>
+                    <div className="inner-shop-details-meta">
+                      <ul className="list-wrap">
+                        <li>
+                          Brands : <a href="shop.html">Pure-Go</a>
+                        </li>
+                        <li className="inner-shop-details-review">
+                          <div className="rating">
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                          </div>
+                          <span>(4.5)</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="inner-shop-details-price">
+                      <h2 className="price d-flex mb-0">
+                        ₹{currentProductData.discount}/-
+                        <span className="old-prices">
+                          ₹{currentProductData.price}/-
+                        </span>
+                      </h2>
+                      <h5 className="stock-status">
+                        ({currentProductData.dis_point} OFF)
+                      </h5>
+                    </div>
+                    <p>
+                      Pure Go Whey Protein is a Mixture of Whey Isolate, Whey
+                      Concentrate, Skimmed Milk powder, Soy protein isolate and
+                      plant protein. It is packed with 24g of 100% High Quality
+                      whey protein per serving (30g scoop). The benchmark and
+                      premium source of protein powders.
+                    </p>
+                    <div>
                       <SelectableList
                         items={sizeOptions}
                         activeItem={activeSize}
                         onItemClick={handleSelectSize}
                         title="Size"
                       />
-                    </div>
-                    <div>
                       <SelectableList
                         items={flavorOptions}
                         activeItem={activeFlavor}
@@ -447,71 +437,94 @@ function PureGoWheyProtein() {
                         title="Flavor"
                       />
                     </div>
-                  </div> */}
-                  {/* <div className="row border-top pt-3 mt-4 mx-0">
-                    <div
-                      className="col-4 product-detail py-2 px-md-2 px-1 text-center ps-0"
-                      onClick={() => handleSelectProduct("1kg-Chocolate")}
-                    >
+                    {/* <div className="d-flex">
                       <div
-                        className={`product-box ${
-                          selectedProduct === "1kg-Chocolate" ? "select" : ""
-                        }`}
+                        className="pe-3 me-3"
+                        style={{ borderRight: "1px solid #ccc" }}
                       >
-                        <h4 className="product-box-title my-md-3">
-                          1 KG Chocolate
-                        </h4>
-                      </div>
-                    </div>
-                    <div
-                      className="col-4 product-detail py-2 px-md-2 px-1 text-center"
-                      onClick={() => handleSelectProduct("1kg-Mawa Kulfi")}
-                    >
-                      <div
-                        className={`product-box ${
-                          selectedProduct === "1kg-Mawa Kulfi" ? "select" : ""
-                        }`}
-                      >
-                        <h4 className="product-box-title my-md-3">
-                          1 KG Mawa Kulfi
-                        </h4>
-                      </div>
-                    </div>
-                    <div
-                      className="col-4 product-detail py-2 px-md-2 px-1 text-center"
-                      onClick={() => handleSelectProduct("1kg-Mocha Coffee")}
-                    >
-                      <div
-                        className={`product-box ${
-                          selectedProduct === "1kg-Mocha Coffee" ? "select" : ""
-                        }`}
-                      >
-                        <h4 className="product-box-title my-md-3">
-                          1 KG Mocha Coffee
-                        </h4>
-                      </div>
-                    </div>
-                  </div> */}
-                  <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
-                    <button
-                      onClick={() => addProductInCart(currentProductData.id)}
-                      className="col-3 cart-btn m-0"
-                    >
-                      add to cart
-                    </button>
-                    <div className="col">
-                      <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow">
-                        <img
-                          src="/assets/images/discount.png"
-                          alt="Special Offer"
-                          width="24px"
-                          className="me-1"
+                        <SelectableList
+                          items={sizeOptions}
+                          activeItem={activeSize}
+                          onItemClick={handleSelectSize}
+                          title="Size"
                         />
-                        Hurry! Special Offer Available at Checkout.
-                      </h4>
+                      </div>
+                      <div>
+                        <SelectableList
+                          items={flavorOptions}
+                          activeItem={activeFlavor}
+                          onItemClick={handleSelectFlavor}
+                          title="Flavor"
+                        />
+                      </div>
+                    </div> */}
+                    {/* <div className="row border-top pt-3 mt-4 mx-0">
+                      <div
+                        className="col-4 product-detail py-2 px-md-2 px-1 text-center ps-0"
+                        onClick={() => handleSelectProduct("1kg-Chocolate")}
+                      >
+                        <div
+                          className={`product-box ${
+                            selectedProduct === "1kg-Chocolate" ? "select" : ""
+                          }`}
+                        >
+                          <h4 className="product-box-title my-md-3">
+                            1 KG Chocolate
+                          </h4>
+                        </div>
+                      </div>
+                      <div
+                        className="col-4 product-detail py-2 px-md-2 px-1 text-center"
+                        onClick={() => handleSelectProduct("1kg-Mawa Kulfi")}
+                      >
+                        <div
+                          className={`product-box ${
+                            selectedProduct === "1kg-Mawa Kulfi" ? "select" : ""
+                          }`}
+                        >
+                          <h4 className="product-box-title my-md-3">
+                            1 KG Mawa Kulfi
+                          </h4>
+                        </div>
+                      </div>
+                      <div
+                        className="col-4 product-detail py-2 px-md-2 px-1 text-center"
+                        onClick={() => handleSelectProduct("1kg-Mocha Coffee")}
+                      >
+                        <div
+                          className={`product-box ${
+                            selectedProduct === "1kg-Mocha Coffee" ? "select" : ""
+                          }`}
+                        >
+                          <h4 className="product-box-title my-md-3">
+                            1 KG Mocha Coffee
+                          </h4>
+                        </div>
+                      </div>
+                    </div> */}
+                    <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
+                      <button
+                        onClick={() => addProductInCart(currentProductData.id)}
+                        className="col-11 cart-btn m-0 ms-2"
+                      >
+                        add to cart
+                      </button>
+                      <div className="col">
+                        <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow mt-md-0 mt-3">
+                          <img
+                            src="/assets/images/discount.png"
+                            alt="Special Offer"
+                            width="24px"
+                            className="me-1"
+                          />
+                          Hurry! Special Offer Available at Checkout.
+                        </h4>
+                      </div>
                     </div>
                   </div>
-                  <Features USPData={USPData} />
+                  <div className="px-3">
+                    <Features USPData={USPData} />
+                  </div>
                 </div>
               </div>
             </div>

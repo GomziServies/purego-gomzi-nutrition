@@ -712,8 +712,8 @@ function CheckOut() {
                   </form>
                 </div>
               </div>
-              <div className="col-lg-5 row">
-                {/* <div className="col-12">
+              <div className="col-lg-5">
+                <div className="col-12">
                   <div className="order__info-wrap mb-3">
                     <div className="m-0 w-100">
                       <div className="br-15">
@@ -722,24 +722,24 @@ function CheckOut() {
                             <h2 className="promo-title">Apply Promo Code</h2>
                           </div>
                         </div>
-                        <div className="d-flex mt-3 align-items-center justify-content-between border p-3 br-15">
+                        <div className="d-flex flex-md-row flex-column mt-3 align-items-center justify-content-between border p-3 br-15">
                           <input
                             id="coupon_code"
                             type="text"
                             placeholder="Enter Coupon Code"
                             name="coupon_code"
-                            className="form-control me-2"
+                            className="form-control"
                             style={{ height: "46.8px" }}
                             // value={manualCouponCode}
                             // onChange={handleOnChange}
                             maxLength="100"
                           />
-                          <div className="d-inline-block inner-shop-perched-info">
+                          <div className="d-inline-block inner-shop-perched-info mt-md-0 mt-3 w-md-auto w-100">
                             <button
                               id="apply_main_btn"
                               type="button"
                               // onClick={() => handleApplyClick()}
-                              className="cart-btn m-0"
+                              className="cart-btn m-0 w-md-auto w-100"
                             >
                               Apply
                             </button>
@@ -748,7 +748,7 @@ function CheckOut() {
                       </div>
                     </div>
                   </div>
-                </div> */}
+                </div>
                 {/* <div className="col-12 apply-promo-modal">
                           <div className="mb-3 p-3 border br-15">
                             <label className="radio-main m-0 d-block">

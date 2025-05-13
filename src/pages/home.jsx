@@ -393,9 +393,9 @@ function Home() {
         <section className="features-products">
           <div className="section-title text-center mb-60">
             <p className="sub-title">
-              .. PureGo: Where Quality Meets Wellness ..
+              .. Wellness, Quality, and Transparency — That's PureGo ..
             </p>
-            <h1 className="title">Purego Products</h1>
+            <h1 className="title">Elevate Everyday Living</h1>
           </div>
           <div className="container text-center">
             {/* justify-content-center */}

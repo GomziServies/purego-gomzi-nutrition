@@ -4,11 +4,11 @@ const SelectableItem = ({ id, label, isActive, onClick }) => {
     console.log('isActive :- ', isActive);
     
   return (
-    <li className="me-3 mb-3 d-inline-block product-detail">
+    <li className="mb-3 d-inline-block product-detail">
       <div className="product-box" onClick={() => onClick(id)}>
         <div className="">
           <span
-            className={`product-box-title my-md-3 ${
+            className={`product-box-title me-md-3 me-1 my-md-3 ${
               isActive ? "active" : ""
             }`}
             id={id}
