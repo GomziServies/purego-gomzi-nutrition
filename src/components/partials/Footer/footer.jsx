@@ -31,16 +31,16 @@ function HomeNutritionFooter() {
                         </p>
                       </div>
                       <div className="footer-social">
-                        <Link to="https://www.facebook.com/gajani2/">
+                        <Link to="https://www.facebook.com/people/Gomzi-Nutrition/61558718185166/?mibextid=ZbWKwL">
                           <i className="fab fa-facebook-f"></i>
                         </Link>
-                        <Link to="https://www.youtube.com/channel/UCLyvtq55YZORdV-SN8OQSzQ">
+                        <Link to="https://www.youtube.com/@GomziNutrition">
                           <i className="fab fa-youtube"></i>
                         </Link>
-                        <Link to="https://www.instagram.com/gomzi_nutrition/?igsh=NTc4MTIwNjQ2YQ%3D%3D#">
+                        <Link to="https://www.instagram.com/gomzi_nutrition?igsh=a2gwNGxmZXk1NXds">
                           <i className="fab fa-instagram"></i>
                         </Link>
-                        <Link to="https://www.linkedin.com/in/dt-gautam-jani-561a50161/">
+                        <Link to="https://www.linkedin.com/in/gomzi-nutrition-423558312/">
                           <i className="fab fa-linkedin-in"></i>
                         </Link>
                       </div>

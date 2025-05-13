@@ -77,6 +77,7 @@ function CheckOut() {
   const [courierId, setCourierId] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [quickData, setQuickData] = useState({});
 
   const openModal = () => {
     setShowModal(true);
@@ -270,7 +271,7 @@ function CheckOut() {
     try {
       const allProductsData = localStorage.getItem("allProductsData");
       const cartProductData = JSON.parse(allProductsData);
-      
+
       const totalProduct = cartProductData.allProductsData.length;
       const oneKgProduct = cartProductData.allProductsData.filter((data) =>
         data.name.includes("1kg")
@@ -399,6 +400,14 @@ function CheckOut() {
   // useEffect(() => {
   //   getEstimate();
   // }, []);
+
+  useEffect(() => {
+    let quickProductData = localStorage.getItem("quickProductData");
+    quickProductData = JSON.parse(quickProductData);
+    console.log("quickProductData :- ", quickProductData);
+
+    setQuickData(quickProductData);
+  }, []);
 
   const handleStateChange = (event) => {
     try {
@@ -722,27 +731,31 @@ function CheckOut() {
                             <h2 className="promo-title">Apply Promo Code</h2>
                           </div>
                         </div>
-                        <div className="d-flex flex-md-row flex-column mt-3 align-items-center justify-content-between border p-3 br-15">
-                          <input
-                            id="coupon_code"
-                            type="text"
-                            placeholder="Enter Coupon Code"
-                            name="coupon_code"
-                            className="form-control"
-                            style={{ height: "46.8px" }}
-                            // value={manualCouponCode}
-                            // onChange={handleOnChange}
-                            maxLength="100"
-                          />
-                          <div className="d-inline-block inner-shop-perched-info mt-md-0 mt-3 w-md-auto w-100">
-                            <button
-                              id="apply_main_btn"
-                              type="button"
-                              // onClick={() => handleApplyClick()}
-                              className="cart-btn m-0 w-md-auto w-100"
-                            >
-                              Apply
-                            </button>
+                        <div className="row flex-md-row flex-column mt-3 align-items-center justify-content-between border p-3 br-15">
+                          <div className="col-md-8 ps-0 pe-md-2 pe-0">
+                            <input
+                              id="coupon_code"
+                              type="text"
+                              placeholder="Enter Coupon Code"
+                              name="coupon_code"
+                              className="form-control"
+                              style={{ height: "46.8px" }}
+                              // value={manualCouponCode}
+                              // onChange={handleOnChange}
+                              maxLength="100"
+                            />
+                          </div>
+                          <div className="col-md-4 ps-md-2 ps-0 pe-md-3 pe-0">
+                            <div className="d-inline-block inner-shop-perched-info mt-md-0 mt-3 w-md-25 w-100">
+                              <button
+                                id="apply_main_btn"
+                                type="button"
+                                // onClick={() => handleApplyClick()}
+                                className="cart-btn m-0 w-100"
+                              >
+                                Apply
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>

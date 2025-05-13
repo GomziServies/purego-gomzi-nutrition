@@ -133,7 +133,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
       {showModal && <LoginModal onClose={closeModal} />}
       <section className="features-products">
         <div className="section-title text-center mb-60">
-          <p className="sub-title">.. Increased Wellness With Purego ..</p>
+          <p className="sub-title">Increased Wellness With Purego</p>
           <h2 className="title">Purego Products</h2>
         </div>
         <div className="container">

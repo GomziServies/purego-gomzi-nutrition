@@ -393,7 +393,7 @@ function Home() {
         <section className="features-products">
           <div className="section-title text-center mb-60">
             <p className="sub-title">
-              .. Wellness, Quality, and Transparency — That's PureGo ..
+              <i class="fa-solid fa-quote-left"></i> Wellness, Quality, and Transparency — That's PureGo <i class="fa-solid fa-quote-right"></i>
             </p>
             <h1 className="title">Elevate Everyday Living</h1>
           </div>
@@ -1907,7 +1907,7 @@ function Home() {
               <div className="col-xl-7 col-lg-9">
                 <div className="ingredients-items-wrap">
                   <div className="section-title mb-60 text-center">
-                    <p className="sub-title">.. Product Design By ..</p>
+                    <p className="sub-title">Product Design By</p>
                     <h2 className="title">Dr. Gautam Jani</h2>
                   </div>
                   <div className="row justify-content-center justify-content-lg-start">
@@ -2066,7 +2066,7 @@ function Home() {
         <section className="formula-area formula-bg">
           <div className="">
             <div className="section-title text-center white-title mb-50">
-              <p className="sub-title">.. Purego Wellness ..</p>
+              <p className="sub-title">Purego Wellness</p>
               <h2 className="title">Certificates</h2>
             </div>
             <div className="row d-md-flex d-none justify-content-center">
@@ -2206,7 +2206,7 @@ function Home() {
           <div className="testimonial-overlay"></div>
           <div className="container">
             <div className="section-title text-center white-title mb-50">
-              <p className="sub-title">.. Are Client Says ..</p>
+              <p className="sub-title">Are Client Says</p>
               <h2 className="title">Testimonials</h2>
             </div>
             <div className="row justify-content-center">
@@ -2340,7 +2340,7 @@ function Home() {
               <div className="col-xl-6 col-lg-8">
                 <div className="section-title text-center white-title mb-50">
                   <p className="sub-title">
-                    .. PureGo: Where Quality Meets Wellness ..
+                    PureGo: Where Quality Meets Wellness
                   </p>
                   <h2>Blogs</h2>
                 </div>
@@ -2463,7 +2463,7 @@ function Home() {
                 <div className="col-12">
                   <div className="faq-wrapper">
                     <div className="section-title mb-50">
-                      <p className="sub-title">.. Ask Question ..</p>
+                      <p className="sub-title">Ask Question</p>
                       <h2 className="title">Your Wellness FAQs</h2>
                     </div>
                     <Accordion defaultActiveKey={["1"]} alwaysOpen>

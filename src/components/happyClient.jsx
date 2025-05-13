@@ -49,7 +49,7 @@ function HappyClientReview() {
       <div className="container">
         <div className="col-12 d-flex align-items-center justify-content-center">
           <div className="section-title mb-30 text-center">
-            <p className="sub-title">.. Words from Clients ..</p>
+            <p className="sub-title">Words from Clients</p>
             <h2 className="title">HAPPY CLIENT</h2>
           </div>
         </div>

@@ -45,7 +45,7 @@ const Review = () => {
           <div class="row justify-content-center">
             <div class="col-xl-6 col-lg-8">
               <div class="section-title text-center mb-55">
-                <p class="sub-title">.. Customer Reviews ..</p>
+                <p class="sub-title">Customer Reviews</p>
                 <h2 class="title">HAPPY CLIENT</h2>
               </div>
             </div>

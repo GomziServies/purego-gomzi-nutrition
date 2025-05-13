@@ -7,7 +7,7 @@ const HowToUse = ({ src1, src2, src3, src4, step1, step2 }) => {
       <section className="formula-area formula-bg">
         <div className="container">
           <div className="section-title text-center white-title mb-50">
-            <p className="sub-title">.. Purego Wellness ..</p>
+            <p className="sub-title">Purego Wellness</p>
             <h2 className="title">How To Use</h2>
           </div>
           <div className="row">

@@ -272,7 +272,7 @@ function PureGoEaa() {
                     <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
                       <button
                         onClick={() => addProductInCart(currentProductData.id)}
-                        className="col-11 cart-btn m-0 ms-2"
+                        className="col-md-3 col-11 cart-btn m-0 ms-md-0 ms-2"
                       >
                         add to cart
                       </button>
