@@ -114,6 +114,24 @@ function PureGoPreWorkout() {
     }
   };
 
+  const handleQuickBuy = async (quickProductData) => {
+    try {
+      const isLogin = localStorage.getItem("fg_group_user_authorization");
+      if (!isLogin) {
+        return openModal();
+      }
+
+      localStorage.setItem(
+        "quickProductData",
+        JSON.stringify(quickProductData)
+      );
+
+      window.location.href = "/check-out";
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const USPData = [
     {
       title: "FSSAI Approved",
@@ -317,22 +335,26 @@ function PureGoPreWorkout() {
                     <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
                       <button
                         onClick={() => addProductInCart(currentProductData.id)}
-                        className="col-md-3 col-11 cart-btn m-0 ms-md-0 ms-2"
+                        className="col-md-3 col-11 cart-btn m-0 ms-md-0 mx-1 my-1"
                       >
                         add to cart
                       </button>
-                      <div className="col">
-                        <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow mt-md-0 mt-3">
-                          <img
-                            src="/assets/images/discount.png"
-                            alt="Special Offer"
-                            width="24px"
-                            className="me-1"
-                          />
-                          Hurry! Special Offer Available at Checkout.
-                        </h4>
-                      </div>
+                      <button
+                        onClick={() => handleQuickBuy(currentProductData.id)}
+                        className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"
+                      >
+                        Quick Buy
+                      </button>
                     </div>
+                    <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow mt-3">
+                      <img
+                        src="/assets/images/discount.png"
+                        alt="Special Offer"
+                        width="24px"
+                        className="me-1"
+                      />
+                      Hurry! Special Offer Available at Checkout.
+                    </h4>
                   </div>
                   <div className="px-3">
                     <Features USPData={USPData} />

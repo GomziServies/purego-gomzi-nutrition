@@ -215,6 +215,20 @@ function Home() {
     },
   };
 
+  const options1 = {
+    loop: true,
+    dots: false,
+    dotsEach: false,
+    nav: false,
+    autoplayTimeout: 2000,
+    smartSpeed: 500,
+    responsive: {
+      0: { items: 1 },
+      600: { items: 1 },
+      1000: { items: 1 },
+    },
+  };
+
   return (
     <>
       <Helmet>
@@ -299,101 +313,47 @@ function Home() {
       </button>
       <main className="main-area fix">
         <section className="banner-area main-section">
-          <div className="d-md-block d-none">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_1.webp"}
-              alt="shape"
-              width="100%"
-            />
-          </div>
-          <div className="d-md-none d-block">
-            <img
-              src={
-                process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"
-              }
-              alt="shape"
-              width="100%"
-            />
-          </div>
-          {/* <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-xxl-8 col-xl-7 col-lg-8 col-md-10">
-                <div className="banner-content text-center">
-                  <p className="banner-caption">
-                    .. Increased Energy With SUXNIX ..
-                  </p>
-                  <h2 className="title">
-                    Improve Your Body With Pure-Go Nutrition
-                  </h2>
-                  <a href="shop.html" className="btn btn-two">
-                    Shop Now
-                  </a>
-                </div>
-              </div>
+          <OwlCarousel {...options1} className="product-slide owl-theme">
+            <div>
+              <img
+                src={process.env.PUBLIC_URL + "/assets/images/banner_1.webp"}
+                alt="shape"
+                width="100%"
+                className="d-md-block d-none"
+              />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_1.webp"
+                }
+                alt="shape"
+                width="100%"
+                className="d-md-none d-block"
+              />
             </div>
-            <div className="row">
-              <div className="col-12">
-                <div className="banner-images text-center">
-                  <img
-                    src={
-                      process.env.PUBLIC_URL + "/assets/images/banner_img01.png"
-                    }
-                    alt="img"
-                    className="main-img"
-                  />
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/assets/images/banner_round_bg.png"
-                    }
-                    alt="img"
-                    className="bg-shape"
-                  />
-                </div>
-              </div>
+            <div>
+              <img
+                src={process.env.PUBLIC_URL + "/assets/images/banner_2.webp"}
+                alt="shape"
+                width="100%"
+                className="d-md-block d-none"
+              />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_2.webp"
+                }
+                alt="shape"
+                width="100%"
+                className="d-md-none d-block"
+              />
             </div>
-          </div>
-          <div className="banner-shape one">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_shape01.png"}
-              alt="shape"
-              className="wow bannerFadeInLeft"
-              data-wow-delay=".2s"
-              data-wow-duration="2s"
-            />
-          </div>
-          <div className="banner-shape two">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_shape02.png"}
-              alt="shape"
-              className="wow bannerFadeInRight"
-              data-wow-delay=".2s"
-              data-wow-duration="2s"
-            />
-          </div>
-          <div className="banner-shape three">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_shape03.png"}
-              alt="shape"
-              className="wow bannerFadeInDown"
-              data-wow-delay=".2s"
-              data-wow-duration="2s"
-            />
-          </div>
-          <div className="banner-shape four">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/banner_shape04.png"}
-              alt="shape"
-              className="wow bannerFadeInDown"
-              data-wow-delay=".2s"
-              data-wow-duration="2s"
-            />
-          </div> */}
+          </OwlCarousel>
         </section>
         <section className="features-products">
           <div className="section-title text-center mb-60">
             <p className="sub-title">
-              <i class="fa-solid fa-quote-left"></i> Wellness, Quality, and Transparency — That's PureGo <i class="fa-solid fa-quote-right"></i>
+              <i class="fa-solid fa-quote-left"></i> Wellness, Quality, and
+              Transparency — That's PureGo{" "}
+              <i class="fa-solid fa-quote-right"></i>
             </p>
             <h1 className="title">Elevate Everyday Living</h1>
           </div>

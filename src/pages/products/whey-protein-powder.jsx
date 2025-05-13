@@ -233,7 +233,10 @@ function PureGoWheyProtein() {
         return openModal();
       }
 
-      localStorage.setItem('quickProductData', JSON.stringify(quickProductData))
+      localStorage.setItem(
+        "quickProductData",
+        JSON.stringify(quickProductData)
+      );
 
       window.location.href = "/check-out";
     } catch (error) {
@@ -520,13 +523,13 @@ function PureGoWheyProtein() {
                     <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
                       <button
                         onClick={() => addProductInCart(currentProductData.id)}
-                        className="col-md-3 col-11 cart-btn m-0 ms-md-0 ms-2"
+                        className="col-md-3 col-11 cart-btn m-0 ms-md-0 mx-1 my-1"
                       >
                         add to cart
                       </button>
                       <button
-                        onClick={() => handleQuickBuy(currentProductData)}
-                        className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 ms-2"
+                        onClick={() => handleQuickBuy(currentProductData.id)}
+                        className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"
                       >
                         Quick Buy
                       </button>
