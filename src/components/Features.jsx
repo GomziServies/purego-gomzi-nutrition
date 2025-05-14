@@ -152,7 +152,8 @@ const Features = ({ USPData, removeUSP }) => {
               alt="img"
               width="45px"
             />
-            <h4 className="box-title">100% Authentic</h4>
+            <h4 className="box-title d-md-block d-none">100% Authentic</h4>
+            <h4 className="box-title d-md-none d-block">100% <br /> Authentic</h4>
           </div>
         </div>
         <div className="col-md-3 shipping p-2 text-center col-6">
@@ -162,7 +163,8 @@ const Features = ({ USPData, removeUSP }) => {
               alt="img"
               width="45px"
             />
-            <h4 className="box-title">Return & refund</h4>
+            <h4 className="box-title d-md-block d-none">Return & refund</h4>
+            <h4 className="box-title d-md-none d-block">Return & <br /> refund</h4>
           </div>
         </div>
         <div className="col-md-3 shipping p-2 text-center col-6">
@@ -174,7 +176,8 @@ const Features = ({ USPData, removeUSP }) => {
               alt="img"
               width="45px"
             />
-            <h4 className="box-title">Cash on delivery</h4>
+            <h4 className="box-title d-md-block d-none">Cash on delivery</h4>
+            <h4 className="box-title d-md-none d-block">Cash on <br /> delivery</h4>
           </div>
         </div>
       </div>

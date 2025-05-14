@@ -11,9 +11,6 @@ import lookup from "india-pincode-lookup";
 import { toast } from "react-toastify";
 
 function CheckOut() {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const item_id = searchParams.get("item_id");
   const [totalPrice, setTotalPrice] = useState();
   const [productDatas, setProductDatas] = useState([[]]);
   const [stateData, setStateData] = useState([
@@ -185,8 +182,8 @@ function CheckOut() {
       try {
         const coupon_ids = [prepaidCouponCode._id].filter(Boolean);
         await createPaymentProduct(
-          item_id
-            ? [{ product_id: "670a5a7b9a7dbcdce616398d", quantity: 1 }]
+          quickData && quickData?.id
+            ? [{ product_id: quickData.id, quantity: 1 }]
             : productDatas,
           updatedUserData,
           coupon_ids,
@@ -274,10 +271,10 @@ function CheckOut() {
 
       const totalProduct = cartProductData.allProductsData.length;
       const oneKgProduct = cartProductData.allProductsData.filter((data) =>
-        data.name.includes("1kg")
+        data.name?.includes("1kg")
       );
       const twentyFiveGmProduct = cartProductData.allProductsData.filter(
-        (data) => !data.name.includes("1kg")
+        (data) => !data.name?.includes("1kg")
       );
 
       let parcelSize = {
@@ -375,7 +372,7 @@ function CheckOut() {
       const courierArray = Object.values(estimateData);
 
       const deliveryCouriers = courierArray.filter((data) =>
-        data.courier_group_name.includes("Delhivery")
+        data.courier_group_name?.includes("Delhivery")
       );
 
       let cheapCostData;
@@ -404,9 +401,9 @@ function CheckOut() {
   useEffect(() => {
     let quickProductData = localStorage.getItem("quickProductData");
     quickProductData = JSON.parse(quickProductData);
-    console.log("quickProductData :- ", quickProductData);
 
     setQuickData(quickProductData);
+    setMainPrice(parseInt(quickProductData.discount));
   }, []);
 
   const handleStateChange = (event) => {

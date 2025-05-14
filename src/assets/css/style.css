@@ -3376,7 +3376,7 @@ body.search-visible {
 /* 15. Pricing */
 .pricing-area {
   position: relative;
-  padding: 145px 0 125px;
+  padding: 100px 0 100px;
   z-index: 3;
 }
 .pricing-wrap {
@@ -4874,14 +4874,14 @@ body.search-visible {
 .footer-top-wrap {
   background: #0a0a0a;
   position: relative;
-  padding: 195px 0 30px;
+  padding: 80px 0 30px;
   overflow-x: hidden;
   z-index: 1;
 }
 .not-show-instagram .footer-top-wrap {
   padding: 120px 0 30px;
 }
-.footer-top-wrap::before {
+/* .footer-top-wrap::before {
   content: "";
   position: absolute;
   left: 0;
@@ -4892,7 +4892,7 @@ body.search-visible {
   background-repeat: repeat;
   background-position: center;
   z-index: -1;
-}
+} */
 .footer-shape {
   position: absolute;
   z-index: -1;
@@ -5136,6 +5136,30 @@ body.search-visible {
   pointer-events: none;
 }
 
+.product-select-fade-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  transition: opacity 0.6s ease;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.product-select-fade-loader.fade-hidden {
+  opacity: 0;
+}
+
+.product-select-fade-loader.fade-in {
+  opacity: 1;
+}
+
+.product-select-fade-loader.fade-out {
+  opacity: 0;
+}
 
 /* =============================
         New Home CSS
@@ -8205,7 +8229,7 @@ body.search-visible {
     padding: 100px 0 90px;
   }
   .footer-top-wrap {
-    padding: 130px 0 30px;
+    padding: 60px 0 30px;
   }
   .pricing-area {
     padding: 115px 0 90px;
@@ -11263,6 +11287,11 @@ body.search-visible {
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: 0px;
+  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out;
+}
+
+.product-box-title.active {
+  background-color: #dbf0c0;
 }
 
 .product-offer-title {

@@ -1,7 +1,7 @@
 import React from "react";
 import SelectableItem from "./SelectableItem";
 
-const SelectableList = ({ items, activeItem, onItemClick, title }) => {
+const SelectableList = ({ items, activeItem, fadingItem, onItemClick, title }) => {
   return (
     <>
       <p className="f-rob-bol mb-1 f-18">
@@ -14,6 +14,7 @@ const SelectableList = ({ items, activeItem, onItemClick, title }) => {
             id={item.id}
             label={item.label}
             isActive={activeItem === item.id}
+            isFading={fadingItem === item.id}
             onClick={onItemClick}
           />
         ))}

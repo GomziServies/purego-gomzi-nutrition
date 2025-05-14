@@ -24,6 +24,7 @@ import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 import LoginModal from "../../assets/js/popup/login";
 import Features from "../../components/Features";
 import MoreProduct from "../../components/MoreProduct";
+import ProductSelectComponent from "../../components/productSelectComponent";
 
 function PureGoMassGainer() {
   const canonicalUrl = window.location.href;
@@ -35,6 +36,7 @@ function PureGoMassGainer() {
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
   const [cartDataClick, setCartDataClick] = useState(false);
+  const [fadingItem, setFadingItem] = useState(null);
 
   const openModal = () => {
     setShowModal(true);
@@ -94,23 +96,25 @@ function PureGoMassGainer() {
   const flavorOptions = [{ id: "Chocolate", label: "Chocolate" }];
 
   const handleSelectSize = (id) => {
-    setOpacity(0.3);
+    if (id === activeSize) return;
+    setFadingItem(Date.now());
     setTimeout(() => {
       setActiveSize(id);
       setCurrentProduct(`${id}-${activeFlavor}`);
       setActiveImageIndex(0);
-      setOpacity(1);
-    }, 500);
+    }, 400);
+
   };
 
   const handleSelectFlavor = (id) => {
-    setOpacity(0.3);
+    if (id === activeFlavor) return;
+    setFadingItem(Date.now());
     setTimeout(() => {
       setActiveFlavor(id);
       setCurrentProduct(`${activeSize}-${id}`);
       setActiveImageIndex(0);
-      setOpacity(1);
-    }, 500);
+    }, 400);
+
   };
 
   const currentProductData =
@@ -248,6 +252,7 @@ function PureGoMassGainer() {
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
+      {fadingItem && <ProductSelectComponent fadingItem={fadingItem} />}
       <NutritionHeader />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
@@ -349,7 +354,7 @@ function PureGoMassGainer() {
                         add to cart
                       </button>
                       <button
-                        onClick={() => handleQuickBuy(currentProductData.id)}
+                        onClick={() => handleQuickBuy(currentProductData)}
                         className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"
                       >
                         Quick Buy

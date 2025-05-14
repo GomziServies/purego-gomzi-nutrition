@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import { axiosInstance } from "../config/api";
+import apiConfig from "../config/apiConfig";
 
 export const minusQuantity = () => {
   let quantity = document.getElementById("txt_quantity").value;
@@ -211,7 +212,10 @@ export const createProductOrder = async (
         localStorage.removeItem("tmp_ProductPurchasePayload");
         localStorage.removeItem("coupon_id");
 
-        AddShipmentOrder(address, products, payment_mode, courierId);
+        if (apiConfig.BASE_URL === "https://api.fggroup.in") {
+          AddShipmentOrder(address, products, payment_mode, courierId);
+        }
+
         // Redirect to Order Page
         window.location.href = "/user/order";
       });
@@ -226,7 +230,9 @@ export const createProductOrder = async (
           icon: "success",
         }).then(async () => {
           localStorage.removeItem("coupon_id");
-          AddShipmentOrder(address, products, payment_mode, courierId);
+          if (apiConfig.BASE_URL === "https://api.fggroup.in") {
+            AddShipmentOrder(address, products, payment_mode, courierId);
+          }
 
           window.location.href = "/user/order";
         });
@@ -248,7 +254,9 @@ export const createProductOrder = async (
         }).then(async () => {
           // Remove coupon id
           localStorage.removeItem("coupon_id");
-          AddShipmentOrder(address, products, payment_mode, courierId);
+          if (apiConfig.BASE_URL === "https://api.fggroup.in") {
+            AddShipmentOrder(address, products, payment_mode, courierId);
+          }
 
           // Redirect to Order Page
           window.location.href = "/user/order";
@@ -420,8 +428,5 @@ const AddShipmentOrder = async (address, products, payment_mode, courierId) => {
     },
   };
 
-  await axiosInstance.post(
-    "/insights/icarry/add-shipment-surface",
-    payload
-  );
+  await axiosInstance.post("/insights/icarry/add-shipment-surface", payload);
 };

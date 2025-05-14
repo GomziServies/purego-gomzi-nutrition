@@ -25,6 +25,7 @@ import { useLocation } from "react-router";
 import LoginModal from "../../assets/js/popup/login";
 import Features from "../../components/Features";
 import MoreProduct from "../../components/MoreProduct";
+import ProductSelectComponent from "../../components/productSelectComponent";
 
 function PureGoWheyProtein() {
   const location = useLocation();
@@ -40,6 +41,7 @@ function PureGoWheyProtein() {
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState("1kg-Chocolate");
   const [cartDataClick, setCartDataClick] = useState(false);
+  const [fadingItem, setFadingItem] = useState(null);
 
   const openModal = () => {
     setShowModal(true);
@@ -175,23 +177,23 @@ function PureGoWheyProtein() {
   ];
 
   const handleSelectSize = (id) => {
-    setOpacity(0.3);
+    if (id === activeSize) return;
+    setFadingItem(Date.now());
     setTimeout(() => {
       setActiveSize(id);
       setCurrentProduct(`${id}-${activeFlavor}`);
       setActiveImageIndex(0);
-      setOpacity(1);
-    }, 500);
+    }, 400);
   };
 
   const handleSelectFlavor = (id) => {
-    setOpacity(0.3);
+    if (id === activeFlavor) return;
+    setFadingItem(Date.now());
     setTimeout(() => {
       setActiveFlavor(id);
       setCurrentProduct(`${activeSize}-${id}`);
       setActiveImageIndex(0);
-      setOpacity(1);
-    }, 500);
+    }, 400);
   };
 
   // const handleSelectProduct = (id) => {
@@ -364,6 +366,7 @@ function PureGoWheyProtein() {
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
+      {fadingItem && <ProductSelectComponent fadingItem={fadingItem} />}
       <NutritionHeader cartDataClick={cartDataClick} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
@@ -528,7 +531,7 @@ function PureGoWheyProtein() {
                         add to cart
                       </button>
                       <button
-                        onClick={() => handleQuickBuy(currentProductData.id)}
+                        onClick={() => handleQuickBuy(currentProductData)}
                         className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"
                       >
                         Quick Buy
