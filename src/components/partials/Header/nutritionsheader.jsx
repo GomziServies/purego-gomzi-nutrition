@@ -35,6 +35,16 @@ function NutritionHeader({ productDataGet, cartItemName, cartDataClick }) {
     }
   }, [productDataGet, cartItemName, cartDataClick]);
 
+  useEffect(() => {
+    let quickProductData = localStorage.getItem("quickProductData");
+    quickProductData = JSON.parse(quickProductData);
+    const currentURL = window.location.href
+
+    if (quickProductData && !currentURL.includes('check-out')) {
+      localStorage.removeItem("quickProductData");
+    }
+  }, []);
+
   return (
     <>
       <LogoComponent />

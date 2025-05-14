@@ -4,7 +4,7 @@ import SelectableItem from "./SelectableItem";
 const SelectableList = ({ items, activeItem, fadingItem, onItemClick, title }) => {
   return (
     <>
-      <p className="f-rob-bol mb-1 f-18">
+      <p className="f-rob-bol pb-2 m-0 f-18">
         <b>{title}</b>
       </p>
       <ul className="list-unstyled mb-0">

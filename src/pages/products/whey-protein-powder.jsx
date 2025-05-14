@@ -528,13 +528,13 @@ function PureGoWheyProtein() {
                         onClick={() => addProductInCart(currentProductData.id)}
                         className="col-md-3 col-11 cart-btn m-0 ms-md-0 mx-1 my-1"
                       >
-                        add to cart
+                        <i class="fa-solid fa-cart-shopping me-2"></i> add to cart
                       </button>
                       <button
                         onClick={() => handleQuickBuy(currentProductData)}
                         className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"
                       >
-                        Quick Buy
+                        <i class="fa-solid fa-bolt me-2"></i> Quick Buy
                       </button>
                     </div>
                     <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow mt-3">

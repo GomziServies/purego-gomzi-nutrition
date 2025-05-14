@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useLocation } from "react-router";
 import { Helmet } from "react-helmet";
-import { axiosInstance } from "../assets/js/config/api";
+import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import { createPaymentProduct } from "../assets/js/utils/product";
 import NutritionHeader from "../components/partials/Header/nutritionsheader";
 import LoginModal from "../assets/js/popup/login";
@@ -75,6 +75,11 @@ function CheckOut() {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [quickData, setQuickData] = useState({});
+  const [manualCouponCode, setManualCouponCode] = useState("");
+  const [couponAvailable, setCouponAvailable] = useState(false);
+  const [manualCouponCodeData, setManualCouponCodeData] = useState("");
+  const [storeCouponData, setStoreCouponData] = useState({});
+  const [appliedCodes, setAppliedCodes] = useState([]);
 
   const openModal = () => {
     setShowModal(true);
@@ -180,7 +185,7 @@ function CheckOut() {
       const payment_mode = paymentMode;
 
       try {
-        const coupon_ids = [prepaidCouponCode._id].filter(Boolean);
+        const coupon_ids = [manualCouponCodeData._id].filter(Boolean);
         await createPaymentProduct(
           quickData && quickData?.id
             ? [{ product_id: quickData.id, quantity: 1 }]
@@ -222,21 +227,14 @@ function CheckOut() {
     }
   };
 
-  const calculateDiscountedPrice = (couponData, action) => {
+  const calculateDiscountedPrice = (couponData) => {
     let discountAmount = 0;
-    let prepaidDiscount;
-    if (action === "COD") {
-      prepaidDiscount = 0;
-    } else {
-      prepaidDiscount = prepaidCouponCode.discount || 0;
-    }
+    const totalDiscount = couponData.discount || 0;
+    discountAmount += (mainPrice * totalDiscount) / 100;
+    const totalCouponAmount = discountAmount;
 
-    const latestDiscount = couponData.discount || 0;
-    const totalDiscount = prepaidDiscount + latestDiscount;
-    discountAmount += (totalPrice * totalDiscount) / 100;
-
-    const discountedPrice = totalPrice - discountAmount;
-    setMainPrice(discountedPrice > 0 ? discountedPrice : totalPrice);
+    setTotalPrice(mainPrice);
+    setMainPrice(totalCouponAmount);
     setTotalDiscount(totalDiscount);
   };
 
@@ -394,16 +392,15 @@ function CheckOut() {
     }
   };
 
-  // useEffect(() => {
-  //   getEstimate();
-  // }, []);
-
   useEffect(() => {
     let quickProductData = localStorage.getItem("quickProductData");
     quickProductData = JSON.parse(quickProductData);
 
-    setQuickData(quickProductData);
-    setMainPrice(parseInt(quickProductData.discount));
+    if (quickProductData) {
+      setQuickData(quickProductData);
+      setTotalPrice(parseInt(quickProductData?.discount));
+      setMainPrice(parseInt(quickProductData?.discount));
+    }
   }, []);
 
   const handleStateChange = (event) => {
@@ -447,6 +444,60 @@ function CheckOut() {
       }
     } catch (error) {
       console.error("Error submitting pincode:", error);
+    }
+  };
+
+  const handleRemoveCoupon = async () => {
+    setManualCouponCode("");
+    setManualCouponCodeData("");
+    setTotalDiscount(0);
+    getUserData();
+    UpdatedData(productData);
+
+    let quickProductData = localStorage.getItem("quickProductData");
+    quickProductData = JSON.parse(quickProductData);
+
+    if (quickProductData) {
+      setQuickData(quickProductData);
+      setTotalPrice(parseInt(quickProductData?.discount));
+      setMainPrice(parseInt(quickProductData?.discount));
+    }
+  };
+
+  const handleApplyClick = async () => {
+    try {
+      // if (manualCouponCodeData && couponAvailable) {
+      //   setManualCouponCodeData("");
+      //   setManualCouponCode("");
+      //   setCouponAvailable(false);
+      //   setAppliedCodes("");
+      //   return;
+      // }
+
+      const code = manualCouponCode;
+      const payload = { coupon_code: code };
+      const response = await publicAxiosInstance.post(
+        "/check-coupon-code",
+        payload
+      );
+
+      const couponData = response.data.data;
+
+      if (manualCouponCode) {
+        setCouponAvailable(true);
+        setManualCouponCodeData(couponData);
+      } else {
+        setCouponAvailable(true);
+        setStoreCouponData(couponData);
+      }
+      toast.success("Apply coupon code successfully");
+      calculateDiscountedPrice(couponData);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: "Error applying coupon code!",
+      });
     }
   };
 
@@ -737,21 +788,35 @@ function CheckOut() {
                               name="coupon_code"
                               className="form-control"
                               style={{ height: "46.8px" }}
-                              // value={manualCouponCode}
-                              // onChange={handleOnChange}
+                              value={manualCouponCode}
+                              disabled={manualCouponCodeData ? true : false}
+                              onChange={(e) =>
+                                setManualCouponCode(e.target.value)
+                              }
                               maxLength="100"
                             />
                           </div>
                           <div className="col-md-4 ps-md-2 ps-0 pe-md-3 pe-0">
                             <div className="d-inline-block inner-shop-perched-info mt-md-0 mt-3 w-md-25 w-100">
-                              <button
-                                id="apply_main_btn"
-                                type="button"
-                                // onClick={() => handleApplyClick()}
-                                className="cart-btn m-0 w-100"
-                              >
-                                Apply
-                              </button>
+                              {manualCouponCodeData ? (
+                                <button
+                                  id="apply_main_btn"
+                                  type="button"
+                                  onClick={() => handleRemoveCoupon()}
+                                  className="cart-btn bg-danger border-danger m-0 w-100"
+                                >
+                                  Remove
+                                </button>
+                              ) : (
+                                <button
+                                  id="apply_main_btn"
+                                  type="button"
+                                  onClick={() => handleApplyClick()}
+                                  className="cart-btn m-0 w-100"
+                                >
+                                  Apply
+                                </button>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -760,36 +825,34 @@ function CheckOut() {
                   </div>
                 </div>
                 {/* <div className="col-12 apply-promo-modal">
-                          <div className="mb-3 p-3 border br-15">
-                            <label className="radio-main m-0 d-block">
-                              <span className="promo-code py-1 px-3 f-rob-bol f-14">
-                                GOMZI15
-                              </span>
-                              {appliedCodes.includes("GOMZI15") ? (
-                                      <span
-                                        className="remove-btn px-3 text-red f-rob-bol f-14 d-inline-block float-right"
-                                        onClick={() =>
-                                          removePromoCode("GOMZI15")
-                                        }
-                                      >
-                                        Remove
-                                      </span>
-                                    ) : (
-                              <span
-                                className="apply-btn px-3 text-green f-rob-bol f-14 d-inline-block float-right"
-                                onClick={() =>
-                                  applyPromoCode("GOMZI15")
-                                }
-                              >
-                                Apply
-                              </span>
-                              )}
-                              <p className="f-rob-med f-16 mt-2 mb-1">
-                                Use Code "GOMZI15". For 15% Off
-                              </p>
-                            </label>
-                          </div>
-                        </div> */}
+                  <div className="mb-3 p-3 border br-15">
+                    <label className="radio-main m-0 d-block">
+                      <span className="promo-code py-1 px-3 f-rob-bol f-14">
+                        GOMZI15
+                      </span>
+                      {appliedCodes.includes("GOMZI15") ? (
+                        <span
+                          className="remove-btn px-3 text-red f-rob-bol f-14 d-inline-block float-right"
+                          onClick={() => removePromoCode("GOMZI15")}
+                        >
+                          Remove
+                        </span>
+                      ) : (
+                        <span
+                          className="apply-btn px-3 text-green f-rob-bol f-14 d-inline-block float-right"
+                          // onClick={() =>
+                          //   applyPromoCode("GOMZI15")
+                          // }
+                        >
+                          Apply
+                        </span>
+                      )}
+                      <p className="f-rob-med f-16 mt-2 mb-1">
+                        Use Code "GOMZI15". For 15% Off
+                      </p>
+                    </label>
+                  </div>
+                </div> */}
                 <div className="col-12">
                   <div className="order__info-wrap">
                     <h2 className="title">YOUR ORDER</h2>
@@ -799,12 +862,17 @@ function CheckOut() {
                       </li>
                       <li>
                         Order Total{" "}
-                        <span>₹{Math.round(mainPrice).toFixed(2)}</span>
+                        <span>
+                          ₹
+                          {Math.round(
+                            totalPrice ? totalPrice : mainPrice
+                          ).toFixed(2)}
+                        </span>
                       </li>
                       {totalDiscount !== 0 && (
                         <li>
                           Discount{" "}
-                          <span>
+                          <span className="text-danger">
                             -{" "}
                             {totalDiscount !== undefined &&
                             totalDiscount !== null
@@ -818,6 +886,7 @@ function CheckOut() {
                         Delivery Charges{" "}
                         {/* <span>₹{mainPrice <= 499 ? 85 : "FREE"}</span> */}
                         <span
+                          className="text-success"
                           onClick={() => {
                             if (!orderUserData.pin_code) {
                               Swal.fire({
@@ -828,7 +897,9 @@ function CheckOut() {
                             }
                           }}
                         >
-                          {discountCost ? "₹" + discountCost : "Enter Pincode"}
+                          {discountCost
+                            ? "+ ₹" + discountCost
+                            : "Enter Pincode"}
                         </span>
                       </li>
                       <li className="text-dark">

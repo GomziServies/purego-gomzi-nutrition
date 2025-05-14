@@ -11451,3 +11451,14 @@ body.search-visible {
     background: linear-gradient(0deg,rgba(255, 255, 255, 0.63) 35%, rgb(238 248 232) 100%);
   }
 }
+
+.size-btn {
+  border-right: 1px solid #ccc;
+  margin-right: 15px;
+}
+
+@media (max-width: 767.98px) {
+  .size-btn {
+    padding-right: 12px;
+  }
+}

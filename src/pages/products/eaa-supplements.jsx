@@ -82,7 +82,6 @@ function PureGoEaa() {
       setCurrentProduct(`${id}-${activeFlavor}`);
       setActiveImageIndex(0);
     }, 400);
-
   };
 
   const handleSelectFlavor = (id) => {
@@ -93,7 +92,6 @@ function PureGoEaa() {
       setCurrentProduct(`${activeSize}-${id}`);
       setActiveImageIndex(0);
     }, 400);
-
   };
 
   const currentProductData =
@@ -276,34 +274,37 @@ function PureGoEaa() {
                       booster combination. EAAs aid in muscle growth and
                       regeneration while also lowering fatigue and soreness.
                     </p>
-                    <div>
-                      <SelectableList
-                        items={sizeOptions}
-                        activeItem={activeSize}
-                        onItemClick={handleSelectSize}
-                        title="Size"
-                      />
-                    </div>
-                    <div>
-                      <SelectableList
-                        items={flavorOptions}
-                        activeItem={activeFlavor}
-                        onItemClick={handleSelectFlavor}
-                        title="Flavor"
-                      />
+                    <div className="d-flex">
+                      <div className="size-btn">
+                        <SelectableList
+                          items={sizeOptions}
+                          activeItem={activeSize}
+                          onItemClick={handleSelectSize}
+                          title="Size"
+                        />
+                      </div>
+                      <div>
+                        <SelectableList
+                          items={flavorOptions}
+                          activeItem={activeFlavor}
+                          onItemClick={handleSelectFlavor}
+                          title="Flavor"
+                        />
+                      </div>
                     </div>
                     <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
                       <button
                         onClick={() => addProductInCart(currentProductData.id)}
                         className="col-md-3 col-11 cart-btn m-0 ms-md-0 mx-1 my-1"
                       >
-                        add to cart
+                        <i class="fa-solid fa-cart-shopping me-2"></i> add to
+                        cart
                       </button>
                       <button
                         onClick={() => handleQuickBuy(currentProductData)}
                         className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"
                       >
-                        Quick Buy
+                        <i class="fa-solid fa-bolt me-2"></i> Quick Buy
                       </button>
                     </div>
                     <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow mt-3">
