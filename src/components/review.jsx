@@ -189,7 +189,7 @@ const Review = () => {
                         <LazyLoadImage
                           src={
                             process.env.PUBLIC_URL +
-                            "/assets/images/nutrition/nutri-review-video-1.webp"
+                            "/assets/images/nutri-review-video-1.webp"
                           }
                           width="100%"
                           style={{ borderRadius: "10px" }}
@@ -217,7 +217,7 @@ const Review = () => {
                         <LazyLoadImage
                           src={
                             process.env.PUBLIC_URL +
-                            "/assets/images/nutrition/nutri-review-video-2.webp"
+                            "/assets/images/nutri-review-video-2.webp"
                           }
                           width="100%"
                           style={{ borderRadius: "10px" }}
@@ -245,7 +245,7 @@ const Review = () => {
                         <LazyLoadImage
                           src={
                             process.env.PUBLIC_URL +
-                            "/assets/images/nutrition/nutri-review-video-3.webp"
+                            "/assets/images/nutri-review-video-3.webp"
                           }
                           width="100%"
                           style={{ borderRadius: "10px" }}

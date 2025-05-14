@@ -279,11 +279,6 @@ function ContactUs() {
             src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
           />`}
         </noscript>
-        <link
-          rel="preload"
-          href={`${process.env.PUBLIC_URL}/assets/process.env.PUBLIC_URL +  "/assets/images/nutrition/nutrition-banner-inner-14.webp`}
-          as="image"
-        />
         {/* Google tag (gtag.js) */}
         <script
           async

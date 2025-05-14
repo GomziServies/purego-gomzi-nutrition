@@ -94,7 +94,7 @@ function AddToCart() {
       setProductDataGet(updatedServerData);
       totalMRPCalculation(updatedServerData);
 
-      setCartDataClick(false)
+      setCartDataClick(false);
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
@@ -134,7 +134,7 @@ function AddToCart() {
       );
       localStorage.setItem("addItemInCart", JSON.stringify(existingData));
       fetchProductData();
-      setCartDataClick(true)
+      setCartDataClick(true);
     } catch (error) {
       console.error("Error removing product:", error);
     }
@@ -445,11 +445,6 @@ function AddToCart() {
             src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
           />`}
         </noscript>
-        <link
-          rel="preload"
-          href={`${process.env.PUBLIC_URL}/assets/process.env.PUBLIC_URL +  "/assets/images/nutrition/nutrition-banner-inner-14.webp`}
-          as="image"
-        />
         {/* Google tag (gtag.js) */}
         <script
           async
@@ -541,47 +536,6 @@ function AddToCart() {
                         </tr>
                       );
                     })}
-                    {/* <tr>
-                      <td className="product__thumb">
-                        <a href="shop-details.html">
-                          <img
-                            src={
-                              process.env.PUBLIC_URL +
-                              "/assets/images/home_shop_thumb02.png"
-                            }
-                            alt="product"
-                          />
-                        </a>
-                      </td>
-                      <td className="product__name">
-                        <a href="shop-details.html">Time to Explore</a>
-                      </td>
-                      <td className="product__price">$19.00</td>
-                      <td className="product__quantity">
-                        <div className="quickview-cart-plus-minus">
-                          <input type="text" value="1" />
-                        </div>
-                      </td>
-                      <td className="product__subtotal">$19.00</td>
-                      <td className="product__remove">
-                        <a href="#0">×</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="6" className="cart__actions">
-                        <form action="#" className="cart__actions-form">
-                          <input type="text" placeholder="Coupon code" />
-                          <button type="submit" className="btn btn-sm">
-                            Apply coupon
-                          </button>
-                        </form>
-                        <div className="update__cart-btn text-end f-right">
-                          <button type="submit" className="btn btn-sm">
-                            Update cart
-                          </button>
-                        </div>
-                      </td>
-                    </tr> */}
                   </tbody>
                 </table>
                 {productDataGet.length === 0 && (
@@ -618,7 +572,10 @@ function AddToCart() {
             </div>
           </div>
         </div>
-        <MoreProduct setCartDataClick={setCartDataClick} cartDataClick={cartDataClick} />
+        <MoreProduct
+          setCartDataClick={setCartDataClick}
+          cartDataClick={cartDataClick}
+        />
       </main>
       <HomeNutritionFooter />
     </>
