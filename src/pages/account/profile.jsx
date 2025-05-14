@@ -137,7 +137,7 @@ function UserProfile() {
         />
       </Helmet>
       <NutritionHeader />
-      <Container className="margintop-nutrition mb-5" >
+      <Container className="margintop-nutrition mb-5">
         <form
           onSubmit={handleSubmit}
           className="border p-4 rounded"
@@ -149,7 +149,7 @@ function UserProfile() {
               <img
                 alt="User"
                 src={formData.profilePhoto}
-                style={{ borderRadius: '50%', width: '100px', height: '100px' }}
+                style={{ borderRadius: "50%", width: "100px", height: "100px" }}
               />
             </Col>
             <Col md={4}>
@@ -163,14 +163,17 @@ function UserProfile() {
                 type="file"
                 onChange={handlePhotoChange}
               />
-              <label htmlFor="profile-photo-upload" className="btn btn-success btn-blue px-4 py-2 me-2">
+              <label
+                htmlFor="profile-photo-upload"
+                className="btn btn-success btn-blue px-4 py-2 me-2"
+              >
                 Upload New Photo
               </label>
               {formData.profilePhoto && (
                 <button
                   type="button"
                   onClick={handleRemovePhoto}
-                  className="btn btn-outline-danger btn-remove ml-2 px-4 py-2"
+                  className="btn btn-outline-danger btn-remove ml-2 px-4 py-2 my-2"
                 >
                   Remove
                 </button>
@@ -178,7 +181,7 @@ function UserProfile() {
             </Col>
           </Row>
           <Row>
-            <Col md={6}>
+            <Col md={6} className="my-2">
               <Form.Group controlId="user_id">
                 <Form.Label>User ID</Form.Label>
                 <Form.Control
@@ -190,7 +193,7 @@ function UserProfile() {
                 />
               </Form.Group>
             </Col>
-            <Col md={6}>
+            <Col md={6} className="my-2">
               <Form.Group controlId="mobile">
                 <Form.Label>Mobile</Form.Label>
                 <Form.Control
@@ -203,8 +206,8 @@ function UserProfile() {
               </Form.Group>
             </Col>
           </Row>
-          <Row className="mt-4">
-            <Col md={6}>
+          <Row>
+            <Col md={6} className="my-2">
               <Form.Group controlId="first_name">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control
@@ -215,7 +218,7 @@ function UserProfile() {
                 />
               </Form.Group>
             </Col>
-            <Col md={6}>
+            <Col md={6} className="my-2">
               <Form.Group controlId="last_name">
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control
@@ -227,8 +230,8 @@ function UserProfile() {
               </Form.Group>
             </Col>
           </Row>
-          <Row className="mt-4">
-            <Col md={6}>
+          <Row>
+            <Col md={12} className="my-2">
               <Form.Group controlId="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control

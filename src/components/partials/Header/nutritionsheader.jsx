@@ -105,12 +105,6 @@ function NutritionHeader({ productDataGet, cartItemName, cartDataClick }) {
             />
           </Link>
           <ul className="mobileUserInfo aa">
-            <li>
-              <Link to="#">
-                Help
-                <i className="far fa-life-ring ml-2"></i>
-              </Link>
-            </li>
             <MobileUserInfo />
           </ul>
         </div>
