@@ -606,10 +606,10 @@ function PureGoEaa() {
           cartDataClick={cartDataClick}
         />
         <HowToUse
-          src1="step-1.mp4"
-          src2="eaa-step-2.mp4"
-          src3="step-3.mp4"
-          src4="eaa-step-4.mp4"
+          src1="production/files/FILE-step-1-4fdcb85a-3191-4a19-a673-3e21a1a7d4ec.mp4"
+          src2="production/files/FILE-eaa-step-2-7013d98c-a798-4e1d-9c1a-7f544e4a320b.mp4"
+          src3="production/files/FILE-step-3-e3d1f5ef-c77b-480a-bc5b-40d08de3b62f.mp4"
+          src4="production/files/FILE-eaa-step-4-1222829e-e0b0-4e00-9ad1-31b7990da124.mp4"
           step1="Add 300 ml of water"
           step2="Mix 1 scoop of EAA"
         />

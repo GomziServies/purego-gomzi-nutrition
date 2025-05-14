@@ -14,7 +14,7 @@ const HowToUse = ({ src1, src2, src3, src4, step1, step2 }) => {
             <div className="col-6 col-md-3 mb-3">
               <div className="d-block">
                 <ReactPlayer
-                  url={process.env.PUBLIC_URL + `/assets/images/${src1}`}
+                  url={`https://files.fggroup.in/${src1}`}
                   width="100%"
                   height="auto"
                   className="how-to-make-stap-video"
@@ -32,7 +32,7 @@ const HowToUse = ({ src1, src2, src3, src4, step1, step2 }) => {
             <div className="col-6 col-md-3 mb-3">
               <div className="d-block">
                 <ReactPlayer
-                  url={process.env.PUBLIC_URL + `/assets/images/${src2}`}
+                  url={`https://files.fggroup.in/${src2}`}
                   width="100%"
                   height="auto"
                   className="how-to-make-stap-video"
@@ -49,7 +49,7 @@ const HowToUse = ({ src1, src2, src3, src4, step1, step2 }) => {
             <div className="col-6 col-md-3 mb-3">
               <div className="d-block">
                 <ReactPlayer
-                  url={process.env.PUBLIC_URL + `/assets/images/${src3}`}
+                  url={`https://files.fggroup.in/${src3}`}
                   width="100%"
                   height="auto"
                   className="how-to-make-stap-video"
@@ -66,7 +66,7 @@ const HowToUse = ({ src1, src2, src3, src4, step1, step2 }) => {
             <div className="col-6 col-md-3 mb-3">
               <div className="d-block">
                 <ReactPlayer
-                  url={process.env.PUBLIC_URL + `/assets/images/${src4}`}
+                  url={`https://files.fggroup.in/${src4}`}
                   width="100%"
                   height="auto"
                   className="how-to-make-stap-video"

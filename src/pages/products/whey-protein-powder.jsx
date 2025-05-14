@@ -719,21 +719,21 @@ function PureGoWheyProtein() {
         <HowToUse
           src1={
             currentProductData.name === "Whey Protein 1kg Mawa Kulfi"
-              ? "step-1.mp4"
+              ? "production/files/FILE-step-1-4fdcb85a-3191-4a19-a673-3e21a1a7d4ec.mp4"
               : currentProductData.name === "Whey Protein 1kg Chocolate" ||
                 currentProductData.name === "Whey Protein 1kg Mocha Coffee"
-              ? "mocha-coffee-1.mp4"
-              : "step-1.mp4"
+              ? "production/files/FILE-mocha-coffee-1-0efabada-3df5-4b4a-9a5d-1b733f183113.mp4"
+              : "production/files/FILE-step-1-4fdcb85a-3191-4a19-a673-3e21a1a7d4ec.mp4"
           }
-          src2="mocha-coffee-2.mp4"
-          src3="mocha-coffee-3.mp4"
+          src2="production/files/FILE-mocha-coffee-2-b80c20b6-ddd9-4e21-bef7-1098ba85d725.mp4"
+          src3="production/files/FILE-mocha-coffee-3-ad97dd8c-dc93-4f45-b37c-02478f0d31fc.mp4"
           src4={
             currentProductData.name === "Whey Protein 1kg Mawa Kulfi"
-              ? "step-4.mp4"
+              ? "production/files/FILE-step-4-bffa9a47-e9fe-485a-9541-5e3d9158e096.mp4"
               : currentProductData.name === "Whey Protein 1kg Chocolate" ||
                 currentProductData.name === "Whey Protein 1kg Mocha Coffee"
-              ? "mocha-coffee-4.mp4"
-              : "step-4.mp4"
+              ? "production/files/FILE-mocha-coffee-4-f2b28315-8582-490e-a4bb-2092f4b4608a.mp4"
+              : "production/files/FILE-step-4-bffa9a47-e9fe-485a-9541-5e3d9158e096.mp4"
           }
           step1="Add 300 ml of water/milk"
           step2="Mix 1 scoop of Protein"

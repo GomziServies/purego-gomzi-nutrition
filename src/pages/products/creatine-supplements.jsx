@@ -516,10 +516,10 @@ function PureGoCreatine() {
           cartDataClick={cartDataClick}
         />
         <HowToUse
-          src1="step-1.mp4"
-          src2="atp-step-2.mp4"
-          src3="step-3.mp4"
-          src4="atp-step-4.mp4"
+          src1="production/files/FILE-step-1-4fdcb85a-3191-4a19-a673-3e21a1a7d4ec.mp4"
+          src2="production/files/FILE-atp-step-2-994902b4-e2d7-4cb7-adcb-bfe48c538905.mp4"
+          src3="production/files/FILE-step-3-e3d1f5ef-c77b-480a-bc5b-40d08de3b62f.mp4"
+          src4="production/files/FILE-atp-step-4-9a80f53c-1975-4c2b-b63d-3da1673d7afe.mp4"
           step1="Add 300 ml of water"
           step2="Mix 1 scoop of Creatine Monohydrate"
         />
