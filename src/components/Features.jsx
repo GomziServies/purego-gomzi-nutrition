@@ -106,7 +106,7 @@ const Features = ({ USPData, removeUSP, openModal }) => {
           )}
         </div>
       </div>
-      <div className="row border-top pt-3 mt-4 mx-0">
+      <div className="row border-top pt-3 mt-md-4 mt-3 mx-0">
         <div className="col-4 feature-review p-md-2 px-1 text-center">
           <ReactPlayer
             url={`https://files.fggroup.in/production/files/FILE-review-1-cc182fc2-49ad-4065-b49d-45dcb183b5ed.mp4`}
