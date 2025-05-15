@@ -127,7 +127,7 @@ export const createProductOrder = async (
       products,
       quantity: parseInt(quantity),
       payment_mode,
-      delivery_charges: parseInt(discountCost),
+      delivery_charges: parseFloat(discountCost),
     };
 
     if (coupon_id) {

@@ -478,7 +478,8 @@ function AddToCart() {
                       <th className="product__thumb"></th>
                       <th className="product__name">Product</th>
                       <th className="product__price">Price</th>
-                      <th className="product__quantity">Quantity</th>
+                      <th className="product__quantity d-md-block d-none">Quantity</th>
+                      <th className="product__quantity d-md-none d-block text-center">Price <br /> Quantity</th>
                       <th className="product__subtotal">Subtotal</th>
                       <th className="product__remove"></th>
                     </tr>
@@ -502,19 +503,39 @@ function AddToCart() {
                           <td className="product__price">
                             ₹{product.price?.toFixed(2)}
                           </td>
-                          <td>
+                          <td className="d-md-table-cell d-none">
                             <div className="product__quantity d-flex align-items-center">
                               <i
-                                className="fas fa-minus text-dark me-2 fs-6"
+                                className="fas fa-minus quantity-btn text-dark me-md-2 me-1 fs-6"
                                 onClick={() => minusQuantity(product._id)}
                               ></i>
                               <div className="quickview-cart-plus-minus">
                                 <input type="text" value={product.quantity} />
                               </div>
                               <i
-                                className="fas fa-plus text-dark ms-2 fs-6"
+                                className="fas fa-plus quantity-btn text-dark ms-md-2 ms-1 fs-6"
                                 onClick={() => plusQuantity(product._id)}
                               ></i>
+                            </div>
+                          </td>
+                          <td className="d-md-none d-block">
+                            <div className="text-center">
+                              <div className="mb-2">
+                                ₹{product.price?.toFixed(2)}
+                              </div>
+                              <div className="product__quantity d-flex align-items-center">
+                                <i
+                                  className="fas fa-minus quantity-btn text-dark me-md-2 me-1 fs-6"
+                                  onClick={() => minusQuantity(product._id)}
+                                ></i>
+                                <div className="quickview-cart-plus-minus">
+                                  <input type="text" value={product.quantity} />
+                                </div>
+                                <i
+                                  className="fas fa-plus quantity-btn text-dark ms-md-2 ms-1 fs-6"
+                                  onClick={() => plusQuantity(product._id)}
+                                ></i>
+                              </div>
                             </div>
                           </td>
                           <td className="product__subtotal">

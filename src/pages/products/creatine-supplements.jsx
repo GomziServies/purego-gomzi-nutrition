@@ -307,7 +307,7 @@ function PureGoCreatine() {
                         <i class="fa-solid fa-bolt me-2"></i> Quick Buy
                       </button>
                     </div>
-                    <h4 className="product-offer-title m-0 d-flex align-items-center text-yellow mt-3">
+                    <h4 className="product-offer-title m-0 d-flex justify-content-md-start justify-content-center align-items-center text-yellow mt-3 me-2">
                       <img
                         src="/assets/images/discount.png"
                         alt="Special Offer"
@@ -318,7 +318,7 @@ function PureGoCreatine() {
                     </h4>
                   </div>
                   <div className="px-3">
-                    <Features USPData={USPData} />
+                    <Features USPData={USPData} openModal={openModal} />
                   </div>
                 </div>
               </div>

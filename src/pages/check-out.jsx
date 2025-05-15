@@ -231,7 +231,7 @@ function CheckOut() {
     let discountAmount = 0;
     const totalDiscount = couponData.discount || 0;
     discountAmount += (mainPrice * totalDiscount) / 100;
-    const totalCouponAmount = discountAmount;
+    const totalCouponAmount = mainPrice - discountAmount;
 
     setTotalPrice(mainPrice);
     setMainPrice(totalCouponAmount);

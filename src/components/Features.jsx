@@ -3,13 +3,22 @@ import { axiosInstance } from "../assets/js/config/api";
 import { toast } from "react-toastify";
 import ReactPlayer from "react-player";
 
-const Features = ({ USPData, removeUSP }) => {
+const Features = ({ USPData, removeUSP, openModal }) => {
   const [pincode, setPincode] = useState(null);
   const [pincodeAvailable, setPincodeAvailable] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [isPincode, setIsPincode] = useState(false);
 
   const searchPincode = async () => {
+    const isLogin = localStorage.getItem("fg_group_user_authorization");
+    if (!isLogin) {
+      return openModal();
+    }
     setLoading(true);
+    if (!pincode || pincode.length === 0) {
+      setPincodeAvailable(null);
+      setIsPincode(true);
+    }
     try {
       const payload = {
         pincode: pincode,
@@ -88,6 +97,10 @@ const Features = ({ USPData, removeUSP }) => {
               <i class="fa-solid fa-circle-xmark"></i> Sorry, your area is
               currently not available for delivery.
             </p>
+          ) : isPincode ? (
+            <p className="mt-2 mb-0 text-danger fw-bold">
+              <i class="fa-solid fa-circle-xmark"></i> Enter Your Delivery Pincode.
+            </p>
           ) : (
             ""
           )}
@@ -96,7 +109,7 @@ const Features = ({ USPData, removeUSP }) => {
       <div className="row border-top pt-3 mt-4 mx-0">
         <div className="col-4 feature-review p-md-2 px-1 text-center">
           <ReactPlayer
-            url={`https://files.fggroup.in/production/files/FILE-review-1-188dcd39-5346-47a9-80d4-2aa527fb0541.mp4`}
+            url={`https://files.fggroup.in/production/files/FILE-review-1-cc182fc2-49ad-4065-b49d-45dcb183b5ed.mp4`}
             width="100%"
             height="auto"
             className="how-to-make-stap-video"
@@ -108,7 +121,7 @@ const Features = ({ USPData, removeUSP }) => {
         </div>
         <div className="col-4 feature-review p-md-2 px-1 text-center">
           <ReactPlayer
-            url={`https://files.fggroup.in/production/files/FILE-review-2-313932c8-8b79-4d0d-9a63-e023a77ccb1b.mp4`}
+            url={`https://files.fggroup.in/production/files/FILE-review-2-90f182da-71cb-439a-9e26-60221ea49cbf.mp4`}
             width="100%"
             height="auto"
             className="how-to-make-stap-video"
@@ -120,7 +133,7 @@ const Features = ({ USPData, removeUSP }) => {
         </div>
         <div className="col-4 feature-review p-md-2 px-1 text-center">
           <ReactPlayer
-            url={`https://files.fggroup.in/production/files/FILE-review-3-158531da-c7e5-47c0-8533-c1423205f2a4.mp4`}
+            url={`https://files.fggroup.in/production/files/FILE-review-3-ed20c58d-7e0b-481d-b077-90695ff55337.mp4`}
             width="100%"
             height="auto"
             className="how-to-make-stap-video"
@@ -153,7 +166,9 @@ const Features = ({ USPData, removeUSP }) => {
               width="45px"
             />
             <h4 className="box-title d-md-block d-none">100% Authentic</h4>
-            <h4 className="box-title d-md-none d-block">100% <br /> Authentic</h4>
+            <h4 className="box-title d-md-none d-block">
+              100% <br /> Authentic
+            </h4>
           </div>
         </div>
         <div className="col-md-3 shipping p-2 text-center col-6">
@@ -164,7 +179,9 @@ const Features = ({ USPData, removeUSP }) => {
               width="45px"
             />
             <h4 className="box-title d-md-block d-none">Return & refund</h4>
-            <h4 className="box-title d-md-none d-block">Return & <br /> refund</h4>
+            <h4 className="box-title d-md-none d-block">
+              Return & <br /> refund
+            </h4>
           </div>
         </div>
         <div className="col-md-3 shipping p-2 text-center col-6">
@@ -177,7 +194,9 @@ const Features = ({ USPData, removeUSP }) => {
               width="45px"
             />
             <h4 className="box-title d-md-block d-none">Cash on delivery</h4>
-            <h4 className="box-title d-md-none d-block">Cash on <br /> delivery</h4>
+            <h4 className="box-title d-md-none d-block">
+              Cash on <br /> delivery
+            </h4>
           </div>
         </div>
       </div>
