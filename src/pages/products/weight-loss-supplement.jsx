@@ -48,16 +48,16 @@ function PureGoPreWorkout() {
 
   const productImages = {
     "250g-Fruit Punch": [
-      "/assets/images/products/pre-workout/pre-workout-1.webp",
-      "/assets/images/products/pre-workout/pre-workout-2.webp",
-      "/assets/images/products/pre-workout/pre-workout-3.webp",
-      "/assets/images/products/pre-workout/pre-workout-4.webp",
+      "/assets/images/products/pre-workout/pre-workout-fruit-punch-1.webp",
+      "/assets/images/products/pre-workout/pre-workout-fruit-punch-2.webp",
+      "/assets/images/products/pre-workout/pre-workout-fruit-punch-3.webp",
+      "/assets/images/products/pre-workout/pre-workout-fruit-punch-4.webp",
     ],
     "250g-Cola": [
-      "/assets/images/products/pre-workout/pre-workout-1.webp",
-      "/assets/images/products/pre-workout/pre-workout-2.webp",
-      "/assets/images/products/pre-workout/pre-workout-3.webp",
-      "/assets/images/products/pre-workout/pre-workout-4.webp",
+      "/assets/images/products/pre-workout/pre-workout-cola-1.webp",
+      "/assets/images/products/pre-workout/pre-workout-cola-2.webp",
+      "/assets/images/products/pre-workout/pre-workout-cola-3.webp",
+      "/assets/images/products/pre-workout/pre-workout-cola-4.webp",
     ],
   };
 
@@ -66,8 +66,8 @@ function PureGoPreWorkout() {
       key: "250g-Fruit Punch",
       data: {
         id: "67e7740363f930dcc6a27157",
-        img: "/assets/images/products/pre-workout/pre-workout-1.webp",
-        name: "Pre Workout",
+        img: "/assets/images/products/pre-workout/pre-workout-fruit-punch-1.webp",
+        name: "Pre Workout Fruit Punch",
         price: "2500",
         discount: "600",
         size: "250 g",
@@ -77,8 +77,8 @@ function PureGoPreWorkout() {
     {
       key: "250g-Cola",
       data: {
-        id: "67e7740363f930dcc6a27157",
-        img: "/assets/images/products/pre-workout/pre-workout-1.webp",
+        id: "682718b1ed4175d21de95d0b",
+        img: "/assets/images/products/pre-workout/pre-workout-cola-1.webp",
         name: "Pre Workout Cola",
         price: "2500",
         discount: "600",

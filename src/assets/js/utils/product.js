@@ -428,5 +428,5 @@ const AddShipmentOrder = async (address, products, payment_mode, courierId) => {
     },
   };
 
-  await axiosInstance.post("/insights/icarry/add-shipment-surface", payload);
+  await axiosInstance.post("/icarry/add-shipment-surface", payload);
 };

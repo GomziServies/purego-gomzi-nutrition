@@ -60,7 +60,7 @@ function App() {
         {/* Products */}
         <Route path="/creatine-supplements" element={<PureGoCreatine />} />
         <Route path="/weight-loss-supplement" element={<PureGoPreWorkout />} />
-        <Route path="/bcaa" element={<PureGoBCAA />} />
+        <Route path="/bcaa-supplements" element={<PureGoBCAA />} />
         <Route
           path="/mass-gainer-protein-powder"
           element={<PureGoMassGainer />}

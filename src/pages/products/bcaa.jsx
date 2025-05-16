@@ -48,16 +48,16 @@ function PureGoBCAA() {
 
   const productImages = {
     "250g-Orange": [
-      "/assets/images/products/pre-workout/pre-workout-1.webp",
-      "/assets/images/products/pre-workout/pre-workout-2.webp",
-      "/assets/images/products/pre-workout/pre-workout-3.webp",
-      "/assets/images/products/pre-workout/pre-workout-4.webp",
+      "/assets/images/products/bcaa/bcaa-orange-1.webp",
+      "/assets/images/products/bcaa/bcaa-orange-2.webp",
+      "/assets/images/products/bcaa/bcaa-orange-3.webp",
+      "/assets/images/products/bcaa/bcaa-orange-4.webp",
     ],
     "250g-Cranberry": [
-      "/assets/images/products/pre-workout/pre-workout-1.webp",
-      "/assets/images/products/pre-workout/pre-workout-2.webp",
-      "/assets/images/products/pre-workout/pre-workout-3.webp",
-      "/assets/images/products/pre-workout/pre-workout-4.webp",
+      "/assets/images/products/bcaa/bcaa-cranberry-1.webp",
+      "/assets/images/products/bcaa/bcaa-cranberry-2.webp",
+      "/assets/images/products/bcaa/bcaa-cranberry-3.webp",
+      "/assets/images/products/bcaa/bcaa-cranberry-4.webp",
     ],
   };
 
@@ -65,25 +65,25 @@ function PureGoBCAA() {
     {
       key: "250g-Orange",
       data: {
-        id: "67e7740363f930dcc6a27157",
-        img: "/assets/images/products/pre-workout/pre-workout-1.webp",
+        id: "6827168ced4175d21de95c4e",
+        img: "/assets/images/products/bcaa/bcaa-orange-1.webp",
         name: "BCAA Orange",
-        price: "2500",
-        discount: "600",
+        price: "2100",
+        discount: "840",
         size: "250 g",
-        dis_point: "76%",
+        dis_point: "60%",
       },
     },
     {
       key: "250g-Cranberry",
       data: {
-        id: "67e7740363f930dcc6a27157",
-        img: "/assets/images/products/pre-workout/pre-workout-1.webp",
+        id: "6827180aed4175d21de95cb9",
+        img: "/assets/images/products/bcaa/bcaa-cranberry-1.webp",
         name: "BCAA Cranberry",
-        price: "2500",
-        discount: "600",
+        price: "2100",
+        discount: "840",
         size: "250 g",
-        dis_point: "76%",
+        dis_point: "60%",
       },
     },
   ];
@@ -221,10 +221,10 @@ function PureGoBCAA() {
   return (
     <>
       <Helmet>
-        <title>Best Weight Loss Supplements for Fast & Effective Results</title>
+        <title>Buy PureGo BCAA Orange Flavor - Muscle Recovery & Electrolytes Support</title>
         <meta
           name="description"
-          content="Discover the best weight loss supplements to burn fat, boost metabolism, and achieve your fitness goals faster. Shop now!"
+          content="Fuel your workouts with PureGo BCAA Orange Flavor - a powerful BCAA supplement for muscle recovery, hydration, and endurance. Enjoy a refreshing electrolyte drink with every scoop."
         />
         <meta
           name="keyword"

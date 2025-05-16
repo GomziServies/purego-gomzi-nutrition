@@ -48,16 +48,16 @@ function PureGoCreatine() {
 
   const productImages = {
     "250g-Lemon": [
-      "/assets/images/products/creatine/creatine-1.webp",
-      "/assets/images/products/creatine/creatine-2.webp",
-      "/assets/images/products/creatine/creatine-3.webp",
-      "/assets/images/products/creatine/creatine-4.webp",
+      "/assets/images/products/creatine/creatine-lemon-1.webp",
+      "/assets/images/products/creatine/creatine-lemon-2.webp",
+      "/assets/images/products/creatine/creatine-lemon-3.webp",
+      "/assets/images/products/creatine/creatine-lemon-4.webp",
     ],
     "250g-Unflavoured": [
-      "/assets/images/products/creatine/creatine-1.webp",
-      "/assets/images/products/creatine/creatine-2.webp",
-      "/assets/images/products/creatine/creatine-3.webp",
-      "/assets/images/products/creatine/creatine-4.webp",
+      "/assets/images/products/creatine/creatine-unflavoured-1.webp",
+      "/assets/images/products/creatine/creatine-unflavoured-2.webp",
+      "/assets/images/products/creatine/creatine-unflavoured-3.webp",
+      "/assets/images/products/creatine/creatine-unflavoured-4.webp",
     ],
   };
 
@@ -66,8 +66,8 @@ function PureGoCreatine() {
       key: "250g-Lemon",
       data: {
         id: "67e773f463f930dcc6a27155",
-        img: "/assets/images/products/creatine/creatine-1.webp",
-        name: "Creatine Monohydrate",
+        img: "/assets/images/products/creatine/creatine-lemon-1.webp",
+        name: "Creatine Monohydrate Lemon",
         price: "1499",
         discount: "450",
         size: "250 g",
@@ -77,9 +77,9 @@ function PureGoCreatine() {
     {
       key: "250g-Unflavoured",
       data: {
-        id: "67e773f463f930dcc6a27155",
-        img: "/assets/images/products/creatine/creatine-1.webp",
-        name: "Creatine Monohydrate Unflavoured ",
+        id: "6827197bed4175d21de95d5c",
+        img: "/assets/images/products/creatine/creatine-unflavoured-1.webp",
+        name: "Creatine Monohydrate Unflavoured",
         price: "1499",
         discount: "450",
         size: "250 g",

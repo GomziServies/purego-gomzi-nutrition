@@ -59,6 +59,7 @@ function Home() {
     "67e7740363f930dcc6a27157",
     "67e7742d63f930dcc6a27159",
     "67e773f463f930dcc6a27155",
+    "6827168ced4175d21de95c4e",
   ]);
   const [productReviewsData, setProductReviewsData] = useState([]);
 
@@ -939,7 +940,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/pre-workout/pre-workout-1.webp"
+                          src="/assets/images/products/pre-workout/pre-workout-fruit-punch-1.webp"
                           alt="Pre Workout"
                         />
                       </div>
@@ -1021,7 +1022,7 @@ function Home() {
                           className="item-title"
                           style={{ webkitBoxOrient: "vertical" }}
                         >
-                          Pre Workout 250g{" "}
+                          Pre Workout Fruit Punch 250g{" "}
                         </div>
                       </Link>
                       <p className="item-description">
@@ -1040,7 +1041,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Pre Workout")
+                              item.includes("Pre Workout Fruit Punch")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1224,7 +1225,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/creatine/creatine-1.webp"
+                          src="/assets/images/products/creatine/creatine-lemon-1.webp"
                           alt="Creatine Monohydrate"
                         />
                       </div>
@@ -1232,7 +1233,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/creatine/creatine-2.webp"
+                          src="/assets/images/products/creatine/creatine-lemon-2.webp"
                           alt="Creatine Monohydrate"
                         />
                       </div>
@@ -1240,7 +1241,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/creatine/creatine-3.webp"
+                          src="/assets/images/products/creatine/creatine-lemon-3.webp"
                           alt="Creatine Monohydrate"
                         />
                       </div>
@@ -1248,7 +1249,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/creatine/creatine-4.webp"
+                          src="/assets/images/products/creatine/creatine-lemon-4.webp"
                           alt="Creatine Monohydrate"
                         />
                       </div>
@@ -1306,7 +1307,7 @@ function Home() {
                           className="item-title"
                           style={{ webkitBoxOrient: "vertical" }}
                         >
-                          Creatine Monohydrate 250g{" "}
+                          Creatine Monohydrate Lemon 250g{" "}
                         </div>
                       </Link>
                       <p className="item-description">
@@ -1325,7 +1326,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Creatine Monohydrate")
+                              item.includes("Creatine Monohydrate Lemon")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1343,6 +1344,149 @@ function Home() {
                             )}
                             <Link
                               to="/creatine-supplements"
+                              className="product-btn item-view-btn"
+                            >
+                              <i class="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
+                <div className="item-card position-relative">
+                  {/* <span class="labeling">India's first flavored BCAA Orange</span> */}
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/bcaa/bcaa-orange-1.webp"
+                          alt="BCAA Powder"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/bcaa/bcaa-orange-2.webp"
+                          alt="BCAA Powder"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/bcaa/bcaa-orange-3.webp"
+                          alt="BCAA Powder"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/bcaa/bcaa-orange-4.webp"
+                          alt="BCAA Powder"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">60%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div>
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "6827168ced4175d21de95c4e" &&
+                                  product.average_points
+                              )}
+                              <i class="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "6827168ced4175d21de95c4e" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/bcaa-supplements">
+                        <div
+                          className="item-title"
+                          style={{ webkitBoxOrient: "vertical" }}
+                        >
+                          BCAA Orange Powder 250g{" "}
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        It will suppress your appetite and provide you with a
+                        higher energy level in order to keep the adrenaline
+                        levels up. It will als...
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹840/-</span>
+                            <span className="variant-old-price">₹2100</span>
+                            {/* <span className="variant-offer">69% off</span> */}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("BCAA Orange")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("6827168ced4175d21de95c4e")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/bcaa-supplements"
                               className="product-btn item-view-btn"
                             >
                               <i class="fa-solid fa-eye me-2"></i>

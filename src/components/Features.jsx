@@ -24,7 +24,7 @@ const Features = ({ USPData, removeUSP, openModal }) => {
         pincode: pincode,
       };
       const response = await axiosInstance.post(
-        "/insights/icarry/check-pincode",
+        "/icarry/check-pincode",
         payload
       );
 

@@ -362,7 +362,7 @@ function CheckOut() {
       };
 
       const response = await axiosInstance.post(
-        "/insights/icarry/get-estimate",
+        "/icarry/get-estimate",
         payload
       );
 
@@ -496,7 +496,7 @@ function CheckOut() {
       Swal.fire({
         icon: "error",
         title: "Error!",
-        text: "Error applying coupon code!",
+        text: error?.response?.data?.message,
       });
     }
   };
