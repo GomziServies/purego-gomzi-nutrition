@@ -24,6 +24,7 @@ import UserOrder from "./pages/account/order";
 import UserProfile from "./pages/account/profile";
 import CheckOut from "./pages/check-out";
 import ScrollRestoration from "./components/scroll-restoration";
+import PureGoBCAA from "./pages/products/bcaa";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
         {/* Products */}
         <Route path="/creatine-supplements" element={<PureGoCreatine />} />
         <Route path="/weight-loss-supplement" element={<PureGoPreWorkout />} />
+        <Route path="/bcaa" element={<PureGoBCAA />} />
         <Route
           path="/mass-gainer-protein-powder"
           element={<PureGoMassGainer />}

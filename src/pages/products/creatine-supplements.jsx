@@ -53,6 +53,12 @@ function PureGoCreatine() {
       "/assets/images/products/creatine/creatine-3.webp",
       "/assets/images/products/creatine/creatine-4.webp",
     ],
+    "250g-Unflavoured": [
+      "/assets/images/products/creatine/creatine-1.webp",
+      "/assets/images/products/creatine/creatine-2.webp",
+      "/assets/images/products/creatine/creatine-3.webp",
+      "/assets/images/products/creatine/creatine-4.webp",
+    ],
   };
 
   const products = [
@@ -65,14 +71,29 @@ function PureGoCreatine() {
         price: "1499",
         discount: "450",
         size: "250 g",
-        dis_point: "15%",
+        dis_point: "69%",
+      },
+    },
+    {
+      key: "250g-Unflavoured",
+      data: {
+        id: "67e773f463f930dcc6a27155",
+        img: "/assets/images/products/creatine/creatine-1.webp",
+        name: "Creatine Monohydrate Unflavoured ",
+        price: "1499",
+        discount: "450",
+        size: "250 g",
+        dis_point: "69%",
       },
     },
   ];
 
   const sizeOptions = [{ id: "250g", label: "250g" }];
 
-  const flavorOptions = [{ id: "Lemon", label: "Lemon" }];
+  const flavorOptions = [
+    { id: "Lemon", label: "Lemon" },
+    { id: "Unflavoured", label: "Unflavoured" },
+  ];
 
   const handleSelectSize = (id) => {
     if (id === activeSize) return;
@@ -82,7 +103,6 @@ function PureGoCreatine() {
       setCurrentProduct(`${id}-${activeFlavor}`);
       setActiveImageIndex(0);
     }, 400);
-
   };
 
   const handleSelectFlavor = (id) => {
@@ -93,7 +113,6 @@ function PureGoCreatine() {
       setCurrentProduct(`${activeSize}-${id}`);
       setActiveImageIndex(0);
     }, 400);
-
   };
 
   const currentProductData =
@@ -298,7 +317,8 @@ function PureGoCreatine() {
                         onClick={() => addProductInCart(currentProductData.id)}
                         className="col-md-3 col-11 cart-btn m-0 ms-md-0 mx-1 my-1"
                       >
-                        <i class="fa-solid fa-cart-shopping me-2"></i> add to cart
+                        <i class="fa-solid fa-cart-shopping me-2"></i> add to
+                        cart
                       </button>
                       <button
                         onClick={() => handleQuickBuy(currentProductData)}

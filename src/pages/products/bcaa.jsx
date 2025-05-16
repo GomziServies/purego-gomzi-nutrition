@@ -26,12 +26,12 @@ import Features from "../../components/Features";
 import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 
-function PureGoPreWorkout() {
+function PureGoBCAA() {
   const canonicalUrl = window.location.href;
-  const [currentProduct, setCurrentProduct] = useState("250g-Fruit Punch");
+  const [currentProduct, setCurrentProduct] = useState("250g-Orange");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("250g");
-  const [activeFlavor, setActiveFlavor] = useState("Fruit Punch");
+  const [activeFlavor, setActiveFlavor] = useState("Orange");
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
@@ -47,13 +47,13 @@ function PureGoPreWorkout() {
   };
 
   const productImages = {
-    "250g-Fruit Punch": [
+    "250g-Orange": [
       "/assets/images/products/pre-workout/pre-workout-1.webp",
       "/assets/images/products/pre-workout/pre-workout-2.webp",
       "/assets/images/products/pre-workout/pre-workout-3.webp",
       "/assets/images/products/pre-workout/pre-workout-4.webp",
     ],
-    "250g-Cola": [
+    "250g-Cranberry": [
       "/assets/images/products/pre-workout/pre-workout-1.webp",
       "/assets/images/products/pre-workout/pre-workout-2.webp",
       "/assets/images/products/pre-workout/pre-workout-3.webp",
@@ -63,11 +63,11 @@ function PureGoPreWorkout() {
 
   const products = [
     {
-      key: "250g-Fruit Punch",
+      key: "250g-Orange",
       data: {
         id: "67e7740363f930dcc6a27157",
         img: "/assets/images/products/pre-workout/pre-workout-1.webp",
-        name: "Pre Workout",
+        name: "BCAA Orange",
         price: "2500",
         discount: "600",
         size: "250 g",
@@ -75,11 +75,11 @@ function PureGoPreWorkout() {
       },
     },
     {
-      key: "250g-Cola",
+      key: "250g-Cranberry",
       data: {
         id: "67e7740363f930dcc6a27157",
         img: "/assets/images/products/pre-workout/pre-workout-1.webp",
-        name: "Pre Workout Cola",
+        name: "BCAA Cranberry",
         price: "2500",
         discount: "600",
         size: "250 g",
@@ -91,8 +91,8 @@ function PureGoPreWorkout() {
   const sizeOptions = [{ id: "250g", label: "250g" }];
 
   const flavorOptions = [
-    { id: "Fruit Punch", label: "Fruit Punch" },
-    { id: "Cola", label: "Cola" },
+    { id: "Orange", label: "Orange" },
+    { id: "Cranberry", label: "Cranberry" },
   ];
 
   const handleSelectSize = (id) => {
@@ -228,7 +228,7 @@ function PureGoPreWorkout() {
         />
         <meta
           name="keyword"
-          content="preworkout, fat burner, amino acid, workout, fruit punch, weight loss supplement, bodybuilding supplement, best pre workout, best weight loss supplements, best fat burner for men, protein powder for weight loss, best protein powder for weight loss, best fat burner for women, pre workout powder, best fat burner, best supplements for weight loss female, best pre workout for men, fat burner for women"
+          content="preworkout, fat burner, amino acid, workout, Orange, weight loss supplement, bodybuilding supplement, best pre workout, best weight loss supplements, best fat burner for men, protein powder for weight loss, best protein powder for weight loss, best fat burner for women, pre workout powder, best fat burner, best supplements for weight loss female, best pre workout for men, fat burner for women"
         />
         <meta
           property="og:url"
@@ -416,91 +416,51 @@ function PureGoPreWorkout() {
                       aria-labelledby="description-tab"
                     >
                       <div className="product-desc-content">
-                        <h4 className="title">Pure Go Pre Workout</h4>
+                        <h4 className="title">WHAT ARE Bcaa?</h4>
                         <p>
-                          It will suppress your appetite and provide you with a
-                          higher energy level in order to keep the adrenaline
-                          levels up. It will also boost your metabolism and burn
-                          calories for you. For permanent weight loss, it is
-                          recommended to use a fat burner which helps to reduce
-                          fat faster. Ignite The Fat Burner Pre-Workout is a
-                          sophisticated and comprehensive pre-workout fat burner
-                          supplement.
+                          Branched chain amino acids are made of specific Amino
+                          Acids that are considered Essential. Of the 20 Amino
+                          Acids, 9 are considered Essential with Leucine, Valine
+                          and Isoleucine the BCAAs being amongst the most well
+                          known EAAs. Remember that all BCAAs are EAAs, but not
+                          all EAAs are BCAAs.
                         </p>
+                        <h4 className="title">INGREDIENTS:</h4>
                         <p>
-                          Delivering intense energy, supercharged strength, and
-                          power, heightened focus, vein-popping pump and
-                          endurance, and superior workouts with enhanced
-                          thermogenic and fat-burning properties are just a few
-                          of the benefits of its uniquely developed formula. For
-                          athletes of all levels, Ignite The Fat Burner
-                          Pre-Workout is a highly stimulating and effective
-                          pre-workout fat-burning supplement that can assist
-                          maximize workout performance, burning fat more
-                          quickly, and pushing your body beyond previous
-                          boundaries.
+                          BCAA Blend (branched chain amino acid), Citric
+                          acid-INS 330, potassium Chloride INS 508, Silicon
+                          dioxide INS 551, Sucralose -INS 955, Orange Flavour,
+                          Sunset Yellow color -INS 122.
                         </p>
-                        <h4 className="title">DIRECTIONS FOR IGNITE POWDER:</h4>
+                        <h4 className="title">DIRECTIONS FOR EAA POWDER:</h4>
                         <p>
-                          Use This powder 15-30 minutes before intense exercise
-                          Add 1 scoop (05g) to 220ml of ice-cold water and shake
-                          for approximately 10 seconds before consuming. Consume
-                          once per day.
+                          Consume 1 Scoop (05 gm) of EAA Powder with 200ml water
+                          between meals, 30-45 minutes before workouts and/or
+                          immediately after workouts. Combine with a sensible
+                          diet and regular exercise. For best results consume 2
+                          Scoop per day.
                         </p>
-                        <h4 className="title">NOT FOR MEDICINAL USE.</h4>
-                        <h4 className="title">STORAGE:</h4>
+                        <h4 className="title mt-4">WARNINGS:</h4>
                         <p>
-                          Store under 25°C Temperature, dry and hygienic place.
-                          Keep away from direct sunlight. Keep out of reach of
-                          children.
+                          Keep out of reach of children. Do not use if pregnant
+                          or nursing.Not intended for use by person under 18.
+                          Consult a physician if you have been treated for or
+                          diagnosed with or have a family history of any medical
+                          condition. Do not use if safety seal on the package
+                          has been broken.
                         </p>
-                        {/* <h4 className="title">BENEFITS:</h4>
-                        <ul className="product-desc-list list-wrap">
-                          <li>
-                            Experience real results & better performance with
-                            fat burning ingredients.
-                          </li>
-                          <li>
-                            Clinically proven & versatile supplement solution.
-                          </li>
-                          <li>Controls Appetite & Hunger.</li>
-                        </ul>
-                        <h4 className="title mt-4">Caution:</h4>
-                        <ul className="product-desc-list list-wrap">
-                          <li>
-                            Not for use by persons under the age of 18 years.
-                          </li>
-                          <li>
-                            Consult your doctor in case you are taking any
-                            medication.
-                          </li>
-                          <li>
-                            This product is not intended to diagnose, treat,
-                            cure or prevent any disease.
-                          </li>
-                          <li>Do not exceed recommended serving size.</li>
-                          <li>Store in a cool and dry place.</li>
-                          <li>Keep out of reach of children.</li>
-                          <li>
-                            This product is not to be used as a substitute for a
-                            varied diet. Not recommended for children, pregnant
-                            or lactating women. and people sensitive to
-                            caffeine.
-                          </li>
-                        </ul> */}
-                        <h4 className="title mt-4">Direction For Use?</h4>
-                        <ul className="product-desc-list list-wrap">
-                          <li>
-                            Take 5g (scoop for beginners) once a day with 200 -
-                            220 ml chilled water for an adult or as per
-                            Healthcare Expert.
-                          </li>
-                          <li>
-                            Take 10g (scoop for professionals) once a day with
-                            380 - 400 ml for an adult or as per Healthcare
-                            Expert.
-                          </li>
-                        </ul>
+                        <h4 className="title mt-4">NOT FOR MEDICINAL USE</h4>
+                        <h4 className="title mt-4">STORAGE:</h4>
+                        <p>
+                          Store in Cool & dry place. Keep away from direct
+                          sunlight, heat & moisture. Keep the bottle tightly
+                          closed.
+                        </p>
+                        <h4 className="title mt-4">ALLERGEN ADVICE:</h4>
+                        <p>
+                          This product contains BCAA blend and is not
+                          recommended for those with BCAA blend intolerance.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -537,32 +497,40 @@ function PureGoPreWorkout() {
                         <table className="table table-sm">
                           <tbody>
                             <tr>
-                              <th scope="row">L-CITRULLINE</th>
-                              <td>2.26 gm</td>
+                              <th scope="row">CALORIES</th>
+                              <td>6.12 Kcal</td>
                             </tr>
                             <tr>
-                              <th scope="row">L-ARGININE</th>
-                              <td>0.45 gm</td>
+                              <th scope="row">TOTAL CARBOHYDRATE</th>
+                              <td>0.20 gm</td>
                             </tr>
                             <tr>
-                              <th scope="row">L-TAURINE</th>
-                              <td>0.36 gm</td>
+                              <th scope="row">Total Sugar</th>
+                              <td>0 gm</td>
                             </tr>
                             <tr>
-                              <th scope="row">B-ALANINE</th>
-                              <td>0.36 gm</td>
+                              <th scope="row">PROTEIN</th>
+                              <td>0 gm</td>
                             </tr>
                             <tr>
-                              <th scope="row">CAFFEINE ANHYDROUS</th>
-                              <td>0.18 gm</td>
+                              <th scope="row">TOTAL FAT</th>
+                              <td>0 gm</td>
                             </tr>
                             <tr>
-                              <th scope="row">GREEN TEA EXTRACT</th>
-                              <td>0.10 gm</td>
+                              <th scope="row">BRANCHED CHAIN AMINO ACIDS</th>
+                              <td>7.8 gm</td>
                             </tr>
                             <tr>
-                              <th scope="row">GREEN COFFEE EXTRACT</th>
-                              <td>0.10 gm</td>
+                              <th scope="row">L-LEUCINE</th>
+                              <td>3.25mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">L-ISOLEUCINE</th>
+                              <td>1.65mg</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">L-VALINE</th>
+                              <td>1.65mg</td>
                             </tr>
                           </tbody>
                         </table>
@@ -653,4 +621,4 @@ function PureGoPreWorkout() {
   );
 }
 
-export default PureGoPreWorkout;
+export default PureGoBCAA;
