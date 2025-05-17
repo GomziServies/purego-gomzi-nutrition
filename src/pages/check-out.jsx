@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 
 function CheckOut() {
   const [totalPrice, setTotalPrice] = useState();
+  const [isCouponRupee, setIsCouponRupee] = useState(false);
   const [amountOnCouponCode, setAmountOnCouponCode] = useState();
   const [productDatas, setProductDatas] = useState([[]]);
   const [stateData, setStateData] = useState([
@@ -95,8 +96,6 @@ function CheckOut() {
     const data = JSON.parse(productData);
     setMainPrice(data.totalAmount);
     setProductDatas(data.products);
-    console.log("data.totalAmount totalPrice :- ", data.totalAmount);
-
     setTotalPrice(data.totalAmount);
     setAmountOnCouponCode(data.totalAmount);
   };
@@ -182,8 +181,6 @@ function CheckOut() {
 
       try {
         const coupon_ids = [manualCouponCodeData._id].filter(Boolean);
-        console.log('manualCouponCodeData :- ', manualCouponCodeData);
-        
         await createPaymentProduct(
           quickData && quickData?.id
             ? [{ product_id: quickData.id, quantity: 1 }]
@@ -216,13 +213,19 @@ function CheckOut() {
 
   const calculateDiscountedPrice = (couponData) => {
     let discountAmount = 0;
-    const totalDiscount = couponData.discount || 0;
-    discountAmount += (mainPrice * totalDiscount) / 100;
-    const totalCouponAmount = mainPrice - discountAmount;
+    const totalDiscountAmount = couponData.discount || 0;
+    let totalCouponAmount;
+    if (couponData.discount_type === "rupees") {
+      totalCouponAmount = mainPrice - totalDiscountAmount;
+      setIsCouponRupee(true);
+    } else {
+      discountAmount += (mainPrice * totalDiscountAmount) / 100;
+      totalCouponAmount = mainPrice - discountAmount;
+    }
 
     setTotalPrice(mainPrice);
     setMainPrice(totalCouponAmount);
-    setTotalDiscount(totalDiscount);
+    setTotalDiscount(totalDiscountAmount);
   };
 
   const getUserData = async () => {
@@ -449,6 +452,8 @@ function CheckOut() {
     setTotalDiscount(0);
     getUserData();
     UpdatedData(productData);
+    setIsCouponRupee(false);
+    localStorage.removeItem("appliedCoupon");
 
     let quickProductData = localStorage.getItem("quickProductData");
     quickProductData = JSON.parse(quickProductData);
@@ -862,19 +867,20 @@ function CheckOut() {
                           ₹
                           {Math.round(
                             totalPrice ? totalPrice : mainPrice
-                          ).toFixed(2)}
+                          ).toFixed(2)}{" "}
+                          /-
                         </span>
                       </li>
                       {totalDiscount !== 0 && (
                         <li>
                           Discount{" "}
                           <span className="text-danger">
-                            -{" "}
+                            - {isCouponRupee && "₹"}
                             {totalDiscount !== undefined &&
                             totalDiscount !== null
                               ? totalDiscount
                               : 0}
-                            %
+                            {!isCouponRupee ? "%" : " /-"}
                           </span>
                         </li>
                       )}
@@ -895,7 +901,8 @@ function CheckOut() {
                         >
                           {discountCost
                             ? "+ ₹" + discountCost
-                            : "Enter Pincode"}
+                            : "Enter Pincode"}{" "}
+                          /-
                         </span>
                       </li>
                       <li className="text-dark">
@@ -904,7 +911,8 @@ function CheckOut() {
                           ₹
                           {discountCost
                             ? (mainPrice + parseFloat(discountCost)).toFixed(2)
-                            : Math.round(mainPrice)}
+                            : Math.round(mainPrice)}{" "}
+                          /-
                         </span>
                       </li>
                     </ul>

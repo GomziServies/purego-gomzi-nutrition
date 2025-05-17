@@ -41,9 +41,9 @@ function AddToCart() {
   const [couponAvailable, setCouponAvailable] = useState(false);
   const [manualCouponCodeData, setManualCouponCodeData] = useState("");
   const [storeCouponData, setStoreCouponData] = useState({});
-  const [appliedCodes, setAppliedCodes] = useState([]);
   const [totalDiscount, setTotalDiscount] = useState(0);
   const [totalPrice, setTotalPrice] = useState();
+  const [isCouponRupee, setIsCouponRupee] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
@@ -429,6 +429,7 @@ function AddToCart() {
     setManualCouponCode("");
     setManualCouponCodeData("");
     setTotalDiscount(0);
+    setIsCouponRupee(false);
     // getUserData();
     // UpdatedData(productData);
   };
@@ -472,13 +473,20 @@ function AddToCart() {
 
   const calculateDiscountedPrice = (couponData) => {
     let discountAmount = 0;
-    const totalDiscount = couponData.discount || 0;
-    discountAmount += (totalAmount * totalDiscount) / 100;
-    const totalCouponAmount = totalAmount - discountAmount;
+
+    const totalDiscountAmount = couponData.discount || 0;
+    let totalCouponAmount;
+    if (couponData.discount_type === "rupees") {
+      totalCouponAmount = totalAmount - totalDiscountAmount;
+      setIsCouponRupee(true);
+    } else {
+      discountAmount += (totalAmount * totalDiscountAmount) / 100;
+      totalCouponAmount = totalAmount - discountAmount;
+    }
 
     setTotalPrice(totalAmount);
     setTotalAmount(totalCouponAmount);
-    setTotalDiscount(totalDiscount);
+    setTotalDiscount(totalDiscountAmount);
   };
 
   return (
@@ -716,12 +724,12 @@ function AddToCart() {
                         <li>
                           Discount{" "}
                           <span className="text-danger">
-                            -{" "}
+                            - {isCouponRupee && "₹"}
                             {totalDiscount !== undefined &&
                             totalDiscount !== null
                               ? totalDiscount
                               : 0}
-                            %
+                            {!isCouponRupee ? "%" : " /-"}
                           </span>
                         </li>
                       )}
