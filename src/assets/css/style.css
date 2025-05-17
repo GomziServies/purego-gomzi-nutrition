@@ -2542,6 +2542,10 @@ body.search-visible {
   margin-right: 12px;
   text-transform: uppercase;
 }
+.cart-btn.btn-width,
+.inner-shop-perched-info > .cart-btn.btn-width {
+  min-width: auto;
+}
 .inner-shop-perched-info > .quick-buy-btn {
   border: 1px solid #3c4041;
   background: #3c4041;

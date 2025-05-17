@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 
 function CheckOut() {
   const [totalPrice, setTotalPrice] = useState();
+  const [amountOnCouponCode, setAmountOnCouponCode] = useState();
   const [productDatas, setProductDatas] = useState([[]]);
   const [stateData, setStateData] = useState([
     { stateName: "Andaman and Nicobar Islands", stateCode: "AN" },
@@ -57,7 +58,6 @@ function CheckOut() {
   const [isOpen, setIsOpen] = useState(false);
   const [mainPrice, setMainPrice] = useState();
   const canonicalUrl = window.location.href;
-  const [prepaidCouponCode, setPrepaidCouponCode] = useState({});
   const [orderUserData, setOrderUserData] = useState({
     username: "",
     email: "",
@@ -76,10 +76,7 @@ function CheckOut() {
   const [loading, setLoading] = useState(false);
   const [quickData, setQuickData] = useState({});
   const [manualCouponCode, setManualCouponCode] = useState("");
-  const [couponAvailable, setCouponAvailable] = useState(false);
   const [manualCouponCodeData, setManualCouponCodeData] = useState("");
-  const [storeCouponData, setStoreCouponData] = useState({});
-  const [appliedCodes, setAppliedCodes] = useState([]);
 
   const openModal = () => {
     setShowModal(true);
@@ -92,21 +89,16 @@ function CheckOut() {
   const handlePaymentModeChange = (e) => {
     const selectedMode = e.target.value;
     setPaymentMode(selectedMode);
-
-    if (selectedMode === "ONLINE") {
-      setPrepaidCouponCode({ discount: 0 });
-    } else if (selectedMode === "Cash On Delivery") {
-      setPrepaidCouponCode({ discount: 0 });
-      setMainPrice(totalPrice);
-      removePromoCode("GOMZI5", "COD");
-    }
   };
 
   const UpdatedData = (productData) => {
     const data = JSON.parse(productData);
     setMainPrice(data.totalAmount);
     setProductDatas(data.products);
+    console.log("data.totalAmount totalPrice :- ", data.totalAmount);
+
     setTotalPrice(data.totalAmount);
+    setAmountOnCouponCode(data.totalAmount);
   };
 
   useEffect(() => {
@@ -120,6 +112,10 @@ function CheckOut() {
     const isLogin = localStorage.getItem("fg_group_user_authorization");
     if (!isLogin) {
       return openModal();
+    }
+
+    if (orderUserData.pin_code) {
+      handleFormSubmit();
     }
   }, []);
 
@@ -139,7 +135,7 @@ function CheckOut() {
 
   const handleFormSubmit = async (e) => {
     setLoading(true);
-    e.preventDefault();
+    e?.preventDefault();
     try {
       const updatedUserData = {
         pin_code: e.target.postalCode.value,
@@ -186,6 +182,8 @@ function CheckOut() {
 
       try {
         const coupon_ids = [manualCouponCodeData._id].filter(Boolean);
+        console.log('manualCouponCodeData :- ', manualCouponCodeData);
+        
         await createPaymentProduct(
           quickData && quickData?.id
             ? [{ product_id: quickData.id, quantity: 1 }]
@@ -213,17 +211,6 @@ function CheckOut() {
       getUserData();
     } catch (error) {
       console.error("Error in updateUserData:", error);
-    }
-  };
-
-  const removePromoCode = (code, action) => {
-    if (action === "COD") {
-      calculateDiscountedPrice({ discount: 0 }, "COD");
-    } else {
-      calculateDiscountedPrice({ discount: 0 }, "remove");
-    }
-    if (code !== "GOMZI5") {
-      window.location.reload();
     }
   };
 
@@ -403,6 +390,15 @@ function CheckOut() {
     }
   }, []);
 
+  useEffect(() => {
+    let appliedCoupon = localStorage.getItem("appliedCoupon");
+
+    if (appliedCoupon && amountOnCouponCode) {
+      setManualCouponCode(appliedCoupon);
+      handleApplyClick(appliedCoupon);
+    }
+  }, [amountOnCouponCode]);
+
   const handleStateChange = (event) => {
     try {
       const state = event.target.value;
@@ -464,17 +460,21 @@ function CheckOut() {
     }
   };
 
-  const handleApplyClick = async () => {
+  const handleApplyClick = async (appliedCoupon) => {
     try {
-      // if (manualCouponCodeData && couponAvailable) {
-      //   setManualCouponCodeData("");
-      //   setManualCouponCode("");
-      //   setCouponAvailable(false);
-      //   setAppliedCodes("");
-      //   return;
-      // }
+      if (manualCouponCodeData && appliedCoupon.length === 0) {
+        setManualCouponCodeData("");
+        setManualCouponCode("");
+        return;
+      }
 
-      const code = manualCouponCode;
+      let code;
+      if (appliedCoupon) {
+        code = appliedCoupon;
+      } else {
+        code = manualCouponCode;
+      }
+
       const payload = { coupon_code: code };
       const response = await publicAxiosInstance.post(
         "/check-coupon-code",
@@ -483,12 +483,8 @@ function CheckOut() {
 
       const couponData = response.data.data;
 
-      if (manualCouponCode) {
-        setCouponAvailable(true);
+      if (manualCouponCode || appliedCoupon) {
         setManualCouponCodeData(couponData);
-      } else {
-        setCouponAvailable(true);
-        setStoreCouponData(couponData);
       }
       toast.success("Apply coupon code successfully");
       calculateDiscountedPrice(couponData);

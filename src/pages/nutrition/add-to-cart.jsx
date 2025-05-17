@@ -37,6 +37,13 @@ function AddToCart() {
   const [totalMRP, setTotalMRP] = React.useState(0);
   const [showModal, setShowModal] = useState(false);
   const [cartDataClick, setCartDataClick] = useState(false);
+  const [manualCouponCode, setManualCouponCode] = useState("");
+  const [couponAvailable, setCouponAvailable] = useState(false);
+  const [manualCouponCodeData, setManualCouponCodeData] = useState("");
+  const [storeCouponData, setStoreCouponData] = useState({});
+  const [appliedCodes, setAppliedCodes] = useState([]);
+  const [totalDiscount, setTotalDiscount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState();
 
   const openModal = () => {
     setShowModal(true);
@@ -251,6 +258,14 @@ function AddToCart() {
             })
           );
 
+          if (
+            manualCouponCode &&
+            totalDiscount !== undefined &&
+            totalDiscount !== null
+          ) {
+            localStorage.setItem("appliedCoupon", manualCouponCode);
+          }
+
           window.location.href = `/check-out`;
         }
       } else {
@@ -281,6 +296,14 @@ function AddToCart() {
             totalMRP,
           })
         );
+
+        if (
+          manualCouponCode &&
+          totalDiscount !== undefined &&
+          totalDiscount !== null
+        ) {
+          localStorage.setItem("appliedCoupon", manualCouponCode);
+        }
 
         localStorage.setItem("serverDataID", serverDataID);
 
@@ -402,6 +425,62 @@ function AddToCart() {
     }
   };
 
+  const handleRemoveCoupon = async () => {
+    setManualCouponCode("");
+    setManualCouponCodeData("");
+    setTotalDiscount(0);
+    // getUserData();
+    // UpdatedData(productData);
+  };
+
+  const handleApplyClick = async () => {
+    try {
+      // if (manualCouponCodeData && couponAvailable) {
+      //   setManualCouponCodeData("");
+      //   setManualCouponCode("");
+      //   setCouponAvailable(false);
+      //   setAppliedCodes("");
+      //   return;
+      // }
+
+      const code = manualCouponCode;
+      const payload = { coupon_code: code };
+      const response = await publicAxiosInstance.post(
+        "/check-coupon-code",
+        payload
+      );
+
+      const couponData = response.data.data;
+
+      if (manualCouponCode) {
+        setCouponAvailable(true);
+        setManualCouponCodeData(couponData);
+      } else {
+        setCouponAvailable(true);
+        setStoreCouponData(couponData);
+      }
+      toast.success("Apply coupon code successfully");
+      calculateDiscountedPrice(couponData);
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: error?.response?.data?.message,
+      });
+    }
+  };
+
+  const calculateDiscountedPrice = (couponData) => {
+    let discountAmount = 0;
+    const totalDiscount = couponData.discount || 0;
+    discountAmount += (totalAmount * totalDiscount) / 100;
+    const totalCouponAmount = totalAmount - discountAmount;
+
+    setTotalPrice(totalAmount);
+    setTotalAmount(totalCouponAmount);
+    setTotalDiscount(totalDiscount);
+  };
+
   return (
     <>
       <Helmet>
@@ -479,8 +558,12 @@ function AddToCart() {
                       <th className="product__thumb"></th>
                       <th className="product__name">Product</th>
                       <th className="product__price">Price</th>
-                      <th className="product__quantity d-md-block d-none">Quantity</th>
-                      <th className="product__quantity d-md-none d-block text-center">Price <br /> Quantity</th>
+                      <th className="product__quantity d-md-block d-none">
+                        Quantity
+                      </th>
+                      <th className="product__quantity d-md-none d-block text-center">
+                        Price <br /> Quantity
+                      </th>
                       <th className="product__subtotal">Subtotal</th>
                       <th className="product__remove"></th>
                     </tr>
@@ -565,29 +648,105 @@ function AddToCart() {
                 )}
               </div>
               <div className="col-lg-4">
-                <div className="cart__collaterals-wrap">
-                  <h2 className="title">Cart totals</h2>
-                  <ul className="list-wrap">
-                    <li>
-                      Subtotal <span>₹{totalAmount?.toFixed(2)}</span>
-                    </li>
-                    <li>
-                      Extra Charges{" "}
-                      <span>- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    </li>
-                    <li className="fs-5">
-                      Total{" "}
-                      <span className="amount">₹{totalAmount?.toFixed(2)}</span>
-                    </li>
-                  </ul>
-                  <div className="inner-shop-perched-info mt-3">
-                    <button
-                      onClick={handleAddToCart}
-                      className="cart-btn w-100 m-0"
-                      disabled={productDataGet.length === 0}
-                    >
-                      Proceed to checkout
-                    </button>
+                <div className="col-12">
+                  <div className="cart__collaterals-wrap mb-3">
+                    <div className="m-0 w-100">
+                      <div className="br-15">
+                        <div className="d-flex bg-transparent">
+                          <div className="col-12 px-0">
+                            <h2 className="promo-title">Apply Promo Code</h2>
+                          </div>
+                        </div>
+                        <div className="row flex-md-row flex-column align-items-center justify-content-between p-3 pb-0 br-15">
+                          <div className="col-md-8 ps-0 pe-md-2 pe-0">
+                            <input
+                              id="coupon_code"
+                              type="text"
+                              placeholder="Enter Coupon Code"
+                              name="coupon_code"
+                              className="form-control"
+                              style={{ height: "46.8px" }}
+                              value={manualCouponCode}
+                              disabled={manualCouponCodeData ? true : false}
+                              onChange={(e) =>
+                                setManualCouponCode(e.target.value)
+                              }
+                              maxLength="100"
+                            />
+                          </div>
+                          <div className="col-md-4 ps-md-2 ps-0 pe-md-0 pe-0">
+                            <div className="d-inline-block inner-shop-perched-info mt-md-0 mt-3 w-md-25 w-100">
+                              {manualCouponCodeData ? (
+                                <button
+                                  id="apply_main_btn"
+                                  type="button"
+                                  onClick={() => handleRemoveCoupon()}
+                                  className="cart-btn btn-width bg-danger border-danger m-0 w-100"
+                                >
+                                  Remove
+                                </button>
+                              ) : (
+                                <button
+                                  id="apply_main_btn"
+                                  type="button"
+                                  onClick={() => handleApplyClick()}
+                                  className="cart-btn btn-width m-0 w-100"
+                                >
+                                  Apply
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="cart__collaterals-wrap">
+                    <h2 className="title">Cart totals</h2>
+                    <ul className="list-wrap">
+                      <li>
+                        Subtotal{" "}
+                        <span>
+                          ₹{totalPrice ? totalPrice : totalAmount?.toFixed(2)}
+                        </span>
+                      </li>
+                      {totalDiscount !== 0 && (
+                        <li>
+                          Discount{" "}
+                          <span className="text-danger">
+                            -{" "}
+                            {totalDiscount !== undefined &&
+                            totalDiscount !== null
+                              ? totalDiscount
+                              : 0}
+                            %
+                          </span>
+                        </li>
+                      )}
+                      <li>
+                        Extra Charges{" "}
+                        <span>
+                          - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                      </li>
+                      <li className="fs-5">
+                        Total{" "}
+                        <span className="amount">
+                          ₹{totalAmount?.toFixed(2)}
+                        </span>
+                      </li>
+                    </ul>
+                    <div className="inner-shop-perched-info mt-3">
+                      <button
+                        onClick={handleAddToCart}
+                        className="cart-btn w-100 m-0"
+                        disabled={productDataGet.length === 0}
+                      >
+                        Proceed to checkout
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
