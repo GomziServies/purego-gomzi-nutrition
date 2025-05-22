@@ -350,11 +350,6 @@ function PureGoWheyProtein() {
         setMenuOpen(false);
         setShowModal(true);
       } else {
-        // const response = await axiosInstance.post("/order-cart/add-item", {
-        //   item_id: currentProductData.id,
-        //   quantity: data?.quantity || 1,
-        //   item_type: "BOOKS",
-        // });
         const response = await axiosInstance.post("/order-cart/add-item", {
           item_id: currentProductData.id,
           quantity: 1,
@@ -479,14 +474,14 @@ function PureGoWheyProtein() {
                     </div>
                     <div className="inner-shop-details-price">
                       <h2 className="price d-flex mb-0">
-                        ₹{currentProductData.discount}/-
-                        <span className="old-prices">
+                        ₹{currentProductData.price}/-
+                        {/* <span className="old-prices">
                           ₹{currentProductData.price}/-
-                        </span>
+                        </span> */}
                       </h2>
-                      <h5 className="stock-status">
+                      {/* <h5 className="stock-status">
                         ({currentProductData.dis_point} OFF)
-                      </h5>
+                      </h5> */}
                     </div>
                     <p>
                       Pure Go Whey Protein is a Mixture of Whey Isolate, Whey
@@ -574,22 +569,15 @@ function PureGoWheyProtein() {
                         </div>
                       </div>
                     </div> */}
-                    <BookButtonsContainer
-                      booksData={currentProductData}
-                      books={books}
-                      toggleMenu={toggleMenu}
-                      menuOpen={menuOpen}
-                      setMenuOpen={setMenuOpen}
-                      selectedBookId={currentProductData.id}
-                    />
                     <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
-                      <button
-                        onClick={() => addProductInCart(currentProductData.id)}
-                        className="col-md-3 col-11 cart-btn m-0 ms-md-0 mx-1 my-1"
-                      >
-                        <i class="fa-solid fa-cart-shopping me-2"></i> add to
-                        cart
-                      </button>
+                      <BookButtonsContainer
+                        booksData={currentProductData}
+                        books={books}
+                        toggleMenu={toggleMenu}
+                        menuOpen={menuOpen}
+                        setMenuOpen={setMenuOpen}
+                        selectedBookId={currentProductData.id}
+                      />
                       <button
                         onClick={() => handleQuickBuy(currentProductData)}
                         className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"

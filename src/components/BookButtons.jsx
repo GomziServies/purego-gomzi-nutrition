@@ -7,20 +7,16 @@ const BookButton = ({ booksData, toggleMenu }) => {
     <>
       <button
         onClick={(e) => toggleMenu(booksData, e)}
-        style={{ display: booksData.name ? "block" : "none", backgroundColor: '#86c33a' }}
-        className="bg-blue text-uppercase  text-white f-16 f-rob-bol rate-btn-blue"
+        className="col-md-3 col-11 cart-btn m-0 ms-md-0 mx-1 my-1"
       >
-        Add to Cart
+        <i class="fa-solid fa-cart-shopping me-2"></i> add to cart
       </button>
-      <Link
-        to="/user/order"
-        target="_blank"
-        style={{ display: booksData.name ? "block" : "none" }}
-      >
-        <button type="button" className="bg-dark text-uppercase text-white f-16 f-rob-bol rate-btn-black mt-3">
-          Track Your Order
-        </button>
-      </Link>
+      {/* <button
+          onClick={() => handleQuickBuy(currentProductData)}
+          className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"
+        >
+          <i class="fa-solid fa-bolt me-2"></i> Quick Buy
+        </button> */}
     </>
   );
 };

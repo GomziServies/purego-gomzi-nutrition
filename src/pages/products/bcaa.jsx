@@ -25,6 +25,7 @@ import LoginModal from "../../assets/js/popup/login";
 import Features from "../../components/Features";
 import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
+import BookButtonsContainer from "../../components/BookButtonsContainer";
 
 function PureGoBCAA() {
   const canonicalUrl = window.location.href;
@@ -37,6 +38,8 @@ function PureGoBCAA() {
   const [showModal, setShowModal] = useState(false);
   const [cartDataClick, setCartDataClick] = useState(false);
   const [fadingItem, setFadingItem] = useState(null);
+  const [books, setBooks] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
@@ -155,6 +158,49 @@ function PureGoBCAA() {
     }
   };
 
+  const toggleMenu = async (data, e) => {
+    e.preventDefault();
+    try {
+      let existingData = JSON.parse(localStorage.getItem("addItemInCart")) || {
+        products: [],
+      };
+      const productExists = existingData.products.some(
+        (product) => product.book_id === currentProductData.id
+      );
+
+      if (!productExists) {
+        existingData.products.push({
+          book_id: currentProductData.id,
+        });
+        localStorage.setItem("addItemInCart", JSON.stringify(existingData));
+      }
+
+      const isAuthenticated = localStorage.getItem(
+        "fg_group_user_authorization"
+      );
+
+      if (!isAuthenticated) {
+        localStorage.setItem("itemCartAdded", "true");
+        setMenuOpen(false);
+        setShowModal(true);
+      } else {
+        const response = await axiosInstance.post("/order-cart/add-item", {
+          item_id: currentProductData.id,
+          quantity: 1,
+          item_type: "PURE_GO_MEAL_PRODUCT",
+        });
+
+        if (response.data.response === "OK") {
+          setBooks(data);
+          setMenuOpen(!menuOpen);
+          localStorage.setItem("itemCartAdded", "false");
+        }
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  };
+
   const USPData = [
     {
       title: "FSSAI Approved",
@@ -221,7 +267,9 @@ function PureGoBCAA() {
   return (
     <>
       <Helmet>
-        <title>Buy PureGo BCAA Orange Flavor - Muscle Recovery & Electrolytes Support</title>
+        <title>
+          Buy PureGo BCAA Orange Flavor - Muscle Recovery & Electrolytes Support
+        </title>
         <meta
           name="description"
           content="Fuel your workouts with PureGo BCAA Orange Flavor - a powerful BCAA supplement for muscle recovery, hydration, and endurance. Enjoy a refreshing electrolyte drink with every scoop."
@@ -325,14 +373,14 @@ function PureGoBCAA() {
                     </div>
                     <div className="inner-shop-details-price">
                       <h2 className="price d-flex mb-0">
-                        ₹{currentProductData.discount}/-
-                        <span className="old-prices">
+                        ₹{currentProductData.price}/-
+                        {/* <span className="old-prices">
                           ₹{currentProductData.price}/-
-                        </span>
+                        </span> */}
                       </h2>
-                      <h5 className="stock-status">
+                      {/* <h5 className="stock-status">
                         ({currentProductData.dis_point} OFF)
-                      </h5>
+                      </h5> */}
                     </div>
                     <p>
                       It will suppress your appetite and provide you with a
@@ -359,13 +407,14 @@ function PureGoBCAA() {
                       </div>
                     </div>
                     <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
-                      <button
-                        onClick={() => addProductInCart(currentProductData.id)}
-                        className="col-md-3 col-11 cart-btn m-0 ms-md-0 mx-1 my-1"
-                      >
-                        <i class="fa-solid fa-cart-shopping me-2"></i> add to
-                        cart
-                      </button>
+                      <BookButtonsContainer
+                        booksData={currentProductData}
+                        books={books}
+                        toggleMenu={toggleMenu}
+                        menuOpen={menuOpen}
+                        setMenuOpen={setMenuOpen}
+                        selectedBookId={currentProductData.id}
+                      />
                       <button
                         onClick={() => handleQuickBuy(currentProductData)}
                         className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"

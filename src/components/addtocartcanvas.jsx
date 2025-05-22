@@ -1,30 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../assets/css/offcanvase.css";
+import "../assets/css/style.css";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { axiosInstance } from "../assets/js/config/api";
-// import {
-//   AdvanceClinicalNutritionBookData,
-//   AnabolicAndrogenicSteroidsBookData,
-//   BechelorNutritionBookData,
-//   DiplomainHealthBookData,
-//   DiplomaInNutritionBookData,
-//   FGIITAllCoursesBookData,
-//   FitnessCoursesAllBookData,
-//   GroupInstructorMasterclassBookData,
-//   InjuryRehabBookData,
-//   PersonalTrainingBookData,
-//   PowerliftingBookData,
-//   RapidTransformation1BookData,
-//   RapidTransformation2BookData,
-//   RapidTransformationBookData,
-//   RapidTransformationPrepBookData,
-//   RapidTransformationWeightLossBookData,
-//   RTP2BookData,
-// } from "./AllBookData";
+import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
+import confetti from "canvas-confetti";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
   const [animateOpen, setAnimateOpen] = useState(false);
@@ -34,27 +18,62 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
   const [totalMRP, setTotalMRP] = useState(0);
   const [previousProductData, setPreviousProductData] = useState([]);
   const [serverDataID, setServerDataID] = useState("");
-  const [languageImg, setLanguageImg] = useState("English");
   const [isFetchingData, setIsFetchingData] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(
     !!localStorage.getItem("fg_group_user_authorization")
   );
-  const [moreProductData, setMoreProductData] = useState([]);
+  const [manualCouponCode, setManualCouponCode] = useState("");
+  const [manualCouponCodeData, setManualCouponCodeData] = useState(null);
 
+  const hasFiredConfetti = useRef(false);
+
+  // Confetti effect on totalAmount > 2000
   useEffect(() => {
-    if (isOpen) {
-      setAnimateOpen(true);
-    } else {
-      setAnimateOpen(false);
+    if (totalAmount > 2000 && !hasFiredConfetti.current) {
+      hasFiredConfetti.current = true;
+
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 },
+      });
     }
+
+    if (totalAmount <= 2000) {
+      hasFiredConfetti.current = false;
+    }
+  }, [totalAmount]);
+
+  // Animate open toggle
+  useEffect(() => {
+    setAnimateOpen(isOpen);
   }, [isOpen]);
 
+  // Fetch cart data when books change
   useEffect(() => {
-    if (books && !isFetchingData) {
-      fetchBooksCartData();
-    }
+    if (books && !isFetchingData) fetchBooksCartData();
   }, [books]);
 
+  // AUTO apply coupon based on totalAmount
+  useEffect(() => {
+    const appliedCoupon = JSON.parse(localStorage.getItem("appliedCoupon"));
+
+    if (totalAmount <= 0) {
+      // Cart empty - clear coupon
+      setManualCouponCode("");
+      setManualCouponCodeData(null);
+      localStorage.removeItem("appliedCoupon");
+      return;
+    }
+
+    const couponCode = totalAmount > 2000 ? "FLAT50" : "FLAT25";
+
+    if (!appliedCoupon || appliedCoupon?.coupon_code !== couponCode) {
+      handleApplyClick(couponCode, true); // true means auto apply, no UI alerts
+    }
+  }, [totalAmount]);
+
+  // Fetch cart data
   const fetchBooksCartData = async () => {
     if (isFetchingData) return;
 
@@ -70,7 +89,10 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
 
       const existingData = JSON.parse(
         localStorage.getItem("addItemInCart")
-      ) || { products: [] };
+      ) || {
+        products: [],
+      };
+
       const priceMap = existingData.products.reduce((map, product) => {
         map[product.book_id] = product.mrpPrice;
         return map;
@@ -97,7 +119,9 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
 
       const updatedServerData = combinedData.map((product) => ({
         ...product,
-        mrpPrice: priceMap[product.item_id] || product.mrpPrice,
+        mrpPrice: priceMap[product.item_id] || product.mrpPrice || 0,
+        price: product.price || 0,
+        quantity: product.quantity || 1,
       }));
 
       setPreviousProductData(updatedServerData);
@@ -109,26 +133,84 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
     }
 
     setLoading(false);
-    setIsFetchingData(false); // Reset fetching state
+    setIsFetchingData(false);
   };
 
+  // Calculate total MRP
   const totalMRPCalculation = (data) => {
-    const totalMrp = data.map((product) => {
-      const mrp = product.mrpPrice * product.quantity;
-      return mrp;
-    });
-    const amount = totalMrp.reduce((sum, product) => sum + product, 0);
-    setTotalMRP(amount || 0);
+    const amount = data.reduce(
+      (sum, product) => sum + (product.mrpPrice || 0) * (product.quantity || 1),
+      0
+    );
+    setTotalMRP(amount);
     return amount;
   };
 
+  // Calculate total price
   const totalAmountCalculation = (data) => {
     const amount = data.reduce(
-      (sum, product) => sum + product.price * product.quantity,
+      (sum, product) => sum + (product.price || 0) * (product.quantity || 1),
       0
     );
-    setTotalAmount(amount || 0);
+    setTotalAmount(amount);
   };
+
+  // Coupon apply handler
+  const handleApplyClick = async (appliedCoupon, isAuto = false) => {
+    try {
+      let code = appliedCoupon || manualCouponCode;
+
+      if (!code.trim()) {
+        if (!isAuto) {
+          Swal.fire({
+            icon: "warning",
+            title: "Empty Code",
+            text: "Please enter or select a valid promo code.",
+          });
+        }
+        return;
+      }
+
+      const payload = { coupon_code: code };
+      const response = await publicAxiosInstance.post(
+        "/check-coupon-code",
+        payload
+      );
+
+      const couponData = response.data.data;
+
+      setManualCouponCode(code);
+      setManualCouponCodeData(couponData);
+      localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
+
+      if (!isAuto) {
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+        toast.success("Coupon applied successfully");
+      }
+
+      calculateDiscountedPrice(couponData);
+    } catch (error) {
+      if (!isAuto) {
+        Swal.fire({
+          icon: "error",
+          title: "Error!",
+          text: error?.response?.data?.message || "Failed to apply coupon.",
+        });
+      }
+    }
+  };
+
+  // Your discount price calculation logic here
+  const calculateDiscountedPrice = (couponData) => {
+    // Implement discount price calculation based on couponData and totalAmount
+    console.log("Calculate discount with coupon", couponData);
+  };
+
+  // Other existing handlers below unchanged:
 
   const handleRemoveProduct = async (cart_id, book_id) => {
     try {
@@ -140,7 +222,9 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
       );
       const existingData = JSON.parse(
         localStorage.getItem("addItemInCart")
-      ) || { products: [] };
+      ) || {
+        products: [],
+      };
       existingData.products = existingData.products.filter(
         (product) => product.book_id !== book_id
       );
@@ -155,18 +239,12 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
     setProductDataGet((prevData) => {
       const updatedData = prevData.map((product) =>
         product._id === productId
-          ? { ...product, quantity: Math.max(1, product.quantity - 1) }
+          ? { ...product, quantity: Math.max(1, (product.quantity || 1) - 1) }
           : product
       );
-      const changedProducts = updatedData.filter((product) => {
-        const originalProduct = prevData.find((p) => p._id === product._id);
-        return originalProduct && originalProduct.quantity !== product.quantity;
-      });
       totalAmountCalculation(updatedData);
       totalMRPCalculation(updatedData);
-      setTimeout(async () => {
-        handleUpdateCart(changedProducts);
-      }, 1000);
+      setTimeout(() => handleUpdateCart(updatedData), 1000);
       return updatedData;
     });
   };
@@ -176,32 +254,26 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
       const updatedData = prevData.map((product) =>
         product._id === productId
           ? {
-            ...product,
-            quantity:
-              product.quantity < 5 ? product.quantity + 1 : product.quantity, // Ensure quantity doesn't go above 5
-          }
+              ...product,
+              quantity:
+                (product.quantity || 1) < 5
+                  ? product.quantity + 1
+                  : product.quantity,
+            }
           : product
       );
-
-      const changedProducts = updatedData.filter((product) => {
-        const originalProduct = prevData.find((p) => p._id === product._id);
-        return originalProduct && originalProduct.quantity !== product.quantity;
-      });
-
       totalAmountCalculation(updatedData);
       totalMRPCalculation(updatedData);
-
-      setTimeout(() => {
-        handleUpdateCart(changedProducts);
-      }, 1000);
-
+      setTimeout(() => handleUpdateCart(updatedData), 1000);
       return updatedData;
     });
   };
 
   const handleUpdateCart = async (updatedData) => {
     try {
-      await axiosInstance.post("/order-cart/add-item", updatedData[0]);
+      if (updatedData.length > 0) {
+        await axiosInstance.post("/order-cart/add-item", updatedData[0]);
+      }
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
@@ -220,12 +292,12 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
         );
       });
 
-      if (changedProducts?.length > 0) {
-        const products = productDataGet.map((product) => ({
-          book_id: product._id,
-          quantity: product.quantity,
-        }));
+      const products = productDataGet.map((product) => ({
+        book_id: product._id,
+        quantity: product.quantity,
+      }));
 
+      if (changedProducts.length > 0) {
         const response = await axiosInstance.post(
           "/order-cart/add-item",
           changedProducts[0]
@@ -235,57 +307,20 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
           setPreviousProductData(productDataGet);
           localStorage.setItem(
             "productsData",
-            JSON.stringify({
-              products,
-              totalAmount,
-              totalMRP,
-            })
+            JSON.stringify({ products, totalAmount, totalMRP })
           );
-
-          window.location.href = `/book/check-out`;
+          window.location.href = `/check-out`;
         }
       } else {
-        const products = productDataGet.map((product) => ({
-          book_id: product._id,
-          quantity: product.quantity,
-        }));
-
         localStorage.setItem(
           "productsData",
-          JSON.stringify({
-            products,
-            totalAmount,
-            totalMRP,
-          })
+          JSON.stringify({ products, totalAmount, totalMRP })
         );
-
-        window.location.href = `/book/check-out`;
+        window.location.href = `/check-out`;
       }
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
-  };
-
-  const carouselOptions = {
-    loop: true,
-    autoplay: false,
-    dots: false,
-    nav: false,
-    navText: [
-      '<i class="fas fa-arrow-left"></i>',
-      '<i class="fas fa-arrow-right"></i>',
-    ],
-    responsive: {
-      0: {
-        items: 2,
-      },
-      600: {
-        items: 2,
-      },
-      1000: {
-        items: 2,
-      },
-    },
   };
 
   const toggleMenu = async (data, BuyButton, e) => {
@@ -294,7 +329,10 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
       if (isAuthenticated) {
         const existingData = JSON.parse(
           localStorage.getItem("addItemInCart")
-        ) || { products: [] };
+        ) || {
+          products: [],
+        };
+
         const productExists = existingData.products.some(
           (product) => product.book_id === selectedBookId
         );
@@ -302,7 +340,6 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
         if (!productExists) {
           existingData.products.push({
             book_id: BuyButton,
-            // quantity: data?.quantity || 1,
             mrpPrice: data.prices || 0,
             data: data,
           });
@@ -315,115 +352,101 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
           quantity: data?.quantity || 1,
           item_type: "BOOKS",
         });
-        if (response.data.response === "OK") {
-          fetchBooksCartData();
-        }
+        if (response.data.response === "OK") fetchBooksCartData();
       }
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
   };
 
-  // const carouselData = (language) => {
-  //   const array = [
-  //     PersonalTrainingBookData,
-  //     BechelorNutritionBookData,
-  //     AdvanceClinicalNutritionBookData,
-  //     RapidTransformation1BookData,
-  //     RapidTransformation2BookData,
-  //     FitnessCoursesAllBookData,
-  //     GroupInstructorMasterclassBookData,
-  //     RapidTransformationBookData,
-  //     FGIITAllCoursesBookData,
-  //     InjuryRehabBookData,
-  //     DiplomainHealthBookData,
-  //     DiplomaInNutritionBookData,
-  //     PowerliftingBookData,
-  //     RapidTransformationPrepBookData,
-  //     AnabolicAndrogenicSteroidsBookData,
-  //     RapidTransformationWeightLossBookData,
-  //     RTP2BookData,
-  //   ];
-
-  //   const productData = array.flatMap((product) => {
-  //     if (product?.hindibookImg) {
-  //       return [
-  //         {
-  //           coverImage: product?.englishbookImg?.[0],
-  //           title: product.name,
-  //           BuyButton: product?.BuyButton?.BuyBook,
-  //           data: product,
-  //         },
-  //         {
-  //           coverImage: product?.hindibookImg?.[0],
-  //           title: `${product.name} - Hindi`,
-  //           BuyButton: product?.BuyButton?.BuyHindiBook,
-  //           data: product,
-  //         },
-  //       ];
-  //     } else {
-  //       return {
-  //         coverImage: product?.englishbookImg?.[0],
-  //         title: product.name,
-  //         BuyButton: product?.BuyButton?.BuyBook,
-  //         data: product,
-  //       };
-  //     }
-  //   });
-
-  //   setMoreProductData(productData);
-  // };
-
-  // useEffect(() => {
-  //   carouselData(languageImg);
-  // }, [languageImg]);
-
   return (
     <>
       {isOpen && <div className="overlay" onClick={onClose}></div>}
       <div className={`offcanvas ${animateOpen ? "open" : ""}`}>
-        <div
-          className="d-flex justify-content-between px-2 pt-2"
-          style={{ background: "rgb(238 238 238)" }}
-        >
-          <h2 className="h4-fs">YOUR CART</h2>
-          <button
-            type="button"
-            className="closess closse-mobile p-0"
-            onClick={onClose}
-            style={{
-              backgroundColor: "transparent",
-              border: "none",
-              width: "50px",
-            }}
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true" className="p-0">
-              <i className="fas fa-times text-black"></i>
-            </span>
-          </button>
+        <div className="hs-header-layout">
+          <div className="hs-close-popup-cart">
+            <div className="hs-header-close-empty position-relative">
+              <p className="hs-header-title">Your Cart</p>
+              <span
+                className="hs-close hs-event-static"
+                onClick={onClose}
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <svg
+                  tabindex="0"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 329.26933 329"
+                  width="16px"
+                  height="12px"
+                >
+                  <path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
         </div>
-        <div>
+        <div className="hs-content-discounts-calculate-checkout hs-enable-content-rewards">
+          <div className="hs-rewards-content">
+            <div className="hs-progess-content hs-hidden-percentages">
+              {totalAmount > 2000 ? (
+                <>
+                  <div className="hs-text-free-shipping text-dark">
+                    🎉 Congratulations! You've unlocked an exclusive{" "}
+                    <b>50% discount</b>! 🎁✨
+                  </div>
+                  <div id="hs_shipping_progress">
+                    <div
+                      id="hs_shipping_bar"
+                      style={{
+                        width: "100%",
+                        backgroundColor: "#ff0404",
+                        height: "6px",
+                      }}
+                    ></div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="hs-text-free-shipping text-dark">
+                    🎉 You're just <b>₹{(2000 - totalAmount).toFixed(2)}</b>{" "}
+                    away from unlocking a <b>50% discount</b>! 🛍️💸
+                  </div>
+                  <div id="hs_shipping_progress">
+                    <div
+                      id="hs_shipping_bar"
+                      style={{
+                        width: `${Math.min((totalAmount / 2000) * 100, 100)}%`,
+                        backgroundColor: "#ff0404",
+                        height: "6px",
+                        transition: "width 0.5s ease",
+                      }}
+                    ></div>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+        <div class="thin-scrollbar" style={{ overflowY: "scroll" }}>
           {loading ? (
             <div className="d-flex justify-content-center align-items-center mb-4 my-7 loader-h">
-              <div class="loader"></div>
+              <div className="loader"></div>
             </div>
           ) : (
             productDataGet?.length > 0 && (
               <div>
-                <div className="col-12 cart-detail py-3">
+                <div className="cart-detail">
                   {productDataGet.map((product, index) => {
                     const totalPrice = product.amount * product.quantity;
-                    // const totalMRPPrice = product.mrpPrice * product.quantity;
                     return (
                       <div
                         key={index}
-                        className="cart-item-main p-2 p-md-3 bg-white br-15 shadow mb-4 position-relative"
+                        className="cart-item-main border-top pt-2 m-2"
                       >
                         <div className="media bg-white cart-main">
-                          <div className="row">
-                            <div className="col-3 p-0">
+                          <div className="d-flex">
+                            <div className="col-3">
                               <span
                                 className="lazy-load-image-background blur lazy-load-image-loaded"
                                 style={{ display: "inline-block" }}
@@ -435,28 +458,24 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
                                 />
                               </span>
                             </div>
-                            <div className="col-7">
+                            <div className="col-6">
                               <div className="media-body align-self-center">
-                                <div className="d-flex justify-content-between">
-                                  <div className="col-12 p-0">
+                                <div className="d-flex mx-2 justify-content-between">
+                                  <div className="col-12">
                                     <h2
-                                      className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-21"
+                                      className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-18"
                                       title={product.name}
                                     >
-                                      {product.name?.length > 30
-                                        ? product.name.slice(0, 30) +
-                                        "..."
+                                      {product.name?.length > 20
+                                        ? product.name.slice(0, 20) + "..."
                                         : product.name}
                                     </h2>
-                                    {/* <h2 className="h3-fs f-rob-bol f-14 cp mb-1">
-                                    ({product.size ? product.size : "N/A"}){" "}
-                                  </h2> */}
                                   </div>
                                 </div>
-                                <div className="cart-add align-items-center mt-3">
+                                <div className="cart-add align-items-center mt-2">
                                   <div className="d-flex align-items-center mx-2">
                                     <i
-                                      className="fas fa-minus text-dark mr-2"
+                                      className="fas fa-minus text-dark mx-1"
                                       onClick={() => minusQuantity(product._id)}
                                     ></i>
                                     <Form.Group className="text-center">
@@ -465,7 +484,7 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
                                         id="txt_quantity"
                                         value={product.quantity}
                                         min="1"
-                                        className="mb-0"
+                                        className="mb-0 p-0 text-center"
                                         readOnly
                                         style={{
                                           borderRadius: "5px",
@@ -475,34 +494,14 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
                                       />
                                     </Form.Group>
                                     <i
-                                      className="fas fa-plus text-dark ml-2"
+                                      className="fas fa-plus text-dark mx-1"
                                       onClick={() => plusQuantity(product._id)}
                                     ></i>
                                   </div>
                                 </div>
-                                <ul className="list-unstyled m-0">
-                                  <li className="d-block">
-                                    <span className="d-inline-block f-rob-med f-13 mr-2">
-                                      Inclusive of all taxes
-                                    </span>
-                                  </li>
-                                </ul>
-                                <div className="col-12 p-0 mt-1">
-                                  <div className="d-inline-block">
-                                    <span className="d-inline-block mr-2 f-rob-bol f-22">
-                                      ₹{product.price.toFixed(2)}
-                                    </span>
-                                    {/* <p>
-                                    MRP:&nbsp;
-                                    <span className="price--line-through">
-                                      ₹{totalMRPPrice}
-                                    </span>
-                                  </p> */}
-                                  </div>
-                                </div>
                               </div>
                             </div>
-                            <div className="col-2">
+                            <div className="col-3 right-text">
                               <div className="right">
                                 <div className="remove">
                                   <button
@@ -527,111 +526,75 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
                                   </button>
                                 </div>
                               </div>
+                              <div className="text-dark p-0 mt-1">
+                                <div className="d-inline-block">
+                                  <span className="d-inline-block mr-2 f-rob-bol f-22">
+                                    ₹{product.price.toFixed(2)}
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     );
                   })}
-                  {/* <div>
-                    <div className="mb-3">
-                      <h2
-                        className="f-rob-bol h3-fs d-inline-block cp fs-24"
-                        style={{ fontSize: "21px" }}
-                      >
-                        More Products
-                      </h2>
+                  <div>
+                    <div className="hs-frequently-bought mt-5">
+                      <span>You Might Also Like These </span>
                     </div>
-
-                    <OwlCarousel
-                      id="fwg-owl"
-                      className="owl-theme"
-                      {...carouselOptions}
-                    >
-                      {moreProductData
-                        .filter((product) => product.coverImage) // Filter out products with undefined coverImage
-                        .map((product, index) => (
-                          <div
-                            className="item d-flex justify-content-center"
-                            key={index}
-                          >
-                            <div
-                              className="d-inline-block"
-                              tabIndex="-1"
-                              style={{ width: "80%", display: "inline-block" }}
+                    <div className="cart-item-main mt-3 m-2">
+                      <div className="media bg-white cart-main">
+                        <div className="d-flex">
+                          <div className="col-3">
+                            <span
+                              className="lazy-load-image-background blur lazy-load-image-loaded"
+                              style={{ display: "inline-block" }}
                             >
-                              <div className="col-12 p-0">
-                                <div className="categories-product-main text-center">
-                                  <div className="category-product-item">
-                                    <Link
-                                      to={product?.data?.link}
-                                      className="book"
-                                    >
-                                      <img
-                                        effect="blur"
-                                        className="lazy"
-                                        src={
-                                          process.env.PUBLIC_URL +
-                                          product.coverImage
-                                        }
-                                        alt={product.title}
-                                      />
-                                    </Link>
-                                  </div>
-                                  <div className="custom-tooltip-main">
-                                    <p className="my-2 f-pop-sembol text-dark fs-15 lh-0">
-                                      {product.title?.length > 30
-                                        ? product.title.slice(0, 30) + "..."
-                                        : product.title}
-                                    </p>
-                                  </div>
-                                </div>
-                                <div>
-                                  <button
-                                    className="addtocartbtncart"
-                                    onClick={(e) =>
-                                      toggleMenu(
-                                        product.data,
-                                        product.BuyButton,
-                                        e
-                                      )
-                                    }
+                              <img
+                                alt="product"
+                                className="img-fluid cp"
+                                src={`https://files.fggroup.in/production/products/FILE-whey-protein-chocolate-1-8c2c4aae-b61a-43f4-b782-8fee3acf54e3.jpeg`}
+                              />
+                            </span>
+                          </div>
+                          <div className="col-7">
+                            <div className="media-body align-self-center">
+                              <div className="d-flex mx-2 justify-content-between">
+                                <div className="col-12">
+                                  <h2
+                                    className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-18"
+                                    title="Everyday Sweet | 1:1 Sugar Replacer | Zero Calories | 100% Natural"
                                   >
-                                    Add To Cart
-                                  </button>
+                                    Everyday Sweet | 1:1 Sugar Replacer | Zero
+                                    Calories
+                                  </h2>
+                                </div>
+                              </div>
+                              <div className="text-dark mx-2">
+                                <div className="d-inline-block">
+                                  <span className="d-inline-block mr-2 f-rob-bol f-22">
+                                    ₹1300
+                                  </span>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        ))}
-                    </OwlCarousel>
-                  </div> */}
-                </div>
-                <div
-                  className="d-flex flex-column align-items-center checkout-main-1"
-                  style={{ background: "rgb(238 238 238)" }}
-                >
-                  <div className="w-100 p-2 pb-3">
-                    <div className="subtotal-main shadow bg-white br-15 mb-3 p-3">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <p className="m-0 f-rob-bol f-16">Total Amount</p>
+                          <div className="col-2 right-text">
+                            <div className="hs-upsell-add ">
+                              <button
+                                title="ADD"
+                                type="button"
+                                className="hs-upsell-add-to-cart hs-event-static"
+                              >
+                                <span className="hs-add--to--cart">ADD</span>
+                                <span className="hs--loading">
+                                  <div className="hs-spinner"></div>
+                                </span>
+                              </button>
+                            </div>
+                          </div>
                         </div>
-                        <div>
-                          <span className="d-inline-block f-rob-med f-16 text-lig-gray">
-                            ₹{totalAmount.toFixed(2)}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 text-center">
-                      <div className="common-button">
-                        <button
-                          onClick={(e) => handleAddToCart(e)}
-                          className="bg-blue d-block text-uppercase px-3 px-lg-5 text-white f-16 f-rob-bol rate-btn-blue"
-                        >
-                          Check OUT
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -639,14 +602,15 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
               </div>
             )
           )}
+
           {productDataGet?.length === 0 && !loading && (
-            <div className="d-flex align-items-center position-absolute h-100">
+            <div className="d-flex  text-center align-items-center position-absolute h-100">
               <div className="row">
                 <div className="col-12">
                   <img
                     alt="Coming Soon"
                     className="img-fluid"
-                    src={`${process.env.PUBLIC_URL} /assets/images/nutrition/empty.webp`}
+                    src={`${process.env.PUBLIC_URL}/assets/images/empty.webp`}
                     width="100%"
                     height="auto"
                   />
@@ -654,9 +618,9 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
                     <b>Your Cart Is Empty</b>
                   </p>
                   <div className="common-button mx-2">
-                    <Link to="/book/health-books">
+                    <Link to="/">
                       <button className="bg-blue text-uppercase px-2 mt-3 px-lg-5 py-2 text-white f-16 f-rob-bol">
-                        Go Home
+                        Start Shopping
                       </button>
                     </Link>
                   </div>
@@ -665,6 +629,37 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
             </div>
           )}
         </div>
+
+        {productDataGet?.length > 0 && (
+          <div className="d-flex flex-column align-items-center border-top">
+            <div className="w-100 p-2 pb-3">
+              <div className="subtotal-main p-3">
+                <div className="d-flex align-items-center justify-content-between">
+                  <div>
+                    <p className="m-0 f-rob-bol text-dark f-16">
+                      <b>SUBTOTAL</b>
+                    </p>
+                  </div>
+                  <div>
+                    <span className="d-inline-block text-dark f-rob-med f-16">
+                      <b>₹{totalAmount.toFixed(2)}</b>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 text-center">
+                <div className="common-button">
+                  <button
+                    onClick={(e) => handleAddToCart(e)}
+                    className="bg-blue d-block text-uppercase px-3 px-lg-5 text-white f-16 f-rob-bol rate-btn-blue"
+                  >
+                    Check OUT
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

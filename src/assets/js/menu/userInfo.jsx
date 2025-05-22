@@ -67,7 +67,11 @@ const UserInfo = ({ cartCount }) => {
             Hi, {userInfo.user.last_name} <i className="far fa-user"></i>
           </li>
           <li className="mx-0">
-            <a href="/add-to-cart" aria-label="Fg Group">
+            <button
+              className="cart-button-header"
+              href="/add-to-cart"
+              aria-label="Fg Group"
+            >
               {/* <img
                 src={process.env.PUBLIC_URL + "/assets/images/cart-img.webp"}
                 width="21px"
@@ -85,7 +89,7 @@ const UserInfo = ({ cartCount }) => {
                   />
                 </span>
               </div>
-            </a>
+            </button>
           </li>
           {isUserMenuVisible && (
             <ul>

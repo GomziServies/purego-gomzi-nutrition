@@ -9,6 +9,10 @@ import LoginModal from "../assets/js/popup/login";
 import LoadingComponent from "../components/loadingComponent";
 import lookup from "india-pincode-lookup";
 import { toast } from "react-toastify";
+import Offers from "../components/Offers";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Alert, Button, Card, Modal } from "react-bootstrap";
+import confetti from "canvas-confetti";
 
 function CheckOut() {
   const [totalPrice, setTotalPrice] = useState();
@@ -78,6 +82,8 @@ function CheckOut() {
   const [quickData, setQuickData] = useState({});
   const [manualCouponCode, setManualCouponCode] = useState("");
   const [manualCouponCodeData, setManualCouponCodeData] = useState("");
+  const [autoDiscount, setAutoDiscount] = useState(0);
+  const [totalCouponDiscount, setTotalCouponDiscount] = useState(0);
 
   const openModal = () => {
     setShowModal(true);
@@ -94,10 +100,39 @@ function CheckOut() {
 
   const UpdatedData = (productData) => {
     const data = JSON.parse(productData);
-    setMainPrice(data.totalAmount);
+    const orderTotal = data.totalAmount;
     setProductDatas(data.products);
-    setTotalPrice(data.totalAmount);
-    setAmountOnCouponCode(data.totalAmount);
+    setAmountOnCouponCode(orderTotal);
+
+    const baseDiscountPercent = 50;
+    const originalDiscountPercent = 53;
+    const baseDiscount = orderTotal * (baseDiscountPercent / 100);
+    let priceAfterAutoDiscount = orderTotal - baseDiscount;
+
+    // Create a promo if eligible
+    if (orderTotal >= 2000 && originalDiscountPercent > baseDiscountPercent) {
+      const remainingDiscountPercent =
+        originalDiscountPercent - baseDiscountPercent;
+
+      const promoCode = `EXTRA${remainingDiscountPercent}`;
+      const extraDiscountAmount = orderTotal * (remainingDiscountPercent / 100);
+
+      // Create dynamic promo code entry (if not already there)
+      const customOffer = {
+        code: promoCode,
+        description: `Extra ${remainingDiscountPercent}% OFF`,
+        discount: remainingDiscountPercent,
+        discount_type: "percent",
+      };
+
+      // Add to promo list (optional: check for duplicates first)
+      setOffers((prev) => [...prev, customOffer]);
+    }
+
+    setAutoDiscount(baseDiscount);
+    setMainPrice(priceAfterAutoDiscount);
+    setTotalPrice(priceAfterAutoDiscount);
+    setTotalDiscount(baseDiscount);
   };
 
   useEffect(() => {
@@ -213,19 +248,24 @@ function CheckOut() {
 
   const calculateDiscountedPrice = (couponData) => {
     let discountAmount = 0;
-    const totalDiscountAmount = couponData.discount || 0;
+    const totalDiscountPercentOrRupees = couponData.discount || 0;
+
     let totalCouponAmount;
     if (couponData.discount_type === "rupees") {
-      totalCouponAmount = mainPrice - totalDiscountAmount;
+      discountAmount = totalDiscountPercentOrRupees;
+      totalCouponAmount = amountOnCouponCode - autoDiscount - discountAmount;
       setIsCouponRupee(true);
     } else {
-      discountAmount += (mainPrice * totalDiscountAmount) / 100;
-      totalCouponAmount = mainPrice - discountAmount;
+      discountAmount =
+        ((amountOnCouponCode - autoDiscount) * totalDiscountPercentOrRupees) /
+        100;
+      totalCouponAmount = amountOnCouponCode - autoDiscount - discountAmount;
+      setIsCouponRupee(false);
     }
 
-    setTotalPrice(mainPrice);
+    setTotalCouponDiscount(discountAmount);
     setMainPrice(totalCouponAmount);
-    setTotalDiscount(totalDiscountAmount);
+    setTotalPrice(totalCouponAmount);
   };
 
   const getUserData = async () => {
@@ -393,15 +433,6 @@ function CheckOut() {
     }
   }, []);
 
-  useEffect(() => {
-    let appliedCoupon = localStorage.getItem("appliedCoupon");
-
-    if (appliedCoupon && amountOnCouponCode) {
-      setManualCouponCode(appliedCoupon);
-      handleApplyClick(appliedCoupon);
-    }
-  }, [amountOnCouponCode]);
-
   const handleStateChange = (event) => {
     try {
       const state = event.target.value;
@@ -446,38 +477,27 @@ function CheckOut() {
     }
   };
 
-  const handleRemoveCoupon = async () => {
+  const handleRemoveCoupon = () => {
     setManualCouponCode("");
-    setManualCouponCodeData("");
-    setTotalDiscount(0);
-    getUserData();
-    UpdatedData(productData);
+    setManualCouponCodeData(null);
+    setTotalCouponDiscount(0);
     setIsCouponRupee(false);
     localStorage.removeItem("appliedCoupon");
-
-    let quickProductData = localStorage.getItem("quickProductData");
-    quickProductData = JSON.parse(quickProductData);
-
-    if (quickProductData) {
-      setQuickData(quickProductData);
-      setTotalPrice(parseInt(quickProductData?.discount));
-      setMainPrice(parseInt(quickProductData?.discount));
-    }
+    getUserData();
+    UpdatedData(productData);
   };
 
   const handleApplyClick = async (appliedCoupon) => {
     try {
-      if (manualCouponCodeData && appliedCoupon.length === 0) {
-        setManualCouponCodeData("");
-        setManualCouponCode("");
-        return;
-      }
+      let code = appliedCoupon || manualCouponCode;
 
-      let code;
-      if (appliedCoupon) {
-        code = appliedCoupon;
-      } else {
-        code = manualCouponCode;
+      if (!code.trim()) {
+        Swal.fire({
+          icon: "warning",
+          title: "Empty Code",
+          text: "Please enter or select a valid promo code.",
+        });
+        return;
       }
 
       const payload = { coupon_code: code };
@@ -488,19 +508,33 @@ function CheckOut() {
 
       const couponData = response.data.data;
 
-      if (manualCouponCode || appliedCoupon) {
-        setManualCouponCodeData(couponData);
-      }
-      toast.success("Apply coupon code successfully");
+      setManualCouponCode(code);
+      setManualCouponCodeData(couponData);
+      localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
+
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+
+      toast.success("Coupon applied successfully");
       calculateDiscountedPrice(couponData);
     } catch (error) {
       Swal.fire({
         icon: "error",
         title: "Error!",
-        text: error?.response?.data?.message,
+        text: error?.response?.data?.message || "Failed to apply coupon.",
       });
     }
   };
+
+  const [offers, setOffers] = useState([
+    {
+      code: "BRIJESH250",
+      description: "Get Exclusive ₹250 off on all products",
+    },
+  ]);
 
   return (
     <>
@@ -773,87 +807,142 @@ function CheckOut() {
               <div className="col-lg-5">
                 <div className="col-12">
                   <div className="order__info-wrap mb-3">
-                    <div className="m-0 w-100">
-                      <div className="br-15">
-                        <div className="d-flex bg-transparent">
-                          <div className="col-12 px-0">
-                            <h2 className="promo-title">Apply Promo Code</h2>
-                          </div>
-                        </div>
-                        <div className="row flex-md-row flex-column mt-3 align-items-center justify-content-between border p-3 br-15">
+                    <div className="br-15">
+                      <h2 className="promo-title">Apply Promo Code</h2>
+                      <div className="d-lg-block d-none">
+                        <div className="row flex-md-row flex-column mt-3 align-items-center justify-content-between">
                           <div className="col-md-8 ps-0 pe-md-2 pe-0">
                             <input
-                              id="coupon_code"
                               type="text"
                               placeholder="Enter Coupon Code"
-                              name="coupon_code"
-                              className="form-control"
-                              style={{ height: "46.8px" }}
+                              className="form-control apply-form"
                               value={manualCouponCode}
-                              disabled={manualCouponCodeData ? true : false}
+                              disabled={!!manualCouponCodeData}
                               onChange={(e) =>
                                 setManualCouponCode(e.target.value)
                               }
                               maxLength="100"
                             />
                           </div>
-                          <div className="col-md-4 ps-md-2 ps-0 pe-md-3 pe-0">
-                            <div className="d-inline-block inner-shop-perched-info mt-md-0 mt-3 w-md-25 w-100">
-                              {manualCouponCodeData ? (
-                                <button
-                                  id="apply_main_btn"
-                                  type="button"
-                                  onClick={() => handleRemoveCoupon()}
-                                  className="cart-btn bg-danger border-danger m-0 w-100"
-                                >
-                                  Remove
-                                </button>
-                              ) : (
-                                <button
-                                  id="apply_main_btn"
-                                  type="button"
-                                  onClick={() => handleApplyClick()}
-                                  className="cart-btn m-0 w-100"
-                                >
-                                  Apply
-                                </button>
-                              )}
-                            </div>
+                          <div className="col-md-4 ps-md-2 ps-0 pe-0 mt-md-0 mt-3">
+                            {manualCouponCodeData ? (
+                              <button
+                                type="button"
+                                onClick={handleRemoveCoupon}
+                                className="remove-btn w-100"
+                              >
+                                Remove
+                              </button>
+                            ) : (
+                              <button
+                                type="button"
+                                onClick={() => handleApplyClick()}
+                                className="apply-btn w-100"
+                              >
+                                Apply
+                              </button>
+                            )}
                           </div>
+                          <div className="col-12 text-center mt-3">
+                            <p
+                              className="m-0 d-inline-block text-primary"
+                              style={{ cursor: "pointer" }}
+                              onClick={() => setShowModal(true)}
+                            >
+                              View Coupons
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="d-lg-none d-block">
+                        <div className="col-md-8 ps-0 pe-md-2 pe-0">
+                          <input
+                            type="text"
+                            placeholder="Enter Coupon Code"
+                            className="form-control apply-form"
+                            value={manualCouponCode}
+                            disabled={!!manualCouponCodeData}
+                            onChange={(e) =>
+                              setManualCouponCode(e.target.value)
+                            }
+                            maxLength="100"
+                          />
+                        </div>
+                        <div className="col-md-4 ps-md-2 ps-0 pe-0 mt-md-0 mt-3">
+                          {manualCouponCodeData ? (
+                            <button
+                              type="button"
+                              onClick={handleRemoveCoupon}
+                              className="remove-btn w-100"
+                            >
+                              Remove
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => handleApplyClick()}
+                              className="apply-btn w-100"
+                            >
+                              Apply
+                            </button>
+                          )}
+                        </div>
+                        <div className="col-12 text-center mt-3">
+                          <p
+                            className="m-0 d-inline-block text-primary"
+                            style={{ cursor: "pointer" }}
+                            onClick={() => setShowModal(true)}
+                          >
+                            View Coupons
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
+
+                  {/* Coupon Modal */}
+                  <Modal
+                    show={showModal}
+                    onHide={() => setShowModal(false)}
+                    centered
+                    size="md"
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Offers & Benefits</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      {offers.map((offer, idx) => (
+                        <Card key={idx} className="mb-3">
+                          <Card.Body>
+                            <div className="d-flex justify-content-between align-items-center">
+                              <div className="me-2">
+                                <div className="fw-bold">
+                                  Code: {offer.code}
+                                </div>
+                                <div>{offer.description}</div>
+                                {offer.note && (
+                                  <div className="text-danger small">
+                                    {offer.note}
+                                  </div>
+                                )}
+                              </div>
+                              <button
+                                className="popup-btn"
+                                onClick={() => {
+                                  setManualCouponCode(offer.code);
+                                  setShowModal(false);
+                                  handleApplyClick(offer.code);
+                                }}
+                              >
+                                Apply
+                              </button>
+                            </div>
+                          </Card.Body>
+                        </Card>
+                      ))}
+                    </Modal.Body>
+                  </Modal>
                 </div>
-                {/* <div className="col-12 apply-promo-modal">
-                  <div className="mb-3 p-3 border br-15">
-                    <label className="radio-main m-0 d-block">
-                      <span className="promo-code py-1 px-3 f-rob-bol f-14">
-                        GOMZI15
-                      </span>
-                      {appliedCodes.includes("GOMZI15") ? (
-                        <span
-                          className="remove-btn px-3 text-red f-rob-bol f-14 d-inline-block float-right"
-                          onClick={() => removePromoCode("GOMZI15")}
-                        >
-                          Remove
-                        </span>
-                      ) : (
-                        <span
-                          className="apply-btn px-3 text-green f-rob-bol f-14 d-inline-block float-right"
-                          // onClick={() =>
-                          //   applyPromoCode("GOMZI15")
-                          // }
-                        >
-                          Apply
-                        </span>
-                      )}
-                      <p className="f-rob-med f-16 mt-2 mb-1">
-                        Use Code "GOMZI15". For 15% Off
-                      </p>
-                    </label>
-                  </div>
-                </div> */}
                 <div className="col-12">
                   <div className="order__info-wrap">
                     <h2 className="title">YOUR ORDER</h2>
@@ -863,24 +952,27 @@ function CheckOut() {
                       </li>
                       <li>
                         Order Total{" "}
-                        <span>
-                          ₹
-                          {Math.round(
-                            totalPrice ? totalPrice : mainPrice
-                          ).toFixed(2)}{" "}
-                          /-
-                        </span>
+                        <span>₹{amountOnCouponCode?.toFixed(2)} /-</span>
                       </li>
-                      {totalDiscount !== 0 && (
+
+                      {autoDiscount !== 0 && (
                         <li>
                           Discount{" "}
                           <span className="text-danger">
-                            - {isCouponRupee && "₹"}
-                            {totalDiscount !== undefined &&
-                            totalDiscount !== null
-                              ? totalDiscount
-                              : 0}
-                            {!isCouponRupee ? "%" : " /-"}
+                            - ₹{autoDiscount.toFixed(2)} /-
+                          </span>
+                        </li>
+                      )}
+
+                      {totalCouponDiscount !== 0 && (
+                        <li>
+                          Coupon Discount{" "}
+                          <span className="text-danger">
+                            -{" "}
+                            {isCouponRupee
+                              ? `₹${totalCouponDiscount}`
+                              : `${totalCouponDiscount}/-`}
+                            {isCouponRupee && " /-"}
                           </span>
                         </li>
                       )}
@@ -907,13 +999,14 @@ function CheckOut() {
                       </li>
                       <li className="text-dark">
                         Amount Payable{" "}
-                        <span>
+                        {/* <span>
                           ₹
                           {discountCost
                             ? (mainPrice + parseFloat(discountCost)).toFixed(2)
                             : Math.round(mainPrice)}{" "}
                           /-
-                        </span>
+                        </span> */}
+                        <span>₹{mainPrice?.toFixed(2)} /-</span>
                       </li>
                     </ul>
                     <div className="br-15 mb-3">

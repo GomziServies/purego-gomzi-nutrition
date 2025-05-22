@@ -537,7 +537,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                           className="item-title"
                           style={{ webkitBoxOrient: "vertical" }}
                         >
-                          Mass Gainer 1kg Chocolate{" "}
+                          Whey Mass Matrix 1kg Chocolate{" "}
                         </div>
                       </Link>
                       <p className="item-description">
@@ -550,13 +550,13 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹499/-</span>
+                            <span className="variant-price"> ₹599/-</span>
                             <span className="variant-old-price">₹1500</span>
-                            <span className="variant-offer">66% off</span>
+                            <span className="variant-offer">60% off</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Mass Gainer 1kg Chocolate")
+                              item.includes("Whey Mass Matrix 1kg Chocolate")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added

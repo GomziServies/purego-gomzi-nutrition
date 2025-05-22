@@ -27,12 +27,12 @@ import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 import BookButtonsContainer from "../../components/BookButtonsContainer";
 
-function PureGoPreWorkout() {
+function PureGoShaker() {
   const canonicalUrl = window.location.href;
-  const [currentProduct, setCurrentProduct] = useState("250g-Fruit Punch");
+  const [currentProduct, setCurrentProduct] = useState("500ml-Black");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [activeSize, setActiveSize] = useState("250g");
-  const [activeFlavor, setActiveFlavor] = useState("Fruit Punch");
+  const [activeSize, setActiveSize] = useState("500ml");
+  const [activeFlavor, setActiveFlavor] = useState("Black");
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
@@ -50,53 +50,32 @@ function PureGoPreWorkout() {
   };
 
   const productImages = {
-    "250g-Fruit Punch": [
-      "/assets/images/products/pre-workout/pre-workout-fruit-punch-1.webp",
-      "/assets/images/products/pre-workout/pre-workout-fruit-punch-2.webp",
-      "/assets/images/products/pre-workout/pre-workout-fruit-punch-3.webp",
-      "/assets/images/products/pre-workout/pre-workout-fruit-punch-4.webp",
-    ],
-    "250g-Cola": [
-      "/assets/images/products/pre-workout/pre-workout-cola-1.webp",
-      "/assets/images/products/pre-workout/pre-workout-cola-2.webp",
-      "/assets/images/products/pre-workout/pre-workout-cola-3.webp",
-      "/assets/images/products/pre-workout/pre-workout-cola-4.webp",
+    "500ml-Black": [
+      "/assets/images/products/shaker-bottle/shaker-bottle-1.webp",
+      "/assets/images/products/shaker-bottle/shaker-bottle-2.webp",
+      "/assets/images/products/shaker-bottle/shaker-bottle-3.webp",
+      "/assets/images/products/shaker-bottle/shaker-bottle-4.webp",
     ],
   };
 
   const products = [
     {
-      key: "250g-Fruit Punch",
+      key: "500ml-Black",
       data: {
-        id: "67e7740363f930dcc6a27157",
-        img: "/assets/images/products/pre-workout/pre-workout-fruit-punch-1.webp",
-        name: "Pre Workout Fruit Punch",
-        price: "2500",
-        discount: "600",
-        size: "250 g",
-        dis_point: "76%",
-      },
-    },
-    {
-      key: "250g-Cola",
-      data: {
-        id: "682718b1ed4175d21de95d0b",
-        img: "/assets/images/products/pre-workout/pre-workout-cola-1.webp",
-        name: "Pre Workout Cola",
-        price: "2500",
-        discount: "600",
-        size: "250 g",
-        dis_point: "76%",
+        id: "6827168ced4175d21de95c4e",
+        img: "/assets/images/products/bcaa/bcaa-orange-1.webp",
+        name: "Shaker Bottle 500ml",
+        price: "2100",
+        discount: "840",
+        size: "500ml",
+        dis_point: "60%",
       },
     },
   ];
 
-  const sizeOptions = [{ id: "250g", label: "250g" }];
+  const sizeOptions = [{ id: "500ml", label: "500ml" }];
 
-  const flavorOptions = [
-    { id: "Fruit Punch", label: "Fruit Punch" },
-    { id: "Cola", label: "Cola" },
-  ];
+  const flavorOptions = [{ id: "Black", label: "Black" }];
 
   const handleSelectSize = (id) => {
     if (id === activeSize) return;
@@ -201,80 +180,19 @@ function PureGoPreWorkout() {
     }
   };
 
-  const USPData = [
-    {
-      title: "FSSAI Approved",
-      description:
-        "Certified by FSSAI, ensuring safety and quality in every serving.",
-    },
-    {
-      title: "Direct from Manufacturers",
-      description:
-        "Sourced straight from manufacturers for guaranteed freshness and quality.",
-    },
-    {
-      title: "International Raw Protein Usage",
-      description:
-        "Uses globally sourced raw protein for consistent purity and quality.",
-    },
-    { title: "BENEFITS:", description: "" },
-    {
-      title: "",
-      description:
-        "Experience real results & better performance with fat burning ingredients.",
-    },
-    {
-      title: "",
-      description: "Clinically proven & versatile supplement solution.",
-    },
-    {
-      title: "",
-      description: "Controls Appetite & Hunger.",
-    },
-    { title: "Caution:", description: "" },
-    {
-      title: "",
-      description: "Not for use by persons under the age of 18 years.",
-    },
-    {
-      title: "",
-      description: "Consult your doctor in case you are taking any medication.",
-    },
-    {
-      title: "",
-      description:
-        "This product is not intended to diagnose, treat, cure or prevent any disease.",
-    },
-    {
-      title: "",
-      description: "Do not exceed recommended serving size.",
-    },
-    {
-      title: "",
-      description: "Store in a cool and dry place.",
-    },
-    {
-      title: "",
-      description: "Keep out of reach of children.",
-    },
-    {
-      title: "",
-      description:
-        "This product is not to be used as a substitute for a varied diet. Not recommended for children, pregnant or lactating women. and people sensitive to caffeine.",
-    },
-  ];
-
   return (
     <>
       <Helmet>
-        <title>Best Weight Loss Supplements for Fast & Effective Results</title>
+        <title>
+          Buy PureGo Shaker Bottle - Perfect for Protein Shakes & Supplements
+        </title>
         <meta
           name="description"
-          content="Discover the best weight loss supplements to burn fat, boost metabolism, and achieve your fitness goals faster. Shop now!"
+          content="Mix your protein shakes effortlessly with the Gomzi Nutrition Shaker Bottle. Leak-proof, durable, and easy to carry for fitness enthusiasts on the go."
         />
         <meta
           name="keyword"
-          content="preworkout, fat burner, amino acid, workout, fruit punch, weight loss supplement, bodybuilding supplement, best pre workout, best weight loss supplements, best fat burner for men, protein powder for weight loss, best protein powder for weight loss, best fat burner for women, pre workout powder, best fat burner, best supplements for weight loss female, best pre workout for men, fat burner for women"
+          content="preworkout, fat burner, amino acid, workout, Orange, weight loss supplement, bodybuilding supplement, best pre workout, best weight loss supplements, best fat burner for men, protein powder for weight loss, best protein powder for weight loss, best fat burner for women, pre workout powder, best fat burner, best supplements for weight loss female, best pre workout for men, fat burner for women"
         />
         <meta
           property="og:url"
@@ -431,7 +349,7 @@ function PureGoPreWorkout() {
                     </h4>
                   </div>
                   <div className="px-3">
-                    <Features USPData={USPData} openModal={openModal} />
+                    {/* <Features USPData={USPData} openModal={openModal} /> */}
                   </div>
                 </div>
               </div>
@@ -463,156 +381,44 @@ function PureGoPreWorkout() {
                       aria-labelledby="description-tab"
                     >
                       <div className="product-desc-content">
-                        <h4 className="title">Pure Go Pre Workout</h4>
+                        <h4 className="title">
+                          PureGo Shaker Bottle: Your Perfect Workout Companion
+                        </h4>
                         <p>
-                          It will suppress your appetite and provide you with a
-                          higher energy level in order to keep the adrenaline
-                          levels up. It will also boost your metabolism and burn
-                          calories for you. For permanent weight loss, it is
-                          recommended to use a fat burner which helps to reduce
-                          fat faster. Ignite The Fat Burner Pre-Workout is a
-                          sophisticated and comprehensive pre-workout fat burner
-                          supplement.
+                          Elevate your fitness game with the Gomzi Nutrition
+                          Shaker. Designed to be the ultimate companion for your
+                          active lifestyle, this shaker bottle is engineered for
+                          performance and convenience.
+                        </p>
+                        <h4 className="title">Key Features:</h4>
+                        <p>
+                          Leak-Proof Design: Say goodbye to spills and messes
+                          with our advanced leak-proof lid.
                         </p>
                         <p>
-                          Delivering intense energy, supercharged strength, and
-                          power, heightened focus, vein-popping pump and
-                          endurance, and superior workouts with enhanced
-                          thermogenic and fat-burning properties are just a few
-                          of the benefits of its uniquely developed formula. For
-                          athletes of all levels, Ignite The Fat Burner
-                          Pre-Workout is a highly stimulating and effective
-                          pre-workout fat-burning supplement that can assist
-                          maximize workout performance, burning fat more
-                          quickly, and pushing your body beyond previous
-                          boundaries.
+                          Mix Perfectly: The built-in mixer ball ensures a
+                          smooth and lump-free blend every time.
                         </p>
-                        <h4 className="title">DIRECTIONS FOR IGNITE POWDER:</h4>
                         <p>
-                          Use This powder 15-30 minutes before intense exercise
-                          Add 1 scoop (05g) to 220ml of ice-cold water and shake
-                          for approximately 10 seconds before consuming. Consume
-                          once per day.
+                          Wide Mouth: Effortlessly add scoops, ice, or fruits
+                          for a personalized shake.
                         </p>
-                        <h4 className="title">NOT FOR MEDICINAL USE.</h4>
-                        <h4 className="title">STORAGE:</h4>
                         <p>
-                          Store under 25°C Temperature, dry and hygienic place.
-                          Keep away from direct sunlight. Keep out of reach of
-                          children.
+                          Durable and BPA-Free: Crafted from high-quality
+                          materials for long-lasting use and safety.
                         </p>
-                        {/* <h4 className="title">BENEFITS:</h4>
-                        <ul className="product-desc-list list-wrap">
-                          <li>
-                            Experience real results & better performance with
-                            fat burning ingredients.
-                          </li>
-                          <li>
-                            Clinically proven & versatile supplement solution.
-                          </li>
-                          <li>Controls Appetite & Hunger.</li>
-                        </ul>
-                        <h4 className="title mt-4">Caution:</h4>
-                        <ul className="product-desc-list list-wrap">
-                          <li>
-                            Not for use by persons under the age of 18 years.
-                          </li>
-                          <li>
-                            Consult your doctor in case you are taking any
-                            medication.
-                          </li>
-                          <li>
-                            This product is not intended to diagnose, treat,
-                            cure or prevent any disease.
-                          </li>
-                          <li>Do not exceed recommended serving size.</li>
-                          <li>Store in a cool and dry place.</li>
-                          <li>Keep out of reach of children.</li>
-                          <li>
-                            This product is not to be used as a substitute for a
-                            varied diet. Not recommended for children, pregnant
-                            or lactating women. and people sensitive to
-                            caffeine.
-                          </li>
-                        </ul> */}
-                        <h4 className="title mt-4">Direction For Use?</h4>
-                        <ul className="product-desc-list list-wrap">
-                          <li>
-                            Take 5g (scoop for beginners) once a day with 200 -
-                            220 ml chilled water for an adult or as per
-                            Healthcare Expert.
-                          </li>
-                          <li>
-                            Take 10g (scoop for professionals) once a day with
-                            380 - 400 ml for an adult or as per Healthcare
-                            Expert.
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12">
-                <div className="product-desc-wrap">
-                  <ul className="nav nav-tabs" id="myTabTwo" role="tablist">
-                    <li className="nav-item">
-                      <a
-                        href="#0"
-                        className="nav-link active"
-                        id="description-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#description"
-                        role="tab"
-                        aria-controls="description"
-                        aria-selected="true"
-                      >
-                        Additional information
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="tab-content" id="myTabContentTwo">
-                    <div
-                      className="tab-pane fade show active"
-                      id="information"
-                      role="tabpanel"
-                      aria-labelledby="information-tab"
-                    >
-                      <div className="product-desc-content">
-                        <table className="table table-sm">
-                          <tbody>
-                            <tr>
-                              <th scope="row">L-CITRULLINE</th>
-                              <td>2.26 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">L-ARGININE</th>
-                              <td>0.45 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">L-TAURINE</th>
-                              <td>0.36 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">B-ALANINE</th>
-                              <td>0.36 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">CAFFEINE ANHYDROUS</th>
-                              <td>0.18 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">GREEN TEA EXTRACT</th>
-                              <td>0.10 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">GREEN COFFEE EXTRACT</th>
-                              <td>0.10 gm</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <p>
+                          Stylish and Ergonomic: The sleek design fits
+                          comfortably in your hand and gym bag. Experience the
+                          Gomzi difference with a shaker bottle that's as
+                          committed to your fitness goals as you are.
+                        </p>
+                        <h4 className="title mt-4">Product Highlights:</h4>
+                        <p>
+                          Ideal for mixing protein shakes, pre-workout
+                          supplements, and other powdered drinks. Easy to clean
+                          and dishwasher safe.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -700,4 +506,4 @@ function PureGoPreWorkout() {
   );
 }
 
-export default PureGoPreWorkout;
+export default PureGoShaker;

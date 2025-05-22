@@ -303,7 +303,7 @@ function Home() {
         muscle gain, best muscle building supplements, chocolate protein powder
       </p>
       {showModal && <LoginModal onClose={closeModal} />}
-      <NutritionHeader cartItemName={cartItemName} />
+      <NutritionHeader cartItemName={cartItemName} openModal={openModal} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
@@ -461,8 +461,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1390/-</span>
-                            <span className="variant-old-price">₹2999</span>
+                            <span className="variant-price"> ₹2999/-</span>
+                            {/* <span className="variant-old-price">₹2999</span> */}
                             {/* <span className="variant-offer">53% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -602,8 +602,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1490/-</span>
-                            <span className="variant-old-price">₹3190</span>
+                            <span className="variant-price"> ₹3190/-</span>
+                            {/* <span className="variant-old-price">₹3190</span> */}
                             {/* <span className="variant-offer">53% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -743,8 +743,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1490/-</span>
-                            <span className="variant-old-price">₹3190</span>
+                            <span className="variant-price"> ₹3190/-</span>
+                            {/* <span className="variant-old-price">₹3190</span> */}
                             {/* <span className="variant-offer">53% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -872,7 +872,7 @@ function Home() {
                           className="item-title"
                           style={{ webkitBoxOrient: "vertical" }}
                         >
-                          Mass Gainer 1kg Chocolate{" "}
+                          Whey Mass Matrix 1kg Chocolate{" "}
                         </div>
                       </Link>
                       <p className="item-description">
@@ -885,13 +885,13 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹499/-</span>
-                            <span className="variant-old-price">₹1500</span>
-                            {/* <span className="variant-offer">66% off</span> */}
+                            <span className="variant-price"> ₹1500/-</span>
+                            {/* <span className="variant-old-price">₹1500</span> */}
+                            {/* <span className="variant-offer">60% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Mass Gainer 1kg Chocolate")
+                              item.includes("Whey Mass Matrix 1kg Chocolate")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -948,7 +948,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/pre-workout/pre-workout-2.webp"
+                          src="/assets/images/products/pre-workout/pre-workout-fruit-punch-2.webp"
                           alt="Pre Workout"
                         />
                       </div>
@@ -956,7 +956,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/pre-workout/pre-workout-3.webp"
+                          src="/assets/images/products/pre-workout/pre-workout-fruit-punch-3.webp"
                           alt="Pre Workout"
                         />
                       </div>
@@ -964,7 +964,7 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/pre-workout/pre-workout-4.webp"
+                          src="/assets/images/products/pre-workout/pre-workout-fruit-punch-4.webp"
                           alt="Pre Workout"
                         />
                       </div>
@@ -1035,13 +1035,13 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹600/-</span>
-                            <span className="variant-old-price">₹2500</span>
+                            <span className="variant-price"> ₹2500/-</span>
+                            {/* <span className="variant-old-price">₹2500</span> */}
                             {/* <span className="variant-offer">76% off</span> */}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Pre Workout Fruit Punch")
+                              item.includes("Pre Workout")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1177,8 +1177,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹550/-</span>
-                            <span className="variant-old-price">₹2099</span>
+                            <span className="variant-price"> ₹2099/-</span>
+                            {/* <span className="variant-old-price">₹2099</span> */}
                             {/* <span className="variant-offer">73% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -1320,8 +1320,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹450/-</span>
-                            <span className="variant-old-price">₹1499</span>
+                            <span className="variant-price"> ₹1499/-</span>
+                            {/* <span className="variant-old-price">₹1499</span> */}
                             {/* <span className="variant-offer">69% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -1463,8 +1463,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹840/-</span>
-                            <span className="variant-old-price">₹2100</span>
+                            <span className="variant-price"> ₹2100/-</span>
+                            {/* <span className="variant-old-price">₹2100</span> */}
                             {/* <span className="variant-offer">69% off</span> */}
                           </div>
                           <div className="d-flex">
