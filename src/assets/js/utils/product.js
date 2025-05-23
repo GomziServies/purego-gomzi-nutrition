@@ -2,59 +2,14 @@ import Swal from "sweetalert2";
 import { axiosInstance } from "../config/api";
 import apiConfig from "../config/apiConfig";
 
-export const minusQuantity = () => {
-  let quantity = document.getElementById("txt_quantity").value;
-  if (quantity > 1) {
-    quantity--;
-    document.getElementById("txt_quantity").value = quantity;
-  } else {
-    return Swal.fire({
-      title: "Error",
-      text: "Min 1 book required for order!",
-      icon: "error",
-    });
-  }
-};
-
-export const plusQuantity = () => {
-  let quantity = document.getElementById("txt_quantity").value;
-  if (quantity < 10) {
-    quantity++;
-    document.getElementById("txt_quantity").value = quantity;
-  } else {
-    return Swal.fire({
-      title: "Error",
-      text: "Max limit is 10 books per order!",
-      icon: "error",
-    });
-  }
-};
-
-export const directBuyBookAction = () => {
-  let bookSearchParams = new URLSearchParams(window.location.search);
-
-  if (
-    bookSearchParams.has("action") &&
-    bookSearchParams.get("action") === "directBuyBook"
-  ) {
-    let findPayload = localStorage.getItem("tmp_ProductPurchasePayload");
-    if (findPayload) {
-      try {
-        findPayload = JSON.parse(findPayload);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  }
-};
-
 export const createPaymentProduct = (
   products,
   address,
   coupon_id,
   payment_mode,
   discountCost,
-  courierId
+  courierId,
+  autoCouponData
 ) => {
   let quantity = address.quantity;
   let address_line_1 = address.address_line_1;
@@ -86,7 +41,8 @@ export const createPaymentProduct = (
     coupon_id,
     payment_mode,
     discountCost,
-    courierId
+    courierId,
+    autoCouponData
   );
 };
 
@@ -97,7 +53,8 @@ export const createProductOrder = async (
   coupon_id,
   payment_mode,
   discountCost,
-  courierId
+  courierId,
+  autoCouponData
 ) => {
   try {
     if (!products) {
@@ -132,6 +89,10 @@ export const createProductOrder = async (
 
     if (coupon_id) {
       payload.coupon_id = coupon_id;
+    }
+
+    if (autoCouponData) {
+      payload.autoCouponData = autoCouponData;
     }
 
     if (address_line_1 && city && pin_code) {

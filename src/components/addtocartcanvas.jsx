@@ -10,7 +10,12 @@ import confetti from "canvas-confetti";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 
-const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
+const AddtoCartOffCanvas = ({
+  isOpen,
+  onClose,
+  addToCartProducts,
+  selectedProductId,
+}) => {
   const [animateOpen, setAnimateOpen] = useState(false);
   const [productDataGet, setProductDataGet] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -49,10 +54,10 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
     setAnimateOpen(isOpen);
   }, [isOpen]);
 
-  // Fetch cart data when books change
+  // Fetch cart data when addToCartProducts change
   useEffect(() => {
-    if (books && !isFetchingData) fetchBooksCartData();
-  }, [books]);
+    if (addToCartProducts && !isFetchingData) fetchProductsCartData();
+  }, [addToCartProducts]);
 
   // AUTO apply coupon based on totalAmount
   useEffect(() => {
@@ -74,7 +79,7 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
   }, [totalAmount]);
 
   // Fetch cart data
-  const fetchBooksCartData = async () => {
+  const fetchProductsCartData = async () => {
     if (isFetchingData) return;
 
     setLoading(true);
@@ -85,6 +90,7 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
         "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
       );
       const serverData = response.data.data[0];
+
       setServerDataID(serverData._id);
 
       const existingData = JSON.parse(
@@ -94,7 +100,7 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
       };
 
       const priceMap = existingData.products.reduce((map, product) => {
-        map[product.book_id] = product.mrpPrice;
+        map[product.product_id] = product.mrpPrice;
         return map;
       }, {});
 
@@ -212,10 +218,10 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
 
   // Other existing handlers below unchanged:
 
-  const handleRemoveProduct = async (cart_id, book_id) => {
+  const handleRemoveProduct = async (cart_id, product_id) => {
     try {
       await axiosInstance.delete(
-        `/order-cart/remove-item?item_id=${book_id}&cart_id=${serverDataID}`
+        `/order-cart/remove-item?item_id=${product_id}&cart_id=${serverDataID}`
       );
       setProductDataGet((prevData) =>
         prevData.filter((product) => product._id !== cart_id)
@@ -226,10 +232,10 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
         products: [],
       };
       existingData.products = existingData.products.filter(
-        (product) => product.book_id !== book_id
+        (product) => product.product_id !== product_id
       );
       localStorage.setItem("addItemInCart", JSON.stringify(existingData));
-      fetchBooksCartData();
+      fetchProductsCartData();
     } catch (error) {
       console.error("Error removing product:", error);
     }
@@ -279,6 +285,201 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
     }
   };
 
+  const AllPureGoProducts = [
+    {
+      key: "1kg-Chocolate",
+      data: {
+        id: "67e7749163f930dcc6a2715d",
+        img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
+        name: "Whey Protein 1kg Chocolate",
+        price: "2999",
+        discount: "1390",
+        size: "1 Kg",
+        dis_point: "53%",
+      },
+    },
+    {
+      key: "1kg-Mocha Coffee",
+      data: {
+        id: "67e774c463f930dcc6a27161",
+        img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
+        name: "Whey Protein 1kg Mocha Coffee",
+        price: "3199",
+        discount: "1490",
+        size: "1 Kg",
+        dis_point: "53%",
+      },
+    },
+    {
+      key: "1kg-Mawa Kulfi",
+      data: {
+        id: "67e774a963f930dcc6a2715f",
+        img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
+        name: "Whey Protein 1kg Mawa Kulfi",
+        price: "3199",
+        discount: "1490",
+        size: "1 Kg",
+        dis_point: "53%",
+      },
+    },
+    {
+      key: "2kg-Chocolate",
+      data: {
+        id: "68219edf28bd0ff3b2083fa6",
+        img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
+        name: "Whey Protein 2kg Chocolate",
+        price: "5599",
+        discount: "2679",
+        size: "2 Kg",
+        dis_point: "52%",
+      },
+    },
+    {
+      key: "2kg-Mocha Coffee",
+      data: {
+        id: "68219f0d28bd0ff3b2083fad",
+        img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
+        name: "Whey Protein 2kg Mocha Coffee",
+        price: "5999",
+        discount: "2879",
+        size: "2 Kg",
+        dis_point: "52%",
+      },
+    },
+    {
+      key: "2kg-Mawa Kulfi",
+      data: {
+        id: "68219ef928bd0ff3b2083fa8",
+        img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
+        name: "Whey Protein 2kg Mawa Kulfi",
+        price: "5999",
+        discount: "2879",
+        size: "2 Kg",
+        dis_point: "52%",
+      },
+    },
+    {
+      key: "250g-Fruit Punch",
+      data: {
+        id: "67e7740363f930dcc6a27157",
+        img: "/assets/images/products/pre-workout/pre-workout-fruit-punch-1.webp",
+        name: "Pre Workout Fruit Punch",
+        price: "2500",
+        discount: "600",
+        size: "250 g",
+        dis_point: "76%",
+      },
+    },
+    {
+      key: "250g-Cola",
+      data: {
+        id: "682718b1ed4175d21de95d0b",
+        img: "/assets/images/products/pre-workout/pre-workout-cola-1.webp",
+        name: "Pre Workout Cola",
+        price: "2500",
+        discount: "600",
+        size: "250 g",
+        dis_point: "76%",
+      },
+    },
+    {
+      key: "250g-Orange",
+      data: {
+        id: "6827168ced4175d21de95c4e",
+        img: "/assets/images/products/bcaa/bcaa-orange-1.webp",
+        name: "BCAA Orange",
+        price: "2100",
+        discount: "840",
+        size: "250 g",
+        dis_point: "60%",
+      },
+    },
+    {
+      key: "250g-Cranberry",
+      data: {
+        id: "6827180aed4175d21de95cb9",
+        img: "/assets/images/products/bcaa/bcaa-cranberry-1.webp",
+        name: "BCAA Cranberry",
+        price: "2100",
+        discount: "840",
+        size: "250 g",
+        dis_point: "60%",
+      },
+    },
+    {
+      key: "250g-Lemon",
+      data: {
+        id: "67e773f463f930dcc6a27155",
+        img: "/assets/images/products/creatine/creatine-lemon-1.webp",
+        name: "Creatine Monohydrate Lemon",
+        price: "1499",
+        discount: "450",
+        size: "250 g",
+        dis_point: "69%",
+      },
+    },
+    {
+      key: "250g-Unflavoured",
+      data: {
+        id: "6827197bed4175d21de95d5c",
+        img: "/assets/images/products/creatine/creatine-unflavoured-1.webp",
+        name: "Creatine Monohydrate Unflavoured",
+        price: "1499",
+        discount: "450",
+        size: "250 g",
+        dis_point: "69%",
+      },
+    },
+    {
+      key: "250g-Watermelon",
+      data: {
+        id: "67e7742d63f930dcc6a27159",
+        img: "/assets/images/products/eaa/eaa-1.webp",
+        name: "EAA Powder",
+        price: "2099",
+        discount: "550",
+        size: "250 g",
+        dis_point: "73%",
+      },
+    },
+    {
+      key: "1kg-Chocolate",
+      data: {
+        id: "67e7745f63f930dcc6a2715b",
+        img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
+        name: "Whey Mass Matrix 1kg Chocolate",
+        price: "1500",
+        discount: "599",
+        size: "1 Kg",
+        dis_point: "60%",
+      },
+    },
+    {
+      key: "3kg-Chocolate",
+      data: {
+        id: "68219f4d28bd0ff3b2083fb1",
+        img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
+        name: "Mass Gainer 3kg Chocolate",
+        price: "4500",
+        discount: "1699",
+        size: "3 Kg",
+        dis_point: "62%",
+      },
+    },
+    {
+      key: "500ml-Black",
+      data: {
+        id: "6827168ced4175d21de95c4e",
+        img: "/assets/images/products/bcaa/bcaa-orange-1.webp",
+        name: "Shaker Bottle 500ml",
+        price: "2100",
+        discount: "840",
+        size: "500ml",
+        dis_point: "60%",
+      },
+    },
+  ];
+
   const handleAddToCart = async (e) => {
     e.preventDefault();
     try {
@@ -293,9 +494,20 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
       });
 
       const products = productDataGet.map((product) => ({
-        book_id: product._id,
+        product_id: product._id,
         quantity: product.quantity,
       }));
+
+      console.log("products :- ", products);
+
+      const selectedAddToCartData = products.map((data) => {
+        const selectedProduct = AllPureGoProducts.find(
+          (allProducts) => allProducts.data.id === data.product_id
+        );
+
+        return selectedProduct.data;
+      });
+      console.log("selectedAddToCartData :- ", selectedAddToCartData);
 
       if (changedProducts.length > 0) {
         const response = await axiosInstance.post(
@@ -309,6 +521,18 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
             "productsData",
             JSON.stringify({ products, totalAmount, totalMRP })
           );
+          localStorage.setItem(
+            "allProductsData",
+            JSON.stringify({
+              allProductsData: products,
+              totalAmount,
+              totalMRP,
+            })
+          );
+          localStorage.setItem(
+            "selectedAddToCartData",
+            JSON.stringify(selectedAddToCartData)
+          );
           window.location.href = `/check-out`;
         }
       } else {
@@ -316,43 +540,19 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
           "productsData",
           JSON.stringify({ products, totalAmount, totalMRP })
         );
-        window.location.href = `/check-out`;
-      }
-    } catch (error) {
-      console.error("Error adding to cart:", error);
-    }
-  };
-
-  const toggleMenu = async (data, BuyButton, e) => {
-    e.preventDefault();
-    try {
-      if (isAuthenticated) {
-        const existingData = JSON.parse(
-          localStorage.getItem("addItemInCart")
-        ) || {
-          products: [],
-        };
-
-        const productExists = existingData.products.some(
-          (product) => product.book_id === selectedBookId
+        localStorage.setItem(
+          "allProductsData",
+          JSON.stringify({
+            allProductsData: products,
+            totalAmount,
+            totalMRP,
+          })
         );
-
-        if (!productExists) {
-          existingData.products.push({
-            book_id: BuyButton,
-            mrpPrice: data.prices || 0,
-            data: data,
-          });
-        }
-
-        localStorage.setItem("addItemInCart", JSON.stringify(existingData));
-        const response = await axiosInstance.post("/order-cart/add-item", {
-          item_id: BuyButton,
-          data: data,
-          quantity: data?.quantity || 1,
-          item_type: "BOOKS",
-        });
-        if (response.data.response === "OK") fetchBooksCartData();
+          localStorage.setItem(
+            "selectedAddToCartData",
+            JSON.stringify(selectedAddToCartData)
+          );
+        window.location.href = `/check-out`;
       }
     } catch (error) {
       console.error("Error adding to cart:", error);
@@ -374,7 +574,7 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
                 aria-label="Close"
               >
                 <svg
-                  tabindex="0"
+                  tabIndex="0"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 329.26933 329"
                   width="16px"
@@ -428,7 +628,7 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
             </div>
           </div>
         </div>
-        <div class="thin-scrollbar" style={{ overflowY: "scroll" }}>
+        <div className="thin-scrollbar" style={{ overflowY: "scroll" }}>
           {loading ? (
             <div className="d-flex justify-content-center align-items-center mb-4 my-7 loader-h">
               <div className="loader"></div>
@@ -464,11 +664,11 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
                                   <div className="col-12">
                                     <h2
                                       className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-18"
-                                      title={product.name}
+                                      title={product?.name}
                                     >
-                                      {product.name?.length > 20
-                                        ? product.name.slice(0, 20) + "..."
-                                        : product.name}
+                                      {product?.name?.length > 20
+                                        ? product?.name.slice(0, 20) + "..."
+                                        : product?.name}
                                     </h2>
                                   </div>
                                 </div>
@@ -484,12 +684,13 @@ const AddtoCartOffCanvas = ({ isOpen, onClose, books, selectedBookId }) => {
                                         id="txt_quantity"
                                         value={product.quantity}
                                         min="1"
-                                        className="mb-0 p-0 text-center"
+                                        className="mb-0 text-center"
                                         readOnly
                                         style={{
                                           borderRadius: "5px",
                                           width: "45px",
                                           height: "30px",
+                                          padding: "0px 0px 0px 15px",
                                         }}
                                       />
                                     </Form.Group>

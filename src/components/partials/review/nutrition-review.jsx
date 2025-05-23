@@ -167,7 +167,7 @@ function NutritionReviewSection({ product_id }) {
         </div>
         <div className="reviews-comment">
           {reviews.map((feedback, index) => (
-            <div className="review-info">
+            <div className="review-info" key={index}>
               <div className="review-content">
                 <ul className="review-rating list-wrap">
                   <li>

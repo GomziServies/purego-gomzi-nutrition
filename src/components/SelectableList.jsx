@@ -8,9 +8,9 @@ const SelectableList = ({ items, activeItem, fadingItem, onItemClick, title }) =
         <b>{title}</b>
       </p>
       <ul className="list-unstyled mb-0">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <SelectableItem
-            key={item.id}
+            key={index}
             id={item.id}
             label={item.label}
             isActive={activeItem === item.id}

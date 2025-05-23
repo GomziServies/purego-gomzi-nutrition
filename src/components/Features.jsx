@@ -89,17 +89,17 @@ const Features = ({ USPData, removeUSP, openModal }) => {
           )}
           {pincodeAvailable === "success" ? (
             <p className="mt-2 mb-0 text-yellow fw-bold">
-              <i class="fa-solid fa-circle-check"></i> Your area is available
+              <i className="fa-solid fa-circle-check"></i> Your area is available
               for delivery.
             </p>
           ) : pincodeAvailable === "error" ? (
             <p className="mt-2 mb-0 text-danger fw-bold">
-              <i class="fa-solid fa-circle-xmark"></i> Sorry, your area is
+              <i className="fa-solid fa-circle-xmark"></i> Sorry, your area is
               currently not available for delivery.
             </p>
           ) : isPincode ? (
             <p className="mt-2 mb-0 text-danger fw-bold">
-              <i class="fa-solid fa-circle-xmark"></i> Enter Your Delivery Pincode.
+              <i className="fa-solid fa-circle-xmark"></i> Enter Your Delivery Pincode.
             </p>
           ) : (
             ""
@@ -216,9 +216,9 @@ const Features = ({ USPData, removeUSP, openModal }) => {
               <ul className="list-unstyled mb-0">
                 <li className="d-block mb-0">
                   <div className="mb-2 ql-editor descriptionShow text-secondary">
-                    {USPData?.map((data) => {
+                    {USPData?.map((data, index) => {
                       return (
-                        <p className="ql-align-justify mb-1">
+                        <p className="ql-align-justify mb-1" key={index}>
                           <b className="text-secondary">{data?.title}</b>{" "}
                           {data?.description}
                         </p>

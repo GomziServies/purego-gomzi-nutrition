@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import LoginModal from "../popup/login";
 import { axiosInstance } from "../config/api";
 import { toast } from "react-toastify";
 
-const UserInfo = ({ cartCount }) => {
+const UserInfo = ({ cartCount, handleCartOpen }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [isUserMenuVisible, setIsUserMenuVisible] = useState(false);
@@ -69,7 +69,8 @@ const UserInfo = ({ cartCount }) => {
           <li className="mx-0">
             <button
               className="cart-button-header"
-              href="/add-to-cart"
+              onClick={() => handleCartOpen()}
+              // href="/add-to-cart"
               aria-label="Fg Group"
             >
               {/* <img

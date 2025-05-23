@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { axiosInstance } from "../../../assets/js/config/api";
 import LogoComponent from "../../logoComponent";
 
-function NutritionHeader({ productDataGet, cartItemName, cartDataClick }) {
+function NutritionHeader({ productDataGet, cartItemName, cartDataClick, handleCartOpen }) {
   function openside() {
     document.getElementById("demo").style.width = "100%";
   }
@@ -144,7 +144,7 @@ function NutritionHeader({ productDataGet, cartItemName, cartDataClick }) {
         </div>
         <div className="login d-lg-block d-none">
           <ul>
-            <UserInfo cartCount={cartCount} />
+            <UserInfo cartCount={cartCount} handleCartOpen={handleCartOpen} />
           </ul>
         </div>
       </div>

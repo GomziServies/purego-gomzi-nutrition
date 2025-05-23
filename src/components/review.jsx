@@ -23,8 +23,8 @@ const Review = () => {
     dots: false,
     nav: true,
     navText: [
-      '<i class="fas fa-arrow-left"></i>',
-      '<i class="fas fa-arrow-right"></i>',
+      '<i className="fas fa-arrow-left"></i>',
+      '<i className="fas fa-arrow-right"></i>',
     ],
     responsive: {
       0: {
@@ -40,18 +40,18 @@ const Review = () => {
   };
   return (
     <>
-      <section id="pricing" class="pricing-area gray-bg">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-xl-6 col-lg-8">
-              <div class="section-title text-center mb-55">
-                <p class="sub-title">Customer Reviews</p>
-                <h2 class="title">HAPPY CLIENT</h2>
+      <section id="pricing" className="pricing-area gray-bg">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-6 col-lg-8">
+              <div className="section-title text-center mb-55">
+                <p className="sub-title">Customer Reviews</p>
+                <h2 className="title">HAPPY CLIENT</h2>
               </div>
             </div>
           </div>
-          <div class="pricing-wrap">
-            <div class="row align-items-end justify-content-center">
+          <div className="pricing-wrap">
+            <div className="row align-items-end justify-content-center">
               <div className="col-12 mt-4">
                 <OwlCarousel
                   id="fwg-owl"

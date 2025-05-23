@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { useLocation } from "react-router";
 import { Helmet } from "react-helmet";
 import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import { createPaymentProduct } from "../assets/js/utils/product";
@@ -9,17 +8,42 @@ import LoginModal from "../assets/js/popup/login";
 import LoadingComponent from "../components/loadingComponent";
 import lookup from "india-pincode-lookup";
 import { toast } from "react-toastify";
-import Offers from "../components/Offers";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Alert, Button, Card, Modal } from "react-bootstrap";
+import { Card, Modal } from "react-bootstrap";
 import confetti from "canvas-confetti";
 
 function CheckOut() {
-  const [totalPrice, setTotalPrice] = useState();
   const [isCouponRupee, setIsCouponRupee] = useState(false);
   const [amountOnCouponCode, setAmountOnCouponCode] = useState();
   const [productDatas, setProductDatas] = useState([[]]);
-  const [stateData, setStateData] = useState([
+  const [paymentMode, setPaymentMode] = useState("ONLINE");
+  const productData = localStorage.getItem("productsData");
+  const [isOpen, setIsOpen] = useState(false);
+  const [mainPrice, setMainPrice] = useState();
+  const canonicalUrl = window.location.href;
+  const [discountCost, setDiscountCost] = useState(null);
+  const [courierId, setCourierId] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [showCouponModal, setShowCouponModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [quickData, setQuickData] = useState({});
+  const [selectedATCData, setSelectedATCData] = useState([]);
+  const [manualCouponCode, setManualCouponCode] = useState("");
+  const [manualCouponCodeData, setManualCouponCodeData] = useState("");
+  const [autoDiscount, setAutoDiscount] = useState(0);
+  const [totalCouponDiscount, setTotalCouponDiscount] = useState(0);
+  const [autoCouponData, setAutoCouponData] = useState(null);
+  const [orderUserData, setOrderUserData] = useState({
+    username: "",
+    email: "",
+    pin_code: "",
+    address_line_1: "",
+    address_line_2: "",
+    city: "",
+    state: "",
+    country: "",
+    mobile: "",
+  });
+  const stateData = [
     { stateName: "Andaman and Nicobar Islands", stateCode: "AN" },
     { stateName: "Andhra Pradesh", stateCode: "AP" },
     { stateName: "Arunachal Pradesh", stateCode: "AR" },
@@ -57,33 +81,7 @@ function CheckOut() {
     { stateName: "Uttarakhand", stateCode: "UK" },
     { stateName: "Chattisgarh", stateCode: "CG" },
     { stateName: "Ladakh", stateCode: "LA" },
-  ]);
-  const [paymentMode, setPaymentMode] = useState("ONLINE");
-  const productData = localStorage.getItem("productsData");
-  const [isOpen, setIsOpen] = useState(false);
-  const [mainPrice, setMainPrice] = useState();
-  const canonicalUrl = window.location.href;
-  const [orderUserData, setOrderUserData] = useState({
-    username: "",
-    email: "",
-    pin_code: "",
-    address_line_1: "",
-    address_line_2: "",
-    city: "",
-    state: "",
-    country: "",
-    mobile: "",
-  });
-  const [totalDiscount, setTotalDiscount] = useState(0);
-  const [discountCost, setDiscountCost] = useState(null);
-  const [courierId, setCourierId] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [quickData, setQuickData] = useState({});
-  const [manualCouponCode, setManualCouponCode] = useState("");
-  const [manualCouponCodeData, setManualCouponCodeData] = useState("");
-  const [autoDiscount, setAutoDiscount] = useState(0);
-  const [totalCouponDiscount, setTotalCouponDiscount] = useState(0);
+  ];
 
   const openModal = () => {
     setShowModal(true);
@@ -104,8 +102,20 @@ function CheckOut() {
     setProductDatas(data.products);
     setAmountOnCouponCode(orderTotal);
 
+    let selectedAddToCartData = localStorage.getItem("selectedAddToCartData");
+    selectedAddToCartData = JSON.parse(selectedAddToCartData);
+
+    const totalDiscountPercentage = selectedAddToCartData
+      .map((data) => parseInt(data.dis_point.replace("%", "")))
+      .reduce((sum, value) => sum + value, 0);
+
+    const averageDiscount =
+      totalDiscountPercentage / selectedAddToCartData.length;
+
+    console.log("averageDiscount :- ", averageDiscount);
+
     const baseDiscountPercent = 50;
-    const originalDiscountPercent = 53;
+    const originalDiscountPercent = averageDiscount;
     const baseDiscount = orderTotal * (baseDiscountPercent / 100);
     let priceAfterAutoDiscount = orderTotal - baseDiscount;
 
@@ -125,14 +135,14 @@ function CheckOut() {
         discount_type: "percent",
       };
 
+      console.log("customOffer :- ", customOffer);
+
       // Add to promo list (optional: check for duplicates first)
       setOffers((prev) => [...prev, customOffer]);
     }
 
     setAutoDiscount(baseDiscount);
     setMainPrice(priceAfterAutoDiscount);
-    setTotalPrice(priceAfterAutoDiscount);
-    setTotalDiscount(baseDiscount);
   };
 
   useEffect(() => {
@@ -224,7 +234,8 @@ function CheckOut() {
           coupon_ids,
           payment_mode,
           discountCost,
-          courierId
+          courierId,
+          autoCouponData
         );
       } catch (error) {
         console.error("Error during order:", error);
@@ -249,6 +260,7 @@ function CheckOut() {
   const calculateDiscountedPrice = (couponData) => {
     let discountAmount = 0;
     const totalDiscountPercentOrRupees = couponData.discount || 0;
+    setAutoCouponData(couponData);
 
     let totalCouponAmount;
     if (couponData.discount_type === "rupees") {
@@ -265,7 +277,6 @@ function CheckOut() {
 
     setTotalCouponDiscount(discountAmount);
     setMainPrice(totalCouponAmount);
-    setTotalPrice(totalCouponAmount);
   };
 
   const getUserData = async () => {
@@ -297,11 +308,11 @@ function CheckOut() {
       const allProductsData = localStorage.getItem("allProductsData");
       const cartProductData = JSON.parse(allProductsData);
 
-      const totalProduct = cartProductData.allProductsData.length;
-      const oneKgProduct = cartProductData.allProductsData.filter((data) =>
+      const totalProduct = cartProductData?.allProductsData.length;
+      const oneKgProduct = cartProductData?.allProductsData.filter((data) =>
         data.name?.includes("1kg")
       );
-      const twentyFiveGmProduct = cartProductData.allProductsData.filter(
+      const twentyFiveGmProduct = cartProductData?.allProductsData.filter(
         (data) => !data.name?.includes("1kg")
       );
 
@@ -428,9 +439,15 @@ function CheckOut() {
 
     if (quickProductData) {
       setQuickData(quickProductData);
-      setTotalPrice(parseInt(quickProductData?.discount));
       setMainPrice(parseInt(quickProductData?.discount));
     }
+
+    // let selectedAddToCartData = localStorage.getItem("selectedAddToCartData");
+    // selectedAddToCartData = JSON.parse(selectedAddToCartData);
+
+    // if (selectedAddToCartData) {
+    //   setSelectedATCData(selectedAddToCartData);
+    // }
   }, []);
 
   const handleStateChange = (event) => {
@@ -487,39 +504,53 @@ function CheckOut() {
     UpdatedData(productData);
   };
 
-  const handleApplyClick = async (appliedCoupon) => {
+  const handleApplyClick = async (appliedCoupon, PromoCode) => {
     try {
-      let code = appliedCoupon || manualCouponCode;
+      console.log("appliedCoupon :- ", appliedCoupon);
+      console.log("AutoPromoCode :- ", PromoCode?.AutoPromoCode);
 
-      if (!code.trim()) {
-        Swal.fire({
-          icon: "warning",
-          title: "Empty Code",
-          text: "Please enter or select a valid promo code.",
+      if (PromoCode?.AutoPromoCode) {
+        toast.success("Coupon applied successfully");
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
         });
-        return;
+        setManualCouponCodeData(appliedCoupon);
+        calculateDiscountedPrice(appliedCoupon);
+      } else {
+        let code = appliedCoupon || manualCouponCode;
+
+        if (!code.trim()) {
+          Swal.fire({
+            icon: "warning",
+            title: "Empty Code",
+            text: "Please enter or select a valid promo code.",
+          });
+          return;
+        }
+
+        const payload = { coupon_code: code };
+        const response = await publicAxiosInstance.post(
+          "/check-coupon-code",
+          payload
+        );
+
+        const couponData = response.data.data;
+
+        setManualCouponCode(code);
+        setManualCouponCodeData(couponData);
+        localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
+
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+
+        toast.success("Coupon applied successfully");
+        calculateDiscountedPrice(couponData);
       }
-
-      const payload = { coupon_code: code };
-      const response = await publicAxiosInstance.post(
-        "/check-coupon-code",
-        payload
-      );
-
-      const couponData = response.data.data;
-
-      setManualCouponCode(code);
-      setManualCouponCodeData(couponData);
-      localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
-
-      confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
-
-      toast.success("Coupon applied successfully");
-      calculateDiscountedPrice(couponData);
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -847,7 +878,7 @@ function CheckOut() {
                             <p
                               className="m-0 d-inline-block text-primary"
                               style={{ cursor: "pointer" }}
-                              onClick={() => setShowModal(true)}
+                              onClick={() => setShowCouponModal(true)}
                             >
                               View Coupons
                             </p>
@@ -891,7 +922,7 @@ function CheckOut() {
                           <p
                             className="m-0 d-inline-block text-primary"
                             style={{ cursor: "pointer" }}
-                            onClick={() => setShowModal(true)}
+                            onClick={() => setShowCouponModal(true)}
                           >
                             View Coupons
                           </p>
@@ -902,8 +933,8 @@ function CheckOut() {
 
                   {/* Coupon Modal */}
                   <Modal
-                    show={showModal}
-                    onHide={() => setShowModal(false)}
+                    show={showCouponModal}
+                    onHide={() => setShowCouponModal(false)}
                     centered
                     size="md"
                   >
@@ -930,8 +961,10 @@ function CheckOut() {
                                 className="popup-btn"
                                 onClick={() => {
                                   setManualCouponCode(offer.code);
-                                  setShowModal(false);
-                                  handleApplyClick(offer.code);
+                                  setShowCouponModal(false);
+                                  handleApplyClick(offer, {
+                                    AutoPromoCode: true,
+                                  });
                                 }}
                               >
                                 Apply
@@ -957,7 +990,7 @@ function CheckOut() {
 
                       {autoDiscount !== 0 && (
                         <li>
-                          Discount{" "}
+                          Discount (50%){" "}
                           <span className="text-danger">
                             - ₹{autoDiscount.toFixed(2)} /-
                           </span>
@@ -966,12 +999,12 @@ function CheckOut() {
 
                       {totalCouponDiscount !== 0 && (
                         <li>
-                          Coupon Discount{" "}
+                          Coupon Discount ({autoCouponData?.discount || 0}%){" "}
                           <span className="text-danger">
                             -{" "}
                             {isCouponRupee
-                              ? `₹${totalCouponDiscount}`
-                              : `${totalCouponDiscount}/-`}
+                              ? `₹${totalCouponDiscount.toFixed(2)}`
+                              : `₹${totalCouponDiscount.toFixed(2)}/-`}
                             {isCouponRupee && " /-"}
                           </span>
                         </li>

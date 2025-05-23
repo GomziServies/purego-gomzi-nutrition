@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SelectableItem = ({ id, label, isActive, onClick }) => {
+const SelectableItem = ({ id, label, isActive, onClick, key }) => {
     return (
-        <li className="mr-3 mb-3 d-inline-block">
+        <li className="mr-3 mb-3 d-inline-block" key={key}>
             <div
                 className="avail-in-other-size-main"
                 onClick={() => onClick(id)}

@@ -176,7 +176,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                                   product.average_points
                               )}
                               {/* 4.5 */}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -202,7 +202,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <Link to="/whey-protein-powder?flavor=Chocolate">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Whey Protein 1kg Chocolate{" "}
                         </div>
@@ -242,7 +242,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                               to="/whey-protein-powder?flavor=Chocolate"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -287,7 +287,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                                   product._id === "67e7749163f930dcc6a2715d" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -313,7 +313,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <Link to="/whey-protein-powder?flavor=Mawa Kulfi">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Whey Protein 1kg Mawa Kulfi{" "}
                         </div>
@@ -353,7 +353,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                               to="/whey-protein-powder?flavor=Mawa Kulfi"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -398,7 +398,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                                   product._id === "67e7749163f930dcc6a2715d" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -424,7 +424,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <Link to="/whey-protein-powder?flavor=Mocha Coffee">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Whey Protein 1kg Mocha Coffee{" "}
                         </div>
@@ -464,7 +464,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                               to="/whey-protein-powder?flavor=Mocha Coffee"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -509,7 +509,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                                   product._id === "67e7745f63f930dcc6a2715b" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -535,7 +535,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <Link to="/mass-gainer-protein-powder">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Whey Mass Matrix 1kg Chocolate{" "}
                         </div>
@@ -576,7 +576,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                               to="/mass-gainer-protein-powder"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -588,7 +588,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
               </div>
               <div className="item mx-2">
                 <div className="item-card position-relative">
-                  <span class="labeling">Pre workout + fat burner</span>
+                  <span className="labeling">Pre workout + fat burner</span>
                   <div className="item-img-sec text-center">
                     <div className="d-flex justify-content-center">
                       <img
@@ -622,7 +622,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                                   product._id === "67e7740363f930dcc6a27157" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -648,7 +648,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <Link to="/weight-loss-supplement">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Pre Workout Fruit Punch 250g{" "}
                         </div>
@@ -689,7 +689,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                               to="/weight-loss-supplement"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -734,7 +734,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                                   product._id === "67e7742d63f930dcc6a27159" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -760,7 +760,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <Link to="/eaa-supplements">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           EAA Powder 250g{" "}
                         </div>
@@ -801,7 +801,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                               to="/eaa-supplements"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -813,7 +813,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
               </div>
               <div className="item mx-2">
                 <div className="item-card position-relative">
-                  <span class="labeling">India's first flavored creatine</span>
+                  <span className="labeling">India's first flavored creatine</span>
                   <div className="item-img-sec text-center">
                     <div className="d-flex justify-content-center">
                       <img
@@ -847,7 +847,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                                   product._id === "67e773f463f930dcc6a27155" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -873,7 +873,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <Link to="/creatine-supplements">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Creatine Monohydrate Lemon 250g{" "}
                         </div>
@@ -914,7 +914,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                               to="/creatine-supplements"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -926,7 +926,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
               </div>
               <div className="item mx-2">
                 <div className="item-card position-relative">
-                  {/* <span class="labeling">India's first flavored BCAA Orange</span> */}
+                  {/* <span className="labeling">India's first flavored BCAA Orange</span> */}
                   <div className="item-img-sec text-center">
                     <div className="d-flex justify-content-center">
                       <img
@@ -960,7 +960,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                                   product._id === "6827168ced4175d21de95c4e" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -986,7 +986,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                       <Link to="/bcaa-supplements">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           BCAA Orange Powder 250g{" "}
                         </div>
@@ -1027,7 +1027,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
                               to="/bcaa-supplements"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>

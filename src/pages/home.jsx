@@ -25,12 +25,26 @@ import HappyClientReview from "../components/happyClient";
 import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import LoginModal from "../assets/js/popup/login";
 import Swal from "sweetalert2";
+import AddToCartButtonsContainer from "../components/AddToCartButtonsContainer";
 
 function Home() {
   const canonicalUrl = window.location.href;
   const [videoUrl, setVideoUrl] = useState("");
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [cartItemName, setCartItemName] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [productReviewsData, setProductReviewsData] = useState([]);
+  const productsId = [
+    "67e7749163f930dcc6a2715d",
+    "67e774a963f930dcc6a2715f",
+    "67e774c463f930dcc6a27161",
+    "67e7745f63f930dcc6a2715b",
+    "67e7740363f930dcc6a27157",
+    "67e7742d63f930dcc6a27159",
+    "67e773f463f930dcc6a27155",
+    "6827168ced4175d21de95c4e",
+  ];
 
   const openModal = () => {
     setShowModal(true);
@@ -49,19 +63,6 @@ function Home() {
     setIsVideoOpen(false);
     setVideoUrl("");
   };
-
-  const [cartItemName, setCartItemName] = useState([]);
-  const [productsId, setProductsId] = useState([
-    "67e7749163f930dcc6a2715d",
-    "67e774a963f930dcc6a2715f",
-    "67e774c463f930dcc6a27161",
-    "67e7745f63f930dcc6a2715b",
-    "67e7740363f930dcc6a27157",
-    "67e7742d63f930dcc6a27159",
-    "67e773f463f930dcc6a27155",
-    "6827168ced4175d21de95c4e",
-  ]);
-  const [productReviewsData, setProductReviewsData] = useState([]);
 
   const fetchProductData = async () => {
     try {
@@ -167,8 +168,8 @@ function Home() {
     dots: false,
     nav: true,
     navText: [
-      '<i class="fas fa-arrow-left"></i>',
-      '<i class="fas fa-arrow-right"></i>',
+      '<i className="fas fa-arrow-left"></i>',
+      '<i className="fas fa-arrow-right"></i>',
     ],
     responsive: {
       0: {
@@ -228,6 +229,26 @@ function Home() {
       600: { items: 1 },
       1000: { items: 1 },
     },
+  };
+
+  const handleCartOpen = async () => {
+    try {
+      const isAuthenticated = localStorage.getItem(
+        "fg_group_user_authorization"
+      );
+
+      if (!isAuthenticated) {
+        localStorage.setItem("itemCartAdded", "true");
+        setMenuOpen(false);
+        setShowModal(true);
+      } else {
+        // setAddToCartProducts(data);
+        setMenuOpen(!menuOpen);
+        localStorage.setItem("itemCartAdded", "false");
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
   };
 
   return (
@@ -303,7 +324,20 @@ function Home() {
         muscle gain, best muscle building supplements, chocolate protein powder
       </p>
       {showModal && <LoginModal onClose={closeModal} />}
-      <NutritionHeader cartItemName={cartItemName} openModal={openModal} />
+      <AddToCartButtonsContainer
+        // addToCartProductsData={currentProductData}
+        addToCartProducts={{ id: "1" }}
+        toggleMenu={handleCartOpen}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+        // selectedProductId={currentProductData.id}
+        removeBtn={true}
+      />
+      <NutritionHeader
+        cartItemName={cartItemName}
+        openModal={openModal}
+        handleCartOpen={handleCartOpen}
+      />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
@@ -347,9 +381,9 @@ function Home() {
         <section className="features-products">
           <div className="section-title text-center mb-60">
             <p className="sub-title">
-              <i class="fa-solid fa-quote-left"></i> Wellness, Quality, and
+              <i className="fa-solid fa-quote-left"></i> Wellness, Quality, and
               Transparency — That's PureGo{" "}
-              <i class="fa-solid fa-quote-right"></i>
+              <i className="fa-solid fa-quote-right"></i>
             </p>
             <h1 className="title">Elevate Everyday Living</h1>
           </div>
@@ -421,7 +455,7 @@ function Home() {
                                   product.average_points
                               )}
                               {/* 4.5 */}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -447,7 +481,7 @@ function Home() {
                       <Link to="/whey-protein-powder?flavor=Chocolate">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Whey Protein 1kg Chocolate{" "}
                         </div>
@@ -487,7 +521,7 @@ function Home() {
                               to="/whey-protein-powder?flavor=Chocolate"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -562,7 +596,7 @@ function Home() {
                                   product._id === "67e7749163f930dcc6a2715d" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -588,7 +622,7 @@ function Home() {
                       <Link to="/whey-protein-powder?flavor=Mawa Kulfi">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Whey Protein 1kg Mawa Kulfi{" "}
                         </div>
@@ -628,7 +662,7 @@ function Home() {
                               to="/whey-protein-powder?flavor=Mawa Kulfi"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -703,7 +737,7 @@ function Home() {
                                   product._id === "67e7749163f930dcc6a2715d" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -729,7 +763,7 @@ function Home() {
                       <Link to="/whey-protein-powder?flavor=Mocha Coffee">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Whey Protein 1kg Mocha Coffee{" "}
                         </div>
@@ -769,7 +803,7 @@ function Home() {
                               to="/whey-protein-powder?flavor=Mocha Coffee"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -844,7 +878,7 @@ function Home() {
                                   product._id === "67e7745f63f930dcc6a2715b" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -870,7 +904,7 @@ function Home() {
                       <Link to="/mass-gainer-protein-powder">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Whey Mass Matrix 1kg Chocolate{" "}
                         </div>
@@ -911,7 +945,7 @@ function Home() {
                               to="/mass-gainer-protein-powder"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -930,7 +964,7 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-md-0 mt-3 text-start">
                 <div className="item-card position-relative">
-                  <span class="labeling">Pre workout + fat burner</span>
+                  <span className="labeling">Pre workout + fat burner</span>
                   <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
@@ -994,7 +1028,7 @@ function Home() {
                                   product._id === "67e7740363f930dcc6a27157" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -1020,7 +1054,7 @@ function Home() {
                       <Link to="/weight-loss-supplement">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Pre Workout Fruit Punch 250g{" "}
                         </div>
@@ -1061,7 +1095,7 @@ function Home() {
                               to="/weight-loss-supplement"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -1136,7 +1170,7 @@ function Home() {
                                   product._id === "67e7742d63f930dcc6a27159" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -1162,7 +1196,7 @@ function Home() {
                       <Link to="/eaa-supplements">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           EAA Powder 250g{" "}
                         </div>
@@ -1203,7 +1237,7 @@ function Home() {
                               to="/eaa-supplements"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -1215,7 +1249,9 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
                 <div className="item-card position-relative">
-                  <span class="labeling">India's first flavored creatine</span>
+                  <span className="labeling">
+                    India's first flavored creatine
+                  </span>
                   <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
@@ -1279,7 +1315,7 @@ function Home() {
                                   product._id === "67e773f463f930dcc6a27155" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -1305,7 +1341,7 @@ function Home() {
                       <Link to="/creatine-supplements">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           Creatine Monohydrate Lemon 250g{" "}
                         </div>
@@ -1346,7 +1382,7 @@ function Home() {
                               to="/creatine-supplements"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -1358,7 +1394,7 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
                 <div className="item-card position-relative">
-                  {/* <span class="labeling">India's first flavored BCAA Orange</span> */}
+                  {/* <span className="labeling">India's first flavored BCAA Orange</span> */}
                   <div className="item-img-sec text-center">
                     <OwlCarousel
                       {...options}
@@ -1422,7 +1458,7 @@ function Home() {
                                   product._id === "6827168ced4175d21de95c4e" &&
                                   product.average_points
                               )}
-                              <i class="fa-solid fa-star ms-1"></i>
+                              <i className="fa-solid fa-star ms-1"></i>
                             </span>
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
@@ -1448,7 +1484,7 @@ function Home() {
                       <Link to="/bcaa-supplements">
                         <div
                           className="item-title"
-                          style={{ webkitBoxOrient: "vertical" }}
+                          style={{ WebkitBoxOrient: "vertical" }}
                         >
                           BCAA Orange Powder 250g{" "}
                         </div>
@@ -1489,7 +1525,7 @@ function Home() {
                               to="/bcaa-supplements"
                               className="product-btn item-view-btn"
                             >
-                              <i class="fa-solid fa-eye me-2"></i>
+                              <i className="fa-solid fa-eye me-2"></i>
                               View
                             </Link>
                           </div>
@@ -1781,8 +1817,8 @@ function Home() {
                     id="fwg-owl"
                     className="owl-carousel owl-theme owl-nav-1"
                     navText={[
-                      '<i class="fas fa-arrow-left"></i>',
-                      '<i class="fas fa-arrow-right"></i>',
+                      '<i className="fas fa-arrow-left"></i>',
+                      '<i className="fas fa-arrow-right"></i>',
                     ]}
                     responsive={{
                       0: {

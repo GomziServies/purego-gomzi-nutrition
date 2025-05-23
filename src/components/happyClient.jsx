@@ -28,8 +28,8 @@ function HappyClientReview() {
     dots: false,
     nav: true,
     navText: [
-      '<i class="fas fa-arrow-left"></i>',
-      '<i class="fas fa-arrow-right"></i>',
+      '<i className="fas fa-arrow-left"></i>',
+      '<i className="fas fa-arrow-right"></i>',
     ],
     responsive: {
       0: {

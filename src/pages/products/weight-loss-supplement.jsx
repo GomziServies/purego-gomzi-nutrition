@@ -25,7 +25,7 @@ import LoginModal from "../../assets/js/popup/login";
 import Features from "../../components/Features";
 import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
-import BookButtonsContainer from "../../components/BookButtonsContainer";
+import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 
 function PureGoPreWorkout() {
   const canonicalUrl = window.location.href;
@@ -38,7 +38,7 @@ function PureGoPreWorkout() {
   const [showModal, setShowModal] = useState(false);
   const [cartDataClick, setCartDataClick] = useState(false);
   const [fadingItem, setFadingItem] = useState(null);
-  const [books, setBooks] = useState(null);
+  const [addToCartProducts, setAddToCartProducts] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const openModal = () => {
@@ -165,12 +165,12 @@ function PureGoPreWorkout() {
         products: [],
       };
       const productExists = existingData.products.some(
-        (product) => product.book_id === currentProductData.id
+        (product) => product.product_id === currentProductData.id
       );
 
       if (!productExists) {
         existingData.products.push({
-          book_id: currentProductData.id,
+          product_id: currentProductData.id,
         });
         localStorage.setItem("addItemInCart", JSON.stringify(existingData));
       }
@@ -191,7 +191,7 @@ function PureGoPreWorkout() {
         });
 
         if (response.data.response === "OK") {
-          setBooks(data);
+          setAddToCartProducts(data);
           setMenuOpen(!menuOpen);
           localStorage.setItem("itemCartAdded", "false");
         }
@@ -405,19 +405,19 @@ function PureGoPreWorkout() {
                       </div>
                     </div>
                     <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
-                      <BookButtonsContainer
-                        booksData={currentProductData}
-                        books={books}
+                      <AddToCartButtonsContainer
+                        addToCartProductsData={currentProductData}
+                        addToCartProducts={addToCartProducts}
                         toggleMenu={toggleMenu}
                         menuOpen={menuOpen}
                         setMenuOpen={setMenuOpen}
-                        selectedBookId={currentProductData.id}
+                        selectedProductId={currentProductData.id}
                       />
                       <button
                         onClick={() => handleQuickBuy(currentProductData)}
                         className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"
                       >
-                        <i class="fa-solid fa-bolt me-2"></i> Quick Buy
+                        <i className="fa-solid fa-bolt me-2"></i> Quick Buy
                       </button>
                     </div>
                     <h4 className="product-offer-title m-0 d-flex justify-content-md-start justify-content-center align-items-center text-yellow mt-3 me-2">
