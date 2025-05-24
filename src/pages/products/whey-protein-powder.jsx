@@ -73,6 +73,12 @@ function PureGoWheyProtein() {
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-3.webp",
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-4.webp",
     ],
+    "1kg-Mango": [
+      "/assets/images/products/whey-protein/whey-protein-mango-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mango-2.webp",
+      "/assets/images/products/whey-protein/whey-protein-mango-3.webp",
+      "/assets/images/products/whey-protein/whey-protein-mango-4.webp",
+    ],
     "2kg-Chocolate": [
       "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-1.webp",
       "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-2.webp",
@@ -90,6 +96,12 @@ function PureGoWheyProtein() {
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-2.webp",
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-3.webp",
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-4.webp",
+    ],
+    "2kg-Mango": [
+      "/assets/images/products/whey-protein/whey-protein-mango-2kg-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mango-2kg-2.webp",
+      "/assets/images/products/whey-protein/whey-protein-mango-2kg-3.webp",
+      "/assets/images/products/whey-protein/whey-protein-mango-2kg-4.webp",
     ],
   };
 
@@ -124,6 +136,18 @@ function PureGoWheyProtein() {
         id: "67e774a963f930dcc6a2715f",
         img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
         name: "Whey Protein 1kg Mawa Kulfi",
+        price: "3199",
+        discount: "1490",
+        size: "1 Kg",
+        dis_point: "53%",
+      },
+    },
+    {
+      key: "1kg-Mango",
+      data: {
+        id: "68316295f91df040c479acc8",
+        img: "/assets/images/products/whey-protein/whey-protein-mango-1.webp",
+        name: "Whey Protein 1kg Mango",
         price: "3199",
         discount: "1490",
         size: "1 Kg",
@@ -166,6 +190,18 @@ function PureGoWheyProtein() {
         dis_point: "52%",
       },
     },
+    {
+      key: "2kg-Mango",
+      data: {
+        id: "683162bef91df040c479ace4",
+        img: "/assets/images/products/whey-protein/whey-protein-mango-1.webp",
+        name: "Whey Protein 2kg Mango",
+        price: "5999",
+        discount: "2879",
+        size: "2 Kg",
+        dis_point: "52%",
+      },
+    },
   ];
 
   const sizeOptions = [
@@ -176,6 +212,7 @@ function PureGoWheyProtein() {
   const flavorOptions = [
     { id: "Chocolate", label: "Chocolate" },
     { id: "Mocha Coffee", label: "Mocha Coffee" },
+    { id: "Mango", label: "Mango" },
     { id: "Mawa Kulfi", label: "Mawa Kulfi" },
   ];
 

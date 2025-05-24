@@ -5,7 +5,12 @@ import { Link } from "react-router-dom";
 import { axiosInstance } from "../../../assets/js/config/api";
 import LogoComponent from "../../logoComponent";
 
-function NutritionHeader({ productDataGet, cartItemName, cartDataClick, handleCartOpen }) {
+function NutritionHeader({
+  productDataGet,
+  cartItemName,
+  cartDataClick,
+  handleCartOpen,
+}) {
   function openside() {
     document.getElementById("demo").style.width = "100%";
   }
@@ -50,23 +55,31 @@ function NutritionHeader({ productDataGet, cartItemName, cartDataClick, handleCa
       <LogoComponent />
       <div className="container-fluid offer-main bg-yellow p-0 m-0 d-flex align-items-center">
         <marquee className="text-white py-2">
-          🎉Get upto 50% off on all products! 💸🛍️ Enjoy exclusive customer
+          🛍️ If your order is above ₹2000, you get a 25% OFF! 💸💥 But wait...
+          If your order is ₹2000 or less, enjoy a massive 50% OFF! 🔥🤑 | 💸🛍️
+          Enjoy exclusive customer support, Monday to Friday, 11 AM to 5 PM! 📞
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; 🛍️ If your order is above ₹2000, you get a 25%
+          OFF! 💸💥 But wait... If your order is ₹2000 or less, enjoy a massive
+          50% OFF! 🔥🤑 | 💸🛍️ Enjoy exclusive customer support, Monday to
+          Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🛍️ If your order is above
+          ₹2000, you get a 25% OFF! 💸💥 But wait... If your order is ₹2000 or
+          less, enjoy a massive 50% OFF! 🔥🤑 | 💸🛍️ Enjoy exclusive customer
           support, Monday to Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp;
-          &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🎉Get
-          upto 50% off on all products! 💸🛍️ Enjoy exclusive customer support,
-          Monday to Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🎉Get upto 50% off
-          on all products! 💸🛍️ Enjoy exclusive customer support, Monday to
-          Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🎉Get upto
-          50% off on all products! 💸🛍️ Enjoy exclusive customer support, Monday
+          &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; 🛍️ If your order is above ₹2000, you get a 25% OFF! 💸💥
+          But wait... If your order is ₹2000 or less, enjoy a massive 50% OFF!
+          🔥🤑 | 💸🛍️ Enjoy exclusive customer support, Monday to Friday, 11 AM
+          to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; 🛍️ If your order is above ₹2000, you get a
+          25% OFF! 💸💥 But wait... If your order is ₹2000 or less, enjoy a
+          massive 50% OFF! 🔥🤑 | 💸🛍️ Enjoy exclusive customer support, Monday
           to Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🎉Get upto 50% off on all
-          products! 💸🛍️ Enjoy exclusive customer support, Monday to Friday, 11
-          AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp;
-          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🎉Get upto 50% off on all products!
-          💸🛍️ Enjoy exclusive customer support, Monday to Friday, 11 AM to 5
-          PM! 📞
+          | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🛍️ If your order is above
+          ₹2000, you get a 25% OFF! 💸💥 But wait... If your order is ₹2000 or
+          less, enjoy a massive 50% OFF! 🔥🤑 | 💸🛍️ Enjoy exclusive customer
+          support, Monday to Friday, 11 AM to 5 PM! 📞
         </marquee>
       </div>
       <div className="container-fluid main p-0 m-0">

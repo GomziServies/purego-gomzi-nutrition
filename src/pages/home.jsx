@@ -44,6 +44,8 @@ function Home() {
     "67e7742d63f930dcc6a27159",
     "67e773f463f930dcc6a27155",
     "6827168ced4175d21de95c4e",
+    "68316295f91df040c479acc8",
+    "68316330f91df040c479ad1e",
   ];
 
   const openModal = () => {
@@ -390,10 +392,7 @@ function Home() {
           <div className="container text-center">
             {/* justify-content-center */}
             <div className="row">
-              <div className="col-12">
-                <h2 className="title text-start">Whey Protein</h2>
-              </div>
-              <div className="col-lg-3 col-sm-6 text-start">
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card">
                   <div className="item-img-sec text-center">
                     <OwlCarousel
@@ -531,7 +530,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-3 col-sm-6 mt-sm-0 mt-3 text-start">
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card">
                   <div className="item-img-sec text-center">
                     <OwlCarousel
@@ -672,7 +671,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card">
                   <div className="item-img-sec text-center">
                     <OwlCarousel
@@ -813,7 +812,148 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card">
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mango-1.webp"
+                          alt="whey-protein-mango"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mango-2.webp"
+                          alt="whey-protein-mango"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mango-3.webp"
+                          alt="whey-protein-mango"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mango-4.webp"
+                          alt="whey-protein-mango"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">53%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div>
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/whey-protein-powder?flavor=Mango">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                          Whey Protein 1kg Mango{" "}
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        Pure Go Whey Protein Mango is a Mixture of Whey Isolate,
+                        Whey Concentrate, Skimmed Milk powder, So...
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹3190/-</span>
+                            {/* <span className="variant-old-price">₹3190</span> */}
+                            {/* <span className="variant-offer">53% off</span> */}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("Whey Protein 1kg Mango")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("68316295f91df040c479acc8")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/whey-protein-powder?flavor=Mango"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card">
                   <div className="item-img-sec text-center">
                     <OwlCarousel
@@ -955,14 +1095,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col-12">
-                <h2 className="title text-start mt-5">
-                  Performance Enhancement Drinks
-                </h2>
-              </div>
-              <div className="col-lg-3 col-sm-6 mt-md-0 mt-3 text-start">
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card position-relative">
                   <span className="labeling">Pre workout + fat burner</span>
                   <div className="item-img-sec text-center">
@@ -1105,7 +1238,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-3 col-sm-6 mt-md-0 mt-3 text-start">
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card">
                   <div className="item-img-sec text-center">
                     <OwlCarousel
@@ -1247,7 +1380,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card position-relative">
                   <span className="labeling">
                     India's first flavored creatine
@@ -1392,7 +1525,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-3 col-sm-6 mt-lg-0 mt-3 text-start">
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card position-relative">
                   {/* <span className="labeling">India's first flavored BCAA Orange</span> */}
                   <div className="item-img-sec text-center">
@@ -1523,6 +1656,148 @@ function Home() {
                             )}
                             <Link
                               to="/bcaa-supplements"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card position-relative">
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/shaker-bottle/shaker-bottle-1.webp"
+                          alt="Gomzi Nutrition Shaker Bottle 500ml"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/shaker-bottle/shaker-bottle-2.webp"
+                          alt="Gomzi Nutrition Shaker Bottle 500ml"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/shaker-bottle/shaker-bottle-3.webp"
+                          alt="Gomzi Nutrition Shaker Bottle 500ml"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/shaker-bottle/shaker-bottle-4.webp"
+                          alt="Gomzi Nutrition Shaker Bottle 500ml"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    {/* <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">60%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div> */}
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "68316330f91df040c479ad1e" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "68316330f91df040c479ad1e" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          {/* <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span> */}
+                        </div>
+                      </span>
+                      <Link to="/shaker-bottle">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                          Gomzi Nutrition Shaker 500ml{" "}
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        Elevate your fitness game with the Gomzi Nutrition
+                        Shaker. Designed to be the ultimate companion for your
+                        active...
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            <span className="variant-price"> ₹149/-</span>
+                            {/* <span className="variant-old-price">₹2100</span> */}
+                            {/* <span className="variant-offer">69% off</span> */}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("BCAA Orange")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() =>
+                                  addProductInCart("68316330f91df040c479ad1e")
+                                }
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/shaker-bottle"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>

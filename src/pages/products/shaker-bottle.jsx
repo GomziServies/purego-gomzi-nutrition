@@ -62,10 +62,10 @@ function PureGoShaker() {
     {
       key: "500ml-Black",
       data: {
-        id: "6827168ced4175d21de95c4e",
+        id: "68316330f91df040c479ad1e",
         img: "/assets/images/products/bcaa/bcaa-orange-1.webp",
         name: "Shaker Bottle 500ml",
-        price: "2100",
+        price: "149",
         discount: "840",
         size: "500ml",
         dis_point: "60%",
