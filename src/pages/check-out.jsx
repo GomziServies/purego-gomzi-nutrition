@@ -125,11 +125,11 @@ function CheckOut() {
         const remainingDiscountPercent =
           originalDiscountPercent - baseDiscountPercent;
 
-        const promoCode = `ONLINE${remainingDiscountPercent}`;
+        const promoCode = `ONLINE${Math.round(remainingDiscountPercent)}`;
 
         const customOffer = {
           code: promoCode,
-          description: `Extra ${remainingDiscountPercent}% OFF`,
+          description: `Extra ${Math.round(remainingDiscountPercent)}% OFF`,
           discount: remainingDiscountPercent,
           discount_type: "percent",
         };
@@ -154,12 +154,12 @@ function CheckOut() {
         const remainingDiscountPercent =
           originalDiscountPercent - baseDiscountPercent;
 
-        const promoCode = `ONLINE${remainingDiscountPercent}`;
+        const promoCode = `ONLINE${Math.round(remainingDiscountPercent)}`;
 
         // Create dynamic promo code entry (if not already there)
         const customOffer = {
           code: promoCode,
-          description: `Extra ${remainingDiscountPercent}% OFF`,
+          description: `Extra ${Math.round(remainingDiscountPercent)}% OFF`,
           discount: remainingDiscountPercent,
           discount_type: "percent",
         };
@@ -1038,7 +1038,9 @@ function CheckOut() {
                         <li>
                           Coupon Discount{" "}
                           {!isCouponRupee &&
-                            `(${autoCouponData?.discount || 0}%)`}{" "}
+                            `(${Math.round(
+                              autoCouponData?.discount || 0
+                            )}%)`}{" "}
                           <span className="text-danger">
                             -{" "}
                             {isCouponRupee
