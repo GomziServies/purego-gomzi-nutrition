@@ -10,6 +10,7 @@ function NutritionHeader({
   cartItemName,
   cartDataClick,
   handleCartOpen,
+  changeATC,
 }) {
   function openside() {
     document.getElementById("demo").style.width = "100%";
@@ -39,6 +40,13 @@ function NutritionHeader({
       fetchProductData();
     }
   }, [productDataGet, cartItemName, cartDataClick]);
+
+  useEffect(() => {
+    const isLogin = localStorage.getItem("fg_group_user_authorization");
+    if (isLogin && changeATC) {
+      fetchProductData();
+    }
+  }, [changeATC]);
 
   useEffect(() => {
     let quickProductData = localStorage.getItem("quickProductData");

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import AddToCartButtonsContainer from "./AddToCartButtonsContainer";
 import LoginModal from "../assets/js/popup/login";
 
-const AddToCartPopUp = ({ clickATC, setClickATC }) => {
+const AddToCartPopUp = ({ clickATC, setClickATC, handleChangeCart, handleChangeATC }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -46,6 +46,8 @@ const AddToCartPopUp = ({ clickATC, setClickATC }) => {
         toggleMenu={handleCartOpen}
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
+        handleChangeCart={handleChangeCart}
+        handleChangeATC={handleChangeATC}
         // selectedProductId={currentProductData.id}
         removeBtn={true}
       />

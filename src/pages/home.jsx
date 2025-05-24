@@ -33,6 +33,7 @@ function Home() {
   const [videoUrl, setVideoUrl] = useState("");
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [changeATC, setChangeATC] = useState(false);
   const [cartItemName, setCartItemName] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
   const [clickATC, setClickATC] = useState(false);
@@ -129,6 +130,16 @@ function Home() {
       fetchProductData();
     }
   }, []);
+
+  useEffect(() => {
+    const isLogin = localStorage.getItem("fg_group_user_authorization");
+    // console.log("alalaalala");
+    if (isLogin && changeATC) {
+      // console.log("alalaalala 000");
+      
+      fetchProductData();
+    }
+  }, [changeATC]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -239,6 +250,16 @@ function Home() {
     setClickATC(true)
   };
 
+  const handleChangeCart = async () => {
+    // setChangeATC(true)
+    // console.log("it's working :- ", changeATC);
+  };
+
+  const handleChangeATC = async () => {
+    // setChangeATC(false)
+    // console.log("zzzzzzzzzzz :- ", changeATC);
+  };
+
   return (
     <>
       <Helmet>
@@ -312,11 +333,12 @@ function Home() {
         muscle gain, best muscle building supplements, chocolate protein powder
       </p>
       {showModal && <LoginModal onClose={closeModal} />}
-      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
+      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} handleChangeCart={handleChangeCart} handleChangeATC={handleChangeATC} />
       <NutritionHeader
         cartItemName={cartItemName}
         openModal={openModal}
         handleCartOpen={handleCartOpen}
+        changeATC={changeATC}
       />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>

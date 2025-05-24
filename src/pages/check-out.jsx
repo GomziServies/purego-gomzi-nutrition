@@ -93,7 +93,13 @@ function CheckOut() {
 
   const handlePaymentModeChange = (e) => {
     const selectedMode = e.target.value;
-    setPaymentMode(selectedMode);
+    console.log("selectedMode :- ", selectedMode);
+
+    if (totalCouponDiscount !== 0 && selectedMode === "Cash On Delivery") {
+      toast.error("In the Cash On Delivery Coupon is not available.");
+    } else {
+      setPaymentMode(selectedMode);
+    }
   };
 
   const UpdatedData = (productData) => {

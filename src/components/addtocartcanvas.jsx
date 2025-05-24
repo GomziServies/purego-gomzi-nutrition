@@ -15,9 +15,12 @@ const AddtoCartOffCanvas = ({
   onClose,
   addToCartProducts,
   selectedProductId,
+  handleChangeCart,
+  handleChangeATC,
 }) => {
   const [animateOpen, setAnimateOpen] = useState(false);
   const [productDataGet, setProductDataGet] = useState([]);
+  const [suggestionData, setSuggestionData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalMRP, setTotalMRP] = useState(0);
@@ -134,6 +137,15 @@ const AddtoCartOffCanvas = ({
       totalMRPCalculation(updatedServerData);
       setProductDataGet(updatedServerData);
       totalAmountCalculation(updatedServerData);
+
+      handleSuggestionData(updatedServerData);
+      console.log("aaaaaaaaaaaaaaa");
+
+      handleChangeCart();
+
+      setTimeout(() => {
+        handleChangeATC();
+      }, 1000);
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
@@ -213,7 +225,7 @@ const AddtoCartOffCanvas = ({
   // Your discount price calculation logic here
   const calculateDiscountedPrice = (couponData) => {
     // Implement discount price calculation based on couponData and totalAmount
-    console.log("Calculate discount with coupon", couponData);
+    // console.log("Calculate discount with coupon", couponData);
   };
 
   // Other existing handlers below unchanged:
@@ -480,6 +492,16 @@ const AddtoCartOffCanvas = ({
     },
   ];
 
+  const handleSuggestionData = (updatedServerData) => {
+    const filteredData = AllPureGoProducts.filter((item) => {
+      return !updatedServerData.some(
+        (serverItem) => serverItem._id === item.data.id
+      );
+    });
+
+    setSuggestionData(filteredData)
+  };
+
   const handleAddToCart = async (e) => {
     e.preventDefault();
     try {
@@ -579,7 +601,7 @@ const AddtoCartOffCanvas = ({
       });
 
       if (response.data.response === "OK") {
-        fetchProductsCartData()
+        fetchProductsCartData();
         // setAddToCartProducts(data);
         // setMenuOpen(!menuOpen);
         // localStorage.setItem("itemCartAdded", "false");
@@ -774,7 +796,7 @@ const AddtoCartOffCanvas = ({
                     <div className="hs-frequently-bought mt-3">
                       <span>You Might Also Like These </span>
                     </div>
-                    {AllPureGoProducts.map((data) => {
+                    {suggestionData.map((data) => {
                       const suggestionProduct = data.data;
                       return (
                         <div className="cart-item-main mt-3 m-2">
@@ -819,7 +841,9 @@ const AddtoCartOffCanvas = ({
                                     title="ADD"
                                     type="button"
                                     className="hs-upsell-add-to-cart hs-event-static"
-                                    onClick={() => toggleMenu(suggestionProduct)}
+                                    onClick={() =>
+                                      toggleMenu(suggestionProduct)
+                                    }
                                   >
                                     <span className="hs-add--to--cart">
                                       ADD

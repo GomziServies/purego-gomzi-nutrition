@@ -10,6 +10,8 @@ const AddToCartButtonsContainer = ({
   setMenuOpen,
   selectedProductId,
   removeBtn,
+  handleChangeCart,
+  handleChangeATC,
 }) => {
   return (
     <>
@@ -29,6 +31,8 @@ const AddToCartButtonsContainer = ({
             onClose={() => setMenuOpen(false)}
             addToCartProducts={addToCartProducts}
             selectedProductId={selectedProductId}
+            handleChangeCart={handleChangeCart}
+            handleChangeATC={handleChangeATC}
           />
         </>
       ) : (
