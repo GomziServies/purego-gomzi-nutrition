@@ -545,11 +545,44 @@ const AddtoCartOffCanvas = ({
             totalMRP,
           })
         );
-          localStorage.setItem(
-            "selectedAddToCartData",
-            JSON.stringify(selectedAddToCartData)
-          );
+        localStorage.setItem(
+          "selectedAddToCartData",
+          JSON.stringify(selectedAddToCartData)
+        );
         window.location.href = `/check-out`;
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  };
+
+  const toggleMenu = async (data) => {
+    try {
+      let existingData = JSON.parse(localStorage.getItem("addItemInCart")) || {
+        products: [],
+      };
+      const productExists = existingData.products.some(
+        (product) => product.product_id === data.id
+      );
+
+      if (!productExists) {
+        existingData.products.push({
+          product_id: data.id,
+        });
+        localStorage.setItem("addItemInCart", JSON.stringify(existingData));
+      }
+
+      const response = await axiosInstance.post("/order-cart/add-item", {
+        item_id: data.id,
+        quantity: 1,
+        item_type: "PURE_GO_MEAL_PRODUCT",
+      });
+
+      if (response.data.response === "OK") {
+        fetchProductsCartData()
+        // setAddToCartProducts(data);
+        // setMenuOpen(!menuOpen);
+        // localStorage.setItem("itemCartAdded", "false");
       }
     } catch (error) {
       console.error("Error adding to cart:", error);
@@ -660,11 +693,11 @@ const AddtoCartOffCanvas = ({
                                 <div className="d-flex mx-2 justify-content-between">
                                   <div className="col-12">
                                     <h2
-                                      className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-18"
+                                      className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-17"
                                       title={product?.name}
                                     >
-                                      {product?.name?.length > 20
-                                        ? product?.name.slice(0, 20) + "..."
+                                      {product?.name?.length > 35
+                                        ? product?.name.slice(0, 35) + "..."
                                         : product?.name}
                                     </h2>
                                   </div>
@@ -738,63 +771,70 @@ const AddtoCartOffCanvas = ({
                     );
                   })}
                   <div>
-                    <div className="hs-frequently-bought mt-5">
+                    <div className="hs-frequently-bought mt-3">
                       <span>You Might Also Like These </span>
                     </div>
-                    <div className="cart-item-main mt-3 m-2">
-                      <div className="media bg-white cart-main">
-                        <div className="d-flex">
-                          <div className="col-3">
-                            <span
-                              className="lazy-load-image-background blur lazy-load-image-loaded"
-                              style={{ display: "inline-block" }}
-                            >
-                              <img
-                                alt="product"
-                                className="img-fluid cp"
-                                src={`https://files.fggroup.in/production/products/FILE-whey-protein-chocolate-1-8c2c4aae-b61a-43f4-b782-8fee3acf54e3.jpeg`}
-                              />
-                            </span>
-                          </div>
-                          <div className="col-7">
-                            <div className="media-body align-self-center">
-                              <div className="d-flex mx-2 justify-content-between">
-                                <div className="col-12">
-                                  <h2
-                                    className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-18"
-                                    title="Everyday Sweet | 1:1 Sugar Replacer | Zero Calories | 100% Natural"
-                                  >
-                                    Everyday Sweet | 1:1 Sugar Replacer | Zero
-                                    Calories
-                                  </h2>
-                                </div>
-                              </div>
-                              <div className="text-dark mx-2">
-                                <div className="d-inline-block">
-                                  <span className="d-inline-block mr-2 f-rob-bol f-22">
-                                    ₹1300
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-2 right-text">
-                            <div className="hs-upsell-add ">
-                              <button
-                                title="ADD"
-                                type="button"
-                                className="hs-upsell-add-to-cart hs-event-static"
-                              >
-                                <span className="hs-add--to--cart">ADD</span>
-                                <span className="hs--loading">
-                                  <div className="hs-spinner"></div>
+                    {AllPureGoProducts.map((data) => {
+                      const suggestionProduct = data.data;
+                      return (
+                        <div className="cart-item-main mt-3 m-2">
+                          <div className="media bg-white cart-main">
+                            <div className="d-flex">
+                              <div className="col-3">
+                                <span
+                                  className="lazy-load-image-background blur lazy-load-image-loaded"
+                                  style={{ display: "inline-block" }}
+                                >
+                                  <img
+                                    alt="product"
+                                    className="img-fluid cp"
+                                    src={suggestionProduct.img}
+                                  />
                                 </span>
-                              </button>
+                              </div>
+                              <div className="col-7">
+                                <div className="media-body align-self-center">
+                                  <div className="d-flex mx-2 justify-content-between">
+                                    <div className="col-12">
+                                      <h2
+                                        className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-18"
+                                        title="Everyday Sweet | 1:1 Sugar Replacer | Zero Calories | 100% Natural"
+                                      >
+                                        {suggestionProduct.name}
+                                      </h2>
+                                    </div>
+                                  </div>
+                                  <div className="text-dark mx-2">
+                                    <div className="d-inline-block">
+                                      <span className="d-inline-block mr-2 f-rob-bol f-22">
+                                        ₹{suggestionProduct.price}
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="col-2 right-text">
+                                <div className="hs-upsell-add ">
+                                  <button
+                                    title="ADD"
+                                    type="button"
+                                    className="hs-upsell-add-to-cart hs-event-static"
+                                    onClick={() => toggleMenu(suggestionProduct)}
+                                  >
+                                    <span className="hs-add--to--cart">
+                                      ADD
+                                    </span>
+                                    <span className="hs--loading">
+                                      <div className="hs-spinner"></div>
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

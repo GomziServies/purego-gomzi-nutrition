@@ -9,8 +9,6 @@ const UserInfo = ({ cartCount, handleCartOpen }) => {
   const [isUserMenuVisible, setIsUserMenuVisible] = useState(false);
   const authorization = localStorage.getItem("fg_group_user_authorization");
 
-  console.log('window.location.href :- ', window.location.pathname.trim())
-
   const openModal = () => {
     setShowModal(true);
   };
