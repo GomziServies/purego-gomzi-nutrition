@@ -112,33 +112,70 @@ function CheckOut() {
     const averageDiscount =
       totalDiscountPercentage / selectedAddToCartData.length;
 
-    console.log("averageDiscount :- ", averageDiscount);
+    let baseDiscount;
+    let priceAfterAutoDiscount;
 
-    const baseDiscountPercent = 50;
-    const originalDiscountPercent = averageDiscount;
-    const baseDiscount = orderTotal * (baseDiscountPercent / 100);
-    let priceAfterAutoDiscount = orderTotal - baseDiscount;
+    if (orderTotal >= 2000) {
+      const baseDiscountPercent = 50;
+      const originalDiscountPercent = averageDiscount;
+      baseDiscount = orderTotal * (baseDiscountPercent / 100);
+      priceAfterAutoDiscount = orderTotal - baseDiscount;
 
-    // Create a promo if eligible
-    if (orderTotal >= 2000 && originalDiscountPercent > baseDiscountPercent) {
-      const remainingDiscountPercent =
-        originalDiscountPercent - baseDiscountPercent;
+      if (originalDiscountPercent > baseDiscountPercent) {
+        const remainingDiscountPercent =
+          originalDiscountPercent - baseDiscountPercent;
 
-      const promoCode = `EXTRA${remainingDiscountPercent}`;
-      const extraDiscountAmount = orderTotal * (remainingDiscountPercent / 100);
+        const promoCode = `ONLINE${remainingDiscountPercent}`;
 
-      // Create dynamic promo code entry (if not already there)
-      const customOffer = {
-        code: promoCode,
-        description: `Extra ${remainingDiscountPercent}% OFF`,
-        discount: remainingDiscountPercent,
-        discount_type: "percent",
-      };
+        const customOffer = {
+          code: promoCode,
+          description: `Extra ${remainingDiscountPercent}% OFF`,
+          discount: remainingDiscountPercent,
+          discount_type: "percent",
+        };
 
-      console.log("customOffer :- ", customOffer);
+        setOffers((prev) => {
+          const isAlreadyPresent = prev.some(
+            (offer) => offer.code === promoCode
+          );
+          if (!isAlreadyPresent) {
+            return [...prev, customOffer];
+          }
+          return prev;
+        });
+      }
+    } else if (orderTotal < 2000) {
+      const baseDiscountPercent = 25;
+      const originalDiscountPercent = averageDiscount;
+      baseDiscount = orderTotal * (baseDiscountPercent / 100);
+      priceAfterAutoDiscount = orderTotal - baseDiscount;
 
-      // Add to promo list (optional: check for duplicates first)
-      setOffers((prev) => [...prev, customOffer]);
+      if (originalDiscountPercent > baseDiscountPercent) {
+        const remainingDiscountPercent =
+          originalDiscountPercent - baseDiscountPercent;
+
+        const promoCode = `ONLINE${remainingDiscountPercent}`;
+
+        // Create dynamic promo code entry (if not already there)
+        const customOffer = {
+          code: promoCode,
+          description: `Extra ${remainingDiscountPercent}% OFF`,
+          discount: remainingDiscountPercent,
+          discount_type: "percent",
+        };
+
+        // Add to promo list (optional: check for duplicates first)
+        // setOffers((prev) => [...prev, customOffer]);
+        setOffers((prev) => {
+          const isAlreadyPresent = prev.some(
+            (offer) => offer.code === promoCode
+          );
+          if (!isAlreadyPresent) {
+            return [...prev, customOffer];
+          }
+          return prev; // Do not add duplicate
+        });
+      }
     }
 
     setAutoDiscount(baseDiscount);
@@ -506,9 +543,6 @@ function CheckOut() {
 
   const handleApplyClick = async (appliedCoupon, PromoCode) => {
     try {
-      console.log("appliedCoupon :- ", appliedCoupon);
-      console.log("AutoPromoCode :- ", PromoCode?.AutoPromoCode);
-
       if (PromoCode?.AutoPromoCode) {
         toast.success("Coupon applied successfully");
         confetti({
@@ -560,12 +594,7 @@ function CheckOut() {
     }
   };
 
-  const [offers, setOffers] = useState([
-    {
-      code: "BRIJESH250",
-      description: "Get Exclusive ₹250 off on all products",
-    },
-  ]);
+  const [offers, setOffers] = useState([]);
 
   return (
     <>
@@ -988,23 +1017,33 @@ function CheckOut() {
                         <span>₹{amountOnCouponCode?.toFixed(2)} /-</span>
                       </li>
 
-                      {autoDiscount !== 0 && (
-                        <li>
-                          Discount (50%){" "}
-                          <span className="text-danger">
-                            - ₹{autoDiscount.toFixed(2)} /-
-                          </span>
-                        </li>
-                      )}
+                      {autoDiscount !== 0 &&
+                        (amountOnCouponCode < 2000 ? (
+                          <li>
+                            Discount (25%){" "}
+                            <span className="text-danger">
+                              - ₹{autoDiscount.toFixed(2)} /-
+                            </span>
+                          </li>
+                        ) : (
+                          <li>
+                            Discount (50%){" "}
+                            <span className="text-danger">
+                              - ₹{autoDiscount.toFixed(2)} /-
+                            </span>
+                          </li>
+                        ))}
 
                       {totalCouponDiscount !== 0 && (
                         <li>
-                          Coupon Discount ({autoCouponData?.discount || 0}%){" "}
+                          Coupon Discount{" "}
+                          {!isCouponRupee &&
+                            `(${autoCouponData?.discount || 0}%)`}{" "}
                           <span className="text-danger">
                             -{" "}
                             {isCouponRupee
                               ? `₹${totalCouponDiscount.toFixed(2)}`
-                              : `₹${totalCouponDiscount.toFixed(2)}/-`}
+                              : `₹${totalCouponDiscount.toFixed(2)} /-`}
                             {isCouponRupee && " /-"}
                           </span>
                         </li>
@@ -1014,15 +1053,15 @@ function CheckOut() {
                         {/* <span>₹{mainPrice <= 499 ? 85 : "FREE"}</span> */}
                         <span
                           className="text-success"
-                          onClick={() => {
-                            if (!orderUserData.pin_code) {
-                              Swal.fire({
-                                icon: "warning",
-                                title: "Billing Details",
-                                text: "Please fill out all billing details before proceeding.",
-                              });
-                            }
-                          }}
+                          // onClick={() => {
+                          //   if (!orderUserData.pin_code) {
+                          //     Swal.fire({
+                          //       icon: "warning",
+                          //       title: "Billing Details",
+                          //       text: "Please fill out all billing details before proceeding.",
+                          //     });
+                          //   }
+                          // }}
                         >
                           {discountCost
                             ? "+ ₹" + discountCost
@@ -1113,15 +1152,15 @@ function CheckOut() {
                     <div className="inner-shop-perched-info mt-3">
                       <button
                         onClick={() => {
-                          if (discountCost) {
-                            handleOrderPayment();
-                          } else {
-                            Swal.fire({
-                              icon: "warning",
-                              title: "Billing Details",
-                              text: "Please fill out all billing details before proceeding.",
-                            });
-                          }
+                          // if (discountCost) {
+                          handleOrderPayment();
+                          // } else {
+                          //   Swal.fire({
+                          //     icon: "warning",
+                          //     title: "Billing Details",
+                          //     text: "Please fill out all billing details before proceeding.",
+                          //   });
+                          // }
                         }}
                         className="cart-btn w-100 m-0"
                       >

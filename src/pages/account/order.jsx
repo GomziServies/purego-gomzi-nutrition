@@ -4,9 +4,11 @@ import HomeFooter from "../../components/partials/Footer/footer";
 import { axiosInstance } from "../../assets/js/config/api";
 import dayjs from "dayjs";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
+import AddToCartPopUp from "../../components/AddToCartPopUp";
 
 function UserOrder() {
   const [orderData, setOrderData] = useState([]);
+  const [clickATC, setClickATC] = useState(false);
 
   useEffect(() => {
     getOrderDetail();
@@ -71,6 +73,10 @@ function UserOrder() {
   const convertDate = (date) => {
     return dayjs(date).format("MM/DD/YYYY");
   };
+
+  const handleCartOpen = async () => {
+    setClickATC(true)
+  };
   return (
     <>
       <Helmet>
@@ -85,7 +91,9 @@ function UserOrder() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
       </Helmet>
-      <NutritionHeader />
+      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
+      <NutritionHeader
+        handleCartOpen={handleCartOpen} />
 
       <div
         className="container mt-4 mb-4 text-left"

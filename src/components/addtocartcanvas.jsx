@@ -498,8 +498,6 @@ const AddtoCartOffCanvas = ({
         quantity: product.quantity,
       }));
 
-      console.log("products :- ", products);
-
       const selectedAddToCartData = products.map((data) => {
         const selectedProduct = AllPureGoProducts.find(
           (allProducts) => allProducts.data.id === data.product_id
@@ -507,7 +505,6 @@ const AddtoCartOffCanvas = ({
 
         return selectedProduct.data;
       });
-      console.log("selectedAddToCartData :- ", selectedAddToCartData);
 
       if (changedProducts.length > 0) {
         const response = await axiosInstance.post(

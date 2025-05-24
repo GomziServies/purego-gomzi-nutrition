@@ -26,6 +26,7 @@ import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import LoginModal from "../assets/js/popup/login";
 import Swal from "sweetalert2";
 import AddToCartButtonsContainer from "../components/AddToCartButtonsContainer";
+import AddToCartPopUp from "../components/AddToCartPopUp";
 
 function Home() {
   const canonicalUrl = window.location.href;
@@ -34,6 +35,7 @@ function Home() {
   const [showModal, setShowModal] = useState(false);
   const [cartItemName, setCartItemName] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [clickATC, setClickATC] = useState(false);
   const [productReviewsData, setProductReviewsData] = useState([]);
   const productsId = [
     "67e7749163f930dcc6a2715d",
@@ -234,23 +236,7 @@ function Home() {
   };
 
   const handleCartOpen = async () => {
-    try {
-      const isAuthenticated = localStorage.getItem(
-        "fg_group_user_authorization"
-      );
-
-      if (!isAuthenticated) {
-        localStorage.setItem("itemCartAdded", "true");
-        setMenuOpen(false);
-        setShowModal(true);
-      } else {
-        // setAddToCartProducts(data);
-        setMenuOpen(!menuOpen);
-        localStorage.setItem("itemCartAdded", "false");
-      }
-    } catch (error) {
-      console.error("Error adding to cart:", error);
-    }
+    setClickATC(true)
   };
 
   return (
@@ -326,15 +312,7 @@ function Home() {
         muscle gain, best muscle building supplements, chocolate protein powder
       </p>
       {showModal && <LoginModal onClose={closeModal} />}
-      <AddToCartButtonsContainer
-        // addToCartProductsData={currentProductData}
-        addToCartProducts={{ id: "1" }}
-        toggleMenu={handleCartOpen}
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-        // selectedProductId={currentProductData.id}
-        removeBtn={true}
-      />
+      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
       <NutritionHeader
         cartItemName={cartItemName}
         openModal={openModal}

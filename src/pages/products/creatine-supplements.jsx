@@ -26,6 +26,7 @@ import Features from "../../components/Features";
 import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
+import AddToCartPopUp from "../../components/AddToCartPopUp";
 
 function PureGoCreatine() {
   const canonicalUrl = window.location.href;
@@ -40,6 +41,7 @@ function PureGoCreatine() {
   const [fadingItem, setFadingItem] = useState(null);
   const [addToCartProducts, setAddToCartProducts] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [clickATC, setClickATC] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
@@ -219,6 +221,10 @@ function PureGoCreatine() {
     },
   ];
 
+  const handleCartOpen = async () => {
+    setClickATC(true)
+  };
+
   return (
     <>
       <Helmet>
@@ -265,7 +271,9 @@ function PureGoCreatine() {
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
       {fadingItem && <ProductSelectComponent fadingItem={fadingItem} />}
-      <NutritionHeader />
+      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
+      <NutritionHeader
+        handleCartOpen={handleCartOpen} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>

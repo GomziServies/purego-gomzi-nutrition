@@ -11,8 +11,8 @@ if (
 } else if (hostname === "test.purego.gomzilifesciences.in") {
   baseUrl = "https://dev-api.fggroup.in";
 } else {
-  baseUrl = "https://dev-api.fggroup.in";
-  // baseUrl = "http://localhost";
+  // baseUrl = "https://dev-api.fggroup.in";
+  baseUrl = "http://localhost";
 }
 
 const apiConfig = {

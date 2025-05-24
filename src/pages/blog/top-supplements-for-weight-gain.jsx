@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -15,9 +15,15 @@ import "../../assets/css/style.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import HomeNutritionFooter from "../../components/partials/Footer/footer";
+import AddToCartPopUp from "../../components/AddToCartPopUp";
 
 function Blog1() {
   const canonicalUrl = window.location.href;
+  const [clickATC, setClickATC] = useState(false);
+
+  const handleCartOpen = async () => {
+    setClickATC(true)
+  };
 
   return (
     <>
@@ -63,7 +69,9 @@ function Blog1() {
         </noscript>
       </Helmet>
       {/* <LoaderComponent /> */}
-      <NutritionHeader />
+      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
+      <NutritionHeader
+        handleCartOpen={handleCartOpen} />
       <>
         <main className="main-area fix">
           {/* blog-area */}

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import HomeFooter from "../../components/partials/Footer/footer";
 import { axiosInstance } from "../../assets/js/config/api";
+import AddToCartPopUp from "../../components/AddToCartPopUp";
 
 function UserProfile() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ function UserProfile() {
     profilePhoto: null,
     profile_image: null,
   });
+  const [clickATC, setClickATC] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -122,6 +124,10 @@ function UserProfile() {
     getUserData();
   }, []);
 
+  const handleCartOpen = async () => {
+    setClickATC(true)
+  };
+
   return (
     <>
       <Helmet>
@@ -136,7 +142,9 @@ function UserProfile() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
       </Helmet>
-      <NutritionHeader />
+      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
+      <NutritionHeader
+        handleCartOpen={handleCartOpen} />
       <Container className="margintop-nutrition mb-5">
         <form
           onSubmit={handleSubmit}

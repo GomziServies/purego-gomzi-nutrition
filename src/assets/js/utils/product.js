@@ -85,6 +85,7 @@ export const createProductOrder = async (
       quantity: parseInt(quantity),
       payment_mode,
       delivery_charges: parseFloat(discountCost),
+      item_type: "PURE_GO_MEAL_PRODUCT",
     };
 
     if (coupon_id) {

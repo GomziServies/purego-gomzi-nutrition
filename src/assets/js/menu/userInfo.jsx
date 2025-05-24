@@ -9,6 +9,8 @@ const UserInfo = ({ cartCount, handleCartOpen }) => {
   const [isUserMenuVisible, setIsUserMenuVisible] = useState(false);
   const authorization = localStorage.getItem("fg_group_user_authorization");
 
+  console.log('window.location.href :- ', window.location.pathname.trim())
+
   const openModal = () => {
     setShowModal(true);
   };
@@ -66,32 +68,37 @@ const UserInfo = ({ cartCount, handleCartOpen }) => {
           >
             Hi, {userInfo.user.last_name} <i className="far fa-user"></i>
           </li>
-          <li className="mx-0">
-            <button
-              className="cart-button-header"
-              onClick={() => handleCartOpen()}
-              // href="/add-to-cart"
-              aria-label="Fg Group"
-            >
-              {/* <img
+          {window.location.pathname.trim() === "/check-out" ? (
+            ""
+          ) : (
+            <li className="mx-0">
+              <button
+                className="cart-button-header"
+                onClick={() => handleCartOpen()}
+                // href="/add-to-cart"
+                aria-label="Fg Group"
+              >
+                {/* <img
                 src={process.env.PUBLIC_URL + "/assets/images/cart-img.webp"}
                 width="21px"
                 alt="Cart"
                 className="mb-1"
               /> */}
-              <div id="ex4">
-                <span className="p1" data-count={cartCount}>
-                  <img
-                    src={
-                      process.env.PUBLIC_URL + "../assets/images/cart-img.webp"
-                    }
-                    width="28px"
-                    alt="Fg Group"
-                  />
-                </span>
-              </div>
-            </button>
-          </li>
+                <div id="ex4">
+                  <span className="p1" data-count={cartCount}>
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        "../assets/images/cart-img.webp"
+                      }
+                      width="28px"
+                      alt="Fg Group"
+                    />
+                  </span>
+                </div>
+              </button>
+            </li>
+          )}
           {isUserMenuVisible && (
             <ul>
               <li>
