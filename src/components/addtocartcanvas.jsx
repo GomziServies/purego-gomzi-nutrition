@@ -499,7 +499,7 @@ const AddtoCartOffCanvas = ({
       );
     });
 
-    setSuggestionData(filteredData)
+    setSuggestionData(filteredData);
   };
 
   const handleAddToCart = async (e) => {
@@ -715,7 +715,7 @@ const AddtoCartOffCanvas = ({
                                 <div className="d-flex mx-2 justify-content-between">
                                   <div className="col-12">
                                     <h2
-                                      className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-17"
+                                      className="f-rob-bol d-inline-block text-capitalize h3-fs cp mb-2 fs-17"
                                       title={product?.name}
                                     >
                                       {product?.name?.length > 35
