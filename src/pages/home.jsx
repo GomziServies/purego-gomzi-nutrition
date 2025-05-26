@@ -25,7 +25,6 @@ import HappyClientReview from "../components/happyClient";
 import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import LoginModal from "../assets/js/popup/login";
 import Swal from "sweetalert2";
-import AddToCartButtonsContainer from "../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../components/AddToCartPopUp";
 
 function Home() {
@@ -35,7 +34,6 @@ function Home() {
   const [showModal, setShowModal] = useState(false);
   const [changeATC, setChangeATC] = useState(false);
   const [cartItemName, setCartItemName] = useState([]);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [clickATC, setClickATC] = useState(false);
   const [productReviewsData, setProductReviewsData] = useState([]);
   const productsId = [
@@ -133,10 +131,7 @@ function Home() {
 
   useEffect(() => {
     const isLogin = localStorage.getItem("fg_group_user_authorization");
-    // console.log("alalaalala");
     if (isLogin && changeATC) {
-      // console.log("alalaalala 000");
-      
       fetchProductData();
     }
   }, [changeATC]);
@@ -251,13 +246,13 @@ function Home() {
   };
 
   const handleChangeCart = async () => {
-    // setChangeATC(true)
-    // console.log("it's working :- ", changeATC);
+    setChangeATC(true)
   };
 
   const handleChangeATC = async () => {
-    // setChangeATC(false)
-    // console.log("zzzzzzzzzzz :- ", changeATC);
+    if(changeATC) {
+      setChangeATC(false)
+    }
   };
 
   return (
@@ -333,12 +328,13 @@ function Home() {
         muscle gain, best muscle building supplements, chocolate protein powder
       </p>
       {showModal && <LoginModal onClose={closeModal} />}
-      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} handleChangeCart={handleChangeCart} handleChangeATC={handleChangeATC} />
+      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} changeATC={changeATC} handleChangeCart={handleChangeCart} handleChangeATC={handleChangeATC} />
       <NutritionHeader
         cartItemName={cartItemName}
         openModal={openModal}
         handleCartOpen={handleCartOpen}
         changeATC={changeATC}
+        handleChangeATC={handleChangeATC}
       />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>

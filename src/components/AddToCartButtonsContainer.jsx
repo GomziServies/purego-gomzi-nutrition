@@ -1,4 +1,3 @@
-import React from "react";
 import AddToCartButton from "./AddToCartButtons.jsx";
 import AddtoCartOffCanvas from "./addtocartcanvas.jsx";
 
@@ -12,6 +11,7 @@ const AddToCartButtonsContainer = ({
   removeBtn,
   handleChangeCart,
   handleChangeATC,
+  changeATC,
 }) => {
   return (
     <>
@@ -33,6 +33,7 @@ const AddToCartButtonsContainer = ({
             selectedProductId={selectedProductId}
             handleChangeCart={handleChangeCart}
             handleChangeATC={handleChangeATC}
+            changeATC={changeATC}
           />
         </>
       ) : (

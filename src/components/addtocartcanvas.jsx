@@ -14,11 +14,10 @@ const AddtoCartOffCanvas = ({
   isOpen,
   onClose,
   addToCartProducts,
-  selectedProductId,
   handleChangeCart,
-  handleChangeATC,
 }) => {
   const [animateOpen, setAnimateOpen] = useState(false);
+  const [dataPrinted, setDataPrinted] = useState(false);
   const [productDataGet, setProductDataGet] = useState([]);
   const [suggestionData, setSuggestionData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -27,11 +26,7 @@ const AddtoCartOffCanvas = ({
   const [previousProductData, setPreviousProductData] = useState([]);
   const [serverDataID, setServerDataID] = useState("");
   const [isFetchingData, setIsFetchingData] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    !!localStorage.getItem("fg_group_user_authorization")
-  );
   const [manualCouponCode, setManualCouponCode] = useState("");
-  const [manualCouponCodeData, setManualCouponCodeData] = useState(null);
 
   const hasFiredConfetti = useRef(false);
 
@@ -59,7 +54,9 @@ const AddtoCartOffCanvas = ({
 
   // Fetch cart data when addToCartProducts change
   useEffect(() => {
-    if (addToCartProducts && !isFetchingData) fetchProductsCartData();
+    if (addToCartProducts && !isFetchingData && !dataPrinted) {
+      fetchProductsCartData();
+    }
   }, [addToCartProducts]);
 
   // AUTO apply coupon based on totalAmount
@@ -69,7 +66,6 @@ const AddtoCartOffCanvas = ({
     if (totalAmount <= 0) {
       // Cart empty - clear coupon
       setManualCouponCode("");
-      setManualCouponCodeData(null);
       localStorage.removeItem("appliedCoupon");
       return;
     }
@@ -139,13 +135,7 @@ const AddtoCartOffCanvas = ({
       totalAmountCalculation(updatedServerData);
 
       handleSuggestionData(updatedServerData);
-      console.log("aaaaaaaaaaaaaaa");
-
-      handleChangeCart();
-
-      setTimeout(() => {
-        handleChangeATC();
-      }, 1000);
+      setDataPrinted(true);
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
@@ -198,7 +188,6 @@ const AddtoCartOffCanvas = ({
       const couponData = response.data.data;
 
       setManualCouponCode(code);
-      setManualCouponCodeData(couponData);
       localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
 
       if (!isAuto) {
@@ -209,8 +198,6 @@ const AddtoCartOffCanvas = ({
         });
         toast.success("Coupon applied successfully");
       }
-
-      calculateDiscountedPrice(couponData);
     } catch (error) {
       if (!isAuto) {
         Swal.fire({
@@ -220,12 +207,6 @@ const AddtoCartOffCanvas = ({
         });
       }
     }
-  };
-
-  // Your discount price calculation logic here
-  const calculateDiscountedPrice = (couponData) => {
-    // Implement discount price calculation based on couponData and totalAmount
-    // console.log("Calculate discount with coupon", couponData);
   };
 
   // Other existing handlers below unchanged:
@@ -248,6 +229,8 @@ const AddtoCartOffCanvas = ({
       );
       localStorage.setItem("addItemInCart", JSON.stringify(existingData));
       fetchProductsCartData();
+
+      handleChangeCart();
     } catch (error) {
       console.error("Error removing product:", error);
     }
@@ -602,6 +585,7 @@ const AddtoCartOffCanvas = ({
 
       if (response.data.response === "OK") {
         fetchProductsCartData();
+        handleChangeCart();
         // setAddToCartProducts(data);
         // setMenuOpen(!menuOpen);
         // localStorage.setItem("itemCartAdded", "false");
@@ -682,8 +666,19 @@ const AddtoCartOffCanvas = ({
         </div>
         <div className="thin-scrollbar" style={{ overflowY: "scroll" }}>
           {loading ? (
-            <div className="d-flex justify-content-center align-items-center mb-4 my-7 loader-h">
-              <div className="loader"></div>
+            <div
+              id="preloader1"
+              className={`fade-loader ${loading ? "fade-in" : "fade-out"}`}
+              style={{ position: "unset" }}
+            >
+              <div
+                className="tg-cube-grid"
+                style={{ position: "unset", margin: "20px auto" }}
+              >
+                {[...Array(9)].map((_, i) => (
+                  <div key={i} className={`tg-cube tg-cube${i + 1}`} />
+                ))}
+              </div>
             </div>
           ) : (
             productDataGet?.length > 0 && (

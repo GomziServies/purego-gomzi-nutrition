@@ -26,7 +26,6 @@ function CheckOut() {
   const [showCouponModal, setShowCouponModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [quickData, setQuickData] = useState({});
-  const [selectedATCData, setSelectedATCData] = useState([]);
   const [manualCouponCode, setManualCouponCode] = useState("");
   const [manualCouponCodeData, setManualCouponCodeData] = useState("");
   const [autoDiscount, setAutoDiscount] = useState(0);
@@ -93,13 +92,7 @@ function CheckOut() {
 
   const handlePaymentModeChange = (e) => {
     const selectedMode = e.target.value;
-    console.log("selectedMode :- ", selectedMode);
-
-    if (totalCouponDiscount !== 0 && selectedMode === "Cash On Delivery") {
-      toast.error("In the Cash On Delivery Coupon is not available.");
-    } else {
-      setPaymentMode(selectedMode);
-    }
+    setPaymentMode(selectedMode);
   };
 
   const UpdatedData = (productData) => {
@@ -267,8 +260,17 @@ function CheckOut() {
       };
       const payment_mode = paymentMode;
 
+      if (totalCouponDiscount !== 0 && payment_mode === "Cash On Delivery") {
+        Swal.fire({
+          icon: "warning",
+          title: "Notice",
+          text: "Coupon is not available with Cash On Delivery. For discount offers, use Online Payment or remove the coupon.",
+        });
+        return;
+      }
+
       try {
-        const coupon_ids = [manualCouponCodeData._id].filter(Boolean);
+        const coupon_ids = [manualCouponCodeData?._id].filter(Boolean);
         await createPaymentProduct(
           quickData && quickData?.id
             ? [{ product_id: quickData.id, quantity: 1 }]
@@ -542,6 +544,7 @@ function CheckOut() {
     setManualCouponCodeData(null);
     setTotalCouponDiscount(0);
     setIsCouponRupee(false);
+    setAutoCouponData(null);
     localStorage.removeItem("appliedCoupon");
     getUserData();
     UpdatedData(productData);
@@ -1108,6 +1111,7 @@ function CheckOut() {
                                   className="checkbox-input"
                                   name="paymentMode"
                                   value="Cash On Delivery"
+                                  checked={paymentMode === "Cash On Delivery"}
                                   onChange={handlePaymentModeChange}
                                 />
                                 <span className="checkbox-tile">
@@ -1125,13 +1129,14 @@ function CheckOut() {
                                   <span className="checkbox-label">COD</span>
                                 </span>
                               </label>
+
                               <label className="checkbox-wrapper mx-2">
                                 <input
                                   type="radio"
-                                  checked
                                   className="checkbox-input"
                                   name="paymentMode"
                                   value="ONLINE"
+                                  checked={paymentMode === "ONLINE"}
                                   onChange={handlePaymentModeChange}
                                 />
                                 <span className="checkbox-tile">
