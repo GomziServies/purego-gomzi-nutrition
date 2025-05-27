@@ -49,7 +49,7 @@ function PureGoWheyProtein() {
   const [clickATC, setClickATC] = useState(false);
 
   const handleCartOpen = async () => {
-    setClickATC(true)
+    setClickATC(true);
   };
 
   const openModal = () => {
@@ -410,6 +410,18 @@ function PureGoWheyProtein() {
     }
   };
 
+  const [changeATC, setChangeATC] = useState(false);
+
+  const handleChangeCart = async () => {
+    setChangeATC(true);
+  };
+
+  const handleChangeATC = async () => {
+    if (changeATC) {
+      setChangeATC(false);
+    }
+  };
+
   return (
     <>
       <Helmet>
@@ -456,9 +468,20 @@ function PureGoWheyProtein() {
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
       {fadingItem && <ProductSelectComponent fadingItem={fadingItem} />}
-      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
-      <NutritionHeader cartDataClick={cartDataClick}
-        handleCartOpen={handleCartOpen} />
+      <AddToCartPopUp
+        clickATC={clickATC}
+        setClickATC={setClickATC}
+        changeATC={changeATC}
+        handleChangeCart={handleChangeCart}
+        handleChangeATC={handleChangeATC}
+      />
+      <NutritionHeader
+        cartDataClick={cartDataClick}
+        handleCartOpen={handleCartOpen}
+        openModal={openModal}
+        changeATC={changeATC}
+        handleChangeATC={handleChangeATC}
+      />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
@@ -811,6 +834,9 @@ function PureGoWheyProtein() {
         <MoreProduct
           setCartDataClick={setCartDataClick}
           cartDataClick={cartDataClick}
+          handleChangeCart={handleChangeCart}
+          changeATC={changeATC}
+          handleChangeATC={handleChangeATC}
         />
         <HowToUse
           src1={

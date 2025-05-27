@@ -8,7 +8,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import LoginModal from "../assets/js/popup/login";
 
-const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
+const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, changeATC }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -94,6 +94,13 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
     }
   }, [cartDataClick]);
 
+   useEffect(() => {
+      const isLogin = localStorage.getItem("fg_group_user_authorization");
+      if (isLogin && changeATC) {
+        fetchProductData();
+      }
+    }, [changeATC]);
+
   const options = {
     loop: true,
     dots: false,
@@ -123,6 +130,8 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
         toast.success("Product added in cart.");
         fetchProductData();
         setCartDataClick(true);
+
+        handleChangeCart();
       }
     } catch (error) {
       console.error(error);
@@ -813,7 +822,9 @@ const MoreProduct = ({ setCartDataClick, cartDataClick }) => {
               </div>
               <div className="item mx-2">
                 <div className="item-card position-relative">
-                  <span className="labeling">India's first flavored creatine</span>
+                  <span className="labeling">
+                    India's first flavored creatine
+                  </span>
                   <div className="item-img-sec text-center">
                     <div className="d-flex justify-content-center">
                       <img

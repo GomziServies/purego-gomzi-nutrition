@@ -44,7 +44,7 @@ function NutritionHeader({
 
   useEffect(() => {
     const isLogin = localStorage.getItem("fg_group_user_authorization");
-    
+
     if (isLogin) {
       fetchProductData();
     }
@@ -52,11 +52,11 @@ function NutritionHeader({
 
   useEffect(() => {
     const isLogin = localStorage.getItem("fg_group_user_authorization");
-    
-    if (isLogin && changeATC) {
-      handleChangeATC()
+
+    if ((isLogin && changeATC) || (isLogin && cartDataClick)) {
+      handleChangeATC();
     }
-  }, [changeATC]);
+  }, [changeATC, cartDataClick]);
 
   useEffect(() => {
     let quickProductData = localStorage.getItem("quickProductData");
@@ -156,8 +156,26 @@ function NutritionHeader({
         >
           ☰
         </span>
-        <div className="d-lg-none d-sm-block mt-4">
-          <Link to="/add-to-cart">
+        <div className="d-lg-none d-sm-block cart-btnn mt-4">
+          <button
+            className="cart-button-header"
+            onClick={() => handleCartOpen()}
+            // href="/add-to-cart"
+            aria-label="Fg Group"
+          >
+            <div id="ex4">
+              <span className="p1" data-count={cartCount}>
+                <img
+                  src={
+                    process.env.PUBLIC_URL + "../assets/images/cart-img.webp"
+                  }
+                  width="28px"
+                  alt="Fg Group"
+                />
+              </span>
+            </div>
+          </button>
+          {/* <Link to="/add-to-cart">
             <div className="cart-btnn">
               <div id="ex4">
                 <span className="p1" data-count={cartCount}>
@@ -171,7 +189,7 @@ function NutritionHeader({
                 </span>
               </div>
             </div>
-          </Link>
+          </Link> */}
         </div>
         <div className="login d-lg-block d-none">
           <ul>

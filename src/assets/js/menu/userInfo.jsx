@@ -76,12 +76,6 @@ const UserInfo = ({ cartCount, handleCartOpen }) => {
                 // href="/add-to-cart"
                 aria-label="Fg Group"
               >
-                {/* <img
-                src={process.env.PUBLIC_URL + "/assets/images/cart-img.webp"}
-                width="21px"
-                alt="Cart"
-                className="mb-1"
-              /> */}
                 <div id="ex4">
                   <span className="p1" data-count={cartCount}>
                     <img

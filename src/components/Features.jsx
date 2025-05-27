@@ -41,7 +41,11 @@ const Features = ({ USPData, removeUSP, openModal }) => {
       }
     } catch (error) {
       console.error("Error submitting pincode:", error);
-      toast.error("Something went wrong. Please try again later.");
+      toast.error(
+        error?.response?.data?.message
+          ? error?.response?.data?.message
+          : error?.response?.data
+      );
     }
     setLoading(false);
   };
@@ -89,8 +93,8 @@ const Features = ({ USPData, removeUSP, openModal }) => {
           )}
           {pincodeAvailable === "success" ? (
             <p className="mt-2 mb-0 text-yellow fw-bold">
-              <i className="fa-solid fa-circle-check"></i> Your area is available
-              for delivery.
+              <i className="fa-solid fa-circle-check"></i> Your area is
+              available for delivery.
             </p>
           ) : pincodeAvailable === "error" ? (
             <p className="mt-2 mb-0 text-danger fw-bold">
@@ -99,7 +103,8 @@ const Features = ({ USPData, removeUSP, openModal }) => {
             </p>
           ) : isPincode ? (
             <p className="mt-2 mb-0 text-danger fw-bold">
-              <i className="fa-solid fa-circle-xmark"></i> Enter Your Delivery Pincode.
+              <i className="fa-solid fa-circle-xmark"></i> Enter Your Delivery
+              Pincode.
             </p>
           ) : (
             ""

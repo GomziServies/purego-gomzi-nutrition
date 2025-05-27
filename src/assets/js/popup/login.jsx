@@ -49,7 +49,11 @@ const LoginModal = ({ onClose }) => {
         toast.error("Failed to send OTP. Please try again.");
       }
     } catch (error) {
-      toast.error("Failed to send OTP. Please try again.");
+      toast.error(
+        error?.response?.data?.message
+          ? error?.response?.data?.message
+          : error?.response?.data
+      );
       console.error("Error in handleLogin:", error);
     }
   };
@@ -73,7 +77,11 @@ const LoginModal = ({ onClose }) => {
         setEmailOtpDialogOpen(true);
       }
     } catch (error) {
-      toast.error("Invalid Password or Email");
+      toast.error(
+        error?.response?.data?.message
+          ? error?.response?.data?.message
+          : error?.response?.data
+      );
       console.error("Error in handleLogin:", error);
     }
   };
@@ -159,8 +167,7 @@ const LoginModal = ({ onClose }) => {
     <>
       {/* Login Popup  */}
       <Modal show={showModal} onHide={handleClose} centered>
-        <Modal.Header closeButton className="border-0 pb-0">
-        </Modal.Header>
+        <Modal.Header closeButton className="border-0 pb-0"></Modal.Header>
         <Modal.Body>
           <Modal.Title>
             <div className="text-center mb-4">
@@ -223,8 +230,7 @@ const LoginModal = ({ onClose }) => {
       </Modal>
       {/* Otp Popup  */}
       <Modal show={otpDialogOpen} onHide={handleCloseOtpModal} centered>
-        <Modal.Header closeButton className="border-0 pb-0">
-        </Modal.Header>
+        <Modal.Header closeButton className="border-0 pb-0"></Modal.Header>
         <Modal.Body>
           <Modal.Title>
             <div className="text-center mb-4">

@@ -52,7 +52,11 @@ function UserProfile() {
       toast.success("Profile photo uploaded successfully");
     } catch (error) {
       console.error("Error uploading photo:", error);
-      toast.error("Error uploading profile photo");
+      toast.error(
+        error?.response?.data?.message
+          ? error?.response?.data?.message
+          : error?.response?.data
+      );
     }
   };
 
@@ -70,7 +74,11 @@ function UserProfile() {
       toast.success("Profile photo removed successfully");
     } catch (error) {
       console.error("Error removing photo:", error);
-      toast.error("Error removing profile photo");
+      toast.error(
+        error?.response?.data?.message
+          ? error?.response?.data?.message
+          : error?.response?.data
+      );
     }
   };
 
@@ -89,7 +97,11 @@ function UserProfile() {
       }
     } catch (error) {
       console.error("Error updating user data:", error);
-      toast.error("Error updating user data");
+      toast.error(
+        error?.response?.data?.message
+          ? error?.response?.data?.message
+          : error?.response?.data
+      );
     }
   };
 
@@ -111,7 +123,11 @@ function UserProfile() {
       }
     } catch (error) {
       console.error("Error in getUserData:", error);
-      toast.error("Error in getUserData");
+      toast.error(
+        error?.response?.data?.message
+          ? error?.response?.data?.message
+          : error?.response?.data
+      );
     }
   };
 
@@ -125,7 +141,7 @@ function UserProfile() {
   }, []);
 
   const handleCartOpen = async () => {
-    setClickATC(true)
+    setClickATC(true);
   };
 
   return (
@@ -143,8 +159,7 @@ function UserProfile() {
         />
       </Helmet>
       <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
-      <NutritionHeader
-        handleCartOpen={handleCartOpen} />
+      <NutritionHeader handleCartOpen={handleCartOpen} />
       <Container className="margintop-nutrition mb-5">
         <form
           onSubmit={handleSubmit}
