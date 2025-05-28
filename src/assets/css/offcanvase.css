@@ -30,8 +30,6 @@
   right: -100%;
   width: 440px;
   height: auto;
-  border-radius: 20px;
-  margin: 10px;
   background-color: white;
   z-index: 1000;
   visibility: visible !important;
@@ -124,7 +122,7 @@
 }
 
 .hs-rewards-content {
-  padding: 20px 0px;
+  padding: 10px 0px;
 }
 
 .hs-progess-content .hs-text-free-shipping,
@@ -305,4 +303,56 @@
 .thin-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.discount-field {
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.logoAndApplyCouponText {
+  display: flex;
+  align-items: center;
+  padding: 8px 3px;
+  gap: 0rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.arrowIcon {
+  padding-right: 0rem;
+  display: flex;
+}
+
+.AppliedDiscount-field {
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.AppliedCouponText {
+  align-items: center;
+  padding: 18px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.flexx {
+  display: flex;
+  align-items: center;
+}
+
+.viewAllCoupons {
+  display: flex;
+  font-weight: 100;
+  font-size: 13px;
+  margin-left: 43px;
 }

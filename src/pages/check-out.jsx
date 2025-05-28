@@ -969,7 +969,6 @@ function CheckOut() {
                     </div>
                   </div>
 
-                  {/* Coupon Modal */}
                   <Modal
                     show={showCouponModal}
                     onHide={() => setShowCouponModal(false)}
