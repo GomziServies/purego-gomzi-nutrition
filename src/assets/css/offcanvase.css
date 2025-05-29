@@ -305,7 +305,7 @@
   scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
 }
 
-.discount-field {
+/* .discount-field {
   border-radius: 0.5rem;
   border: 1px solid #e5e5e5;
   display: flex;
@@ -313,6 +313,66 @@
   justify-content: space-between;
   cursor: pointer;
   background-color: #f9f9f9;
+} */
+
+.coupon-card {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 13px 0px;
+}
+
+.coupon-label {
+  background-color: #27a844;
+  color: white;
+  padding: 11px;
+  font-weight: bold;
+  writing-mode: vertical-lr;
+  text-orientation: sideways-right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  transform: rotate(180deg);
+}
+
+.coupon-content {
+  padding: 11px 10px;
+  width: 100%;
+}
+
+.coupon-content h2 {
+  margin: 0;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.coupon-content p {
+  color: #666;
+  margin: 3px 0;
+  font-size: 13px;
+}
+
+.dotted-line {
+  border-top: 1px dashed #ddd;
+  margin: 8px 0;
+}
+
+.coupon-content p {
+  color: #666;
+  margin: 3px 0;
+  font-size: 13px;
+}
+
+.apply {
+  color: #27a844;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .logoAndApplyCouponText {
