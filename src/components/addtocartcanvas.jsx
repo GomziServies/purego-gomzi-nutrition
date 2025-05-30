@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../assets/css/offcanvase.css";
 import "../assets/css/style.css";
-import { Accordion, Card, Form, Modal } from "react-bootstrap";
+import { Accordion, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -9,7 +9,6 @@ import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import confetti from "canvas-confetti";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
-import CouponCode from "./CouponCode";
 
 const AddtoCartOffCanvas = ({
   isOpen,
@@ -33,14 +32,9 @@ const AddtoCartOffCanvas = ({
   const [isCouponRupee, setIsCouponRupee] = useState(false);
   const [amountOnCouponCode, setAmountOnCouponCode] = useState();
   const [productDatas, setProductDatas] = useState([[]]);
-  const [paymentMode, setPaymentMode] = useState("ONLINE");
   const productData = localStorage.getItem("productsData");
   const [mainPrice, setMainPrice] = useState();
-  const [discountCost, setDiscountCost] = useState(null);
-  const [courierId, setCourierId] = useState(null);
-  const [showModal, setShowModal] = useState(false);
   const [showCouponModal, setShowCouponModal] = useState(false);
-  const [quickData, setQuickData] = useState({});
   const [manualCouponCodeData, setManualCouponCodeData] = useState("");
   const [autoDiscount, setAutoDiscount] = useState(0);
   const [totalCouponDiscount, setTotalCouponDiscount] = useState(0);
@@ -82,7 +76,9 @@ const AddtoCartOffCanvas = ({
     setIsCouponRupee(false);
     setAutoCouponData(null);
     localStorage.removeItem("appliedCoupon");
-    UpdatedData(productData);
+    if (productData) {
+      UpdatedData(productData);
+    }
   };
 
   const UpdatedData = (productData) => {
@@ -313,6 +309,14 @@ const AddtoCartOffCanvas = ({
   };
 
   const calculateDiscountedPrice = (couponData) => {
+    if (!couponData) {
+      setTotalCouponDiscount(0);
+      setMainPrice(amountOnCouponCode);
+      setIsCouponRupee(false);
+      setAutoCouponData(null);
+      return;
+    }
+
     let discountAmount = 0;
     const totalDiscountPercentOrRupees = couponData.discount || 0;
     setAutoCouponData(couponData);
@@ -635,82 +639,6 @@ const AddtoCartOffCanvas = ({
     setSuggestionData(filteredData);
   };
 
-  const handleAddToCart = async (e) => {
-    e.preventDefault();
-    try {
-      const changedProducts = productDataGet.filter((currentProduct) => {
-        const previousProduct = previousProductData.find(
-          (p) => p._id === currentProduct._id
-        );
-        return (
-          previousProduct &&
-          previousProduct.quantity !== currentProduct.quantity
-        );
-      });
-
-      const products = productDataGet.map((product) => ({
-        product_id: product._id,
-        quantity: product.quantity,
-      }));
-
-      const selectedAddToCartData = products.map((data) => {
-        const selectedProduct = AllPureGoProducts.find(
-          (allProducts) => allProducts.data.id === data.product_id
-        );
-
-        return selectedProduct.data;
-      });
-
-      if (changedProducts.length > 0) {
-        const response = await axiosInstance.post(
-          "/order-cart/add-item",
-          changedProducts[0]
-        );
-
-        if (response.data.status === 200) {
-          setPreviousProductData(productDataGet);
-          localStorage.setItem(
-            "productsData",
-            JSON.stringify({ products, totalAmount, totalMRP })
-          );
-          localStorage.setItem(
-            "allProductsData",
-            JSON.stringify({
-              allProductsData: products,
-              totalAmount,
-              totalMRP,
-            })
-          );
-          localStorage.setItem(
-            "selectedAddToCartData",
-            JSON.stringify(selectedAddToCartData)
-          );
-          window.location.href = `/check-out`;
-        }
-      } else {
-        localStorage.setItem(
-          "productsData",
-          JSON.stringify({ products, totalAmount, totalMRP })
-        );
-        localStorage.setItem(
-          "allProductsData",
-          JSON.stringify({
-            allProductsData: products,
-            totalAmount,
-            totalMRP,
-          })
-        );
-        localStorage.setItem(
-          "selectedAddToCartData",
-          JSON.stringify(selectedAddToCartData)
-        );
-        window.location.href = `/check-out`;
-      }
-    } catch (error) {
-      console.error("Error adding to cart:", error);
-    }
-  };
-
   const toggleMenu = async (data) => {
     try {
       let existingData = JSON.parse(localStorage.getItem("addItemInCart")) || {
@@ -759,8 +687,97 @@ const AddtoCartOffCanvas = ({
     }
   }
 
-  const finalAmount =
-    totalAmount - defaultDiscountAmount - couponDiscountAmount;
+  const finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount;
+
+  const handleAddToCart = async (e) => {
+    e.preventDefault();
+    try {
+      const changedProducts = productDataGet.filter((currentProduct) => {
+        const previousProduct = previousProductData.find(
+          (p) => p._id === currentProduct._id
+        );
+        return (
+          previousProduct &&
+          previousProduct.quantity !== currentProduct.quantity
+        );
+      });
+
+      const products = productDataGet.map((product) => ({
+        product_id: product._id,
+        quantity: product.quantity,
+      }));
+
+      const selectedAddToCartData = products.map((data) => {
+        const selectedProduct = AllPureGoProducts.find(
+          (allProducts) => allProducts.data.id === data.product_id
+        );
+
+        return selectedProduct.data;
+      });
+
+      if (changedProducts.length > 0) {
+        const response = await axiosInstance.post(
+          "/order-cart/add-item",
+          changedProducts[0]
+        );
+
+        if (response.data.status === 200) {
+          setPreviousProductData(productDataGet);
+          localStorage.setItem(
+            "productsData",
+            JSON.stringify({
+              products,
+              totalAmount,
+              totalMRP,
+              finalAmount,
+              defaultDiscountAmount,
+              totalCouponDiscount,
+            })
+          );
+          localStorage.setItem(
+            "allProductsData",
+            JSON.stringify({
+              allProductsData: products,
+              totalAmount,
+              totalMRP,
+            })
+          );
+          localStorage.setItem(
+            "selectedAddToCartData",
+            JSON.stringify(selectedAddToCartData)
+          );
+          window.location.href = `/check-out`;
+        }
+      } else {
+        localStorage.setItem(
+          "productsData",
+          JSON.stringify({
+            products,
+            totalAmount,
+            totalMRP,
+            finalAmount,
+            defaultDiscountAmount,
+            totalCouponDiscount,
+          })
+        );
+        localStorage.setItem(
+          "allProductsData",
+          JSON.stringify({
+            allProductsData: products,
+            totalAmount,
+            totalMRP,
+          })
+        );
+        localStorage.setItem(
+          "selectedAddToCartData",
+          JSON.stringify(selectedAddToCartData)
+        );
+        window.location.href = `/check-out`;
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  };
 
   const handleClose = () => {
     setAnimateOpen(false);
@@ -786,15 +803,11 @@ const AddtoCartOffCanvas = ({
                 className="hs-close hs-event-static"
                 onClick={handleClose}
               >
-                <svg
-                  tabIndex="0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 329.26933 329"
-                  width="16px"
-                  height="12px"
-                >
-                  <path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"></path>
-                </svg>
+                <img
+                  alt="product"
+                  className="img-fluid cp"
+                  src={process.env.PUBLIC_URL + "/assets/images/close.png"}
+                />
               </span>
             </div>
           </div>
@@ -976,7 +989,6 @@ const AddtoCartOffCanvas = ({
                             placeholder="Enter Coupon Code"
                             className="form-control apply-form"
                             value={manualCouponCode}
-                            disabled={!!manualCouponCodeData}
                             onChange={(e) =>
                               setManualCouponCode(e.target.value)
                             }
@@ -997,13 +1009,25 @@ const AddtoCartOffCanvas = ({
                               type="button"
                               onClick={() => handleApplyClick()}
                               className="apply-btn w-100"
+                              disabled={
+                                manualCouponCode === "FLAT499" &&
+                                totalAmount < 5000
+                              }
                             >
                               Apply
                             </button>
                           )}
                         </div>
+                        {manualCouponCode === "FLAT499" &&
+                          totalAmount < 5000 && (
+                            <small style={{ color: "red" }}>
+                              Minimum order amount ₹5000 required to apply this
+                              coupon.
+                            </small>
+                          )}
                       </div>
                     </div>
+
                     <div className="faq-wrapper">
                       <Accordion>
                         <Accordion.Item eventKey="1" className="p-2">
@@ -1041,9 +1065,7 @@ const AddtoCartOffCanvas = ({
                                         onClick={() => {
                                           setManualCouponCode(offer.code);
                                           setShowCouponModal(false);
-                                          handleApplyClick(offer, {
-                                            AutoPromoCode: true,
-                                          });
+                                          handleApplyClick(offer.code);
                                           setAppliedCouponCode(offer.code);
                                         }}
                                       >
@@ -1069,45 +1091,96 @@ const AddtoCartOffCanvas = ({
                                 </div>
                               </div>
                             ))}
-                            {couponOffers.map((coupon, index) => (
-                              <div className="coupon-card" key={index}>
-                                <div className="coupon-label">Coupon Code</div>
-                                <div className="coupon-content">
-                                  <h2>
-                                    USE CODE: <strong>{coupon.code}</strong>
-                                    {appliedCouponCode !== coupon.code && (
-                                      <span
-                                        className="apply"
-                                        onClick={() => {
-                                          setManualCouponCode(coupon.code);
-                                          setShowCouponModal(false);
-                                          handleApplyClick(coupon, {
-                                            AutoPromoCode: true,
-                                          });
-                                          setAppliedCouponCode(coupon.code);
+                            {couponOffers.map((coupon, index) => {
+                              const isFLAT499 = coupon.code === "FLAT499";
+                              const isFLAT499Enabled =
+                                isFLAT499 && totalAmount >= 5000;
+                              const isDisabled = isFLAT499
+                                ? !isFLAT499Enabled
+                                : false;
+                              const minOrderValue =
+                                coupon.code === "FLAT199" ? 999 : 1999;
+
+                              return (
+                                <div
+                                  className="coupon-card"
+                                  key={index}
+                                  style={{
+                                    opacity: isDisabled ? 0.5 : 1,
+                                    pointerEvents: isDisabled ? "none" : "auto",
+                                  }}
+                                >
+                                  <div className="coupon-label">
+                                    {coupon.code}
+                                  </div>
+                                  <div className="coupon-content">
+                                    <h2>
+                                      {coupon.description}
+                                      {!isDisabled &&
+                                        appliedCouponCode !== coupon.code && (
+                                          <span
+                                            className="apply"
+                                            onClick={() => {
+                                              setManualCouponCode(coupon.code);
+                                              setShowCouponModal(false);
+                                              handleApplyClick(coupon.code);
+                                              setAppliedCouponCode(coupon.code);
+                                            }}
+                                            style={{
+                                              cursor: "pointer",
+                                              marginLeft: "10px",
+                                            }}
+                                          >
+                                            Apply
+                                          </span>
+                                        )}
+                                      {!isDisabled &&
+                                        appliedCouponCode === coupon.code && (
+                                          <span
+                                            className="apply text-danger"
+                                            onClick={() => {
+                                              handleRemoveCoupon();
+                                              setAppliedCouponCode("");
+                                            }}
+                                            style={{
+                                              cursor: "pointer",
+                                              marginLeft: "10px",
+                                            }}
+                                          >
+                                            Remove
+                                          </span>
+                                        )}
+                                      {isDisabled && (
+                                        <span
+                                          className="apply text-muted"
+                                          style={{
+                                            cursor: "not-allowed",
+                                            marginLeft: "10px",
+                                          }}
+                                        >
+                                          Apply
+                                        </span>
+                                      )}
+                                    </h2>
+                                    <p>USE CODE: {coupon.code}</p>
+                                    <div className="dotted-line"></div>
+                                    <p className="af-inline">{coupon.note}</p>
+                                    {isDisabled && isFLAT499 && (
+                                      <p
+                                        style={{
+                                          color: "red",
+                                          fontSize: "0.9em",
+                                          marginTop: "5px",
                                         }}
                                       >
-                                        Apply
-                                      </span>
+                                        Minimum order ₹5000 required to apply
+                                        this coupon.
+                                      </p>
                                     )}
-                                    {appliedCouponCode === coupon.code && (
-                                      <span
-                                        className="apply text-danger"
-                                        onClick={() => {
-                                          handleRemoveCoupon();
-                                          setAppliedCouponCode("");
-                                        }}
-                                      >
-                                        Remove
-                                      </span>
-                                    )}
-                                  </h2>
-                                  <p>{coupon.description}</p>
-                                  <div className="dotted-line"></div>
-                                  <p className="af-inline">{coupon.note}</p>
+                                  </div>
                                 </div>
-                              </div>
-                            ))}
+                              );
+                            })}
                           </Accordion.Body>
                         </Accordion.Item>
                       </Accordion>
@@ -1140,7 +1213,7 @@ const AddtoCartOffCanvas = ({
                                   <div className="d-flex mx-2 justify-content-between">
                                     <div className="col-12">
                                       <h2
-                                        className="f-rob-bol d-inline-block h3-fs cp mb-2 fs-18"
+                                        className="f-rob-bol d-inline-block text-capitalize h3-fs cp mb-2 fs-18"
                                         title="Everyday Sweet | 1:1 Sugar Replacer | Zero Calories | 100% Natural"
                                       >
                                         {suggestionProduct.name}
@@ -1259,7 +1332,7 @@ const AddtoCartOffCanvas = ({
                         <b>
                           -{" "}
                           {isCouponRupee
-                            ? `₹${totalCouponDiscount.toFixed(2)} /-`
+                            ? `₹${totalCouponDiscount.toFixed(2)}`
                             : `₹${totalCouponDiscount.toFixed(2)}`}
                         </b>
                       </span>
@@ -1275,14 +1348,7 @@ const AddtoCartOffCanvas = ({
                   </div>
                   <div>
                     <span className="d-inline-block text-dark f-rob-med f-16">
-                      <b>
-                        ₹
-                        {(
-                          totalAmount -
-                          defaultDiscountAmount -
-                          totalCouponDiscount
-                        ).toFixed(2)}
-                      </b>
+                      <b>₹{finalAmount.toFixed(2)}</b>
                     </span>
                   </div>
                 </div>

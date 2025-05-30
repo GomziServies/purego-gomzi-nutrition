@@ -155,7 +155,6 @@ function CheckOut() {
 
         const promoCode = `ONLINE${Math.round(remainingDiscountPercent)}`;
 
-        // Create dynamic promo code entry (if not already there)
         const customOffer = {
           code: promoCode,
           description: `Extra ${Math.round(remainingDiscountPercent)}% OFF`,
@@ -163,8 +162,6 @@ function CheckOut() {
           discount_type: "percent",
         };
 
-        // Add to promo list (optional: check for duplicates first)
-        // setOffers((prev) => [...prev, customOffer]);
         setOffers((prev) => {
           const isAlreadyPresent = prev.some(
             (offer) => offer.code === promoCode
@@ -172,7 +169,7 @@ function CheckOut() {
           if (!isAlreadyPresent) {
             return [...prev, customOffer];
           }
-          return prev; // Do not add duplicate
+          return prev;
         });
       }
     }
@@ -279,9 +276,16 @@ function CheckOut() {
           coupon_ids,
           payment_mode,
           discountCost,
-          courierId,
-          autoCouponData
+          courierId
         );
+        localStorage.removeItem("appliedCoupon");
+        localStorage.removeItem("productsData");
+        localStorage.removeItem("allProductsData");
+        localStorage.removeItem("addItemInCart");
+
+        setManualCouponCode("");
+        setManualCouponCodeData(null);
+        setTotalCouponDiscount(0);
       } catch (error) {
         console.error("Error during order:", error);
       }
@@ -302,26 +306,98 @@ function CheckOut() {
     }
   };
 
-  const calculateDiscountedPrice = (couponData) => {
-    let discountAmount = 0;
-    const totalDiscountPercentOrRupees = couponData.discount || 0;
-    setAutoCouponData(couponData);
-
-    let totalCouponAmount;
-    if (couponData.discount_type === "rupees") {
-      discountAmount = totalDiscountPercentOrRupees;
-      totalCouponAmount = amountOnCouponCode - autoDiscount - discountAmount;
-      setIsCouponRupee(true);
+  useEffect(() => {
+    const storedCoupon = localStorage.getItem("appliedCoupon");
+    if (storedCoupon) {
+      try {
+        const parsedCoupon = JSON.parse(storedCoupon);
+        handleApplyClick(parsedCoupon, { AutoPromoCode: true }); // 👈 Important
+      } catch (e) {
+        console.error("Invalid coupon data in localStorage", e);
+        calculateDiscountedPrice(null);
+      }
     } else {
-      discountAmount =
-        ((amountOnCouponCode - autoDiscount) * totalDiscountPercentOrRupees) /
-        100;
-      totalCouponAmount = amountOnCouponCode - autoDiscount - discountAmount;
-      setIsCouponRupee(false);
+      calculateDiscountedPrice(null);
+    }
+  }, [amountOnCouponCode, autoDiscount]);
+
+  const handleApplyClick = async (appliedCoupon, PromoCode) => {
+    try {
+      if (PromoCode?.AutoPromoCode) {
+        toast.success("Coupon applied successfully");
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+
+        setManualCouponCode(appliedCoupon?.coupon_code || "");
+        setManualCouponCodeData(appliedCoupon);
+        calculateDiscountedPrice(appliedCoupon);
+      } else {
+        let code = appliedCoupon || manualCouponCode;
+
+        if (!code.trim()) {
+          Swal.fire({
+            icon: "warning",
+            title: "Empty Code",
+            text: "Please enter or select a valid promo code.",
+          });
+          return;
+        }
+
+        const payload = { coupon_code: code };
+        const response = await publicAxiosInstance.post(
+          "/check-coupon-code",
+          payload
+        );
+        const couponData = response.data.data;
+
+        setManualCouponCode(code);
+        setManualCouponCodeData(couponData);
+        localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
+
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+
+        toast.success("Coupon applied successfully");
+        calculateDiscountedPrice(couponData);
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: error?.response?.data?.message || "Failed to apply coupon.",
+      });
+    }
+  };
+
+  const calculateDiscountedPrice = (couponData) => {
+    const baseAmount =
+      Number(amountOnCouponCode || 0) - Number(autoDiscount || 0);
+
+    if (!couponData) {
+      setTotalCouponDiscount(0);
+      setMainPrice(baseAmount);
+      return;
     }
 
+    let discountAmount = 0;
+    const discount = Number(couponData.discount || 0);
+
+    if (couponData.discount_type === "rupees") {
+      discountAmount = discount;
+    } else if (couponData.discount_type === "percentage") {
+      discountAmount = (baseAmount * discount) / 100;
+    }
+
+    discountAmount = Math.min(discountAmount, baseAmount);
+
     setTotalCouponDiscount(discountAmount);
-    setMainPrice(totalCouponAmount);
+    setMainPrice(Math.max(baseAmount - discountAmount, 0));
   };
 
   const getUserData = async () => {
@@ -486,13 +562,6 @@ function CheckOut() {
       setQuickData(quickProductData);
       setMainPrice(parseInt(quickProductData?.discount));
     }
-
-    // let selectedAddToCartData = localStorage.getItem("selectedAddToCartData");
-    // selectedAddToCartData = JSON.parse(selectedAddToCartData);
-
-    // if (selectedAddToCartData) {
-    //   setSelectedATCData(selectedAddToCartData);
-    // }
   }, []);
 
   const handleStateChange = (event) => {
@@ -548,59 +617,6 @@ function CheckOut() {
     localStorage.removeItem("appliedCoupon");
     getUserData();
     UpdatedData(productData);
-  };
-
-  const handleApplyClick = async (appliedCoupon, PromoCode) => {
-    try {
-      if (PromoCode?.AutoPromoCode) {
-        toast.success("Coupon applied successfully");
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
-        setManualCouponCodeData(appliedCoupon);
-        calculateDiscountedPrice(appliedCoupon);
-      } else {
-        let code = appliedCoupon || manualCouponCode;
-
-        if (!code.trim()) {
-          Swal.fire({
-            icon: "warning",
-            title: "Empty Code",
-            text: "Please enter or select a valid promo code.",
-          });
-          return;
-        }
-
-        const payload = { coupon_code: code };
-        const response = await publicAxiosInstance.post(
-          "/check-coupon-code",
-          payload
-        );
-
-        const couponData = response.data.data;
-
-        setManualCouponCode(code);
-        setManualCouponCodeData(couponData);
-        localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
-
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
-
-        toast.success("Coupon applied successfully");
-        calculateDiscountedPrice(couponData);
-      }
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Error!",
-        text: error?.response?.data?.message || "Failed to apply coupon.",
-      });
-    }
   };
 
   const [offers, setOffers] = useState([]);
@@ -824,14 +840,6 @@ function CheckOut() {
                             <option value="CG">Chattisgarh</option>
                             <option value="LA">Ladakh</option>
                           </select>
-                          {/* <input
-                            type="text"
-                            id="state"
-                            placeholder="Enter State Name"
-                            name="state"
-                            required
-                            defaultValue={orderUserData.state}
-                          /> */}
                         </div>
                       </div>
                       <div className="col-md-6">
@@ -874,7 +882,7 @@ function CheckOut() {
                 </div>
               </div>
               <div className="col-lg-5">
-                <div className="col-12">
+                <div className="col-12 d-none">
                   <div className="order__info-wrap mb-3">
                     <div className="br-15">
                       <h2 className="promo-title">Apply Promo Code</h2>
@@ -1020,27 +1028,27 @@ function CheckOut() {
                       <li className="title text-dark">
                         Product <span>Subtotal</span>
                       </li>
+
                       <li>
                         Order Total{" "}
-                        <span>₹{amountOnCouponCode?.toFixed(2)} /-</span>
+                        <span>
+                          ₹
+                          {amountOnCouponCode
+                            ? amountOnCouponCode.toFixed(2)
+                            : "0.00"}{" "}
+                          /-
+                        </span>
                       </li>
 
-                      {autoDiscount !== 0 &&
-                        (amountOnCouponCode < 2000 ? (
-                          <li>
-                            Discount (25%){" "}
-                            <span className="text-danger">
-                              - ₹{autoDiscount.toFixed(2)} /-
-                            </span>
-                          </li>
-                        ) : (
-                          <li>
-                            Discount (50%){" "}
-                            <span className="text-danger">
-                              - ₹{autoDiscount.toFixed(2)} /-
-                            </span>
-                          </li>
-                        ))}
+                      {autoDiscount !== 0 && (
+                        <li>
+                          Discount ({amountOnCouponCode < 2000 ? "25%" : "50%"}){" "}
+                          <span className="text-danger">
+                            - ₹{autoDiscount ? autoDiscount.toFixed(2) : "0.00"}{" "}
+                            /-
+                          </span>
+                        </li>
+                      )}
 
                       {totalCouponDiscount !== 0 && (
                         <li>
@@ -1050,47 +1058,36 @@ function CheckOut() {
                               autoCouponData?.discount || 0
                             )}%)`}{" "}
                           <span className="text-danger">
-                            -{" "}
-                            {isCouponRupee
-                              ? `₹${totalCouponDiscount.toFixed(2)}`
-                              : `₹${totalCouponDiscount.toFixed(2)} /-`}
-                            {isCouponRupee && " /-"}
+                            - ₹{totalCouponDiscount.toFixed(2)} /-
                           </span>
                         </li>
                       )}
+
                       <li>
                         Delivery Charges{" "}
-                        {/* <span>₹{mainPrice <= 499 ? 85 : "FREE"}</span> */}
-                        <span
-                          className="text-success"
-                          // onClick={() => {
-                          //   if (!orderUserData.pin_code) {
-                          //     Swal.fire({
-                          //       icon: "warning",
-                          //       title: "Billing Details",
-                          //       text: "Please fill out all billing details before proceeding.",
-                          //     });
-                          //   }
-                          // }}
-                        >
-                          {discountCost
-                            ? "+ ₹" + discountCost
-                            : "Enter Pincode"}{" "}
+                        <span className="text-success">
+                          {discountCost !== undefined && discountCost !== null
+                            ? `+ ₹${parseFloat(discountCost).toFixed(2)} /-`
+                            : "Enter Pincode /-"}
+                        </span>
+                      </li>
+
+                      <li className="text-dark">
+                        Amount Payable{" "}
+                        <span>
+                          ₹
+                          {mainPrice !== undefined && mainPrice !== null
+                            ? discountCost
+                              ? (mainPrice + parseFloat(discountCost)).toFixed(
+                                  2
+                                )
+                              : mainPrice.toFixed(2)
+                            : "0.00"}{" "}
                           /-
                         </span>
                       </li>
-                      <li className="text-dark">
-                        Amount Payable{" "}
-                        {/* <span>
-                          ₹
-                          {discountCost
-                            ? (mainPrice + parseFloat(discountCost)).toFixed(2)
-                            : Math.round(mainPrice)}{" "}
-                          /-
-                        </span> */}
-                        <span>₹{mainPrice?.toFixed(2)} /-</span>
-                      </li>
                     </ul>
+
                     <div className="br-15 mb-3">
                       <div className=" bg-white pt-2">
                         <div>
@@ -1164,22 +1161,13 @@ function CheckOut() {
                     <div className="inner-shop-perched-info mt-3">
                       <button
                         onClick={() => {
-                          // if (discountCost) {
                           handleOrderPayment();
-                          // } else {
-                          //   Swal.fire({
-                          //     icon: "warning",
-                          //     title: "Billing Details",
-                          //     text: "Please fill out all billing details before proceeding.",
-                          //   });
-                          // }
                         }}
                         className="cart-btn w-100 m-0"
                       >
                         SAVE &amp; PAY
                       </button>
                     </div>
-                    {/* <button className="btn btn-sm">Place order</button> */}
                   </div>
                 </div>
               </div>
