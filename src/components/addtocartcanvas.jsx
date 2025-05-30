@@ -623,7 +623,7 @@ const AddtoCartOffCanvas = ({
     },
   ];
 
-  AllPureGoProducts?.sort((a, b) => a?.data.price - b?.data.price); 
+  AllPureGoProducts?.sort((a, b) => a?.data.price - b?.data.price);
 
   const handleSuggestionData = (updatedServerData) => {
     const filteredData = AllPureGoProducts.filter((item) => {
@@ -762,19 +762,29 @@ const AddtoCartOffCanvas = ({
   const finalAmount =
     totalAmount - defaultDiscountAmount - couponDiscountAmount;
 
+  const handleClose = () => {
+    setAnimateOpen(false);
+    setTimeout(() => {
+      onClose(); 
+    }, 700);
+  };
+
   return (
     <>
-      {isOpen && <div className="overlay" onClick={onClose}></div>}
-      <div className={`offcanvas ${animateOpen ? "open" : ""}`}>
+      {isOpen && (
+        <div
+          className={`overlay ${animateOpen ? "" : "hidden"}`}
+          onClick={onClose}
+        ></div>
+      )}
+      <div className={`offcanvas ${animateOpen ? "open" : "close"}`}>
         <div className="hs-header-layout">
           <div className="hs-close-popup-cart">
             <div className="hs-header-close-empty position-relative">
               <p className="hs-header-title">Your Cart</p>
               <span
                 className="hs-close hs-event-static"
-                onClick={onClose}
-                data-dismiss="modal"
-                aria-label="Close"
+                onClick={handleClose}
               >
                 <svg
                   tabIndex="0"
