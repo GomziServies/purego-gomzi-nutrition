@@ -178,8 +178,8 @@ function Home() {
     dots: false,
     nav: true,
     navText: [
-      '<i className="fas fa-arrow-left"></i>',
-      '<i className="fas fa-arrow-right"></i>',
+      '<i class="fas fa-arrow-left"></i>',
+      '<i class="fas fa-arrow-right"></i>',
     ],
     responsive: {
       0: {
@@ -242,16 +242,16 @@ function Home() {
   };
 
   const handleCartOpen = async () => {
-    setClickATC(true)
+    setClickATC(true);
   };
 
   const handleChangeCart = async () => {
-    setChangeATC(true)
+    setChangeATC(true);
   };
 
   const handleChangeATC = async () => {
-    if(changeATC) {
-      setChangeATC(false)
+    if (changeATC) {
+      setChangeATC(false);
     }
   };
 
@@ -328,7 +328,13 @@ function Home() {
         muscle gain, best muscle building supplements, chocolate protein powder
       </p>
       {showModal && <LoginModal onClose={closeModal} />}
-      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} changeATC={changeATC} handleChangeCart={handleChangeCart} handleChangeATC={handleChangeATC} />
+      <AddToCartPopUp
+        clickATC={clickATC}
+        setClickATC={setClickATC}
+        changeATC={changeATC}
+        handleChangeCart={handleChangeCart}
+        handleChangeATC={handleChangeATC}
+      />
       <NutritionHeader
         cartItemName={cartItemName}
         openModal={openModal}
@@ -342,6 +348,22 @@ function Home() {
       <main className="main-area fix">
         <section className="banner-area main-section">
           <OwlCarousel {...options1} className="product-slide owl-theme">
+            <div>
+              <img
+                src={process.env.PUBLIC_URL + "/assets/images/banner_3.webp"}
+                alt="shape"
+                width="100%"
+                className="d-md-block d-none"
+              />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_3.webp"
+                }
+                alt="shape"
+                width="100%"
+                className="d-md-none d-block"
+              />
+            </div>
             <div>
               <img
                 src={process.env.PUBLIC_URL + "/assets/images/banner_1.webp"}
@@ -368,22 +390,6 @@ function Home() {
               <img
                 src={
                   process.env.PUBLIC_URL + "/assets/images/banner_mobile_2.webp"
-                }
-                alt="shape"
-                width="100%"
-                className="d-md-none d-block"
-              />
-            </div>
-            <div>
-              <img
-                src={process.env.PUBLIC_URL + "/assets/images/banner_3.webp"}
-                alt="shape"
-                width="100%"
-                className="d-md-block d-none"
-              />
-              <img
-                src={
-                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_3.webp"
                 }
                 alt="shape"
                 width="100%"
@@ -1650,7 +1656,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("BCAA Orange")
+                              item.includes("BCAA Powder Orange")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1792,7 +1798,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("BCAA Orange")
+                              item.includes("Shaker Bottle")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1926,7 +1932,7 @@ function Home() {
                 <div className="video-btn">
                   <a
                     className="popup-video ripple-white"
-                    onClick={() => openVideoModal("4X2pTMgb1og")}
+                    onClick={() => openVideoModal("Me-3OmE9YfQ")}
                   >
                     <i className="fas fa-play"></i>
                   </a>
@@ -2104,8 +2110,8 @@ function Home() {
                     id="fwg-owl"
                     className="owl-carousel owl-theme owl-nav-1"
                     navText={[
-                      '<i className="fas fa-arrow-left"></i>',
-                      '<i className="fas fa-arrow-right"></i>',
+                      '<i class="fas fa-arrow-left"></i>',
+                      '<i class="fas fa-arrow-right"></i>',
                     ]}
                     responsive={{
                       0: {

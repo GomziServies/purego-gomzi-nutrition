@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../assets/css/offcanvase.css";
 import "../assets/css/style.css";
-import { Accordion, Card, Form, Modal } from "react-bootstrap";
+import { Accordion, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -9,7 +9,6 @@ import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import confetti from "canvas-confetti";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
-import CouponCode from "./CouponCode";
 
 const AddtoCartOffCanvas = ({
   isOpen,
@@ -33,14 +32,9 @@ const AddtoCartOffCanvas = ({
   const [isCouponRupee, setIsCouponRupee] = useState(false);
   const [amountOnCouponCode, setAmountOnCouponCode] = useState();
   const [productDatas, setProductDatas] = useState([[]]);
-  const [paymentMode, setPaymentMode] = useState("ONLINE");
   const productData = localStorage.getItem("productsData");
   const [mainPrice, setMainPrice] = useState();
-  const [discountCost, setDiscountCost] = useState(null);
-  const [courierId, setCourierId] = useState(null);
-  const [showModal, setShowModal] = useState(false);
   const [showCouponModal, setShowCouponModal] = useState(false);
-  const [quickData, setQuickData] = useState({});
   const [manualCouponCodeData, setManualCouponCodeData] = useState("");
   const [autoDiscount, setAutoDiscount] = useState(0);
   const [totalCouponDiscount, setTotalCouponDiscount] = useState(0);
@@ -316,9 +310,8 @@ const AddtoCartOffCanvas = ({
 
   const calculateDiscountedPrice = (couponData) => {
     if (!couponData) {
-      // Coupon data null hoy to discount reset kari devu
       setTotalCouponDiscount(0);
-      setMainPrice(amountOnCouponCode); // full price without discount
+      setMainPrice(amountOnCouponCode);
       setIsCouponRupee(false);
       setAutoCouponData(null);
       return;
@@ -634,7 +627,7 @@ const AddtoCartOffCanvas = ({
     },
   ];
 
-  AllPureGoProducts?.sort((a, b) => a?.data.price - b?.data.price); 
+  AllPureGoProducts?.sort((a, b) => a?.data.price - b?.data.price);
 
   const handleSuggestionData = (updatedServerData) => {
     const filteredData = AllPureGoProducts.filter((item) => {

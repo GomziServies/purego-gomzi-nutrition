@@ -23,8 +23,8 @@ const Review = () => {
     dots: false,
     nav: true,
     navText: [
-      '<i className="fas fa-arrow-left"></i>',
-      '<i className="fas fa-arrow-right"></i>',
+      '<i class="fas fa-arrow-left"></i>',
+      '<i class="fas fa-arrow-right"></i>',
     ],
     responsive: {
       0: {

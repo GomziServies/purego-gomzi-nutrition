@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import OwlCarousel from "react-owl-carousel";
+import { useState } from "react";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -28,8 +27,8 @@ function HappyClientReview() {
     dots: false,
     nav: true,
     navText: [
-      '<i className="fas fa-arrow-left"></i>',
-      '<i className="fas fa-arrow-right"></i>',
+      '<i class="fas fa-arrow-left"></i>',
+      '<i class="fas fa-arrow-right"></i>',
     ],
     responsive: {
       0: {
