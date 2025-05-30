@@ -374,6 +374,22 @@ function Home() {
                 className="d-md-none d-block"
               />
             </div>
+            <div>
+              <img
+                src={process.env.PUBLIC_URL + "/assets/images/banner_3.webp"}
+                alt="shape"
+                width="100%"
+                className="d-md-block d-none"
+              />
+              <img
+                src={
+                  process.env.PUBLIC_URL + "/assets/images/banner_mobile_3.webp"
+                }
+                alt="shape"
+                width="100%"
+                className="d-md-none d-block"
+              />
+            </div>
           </OwlCarousel>
         </section>
         <section className="features-products">

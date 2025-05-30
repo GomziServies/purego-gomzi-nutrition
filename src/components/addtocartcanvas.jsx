@@ -609,7 +609,21 @@ const AddtoCartOffCanvas = ({
         dis_point: "60%",
       },
     },
+    {
+      key: "500ml-Black",
+      data: {
+        id: "68316330f91df040c479ad1e",
+        img: "/assets/images/products/shaker-bottle/shaker-bottle-1.webp",
+        name: "Gomzi Nutrition Shaker 500ml",
+        price: "149",
+        discount: "0",
+        size: "500ml",
+        dis_point: "60%",
+      },
+    },
   ];
+
+  AllPureGoProducts?.sort((a, b) => a?.data.price - b?.data.price); 
 
   const handleSuggestionData = (updatedServerData) => {
     const filteredData = AllPureGoProducts.filter((item) => {
