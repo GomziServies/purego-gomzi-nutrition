@@ -104,14 +104,14 @@ function CheckOut() {
     let selectedAddToCartData = localStorage.getItem("selectedAddToCartData");
     selectedAddToCartData = JSON.parse(selectedAddToCartData);
 
-   const totalDiscountPercentage = selectedAddToCartData
-  .map((data) => {
-    if (data && data.dis_point) {
-      return parseInt(data.dis_point.replace("%", ""));
-    }
-    return 0;  // or ignore if you want to skip these entries instead of counting zero
-  })
-  .reduce((sum, value) => sum + value, 0);
+    const totalDiscountPercentage = selectedAddToCartData
+      .map((data) => {
+        if (data && data.dis_point) {
+          return parseInt(data.dis_point.replace("%", ""));
+        }
+        return 0; // or ignore if you want to skip these entries instead of counting zero
+      })
+      .reduce((sum, value) => sum + value, 0);
 
     const averageDiscount =
       totalDiscountPercentage / selectedAddToCartData.length;
@@ -262,14 +262,14 @@ function CheckOut() {
       };
       const payment_mode = paymentMode;
 
-      if (totalCouponDiscount !== 0 && payment_mode === "Cash On Delivery") {
-        Swal.fire({
-          icon: "warning",
-          title: "Notice",
-          text: "Coupon is not available with Cash On Delivery. For discount offers, use Online Payment or remove the coupon.",
-        });
-        return;
-      }
+      // if (totalCouponDiscount !== 0 && payment_mode === "Cash On Delivery") {
+      //   Swal.fire({
+      //     icon: "warning",
+      //     title: "Notice",
+      //     text: "Coupon is not available with Cash On Delivery. For discount offers, use Online Payment or remove the coupon.",
+      //   });
+      //   return;
+      // }
 
       try {
         const coupon_ids = [manualCouponCodeData?._id].filter(Boolean);
@@ -1153,9 +1153,6 @@ function CheckOut() {
                                     />
                                   </span>
                                   <span className="checkbox-label">Online</span>
-                                  <p className="offer-label">
-                                    Free Consultation
-                                  </p>
                                 </span>
                               </label>
                             </div>

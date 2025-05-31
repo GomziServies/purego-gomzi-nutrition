@@ -1034,7 +1034,7 @@ const AddtoCartOffCanvas = ({
                     </div>
 
                     <div className="faq-wrapper">
-                      <Accordion>
+                      <Accordion defaultActiveKey={["1"]} alwaysOpen>
                         <Accordion.Item eventKey="1" className="p-2">
                           <Accordion.Header className="f-18 lp-2">
                             <div className="discount-field">

@@ -58,14 +58,14 @@ function PureGoBCAA() {
       "/assets/images/products/bcaa/bcaa-orange-3.webp",
       "/assets/images/products/bcaa/bcaa-orange-4.webp",
       "/assets/images/products/bcaa/bcaa-orange-2.webp",
-      "/assets/images/products/bcaa/demo.mp4",
+      // "/assets/images/products/bcaa/demo.mp4",
     ],
     "250g-Cranberry": [
       "/assets/images/products/bcaa/bcaa-cranberry-1.webp",
       "/assets/images/products/bcaa/bcaa-cranberry-3.webp",
       "/assets/images/products/bcaa/bcaa-cranberry-4.webp",
       "/assets/images/products/bcaa/bcaa-cranberry-2.webp",
-      "/assets/images/products/bcaa/demo.mp4",
+      // "/assets/images/products/bcaa/demo.mp4",
     ],
   };
 

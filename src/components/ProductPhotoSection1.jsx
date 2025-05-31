@@ -3,7 +3,6 @@ import { InnerImageZoom } from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-// import Video from "../demo.mp4";
 
 function ProductPhotoSection1({
   images,
@@ -22,7 +21,7 @@ function ProductPhotoSection1({
       : setisVideo(false);
   }, []);
 
-   useEffect(() => {
+  useEffect(() => {
     const baseWidth = 1880;
     const baseSize = 520;
 
@@ -53,13 +52,19 @@ function ProductPhotoSection1({
     return <div>Loading...</div>;
   }
 
-
   return (
     <div className="col-12 p-0 product-hori-slider-main position-relative">
       <div className="product-imgs one-book singal-product-img d-none d-lg-block">
         <div className="row">
           <div className="col-12 d-flex align-items-center justify-content-center">
-            <div className="main-image text-center" style={{width:`${isVideo ? `${size}px`:''}`,height:`${isVideo ? `${size}px`:''}`,display:'flex'}}>
+            <div
+              className="main-image text-center"
+              style={{
+                width: `${isVideo ? `${size}px` : ""}`,
+                height: `${isVideo ? `${size}px` : ""}`,
+                display: "flex",
+              }}
+            >
               <div
                 style={{
                   transition: "opacity 0.5s ease-in-out",
@@ -110,7 +115,11 @@ function ProductPhotoSection1({
                   onClick={() => setActiveImageIndex(index)}
                 >
                   <div className="d-flex">
-                    <div className={`col-12 ${isVideo ? 'px-2':'px-4'} mt-4 text-center`}>
+                    <div
+                      className={`col-12 ${
+                        isVideo ? "px-2" : "px-4"
+                      } mt-4 text-center`}
+                    >
                       <div
                         style={{
                           width: "100%",
@@ -178,7 +187,11 @@ function ProductPhotoSection1({
                   onClick={() => setActiveImageIndex(index)}
                 >
                   <div className="d-flex">
-                    <div className={`col-12 ${isVideo ? 'px-1':'px-2'} mt-4 text-center`}>
+                    <div
+                      className={`col-12 ${
+                        isVideo ? "px-1" : "px-2"
+                      } mt-4 text-center`}
+                    >
                       <div
                         style={{
                           width: "100%",
