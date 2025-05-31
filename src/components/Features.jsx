@@ -243,11 +243,13 @@ const Features = ({ USPData, removeUSP, openModal }) => {
             <div className="col-md-12 my-2 shipping text-center p-0">
               <div className="offer-box mx-2 px-3">
                 <h4 className="box-title m-0 text-start me-2 text-danger">
-                  Cashback :{" "}
+                  🎁 Exclusive Gift Alert:{" "}
                   <span className="offer-desc">
-                    Get GST invoice and save up to 28% on business purchGet GST
-                    invoice and save up to 28% on business purchGet GST invoice
-                    and save up to 28% on business purch...
+                    &nbsp; Orders above ₹1000 come with a{" "}
+                    <strong>free Shaker Bottle</strong> — perfect for your
+                    fitness routine or daily hydration. No extra steps, no
+                    coupon needed — just our way of saying thanks for shopping
+                    with us!
                   </span>
                 </h4>
               </div>
@@ -255,11 +257,11 @@ const Features = ({ USPData, removeUSP, openModal }) => {
             <div className="col-md-12 my-2 shipping text-center p-0">
               <div className="offer-box mx-2 px-3">
                 <h4 className="box-title m-0 text-start me-2 text-danger">
-                  Bank Offer :{" "}
+                  💸 FLAT199 :{" "}
                   <span className="offer-desc">
-                    Get GST invoice and save up to 28% on business purchGet GST
-                    invoice and save up to 28% on business purchGet GST invoice
-                    and save up to 28% on business purch...
+                    &nbsp; Get ₹199 off on your order when you spend more than
+                    ₹1000. Apply the coupon code <strong>FLAT199</strong> at
+                    checkout.
                   </span>
                 </h4>
               </div>
@@ -267,11 +269,10 @@ const Features = ({ USPData, removeUSP, openModal }) => {
             <div className="col-md-12 my-2 shipping text-center p-0">
               <div className="offer-box mx-2 px-3">
                 <h4 className="box-title m-0 text-start me-2 text-danger">
-                  Partner Offers :{" "}
+                  💸 FLAT499 :{" "}
                   <span className="offer-desc">
-                    Get GST invoice and save up to 28% on business purchGet GST
-                    invoice and save up to 28% on business purchGet GST invoice
-                    and save up to 28% on business purch...
+                   &nbsp;  Get ₹499 off on your order when you spend more than ₹5000.
+                    Apply the coupon code <strong>FLAT499</strong> at checkout.
                   </span>
                 </h4>
               </div>

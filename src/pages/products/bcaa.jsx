@@ -27,6 +27,7 @@ import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";
+import GymVideo from "../../components/GymVideo";
 
 function PureGoBCAA() {
   const canonicalUrl = window.location.href;
@@ -269,7 +270,7 @@ function PureGoBCAA() {
   ];
 
   const handleCartOpen = async () => {
-    setClickATC(true)
+    setClickATC(true);
   };
 
   return (
@@ -321,8 +322,7 @@ function PureGoBCAA() {
       {showModal && <LoginModal onClose={closeModal} />}
       {fadingItem && <ProductSelectComponent fadingItem={fadingItem} />}
       <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
-      <NutritionHeader
-        handleCartOpen={handleCartOpen} />
+      <NutritionHeader handleCartOpen={handleCartOpen} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
@@ -627,6 +627,7 @@ function PureGoBCAA() {
           setCartDataClick={setCartDataClick}
           cartDataClick={cartDataClick}
         />
+        <GymVideo />
         <HowToUse
           src1="production/files/FILE-step-1-4fdcb85a-3191-4a19-a673-3e21a1a7d4ec.mp4"
           src2="production/files/FILE-ignite-step-2-d59229ee-8a0f-46ea-a935-c21a1e9761fc.mp4"

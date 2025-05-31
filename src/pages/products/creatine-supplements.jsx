@@ -27,6 +27,7 @@ import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";
+import GymVideo from "../../components/GymVideo";
 
 function PureGoCreatine() {
   const canonicalUrl = window.location.href;
@@ -599,6 +600,7 @@ function PureGoCreatine() {
           setCartDataClick={setCartDataClick}
           cartDataClick={cartDataClick}
         />
+        <GymVideo />
         <HowToUse
           src1="production/files/FILE-step-1-4fdcb85a-3191-4a19-a673-3e21a1a7d4ec.mp4"
           src2="production/files/FILE-atp-step-2-994902b4-e2d7-4cb7-adcb-bfe48c538905.mp4"

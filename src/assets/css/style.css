@@ -3549,7 +3549,7 @@ body.search-visible {
   position: absolute;
   left: 0;
   top: -6px;
-  background-image: url(../../../public/assets/images/video_top_mask.png);
+  /* background-image: url(../../../public/assets/images/video_top_mask.png); */
   width: 100%;
   height: 46px;
   background-repeat: repeat;
@@ -3562,7 +3562,7 @@ body.search-visible {
   position: absolute;
   left: 0;
   bottom: 0;
-  background-image: url(../../../public/assets/images/video_bottom_mask.png);
+  /* background-image: url(../../../public/assets/images/video_bottom_mask.png); */
   width: 100%;
   height: 36px;
   background-repeat: repeat;
@@ -3836,7 +3836,7 @@ body.search-visible {
   position: absolute;
   left: 0px;
   top: -15px;
-  background-image: url("../../../public/assets/images/formula_shape01.png");
+  /* background-image: url("../../../public/assets/images/formula_shape01.png"); */
   width: 100%;
   height: 44px;
   background-repeat: repeat;
@@ -3848,7 +3848,7 @@ body.search-visible {
   position: absolute;
   left: 0px;
   bottom: -17px;
-  background-image: url("../../../public/assets/images/formula_shape02.png");
+  /* background-image: url("../../../public/assets/images/formula_shape02.png"); */
   width: 100%;
   height: 47px;
   background-repeat: repeat;

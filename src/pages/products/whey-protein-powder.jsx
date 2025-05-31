@@ -28,6 +28,7 @@ import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";
+import GymVideo from "../../components/GymVideo";
 
 function PureGoWheyProtein() {
   const location = useLocation();
@@ -838,6 +839,7 @@ function PureGoWheyProtein() {
           changeATC={changeATC}
           handleChangeATC={handleChangeATC}
         />
+        <GymVideo />
         <HowToUse
           src1={
             currentProductData.name === "Whey Protein 1kg Mawa Kulfi"

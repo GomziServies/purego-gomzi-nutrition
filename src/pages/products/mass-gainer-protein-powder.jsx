@@ -27,6 +27,7 @@ import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";
+import GymVideo from "../../components/GymVideo";
 
 function PureGoMassGainer() {
   const canonicalUrl = window.location.href;
@@ -735,6 +736,7 @@ function PureGoMassGainer() {
           setCartDataClick={setCartDataClick}
           cartDataClick={cartDataClick}
         />
+        <GymVideo />
         <HowToUse
           src1="production/files/FILE-mocha-coffee-1-0efabada-3df5-4b4a-9a5d-1b733f183113.mp4"
           src2="production/files/FILE-mocha-coffee-2-b80c20b6-ddd9-4e21-bef7-1098ba85d725.mp4"

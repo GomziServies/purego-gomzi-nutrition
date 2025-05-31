@@ -27,11 +27,11 @@ import LoginModal from "../assets/js/popup/login";
 import Swal from "sweetalert2";
 import AddToCartPopUp from "../components/AddToCartPopUp";
 import FacilitySlider from "../components/facilitySlider"
+import GymVideo from "../components/GymVideo";
 
 function Home() {
   const canonicalUrl = window.location.href;
-  const [videoUrl, setVideoUrl] = useState("");
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
+ 
   const [showModal, setShowModal] = useState(false);
   const [changeATC, setChangeATC] = useState(false);
   const [cartItemName, setCartItemName] = useState([]);
@@ -58,15 +58,8 @@ function Home() {
     setShowModal(false);
   };
 
-  const openVideoModal = (url) => {
-    setIsVideoOpen(true);
-    setVideoUrl(url);
-  };
+  
 
-  const closeVideoModal = () => {
-    setIsVideoOpen(false);
-    setVideoUrl("");
-  };
 
   const fetchProductData = async () => {
     try {
@@ -1927,35 +1920,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <div className="video-area video-bg">
-          <div className="video-bg-overlay"></div>
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <div className="video-btn">
-                  <a
-                    className="popup-video ripple-white"
-                    onClick={() => openVideoModal("Me-3OmE9YfQ")}
-                  >
-                    <i className="fas fa-play"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="video-shape one">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/video_shape01.png"}
-              alt="shape"
-            />
-          </div>
-          <div className="video-shape two">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/video_shape02.png"}
-              alt="shape"
-            />
-          </div>
-        </div>
+        <GymVideo/>
         <section className="formula-area formula-bg">
           <div className="">
             <div className="section-title text-center white-title mb-50">
@@ -2486,12 +2451,6 @@ function Home() {
           <div className="blog-bg-shape one"></div>
           <div className="blog-bg-shape two"></div>
         </section>
-        <ModalVideo
-          channel="youtube"
-          isOpen={isVideoOpen}
-          videoId={videoUrl}
-          onClose={closeVideoModal}
-        />
       </main>
       <HomeNutritionFooter />
     </>
