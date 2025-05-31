@@ -104,9 +104,14 @@ function CheckOut() {
     let selectedAddToCartData = localStorage.getItem("selectedAddToCartData");
     selectedAddToCartData = JSON.parse(selectedAddToCartData);
 
-    const totalDiscountPercentage = selectedAddToCartData
-      .map((data) => parseInt(data.dis_point.replace("%", "")))
-      .reduce((sum, value) => sum + value, 0);
+   const totalDiscountPercentage = selectedAddToCartData
+  .map((data) => {
+    if (data && data.dis_point) {
+      return parseInt(data.dis_point.replace("%", ""));
+    }
+    return 0;  // or ignore if you want to skip these entries instead of counting zero
+  })
+  .reduce((sum, value) => sum + value, 0);
 
     const averageDiscount =
       totalDiscountPercentage / selectedAddToCartData.length;

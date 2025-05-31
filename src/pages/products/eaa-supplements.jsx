@@ -58,9 +58,9 @@ function PureGoEaa() {
   const productImages = {
     "250g-Watermelon": [
       "/assets/images/products/eaa/eaa-1.webp",
-      "/assets/images/products/eaa/eaa-2.webp",
       "/assets/images/products/eaa/eaa-3.webp",
       "/assets/images/products/eaa/eaa-4.webp",
+      "/assets/images/products/eaa/eaa-2.webp",
     ],
   };
 

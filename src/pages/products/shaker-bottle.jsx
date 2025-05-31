@@ -58,9 +58,9 @@ function PureGoShaker() {
   const productImages = {
     "500ml-Black": [
       "/assets/images/products/shaker-bottle/shaker-bottle-1.webp",
-      "/assets/images/products/shaker-bottle/shaker-bottle-2.webp",
       "/assets/images/products/shaker-bottle/shaker-bottle-3.webp",
       "/assets/images/products/shaker-bottle/shaker-bottle-4.webp",
+      "/assets/images/products/shaker-bottle/shaker-bottle-2.webp",
     ],
   };
 

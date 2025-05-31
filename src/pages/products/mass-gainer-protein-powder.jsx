@@ -58,15 +58,15 @@ function PureGoMassGainer() {
   const productImages = {
     "1kg-Chocolate": [
       "/assets/images/products/mass-gainer/mass-gainer-1.webp",
-      "/assets/images/products/mass-gainer/mass-gainer-2.webp",
       "/assets/images/products/mass-gainer/mass-gainer-3.webp",
       "/assets/images/products/mass-gainer/mass-gainer-4.webp",
+      "/assets/images/products/mass-gainer/mass-gainer-2.webp",
     ],
     "3kg-Chocolate": [
       "/assets/images/products/mass-gainer/mass-gainer-3kg-1.webp",
-      "/assets/images/products/mass-gainer/mass-gainer-3kg-2.webp",
       "/assets/images/products/mass-gainer/mass-gainer-3kg-3.webp",
       "/assets/images/products/mass-gainer/mass-gainer-3kg-4.webp",
+      "/assets/images/products/mass-gainer/mass-gainer-3kg-2.webp",
     ],
   };
 

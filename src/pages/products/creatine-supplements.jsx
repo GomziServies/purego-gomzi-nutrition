@@ -54,15 +54,15 @@ function PureGoCreatine() {
   const productImages = {
     "250g-Lemon": [
       "/assets/images/products/creatine/creatine-lemon-1.webp",
-      "/assets/images/products/creatine/creatine-lemon-2.webp",
       "/assets/images/products/creatine/creatine-lemon-3.webp",
       "/assets/images/products/creatine/creatine-lemon-4.webp",
+      "/assets/images/products/creatine/creatine-lemon-2.webp",
     ],
     "250g-Unflavoured": [
       "/assets/images/products/creatine/creatine-unflavoured-1.webp",
-      "/assets/images/products/creatine/creatine-unflavoured-2.webp",
       "/assets/images/products/creatine/creatine-unflavoured-3.webp",
       "/assets/images/products/creatine/creatine-unflavoured-4.webp",
+      "/assets/images/products/creatine/creatine-unflavoured-2.webp",
     ],
   };
 

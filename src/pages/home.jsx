@@ -26,6 +26,7 @@ import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import LoginModal from "../assets/js/popup/login";
 import Swal from "sweetalert2";
 import AddToCartPopUp from "../components/AddToCartPopUp";
+import FacilitySlider from "../components/facilitySlider"
 
 function Home() {
   const canonicalUrl = window.location.href;
@@ -446,6 +447,7 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
+
                     <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
@@ -1831,6 +1833,7 @@ function Home() {
             </div>
           </div>
         </section>
+            <div><FacilitySlider></FacilitySlider></div>
         <section id="features" className="features-area">
           <div className="d-md-block d-none">
             <img

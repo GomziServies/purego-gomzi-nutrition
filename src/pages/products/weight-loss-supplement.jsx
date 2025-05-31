@@ -58,15 +58,15 @@ function PureGoPreWorkout() {
   const productImages = {
     "250g-Fruit Punch": [
       "/assets/images/products/pre-workout/pre-workout-fruit-punch-1.webp",
-      "/assets/images/products/pre-workout/pre-workout-fruit-punch-2.webp",
       "/assets/images/products/pre-workout/pre-workout-fruit-punch-3.webp",
       "/assets/images/products/pre-workout/pre-workout-fruit-punch-4.webp",
+      "/assets/images/products/pre-workout/pre-workout-fruit-punch-2.webp",
     ],
     "250g-Cola": [
       "/assets/images/products/pre-workout/pre-workout-cola-1.webp",
-      "/assets/images/products/pre-workout/pre-workout-cola-2.webp",
       "/assets/images/products/pre-workout/pre-workout-cola-3.webp",
       "/assets/images/products/pre-workout/pre-workout-cola-4.webp",
+      "/assets/images/products/pre-workout/pre-workout-cola-2.webp",
     ],
   };
 

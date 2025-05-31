@@ -91,7 +91,7 @@ const AddtoCartOffCanvas = ({
     selectedAddToCartData = JSON.parse(selectedAddToCartData);
 
     const totalDiscountPercentage = selectedAddToCartData
-      .map((data) => parseInt(data.dis_point.replace("%", "")))
+      .map((data) => parseInt(data?.dis_point.replace("%", "")))
       .reduce((sum, value) => sum + value, 0);
 
     const averageDiscount =
@@ -255,16 +255,14 @@ const AddtoCartOffCanvas = ({
   };
 
   const handleApplyClick = async (appliedCoupon, PromoCode) => {
+    console.log("appliedCoupon ===>", appliedCoupon, PromoCode, totalAmount);
     try {
       if (PromoCode?.AutoPromoCode) {
-        toast.success("Coupon applied successfully");
         confetti({
           particleCount: 150,
           spread: 70,
           origin: { y: 0.6 },
         });
-        setManualCouponCodeData(appliedCoupon);
-        calculateDiscountedPrice(appliedCoupon);
       } else {
         let code = appliedCoupon || manualCouponCode;
 
@@ -411,12 +409,12 @@ const AddtoCartOffCanvas = ({
     {
       code: "FLAT199",
       description: "Get ₹199 off on your order",
-      note: "Applicable on orders above ₹999",
+      note: "Applicable on orders above ₹1000",
     },
     {
       code: "FLAT499",
       description: "Get ₹499 off on your order",
-      note: "Applicable on orders above ₹1999",
+      note: "Applicable on orders above ₹5000",
     },
   ];
 
@@ -712,7 +710,7 @@ const AddtoCartOffCanvas = ({
           (allProducts) => allProducts.data.id === data.product_id
         );
 
-        return selectedProduct.data;
+        return selectedProduct?.data;
       });
 
       if (changedProducts.length > 0) {
@@ -782,7 +780,7 @@ const AddtoCartOffCanvas = ({
   const handleClose = () => {
     setAnimateOpen(false);
     setTimeout(() => {
-      onClose(); 
+      onClose();
     }, 700);
   };
 
@@ -799,10 +797,7 @@ const AddtoCartOffCanvas = ({
           <div className="hs-close-popup-cart">
             <div className="hs-header-close-empty position-relative">
               <p className="hs-header-title">Your Cart</p>
-              <span
-                className="hs-close hs-event-static"
-                onClick={handleClose}
-              >
+              <span className="hs-close hs-event-static" onClick={handleClose}>
                 <img
                   alt="product"
                   className="img-fluid cp"
@@ -1010,8 +1005,10 @@ const AddtoCartOffCanvas = ({
                               onClick={() => handleApplyClick()}
                               className="apply-btn w-100"
                               disabled={
-                                manualCouponCode === "FLAT499" &&
-                                totalAmount < 5000
+                                (manualCouponCode === "FLAT499" &&
+                                  totalAmount < 5000) ||
+                                (manualCouponCode === "FLAT199" &&
+                                  totalAmount < 1000)
                               }
                             >
                               Apply
@@ -1022,6 +1019,14 @@ const AddtoCartOffCanvas = ({
                           totalAmount < 5000 && (
                             <small style={{ color: "red" }}>
                               Minimum order amount ₹5000 required to apply this
+                              coupon.
+                            </small>
+                          )}
+
+                        {manualCouponCode === "FLAT199" &&
+                          totalAmount < 1000 && (
+                            <small style={{ color: "red" }}>
+                              Minimum order amount ₹1000 required to apply this
                               coupon.
                             </small>
                           )}
@@ -1054,7 +1059,7 @@ const AddtoCartOffCanvas = ({
                           </Accordion.Header>
                           <Accordion.Body className="p-0 f-rob-reg f-14">
                             {offers.map((offer, idx) => (
-                              <div key={idx} className="coupon-card">
+                              <div key={idx} className="coupon-card ">
                                 <div className="coupon-label">{offer.code}</div>
                                 <div className="coupon-content">
                                   <h2>
@@ -1093,13 +1098,16 @@ const AddtoCartOffCanvas = ({
                             ))}
                             {couponOffers.map((coupon, index) => {
                               const isFLAT499 = coupon.code === "FLAT499";
+                              const isFLAT199 = coupon.code === "FLAT199";
+
                               const isFLAT499Enabled =
                                 isFLAT499 && totalAmount >= 5000;
-                              const isDisabled = isFLAT499
-                                ? !isFLAT499Enabled
-                                : false;
-                              const minOrderValue =
-                                coupon.code === "FLAT199" ? 999 : 1999;
+                              const isFLAT199Enabled =
+                                isFLAT199 && totalAmount >= 1000;
+
+                              const isDisabled =
+                                (isFLAT499 && !isFLAT499Enabled) ||
+                                (isFLAT199 && !isFLAT199Enabled);
 
                               return (
                                 <div
@@ -1165,6 +1173,8 @@ const AddtoCartOffCanvas = ({
                                     <p>USE CODE: {coupon.code}</p>
                                     <div className="dotted-line"></div>
                                     <p className="af-inline">{coupon.note}</p>
+
+                                    {/* Warning messages */}
                                     {isDisabled && isFLAT499 && (
                                       <p
                                         style={{
@@ -1174,6 +1184,18 @@ const AddtoCartOffCanvas = ({
                                         }}
                                       >
                                         Minimum order ₹5000 required to apply
+                                        this coupon.
+                                      </p>
+                                    )}
+                                    {isDisabled && isFLAT199 && (
+                                      <p
+                                        style={{
+                                          color: "red",
+                                          fontSize: "0.9em",
+                                          marginTop: "5px",
+                                        }}
+                                      >
+                                        Minimum order ₹1000 required to apply
                                         this coupon.
                                       </p>
                                     )}
