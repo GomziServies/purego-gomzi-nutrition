@@ -22,7 +22,7 @@ function Blog3() {
   const [clickATC, setClickATC] = useState(false);
 
   const handleCartOpen = async () => {
-    setClickATC(true)
+    setClickATC(true);
   };
 
   return (
@@ -58,20 +58,19 @@ function Blog3() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1144699046738070');
+            fbq('init', '580401698019006');
             fbq('track', 'PageView');
           `}
         </script>
         <noscript>
           {`<img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=580401698019006&ev=PageView&noscript=1"
           />`}
         </noscript>
       </Helmet>
       {/* <LoaderComponent /> */}
       <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
-      <NutritionHeader
-        handleCartOpen={handleCartOpen} />
+      <NutritionHeader handleCartOpen={handleCartOpen} />
       <>
         <main className="main-area fix">
           <section className="blog-area pt-120 pb-120">

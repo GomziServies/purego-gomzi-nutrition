@@ -45,7 +45,7 @@ function PureGoPreWorkout() {
   const [clickATC, setClickATC] = useState(false);
 
   const handleCartOpen = async () => {
-    setClickATC(true)
+    setClickATC(true);
   };
 
   const openModal = () => {
@@ -80,7 +80,7 @@ function PureGoPreWorkout() {
         name: "Pre Workout Fruit Punch",
         price: "2500",
         discount: "600",
-        size: "250 g",
+        size: "250g",
         dis_point: "76%",
       },
     },
@@ -92,7 +92,7 @@ function PureGoPreWorkout() {
         name: "Pre Workout Cola",
         price: "2500",
         discount: "600",
-        size: "250 g",
+        size: "250g",
         dis_point: "76%",
       },
     },
@@ -304,13 +304,13 @@ function PureGoPreWorkout() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1144699046738070');
+            fbq('init', '580401698019006');
             fbq('track', 'PageView');
           `}
         </script>
         <noscript>
           {`<img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=580401698019006&ev=PageView&noscript=1"
           />`}
         </noscript>
       </Helmet>
@@ -318,8 +318,7 @@ function PureGoPreWorkout() {
       {showModal && <LoginModal onClose={closeModal} />}
       {fadingItem && <ProductSelectComponent fadingItem={fadingItem} />}
       <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
-      <NutritionHeader
-        handleCartOpen={handleCartOpen} />
+      <NutritionHeader handleCartOpen={handleCartOpen} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>

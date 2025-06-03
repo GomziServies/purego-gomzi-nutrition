@@ -121,7 +121,7 @@ function PureGoWheyProtein() {
         name: "Whey Protein 1kg Chocolate",
         price: "2999",
         discount: "1390",
-        size: "1 Kg",
+        size: "1kg",
         dis_point: "53%",
       },
     },
@@ -133,7 +133,7 @@ function PureGoWheyProtein() {
         name: "Whey Protein 1kg Mocha Coffee",
         price: "3199",
         discount: "1490",
-        size: "1 Kg",
+        size: "1kg",
         dis_point: "53%",
       },
     },
@@ -145,7 +145,7 @@ function PureGoWheyProtein() {
         name: "Whey Protein 1kg Mawa Kulfi",
         price: "3199",
         discount: "1490",
-        size: "1 Kg",
+        size: "1kg",
         dis_point: "53%",
       },
     },
@@ -157,7 +157,7 @@ function PureGoWheyProtein() {
         name: "Whey Protein 1kg Mango",
         price: "3199",
         discount: "1490",
-        size: "1 Kg",
+        size: "1kg",
         dis_point: "53%",
       },
     },
@@ -169,7 +169,7 @@ function PureGoWheyProtein() {
         name: "Whey Protein 2kg Chocolate",
         price: "5599",
         discount: "2679",
-        size: "2 Kg",
+        size: "2kg",
         dis_point: "52%",
       },
     },
@@ -181,7 +181,7 @@ function PureGoWheyProtein() {
         name: "Whey Protein 2kg Mocha Coffee",
         price: "5999",
         discount: "2879",
-        size: "2 Kg",
+        size: "2kg",
         dis_point: "52%",
       },
     },
@@ -193,7 +193,7 @@ function PureGoWheyProtein() {
         name: "Whey Protein 2kg Mawa Kulfi",
         price: "5999",
         discount: "2879",
-        size: "2 Kg",
+        size: "2kg",
         dis_point: "52%",
       },
     },
@@ -205,7 +205,7 @@ function PureGoWheyProtein() {
         name: "Whey Protein 2kg Mango",
         price: "5999",
         discount: "2879",
-        size: "2 Kg",
+        size: "2kg",
         dis_point: "52%",
       },
     },
@@ -456,13 +456,13 @@ function PureGoWheyProtein() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1144699046738070');
+            fbq('init', '580401698019006');
             fbq('track', 'PageView');
           `}
         </script>
         <noscript>
           {`<img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=580401698019006&ev=PageView&noscript=1"
           />`}
         </noscript>
       </Helmet>

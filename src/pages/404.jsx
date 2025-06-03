@@ -13,7 +13,10 @@ const NotFoundPage = () => {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J50WNKGW38"></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-J50WNKGW38"
+        ></script>
         <script>
           {`
           window.dataLayer = window.dataLayer || [];
@@ -23,6 +26,27 @@ const NotFoundPage = () => {
           gtag('config', 'G-J50WNKGW38');
           `}
         </script>
+        {/* Preconnect to Facebook CDN */}
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <script>
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '580401698019006');
+            fbq('track', 'PageView');
+          `}
+        </script>
+        <noscript>
+          {`<img height="1" width="1" style="display:none"
+          src="https://www.facebook.com/tr?id=580401698019006&ev=PageView&noscript=1"
+          />`}
+        </noscript>
       </Helmet>
       <NutritionHeader />
       <section className="margintop-nutrition mb-5">
@@ -31,10 +55,7 @@ const NotFoundPage = () => {
             <div className="col-md-12 text-center error px-0 px-md-3">
               <div className="">
                 <img
-                  src={
-                    process.env.PUBLIC_URL +
-                    "/assets/images/404-error.webp"
-                  }
+                  src={process.env.PUBLIC_URL + "/assets/images/404-error.webp"}
                   className="img-fluid"
                   alt="404 Error"
                 />

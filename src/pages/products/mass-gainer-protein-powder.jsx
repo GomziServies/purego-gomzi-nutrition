@@ -45,7 +45,7 @@ function PureGoMassGainer() {
   const [clickATC, setClickATC] = useState(false);
 
   const handleCartOpen = async () => {
-    setClickATC(true)
+    setClickATC(true);
   };
 
   const openModal = () => {
@@ -80,7 +80,7 @@ function PureGoMassGainer() {
         name: "Whey Mass Matrix 1kg Chocolate",
         price: "1500",
         discount: "599",
-        size: "1 Kg",
+        size: "1kg",
         dis_point: "60%",
       },
     },
@@ -92,7 +92,7 @@ function PureGoMassGainer() {
         name: "Mass Gainer 3kg Chocolate",
         price: "4500",
         discount: "1699",
-        size: "3 Kg",
+        size: "3kg",
         dis_point: "62%",
       },
     },
@@ -291,13 +291,13 @@ function PureGoMassGainer() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1144699046738070');
+            fbq('init', '580401698019006');
             fbq('track', 'PageView');
           `}
         </script>
         <noscript>
           {`<img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=580401698019006&ev=PageView&noscript=1"
           />`}
         </noscript>
       </Helmet>
@@ -305,8 +305,7 @@ function PureGoMassGainer() {
       {showModal && <LoginModal onClose={closeModal} />}
       {fadingItem && <ProductSelectComponent fadingItem={fadingItem} />}
       <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
-      <NutritionHeader
-        handleCartOpen={handleCartOpen} />
+      <NutritionHeader handleCartOpen={handleCartOpen} />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>

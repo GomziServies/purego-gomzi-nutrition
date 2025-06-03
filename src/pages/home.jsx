@@ -26,12 +26,12 @@ import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import LoginModal from "../assets/js/popup/login";
 import Swal from "sweetalert2";
 import AddToCartPopUp from "../components/AddToCartPopUp";
-import FacilitySlider from "../components/facilitySlider"
+import FacilitySlider from "../components/facilitySlider";
 import GymVideo from "../components/GymVideo";
 
 function Home() {
   const canonicalUrl = window.location.href;
- 
+
   const [showModal, setShowModal] = useState(false);
   const [changeATC, setChangeATC] = useState(false);
   const [cartItemName, setCartItemName] = useState([]);
@@ -57,9 +57,6 @@ function Home() {
   const closeModal = () => {
     setShowModal(false);
   };
-
-  
-
 
   const fetchProductData = async () => {
     try {
@@ -285,13 +282,13 @@ function Home() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1144699046738070');
+            fbq('init', '580401698019006');
             fbq('track', 'PageView');
           `}
         </script>
         <noscript>
           {`<img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=580401698019006&ev=PageView&noscript=1"
           />`}
         </noscript>
         {/* Google tag (gtag.js) */}
@@ -1826,7 +1823,9 @@ function Home() {
             </div>
           </div>
         </section>
-            <div><FacilitySlider></FacilitySlider></div>
+        <div>
+          <FacilitySlider></FacilitySlider>
+        </div>
         <section id="features" className="features-area">
           <div className="d-md-block d-none">
             <img
@@ -1920,7 +1919,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <GymVideo/>
+        <GymVideo />
         <section className="formula-area formula-bg">
           <div className="">
             <div className="section-title text-center white-title mb-50">

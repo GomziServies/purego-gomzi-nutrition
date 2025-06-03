@@ -78,7 +78,7 @@ function PureGoBCAA() {
         name: "BCAA Orange",
         price: "2100",
         discount: "840",
-        size: "250 g",
+        size: "250g",
         dis_point: "60%",
       },
     },
@@ -90,7 +90,7 @@ function PureGoBCAA() {
         name: "BCAA Cranberry",
         price: "2100",
         discount: "840",
-        size: "250 g",
+        size: "250g",
         dis_point: "60%",
       },
     },
@@ -308,13 +308,13 @@ function PureGoBCAA() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1144699046738070');
+            fbq('init', '580401698019006');
             fbq('track', 'PageView');
           `}
         </script>
         <noscript>
           {`<img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1144699046738070&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=580401698019006&ev=PageView&noscript=1"
           />`}
         </noscript>
       </Helmet>
