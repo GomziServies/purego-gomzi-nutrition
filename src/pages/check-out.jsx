@@ -237,7 +237,7 @@ function CheckOut() {
       } else if (!compareUserData(updatedUserData)) {
         await updateUserData(updatedUserData);
       }
-      getEstimate(e.target.postalCode.value);
+      // getEstimate(e.target.postalCode.value);
       toast.success("User Details save successfully.");
     } catch (error) {
       console.error("Error in handleFormSubmit:", error);
@@ -329,7 +329,7 @@ function CheckOut() {
   const handleApplyClick = async (appliedCoupon, PromoCode) => {
     try {
       if (PromoCode?.AutoPromoCode) {
-        toast.success("Coupon applied successfully");
+        // toast.success("Coupon applied successfully");
         confetti({
           particleCount: 150,
           spread: 70,
@@ -368,7 +368,7 @@ function CheckOut() {
           origin: { y: 0.6 },
         });
 
-        toast.success("Coupon applied successfully");
+        // toast.success("Coupon applied successfully");
         calculateDiscountedPrice(couponData);
       }
     } catch (error) {
@@ -422,142 +422,305 @@ function CheckOut() {
           state: userData.user?.address?.state || "",
           country: userData.user?.address?.country || "",
         });
-        getEstimate(userData.user?.address?.pin_code);
+        // getEstimate(userData.user?.address?.pin_code);
       }
     } catch (error) {
       console.error("Error in getUserData:", error);
     }
   };
 
-  const getEstimate = async (pin_code) => {
-    try {
-      const allProductsData = localStorage.getItem("allProductsData");
-      const cartProductData = JSON.parse(allProductsData);
+  // const getEstimate = async (pin_code) => {
+  //   try {
+  //     let ProductNameData = JSON.parse(localStorage.getItem("ProductNameData"));
+  //     const allProductsData = localStorage.getItem("allProductsData");
+  //     const cartProductData = JSON.parse(allProductsData);
 
-      const totalProduct = cartProductData?.allProductsData.length;
-      const oneKgProduct = cartProductData?.allProductsData.filter((data) =>
-        data.name?.includes("1kg")
-      );
-      const twentyFiveGmProduct = cartProductData?.allProductsData.filter(
-        (data) => !data.name?.includes("1kg")
-      );
+  //     const totalProduct = ProductNameData?.length;
+  //     const oneKgProduct = ProductNameData.filter((data) =>
+  //       data.name?.includes("1kg")
+  //     );
 
-      let parcelSize = {
-        breadth: 10,
-        height: 15,
-        length: 10,
-        weight: 1050,
-      };
+  //     const twoKgProduct = ProductNameData.filter((data) =>
+  //       data.name?.includes("2kg")
+  //     );
+  //     const SmallProduct = ProductNameData.filter((data) =>
+  //       data.name?.includes("250g")
+  //     );
 
-      // 1 KG 1 product size
-      if (totalProduct === 1 && oneKgProduct.length === 1) {
-        parcelSize = {
-          breadth: 10,
-          height: 10,
-          length: 15,
-          weight: 1050,
-        };
-      }
-      // 250 gm 1 product size
-      if (totalProduct === 1 && twentyFiveGmProduct.length === 1) {
-        parcelSize = {
-          breadth: 10,
-          height: 10,
-          length: 15,
-          weight: 300,
-        };
-      }
-      // 1 KG and 250 gm less than 4 product size
-      if (
-        totalProduct !== 1 &&
-        totalProduct <= 4 &&
-        (oneKgProduct.length > 0 || twentyFiveGmProduct.length > 0)
-      ) {
-        let oneKgWeight = 0;
-        let twentyFiveGmWeight = 0;
-        if (oneKgProduct.length > 0) {
-          oneKgWeight = oneKgProduct.length * 1000;
-        }
-        if (twentyFiveGmProduct.length > 0) {
-          twentyFiveGmWeight = twentyFiveGmProduct.length * 250;
-        }
-        const weight = oneKgWeight + twentyFiveGmWeight + 50;
-        parcelSize = {
-          breadth: 23,
-          height: 19,
-          length: 30,
-          weight: weight,
-        };
-      }
-      // 1 KG and 250 gm more than 4 product size
-      if (
-        totalProduct !== 1 &&
-        totalProduct > 4 &&
-        (oneKgProduct.length > 0 || twentyFiveGmProduct.length > 0)
-      ) {
-        let oneKgWeight = 0;
-        let twentyFiveGmWeight = 0;
-        if (oneKgProduct.length > 0) {
-          oneKgWeight = oneKgProduct.length * 1000;
-        }
-        if (twentyFiveGmProduct.length > 0) {
-          twentyFiveGmWeight = twentyFiveGmProduct.length * 250;
-        }
-        const weight = oneKgWeight + twentyFiveGmWeight + 50;
-        parcelSize = {
-          breadth: 20,
-          height: 30,
-          length: 20,
-          weight: weight,
-        };
-      }
+  //     let parcelSize = {
+  //       breadth: 10,
+  //       height: 15,
+  //       length: 10,
+  //       weight: 1050,
+  //     };
+  //     // 250 gm 1 product size
+  //     if (totalProduct === 1 && SmallProduct.length === 1) {
+  //       parcelSize = {
+  //         breadth: 10,
+  //         height: 10,
+  //         length: 15,
+  //         weight: 300,
+  //       };
+  //     }
 
-      const payload = {
-        ...parcelSize,
-        destination_pincode: pin_code,
-        origin_pincode: "394510",
-        destination_country_code: "IN",
-        origin_country_code: "IN",
-        shipment_mode: "S",
-        shipment_type:
-          paymentMode === "ONLINE"
-            ? "P"
-            : paymentMode === "Cash On Delivery"
-            ? "C"
-            : "C",
-        shipment_value: `${Math.round(mainPrice)}`,
-      };
+  //     // 4 Small product
+  //     if (
+  //       totalProduct >= 2 &&
+  //       totalProduct <= 4 &&
+  //       oneKgProduct.length === 0 &&
+  //       SmallProduct.length >= 2 &&
+  //       SmallProduct.length <= 4 &&
+  //       twoKgProduct.length === 0
+  //     ) {
+  //       parcelSize = {
+  //         breadth: 16,
+  //         height: 32,
+  //         length: 16,
+  //         weight: SmallProduct.length * 250 + 100,
+  //       };
+  //     }
 
-      const response = await axiosInstance.post(
-        "/icarry/get-estimate",
-        payload
-      );
+  //     // 4 to 9  Small product
+  //     if (
+  //       totalProduct >= 4 &&
+  //       totalProduct <= 9 &&
+  //       oneKgProduct.length === 0 &&
+  //       SmallProduct.length >= 4 &&
+  //       SmallProduct.length <= 9 &&
+  //       twoKgProduct.length === 0
+  //     ) {
+  //       parcelSize = {
+  //         breadth: 19,
+  //         height: 38,
+  //         length: 20,
+  //         weight: SmallProduct.length * 250 + 100,
+  //       };
+  //     }
 
-      const estimateData = response.data.data.estimate;
-      const courierArray = Object.values(estimateData);
+  //     // 1 KG 1 product size
+  //     if (totalProduct === 1 && oneKgProduct.length === 1) {
+  //       parcelSize = {
+  //         breadth: 16,
+  //         height: 32,
+  //         length: 16,
+  //         weight: 110,
+  //       };
+  //     }
 
-      const deliveryCouriers = courierArray.filter((data) =>
-        data.courier_group_name?.includes("Delhivery")
-      );
+  //     // 1 KG and 1 small dabba
+  //     if (
+  //       totalProduct === 2 &&
+  //       oneKgProduct.length === 1 &&
+  //       SmallProduct.length === 1 &&
+  //       twoKgProduct.length === 0
+  //     ) {
+  //       parcelSize = {
+  //         breadth: 16,
+  //         height: 32,
+  //         length: 16,
+  //         weight: 1350,
+  //       };
+  //     }
 
-      let cheapCostData;
+  //     // 1KG 1 and  2 to 3  small dabbas
+  //     if (
+  //       totalProduct >= 2 &&
+  //       totalProduct <= 4 &&
+  //       oneKgProduct.length === 1 &&
+  //       SmallProduct.length >= 2 &&
+  //       SmallProduct.length <= 3 &&
+  //       twoKgProduct.length === 0
+  //     ) {
+  //       parcelSize = {
+  //         breadth: 19,
+  //         height: 38,
+  //         length: 20,
+  //         weight: oneKgProduct.length * 1000 + SmallProduct.length * 250 + 100,
+  //       };
+  //     }
 
-      if (deliveryCouriers.length > 0) {
-        cheapCostData = deliveryCouriers.reduce((min, current) =>
-          current.courier_cost < min.courier_cost ? current : min
-        );
-      } else {
-        cheapCostData = courierArray.reduce((min, current) =>
-          current.courier_cost < min.courier_cost ? current : min
-        );
-      }
+  //     // 1KG 2
+  //     if (
+  //       totalProduct === 2 &&
+  //       oneKgProduct.length === 2 &&
+  //       SmallProduct.length === 0 &&
+  //       twoKgProduct.length === 0
+  //     ) {
+  //       parcelSize = {
+  //         breadth: 19,
+  //         height: 38,
+  //         length: 20,
+  //         weight: oneKgProduct.length * 1000 + 100,
+  //       };
+  //     }
 
-      setDiscountCost(cheapCostData.courier_cost);
-      setCourierId(cheapCostData.courier_id);
-    } catch (error) {
-      console.error("Error submitting pincode:", error);
-    }
-  };
+  //     // 2kg only
+  //     if (
+  //       totalProduct === 1 &&
+  //       twoKgProduct.length === 1 &&
+  //       oneKgProduct.length === 0 &&
+  //       SmallProduct.length === 0
+  //     ) {
+  //       parcelSize = {
+  //         breadth: 19,
+  //         height: 38,
+  //         length: 20,
+  //         weight: 2100,
+  //       };
+  //     }
+
+  //     // 2kg only OR 2kg + 1-3 small dabbas
+  //     if (
+  //       twoKgProduct.length === 1 &&
+  //       oneKgProduct.length === 0 &&
+  //       SmallProduct.length >= 1 &&
+  //       SmallProduct.length <= 3 &&
+  //       totalProduct === 1 + SmallProduct.length
+  //     ) {
+  //       parcelSize = {
+  //         breadth: 19,
+  //         height: 38,
+  //         length: 20,
+  //         weight: 2000 + SmallProduct.length * 250 + 100,
+  //       };
+  //     }
+
+  //     if (
+  //       (oneKgProduct.length === 1 &&
+  //         SmallProduct.length === 4 &&
+  //         twoKgProduct.length === 0) ||
+  //       (twoKgProduct.length === 2 &&
+  //         SmallProduct.length >= 1 &&
+  //         SmallProduct.length <= 4) ||
+  //       (twoKgProduct.length === 2 && SmallProduct.length === 1) ||
+  //       twoKgProduct.length === 2
+  //     ) {
+  //       parcelSize = {
+  //         breadth: 41,
+  //         height: 56,
+  //         length: 23,
+  //         weight:
+  //           oneKgProduct.length * 1000 +
+  //           twoKgProduct.length * 2000 +
+  //           SmallProduct.length * 250 +
+  //           100,
+  //       };
+  //     }
+
+  //     // 1kg-1 2kg-3
+  //     //1kg-2 2kg-2
+  //     //1kg-3 2kg-1
+  //     //1kg-4 2kg-0
+  //     //2kg-4 1kg-0
+
+  //     if (
+  //       (oneKgProduct.length === 1 && twoKgProduct.length === 3) ||
+  //       (oneKgProduct.length === 2 && twoKgProduct.length === 2) ||
+  //       (oneKgProduct.length === 3 && twoKgProduct.length === 1) ||
+  //       (oneKgProduct.length === 4 && twoKgProduct.length === 0) ||
+  //       (oneKgProduct.length === 0 &&
+  //         twoKgProduct.length === 4 &&
+  //         totalProduct === 4)
+  //     ) {
+  //       parcelSize = {
+  //         breadth: 41,
+  //         height: 56,
+  //         length: 23,
+  //         weight: oneKgProduct.length * 1000 + twoKgProduct.length * 2000 + 100,
+  //       };
+  //     }
+
+  //     // // 1 KG and 250 gm less than 4 product size
+  //     // if (
+  //     //   totalProduct !== 1 &&
+  //     //   totalProduct <= 4 &&
+  //     //   (oneKgProduct.length > 0 || SmallProduct.length > 0)
+  //     // ) {
+  //     //   let oneKgWeight = 0;
+  //     //   let twentyFiveGmWeight = 0;
+  //     //   if (oneKgProduct.length > 0) {
+  //     //     oneKgWeight = oneKgProduct.length * 1000;
+  //     //   }
+  //     //   if (SmallProduct.length > 0) {
+  //     //     twentyFiveGmWeight = SmallProduct.length * 250;
+  //     //   }
+  //     //   const weight = oneKgWeight + twentyFiveGmWeight + 50;
+  //     //   parcelSize = {
+  //     //     breadth: 23,
+  //     //     height: 19,
+  //     //     length: 30,
+  //     //     weight: weight,
+  //     //   };
+  //     // }
+  //     // // 1 KG and 250 gm more than 4 product size
+  //     // if (
+  //     //   totalProduct !== 1 &&
+  //     //   totalProduct > 4 &&
+  //     //   (oneKgProduct.length > 0 || SmallProduct.length > 0)
+  //     // ) {
+  //     //   let oneKgWeight = 0;
+  //     //   let twentyFiveGmWeight = 0;
+  //     //   if (oneKgProduct.length > 0) {
+  //     //     oneKgWeight = oneKgProduct.length * 1000;
+  //     //   }
+  //     //   if (SmallProduct.length > 0) {
+  //     //     twentyFiveGmWeight = SmallProduct.length * 250;
+  //     //   }
+  //     //   const weight = oneKgWeight + twentyFiveGmWeight + 50;
+  //     //   parcelSize = {
+  //     //     breadth: 20,
+  //     //     height: 30,
+  //     //     length: 20,
+  //     //     weight: weight,
+  //     //   };
+  //     // }
+
+  //     const payload = {
+  //       ...parcelSize,
+  //       destination_pincode: pin_code,
+  //       origin_pincode: "394510",
+  //       destination_country_code: "IN",
+  //       origin_country_code: "IN",
+  //       shipment_mode: "S",
+  //       shipment_type:
+  //         paymentMode === "ONLINE"
+  //           ? "P"
+  //           : paymentMode === "Cash On Delivery"
+  //           ? "C"
+  //           : "C",
+  //       shipment_value: `${Math.round(mainPrice)}`,
+  //     };
+
+  //     const response = await axiosInstance.post(
+  //       "/icarry/get-estimate",
+  //       payload
+  //     );
+
+  //     const estimateData = response.data.data.estimate;
+  //     const courierArray = Object.values(estimateData);
+
+  //     const deliveryCouriers = courierArray.filter((data) =>
+  //       data.courier_group_name?.includes("Delhivery")
+  //     );
+
+  //     let cheapCostData;
+
+  //     if (deliveryCouriers.length > 0) {
+  //       cheapCostData = deliveryCouriers.reduce((min, current) =>
+  //         current.courier_cost < min.courier_cost ? current : min
+  //       );
+  //     } else {
+  //       cheapCostData = courierArray.reduce((min, current) =>
+  //         current.courier_cost < min.courier_cost ? current : min
+  //       );
+  //     }
+
+  //     setDiscountCost(cheapCostData.courier_cost);
+  //     setCourierId(cheapCostData.courier_id);
+  //   } catch (error) {
+  //     console.error("Error submitting pincode:", error);
+  //   }
+  // };
 
   useEffect(() => {
     let quickProductData = localStorage.getItem("quickProductData");
@@ -1073,7 +1236,7 @@ function CheckOut() {
                         <span className="text-success">
                           {discountCost !== undefined && discountCost !== null
                             ? `+ ₹${parseFloat(discountCost).toFixed(2)} /-`
-                            : "Enter Pincode /-"}
+                            : "Free Delivery"}
                         </span>
                       </li>
 

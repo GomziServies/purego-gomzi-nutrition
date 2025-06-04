@@ -13,6 +13,8 @@ function NutritionHeader({
   changeATC,
   handleChangeATC,
 }) {
+  let url = window.location.pathname;
+
   function openside() {
     document.getElementById("demo").style.width = "100%";
   }
@@ -157,24 +159,28 @@ function NutritionHeader({
           ☰
         </span>
         <div className="d-lg-none d-sm-block cart-btnn mt-4">
-          <button
-            className="cart-button-header"
-            onClick={() => handleCartOpen()}
-            // href="/add-to-cart"
-            aria-label="Fg Group"
-          >
-            <div id="ex4">
-              <span className="p1" data-count={cartCount}>
-                <img
-                  src={
-                    process.env.PUBLIC_URL + "../assets/images/cart-img.webp"
-                  }
-                  width="28px"
-                  alt="Fg Group"
-                />
-              </span>
-            </div>
-          </button>
+          {url != "/check-out" ? (
+            <button
+              className="cart-button-header"
+              onClick={() => handleCartOpen()}
+              // href="/add-to-cart"
+              aria-label="Fg Group"
+            >
+              <div id="ex4">
+                <span className="p1" data-count={cartCount}>
+                  <img
+                    src={
+                      process.env.PUBLIC_URL + "../assets/images/cart-img.webp"
+                    }
+                    width="28px"
+                    alt="Fg Group"
+                  />
+                </span>
+              </div>
+            </button>
+          ) : (
+            ""
+          )}
           {/* <Link to="/add-to-cart">
             <div className="cart-btnn">
               <div id="ex4">

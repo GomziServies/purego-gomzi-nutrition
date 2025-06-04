@@ -180,6 +180,15 @@ const AddtoCartOffCanvas = ({
         "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
       );
       const serverData = response.data.data[0];
+      // let itemdata = {
+      //   CartProduct:serverData.items_details,
+      //   Productquantity:serverData.items
+      // };
+
+      localStorage.setItem(
+        "ProductNameData",
+        JSON.stringify(serverData.items_details)
+      );
 
       setServerDataID(serverData._id);
 
@@ -703,6 +712,7 @@ const AddtoCartOffCanvas = ({
       const products = productDataGet.map((product) => ({
         product_id: product._id,
         quantity: product.quantity,
+        // name: product.name,
       }));
 
       const selectedAddToCartData = products.map((data) => {
