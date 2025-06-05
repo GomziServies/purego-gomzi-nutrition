@@ -1505,7 +1505,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Creatine Monohydrate Lemon")
+                              item.includes("Creatine Monohydrate 250g Lemon")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1648,7 +1648,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("BCAA Powder Orange")
+                              item.includes("BCAA Powder 250g Orange")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
