@@ -504,7 +504,7 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹2999/-</span>
+                            <span className="variant-price"> ₹3079/-</span>
                             {/* <span className="variant-old-price">₹2999</span> */}
                             {/* <span className="variant-offer">53% off</span> */}
                           </div>
@@ -645,8 +645,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹3190/-</span>
-                            {/* <span className="variant-old-price">₹3190</span> */}
+                            <span className="variant-price"> ₹3270/-</span>
+                            {/* <span className="variant-old-price">₹3270</span> */}
                             {/* <span className="variant-offer">53% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -786,8 +786,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹3190/-</span>
-                            {/* <span className="variant-old-price">₹3190</span> */}
+                            <span className="variant-price"> ₹3270/-</span>
+                            {/* <span className="variant-old-price">₹3270</span> */}
                             {/* <span className="variant-offer">53% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -927,8 +927,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹3190/-</span>
-                            {/* <span className="variant-old-price">₹3190</span> */}
+                            <span className="variant-price"> ₹3270/-</span>
+                            {/* <span className="variant-old-price">₹3270</span> */}
                             {/* <span className="variant-offer">53% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -1069,8 +1069,8 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1500/-</span>
-                            {/* <span className="variant-old-price">₹1500</span> */}
+                            <span className="variant-price"> ₹1580/-</span>
+                            {/* <span className="variant-old-price">₹1580</span> */}
                             {/* <span className="variant-offer">60% off</span> */}
                           </div>
                           <div className="d-flex">
@@ -1212,7 +1212,7 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹2500/-</span>
+                            <span className="variant-price"> ₹2550/-</span>
                             {/* <span className="variant-old-price">₹2500</span> */}
                             {/* <span className="variant-offer">76% off</span> */}
                           </div>
@@ -1354,7 +1354,7 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹2099/-</span>
+                            <span className="variant-price"> ₹2149/-</span>
                             {/* <span className="variant-old-price">₹2099</span> */}
                             {/* <span className="variant-offer">73% off</span> */}
                           </div>
@@ -1499,7 +1499,7 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1499/-</span>
+                            <span className="variant-price"> ₹1549/-</span>
                             {/* <span className="variant-old-price">₹1499</span> */}
                             {/* <span className="variant-offer">69% off</span> */}
                           </div>
@@ -1642,7 +1642,7 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹2100/-</span>
+                            <span className="variant-price"> ₹2150/-</span>
                             {/* <span className="variant-old-price">₹2100</span> */}
                             {/* <span className="variant-offer">69% off</span> */}
                           </div>

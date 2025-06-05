@@ -52,31 +52,35 @@ function HomeNutritionFooter() {
                     <h4 className="fw-title">Information</h4>
                     <ul className="list-wrap">
                       <li>
-                        <Link to="terms-conditions">Terms & Conditions</Link>
+                        <Link to="/terms-conditions">Terms & Conditions</Link>
                       </li>
                       <li>
-                        <Link to="return-and-refund-policy-customer">
+                        <Link to="/return-and-refund-policy-customer">
                           Return & Refund
                         </Link>
                       </li>
                       <li>
-                        <Link to="privacy-policy-customer">Privacy Policy</Link>
+                        <Link to="/privacy-policy-customer">
+                          Privacy Policy
+                        </Link>
                       </li>
                       <li>
-                        <Link to="cancellation-policy-customer">
+                        <Link to="/cancellation-policy-customer">
                           Cancellation Policy
                         </Link>
                       </li>
                       <li>
-                        <Link to="pricing-policy-customer">Pricing Policy</Link>
+                        <Link to="/pricing-policy-customer">
+                          Pricing Policy
+                        </Link>
                       </li>
                       <li>
-                        <Link to="shipping-policy-customer">
+                        <Link to="/shipping-policy-customer">
                           Shipping Policy
                         </Link>
                       </li>
                       <li>
-                        <Link to="contact-us">Contact Us</Link>
+                        <Link to="/contact-us">Contact Us</Link>
                       </li>
                     </ul>
                   </div>
@@ -86,19 +90,21 @@ function HomeNutritionFooter() {
                     <h4 className="fw-title">Products</h4>
                     <ul className="list-wrap">
                       <li>
-                        <Link to="creatine-supplements">Creatine</Link>
+                        <Link to="/creatine-supplements">Creatine</Link>
                       </li>
                       <li>
-                        <Link to="weight-loss-supplement">Pre Workout</Link>
+                        <Link to="/weight-loss-supplement">Pre Workout</Link>
                       </li>
                       <li>
-                        <Link to="eaa-supplements">EAA</Link>
+                        <Link to="/eaa-supplements">EAA</Link>
                       </li>
                       <li>
-                        <Link to="mass-gainer-protein-powder">Mass Gainer</Link>
+                        <Link to="/mass-gainer-protein-powder">
+                          Mass Gainer
+                        </Link>
                       </li>
                       <li>
-                        <Link to="whey-protein-powder">Whey Protein</Link>
+                        <Link to="/whey-protein-powder">Whey Protein</Link>
                       </li>
                     </ul>
                   </div>

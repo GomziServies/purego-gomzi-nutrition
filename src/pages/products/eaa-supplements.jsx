@@ -72,7 +72,7 @@ function PureGoEaa() {
         id: "67e7742d63f930dcc6a27159",
         img: "/assets/images/products/eaa/eaa-1.webp",
         name: "EAA Powder",
-        price: "2099",
+        price: "2149",
         discount: "550",
         size: "250g",
         dis_point: "73%",
