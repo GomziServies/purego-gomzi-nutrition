@@ -180,6 +180,11 @@ export const createProductOrder = async (
 
         // Redirect to Order Page
         window.location.href = "/user/order";
+        localStorage.removeItem("appliedCoupon");
+        localStorage.removeItem("productsData");
+        localStorage.removeItem("allProductsData");
+        localStorage.removeItem("addItemInCart");
+        localStorage.removeItem("quickProductData");
       });
 
       return { showLoginModal: false, success: true };

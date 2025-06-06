@@ -79,9 +79,9 @@ function PureGoPreWorkout() {
         img: "/assets/images/products/pre-workout/pre-workout-fruit-punch-1.webp",
         name: "Pre Workout Fruit Punch",
         price: "2550",
-        discount: "600",
+        discount: "1275",
         size: "250g",
-        dis_point: "76%",
+        dis_point: "50%",
       },
     },
     {
@@ -91,9 +91,9 @@ function PureGoPreWorkout() {
         img: "/assets/images/products/pre-workout/pre-workout-cola-1.webp",
         name: "Pre Workout Cola",
         price: "2550",
-        discount: "600",
+        discount: "1275",
         size: "250g",
-        dis_point: "76%",
+        dis_point: "50%",
       },
     },
   ];

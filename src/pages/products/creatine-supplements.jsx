@@ -75,9 +75,9 @@ function PureGoCreatine() {
         img: "/assets/images/products/creatine/creatine-lemon-1.webp",
         name: "Creatine Monohydrate Lemon",
         price: "1549",
-        discount: "450",
+        discount: "1161.75",
         size: "250g",
-        dis_point: "69%",
+        dis_point: "25%",
       },
     },
     {
@@ -87,9 +87,9 @@ function PureGoCreatine() {
         img: "/assets/images/products/creatine/creatine-unflavoured-1.webp",
         name: "Creatine Monohydrate Unflavoured",
         price: "1549",
-        discount: "450",
+        discount: "1161.75",
         size: "250g",
-        dis_point: "69%",
+        dis_point: "25%",
       },
     },
   ];

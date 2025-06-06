@@ -77,9 +77,9 @@ function PureGoBCAA() {
         img: "/assets/images/products/bcaa/bcaa-orange-1.webp",
         name: "BCAA Orange",
         price: "2150",
-        discount: "840",
+        discount: "1075",
         size: "250g",
-        dis_point: "60%",
+        dis_point: "50%",
       },
     },
     {
@@ -89,9 +89,9 @@ function PureGoBCAA() {
         img: "/assets/images/products/bcaa/bcaa-cranberry-1.webp",
         name: "BCAA Cranberry",
         price: "2150",
-        discount: "840",
+        discount: "1075",
         size: "250g",
-        dis_point: "60%",
+        dis_point: "50%",
       },
     },
   ];

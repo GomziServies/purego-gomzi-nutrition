@@ -262,15 +262,6 @@ function CheckOut() {
       };
       const payment_mode = paymentMode;
 
-      // if (totalCouponDiscount !== 0 && payment_mode === "Cash On Delivery") {
-      //   Swal.fire({
-      //     icon: "warning",
-      //     title: "Notice",
-      //     text: "Coupon is not available with Cash On Delivery. For discount offers, use Online Payment or remove the coupon.",
-      //   });
-      //   return;
-      // }
-
       try {
         const coupon_ids = [manualCouponCodeData?._id].filter(Boolean);
         await createPaymentProduct(
@@ -283,10 +274,6 @@ function CheckOut() {
           discountCost,
           courierId
         );
-        localStorage.removeItem("appliedCoupon");
-        localStorage.removeItem("productsData");
-        localStorage.removeItem("allProductsData");
-        localStorage.removeItem("addItemInCart");
 
         setManualCouponCode("");
         setManualCouponCodeData(null);
@@ -1197,26 +1184,36 @@ function CheckOut() {
                         Product <span>Subtotal</span>
                       </li>
 
-                      <li>
-                        Order Total{" "}
-                        <span>
-                          ₹
-                          {amountOnCouponCode
-                            ? amountOnCouponCode.toFixed(2)
-                            : "0.00"}{" "}
-                          /-
-                        </span>
-                      </li>
-
-                      {autoDiscount !== 0 && (
+                      {quickData?.price ? (
                         <li>
-                          Discount ({amountOnCouponCode < 2000 ? "25%" : "50%"}){" "}
-                          <span className="text-danger">
-                            - ₹{autoDiscount ? autoDiscount.toFixed(2) : "0.00"}{" "}
-                            /-
-                          </span>
+                          Order Total <span>₹{quickData?.price}/-</span>
+                        </li>
+                      ) : (
+                        <li>
+                          Order Total <span>₹{amountOnCouponCode} /-</span>
                         </li>
                       )}
+                      {quickData?.price
+                        ?  (
+                            <li>
+                              Discount (
+                              {quickData?.price < 2000 ? "25%" : "50%"}){" "}
+                              <span className="text-danger">
+                                - ₹{quickData?.price < 2000 ? quickData?.price *25 /100 : quickData?.price / 2 }
+                                /-
+                              </span>
+                            </li>
+                          )
+                        : autoDiscount !== 0 && (
+                            <li>
+                              Discount (
+                              {amountOnCouponCode < 2000 ? "25%" : "50%"}){" "}
+                              <span className="text-danger">
+                                - ₹{autoDiscount ? autoDiscount : ""}
+                                /-
+                              </span>
+                            </li>
+                          )}
 
                       {totalCouponDiscount !== 0 && (
                         <li>
@@ -1240,20 +1237,31 @@ function CheckOut() {
                         </span>
                       </li>
 
-                      <li className="text-dark">
-                        Amount Payable{" "}
-                        <span>
-                          ₹
-                          {mainPrice !== undefined && mainPrice !== null
-                            ? discountCost
-                              ? (mainPrice + parseFloat(discountCost)).toFixed(
-                                  2
-                                )
-                              : mainPrice.toFixed(2)
-                            : "0.00"}{" "}
-                          /-
-                        </span>
-                      </li>
+                      {quickData?.price ? (
+                        <li className="text-dark">
+                          Amount Payable{" "}
+                          <span>
+                            ₹
+                            {quickData?.discount}
+                            /-
+                          </span>
+                        </li>
+                      ) : (
+                        <li className="text-dark">
+                          Amount Payable{" "}
+                          <span>
+                            ₹
+                            {mainPrice !== undefined && mainPrice !== null
+                              ? discountCost
+                                ? (
+                                    mainPrice + parseFloat(discountCost)
+                                  ).toFixed(2)
+                                : mainPrice.toFixed(2)
+                              : "0.00"}{" "}
+                            /-
+                          </span>
+                        </li>
+                      )}
                     </ul>
 
                     <div className="br-15 mb-3">

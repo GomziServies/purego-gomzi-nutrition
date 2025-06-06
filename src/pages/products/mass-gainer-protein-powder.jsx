@@ -79,9 +79,9 @@ function PureGoMassGainer() {
         img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
         name: "Whey Mass Matrix 1kg Chocolate",
         price: "1580",
-        discount: "599",
+        discount: "1185",
         size: "1kg",
-        dis_point: "60%",
+        dis_point: "25%",
       },
     },
     {
@@ -91,9 +91,9 @@ function PureGoMassGainer() {
         img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
         name: "Mass Gainer 3kg Chocolate",
         price: "4750",
-        discount: "1699",
+        discount: "2375",
         size: "3kg",
-        dis_point: "62%",
+        dis_point: "50%",
       },
     },
   ];
