@@ -75,29 +75,29 @@ function NutritionHeader({
       <LogoComponent />
       <div className="container-fluid offer-main bg-yellow p-0 m-0 d-flex align-items-center">
         <marquee className="text-white py-2">
-          🛍️ If your order is above ₹2000, you get a 25% OFF! 💸💥 But wait...
-          If your order is ₹2000 or less, enjoy a massive 50% OFF! 🔥🤑 | 💸🛍️
+          🛍️ If your order is above ₹1500, you get a 25% OFF! 💸💥 But wait...
+          If your order is ₹1500 or less, enjoy a massive 50% OFF! 🔥🤑 | 💸🛍️
           Enjoy exclusive customer support, Monday to Friday, 11 AM to 5 PM! 📞
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
-          &nbsp; &nbsp; &nbsp; 🛍️ If your order is above ₹2000, you get a 25%
-          OFF! 💸💥 But wait... If your order is ₹2000 or less, enjoy a massive
+          &nbsp; &nbsp; &nbsp; 🛍️ If your order is above ₹1500, you get a 25%
+          OFF! 💸💥 But wait... If your order is ₹1500 or less, enjoy a massive
           50% OFF! 🔥🤑 | 💸🛍️ Enjoy exclusive customer support, Monday to
           Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🛍️ If your order is above
-          ₹2000, you get a 25% OFF! 💸💥 But wait... If your order is ₹2000 or
+          ₹1500, you get a 25% OFF! 💸💥 But wait... If your order is ₹1500 or
           less, enjoy a massive 50% OFF! 🔥🤑 | 💸🛍️ Enjoy exclusive customer
           support, Monday to Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp;
           &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          &nbsp; &nbsp; 🛍️ If your order is above ₹2000, you get a 25% OFF! 💸💥
-          But wait... If your order is ₹2000 or less, enjoy a massive 50% OFF!
+          &nbsp; &nbsp; 🛍️ If your order is above ₹1500, you get a 25% OFF! 💸💥
+          But wait... If your order is ₹1500 or less, enjoy a massive 50% OFF!
           🔥🤑 | 💸🛍️ Enjoy exclusive customer support, Monday to Friday, 11 AM
           to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp;
-          &nbsp; &nbsp; &nbsp; &nbsp; 🛍️ If your order is above ₹2000, you get a
-          25% OFF! 💸💥 But wait... If your order is ₹2000 or less, enjoy a
+          &nbsp; &nbsp; &nbsp; &nbsp; 🛍️ If your order is above ₹1500, you get a
+          25% OFF! 💸💥 But wait... If your order is ₹1500 or less, enjoy a
           massive 50% OFF! 🔥🤑 | 💸🛍️ Enjoy exclusive customer support, Monday
           to Friday, 11 AM to 5 PM! 📞 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 🛍️ If your order is above
-          ₹2000, you get a 25% OFF! 💸💥 But wait... If your order is ₹2000 or
+          ₹1500, you get a 25% OFF! 💸💥 But wait... If your order is ₹1500 or
           less, enjoy a massive 50% OFF! 🔥🤑 | 💸🛍️ Enjoy exclusive customer
           support, Monday to Friday, 11 AM to 5 PM! 📞
         </marquee>
@@ -197,7 +197,7 @@ function NutritionHeader({
             </div>
           </Link> */}
         </div>
-        <div className="login d-lg-block d-none">
+        <div className="login d-lg-block d-none ">
           <ul>
             <UserInfo cartCount={cartCount} handleCartOpen={handleCartOpen} />
           </ul>

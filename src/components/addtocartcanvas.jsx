@@ -91,11 +91,11 @@ const AddtoCartOffCanvas = ({
     selectedAddToCartData = JSON.parse(selectedAddToCartData);
 
     const totalDiscountPercentage = selectedAddToCartData
-      .map((data) => parseInt(data?.dis_point.replace("%", "")))
-      .reduce((sum, value) => sum + value, 0);
+      ?.map((data) => parseInt(data?.dis_point.replace("%", "")))
+      ?.reduce((sum, value) => sum + value, 0);
 
     const averageDiscount =
-      totalDiscountPercentage / selectedAddToCartData.length;
+      totalDiscountPercentage / selectedAddToCartData?.length;
 
     let baseDiscount;
     let priceAfterAutoDiscount;
@@ -434,7 +434,7 @@ const AddtoCartOffCanvas = ({
         id: "67e7749163f930dcc6a2715d",
         img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
         name: "Whey Protein 1kg Chocolate",
-        price: "2999",
+        price: "3080",
         discount: "1390",
         size: "1kg",
         dis_point: "53%",
@@ -446,7 +446,7 @@ const AddtoCartOffCanvas = ({
         id: "67e774c463f930dcc6a27161",
         img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
         name: "Whey Protein 1kg Mocha Coffee",
-        price: "3199",
+        price: "3270",
         discount: "1490",
         size: "1kg",
         dis_point: "53%",
@@ -458,7 +458,7 @@ const AddtoCartOffCanvas = ({
         id: "67e774a963f930dcc6a2715f",
         img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
         name: "Whey Protein 1kg Mawa Kulfi",
-        price: "3199",
+        price: "3270",
         discount: "1490",
         size: "1kg",
         dis_point: "53%",
@@ -470,7 +470,7 @@ const AddtoCartOffCanvas = ({
         id: "68219edf28bd0ff3b2083fa6",
         img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
         name: "Whey Protein 2kg Chocolate",
-        price: "5599",
+        price: "5750",
         discount: "2679",
         size: "2kg",
         dis_point: "52%",
@@ -482,7 +482,7 @@ const AddtoCartOffCanvas = ({
         id: "68219f0d28bd0ff3b2083fad",
         img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
         name: "Whey Protein 2kg Mocha Coffee",
-        price: "5999",
+        price: "6150",
         discount: "2879",
         size: "2kg",
         dis_point: "52%",
@@ -494,7 +494,7 @@ const AddtoCartOffCanvas = ({
         id: "68219ef928bd0ff3b2083fa8",
         img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
         name: "Whey Protein 2kg Mawa Kulfi",
-        price: "5999",
+        price: "6150",
         discount: "2879",
         size: "2kg",
         dis_point: "52%",
@@ -506,7 +506,7 @@ const AddtoCartOffCanvas = ({
         id: "67e7740363f930dcc6a27157",
         img: "/assets/images/products/pre-workout/pre-workout-fruit-punch-1.webp",
         name: "Pre Workout Fruit Punch",
-        price: "2500",
+        price: "2550",
         discount: "600",
         size: "250g",
         dis_point: "76%",
@@ -518,7 +518,7 @@ const AddtoCartOffCanvas = ({
         id: "682718b1ed4175d21de95d0b",
         img: "/assets/images/products/pre-workout/pre-workout-cola-1.webp",
         name: "Pre Workout Cola",
-        price: "2500",
+        price: "2550",
         discount: "600",
         size: "250g",
         dis_point: "76%",
@@ -530,7 +530,7 @@ const AddtoCartOffCanvas = ({
         id: "6827168ced4175d21de95c4e",
         img: "/assets/images/products/bcaa/bcaa-orange-1.webp",
         name: "BCAA Orange",
-        price: "2100",
+        price: "2150",
         discount: "840",
         size: "250g",
         dis_point: "60%",
@@ -542,7 +542,7 @@ const AddtoCartOffCanvas = ({
         id: "6827180aed4175d21de95cb9",
         img: "/assets/images/products/bcaa/bcaa-cranberry-1.webp",
         name: "BCAA Cranberry",
-        price: "2100",
+        price: "2150",
         discount: "840",
         size: "250g",
         dis_point: "60%",
@@ -554,7 +554,7 @@ const AddtoCartOffCanvas = ({
         id: "67e773f463f930dcc6a27155",
         img: "/assets/images/products/creatine/creatine-lemon-1.webp",
         name: "Creatine Monohydrate Lemon",
-        price: "1499",
+        price: "1550",
         discount: "450",
         size: "250g",
         dis_point: "69%",
@@ -566,7 +566,7 @@ const AddtoCartOffCanvas = ({
         id: "6827197bed4175d21de95d5c",
         img: "/assets/images/products/creatine/creatine-unflavoured-1.webp",
         name: "Creatine Monohydrate Unflavoured",
-        price: "1499",
+        price: "1550",
         discount: "450",
         size: "250g",
         dis_point: "69%",
@@ -578,7 +578,7 @@ const AddtoCartOffCanvas = ({
         id: "67e7742d63f930dcc6a27159",
         img: "/assets/images/products/eaa/eaa-1.webp",
         name: "EAA Powder",
-        price: "2099",
+        price: "2100",
         discount: "550",
         size: "250g",
         dis_point: "73%",
@@ -590,7 +590,7 @@ const AddtoCartOffCanvas = ({
         id: "67e7745f63f930dcc6a2715b",
         img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
         name: "Whey Mass Matrix 1kg Chocolate",
-        price: "1500",
+        price: "1580",
         discount: "599",
         size: "1kg",
         dis_point: "60%",
@@ -602,7 +602,7 @@ const AddtoCartOffCanvas = ({
         id: "68219f4d28bd0ff3b2083fb1",
         img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
         name: "Mass Gainer 3kg Chocolate",
-        price: "4500",
+        price: "4750",
         discount: "1699",
         size: "3kg",
         dis_point: "62%",
@@ -611,22 +611,10 @@ const AddtoCartOffCanvas = ({
     {
       key: "500ml-Black",
       data: {
-        id: "6827168ced4175d21de95c4e",
-        img: "/assets/images/products/bcaa/bcaa-orange-1.webp",
-        name: "Shaker Bottle 500ml",
-        price: "2100",
-        discount: "840",
-        size: "500ml",
-        dis_point: "60%",
-      },
-    },
-    {
-      key: "500ml-Black",
-      data: {
         id: "68316330f91df040c479ad1e",
         img: "/assets/images/products/shaker-bottle/shaker-bottle-1.webp",
         name: "Gomzi Nutrition Shaker 500ml",
-        price: "149",
+        price: "160",
         discount: "0",
         size: "500ml",
         dis_point: "60%",
@@ -677,8 +665,8 @@ const AddtoCartOffCanvas = ({
     }
   };
 
-  const defaultDiscountPercent = totalAmount > 2000 ? 0.5 : 0.25;
-  const defaultDiscountAmount = totalAmount * defaultDiscountPercent;
+  let defaultDiscountPercent =  totalAmount > 2000 ? 0.5 : 0.25;
+  let defaultDiscountAmount =  totalAmount * defaultDiscountPercent;
 
   let couponDiscountAmount = 0;
   let couponLabel = "";
@@ -694,7 +682,7 @@ const AddtoCartOffCanvas = ({
     }
   }
 
-  const finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount;
+  let finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount;
 
   const handleAddToCart = async (e) => {
     e.preventDefault();
@@ -792,6 +780,34 @@ const AddtoCartOffCanvas = ({
     setTimeout(() => {
       onClose();
     }, 700);
+  };
+
+  let DiscountCalculate = (name, mainprice) => {
+
+    let Demo = {};
+    
+
+    
+    
+    if ((name === "Pure Go Whey Mass Matrix 1kg Chocolate" || mainprice > 2000)) {
+      
+      console.log("name ==>", name);
+      defaultDiscountPercent = (name === "Pure Go Whey Mass Matrix 1kg Chocolate" || mainprice > 2000) ? 0.5 : 0.25;
+      defaultDiscountAmount =  totalAmount * defaultDiscountPercent;
+      finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount
+    }
+    
+    if ((name === "Pure Go Whey Mass Matrix 1kg Chocolate" || mainprice > 2000) || (productDataGet.length > 1 && finalAmount > 2000)
+    ) {
+          Demo.mainprice = mainprice;
+          Demo.discountedprice = (mainprice * 50) / 100;
+           Demo.discount = "50%";
+    } else {
+            Demo.mainprice = mainprice;
+            Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+            Demo.discount = "25%";
+    }
+    return Demo;
   };
 
   return (
@@ -905,7 +921,7 @@ const AddtoCartOffCanvas = ({
                                 <div className="d-flex mx-2 justify-content-between">
                                   <div className="col-12">
                                     <h2
-                                      className="f-rob-bol d-inline-block text-capitalize h3-fs cp mb-2 fs-17"
+                                      className="f-rob-bol d-inline-block text-capitalize h3-fs cp fs-17 m-0"
                                       title={product?.name}
                                     >
                                       {product?.name?.length > 35
@@ -914,7 +930,40 @@ const AddtoCartOffCanvas = ({
                                     </h2>
                                   </div>
                                 </div>
-                                <div className="cart-add align-items-center mt-2">
+                                <div className="text-dark p-0 ">
+                                  <div
+                                    className="d-flex gap-2 align-items-center justify-content-center px-2"
+                                    style={{ width: "fit-content" }}
+                                  >
+                                    {(() => {
+                                      const price = DiscountCalculate(
+                                        product?.name,
+                                        product.quantity * product.price
+                                      );
+                                      return (
+                                        <>
+                                          <span className="variant-price">
+                                            ₹{price?.discountedprice?.toFixed(0)}
+                                            /-
+                                          </span>
+                                          <span
+                                            className="variant-old-price m-0"
+                                            style={{ fontSize: "14px"}}
+                                          >
+                                            ₹{price?.mainprice}{" "}
+                                          </span>
+                                          <span
+                                            className="variant-offer"
+                                            style={{ fontSize: "13px"}}
+                                          >
+                                            {price?.discount} off
+                                          </span>
+                                        </>
+                                      );
+                                    })()}
+                                  </div>
+                                </div>
+                                <div className="cart-add align-items-center">
                                   <div className="d-flex align-items-center mx-2">
                                     <i
                                       className="fas fa-minus text-dark mx-1"
@@ -967,15 +1016,6 @@ const AddtoCartOffCanvas = ({
                                       <i className="fa-solid fa-trash-can text-black"></i>
                                     </span>
                                   </button>
-                                </div>
-                              </div>
-                              <div className="text-dark p-0 mt-1">
-                                <div className="d-inline-block">
-                                  <span className="d-inline-block mr-2 f-rob-bol f-22">
-                                    ₹
-                                    {product.quantity *
-                                      product.price.toFixed(2)}
-                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -1307,7 +1347,10 @@ const AddtoCartOffCanvas = ({
                   </p>
                   <div className="common-button mx-2">
                     <Link to="/">
-                      <button className="bg-blue text-uppercase px-2 mt-3 px-lg-5 py-2 text-white f-16 f-rob-bol">
+                      <button
+                        className="bg-blue text-uppercase px-2 mt-3 px-lg-5 py-2 text-white f-16 f-rob-bol"
+                        onClick={handleClose}
+                      >
                         Start Shopping
                       </button>
                     </Link>

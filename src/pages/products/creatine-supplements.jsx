@@ -74,8 +74,8 @@ function PureGoCreatine() {
         id: "67e773f463f930dcc6a27155",
         img: "/assets/images/products/creatine/creatine-lemon-1.webp",
         name: "Creatine Monohydrate Lemon",
-        price: "1549",
-        discount: "1161.75",
+        price: "1550",
+        discount: "1162",
         size: "250g",
         dis_point: "25%",
       },
@@ -86,8 +86,8 @@ function PureGoCreatine() {
         id: "6827197bed4175d21de95d5c",
         img: "/assets/images/products/creatine/creatine-unflavoured-1.webp",
         name: "Creatine Monohydrate Unflavoured",
-        price: "1549",
-        discount: "1161.75",
+        price: "1550",
+        discount: "1162",
         size: "250g",
         dis_point: "25%",
       },
@@ -226,6 +226,21 @@ function PureGoCreatine() {
     setClickATC(true);
   };
 
+   let DiscountCalculate = (name, mainprice) => {
+    let Demo = {};
+
+    if (name === "Whey Mass Matrix 1kg Chocolate" || mainprice > 2000) {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = (mainprice * 50) / 100;
+      Demo.discount = "50%";
+    } else {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+      Demo.discount = "25%";
+    }
+    return Demo;
+  };
+
   return (
     <>
       <Helmet>
@@ -334,14 +349,24 @@ function PureGoCreatine() {
                     </div>
                     <div className="inner-shop-details-price">
                       <h2 className="price d-flex mb-0">
-                        ₹{currentProductData.price}/-
-                        {/* <span className="old-prices">
-                          ₹{currentProductData.price}/-
-                        </span> */}
+                      {(() => {
+                          const price = DiscountCalculate(
+                            "Whey Protein 1kg Mocha Coffee",
+                            currentProductData?.price
+                          );
+                          return (
+                            <>
+                              ₹{price.discountedprice}/-
+                              <span className="old-prices">
+                                ₹{currentProductData.price}/-
+                              </span>
+                              <h5 className="stock-status d-flex align-items-center">
+                                ({price?.discount} OFF)
+                              </h5>
+                            </>
+                          );
+                        })()}
                       </h2>
-                      {/* <h5 className="stock-status">
-                        ({currentProductData.dis_point} OFF)
-                      </h5> */}
                     </div>
                     <p>
                       Creatine monohydrate works by increasing the body's stores

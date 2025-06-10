@@ -79,9 +79,9 @@ function PureGoMassGainer() {
         img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
         name: "Whey Mass Matrix 1kg Chocolate",
         price: "1580",
-        discount: "1185",
+        discount: "790",
         size: "1kg",
-        dis_point: "25%",
+        dis_point: "50%",
       },
     },
     {
@@ -258,6 +258,21 @@ function PureGoMassGainer() {
     },
   ];
 
+
+   let DiscountCalculate = (name, mainprice) => {
+    let Demo = {};
+
+    if (name === "Whey Mass Matrix 1kg Chocolate" || mainprice > 1570) {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = (mainprice * 50) / 100;
+      Demo.discount = "50%";
+    } else {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+      Demo.discount = "25%";
+    }
+    return Demo;
+  };
   return (
     <>
       <Helmet>
@@ -365,15 +380,25 @@ function PureGoMassGainer() {
                       </ul>
                     </div>
                     <div className="inner-shop-details-price">
-                      <h2 className="price d-flex mb-0">
-                        ₹{currentProductData.price}/-
-                        {/* <span className="old-prices">
-                          ₹{currentProductData.price}/-
-                        </span> */}
+                     <h2 className="price d-flex mb-0">
+                       {(() => {
+                          const price = DiscountCalculate(
+                            currentProductData?.name,
+                            currentProductData?.price
+                          );
+                          return (
+                            <>
+                              ₹{price.discountedprice}/-
+                              <span className="old-prices">
+                                ₹{currentProductData.price}/-
+                              </span>
+                              <h5 className="stock-status d-flex align-items-center">
+                                ({price?.discount} OFF)
+                              </h5>
+                            </>
+                          );
+                        })()}
                       </h2>
-                      {/* <h5 className="stock-status">
-                        ({currentProductData.dis_point} OFF)
-                      </h5> */}
                     </div>
                     <p>
                       Achieve Your Bulking Goals with Pure Go Mass Gainer

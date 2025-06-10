@@ -119,7 +119,7 @@ function PureGoWheyProtein() {
         id: "67e7749163f930dcc6a2715d",
         img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
         name: "Whey Protein 1kg Chocolate",
-        price: "3079",
+        price: "3080",
         discount: "1539.5",
         size: "1kg",
         dis_point: "50%",
@@ -167,7 +167,7 @@ function PureGoWheyProtein() {
         id: "68219edf28bd0ff3b2083fa6",
         img: "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
         name: "Whey Protein 2kg Chocolate",
-        price: "5749",
+        price: "5750",
         discount: "2847.5",
         size: "2kg",
         dis_point: "50%",
@@ -179,8 +179,8 @@ function PureGoWheyProtein() {
         id: "68219f0d28bd0ff3b2083fad",
         img: "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
         name: "Whey Protein 2kg Mocha Coffee",
-        price: "6149",
-        discount: "3074.5",
+        price: "6150",
+        discount: "3075",
         size: "2kg",
         dis_point: "50%",
       },
@@ -191,8 +191,8 @@ function PureGoWheyProtein() {
         id: "68219ef928bd0ff3b2083fa8",
         img: "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
         name: "Whey Protein 2kg Mawa Kulfi",
-        price: "6149",
-        discount: "3074.5",
+        price: "6150",
+        discount: "3075",
         size: "2kg",
         dis_point: "50%",
       },
@@ -203,8 +203,8 @@ function PureGoWheyProtein() {
         id: "683162bef91df040c479ace4",
         img: "/assets/images/products/whey-protein/whey-protein-mango-1.webp",
         name: "Whey Protein 2kg Mango",
-        price: "6149",
-        discount: "3074.5",
+        price: "6150",
+        discount: "3075",
         size: "2kg",
         dis_point: "50%",
       },
@@ -423,6 +423,20 @@ function PureGoWheyProtein() {
     }
   };
 
+ let DiscountCalculate = (name, mainprice) => {
+    let Demo = {};
+
+    if (mainprice > 1570) {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = (mainprice * 50) / 100;
+      Demo.discount = "50%";
+    } else {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+      Demo.discount = "25%";
+    }
+    return Demo;
+  };
   return (
     <>
       <Helmet>
@@ -542,15 +556,25 @@ function PureGoWheyProtein() {
                       </ul>
                     </div>
                     <div className="inner-shop-details-price">
-                      <h2 className="price d-flex mb-0">
-                        ₹{currentProductData.price}/-
-                        {/* <span className="old-prices">
-                          ₹{currentProductData.price}/-
-                        </span> */}
+                       <h2 className="price d-flex mb-0">
+                       {(() => {
+                          const price = DiscountCalculate(
+                            currentProductData?.name,
+                            currentProductData?.price
+                          );
+                          return (
+                            <>
+                              ₹{price.discountedprice}/-
+                              <span className="old-prices">
+                                ₹{currentProductData.price}/-
+                              </span>
+                              <h5 className="stock-status text-center d-flex align-items-center" >
+                                ({price?.discount} OFF)
+                              </h5>
+                            </>
+                          );
+                        })()}
                       </h2>
-                      {/* <h5 className="stock-status">
-                        ({currentProductData.dis_point} OFF)
-                      </h5> */}
                     </div>
                     <p>
                       Pure Go Whey Protein is a Mixture of Whey Isolate, Whey

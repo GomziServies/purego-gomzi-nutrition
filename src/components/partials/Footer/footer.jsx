@@ -31,18 +31,34 @@ function HomeNutritionFooter() {
                         </p>
                       </div>
                       <div className="footer-social">
-                        <Link to="https://www.facebook.com/people/Gomzi-Nutrition/61558718185166/?mibextid=ZbWKwL">
+                        <a
+                          href="https://www.facebook.com/people/Gomzi-Nutrition/61558718185166/?mibextid=ZbWKwL"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <i className="fab fa-facebook-f"></i>
-                        </Link>
-                        <Link to="https://www.youtube.com/@GomziNutrition">
+                        </a>
+                        <a
+                          href="https://www.youtube.com/@GomziNutrition"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <i className="fab fa-youtube"></i>
-                        </Link>
-                        <Link to="https://www.instagram.com/gomzi_nutrition?igsh=a2gwNGxmZXk1NXds">
+                        </a>
+                        <a
+                          href="https://www.instagram.com/gomzi_nutrition?igsh=a2gwNGxmZXk1NXds"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <i className="fab fa-instagram"></i>
-                        </Link>
-                        <Link to="https://www.linkedin.com/in/gomzi-nutrition-423558312/">
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/in/gomzi-nutrition-423558312/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <i className="fab fa-linkedin-in"></i>
-                        </Link>
+                        </a>
                       </div>
                     </div>
                   </div>

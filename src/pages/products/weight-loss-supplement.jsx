@@ -271,6 +271,20 @@ function PureGoPreWorkout() {
     },
   ];
 
+   let DiscountCalculate = (name, mainprice) => {
+    let Demo = {};
+
+    if (name === "Whey Mass Matrix 1kg Chocolate" || mainprice > 1570) {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = (mainprice * 50) / 100;
+      Demo.discount = "50%";
+    } else {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+      Demo.discount = "25%";
+    }
+    return Demo;
+  };
   return (
     <>
       <Helmet>
@@ -379,14 +393,24 @@ function PureGoPreWorkout() {
                     </div>
                     <div className="inner-shop-details-price">
                       <h2 className="price d-flex mb-0">
-                        ₹{currentProductData.price}/-
-                        {/* <span className="old-prices">
-                          ₹{currentProductData.price}/-
-                        </span> */}
+                       {(() => {
+                          const price = DiscountCalculate(
+                            currentProductData?.name,
+                            currentProductData?.price
+                          );
+                          return (
+                            <>
+                              ₹{price.discountedprice}/-
+                              <span className="old-prices">
+                                ₹{currentProductData.price}/-
+                              </span>
+                              <h5 className="stock-status d-flex align-items-center">
+                                ({price?.discount} OFF)
+                              </h5>
+                            </>
+                          );
+                        })()}
                       </h2>
-                      {/* <h5 className="stock-status">
-                        ({currentProductData.dis_point} OFF)
-                      </h5> */}
                     </div>
                     <p>
                       It will suppress your appetite and provide you with a

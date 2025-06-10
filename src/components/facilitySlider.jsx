@@ -10,21 +10,24 @@ const facilitySlider = () => {
 
   return (
     <div className="w-100 border-top border-bottom bg-white overflow-hidden">
-      <marquee behavior="scroll" direction="left" scrollamount="20">
+      <marquee behavior="scroll" direction="left" scrollamount="10">
         <div className="facility-slider">
           {[
             { icon: "fa-credit-card", text: "COD Available" },
             { icon: "fa-clock", text: "24 Hour Dispatch" },
             { icon: "fa-wallet", text: "Secure Payment" },
             { icon: "fa-headset", text: "Quick Support" },
+            { icon: "fa-shipping-fast", text: "Free Shipping" },
             { icon: "fa-credit-card", text: "COD Available" },
             { icon: "fa-clock", text: "24 Hour Dispatch" },
             { icon: "fa-wallet", text: "Secure Payment" },
             { icon: "fa-headset", text: "Quick Support" },
+            { icon: "fa-shipping-fast", text: "Free Shipping" },
             { icon: "fa-credit-card", text: "COD Available" },
             { icon: "fa-clock", text: "24 Hour Dispatch" },
             { icon: "fa-wallet", text: "Secure Payment" },
             { icon: "fa-headset", text: "Quick Support" },
+            { icon: "fa-shipping-fast", text: "Free Shipping" },
           ].map((item, i) => (
             <div
               key={i}

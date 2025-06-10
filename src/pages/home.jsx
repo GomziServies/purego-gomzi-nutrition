@@ -246,6 +246,22 @@ function Home() {
     }
   };
 
+  let DiscountCalculate = (name, mainprice) => {
+
+    let Demo = {};
+
+    if (name === "Whey Mass Matrix 1kg Chocolate" || mainprice > 1570) {
+        Demo.mainprice = mainprice;
+        Demo.discountedprice = mainprice * 50 / 100 ;
+        Demo.discount = "50%"
+    }else{
+       Demo.mainprice = mainprice;
+        Demo.discountedprice = mainprice - (mainprice * 25 / 100) ;
+        Demo.discount = "25%"
+    }
+    return Demo
+    
+  };
   return (
     <>
       <Helmet>
@@ -438,7 +454,7 @@ function Home() {
                       </div>
                     </OwlCarousel>
 
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         width="70px"
@@ -447,7 +463,7 @@ function Home() {
                       />
                       <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -504,9 +520,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹3079/-</span>
-                            {/* <span className="variant-old-price">₹2999</span> */}
-                            {/* <span className="variant-offer">53% off</span> */}
+                            {(() => {
+                              const price = DiscountCalculate("Whey Protein 1kg Chocolate",3080); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -580,7 +603,7 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         width="70px"
@@ -589,7 +612,7 @@ function Home() {
                       />
                       <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -645,9 +668,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹3270/-</span>
-                            {/* <span className="variant-old-price">₹3270</span> */}
-                            {/* <span className="variant-offer">53% off</span> */}
+                             {(() => {
+                              const price = DiscountCalculate("Whey Protein 1kg Mawa Kulfi",3270); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -721,7 +751,7 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         width="70px"
@@ -730,7 +760,7 @@ function Home() {
                       />
                       <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -786,9 +816,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹3270/-</span>
-                            {/* <span className="variant-old-price">₹3270</span> */}
-                            {/* <span className="variant-offer">53% off</span> */}
+                             {(() => {
+                              const price = DiscountCalculate("Whey Protein 1kg Mocha Coffee",3270); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -862,7 +899,7 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         width="70px"
@@ -871,7 +908,7 @@ function Home() {
                       />
                       <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -927,9 +964,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹3270/-</span>
-                            {/* <span className="variant-old-price">₹3270</span> */}
-                            {/* <span className="variant-offer">53% off</span> */}
+                            {(() => {
+                              const price = DiscountCalculate("Whey Protein 1kg Mango",3270); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1003,7 +1047,7 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         width="70px"
@@ -1012,7 +1056,7 @@ function Home() {
                       />
                       <p className="wishlist-text-first">66%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -1069,9 +1113,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1580/-</span>
-                            {/* <span className="variant-old-price">₹1580</span> */}
-                            {/* <span className="variant-offer">60% off</span> */}
+                           {(() => {
+                              const price = DiscountCalculate("Whey Mass Matrix 1kg Chocolate",1580); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1146,7 +1197,7 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         width="70px"
@@ -1155,7 +1206,7 @@ function Home() {
                       />
                       <p className="wishlist-text-first">76%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -1212,9 +1263,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹2550/-</span>
-                            {/* <span className="variant-old-price">₹2500</span> */}
-                            {/* <span className="variant-offer">76% off</span> */}
+                            {(() => {
+                              const price = DiscountCalculate("Pre Workout Fruit Punch 250g",2550); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1288,7 +1346,7 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         width="70px"
@@ -1297,7 +1355,7 @@ function Home() {
                       />
                       <p className="wishlist-text-first">73%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -1354,9 +1412,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹2149/-</span>
-                            {/* <span className="variant-old-price">₹2099</span> */}
-                            {/* <span className="variant-offer">73% off</span> */}
+                           {(() => {
+                              const price = DiscountCalculate("EAA Powder 250g",2150); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1433,7 +1498,7 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         width="70px"
@@ -1442,7 +1507,7 @@ function Home() {
                       />
                       <p className="wishlist-text-first">69%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -1499,9 +1564,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1549/-</span>
-                            {/* <span className="variant-old-price">₹1499</span> */}
-                            {/* <span className="variant-offer">69% off</span> */}
+                           {(() => {
+                              const price = DiscountCalculate("Creatine Monohydrate Lemon 250g",1490); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1576,7 +1648,7 @@ function Home() {
                         />
                       </div>
                     </OwlCarousel>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         width="70px"
@@ -1585,7 +1657,7 @@ function Home() {
                       />
                       <p className="wishlist-text-first">60%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -1642,9 +1714,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹2150/-</span>
-                            {/* <span className="variant-old-price">₹2100</span> */}
-                            {/* <span className="variant-offer">69% off</span> */}
+                            {(() => {
+                              const price = DiscountCalculate("BCAA Orange Powder 250g",2150); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1784,9 +1863,16 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹149/-</span>
-                            {/* <span className="variant-old-price">₹2100</span> */}
-                            {/* <span className="variant-offer">69% off</span> */}
+                           {(() => {
+                              const price = DiscountCalculate("Whey Protein 1kg Mocha Coffee",180); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>

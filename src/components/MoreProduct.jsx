@@ -38,6 +38,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
         "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
       );
       const cartData = response.data.data[0];
+      
       const cartItemData = cartData.items_details.map((data) => data.name);
       setCartItemName(cartItemData);
       productsId.map((data) => fetchProductRatingData(data));
@@ -138,6 +139,24 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
     }
   };
 
+
+   let DiscountCalculate = (name, mainprice) => {
+
+    let Demo = {};
+
+    if (name === "Whey Mass Matrix 1kg Chocolate" || mainprice > 1570) {
+        Demo.mainprice = mainprice;
+        Demo.discountedprice = mainprice * 50 / 100 ;
+        Demo.discount = "50%"
+    }else{
+       Demo.mainprice = mainprice;
+        Demo.discountedprice = mainprice - (mainprice * 25 / 100) ;
+        Demo.discount = "25%"
+    }
+    return Demo
+    
+  };
+
   return (
     <>
       {showModal && <LoginModal onClose={closeModal} />}
@@ -160,7 +179,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                         alt="whey-protein-chocolate"
                       />
                     </div>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         src="/assets/images/fifty-discount.png"
@@ -168,7 +187,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       />
                       <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -225,9 +244,16 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1390/-</span>
-                            <span className="variant-old-price">₹2999</span>
-                            <span className="variant-offer">53% off</span>
+                            {(() => {
+                              const price = DiscountCalculate("Whey Protein 1kg Chocolate",3080); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -272,7 +298,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                         alt="Whey Protein 1kg Mawa Kulfi"
                       />
                     </div>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         src="/assets/images/fifty-discount.png"
@@ -280,7 +306,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       />
                       <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -336,9 +362,16 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1490/-</span>
-                            <span className="variant-old-price">₹3190</span>
-                            <span className="variant-offer">53% off</span>
+                           {(() => {
+                              const price = DiscountCalculate("Whey Protein 1kg Mawa Kulfi",3270); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -383,7 +416,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                         alt="whey-protein-mocha-coffee"
                       />
                     </div>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         src="/assets/images/fifty-discount.png"
@@ -391,7 +424,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       />
                       <p className="wishlist-text-first">53%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -447,9 +480,16 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹1490/-</span>
-                            <span className="variant-old-price">₹3190</span>
-                            <span className="variant-offer">53% off</span>
+                            {(() => {
+                              const price = DiscountCalculate("Whey Protein 1kg Mocha Coffee",3270); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -494,7 +534,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                         alt="Mass Gainer"
                       />
                     </div>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         src="/assets/images/fifty-discount.png"
@@ -502,7 +542,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       />
                       <p className="wishlist-text-first">66%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -559,9 +599,16 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹599/-</span>
-                            <span className="variant-old-price">₹1500</span>
-                            <span className="variant-offer">60% off</span>
+                            {(() => {
+                              const price = DiscountCalculate("Whey Mass Matrix 1kg Chocolate",1580); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -607,7 +654,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                         alt="Pre Workout"
                       />
                     </div>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         src="/assets/images/fifty-discount.png"
@@ -615,7 +662,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       />
                       <p className="wishlist-text-first">76%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -672,9 +719,16 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹600/-</span>
-                            <span className="variant-old-price">₹2500</span>
-                            <span className="variant-offer">76% off</span>
+                            {(() => {
+                              const price = DiscountCalculate("Pre Workout Fruit Punch 250g",2550); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -719,7 +773,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                         alt="EAA Powder"
                       />
                     </div>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         src="/assets/images/fifty-discount.png"
@@ -727,7 +781,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       />
                       <p className="wishlist-text-first">73%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -784,9 +838,16 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹550/-</span>
-                            <span className="variant-old-price">₹2099</span>
-                            <span className="variant-offer">73% off</span>
+                            {(() => {
+                              const price = DiscountCalculate("EAA Powder 250g",2150); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -834,7 +895,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                         alt="Creatine Monohydrate"
                       />
                     </div>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         src="/assets/images/fifty-discount.png"
@@ -842,7 +903,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       />
                       <p className="wishlist-text-first">69%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -899,9 +960,16 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹450/-</span>
-                            <span className="variant-old-price">₹1499</span>
-                            <span className="variant-offer">69% off</span>
+                            {(() => {
+                              const price = DiscountCalculate("Creatine Monohydrate Lemon 250g",1490); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -947,7 +1015,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                         alt="BCAA Orange"
                       />
                     </div>
-                    <div className="wishlist d-flex justify-content-end">
+                    {/* <div className="wishlist d-flex justify-content-end">
                       <img
                         alt="inWishlist"
                         src="/assets/images/fifty-discount.png"
@@ -955,7 +1023,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       />
                       <p className="wishlist-text-first">60%</p>
                       <p className="wishlist-text-second">OFF</p>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="item-card-detail">
                     <div>
@@ -1012,9 +1080,16 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price"> ₹840/-</span>
-                            <span className="variant-old-price">₹2100</span>
-                            <span className="variant-offer">60% off</span>
+                            {(() => {
+                              const price = DiscountCalculate("BCAA Orange Powder 250g",2150); 
+                              return (
+                                <>
+                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
+                                  <span className="variant-old-price">₹{price?.mainprice} </span>
+                                  <span className="variant-offer">{price?.discount} off</span>
+                                </>
+                              );
+                            })()}
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>

@@ -10,6 +10,7 @@ import lookup from "india-pincode-lookup";
 import { toast } from "react-toastify";
 import { Card, Modal } from "react-bootstrap";
 import confetti from "canvas-confetti";
+import { use } from "react";
 
 function CheckOut() {
   const [isCouponRupee, setIsCouponRupee] = useState(false);
@@ -82,6 +83,10 @@ function CheckOut() {
     { stateName: "Ladakh", stateCode: "LA" },
   ];
 
+
+  let ProductNameDataJSON = localStorage.getItem("ProductNameData");
+  let ProductNameData = JSON.parse(ProductNameDataJSON);
+
   const openModal = () => {
     setShowModal(true);
   };
@@ -105,21 +110,21 @@ function CheckOut() {
     selectedAddToCartData = JSON.parse(selectedAddToCartData);
 
     const totalDiscountPercentage = selectedAddToCartData
-      .map((data) => {
+      ?.map((data) => {
         if (data && data.dis_point) {
           return parseInt(data.dis_point.replace("%", ""));
         }
         return 0; // or ignore if you want to skip these entries instead of counting zero
       })
-      .reduce((sum, value) => sum + value, 0);
+      ?.reduce((sum, value) => sum + value, 0);
 
     const averageDiscount =
-      totalDiscountPercentage / selectedAddToCartData.length;
+      totalDiscountPercentage / selectedAddToCartData?.length;
 
     let baseDiscount;
     let priceAfterAutoDiscount;
 
-    if (orderTotal >= 2000) {
+    if (orderTotal >= 1570) {
       const baseDiscountPercent = 50;
       const originalDiscountPercent = averageDiscount;
       baseDiscount = orderTotal * (baseDiscountPercent / 100);
@@ -148,7 +153,7 @@ function CheckOut() {
           return prev;
         });
       }
-    } else if (orderTotal < 2000) {
+    } else if (orderTotal < 1570) {
       const baseDiscountPercent = 25;
       const originalDiscountPercent = averageDiscount;
       baseDiscount = orderTotal * (baseDiscountPercent / 100);
@@ -261,20 +266,22 @@ function CheckOut() {
         mobile: orderUserData.mobile,
       };
       const payment_mode = paymentMode;
-
+      
+      
       try {
         const coupon_ids = [manualCouponCodeData?._id].filter(Boolean);
         await createPaymentProduct(
           quickData && quickData?.id
-            ? [{ product_id: quickData.id, quantity: 1 }]
-            : productDatas,
+          ? [{ product_id: quickData.id, quantity: 1 }]
+          : productDatas,
           updatedUserData,
           coupon_ids,
           payment_mode,
           discountCost,
           courierId
         );
-
+        
+        
         setManualCouponCode("");
         setManualCouponCodeData(null);
         setTotalCouponDiscount(0);
@@ -717,8 +724,10 @@ function CheckOut() {
       setQuickData(quickProductData);
       setMainPrice(parseInt(quickProductData?.discount));
     }
-  }, []);
 
+  }, []);
+  
+  
   const handleStateChange = (event) => {
     try {
       const state = event.target.value;
@@ -746,11 +755,11 @@ function CheckOut() {
         const result = lookup.lookup(pincode);
         if (result?.[0]) {
           const matchedStateName = result[0].stateName.trim().toLowerCase();
-
+          
           const selectedStateData = stateData.find(
             (data) => data.stateName.toLowerCase() === matchedStateName
           );
-
+          
           setOrderUserData((prev) => ({
             ...prev,
             city: result[0].districtName,
@@ -762,7 +771,7 @@ function CheckOut() {
       console.error("Error submitting pincode:", error);
     }
   };
-
+  
   const handleRemoveCoupon = () => {
     setManualCouponCode("");
     setManualCouponCodeData(null);
@@ -775,7 +784,7 @@ function CheckOut() {
   };
 
   const [offers, setOffers] = useState([]);
-
+  
   return (
     <>
       <Helmet>
@@ -787,15 +796,15 @@ function CheckOut() {
         <meta
           name="keyword"
           content="bowelease  Constipation Relief, diet supplements near me, best multivitamins for men india, booster testosterone, how to fat burn, supplement shop near, whey isolate vs protein, whey protein vs whey protein isolate, women's protein powder for weight gain, protein powder for weight gain woman, which best peanut butter, nutrition in 100g oats, protein shakes for weight gain female"
-        />
+          />
         <meta
           property="og:title"
           content="Checkout at Pure Go - Secure & Fast Payment Options"
-        />
+          />
         <meta
           property="og:description"
           content="Complete your purchase at Pure Go with secure and fast checkout options. Hassle-free payment process for all your nutrition and supplement needs."
-        />
+          />
         <meta
           property="og:url"
           content="https://www.purego.gomzilifesciences.in/nutrition/check-out"
@@ -803,7 +812,7 @@ function CheckOut() {
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
-        />
+          />
         <link rel="canonical" href={{ canonicalUrl }} />
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
@@ -1186,7 +1195,7 @@ function CheckOut() {
 
                       {quickData?.price ? (
                         <li>
-                          Order Total <span>₹{quickData?.price}/-</span>
+                          Order Total<span>₹{quickData?.price}/-</span>
                         </li>
                       ) : (
                         <li>
@@ -1195,19 +1204,19 @@ function CheckOut() {
                       )}
                       {quickData?.price
                         ?  (
-                            <li>
+                            <li >
                               Discount (
-                              {quickData?.price < 2000 ? "25%" : "50%"}){" "}
+                              {quickData?.price < 1570 ?"25%" : "50%"}){" "}
                               <span className="text-danger">
-                                - ₹{quickData?.price < 2000 ? quickData?.price *25 /100 : quickData?.price / 2 }
+                                - ₹{quickData?.price < 1570 ? quickData?.price * 25 / 100 : quickData?.price / 2 }
                                 /-
                               </span>
                             </li>
                           )
                         : autoDiscount !== 0 && (
-                            <li>
+                            <li >
                               Discount (
-                              {amountOnCouponCode < 2000 ? "25%" : "50%"}){" "}
+                              {amountOnCouponCode < 1570  ? "25%" : "50%"}){" "}
                               <span className="text-danger">
                                 - ₹{autoDiscount ? autoDiscount : ""}
                                 /-
@@ -1220,7 +1229,7 @@ function CheckOut() {
                           Coupon Discount{" "}
                           {!isCouponRupee &&
                             `(${Math.round(
-                              autoCouponData?.discount || 0
+                              autoCouponData?.discount  || 0
                             )}%)`}{" "}
                           <span className="text-danger">
                             - ₹{totalCouponDiscount.toFixed(2)} /-
@@ -1242,7 +1251,7 @@ function CheckOut() {
                           Amount Payable{" "}
                           <span>
                             ₹
-                            {quickData?.discount}
+                            {quickData?.price > 1500 ? quickData?.price / 2 :  quickData?.price * 25 / 10 }
                             /-
                           </span>
                         </li>
@@ -1253,10 +1262,8 @@ function CheckOut() {
                             ₹
                             {mainPrice !== undefined && mainPrice !== null
                               ? discountCost
-                                ? (
-                                    mainPrice + parseFloat(discountCost)
-                                  ).toFixed(2)
-                                : mainPrice.toFixed(2)
+                                ? (amountOnCouponCode).toFixed(2)
+                                :  mainPrice.toFixed(2) 
                               : "0.00"}{" "}
                             /-
                           </span>

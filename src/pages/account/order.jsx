@@ -153,7 +153,7 @@ function UserOrder() {
               <div className="col-12 row">
                 <div className="col-md-4 meal">
                   <p className="mt-2 mb-5" style={{ fontSize: "20px" }}>
-                    Total Amount :- {order.amount} /-
+                    Total Amount :- <span className="text-success"> {order.amount} /-</span>
                   </p>
                   <p className="mt-2" style={{ fontSize: "20px" }}>
                     Delivery Address :-
