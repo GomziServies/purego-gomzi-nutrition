@@ -189,7 +189,7 @@ function PureGoShaker() {
   let DiscountCalculate = (name, mainprice) => {
     let Demo = {};
 
-    if ( mainprice > 2000) {
+    if (mainprice > 1500) {
       Demo.mainprice = mainprice;
       Demo.discountedprice = (mainprice * 50) / 100;
       Demo.discount = "50%";
@@ -313,7 +313,7 @@ function PureGoShaker() {
                       <h2 className="price d-flex mb-0">
                         {(() => {
                           const price = DiscountCalculate(
-                           currentProductData?.name,
+                            currentProductData?.name,
                             currentProductData?.price
                           );
                           return (

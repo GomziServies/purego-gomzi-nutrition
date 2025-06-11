@@ -247,20 +247,18 @@ function Home() {
   };
 
   let DiscountCalculate = (name, mainprice) => {
-
     let Demo = {};
 
-    if (name === "Whey Matrix 1kg Chocolate" || mainprice > 1570) {
-        Demo.mainprice = mainprice;
-        Demo.discountedprice = mainprice * 50 / 100 ;
-        Demo.discount = "50%"
-    }else{
-       Demo.mainprice = mainprice;
-        Demo.discountedprice = mainprice - (mainprice * 25 / 100) ;
-        Demo.discount = "25%"
+    if (name === "Whey Matrix 1kg Chocolate" || mainprice > 1500) {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = (mainprice * 50) / 100;
+      Demo.discount = "50%";
+    } else {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+      Demo.discount = "25%";
     }
-    return Demo
-    
+    return Demo;
   };
   return (
     <>
@@ -521,12 +519,21 @@ function Home() {
                         <div className="">
                           <div className="d-flex align-items-center">
                             {(() => {
-                              const price = DiscountCalculate("Whey Protein 1kg Chocolate",3080); 
+                              const price = DiscountCalculate(
+                                "Whey Protein 1kg Chocolate",
+                                3080
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}
@@ -668,13 +675,22 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                             {(() => {
-                              const price = DiscountCalculate("Whey Protein 1kg Mawa Kulfi",3270); 
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Whey Protein 1kg Mawa Kulfi",
+                                3270
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}
@@ -816,13 +832,22 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                             {(() => {
-                              const price = DiscountCalculate("Whey Protein 1kg Mocha Coffee",3270); 
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Whey Protein 1kg Mocha Coffee",
+                                3270
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}
@@ -965,12 +990,21 @@ function Home() {
                         <div className="">
                           <div className="d-flex align-items-center">
                             {(() => {
-                              const price = DiscountCalculate("Whey Protein 1kg Mango",3270); 
+                              const price = DiscountCalculate(
+                                "Whey Protein 1kg Mango",
+                                3270
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}
@@ -1113,13 +1147,22 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                           {(() => {
-                              const price = DiscountCalculate("Whey Matrix 1kg Chocolate",1580); 
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Whey Mass Matrix 1kg Chocolate",
+                                1580
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}
@@ -1264,12 +1307,21 @@ function Home() {
                         <div className="">
                           <div className="d-flex align-items-center">
                             {(() => {
-                              const price = DiscountCalculate("Pre Workout Fruit Punch 250g",2550); 
+                              const price = DiscountCalculate(
+                                "Pre Workout Fruit Punch 250g",
+                                2550
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}
@@ -1412,13 +1464,22 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                           {(() => {
-                              const price = DiscountCalculate("EAA Powder 250g",2150); 
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "EAA Powder 250g",
+                                2150
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}
@@ -1564,13 +1625,22 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                           {(() => {
-                              const price = DiscountCalculate("Creatine Monohydrate Lemon 250g",1490); 
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Creatine Monohydrate Lemon 250g",
+                                1490
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}
@@ -1715,12 +1785,21 @@ function Home() {
                         <div className="">
                           <div className="d-flex align-items-center">
                             {(() => {
-                              const price = DiscountCalculate("BCAA Orange Powder 250g",2150); 
+                              const price = DiscountCalculate(
+                                "BCAA Orange Powder 250g",
+                                2150
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}
@@ -1863,13 +1942,22 @@ function Home() {
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                           {(() => {
-                              const price = DiscountCalculate("Whey Protein 1kg Mocha Coffee",180); 
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Whey Protein 1kg Mocha Coffee",
+                                180
+                              );
                               return (
                                 <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
                                 </>
                               );
                             })()}

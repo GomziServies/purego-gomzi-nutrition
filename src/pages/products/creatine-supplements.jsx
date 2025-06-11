@@ -225,10 +225,10 @@ function PureGoCreatine() {
     setClickATC(true);
   };
 
-   let DiscountCalculate = (name, mainprice) => {
+  let DiscountCalculate = (name, mainprice) => {
     let Demo = {};
 
-    if (mainprice > 2000) {
+    if (mainprice > 1500) {
       Demo.mainprice = mainprice;
       Demo.discountedprice = (mainprice * 50) / 100;
       Demo.discount = "50%";
@@ -348,7 +348,7 @@ function PureGoCreatine() {
                     </div>
                     <div className="inner-shop-details-price">
                       <h2 className="price d-flex mb-0">
-                      {(() => {
+                        {(() => {
                           const price = DiscountCalculate(
                             "Whey Protein 1kg Mocha Coffee",
                             currentProductData?.price

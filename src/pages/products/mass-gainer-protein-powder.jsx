@@ -257,11 +257,10 @@ function PureGoMassGainer() {
     },
   ];
 
-
-   let DiscountCalculate = (name, mainprice) => {
+  let DiscountCalculate = (name, mainprice) => {
     let Demo = {};
 
-    if (name === "Whey Matrix 1kg Chocolate" || mainprice > 1570) {
+    if (name === "Whey Matrix 1kg Chocolate" || mainprice > 1500) {
       Demo.mainprice = mainprice;
       Demo.discountedprice = (mainprice * 50) / 100;
       Demo.discount = "50%";
@@ -379,8 +378,8 @@ function PureGoMassGainer() {
                       </ul>
                     </div>
                     <div className="inner-shop-details-price">
-                     <h2 className="price d-flex mb-0">
-                       {(() => {
+                      <h2 className="price d-flex mb-0">
+                        {(() => {
                           const price = DiscountCalculate(
                             currentProductData?.name,
                             currentProductData?.price

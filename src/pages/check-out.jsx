@@ -47,7 +47,7 @@ function CheckOut() {
   });
 
   const location = useLocation();
-  const navigationType = useNavigationType(); 
+  const navigationType = useNavigationType();
   const prevPathRef = useRef(location.pathname);
 
   const stateData = [
@@ -130,7 +130,7 @@ function CheckOut() {
     let baseDiscount;
     let priceAfterAutoDiscount;
 
-    if (orderTotal >= 1570) {
+    if (orderTotal >= 1500) {
       const baseDiscountPercent = 50;
       const originalDiscountPercent = averageDiscount;
       baseDiscount = orderTotal * (baseDiscountPercent / 100);
@@ -159,7 +159,7 @@ function CheckOut() {
           return prev;
         });
       }
-    } else if (orderTotal < 1570) {
+    } else if (orderTotal < 1500) {
       const baseDiscountPercent = 25;
       const originalDiscountPercent = averageDiscount;
       baseDiscount = orderTotal * (baseDiscountPercent / 100);
@@ -787,30 +787,6 @@ function CheckOut() {
 
   const [offers, setOffers] = useState([]);
 
-  useEffect(() => {
-    const removeAppliedCoupon = () => {
-      localStorage.removeItem("appliedCoupon");
-    };
-
-    return () => {
-      removeAppliedCoupon();
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleUnload = () => {
-      localStorage.removeItem("appliedCoupon");
-    };
-
-    window.addEventListener("beforeunload", handleUnload);
-    window.addEventListener("popstate", handleUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleUnload);
-      window.removeEventListener("popstate", handleUnload);
-    };
-  }, []);
-
   return (
     <>
       <Helmet>
@@ -1230,10 +1206,10 @@ function CheckOut() {
                       )}
                       {quickData?.price ? (
                         <li>
-                          Discount ({quickData?.price < 1570 ? "25%" : "50%"}){" "}
+                          Discount ({quickData?.price < 1500 ? "25%" : "50%"}){" "}
                           <span className="text-danger">
                             - ₹
-                            {quickData?.price < 1570
+                            {quickData?.price < 1500
                               ? (quickData?.price * 25) / 100
                               : quickData?.price / 2}
                             /-
@@ -1243,7 +1219,7 @@ function CheckOut() {
                         autoDiscount !== 0 && (
                           <li>
                             Discount (
-                            {amountOnCouponCode < 1570 ? "25%" : "50%"}){" "}
+                            {amountOnCouponCode < 1500 ? "25%" : "50%"}){" "}
                             <span className="text-danger">
                               - ₹{autoDiscount ? autoDiscount : ""}
                               /-
@@ -1281,8 +1257,7 @@ function CheckOut() {
                             ₹
                             {quickData?.price > 1500
                               ? quickData?.price / 2
-                              : quickData?.price -
-                                (quickData?.price * 25) / 100}
+                              : (quickData?.price * 25) / 10}
                             /-
                           </span>
                         </li>

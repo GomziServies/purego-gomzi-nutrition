@@ -44,7 +44,7 @@ const AddtoCartOffCanvas = ({
   const hasFiredConfetti = useRef(false);
 
   useEffect(() => {
-    if (totalAmount > 2000 && !hasFiredConfetti.current) {
+    if (totalAmount > 1500 && !hasFiredConfetti.current) {
       hasFiredConfetti.current = true;
 
       confetti({
@@ -54,7 +54,7 @@ const AddtoCartOffCanvas = ({
       });
     }
 
-    if (totalAmount <= 2000) {
+    if (totalAmount <= 1500) {
       hasFiredConfetti.current = false;
     }
   }, [totalAmount]);
@@ -100,7 +100,7 @@ const AddtoCartOffCanvas = ({
     let baseDiscount;
     let priceAfterAutoDiscount;
 
-    if (orderTotal >= 2000) {
+    if (orderTotal >= 1500) {
       const baseDiscountPercent = 50;
       const originalDiscountPercent = averageDiscount;
       baseDiscount = orderTotal * (baseDiscountPercent / 100);
@@ -129,7 +129,7 @@ const AddtoCartOffCanvas = ({
           return prev;
         });
       }
-    } else if (orderTotal < 2000) {
+    } else if (orderTotal < 1500) {
       const baseDiscountPercent = 25;
       const originalDiscountPercent = averageDiscount;
       baseDiscount = orderTotal * (baseDiscountPercent / 100);
@@ -664,8 +664,8 @@ const AddtoCartOffCanvas = ({
     }
   };
 
-  let defaultDiscountPercent =  totalAmount > 2000 ? 0.5 : 0.25;
-  let defaultDiscountAmount =  totalAmount * defaultDiscountPercent;
+  let defaultDiscountPercent = totalAmount > 1500 ? 0.5 : 0.25;
+  let defaultDiscountAmount = totalAmount * defaultDiscountPercent;
 
   let couponDiscountAmount = 0;
   let couponLabel = "";
@@ -782,25 +782,25 @@ const AddtoCartOffCanvas = ({
   };
 
   let DiscountCalculate = (name, mainprice) => {
-
     let Demo = {};
 
-    if (( mainprice > 1500)) {
-      
-      defaultDiscountPercent = (name === "Pure Go Whey Matrix 1kg Chocolate" || mainprice > 1500) ? 0.5 : 0.25;
-      defaultDiscountAmount =  totalAmount * defaultDiscountPercent;
-      finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount
+    if (mainprice > 1500) {
+      defaultDiscountPercent =
+        name === "Pure Go Whey Matrix 1kg Chocolate" || mainprice > 1500
+          ? 0.5
+          : 0.25;
+      defaultDiscountAmount = totalAmount * defaultDiscountPercent;
+      finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount;
     }
-    
-    if (( mainprice > 1500) || (productDataGet.length > 1 && finalAmount > 1500)
-    ) {
-          Demo.mainprice = mainprice;
-          Demo.discountedprice = (mainprice * 50) / 100;
-           Demo.discount = "50%";
+
+    if (mainprice > 1500 || (productDataGet.length > 1 && finalAmount > 1500)) {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = (mainprice * 50) / 100;
+      Demo.discount = "50%";
     } else {
-            Demo.mainprice = mainprice;
-            Demo.discountedprice = mainprice - (mainprice * 25) / 100;
-            Demo.discount = "25%";
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+      Demo.discount = "25%";
     }
     return Demo;
   };
@@ -938,18 +938,19 @@ const AddtoCartOffCanvas = ({
                                       return (
                                         <>
                                           <span className="variant-price">
-                                            ₹{price?.discountedprice?.toFixed(0)}
+                                            ₹
+                                            {price?.discountedprice?.toFixed(0)}
                                             /-
                                           </span>
                                           <span
                                             className="variant-old-price m-0"
-                                            style={{ fontSize: "14px"}}
+                                            style={{ fontSize: "14px" }}
                                           >
                                             ₹{price?.mainprice}{" "}
                                           </span>
                                           <span
                                             className="variant-offer"
-                                            style={{ fontSize: "13px"}}
+                                            style={{ fontSize: "13px" }}
                                           >
                                             {price?.discount} off
                                           </span>

@@ -144,6 +144,21 @@ const MoreProduct = ({
     }
   };
 
+  let DiscountCalculate = (name, mainprice) => {
+    let Demo = {};
+
+    if (name === "Whey Mass Matrix 1kg Chocolate" || mainprice > 1500) {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = (mainprice * 50) / 100;
+      Demo.discount = "50%";
+    } else {
+      Demo.mainprice = mainprice;
+      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+      Demo.discount = "25%";
+    }
+    return Demo;
+  };
+
   return (
     <>
       {showModal && <LoginModal onClose={closeModal} />}

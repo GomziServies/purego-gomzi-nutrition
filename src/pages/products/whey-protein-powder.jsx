@@ -423,10 +423,10 @@ function PureGoWheyProtein() {
     }
   };
 
- let DiscountCalculate = (name, mainprice) => {
+  let DiscountCalculate = (name, mainprice) => {
     let Demo = {};
 
-    if (mainprice > 1570) {
+    if (mainprice > 1500) {
       Demo.mainprice = mainprice;
       Demo.discountedprice = (mainprice * 50) / 100;
       Demo.discount = "50%";
@@ -556,8 +556,8 @@ function PureGoWheyProtein() {
                       </ul>
                     </div>
                     <div className="inner-shop-details-price">
-                       <h2 className="price d-flex mb-0">
-                       {(() => {
+                      <h2 className="price d-flex mb-0">
+                        {(() => {
                           const price = DiscountCalculate(
                             currentProductData?.name,
                             currentProductData?.price
@@ -568,7 +568,7 @@ function PureGoWheyProtein() {
                               <span className="old-prices">
                                 ₹{currentProductData.price}/-
                               </span>
-                              <h5 className="stock-status text-center d-flex align-items-center" >
+                              <h5 className="stock-status text-center d-flex align-items-center">
                                 ({price?.discount} OFF)
                               </h5>
                             </>

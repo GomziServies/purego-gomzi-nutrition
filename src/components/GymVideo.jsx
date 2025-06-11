@@ -5,13 +5,11 @@ const GymVideo = () => {
   const [videoUrl, setVideoUrl] = useState("");
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
-
   const openVideoModal = (url) => {
     setIsVideoOpen(true);
     setVideoUrl(url);
   };
 
-  
   const closeVideoModal = () => {
     setIsVideoOpen(false);
     setVideoUrl("");
@@ -46,11 +44,11 @@ const GymVideo = () => {
         />
       </div>
       <ModalVideo
-                channel="youtube"
-                isOpen={isVideoOpen}
-                videoId={videoUrl}
-                onClose={closeVideoModal}
-              />
+        channel="youtube"
+        isOpen={isVideoOpen}
+        videoId={videoUrl}
+        onClose={closeVideoModal}
+      />
     </div>
   );
 };
