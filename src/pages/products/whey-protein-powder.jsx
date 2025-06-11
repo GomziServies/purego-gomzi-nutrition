@@ -256,24 +256,24 @@ function PureGoWheyProtein() {
   const currentProductData =
     products.find((product) => product.key === currentProduct)?.data || {};
 
-  const addProductInCart = async (product_id) => {
-    try {
-      const isLogin = localStorage.getItem("fg_group_user_authorization");
-      if (!isLogin) {
-        return openModal();
-      }
-      const response = await axiosInstance.post("/order-cart/add-item", {
-        item_id: product_id,
-        quantity: 1,
-        item_type: "PURE_GO_MEAL_PRODUCT",
-      });
-      if (response.data.response === "OK") {
-        window.location.href = "/add-to-cart";
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const addProductInCart = async (product_id) => {
+  //   try {
+  //     const isLogin = localStorage.getItem("fg_group_user_authorization");
+  //     if (!isLogin) {
+  //       return openModal();
+  //     }
+  //     const response = await axiosInstance.post("/order-cart/add-item", {
+  //       item_id: product_id,
+  //       quantity: 1,
+  //       item_type: "PURE_GO_MEAL_PRODUCT",
+  //     });
+  //     if (response.data.response === "OK") {
+  //       window.location.href = "/add-to-cart";
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const handleQuickBuy = async (quickProductData) => {
     try {

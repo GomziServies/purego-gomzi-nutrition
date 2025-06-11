@@ -38,7 +38,6 @@ function PureGoBCAA() {
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
-  const [cartDataClick, setCartDataClick] = useState(false);
   const [fadingItem, setFadingItem] = useState(null);
   const [addToCartProducts, setAddToCartProducts] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -126,24 +125,24 @@ function PureGoBCAA() {
   const currentProductData =
     products.find((product) => product.key === currentProduct)?.data || {};
 
-  const addProductInCart = async (product_id) => {
-    try {
-      const isLogin = localStorage.getItem("fg_group_user_authorization");
-      if (!isLogin) {
-        return openModal();
-      }
-      const response = await axiosInstance.post("/order-cart/add-item", {
-        item_id: product_id,
-        quantity: 1,
-        item_type: "PURE_GO_MEAL_PRODUCT",
-      });
-      if (response.data.response === "OK") {
-        window.location.href = "/add-to-cart";
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const addProductInCart = async (product_id) => {
+  //   try {
+  //     const isLogin = localStorage.getItem("fg_group_user_authorization");
+  //     if (!isLogin) {
+  //       return openModal();
+  //     }
+  //     const response = await axiosInstance.post("/order-cart/add-item", {
+  //       item_id: product_id,
+  //       quantity: 1,
+  //       item_type: "PURE_GO_MEAL_PRODUCT",
+  //     });
+  //     if (response.data.response === "OK") {
+  //       window.location.href = "/add-to-cart";
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const handleQuickBuy = async (quickProductData) => {
     try {
@@ -276,7 +275,7 @@ function PureGoBCAA() {
    let DiscountCalculate = (name, mainprice) => {
     let Demo = {};
 
-    if (name === "Whey Mass Matrix 1kg Chocolate" || mainprice > 1570) {
+    if (mainprice > 1570) {
       Demo.mainprice = mainprice;
       Demo.discountedprice = (mainprice * 50) / 100;
       Demo.discount = "50%";
@@ -648,10 +647,10 @@ function PureGoBCAA() {
             />
           </div>
         </section>
-        <MoreProduct
+        {/* <MoreProduct
           setCartDataClick={setCartDataClick}
           cartDataClick={cartDataClick}
-        />
+        /> */}
         <GymVideo />
         <HowToUse
           src1="production/files/FILE-step-1-4fdcb85a-3191-4a19-a673-3e21a1a7d4ec.mp4"

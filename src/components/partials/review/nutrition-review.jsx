@@ -7,7 +7,7 @@ import {
 } from "../../../assets/js/config/api";
 
 function NutritionReviewSection({ product_id }) {
-  const [star, setStar] = useState(1);
+  const [star, setStar] = useState(5);
   const [review, setReview] = useState("");
   const [averageRating, setAverageRating] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);

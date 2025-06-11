@@ -264,7 +264,6 @@ const AddtoCartOffCanvas = ({
   };
 
   const handleApplyClick = async (appliedCoupon, PromoCode) => {
-    console.log("appliedCoupon ===>", appliedCoupon, PromoCode, totalAmount);
     try {
       if (PromoCode?.AutoPromoCode) {
         confetti({
@@ -589,7 +588,7 @@ const AddtoCartOffCanvas = ({
       data: {
         id: "67e7745f63f930dcc6a2715b",
         img: "/assets/images/products/mass-gainer/mass-gainer-1.webp",
-        name: "Whey Mass Matrix 1kg Chocolate",
+        name: "Whey Matrix 1kg Chocolate",
         price: "1580",
         discount: "599",
         size: "1kg",
@@ -785,19 +784,15 @@ const AddtoCartOffCanvas = ({
   let DiscountCalculate = (name, mainprice) => {
 
     let Demo = {};
-    
 
-    
-    
-    if ((name === "Pure Go Whey Mass Matrix 1kg Chocolate" || mainprice > 2000)) {
+    if (( mainprice > 1500)) {
       
-      console.log("name ==>", name);
-      defaultDiscountPercent = (name === "Pure Go Whey Mass Matrix 1kg Chocolate" || mainprice > 2000) ? 0.5 : 0.25;
+      defaultDiscountPercent = (name === "Pure Go Whey Matrix 1kg Chocolate" || mainprice > 1500) ? 0.5 : 0.25;
       defaultDiscountAmount =  totalAmount * defaultDiscountPercent;
       finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount
     }
     
-    if ((name === "Pure Go Whey Mass Matrix 1kg Chocolate" || mainprice > 2000) || (productDataGet.length > 1 && finalAmount > 2000)
+    if (( mainprice > 1500) || (productDataGet.length > 1 && finalAmount > 1500)
     ) {
           Demo.mainprice = mainprice;
           Demo.discountedprice = (mainprice * 50) / 100;
@@ -836,7 +831,7 @@ const AddtoCartOffCanvas = ({
         <div className="hs-content-discounts-calculate-checkout hs-enable-content-rewards">
           <div className="hs-rewards-content">
             <div className="hs-progess-content hs-hidden-percentages">
-              {totalAmount > 2000 ? (
+              {totalAmount > 1500 ? (
                 <>
                   <div className="hs-text-free-shipping text-dark">
                     🎉 Congratulations! You've unlocked an exclusive{" "}
@@ -856,14 +851,14 @@ const AddtoCartOffCanvas = ({
               ) : (
                 <>
                   <div className="hs-text-free-shipping text-dark">
-                    🎉 You're just <b>₹{(2000 - totalAmount).toFixed(2)}</b>{" "}
+                    🎉 You're just <b>₹{(1500 - totalAmount).toFixed(2)}</b>{" "}
                     away from unlocking a <b>50% discount</b>! 🛍️💸
                   </div>
                   <div id="hs_shipping_progress">
                     <div
                       id="hs_shipping_bar"
                       style={{
-                        width: `${Math.min((totalAmount / 2000) * 100, 100)}%`,
+                        width: `${Math.min((totalAmount / 1500) * 100, 100)}%`,
                         backgroundColor: "#ff0404",
                         height: "6px",
                         transition: "width 0.5s ease",

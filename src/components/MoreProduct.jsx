@@ -8,7 +8,12 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import LoginModal from "../assets/js/popup/login";
 
-const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, changeATC }) => {
+const MoreProduct = ({
+  setCartDataClick,
+  cartDataClick,
+  handleChangeCart,
+  changeATC,
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -38,7 +43,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
         "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
       );
       const cartData = response.data.data[0];
-      
+
       const cartItemData = cartData.items_details.map((data) => data.name);
       setCartItemName(cartItemData);
       productsId.map((data) => fetchProductRatingData(data));
@@ -95,12 +100,12 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
     }
   }, [cartDataClick]);
 
-   useEffect(() => {
-      const isLogin = localStorage.getItem("fg_group_user_authorization");
-      if (isLogin && changeATC) {
-        fetchProductData();
-      }
-    }, [changeATC]);
+  useEffect(() => {
+    const isLogin = localStorage.getItem("fg_group_user_authorization");
+    if (isLogin && changeATC) {
+      fetchProductData();
+    }
+  }, [changeATC]);
 
   const options = {
     loop: true,
@@ -137,24 +142,6 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
     } catch (error) {
       console.error(error);
     }
-  };
-
-
-   let DiscountCalculate = (name, mainprice) => {
-
-    let Demo = {};
-
-    if (name === "Whey Mass Matrix 1kg Chocolate" || mainprice > 1570) {
-        Demo.mainprice = mainprice;
-        Demo.discountedprice = mainprice * 50 / 100 ;
-        Demo.discount = "50%"
-    }else{
-       Demo.mainprice = mainprice;
-        Demo.discountedprice = mainprice - (mainprice * 25 / 100) ;
-        Demo.discount = "25%"
-    }
-    return Demo
-    
   };
 
   return (
@@ -244,16 +231,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            {(() => {
-                              const price = DiscountCalculate("Whey Protein 1kg Chocolate",3080); 
-                              return (
-                                <>
-                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
-                                </>
-                              );
-                            })()}
+                            <span className="variant-price">₹3080/-</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -362,16 +340,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                           {(() => {
-                              const price = DiscountCalculate("Whey Protein 1kg Mawa Kulfi",3270); 
-                              return (
-                                <>
-                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
-                                </>
-                              );
-                            })()}
+                            <span className="variant-price">₹3270/-</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -480,16 +449,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            {(() => {
-                              const price = DiscountCalculate("Whey Protein 1kg Mocha Coffee",3270); 
-                              return (
-                                <>
-                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
-                                </>
-                              );
-                            })()}
+                            <span className="variant-price">₹3070/-</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -586,7 +546,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
                         >
-                          Whey Mass Matrix 1kg Chocolate{" "}
+                          Whey Matrix 1kg Chocolate{" "}
                         </div>
                       </Link>
                       <p className="item-description">
@@ -599,20 +559,11 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            {(() => {
-                              const price = DiscountCalculate("Whey Mass Matrix 1kg Chocolate",1580); 
-                              return (
-                                <>
-                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
-                                </>
-                              );
-                            })()}
+                            <span className="variant-price">₹1580/-</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Mass Matrix 1kg Chocolate")
+                              item.includes("Whey Matrix 1kg Chocolate")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -719,16 +670,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            {(() => {
-                              const price = DiscountCalculate("Pre Workout Fruit Punch 250g",2550); 
-                              return (
-                                <>
-                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
-                                </>
-                              );
-                            })()}
+                            <span className="variant-price">₹2550/-</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -838,16 +780,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            {(() => {
-                              const price = DiscountCalculate("EAA Powder 250g",2150); 
-                              return (
-                                <>
-                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
-                                </>
-                              );
-                            })()}
+                            <span className="variant-price">₹2150/-</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -960,16 +893,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            {(() => {
-                              const price = DiscountCalculate("Creatine Monohydrate Lemon 250g",1490); 
-                              return (
-                                <>
-                                  <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
-                                </>
-                              );
-                            })()}
+                            <span className="variant-price">₹1490/-</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
@@ -1080,16 +1004,7 @@ const MoreProduct = ({ setCartDataClick, cartDataClick, handleChangeCart, change
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            {(() => {
-                              const price = DiscountCalculate("BCAA Orange Powder 250g",2150); 
-                              return (
-                                <>
-                                  <span className="variant-price">₹{price?.discountedprice}/-</span>
-                                  <span className="variant-old-price">₹{price?.mainprice} </span>
-                                  <span className="variant-offer">{price?.discount} off</span>
-                                </>
-                              );
-                            })()}
+                            <span className="variant-price">₹2150/-</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>

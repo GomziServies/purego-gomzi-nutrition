@@ -7,8 +7,6 @@ const GymVideo = () => {
 
 
   const openVideoModal = (url) => {
-    console.log("yug");
-    
     setIsVideoOpen(true);
     setVideoUrl(url);
   };

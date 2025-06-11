@@ -762,10 +762,10 @@ function AddToCart() {
             </div>
           </div>
         </div>
-        <MoreProduct
+        {/* <MoreProduct
           setCartDataClick={setCartDataClick}
           cartDataClick={cartDataClick}
-        />
+        /> */}
       </main>
       <HomeNutritionFooter />
     </>

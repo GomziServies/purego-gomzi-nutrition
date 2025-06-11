@@ -11,6 +11,8 @@ import { toast } from "react-toastify";
 import { Card, Modal } from "react-bootstrap";
 import confetti from "canvas-confetti";
 import { use } from "react";
+import { useRef } from "react";
+import { useLocation, useNavigationType } from "react-router-dom";
 
 function CheckOut() {
   const [isCouponRupee, setIsCouponRupee] = useState(false);
@@ -43,6 +45,11 @@ function CheckOut() {
     country: "",
     mobile: "",
   });
+
+  const location = useLocation();
+  const navigationType = useNavigationType(); 
+  const prevPathRef = useRef(location.pathname);
+
   const stateData = [
     { stateName: "Andaman and Nicobar Islands", stateCode: "AN" },
     { stateName: "Andhra Pradesh", stateCode: "AP" },
@@ -82,7 +89,6 @@ function CheckOut() {
     { stateName: "Chattisgarh", stateCode: "CG" },
     { stateName: "Ladakh", stateCode: "LA" },
   ];
-
 
   let ProductNameDataJSON = localStorage.getItem("ProductNameData");
   let ProductNameData = JSON.parse(ProductNameDataJSON);
@@ -266,22 +272,20 @@ function CheckOut() {
         mobile: orderUserData.mobile,
       };
       const payment_mode = paymentMode;
-      
-      
+
       try {
         const coupon_ids = [manualCouponCodeData?._id].filter(Boolean);
         await createPaymentProduct(
           quickData && quickData?.id
-          ? [{ product_id: quickData.id, quantity: 1 }]
-          : productDatas,
+            ? [{ product_id: quickData.id, quantity: 1 }]
+            : productDatas,
           updatedUserData,
           coupon_ids,
           payment_mode,
           discountCost,
           courierId
         );
-        
-        
+
         setManualCouponCode("");
         setManualCouponCodeData(null);
         setTotalCouponDiscount(0);
@@ -724,10 +728,8 @@ function CheckOut() {
       setQuickData(quickProductData);
       setMainPrice(parseInt(quickProductData?.discount));
     }
-
   }, []);
-  
-  
+
   const handleStateChange = (event) => {
     try {
       const state = event.target.value;
@@ -755,11 +757,11 @@ function CheckOut() {
         const result = lookup.lookup(pincode);
         if (result?.[0]) {
           const matchedStateName = result[0].stateName.trim().toLowerCase();
-          
+
           const selectedStateData = stateData.find(
             (data) => data.stateName.toLowerCase() === matchedStateName
           );
-          
+
           setOrderUserData((prev) => ({
             ...prev,
             city: result[0].districtName,
@@ -771,7 +773,7 @@ function CheckOut() {
       console.error("Error submitting pincode:", error);
     }
   };
-  
+
   const handleRemoveCoupon = () => {
     setManualCouponCode("");
     setManualCouponCodeData(null);
@@ -784,7 +786,31 @@ function CheckOut() {
   };
 
   const [offers, setOffers] = useState([]);
-  
+
+  useEffect(() => {
+    const removeAppliedCoupon = () => {
+      localStorage.removeItem("appliedCoupon");
+    };
+
+    return () => {
+      removeAppliedCoupon();
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleUnload = () => {
+      localStorage.removeItem("appliedCoupon");
+    };
+
+    window.addEventListener("beforeunload", handleUnload);
+    window.addEventListener("popstate", handleUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleUnload);
+      window.removeEventListener("popstate", handleUnload);
+    };
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -796,15 +822,15 @@ function CheckOut() {
         <meta
           name="keyword"
           content="bowelease  Constipation Relief, diet supplements near me, best multivitamins for men india, booster testosterone, how to fat burn, supplement shop near, whey isolate vs protein, whey protein vs whey protein isolate, women's protein powder for weight gain, protein powder for weight gain woman, which best peanut butter, nutrition in 100g oats, protein shakes for weight gain female"
-          />
+        />
         <meta
           property="og:title"
           content="Checkout at Pure Go - Secure & Fast Payment Options"
-          />
+        />
         <meta
           property="og:description"
           content="Complete your purchase at Pure Go with secure and fast checkout options. Hassle-free payment process for all your nutrition and supplement needs."
-          />
+        />
         <meta
           property="og:url"
           content="https://www.purego.gomzilifesciences.in/nutrition/check-out"
@@ -812,7 +838,7 @@ function CheckOut() {
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
-          />
+        />
         <link rel="canonical" href={{ canonicalUrl }} />
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
@@ -1202,34 +1228,36 @@ function CheckOut() {
                           Order Total <span>₹{amountOnCouponCode} /-</span>
                         </li>
                       )}
-                      {quickData?.price
-                        ?  (
-                            <li >
-                              Discount (
-                              {quickData?.price < 1570 ?"25%" : "50%"}){" "}
-                              <span className="text-danger">
-                                - ₹{quickData?.price < 1570 ? quickData?.price * 25 / 100 : quickData?.price / 2 }
-                                /-
-                              </span>
-                            </li>
-                          )
-                        : autoDiscount !== 0 && (
-                            <li >
-                              Discount (
-                              {amountOnCouponCode < 1570  ? "25%" : "50%"}){" "}
-                              <span className="text-danger">
-                                - ₹{autoDiscount ? autoDiscount : ""}
-                                /-
-                              </span>
-                            </li>
-                          )}
+                      {quickData?.price ? (
+                        <li>
+                          Discount ({quickData?.price < 1570 ? "25%" : "50%"}){" "}
+                          <span className="text-danger">
+                            - ₹
+                            {quickData?.price < 1570
+                              ? (quickData?.price * 25) / 100
+                              : quickData?.price / 2}
+                            /-
+                          </span>
+                        </li>
+                      ) : (
+                        autoDiscount !== 0 && (
+                          <li>
+                            Discount (
+                            {amountOnCouponCode < 1570 ? "25%" : "50%"}){" "}
+                            <span className="text-danger">
+                              - ₹{autoDiscount ? autoDiscount : ""}
+                              /-
+                            </span>
+                          </li>
+                        )
+                      )}
 
                       {totalCouponDiscount !== 0 && (
                         <li>
                           Coupon Discount{" "}
                           {!isCouponRupee &&
                             `(${Math.round(
-                              autoCouponData?.discount  || 0
+                              autoCouponData?.discount || 0
                             )}%)`}{" "}
                           <span className="text-danger">
                             - ₹{totalCouponDiscount.toFixed(2)} /-
@@ -1251,7 +1279,10 @@ function CheckOut() {
                           Amount Payable{" "}
                           <span>
                             ₹
-                            {quickData?.price > 1500 ? quickData?.price / 2 :  quickData?.price * 25 / 10 }
+                            {quickData?.price > 1500
+                              ? quickData?.price / 2
+                              : quickData?.price -
+                                (quickData?.price * 25) / 100}
                             /-
                           </span>
                         </li>
@@ -1262,8 +1293,8 @@ function CheckOut() {
                             ₹
                             {mainPrice !== undefined && mainPrice !== null
                               ? discountCost
-                                ? (amountOnCouponCode).toFixed(2)
-                                :  mainPrice.toFixed(2) 
+                                ? amountOnCouponCode.toFixed(2)
+                                : mainPrice.toFixed(2)
                               : "0.00"}{" "}
                             /-
                           </span>

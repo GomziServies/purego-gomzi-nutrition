@@ -250,7 +250,7 @@ function Home() {
 
     let Demo = {};
 
-    if (name === "Whey Mass Matrix 1kg Chocolate" || mainprice > 1570) {
+    if (name === "Whey Matrix 1kg Chocolate" || mainprice > 1570) {
         Demo.mainprice = mainprice;
         Demo.discountedprice = mainprice * 50 / 100 ;
         Demo.discount = "50%"
@@ -1100,7 +1100,7 @@ function Home() {
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
                         >
-                          Whey Mass Matrix 1kg Chocolate{" "}
+                          Whey Matrix 1kg Chocolate{" "}
                         </div>
                       </Link>
                       <p className="item-description">
@@ -1114,7 +1114,7 @@ function Home() {
                         <div className="">
                           <div className="d-flex align-items-center">
                            {(() => {
-                              const price = DiscountCalculate("Whey Mass Matrix 1kg Chocolate",1580); 
+                              const price = DiscountCalculate("Whey Matrix 1kg Chocolate",1580); 
                               return (
                                 <>
                                   <span className="variant-price">₹{price?.discountedprice.toFixed(0)}/-</span>
@@ -1126,7 +1126,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Mass Matrix 1kg Chocolate")
+                              item.includes("Whey Matrix 1kg Chocolate")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
