@@ -547,9 +547,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("67e7749163f930dcc6a2715d")
-                                }
+                                onClick={() => {
+                                  addProductInCart("67e7749163f930dcc6a2715d");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>
@@ -704,9 +705,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("67e774a963f930dcc6a2715f")
-                                }
+                                onClick={() => {
+                                  addProductInCart("67e774a963f930dcc6a2715f");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>
@@ -861,9 +863,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("67e774c463f930dcc6a27161")
-                                }
+                                onClick={() => {
+                                  addProductInCart("67e774c463f930dcc6a27161");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>
@@ -1018,9 +1021,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("68316295f91df040c479acc8")
-                                }
+                                onClick={() => {
+                                  addProductInCart("68316295f91df040c479acc8");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>
@@ -1149,7 +1153,7 @@ function Home() {
                           <div className="d-flex align-items-center">
                             {(() => {
                               const price = DiscountCalculate(
-                                "Whey Mass Matrix 1kg Chocolate",
+                                "Whey Matrix 1kg Chocolate",
                                 1580
                               );
                               return (
@@ -1176,9 +1180,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("67e7745f63f930dcc6a2715b")
-                                }
+                                onClick={() => {
+                                  addProductInCart("67e7745f63f930dcc6a2715b");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>
@@ -1335,9 +1340,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("67e7740363f930dcc6a27157")
-                                }
+                                onClick={() => {
+                                  addProductInCart("67e7740363f930dcc6a27157");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>
@@ -1493,9 +1499,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("67e7742d63f930dcc6a27159")
-                                }
+                                onClick={() => {
+                                  addProductInCart("67e7742d63f930dcc6a27159");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>
@@ -1654,9 +1661,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("67e773f463f930dcc6a27155")
-                                }
+                                onClick={() => {
+                                  addProductInCart("67e773f463f930dcc6a27155");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>
@@ -1813,9 +1821,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("6827168ced4175d21de95c4e")
-                                }
+                                onClick={() => {
+                                  addProductInCart("6827168ced4175d21de95c4e");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>
@@ -1971,9 +1980,10 @@ function Home() {
                               </button>
                             ) : (
                               <button
-                                onClick={() =>
-                                  addProductInCart("68316330f91df040c479ad1e")
-                                }
+                                onClick={() => {
+                                  addProductInCart("68316330f91df040c479ad1e");
+                                  handleCartOpen();
+                                }}
                                 className="product-btn item-add-to-cart-btn"
                               >
                                 <i className="fa-solid fa-cart-shopping me-2"></i>

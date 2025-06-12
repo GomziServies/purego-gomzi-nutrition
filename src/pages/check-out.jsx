@@ -9,10 +9,11 @@ import LoadingComponent from "../components/loadingComponent";
 import lookup from "india-pincode-lookup";
 import { toast } from "react-toastify";
 import { Card, Modal } from "react-bootstrap";
-import confetti from "canvas-confetti";
-import { use } from "react";
 import { useRef } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
+// import { use } from "react";
+// import confetti from "canvas-confetti";
+// import CelebrationVoice from "../assets/celebration-voice.mp3";
 
 function CheckOut() {
   const [isCouponRupee, setIsCouponRupee] = useState(false);
@@ -46,9 +47,7 @@ function CheckOut() {
     mobile: "",
   });
 
-  const location = useLocation();
-  const navigationType = useNavigationType();
-  const prevPathRef = useRef(location.pathname);
+  
 
   const stateData = [
     { stateName: "Andaman and Nicobar Islands", stateCode: "AN" },
@@ -92,6 +91,12 @@ function CheckOut() {
 
   let ProductNameDataJSON = localStorage.getItem("ProductNameData");
   let ProductNameData = JSON.parse(ProductNameDataJSON);
+
+  // const audio = new Audio(CelebrationVoice);
+
+  // function AudioPlayer() {
+  //   audio.play();
+  // }
 
   const openModal = () => {
     setShowModal(true);
@@ -274,6 +279,8 @@ function CheckOut() {
       const payment_mode = paymentMode;
 
       try {
+
+        
         const coupon_ids = [manualCouponCodeData?._id].filter(Boolean);
         await createPaymentProduct(
           quickData && quickData?.id
@@ -288,7 +295,7 @@ function CheckOut() {
 
         setManualCouponCode("");
         setManualCouponCodeData(null);
-        setTotalCouponDiscount(0);
+        // setTotalCouponDiscount(0);
       } catch (error) {
         console.error("Error during order:", error);
       }
@@ -328,11 +335,17 @@ function CheckOut() {
     try {
       if (PromoCode?.AutoPromoCode) {
         // toast.success("Coupon applied successfully");
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
+
+        // confetti({
+        //   particleCount: 150,
+        //   spread: 70,
+        //   origin: { y: 0.6 },
+        // });
+
+        // let time = setInterval(() => {
+        //   AudioPlayer();
+        //   clearInterval(time);
+        // }, 2000);
 
         setManualCouponCode(appliedCoupon?.coupon_code || "");
         setManualCouponCodeData(appliedCoupon);
@@ -360,11 +373,15 @@ function CheckOut() {
         setManualCouponCodeData(couponData);
         localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
 
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
+        // confetti({
+        //   particleCount: 150,
+        //   spread: 70,
+        //   origin: { y: 0.6 },
+        // });
+        // let time = setInterval(() => {
+        //   AudioPlayer();
+        //   clearInterval(time);
+        // }, 2000);
 
         // toast.success("Coupon applied successfully");
         calculateDiscountedPrice(couponData);
@@ -1231,10 +1248,6 @@ function CheckOut() {
                       {totalCouponDiscount !== 0 && (
                         <li>
                           Coupon Discount{" "}
-                          {!isCouponRupee &&
-                            `(${Math.round(
-                              autoCouponData?.discount || 0
-                            )}%)`}{" "}
                           <span className="text-danger">
                             - ₹{totalCouponDiscount.toFixed(2)} /-
                           </span>

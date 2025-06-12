@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import $ from "jquery";
 import { ToastContainer } from "react-toastify";
+import CouponCleaner from './components/CouponCleaner';
 import "react-toastify/dist/ReactToastify.css";
 import "./assets/css/animate.min.css";
 import "./assets/css/bootstrap.min.css";
@@ -46,6 +47,7 @@ const RedirectFromHtml = ({ children }) => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
+  <CouponCleaner />
     <RedirectFromHtml>
       <Suspense fallback={null}>
         <App />

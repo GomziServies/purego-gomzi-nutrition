@@ -257,7 +257,7 @@ function PureGoMassGainer() {
     },
   ];
 
-  let DiscountCalculate = (name, mainprice) => {
+   let DiscountCalculate = (name, mainprice) => {
     let Demo = {};
 
     if (name === "Whey Matrix 1kg Chocolate" || mainprice > 1500) {
@@ -672,7 +672,7 @@ function PureGoMassGainer() {
                     <div
                       className="tab-pane fade show active"
                       id="information"
-                      role="tabpanel"
+                      role="tabpanel" 
                       aria-labelledby="information-tab"
                     >
                       <div className="product-desc-content">

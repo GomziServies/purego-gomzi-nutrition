@@ -9,6 +9,7 @@ import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import confetti from "canvas-confetti";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import CelebrationVoice from "../assets/celebration-voice.mp3";
 
 const AddtoCartOffCanvas = ({
   isOpen,
@@ -40,13 +41,19 @@ const AddtoCartOffCanvas = ({
   const [totalCouponDiscount, setTotalCouponDiscount] = useState(0);
   const [autoCouponData, setAutoCouponData] = useState(null);
   const [offers, setOffers] = useState([]);
+  const audio = new Audio(CelebrationVoice);
 
   const hasFiredConfetti = useRef(false);
+
+  function AudioPlayer() {
+    audio.play();
+  }
 
   useEffect(() => {
     if (totalAmount > 1500 && !hasFiredConfetti.current) {
       hasFiredConfetti.current = true;
 
+      AudioPlayer();
       confetti({
         particleCount: 150,
         spread: 100,
@@ -266,6 +273,7 @@ const AddtoCartOffCanvas = ({
   const handleApplyClick = async (appliedCoupon, PromoCode) => {
     try {
       if (PromoCode?.AutoPromoCode) {
+        AudioPlayer();
         confetti({
           particleCount: 150,
           spread: 70,
@@ -296,6 +304,7 @@ const AddtoCartOffCanvas = ({
         setManualCouponCodeData(couponData);
         localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
 
+        AudioPlayer();
         confetti({
           particleCount: 150,
           spread: 70,
@@ -805,6 +814,8 @@ const AddtoCartOffCanvas = ({
     return Demo;
   };
 
+  
+
   return (
     <>
       {isOpen && (
@@ -1104,7 +1115,7 @@ const AddtoCartOffCanvas = ({
                             </div>
                           </Accordion.Header>
                           <Accordion.Body className="p-0 f-rob-reg f-14">
-                            {offers.map((offer, idx) => (
+                            {/* {offers.map((offer, idx) => (
                               <div key={idx} className="coupon-card ">
                                 <div className="coupon-label">{offer.code}</div>
                                 <div className="coupon-content">
@@ -1141,7 +1152,7 @@ const AddtoCartOffCanvas = ({
                                   <p className="af-inline">{offer.note}</p>
                                 </div>
                               </div>
-                            ))}
+                            ))} */}
                             {couponOffers.map((coupon, index) => {
                               const isFLAT499 = coupon.code === "FLAT499";
                               const isFLAT199 = coupon.code === "FLAT199";
