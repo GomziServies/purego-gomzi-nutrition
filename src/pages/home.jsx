@@ -799,7 +799,7 @@ function Home() {
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
                                 (product) =>
-                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product._id === "67e7749163f930dcc6a2715d" && 
                                   product.total_count
                               )}{" "}
                               reviews
@@ -1204,6 +1204,803 @@ function Home() {
                   </div>
                 </div>
               </div>
+
+              {/* ---------------- 2kg ----------------*/}
+
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card">
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-2kg-1.webp"
+                          alt="chocolate"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-2kg-3.webp"
+                          alt="chocolate"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-2kg-4.webp"
+                          alt="chocolate"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-chocolate-2kg-2.webp"
+                          alt="chocolate"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    {/* <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">66%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div> */}
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/whey-protein-powder">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                          Whey Protein 2kg Chocolate{" "}
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        Pure Go Whey Protein Chocolate is a Mixture of Whey
+                        Isolate, Whey Concentrate, Skimmed Milk powder
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Whey Protein 2kg Chocolate",
+                                5750
+                              );
+                              return (
+                                <>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
+                                </>
+                              );
+                            })()}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("Whey Protein 2kg Chocolate")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  addProductInCart("68219edf28bd0ff3b2083fa6");
+                                  handleCartOpen();
+                                }}
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/whey-protein-powder"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card">
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-1.webp"
+                          alt="mawakulfi"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-3.webp"
+                          alt="mawakulfi"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-4.webp"
+                          alt="mawakulfi"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-2.webp"
+                          alt="mawakulfi"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    {/* <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">66%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div> */}
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/whey-protein-powder?flavor=Mawa%20Kulfi">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                          Whey Protein 2kg Mawa Kulfi{" "}
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        Pure Go Whey Protein Mawa Kulfi is a Mixture of Whey Isolate, Whey Concentrate, Skimmed Milk powder,
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Whey Protein 2kg Mawa Kulfi",
+                                6150
+                              );
+                              return (
+                                <>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
+                                </>
+                              );
+                            })()}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("Whey Protein 2kg Mawa Kulfi")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  addProductInCart("68219ef928bd0ff3b2083fa8");
+                                  handleCartOpen();
+                                }}
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/whey-protein-powder?flavor=Mawa%20Kulfi"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card">
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-1.webp"
+                          alt="mochacoffee"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-3.webp"
+                          alt="mochacoffee"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-4.webp"
+                          alt="mochacoffee"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-2.webp"
+                          alt="mochacoffee"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    {/* <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">66%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div> */}
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/whey-protein-powder?flavor=Mocha%20Coffee">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                          Whey Protein 2kg Mocha Coffee
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        Pure Go Whey Protein Mocha Coffee is a Mixture of Whey Isolate, Whey Concentrate, Skimmed Milk
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Whey Protein 2kg Mocha Coffee",
+                                6150
+                              );
+                              return (
+                                <>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
+                                </>
+                              );
+                            })()}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("Whey Protein 2kg Mocha Coffee")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  addProductInCart("68219f0d28bd0ff3b2083fad");
+                                  handleCartOpen();
+                                }}
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/whey-protein-powder?flavor=Mocha%20Coffee"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card">
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mango-2kg-1.webp"
+                          alt="mango"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mango-2kg-3.webp"
+                          alt="mango"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mango-2kg-4.webp"
+                          alt="mango"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/whey-protein/whey-protein-mango-2kg-2.webp"
+                          alt="mango"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    {/* <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">66%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div> */}
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7749163f930dcc6a2715d" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/whey-protein-powder?flavor=Mango">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                            Whey Protein 2kg Mango
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        Pure Go Whey Protein Mango is a Mixture of Whey Isolate, Whey Concentrate, Skimmed Milk powder,
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Whey Protein 2kg Mango",
+                                6150
+                              );
+                              return (
+                                <>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
+                                </>
+                              );
+                            })()}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("Whey Protein 2kg Mango")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  addProductInCart("683162bef91df040c479ace4");
+                                  handleCartOpen();
+                                }}
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/whey-protein-powder?flavor=Mango"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card">
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/mass-gainer/mass-gainer-3kg-1.webp"
+                          alt="mochacoffee"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/mass-gainer/mass-gainer-3kg-3.webp"
+                          alt="mochacoffee"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/mass-gainer/mass-gainer-3kg-4.webp"
+                          alt="mochacoffee"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/mass-gainer/mass-gainer-3kg-2.webp"
+                          alt="mochacoffee"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    {/* <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">66%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div> */}
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7745f63f930dcc6a2715b" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7745f63f930dcc6a2715b" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/mass-gainer-protein-powder">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                          Pure Go Whey Matrix 3kg Chocolate
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        Achieve Your Bulking Goals with Pure Go Mass Gainer Powder. Our specially formulated blend is
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Mass Gainer 3kg Chocolate",
+                                4750
+                              );
+                              return (
+                                <>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
+                                </>
+                              );
+                            })()}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("Pure Go Whey Matrix 3kg Chocolate")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  addProductInCart("68219f4d28bd0ff3b2083fb1");
+                                  handleCartOpen();
+                                }}
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/mass-gainer-protein-powder"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
               <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card position-relative">
                   <span className="labeling">Pre workout + fat burner</span>

@@ -856,13 +856,13 @@ function PureGoWheyProtein() {
             />
           </div>
         </section>
-        <MoreProduct
+        {/* <MoreProduct
           setCartDataClick={setCartDataClick}
           cartDataClick={cartDataClick}
           handleChangeCart={handleChangeCart}
           changeATC={changeATC}
           handleChangeATC={handleChangeATC}
-        />
+        /> */}
         <GymVideo />
         <HowToUse
           src1={

@@ -54,12 +54,25 @@ const AddtoCartOffCanvas = ({
       hasFiredConfetti.current = true;
 
       AudioPlayer();
-      confetti({
-        particleCount: 150,
-        spread: 100,
-        origin: { y: 0.6 },
-      });
+      // confetti({
+      //   particleCount: 150,
+      //   spread: 100,
+      //   origin: { y: 0.6 },
+      // });
+      const myCanvas = document.createElement("canvas");
+      myCanvas.style.position = "fixed";
+      myCanvas.style.top = "0";
+      myCanvas.style.left = "0";
+      myCanvas.style.width = "100%";
+      myCanvas.style.height = "100%";
+      myCanvas.style.zIndex = "9999";
+      myCanvas.style.pointerEvents = "none";
+      document.body.appendChild(myCanvas);
+  
+      const myConfetti = confetti.create(myCanvas, { resize: true });
+      myConfetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
     }
+
 
     if (totalAmount <= 1500) {
       hasFiredConfetti.current = false;
@@ -274,11 +287,18 @@ const AddtoCartOffCanvas = ({
     try {
       if (PromoCode?.AutoPromoCode) {
         AudioPlayer();
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
+        const myCanvas = document.createElement("canvas");
+        myCanvas.style.position = "fixed";
+        myCanvas.style.top = "0";
+        myCanvas.style.left = "0";
+        myCanvas.style.width = "100%";
+        myCanvas.style.height = "100%";
+        myCanvas.style.zIndex = "9999";
+        myCanvas.style.pointerEvents = "none";
+        document.body.appendChild(myCanvas);
+
+        const myConfetti = confetti.create(myCanvas, { resize: true });
+        myConfetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
       } else {
         let code = appliedCoupon || manualCouponCode;
 
@@ -305,11 +325,18 @@ const AddtoCartOffCanvas = ({
         localStorage.setItem("appliedCoupon", JSON.stringify(couponData));
 
         AudioPlayer();
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
+        const myCanvas = document.createElement("canvas");
+        myCanvas.style.position = "fixed";
+        myCanvas.style.top = "0";
+        myCanvas.style.left = "0";
+        myCanvas.style.width = "100%";
+        myCanvas.style.height = "100%";
+        myCanvas.style.zIndex = "9999";
+        myCanvas.style.pointerEvents = "none";
+        document.body.appendChild(myCanvas);
+
+        const myConfetti = confetti.create(myCanvas, { resize: true });
+        myConfetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
 
         toast.success("Coupon applied successfully");
         calculateDiscountedPrice(couponData);
@@ -814,8 +841,6 @@ const AddtoCartOffCanvas = ({
     return Demo;
   };
 
-  
-
   return (
     <>
       {isOpen && (
@@ -961,7 +986,7 @@ const AddtoCartOffCanvas = ({
                                           </span>
                                           <span
                                             className="variant-offer"
-                                            style={{ fontSize: "13px" }}
+                                            style={{ fontSize: "10px" }}
                                           >
                                             {price?.discount} off
                                           </span>
