@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -28,8 +28,12 @@ import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";
 import GymVideo from "../../components/GymVideo";
+import { useLocation } from "react-router";
 
 function PureGoCreatine() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const ProductFlavor = searchParams.get("flavor");
   const canonicalUrl = window.location.href;
   const [currentProduct, setCurrentProduct] = useState("250g-Lemon");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -73,7 +77,7 @@ function PureGoCreatine() {
         id: "67e773f463f930dcc6a27155",
         img: "/assets/images/products/creatine/creatine-lemon-1.webp",
         name: "Creatine Monohydrate Lemon",
-        price: "1550",
+        price: "1490",
         discount: "1162",
         size: "250g",
         dis_point: "25%",
@@ -85,7 +89,7 @@ function PureGoCreatine() {
         id: "6827197bed4175d21de95d5c",
         img: "/assets/images/products/creatine/creatine-unflavoured-1.webp",
         name: "Creatine Monohydrate Unflavoured",
-        price: "1550",
+        price: "1490",
         discount: "1162",
         size: "250g",
         dis_point: "25%",
@@ -122,6 +126,13 @@ function PureGoCreatine() {
 
   const currentProductData =
     products.find((product) => product.key === currentProduct)?.data || {};
+
+  useEffect(() => {
+    if (ProductFlavor) {
+      setActiveFlavor(ProductFlavor);
+      setCurrentProduct(`${activeSize}-${ProductFlavor}`);
+    }
+  }, []);
 
   // const addProductInCart = async (product_id) => {
   //   try {

@@ -9,7 +9,7 @@ import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import confetti from "canvas-confetti";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
-import CelebrationVoice from "../assets/celebration-voice.mp3";
+import CelebrationVoice from "../assets/clapping.mp3";
 
 const AddtoCartOffCanvas = ({
   isOpen,
@@ -68,11 +68,10 @@ const AddtoCartOffCanvas = ({
       myCanvas.style.zIndex = "9999";
       myCanvas.style.pointerEvents = "none";
       document.body.appendChild(myCanvas);
-  
+
       const myConfetti = confetti.create(myCanvas, { resize: true });
       myConfetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
     }
-
 
     if (totalAmount <= 1500) {
       hasFiredConfetti.current = false;
@@ -381,28 +380,43 @@ const AddtoCartOffCanvas = ({
   };
 
   const handleRemoveProduct = async (cart_id, product_id) => {
-    try {
-      await axiosInstance.delete(
-        `/order-cart/remove-item?item_id=${product_id}&cart_id=${serverDataID}`
-      );
-      setProductDataGet((prevData) =>
-        prevData.filter((product) => product._id !== cart_id)
-      );
-      const existingData = JSON.parse(
-        localStorage.getItem("addItemInCart")
-      ) || {
-        products: [],
-      };
-      existingData.products = existingData.products.filter(
-        (product) => product.product_id !== product_id
-      );
-      localStorage.setItem("addItemInCart", JSON.stringify(existingData));
-      fetchProductsCartData();
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to remove this product from your cart?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#7066e0",
+      confirmButtonText: "Yes, remove it!",
+      cancelButtonText: "Cancel",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axiosInstance.delete(
+            `/order-cart/remove-item?item_id=${product_id}&cart_id=${serverDataID}`
+          );
+          setProductDataGet((prevData) =>
+            prevData.filter((product) => product._id !== cart_id)
+          );
+          const existingData = JSON.parse(
+            localStorage.getItem("addItemInCart")
+          ) || {
+            products: [],
+          };
+          existingData.products = existingData.products.filter(
+            (product) => product.product_id !== product_id
+          );
+          localStorage.setItem("addItemInCart", JSON.stringify(existingData));
+          fetchProductsCartData();
 
-      handleChangeCart();
-    } catch (error) {
-      console.error("Error removing product:", error);
-    }
+          handleChangeCart();
+        } catch (error) {
+          console.error("Error removing product:", error);
+        }
+       
+      }
+    });
+
   };
 
   const minusQuantity = (productId) => {
@@ -828,8 +842,10 @@ const AddtoCartOffCanvas = ({
       defaultDiscountAmount = totalAmount * defaultDiscountPercent;
       finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount;
     }
+    console.log(finalAmount);
+    
 
-    if (mainprice > 1500 || (productDataGet.length > 1 && finalAmount > 1500)) {
+    if (mainprice > 1500 ||(productDataGet.length > 1 && finalAmount > 1500 ) || productDataGet.length > 1) {
       Demo.mainprice = mainprice;
       Demo.discountedprice = (mainprice * 50) / 100;
       Demo.discount = "50%";
@@ -985,8 +1001,7 @@ const AddtoCartOffCanvas = ({
                                             ₹{price?.mainprice}{" "}
                                           </span>
                                           <span
-                                            className="variant-offer"
-                                            style={{ fontSize: "10px" }}
+                                            className="variant-offer variant-offer-wrapper"
                                           >
                                             {price?.discount} off
                                           </span>
@@ -1007,7 +1022,7 @@ const AddtoCartOffCanvas = ({
                                         id="txt_quantity"
                                         value={product.quantity}
                                         min="1"
-                                        className="mb-0 text-center"
+                                        className="mb-0 "
                                         readOnly
                                         style={{
                                           borderRadius: "5px",

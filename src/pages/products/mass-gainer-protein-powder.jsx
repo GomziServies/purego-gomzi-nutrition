@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -28,8 +28,12 @@ import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";
 import GymVideo from "../../components/GymVideo";
+import { useLocation } from "react-router";
 
 function PureGoMassGainer() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const ProductFlavor = searchParams.get("flavor");
   const canonicalUrl = window.location.href;
   const [currentProduct, setCurrentProduct] = useState("1kg-Chocolate");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -126,6 +130,24 @@ function PureGoMassGainer() {
 
   const currentProductData =
     products.find((product) => product.key === currentProduct)?.data || {};
+
+  useEffect(() => {
+    if (ProductFlavor) {
+      if (ProductFlavor.split(" ")[2]) {
+        let Flavor =
+          ProductFlavor.split(" ")[1] + " " + ProductFlavor.split(" ")[2];
+        let activesize = ProductFlavor.split(" ")[0];
+        setActiveFlavor(Flavor);
+        setActiveSize(activesize);
+        setCurrentProduct(`${activesize}-${Flavor}`);
+      } else {
+        let activesize = ProductFlavor.split(" ")[0];
+        setActiveFlavor(ProductFlavor.split(" ")[1]);
+        setActiveSize(activesize);
+        setCurrentProduct(`${activesize}-${ProductFlavor.split(" ")[1]}`);
+      }
+    }
+  }, []);
 
   // const addProductInCart = async (product_id) => {
   //   try {
@@ -257,7 +279,7 @@ function PureGoMassGainer() {
     },
   ];
 
-   let DiscountCalculate = (name, mainprice) => {
+  let DiscountCalculate = (name, mainprice) => {
     let Demo = {};
 
     if (name === "Whey Matrix 1kg Chocolate" || mainprice > 1500) {
@@ -672,7 +694,7 @@ function PureGoMassGainer() {
                     <div
                       className="tab-pane fade show active"
                       id="information"
-                      role="tabpanel" 
+                      role="tabpanel"
                       aria-labelledby="information-tab"
                     >
                       <div className="product-desc-content">

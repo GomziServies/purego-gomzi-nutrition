@@ -615,6 +615,10 @@ label {
   margin: 0px 5px;
 }
 
+.variant-offer-wrapper {
+  width: 50px;
+}
+
 .cart-btnn {
   position: absolute;
   z-index: 2;
@@ -12539,7 +12543,7 @@ body.search-visible {
 }
 
 .variant-offer {
-  font-size: 12px;
+  font-size: 14.7px;
   font-weight: 500;
   color: #00a856;
 }

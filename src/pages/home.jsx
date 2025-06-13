@@ -260,6 +260,7 @@ function Home() {
     }
     return Demo;
   };
+
   return (
     <>
       <Helmet>
@@ -350,6 +351,7 @@ function Home() {
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
+
       <main className="main-area fix">
         <section className="banner-area main-section">
           <OwlCarousel {...options1} className="product-slide owl-theme">
@@ -659,7 +661,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder?flavor=Mawa Kulfi">
+                      <Link to="/whey-protein-powder?flavor=1kg Mawa Kulfi">
                         <div
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
@@ -716,7 +718,7 @@ function Home() {
                               </button>
                             )}
                             <Link
-                              to="/whey-protein-powder?flavor=Mawa Kulfi"
+                              to="/whey-protein-powder?flavor=1kg Mawa Kulfi"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>
@@ -799,7 +801,7 @@ function Home() {
                             <div className="item-reviews ms-1">
                               {productReviewsData.map(
                                 (product) =>
-                                  product._id === "67e7749163f930dcc6a2715d" && 
+                                  product._id === "67e7749163f930dcc6a2715d" &&
                                   product.total_count
                               )}{" "}
                               reviews
@@ -817,7 +819,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder?flavor=Mocha Coffee">
+                      <Link to="/whey-protein-powder?flavor=1kg Mocha Coffee">
                         <div
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
@@ -874,7 +876,7 @@ function Home() {
                               </button>
                             )}
                             <Link
-                              to="/whey-protein-powder?flavor=Mocha Coffee"
+                              to="/whey-protein-powder?flavor=1kg Mocha Coffee"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>
@@ -975,7 +977,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder?flavor=Mango">
+                      <Link to="/whey-protein-powder?flavor=1kg Mango">
                         <div
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
@@ -1032,7 +1034,7 @@ function Home() {
                               </button>
                             )}
                             <Link
-                              to="/whey-protein-powder?flavor=Mango"
+                              to="/whey-protein-powder?flavor=1kg Mango"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>
@@ -1133,7 +1135,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/mass-gainer-protein-powder">
+                      <Link to="/mass-gainer-protein-powder?flavor=1kg Chocolate">
                         <div
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
@@ -1191,7 +1193,7 @@ function Home() {
                               </button>
                             )}
                             <Link
-                              to="/mass-gainer-protein-powder"
+                              to="/mass-gainer-protein-powder?flavor=1kg Chocolate"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>
@@ -1295,7 +1297,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder">
+                      <Link to="/whey-protein-powder?flavor=2kg Chocolate">
                         <div
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
@@ -1352,7 +1354,7 @@ function Home() {
                               </button>
                             )}
                             <Link
-                              to="/whey-protein-powder"
+                              to="/whey-protein-powder?flavor=2kg Chocolate"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>
@@ -1454,7 +1456,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder?flavor=Mawa%20Kulfi">
+                      <Link to="/whey-protein-powder?flavor=2kg Mawa Kulfi">
                         <div
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
@@ -1463,7 +1465,8 @@ function Home() {
                         </div>
                       </Link>
                       <p className="item-description">
-                        Pure Go Whey Protein Mawa Kulfi is a Mixture of Whey Isolate, Whey Concentrate, Skimmed Milk powder,
+                        Pure Go Whey Protein Mawa Kulfi is a Mixture of Whey
+                        Isolate, Whey Concentrate, Skimmed Milk powder,
                       </p>
                     </div>
                     <div>
@@ -1510,7 +1513,7 @@ function Home() {
                               </button>
                             )}
                             <Link
-                              to="/whey-protein-powder?flavor=Mawa%20Kulfi"
+                              to="/whey-protein-powder?flavor=2kg Mawa Kulfi"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>
@@ -1524,7 +1527,6 @@ function Home() {
                 </div>
               </div>
 
-              
               <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card">
                   <div className="item-img-sec text-center">
@@ -1613,7 +1615,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder?flavor=Mocha%20Coffee">
+                      <Link to="/whey-protein-powder?flavor=2kg Mocha Coffee">
                         <div
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
@@ -1622,7 +1624,8 @@ function Home() {
                         </div>
                       </Link>
                       <p className="item-description">
-                        Pure Go Whey Protein Mocha Coffee is a Mixture of Whey Isolate, Whey Concentrate, Skimmed Milk
+                        Pure Go Whey Protein Mocha Coffee is a Mixture of Whey
+                        Isolate, Whey Concentrate, Skimmed Milk
                       </p>
                     </div>
                     <div>
@@ -1669,7 +1672,7 @@ function Home() {
                               </button>
                             )}
                             <Link
-                              to="/whey-protein-powder?flavor=Mocha%20Coffee"
+                              to="/whey-protein-powder?flavor=2kg Mocha Coffee"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>
@@ -1771,16 +1774,17 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/whey-protein-powder?flavor=Mango">
+                      <Link to="/whey-protein-powder?flavor=2kg Mango">
                         <div
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
                         >
-                            Whey Protein 2kg Mango
+                          Whey Protein 2kg Mango
                         </div>
                       </Link>
                       <p className="item-description">
-                        Pure Go Whey Protein Mango is a Mixture of Whey Isolate, Whey Concentrate, Skimmed Milk powder,
+                        Pure Go Whey Protein Mango is a Mixture of Whey Isolate,
+                        Whey Concentrate, Skimmed Milk powder,
                       </p>
                     </div>
                     <div>
@@ -1827,7 +1831,7 @@ function Home() {
                               </button>
                             )}
                             <Link
-                              to="/whey-protein-powder?flavor=Mango"
+                              to="/whey-protein-powder?flavor=2kg Mango"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>
@@ -1840,7 +1844,6 @@ function Home() {
                   </div>
                 </div>
               </div>
-
 
               <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card">
@@ -1930,7 +1933,7 @@ function Home() {
                           </span>
                         </div>
                       </span>
-                      <Link to="/mass-gainer-protein-powder">
+                      <Link to="/mass-gainer-protein-powder?flavor=3kg Chocolate">
                         <div
                           className="item-title"
                           style={{ WebkitBoxOrient: "vertical" }}
@@ -1939,7 +1942,8 @@ function Home() {
                         </div>
                       </Link>
                       <p className="item-description">
-                        Achieve Your Bulking Goals with Pure Go Mass Gainer Powder. Our specially formulated blend is
+                        Achieve Your Bulking Goals with Pure Go Mass Gainer
+                        Powder. Our specially formulated blend is
                       </p>
                     </div>
                     <div>
@@ -1986,7 +1990,7 @@ function Home() {
                               </button>
                             )}
                             <Link
-                              to="/mass-gainer-protein-powder"
+                              to="/mass-gainer-protein-powder?flavor=3kg Chocolate"
                               className="product-btn item-view-btn"
                             >
                               <i className="fa-solid fa-eye me-2"></i>
@@ -1999,7 +2003,6 @@ function Home() {
                   </div>
                 </div>
               </div>
-
 
               <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card position-relative">
@@ -2021,14 +2024,6 @@ function Home() {
                         <img
                           className="lazy"
                           height="100%"
-                          src="/assets/images/products/pre-workout/pre-workout-fruit-punch-2.webp"
-                          alt="Pre Workout"
-                        />
-                      </div>
-                      <div className="d-flex justify-content-center">
-                        <img
-                          className="lazy"
-                          height="100%"
                           src="/assets/images/products/pre-workout/pre-workout-fruit-punch-3.webp"
                           alt="Pre Workout"
                         />
@@ -2038,6 +2033,14 @@ function Home() {
                           className="lazy"
                           height="100%"
                           src="/assets/images/products/pre-workout/pre-workout-fruit-punch-4.webp"
+                          alt="Pre Workout"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/pre-workout/pre-workout-fruit-punch-2.webp"
                           alt="Pre Workout"
                         />
                       </div>
@@ -2130,7 +2133,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Pre Workout")
+                              item.includes("Fruit Punch")
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -2161,6 +2164,168 @@ function Home() {
                   </div>
                 </div>
               </div>
+
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card position-relative">
+                  <span className="labeling">Pre workout + fat burner</span>
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/pre-workout/pre-workout-cola-1.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/pre-workout/pre-workout-cola-3.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/pre-workout/pre-workout-cola-4.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/pre-workout/pre-workout-cola-2.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    {/* <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">76%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div> */}
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7740363f930dcc6a27157" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7740363f930dcc6a27157" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/weight-loss-supplement?flavor=Cola">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                          Pre Workout Cola{" "}
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        It will suppress your appetite and provide you with a
+                        higher energy level in order to keep the adrenaline
+                        levels up. It will also...
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Pre Workout Cola",
+                                2550
+                              );
+                              return (
+                                <>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
+                                </>
+                              );
+                            })()}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("Cola")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  addProductInCart("682718b1ed4175d21de95d0b");
+                                  handleCartOpen();
+                                }}
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/weight-loss-supplement?flavor=Cola"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card">
                   <div className="item-img-sec text-center">
@@ -2484,6 +2649,168 @@ function Home() {
               </div>
               <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card position-relative">
+                  <span className="labeling">
+                    India's first flavored creatine
+                  </span>
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/creatine/creatine-unflavoured-1.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/creatine/creatine-unflavoured-3.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/creatine/creatine-unflavoured-4.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/creatine/creatine-unflavoured-2.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    {/* <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">76%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div> */}
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7740363f930dcc6a27157" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7740363f930dcc6a27157" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/creatine-supplements?flavor=Unflavoured">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                          Creatine Unflavoured
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        Creatine monohydrate works by increasing the body's
+                        stores of phosphocreatine, a molecule that
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "Pre Workout Cola",
+                                1490
+                              );
+                              return (
+                                <>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
+                                </>
+                              );
+                            })()}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("Unflavoured")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  addProductInCart("6827197bed4175d21de95d5c");
+                                  handleCartOpen();
+                                }}
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/creatine-supplements?flavor=Unflavoured"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card position-relative">
                   {/* <span className="labeling">India's first flavored BCAA Orange</span> */}
                   <div className="item-img-sec text-center">
                     <OwlCarousel
@@ -2642,6 +2969,168 @@ function Home() {
                   </div>
                 </div>
               </div>
+              <div className="col-lg-3 col-sm-6 mt-3 text-start">
+                <div className="item-card position-relative">
+                  <span className="labeling">Pre workout + fat burner</span>
+                  <div className="item-img-sec text-center">
+                    <OwlCarousel
+                      {...options}
+                      className="product-slide owl-theme"
+                    >
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/bcaa/bcaa-cranberry-1.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/bcaa/bcaa-cranberry-3.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/bcaa/bcaa-cranberry-4.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                      <div className="d-flex justify-content-center">
+                        <img
+                          className="lazy"
+                          height="100%"
+                          src="/assets/images/products/bcaa/bcaa-cranberry-2.webp"
+                          alt="Pre Workout cola"
+                        />
+                      </div>
+                    </OwlCarousel>
+                    {/* <div className="wishlist d-flex justify-content-end">
+                      <img
+                        alt="inWishlist"
+                        width="70px"
+                        className="position-relative"
+                        src="/assets/images/fifty-discount.png"
+                      />
+                      <p className="wishlist-text-first">76%</p>
+                      <p className="wishlist-text-second">OFF</p>
+                    </div> */}
+                  </div>
+                  <div className="item-card-detail">
+                    <div>
+                      <span
+                        className="item-rating-count"
+                        style={{ lineHeight: "26px", marginTop: "10px" }}
+                      >
+                        <div className="item-ratings d-flex justify-content-between">
+                          <div className="item-normal-div d-flex">
+                            <span className="item-rating-child d-flex align-items-center">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7740363f930dcc6a27157" &&
+                                  product.average_points
+                              )}
+                              <i className="fa-solid fa-star ms-1"></i>
+                            </span>
+                            <div className="item-reviews ms-1">
+                              {productReviewsData.map(
+                                (product) =>
+                                  product._id === "67e7740363f930dcc6a27157" &&
+                                  product.total_count
+                              )}{" "}
+                              reviews
+                            </div>
+                          </div>
+                          <span className="item-veg">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/images/veg-icon.png"
+                              }
+                              width="100%"
+                              alt="img"
+                            />
+                          </span>
+                        </div>
+                      </span>
+                      <Link to="/bcaa-supplements?flavor=Cranberry">
+                        <div
+                          className="item-title"
+                          style={{ WebkitBoxOrient: "vertical" }}
+                        >
+                          BCAA Cranberry
+                        </div>
+                      </Link>
+                      <p className="item-description">
+                        It will suppress your appetite and provide you with a
+                        higher energy level in order to keep the adrenaline
+                        levels up. It will also boost your metabolism and burn
+                        calories for you.
+                      </p>
+                    </div>
+                    <div>
+                      <div className="item-desc">
+                        <div className="">
+                          <div className="d-flex align-items-center">
+                            {(() => {
+                              const price = DiscountCalculate(
+                                "BCAA Cranberry",
+                                2150
+                              );
+                              return (
+                                <>
+                                  <span className="variant-price">
+                                    ₹{price?.discountedprice.toFixed(0)}/-
+                                  </span>
+                                  <span className="variant-old-price">
+                                    ₹{price?.mainprice}{" "}
+                                  </span>
+                                  <span className="variant-offer">
+                                    {price?.discount} off
+                                  </span>
+                                </>
+                              );
+                            })()}
+                          </div>
+                          <div className="d-flex">
+                            {cartItemName.some((item) =>
+                              item.includes("Cranberry")
+                            ) ? (
+                              <button className="product-btn item-add-to-cart-btn">
+                                Item Added
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => {
+                                  addProductInCart("6827180aed4175d21de95cb9");
+                                  handleCartOpen();
+                                }}
+                                className="product-btn item-add-to-cart-btn"
+                              >
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                Add to Cart
+                              </button>
+                            )}
+                            <Link
+                              to="/bcaa-supplements?flavor=Cranberry"
+                              className="product-btn item-view-btn"
+                            >
+                              <i className="fa-solid fa-eye me-2"></i>
+                              View
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div className="col-lg-3 col-sm-6 mt-3 text-start">
                 <div className="item-card position-relative">
                   <div className="item-img-sec text-center">

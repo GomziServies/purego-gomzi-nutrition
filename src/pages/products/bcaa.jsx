@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -28,8 +28,12 @@ import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";
 import GymVideo from "../../components/GymVideo";
+import { useLocation } from "react-router";
 
 function PureGoBCAA() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const ProductFlavor = searchParams.get("flavor");
   const canonicalUrl = window.location.href;
   const [currentProduct, setCurrentProduct] = useState("250g-Orange");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -124,6 +128,13 @@ function PureGoBCAA() {
 
   const currentProductData =
     products.find((product) => product.key === currentProduct)?.data || {};
+
+  useEffect(() => {
+    if (ProductFlavor) {
+      setActiveFlavor(ProductFlavor);
+      setCurrentProduct(`${activeSize}-${ProductFlavor}`);
+    }
+  }, []);
 
   // const addProductInCart = async (product_id) => {
   //   try {

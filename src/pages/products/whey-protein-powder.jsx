@@ -295,8 +295,29 @@ function PureGoWheyProtein() {
 
   useEffect(() => {
     if (ProductFlavor) {
-      setActiveFlavor(ProductFlavor);
-      setCurrentProduct(`${activeSize}-${ProductFlavor}`);
+      if (ProductFlavor.split(" ")[2]) {
+
+        let Flavor =ProductFlavor.split(" ")[1] + " " + ProductFlavor.split(" ")[2];
+        let activesize = ProductFlavor.split(" ")[0];
+        setActiveFlavor(Flavor);
+        setActiveSize(activesize);
+        setCurrentProduct(`${activesize}-${Flavor}`);
+
+
+      } else if (ProductFlavor.split(" ")[1]) {
+
+        let activesize = ProductFlavor.split(" ")[0];
+        setActiveFlavor(ProductFlavor.split(" ")[1]);
+        setActiveSize(activesize);
+        setCurrentProduct(`${activesize}-${ProductFlavor.split(" ")[1]}`);
+
+
+      } else {
+
+        setActiveFlavor(ProductFlavor);
+        setCurrentProduct(`${activeSize}-${ProductFlavor}`);
+        
+      }
     }
   }, []);
 
