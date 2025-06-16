@@ -47,8 +47,6 @@ function CheckOut() {
     mobile: "",
   });
 
-  
-
   const stateData = [
     { stateName: "Andaman and Nicobar Islands", stateCode: "AN" },
     { stateName: "Andhra Pradesh", stateCode: "AP" },
