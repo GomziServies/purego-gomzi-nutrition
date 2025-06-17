@@ -186,7 +186,7 @@ function Home() {
   };
 
   const addProductInCart = async (product_id) => {
-    localStorage.setItem("Opencart", product_id);
+    localStorage.setItem("openCart", product_id);
     try {
       // const isLogin = localStorage.getItem("fg_group_user_authorization");
       // if (!isLogin) {
@@ -206,12 +206,12 @@ function Home() {
   };
 
   useEffect(() => {
-    let id = localStorage.getItem("Opencart");
+    let id = localStorage.getItem("openCart");
 
     if (id) {
       addProductInCart(id);
       handleCartOpen();
-      localStorage.removeItem("Opencart");
+      localStorage.removeItem("openCart");
     }
   }, []);
 

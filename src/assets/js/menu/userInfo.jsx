@@ -21,7 +21,7 @@ const UserInfo = ({ cartCount, handleCartOpen }) => {
     toast.success("Successfully Logout!");
     localStorage.removeItem("fg_group_user_authorization");
     localStorage.removeItem("user_info");
-    localStorage.removeItem("Opencart");
+    localStorage.removeItem("openCart");
     localStorage.clear();
     setUserInfo(null);
     window.location.reload();
