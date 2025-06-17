@@ -18,11 +18,13 @@ const UserInfo = ({ cartCount, handleCartOpen }) => {
   };
 
   const logout = () => {
+    toast.success("Successfully Logout!");
     localStorage.removeItem("fg_group_user_authorization");
     localStorage.removeItem("user_info");
+    localStorage.removeItem("Opencart");
     localStorage.clear();
     setUserInfo(null);
-    toast.success("Successfully Logout!");
+    window.location.reload();
   };
 
   const toggleUserMenu = () => {

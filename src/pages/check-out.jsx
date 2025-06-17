@@ -1269,7 +1269,7 @@ function CheckOut() {
                             ₹
                             {quickData?.price > 1500
                               ? quickData?.price / 2
-                              : (quickData?.price * 25) / 10}
+                              : quickData?.price - (quickData?.price * 25) / 100}
                             /-
                           </span>
                         </li>
