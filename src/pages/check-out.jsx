@@ -277,8 +277,6 @@ function CheckOut() {
       const payment_mode = paymentMode;
 
       try {
-
-        
         const coupon_ids = [manualCouponCodeData?._id].filter(Boolean);
         await createPaymentProduct(
           quickData && quickData?.id
@@ -408,7 +406,10 @@ function CheckOut() {
 
     if (couponData.discount_type === "rupees") {
       discountAmount = discount;
-    } else if (couponData.discount_type === "percentage") {
+    } else if (
+      couponData.discount_type === "percentage" ||
+      couponData.discount_type === "percent"
+    ) {
       discountAmount = (baseAmount * discount) / 100;
     }
 

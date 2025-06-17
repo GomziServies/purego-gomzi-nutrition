@@ -33,7 +33,7 @@ const AddtoCartOffCanvas = ({
   const [isCouponRupee, setIsCouponRupee] = useState(false);
   const [amountOnCouponCode, setAmountOnCouponCode] = useState();
   const [productDatas, setProductDatas] = useState([[]]);
-  const productData = localStorage.getItem("productsData");
+  const productData = localStorage.getItem("ProductNameData");
   const [mainPrice, setMainPrice] = useState();
   const [showCouponModal, setShowCouponModal] = useState(false);
   const [manualCouponCodeData, setManualCouponCodeData] = useState("");
@@ -413,10 +413,8 @@ const AddtoCartOffCanvas = ({
         } catch (error) {
           console.error("Error removing product:", error);
         }
-       
       }
     });
-
   };
 
   const minusQuantity = (productId) => {
@@ -721,10 +719,10 @@ const AddtoCartOffCanvas = ({
   let couponLabel = "";
 
   if (manualCouponCodeData) {
-    if (manualCouponCodeData.discount_percentage) {
-      const percent = manualCouponCodeData.discount_percentage / 100;
+    if (manualCouponCodeData.discount) {
+      const percent = manualCouponCodeData.discount / 100;
       couponDiscountAmount = (totalAmount - defaultDiscountAmount) * percent;
-      couponLabel = `(${manualCouponCodeData.discount_percentage}%)`;
+      couponLabel = `(${manualCouponCodeData.discount}%)`;
     } else if (manualCouponCodeData.discount_amount) {
       couponDiscountAmount = manualCouponCodeData.discount_amount;
       couponLabel = "";
@@ -732,6 +730,12 @@ const AddtoCartOffCanvas = ({
   }
 
   let finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount;
+  let subTotal =
+    totalAmount -
+    defaultDiscountAmount -
+    (isCouponRupee
+      ? totalCouponDiscount.toFixed(2) || 0
+      : couponDiscountAmount.toFixed(2) || 0);
 
   const handleAddToCart = async (e) => {
     e.preventDefault();
@@ -840,12 +844,15 @@ const AddtoCartOffCanvas = ({
           ? 0.5
           : 0.25;
       defaultDiscountAmount = totalAmount * defaultDiscountPercent;
-      finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount;
+      // finalAmount = totalAmount - defaultDiscountAmount - totalCouponDiscount;
+      finalAmount = totalAmount - defaultDiscountAmount - couponDiscountAmount;
     }
-    console.log(finalAmount);
-    
 
-    if (mainprice > 1500 ||(productDataGet.length > 1 && finalAmount > 1500 ) || productDataGet.length > 1) {
+    if (
+      mainprice > 1500 ||
+      (productDataGet.length > 1 && finalAmount > 1500) ||
+      productDataGet.length > 1
+    ) {
       Demo.mainprice = mainprice;
       Demo.discountedprice = (mainprice * 50) / 100;
       Demo.discount = "50%";
@@ -1000,9 +1007,7 @@ const AddtoCartOffCanvas = ({
                                           >
                                             ₹{price?.mainprice}{" "}
                                           </span>
-                                          <span
-                                            className="variant-offer variant-offer-wrapper"
-                                          >
+                                          <span className="variant-offer variant-offer-wrapper">
                                             {price?.discount} off
                                           </span>
                                         </>
@@ -1454,8 +1459,8 @@ const AddtoCartOffCanvas = ({
                         <b>
                           -{" "}
                           {isCouponRupee
-                            ? `₹${totalCouponDiscount.toFixed(2)}`
-                            : `₹${totalCouponDiscount.toFixed(2)}`}
+                            ? `₹${totalCouponDiscount.toFixed(2) || 0}`
+                            : `₹${couponDiscountAmount.toFixed(2) || 0}`}
                         </b>
                       </span>
                     </div>
@@ -1470,7 +1475,7 @@ const AddtoCartOffCanvas = ({
                   </div>
                   <div>
                     <span className="d-inline-block text-dark f-rob-med f-16">
-                      <b>₹{finalAmount.toFixed(2)}</b>
+                      <b>₹{subTotal.toFixed(2)}</b>
                     </span>
                   </div>
                 </div>
