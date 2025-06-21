@@ -290,11 +290,8 @@ function Home() {
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <meta
-          property="og:url"
-          content="https://purego.gomzilifesciences.in/"
-        />
-        <link rel="canonical" href={{ canonicalUrl }} />
+        <meta property="og:url" content={canonicalUrl} />
+        <link rel="canonical" href={canonicalUrl} />
 
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />

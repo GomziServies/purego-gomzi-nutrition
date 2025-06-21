@@ -312,15 +312,12 @@ function PureGoBCAA() {
           name="keyword"
           content="preworkout, fat burner, amino acid, workout, Orange, weight loss supplement, bodybuilding supplement, best pre workout, best weight loss supplements, best fat burner for men, protein powder for weight loss, best protein powder for weight loss, best fat burner for women, pre workout powder, best fat burner, best supplements for weight loss female, best pre workout for men, fat burner for women"
         />
-        <meta
-          property="og:url"
-          content="https://purego.gomzilifesciences.in/"
-        />
+        <meta property="og:url" content={canonicalUrl} />
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <link rel="canonical" href={{ canonicalUrl }} />
+        <link rel="canonical" href={canonicalUrl} />
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>

@@ -37,15 +37,12 @@ function Blog3() {
           name="keyword"
           content="pre-gym supplements, whey protein, best whey protein, whey products"
         />
-        <meta
-          property="og:url"
-          content="https://purego.gomzilifesciences.in/"
-        />
+        <meta property="og:url" content={canonicalUrl} />
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <link rel="canonical" href={{ canonicalUrl }} />
+        <link rel="canonical" href={canonicalUrl} />
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>

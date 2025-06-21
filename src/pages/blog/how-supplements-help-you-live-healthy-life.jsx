@@ -22,7 +22,7 @@ function Blog2() {
   const [clickATC, setClickATC] = useState(false);
 
   const handleCartOpen = async () => {
-    setClickATC(true)
+    setClickATC(true);
   };
 
   return (
@@ -37,15 +37,12 @@ function Blog2() {
           name="keyword"
           content="pre-gym supplements, nutrition, whey protein, best whey protein"
         />
-        <meta
-          property="og:url"
-          content="https://purego.gomzilifesciences.in/"
-        />
+        <meta property="og:url" content={canonicalUrl} />
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <link rel="canonical" href={{ canonicalUrl }} />
+        <link rel="canonical" href={canonicalUrl} />
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
@@ -70,8 +67,7 @@ function Blog2() {
       </Helmet>
       {/* <LoaderComponent /> */}
       <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
-      <NutritionHeader
-        handleCartOpen={handleCartOpen} />
+      <NutritionHeader handleCartOpen={handleCartOpen} />
       <>
         <main className="main-area fix">
           <section className="blog-area pt-120 pb-120">

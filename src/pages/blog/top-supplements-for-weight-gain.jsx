@@ -22,7 +22,7 @@ function Blog1() {
   const [clickATC, setClickATC] = useState(false);
 
   const handleCartOpen = async () => {
-    setClickATC(true)
+    setClickATC(true);
   };
 
   return (
@@ -37,15 +37,12 @@ function Blog1() {
           name="keyword"
           content="creatine, creatine monohydrate, micronised, muscle building, best creatine, best creatine for men, best creatine monohydrate, creatine powder, creatine monohydrate powder, best protein powder for muscle gain, best muscle building supplements, muscle building supplements, creatine for women, creatine supplements, micronized creatine, bodybuilding supplements, best creatine for muscle growth, best creatine supplement, muscle growth supplements, micronized creatine monohydrate, best protein powder for muscle growth"
         />
-        <meta
-          property="og:url"
-          content="https://purego.gomzilifesciences.in/"
-        />
+        <meta property="og:url" content={canonicalUrl} />
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <link rel="canonical" href={{ canonicalUrl }} />
+        <link rel="canonical" href={canonicalUrl} />
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
@@ -70,8 +67,7 @@ function Blog1() {
       </Helmet>
       {/* <LoaderComponent /> */}
       <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
-      <NutritionHeader
-        handleCartOpen={handleCartOpen} />
+      <NutritionHeader handleCartOpen={handleCartOpen} />
       <>
         <main className="main-area fix">
           {/* blog-area */}

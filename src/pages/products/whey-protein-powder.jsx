@@ -296,27 +296,20 @@ function PureGoWheyProtein() {
   useEffect(() => {
     if (ProductFlavor) {
       if (ProductFlavor.split(" ")[2]) {
-
-        let Flavor =ProductFlavor.split(" ")[1] + " " + ProductFlavor.split(" ")[2];
+        let Flavor =
+          ProductFlavor.split(" ")[1] + " " + ProductFlavor.split(" ")[2];
         let activesize = ProductFlavor.split(" ")[0];
         setActiveFlavor(Flavor);
         setActiveSize(activesize);
         setCurrentProduct(`${activesize}-${Flavor}`);
-
-
       } else if (ProductFlavor.split(" ")[1]) {
-
         let activesize = ProductFlavor.split(" ")[0];
         setActiveFlavor(ProductFlavor.split(" ")[1]);
         setActiveSize(activesize);
         setCurrentProduct(`${activesize}-${ProductFlavor.split(" ")[1]}`);
-
-
       } else {
-
         setActiveFlavor(ProductFlavor);
         setCurrentProduct(`${activeSize}-${ProductFlavor}`);
-        
       }
     }
   }, []);
@@ -470,15 +463,12 @@ function PureGoWheyProtein() {
           name="keyword"
           content="whey protein isolate, best protein powder for women, plant based protein powder, protein powder for weight loss, best protein powder for weight loss, isolate protein, whey isolate protein powder, best whey protein powder, best whey protein, mass gainer protein powder, best protein powder for muscle gain, protein, bcaa, eaa, isolate, concentrate, whey protein, protein powder, best protein powder, whey protein powder, whey isolate, plant based protein, bcaa powder"
         />
-        <meta
-          property="og:url"
-          content="https://purego.gomzilifesciences.in/"
-        />
+        <meta property="og:url" content={canonicalUrl} />
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <link rel="canonical" href={{ canonicalUrl }} />
+        <link rel="canonical" href={canonicalUrl} />
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>

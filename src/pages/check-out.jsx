@@ -823,15 +823,12 @@ function CheckOut() {
           property="og:description"
           content="Complete your purchase at Pure Go with secure and fast checkout options. Hassle-free payment process for all your nutrition and supplement needs."
         />
-        <meta
-          property="og:url"
-          content="https://www.purego.gomzilifesciences.in/nutrition/check-out"
-        />
+        <meta property="og:url" content={canonicalUrl} />
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <link rel="canonical" href={{ canonicalUrl }} />
+        <link rel="canonical" href={canonicalUrl} />
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
@@ -1269,7 +1266,8 @@ function CheckOut() {
                             ₹
                             {quickData?.price > 1500
                               ? quickData?.price / 2
-                              : quickData?.price - (quickData?.price * 25) / 100}
+                              : quickData?.price -
+                                (quickData?.price * 25) / 100}
                             /-
                           </span>
                         </li>

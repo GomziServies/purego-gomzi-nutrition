@@ -305,15 +305,12 @@ function PureGoMassGainer() {
           name="keyword"
           content="whey protein powder, whey protein, protein powder, chocolate flavour, best protein powder, whey powder, whey protein isolate, best protein powder for women, plant based protein powder, protein powder for weight loss, best protein powder for weight loss, whey isolate protein powder, isolate protein, best whey protein powder, best whey protein, mass gainer protein powder, chocolate protein powder, best protein powder for muscle gain, protein supplements, protein powder for women"
         />
-        <meta
-          property="og:url"
-          content="https://purego.gomzilifesciences.in/"
-        />
+        <meta property="og:url" content={canonicalUrl} />
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <link rel="canonical" href={{ canonicalUrl }} />
+        <link rel="canonical" href={canonicalUrl} />
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
