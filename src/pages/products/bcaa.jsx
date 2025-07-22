@@ -520,12 +520,12 @@ function PureGoBCAA() {
                         <p>
                           BCAA Blend (branched chain amino acid), Citric
                           acid-INS 330, potassium Chloride INS 508, Silicon
-                          dioxide INS 551, Sucralose -INS 955, Orange Flavour,
+                          dioxide INS 551, Sucralose -INS 955, {activeFlavor} Flavour,
                           Sunset Yellow color -INS 122.
                         </p>
-                        <h4 className="title">DIRECTIONS FOR EAA POWDER:</h4>
+                        <h4 className="title">DIRECTIONS FOR BCAA POWDER:</h4>
                         <p>
-                          Consume 1 Scoop (05 gm) of EAA Powder with 200ml water
+                          Consume 1 Scoop (05 gm) of BCAA Powder with 200ml water
                           between meals, 30-45 minutes before workouts and/or
                           immediately after workouts. Combine with a sensible
                           diet and regular exercise. For best results consume 2
