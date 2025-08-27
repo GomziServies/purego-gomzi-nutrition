@@ -7,10 +7,10 @@ const Cart = () => {
     const productId = location.state;
     const Navigate = useNavigate();
 
-    // useEffect(() => {
-    //     localStorage.setItem("fromCartPage", "true");
-    //     Navigate("/");
-    // }, [])
+    useEffect(() => {
+        localStorage.setItem("fromCartPage", "true");
+        Navigate("/");
+    }, [])
 
     return (
         <>
