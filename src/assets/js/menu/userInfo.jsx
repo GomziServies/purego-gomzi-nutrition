@@ -74,7 +74,9 @@ const UserInfo = ({ cartCount, handleCartOpen }) => {
             <li className="mx-0">
               <button
                 className="cart-button-header"
-                onClick={() => handleCartOpen()}
+                onClick={() => {
+                  handleCartOpen('header');
+                }}
                 // href="/add-to-cart"
                 aria-label="Fg Group"
               >

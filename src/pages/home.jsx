@@ -209,7 +209,6 @@ function Home() {
 
   useEffect(() => {
     let fromCartPage = localStorage.getItem("fromCartPage");
-    // console.log("fromCartPage ===>", fromCartPage);
 
     if (fromCartPage) {
       addProductInCart();
@@ -247,8 +246,9 @@ function Home() {
     },
   };
 
-  const handleCartOpen = async () => {
+  const handleCartOpen = async (cart = "addToCart") => {
     setClickATC(true);
+    localStorage.setItem('cartOpenSource', cart);
   };
 
   const handleChangeCart = async () => {
@@ -563,7 +563,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e7749163f930dcc6a2715d");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -721,7 +721,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e774a963f930dcc6a2715f");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -879,7 +879,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e774c463f930dcc6a27161");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1037,7 +1037,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68316295f91df040c479acc8");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1196,7 +1196,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e7745f63f930dcc6a2715b");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1357,7 +1357,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e7740363f930dcc6a27157");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1517,7 +1517,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e7742d63f930dcc6a27159");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1679,7 +1679,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e773f463f930dcc6a27155");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1840,7 +1840,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("6827168ced4175d21de95c4e");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2001,7 +2001,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68219edf28bd0ff3b2083fa6");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2160,7 +2160,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68219ef928bd0ff3b2083fa8");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2319,7 +2319,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68219f0d28bd0ff3b2083fad");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2478,7 +2478,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("683162bef91df040c479ace4");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2637,7 +2637,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68219f4d28bd0ff3b2083fb1");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2798,7 +2798,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("682718b1ed4175d21de95d0b");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2960,7 +2960,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("6827197bed4175d21de95d5c");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -3122,7 +3122,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("6827180aed4175d21de95cb9");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -3282,7 +3282,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68316330f91df040c479ad1e");
-                                  handleCartOpen();
+                                  handleCartOpen('addToCart');
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >

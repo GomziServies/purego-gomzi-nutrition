@@ -7,16 +7,16 @@ const Cart = () => {
     const productId = location.state;
     const Navigate = useNavigate();
 
-    useEffect(() => {
-        localStorage.setItem("fromCartPage", "true");
-        Navigate("/");
-    }, [])
+    // useEffect(() => {
+    //     localStorage.setItem("fromCartPage", "true");
+    //     Navigate("/");
+    // }, [])
 
     return (
         <>
-        <Helmet>
+            <Helmet>
                 <script>
-                    { `
+                    {`
                     !function(f,b,e,v,n,t,s)
                     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -28,13 +28,13 @@ const Cart = () => {
                     fbq('init', '3713420712287031');
                     fbq('track', 'PageView');
                 `}
-                        </script>
-                        <noscript>
-                            { `<img height="1" width="1" style="display:none"
+                </script>
+                <noscript>
+                    {`<img height="1" width="1" style="display:none"
                 src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
                 />`}
                 </noscript>
-        </Helmet>
+            </Helmet>
         </>
     )
 }

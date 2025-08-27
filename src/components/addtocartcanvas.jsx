@@ -17,6 +17,7 @@ const AddtoCartOffCanvas = ({
   addToCartProducts,
   handleChangeCart,
   productClick,
+  openSource = 'cart', // 'cart' or 'addToCart'
 }) => {
   const [animateOpen, setAnimateOpen] = useState(false);
   const [dataPrinted, setDataPrinted] = useState(false);
@@ -68,21 +69,35 @@ const AddtoCartOffCanvas = ({
 
       const myConfetti = confetti.create(myCanvas, { resize: true });
 
-      setTimeout(() => {
+      // Add delay only when opened through Add to Cart button
+      const source = localStorage.getItem('cartOpenSource');
+
+      if (source === 'addToCart') {
+        setTimeout(() => {
+          AudioPlayer();
+          myConfetti({
+            particleCount: 150,
+            spread: 100,
+            origin: { y: 0.6 },
+          });
+        }, 1550);
+      } else {
         AudioPlayer();
         myConfetti({
           particleCount: 150,
           spread: 100,
           origin: { y: 0.6 },
         });
-      }, 1550);
+      }
+      // Clear the source after using it
+      localStorage.removeItem('cartOpenSource');
 
     }
 
     if (totalAmount <= 1500) {
       hasFiredConfetti.current = false;
     }
-  }, [totalAmount]);
+  }, [totalAmount, openSource]);
 
   useEffect(() => {
     setAnimateOpen(isOpen);

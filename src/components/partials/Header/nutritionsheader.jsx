@@ -162,7 +162,9 @@ function NutritionHeader({
           {url != "/check-out" ? (
             <button
               className="cart-button-header"
-              onClick={() => handleCartOpen()}
+              onClick={() => {
+                handleCartOpen('header');
+              }}
               // href="/add-to-cart"
               aria-label="Fg Group"
             >
