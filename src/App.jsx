@@ -26,6 +26,7 @@ import CheckOut from "./pages/check-out";
 import ScrollRestoration from "./components/scroll-restoration";
 import PureGoBCAA from "./pages/products/bcaa";
 import PureGoShaker from "./pages/products/shaker-bottle";
+import Cart from "./pages/cart";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
         />
         <Route path="/best-whey-protein-in-india" element={<Blog3 />} />
         <Route path="/404" element={<NotFoundPage />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <ScrollRestoration />
     </>

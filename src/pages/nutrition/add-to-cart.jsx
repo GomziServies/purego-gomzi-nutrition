@@ -724,7 +724,7 @@ function AddToCart() {
                           <span className="text-danger">
                             - {isCouponRupee && "₹"}
                             {totalDiscount !== undefined &&
-                            totalDiscount !== null
+                              totalDiscount !== null
                               ? totalDiscount
                               : 0}
                             {!isCouponRupee ? "%" : " /-"}

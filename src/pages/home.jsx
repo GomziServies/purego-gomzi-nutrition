@@ -20,7 +20,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import ModalVideo from "react-modal-video";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HappyClientReview from "../components/happyClient";
 import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
 import LoginModal from "../assets/js/popup/login";
@@ -28,6 +28,7 @@ import Swal from "sweetalert2";
 import AddToCartPopUp from "../components/AddToCartPopUp";
 import FacilitySlider from "../components/facilitySlider";
 import GymVideo from "../components/GymVideo";
+import { use } from "react";
 
 function Home() {
   const canonicalUrl = window.location.href;
@@ -37,6 +38,7 @@ function Home() {
   const [cartItemName, setCartItemName] = useState([]);
   const [clickATC, setClickATC] = useState(false);
   const [productReviewsData, setProductReviewsData] = useState([]);
+  const Navigate = useNavigate();
   const productsId = [
     "67e7749163f930dcc6a2715d",
     "67e774a963f930dcc6a2715f",
@@ -145,9 +147,8 @@ function Home() {
         const reverseX = index % 2 === 0 ? -1 : 1;
         const reverseY = index % 2 !== 0 ? -1 : 1;
 
-        shape.style.transform = `translate(${
-          xMove * movementFactor * reverseX
-        }px, ${yMove * movementFactor * reverseY}px)`;
+        shape.style.transform = `translate(${xMove * movementFactor * reverseX
+          }px, ${yMove * movementFactor * reverseY}px)`;
       });
     };
 
@@ -199,6 +200,7 @@ function Home() {
       });
       if (response.data.response === "OK") {
         fetchProductData();
+        Navigate("/cart", { state: product_id });
       }
     } catch (error) {
       console.error(error);
@@ -206,13 +208,15 @@ function Home() {
   };
 
   useEffect(() => {
-    let id = localStorage.getItem("openCart");
+    let fromCartPage = localStorage.getItem("fromCartPage");
+    // console.log("fromCartPage ===>", fromCartPage);
 
-    if (id) {
-      addProductInCart(id);
+    if (fromCartPage) {
+      addProductInCart();
       handleCartOpen();
-      localStorage.removeItem("openCart");
+      localStorage.removeItem("fromCartPage");
     }
+
   }, []);
 
   const options = {

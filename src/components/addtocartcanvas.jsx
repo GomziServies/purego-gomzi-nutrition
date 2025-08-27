@@ -16,6 +16,7 @@ const AddtoCartOffCanvas = ({
   onClose,
   addToCartProducts,
   handleChangeCart,
+  productClick,
 }) => {
   const [animateOpen, setAnimateOpen] = useState(false);
   const [dataPrinted, setDataPrinted] = useState(false);
@@ -53,12 +54,8 @@ const AddtoCartOffCanvas = ({
     if (totalAmount > 1500 && !hasFiredConfetti.current) {
       hasFiredConfetti.current = true;
 
-      AudioPlayer();
-      // confetti({
-      //   particleCount: 150,
-      //   spread: 100,
-      //   origin: { y: 0.6 },
-      // });
+
+
       const myCanvas = document.createElement("canvas");
       myCanvas.style.position = "fixed";
       myCanvas.style.top = "0";
@@ -70,7 +67,16 @@ const AddtoCartOffCanvas = ({
       document.body.appendChild(myCanvas);
 
       const myConfetti = confetti.create(myCanvas, { resize: true });
-      myConfetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+
+      setTimeout(() => {
+        AudioPlayer();
+        myConfetti({
+          particleCount: 150,
+          spread: 100,
+          origin: { y: 0.6 },
+        });
+      }, 1550);
+
     }
 
     if (totalAmount <= 1500) {
@@ -436,12 +442,12 @@ const AddtoCartOffCanvas = ({
       const updatedData = prevData.map((product) =>
         product._id === productId
           ? {
-              ...product,
-              quantity:
-                (product.quantity || 1) < 5
-                  ? product.quantity + 1
-                  : product.quantity,
-            }
+            ...product,
+            quantity:
+              (product.quantity || 1) < 5
+                ? product.quantity + 1
+                : product.quantity,
+          }
           : product
       );
       totalAmountCalculation(updatedData);
