@@ -64,51 +64,51 @@ function PureGoWheyProtein() {
   const productImages = {
     "1kg-Chocolate": [
       "/assets/images/products/whey-protein/whey-protein-chocolate-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-chocolate-4.webp",
       "/assets/images/products/whey-protein/whey-protein-chocolate-3.webp",
       "/assets/images/products/whey-protein/whey-protein-chocolate-2.webp",
-      "/assets/images/products/whey-protein/whey-protein-chocolate-4.webp",
     ],
     "1kg-Mocha Coffee": [
       "/assets/images/products/whey-protein/whey-protein-mochacoffee-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-4.webp",
       "/assets/images/products/whey-protein/whey-protein-mochacoffee-3.webp",
       "/assets/images/products/whey-protein/whey-protein-mochacoffee-2.webp",
-      "/assets/images/products/whey-protein/whey-protein-mochacoffee-4.webp",
     ],
     "1kg-Mawa Kulfi": [
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-4.webp",
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-3.webp",
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-2.webp",
-      "/assets/images/products/whey-protein/whey-protein-mawakulfi-4.webp",
     ],
     "1kg-Mango": [
       "/assets/images/products/whey-protein/whey-protein-mango-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mango-4.webp",
       "/assets/images/products/whey-protein/whey-protein-mango-3.webp",
       "/assets/images/products/whey-protein/whey-protein-mango-2.webp",
-      "/assets/images/products/whey-protein/whey-protein-mango-4.webp",
     ],
     "2kg-Chocolate": [
       "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-4.webp",
       "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-3.webp",
       "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-2.webp",
-      "/assets/images/products/whey-protein/whey-protein-chocolate-2kg-4.webp",
     ],
     "2kg-Mocha Coffee": [
       "/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-4.webp",
       "/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-3.webp",
       "/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-2.webp",
-      "/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-4.webp",
     ],
     "2kg-Mawa Kulfi": [
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-4.webp",
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-3.webp",
       "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-2.webp",
-      "/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-4.webp",
     ],
     "2kg-Mango": [
       "/assets/images/products/whey-protein/whey-protein-mango-2kg-1.webp",
+      "/assets/images/products/whey-protein/whey-protein-mango-2kg-4.webp",
       "/assets/images/products/whey-protein/whey-protein-mango-2kg-3.webp",
       "/assets/images/products/whey-protein/whey-protein-mango-2kg-2.webp",
-      "/assets/images/products/whey-protein/whey-protein-mango-2kg-4.webp",
     ],
   };
 

@@ -62,14 +62,14 @@ function PureGoMassGainer() {
   const productImages = {
     "1kg-Chocolate": [
       "/assets/images/products/mass-gainer/mass-gainer-1.webp",
-      "/assets/images/products/mass-gainer/mass-gainer-3.webp",
       "/assets/images/products/mass-gainer/mass-gainer-4.webp",
+      "/assets/images/products/mass-gainer/mass-gainer-3.webp",
       "/assets/images/products/mass-gainer/mass-gainer-2.webp",
     ],
     "3kg-Chocolate": [
       "/assets/images/products/mass-gainer/mass-gainer-3kg-1.webp",
-      "/assets/images/products/mass-gainer/mass-gainer-3kg-3.webp",
       "/assets/images/products/mass-gainer/mass-gainer-3kg-4.webp",
+      "/assets/images/products/mass-gainer/mass-gainer-3kg-3.webp",
       "/assets/images/products/mass-gainer/mass-gainer-3kg-2.webp",
     ],
   };
@@ -314,7 +314,7 @@ function PureGoMassGainer() {
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
-          { `
+          {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -328,7 +328,7 @@ function PureGoMassGainer() {
           `}
         </script>
         <noscript>
-          { `<img height="1" width="1" style="display:none"
+          {`<img height="1" width="1" style="display:none"
           src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
           />`}
         </noscript>
