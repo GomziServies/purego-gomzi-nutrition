@@ -76,7 +76,7 @@ const HowToUse = ({ src1, src2, src3, src4, step1, step2 }) => {
                   playsinline
                 />
                 <p className="f-pop-reg f-18 my-1 text-white">
-                  <b>Step 4: Enjoy the unique taste</b>
+                  <b>Step 4: Enjoy your Pure Go protein shake</b>
                 </p>
               </div>
             </div>

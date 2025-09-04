@@ -228,11 +228,6 @@ function PureGoPreWorkout() {
       description:
         "Sourced straight from manufacturers for guaranteed freshness and quality.",
     },
-    {
-      title: "International Raw Protein Usage",
-      description:
-        "Uses globally sourced raw protein for consistent purity and quality.",
-    },
     { title: "BENEFITS:", description: "" },
     {
       title: "",
@@ -527,17 +522,12 @@ function PureGoPreWorkout() {
                         </p>
                         <h4 className="title">DIRECTIONS FOR IGNITE POWDER:</h4>
                         <p>
-                          Use This powder 15-30 minutes before intense exercise
-                          Add 1 scoop (05g) to 220ml of ice-cold water and shake
-                          for approximately 10 seconds before consuming. Consume
-                          once per day.
+                          Use this powder 15-30 minutes before intense exercise. Add 1 scoop (~5g) to 250-300 ml of chilled water and shake for approximately 10 seconds before consuming. Consume once per day.
                         </p>
                         <h4 className="title">NOT FOR MEDICINAL USE.</h4>
                         <h4 className="title">STORAGE:</h4>
                         <p>
-                          Store under 25°C Temperature, dry and hygienic place.
-                          Keep away from direct sunlight. Keep out of reach of
-                          children.
+                         Store in a cool, dry and hygienic place. Keep away from direct sunlight. Keep out of reach of children.
                         </p>
                         {/* <h4 className="title">BENEFITS:</h4>
                         <ul className="product-desc-list list-wrap">
@@ -611,49 +601,6 @@ function PureGoPreWorkout() {
                       </a>
                     </li>
                   </ul>
-                  <div className="tab-content" id="myTabContentTwo">
-                    <div
-                      className="tab-pane fade show active"
-                      id="information"
-                      role="tabpanel"
-                      aria-labelledby="information-tab"
-                    >
-                      <div className="product-desc-content">
-                        <table className="table table-sm">
-                          <tbody>
-                            <tr>
-                              <th scope="row">L-CITRULLINE</th>
-                              <td>2.26 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">L-ARGININE</th>
-                              <td>0.45 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">L-TAURINE</th>
-                              <td>0.36 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">B-ALANINE</th>
-                              <td>0.36 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">CAFFEINE ANHYDROUS</th>
-                              <td>0.18 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">GREEN TEA EXTRACT</th>
-                              <td>0.10 gm</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">GREEN COFFEE EXTRACT</th>
-                              <td>0.10 gm</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
