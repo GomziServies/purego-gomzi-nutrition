@@ -270,8 +270,8 @@ function Home() {
       Demo.discount = "50%";
     } else {
       Demo.mainprice = mainprice;
-      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
-      Demo.discount = "25%";
+      Demo.discountedprice = mainprice - (mainprice * 50) / 100;
+      Demo.discount = "50%";
     }
     return Demo;
   };
