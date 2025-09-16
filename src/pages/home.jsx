@@ -1651,7 +1651,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Creatine Monohydrate Lemon 250g",
-                                1490
+                                1510
                               );
                               return (
                                 <>
@@ -2932,7 +2932,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Pre Workout Cola",
-                                1490
+                                1510
                               );
                               return (
                                 <>
