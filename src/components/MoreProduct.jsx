@@ -908,7 +908,7 @@ const MoreProduct = ({
                       <div className="item-desc">
                         <div className="">
                           <div className="d-flex align-items-center">
-                            <span className="variant-price">₹1490/-</span>
+                            <span className="variant-price">₹1510/-</span>
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
