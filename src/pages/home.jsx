@@ -29,6 +29,7 @@ import AddToCartPopUp from "../components/AddToCartPopUp";
 import FacilitySlider from "../components/facilitySlider";
 import GymVideo from "../components/GymVideo";
 import { use } from "react";
+import WhyChoosePurego from "../components/whyChooseUs";
 
 function Home() {
   const canonicalUrl = window.location.href;
@@ -3310,100 +3311,95 @@ function Home() {
         <div>
           <FacilitySlider></FacilitySlider>
         </div>
-        <section id="features" className="features-area">
-          <div className="d-md-block d-none">
-            <img
-              src={process.env.PUBLIC_URL + "/assets/images/features-bg.webp"}
-              alt="shape"
-              width="100%"
-            />
-          </div>
-          <div className="d-md-none d-block">
-            <img
-              src={
-                process.env.PUBLIC_URL +
-                "/assets/images/features-bg-mobile.webp"
-              }
-              alt="shape"
-              width="100%"
-            />
-          </div>
-          <div className="d-md-block d-none">
-            <img
-              src={
-                process.env.PUBLIC_URL +
-                "/assets/images/direct-by-menufacturer.webp"
-              }
-              alt="shape"
-              width="100%"
-            />
-          </div>
-          <div className="d-md-none d-block">
-            <img
-              src={
-                process.env.PUBLIC_URL +
-                "/assets/images/direct-by-menufacturer-mobile.webp"
-              }
-              alt="shape"
-              width="100%"
-            />
-          </div>
-        </section>
-        <section id="ingredient" className="ingredients-area">
-          <div className="container">
-            <div className="row align-items-center justify-content-center">
-              <div className="col-xl-5 col-lg-6 col-md-7">
-                <div className="">
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/assets/images/features_img02.png"
-                    }
-                    alt="img"
-                  />
-                </div>
-              </div>
-              <div className="col-xl-7 col-lg-9">
-                <div className="ingredients-items-wrap">
-                  <div className="section-title mb-60 text-center">
-                    <p className="sub-title">Product Design By</p>
-                    <h2 className="title">Dr. Gautam Jani</h2>
-                  </div>
-                  <div className="row justify-content-center justify-content-lg-start">
-                    <div className="col-12">
-                      <div
-                        className="ingredients-item wow fadeInUp"
-                        data-wow-delay=".2s"
-                      >
-                        <div className="ingredients-content">
-                          <h5 className="title">
-                            Founder & CEO of FG Group / CEO GCS PVT LTD / Core
-                            member of INPTA
-                          </h5>
-                          <p>
-                            He finished his Civil Engineer and turned fitness
-                            enthusiast in 2014 began his personal training
-                            journey in Gujarat, India, in 2016. Certified by
-                            ACSM, ISSA, and VLCC. he specializes in Clinical and
-                            weight loss nutrition, Strength Training, Exercise
-                            Science, and Performance Enhancement Drugs. In 2019
-                            finished his MBA for better training and placement
-                            services for their student of FGIIT. In 2024, he
-                            earned his Ph.D. in Health & Fitness from Thames
-                            university. As the Founder of FGIIT, Gautam is
-                            dedicated to promoting holistic well-being through
-                            personalized training and nutritional guidance.
-                          </p>
-                        </div>
+        
+        {/* <section class="py-5" style="background-color: #f9f9f9;">
+            <div class="container text-center">
+              <h2 class="fw-bold mb-4">
+                Why Choose <span style="color: #88c349;">Purego?</span>
+              </h2>
+              <p class="text-muted mb-5">
+                Discover the benefits that make Purego your trusted supplement brand.
+              </p>
+              
+              <div class="row g-4 justify-content-center">
+                
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-start">
+                      <div class="mb-3">
+                        <i class="fas fa-vial fa-2x" style="color: #88c349;"></i>
                       </div>
+                      <h5 class="card-title fw-bold">Lab-Tested for Purity and Safety</h5>
+                      <p class="card-text text-muted">
+                        Every Purego supplement is independently lab-tested to ensure ingredients and nutritional values exactly match the label. No harmful substances.
+                      </p>
                     </div>
                   </div>
                 </div>
+
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-start">
+                      <div class="mb-3">
+                        <i class="fas fa-certificate fa-2x" style="color: #88c349;"></i>
+                      </div>
+                      <h5 class="card-title fw-bold">FSSAI-Certified Manufacturing</h5>
+                      <p class="card-text text-muted">
+                        Manufactured in FSSAI-certified facilities that follow strict quality and hygiene standards for safe, authentic, and high-quality supplements.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-start">
+                      <div class="mb-3">
+                        <i class="fas fa-tags fa-2x" style="color: #88c349;"></i>
+                      </div>
+                      <h5 class="card-title fw-bold">Direct-to-Consumer Pricing</h5>
+                      <p class="card-text text-muted">
+                        By eliminating middlemen, Purego delivers premium supplements at honest prices. You pay for quality, not marketing or hype.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-start">
+                      <div class="mb-3">
+                        <i class="fas fa-check-circle fa-2x" style="color: #88c349;"></i>
+                      </div>
+                      <h5 class="card-title fw-bold">Transparent and Authentic</h5>
+                      <p class="card-text text-muted">
+                        Full transparency—what you see on the label is exactly what’s inside. No exaggeration, no hidden additives.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                  <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-start">
+                      <div class="mb-3">
+                        <i class="fas fa-truck fa-2x" style="color: #88c349;"></i>
+                      </div>
+                      <h5 class="card-title fw-bold">Nationwide Delivery with COD Option</h5>
+                      <p class="card-text text-muted">
+                        Available across India, with a Cash on Delivery (COD) option for secure and convenient shopping.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
-          </div>
-        </section>
-        <GymVideo />
+          </section> */}
+
+          <WhyChoosePurego/>
+
+        {/* certificates */}
         <section className="formula-area formula-bg">
           <div className="">
             <div className="section-title text-center white-title mb-50">
@@ -3537,9 +3533,11 @@ function Home() {
             </div>
           </div>
         </section>
+        {/* HappyClientReview */}
         <section className="bg-happy-client pt-5 pb-5">
           <HappyClientReview />
         </section>
+        {/* Testimonials */}
         <section
           className="testimonial-area testimonial-bg"
           data-background="assets/img/bg/testimonial_bg.jpg"
@@ -3675,6 +3673,63 @@ function Home() {
           <i className="fas fa-star-half-alt"></i>
         </div> */}
         </section>
+        {/* sir */}
+        <section id="ingredient" className="ingredients-area">
+          <div className="container">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-xl-5 col-lg-6 col-md-7">
+                <div className="">
+                  <img
+                    src={
+                      process.env.PUBLIC_URL +
+                      "/assets/images/features_img02.png"
+                    }
+                    alt="img"
+                  />
+                </div>
+              </div>
+              <div className="col-xl-7 col-lg-9">
+                <div className="ingredients-items-wrap">
+                  <div className="section-title mb-60 text-center">
+                    <p className="sub-title">Product Design By</p>
+                    <h2 className="title">Dr. Gautam Jani</h2>
+                  </div>
+                  <div className="row justify-content-center justify-content-lg-start">
+                    <div className="col-12">
+                      <div
+                        className="ingredients-item wow fadeInUp"
+                        data-wow-delay=".2s"
+                      >
+                        <div className="ingredients-content">
+                          <h5 className="title">
+                            Founder & CEO of FG Group / CEO GCS PVT LTD / Core
+                            member of INPTA
+                          </h5>
+                          <p>
+                            He finished his Civil Engineer and turned fitness
+                            enthusiast in 2014 began his personal training
+                            journey in Gujarat, India, in 2016. Certified by
+                            ACSM, ISSA, and VLCC. he specializes in Clinical and
+                            weight loss nutrition, Strength Training, Exercise
+                            Science, and Performance Enhancement Drugs. In 2019
+                            finished his MBA for better training and placement
+                            services for their student of FGIIT. In 2024, he
+                            earned his Ph.D. in Health & Fitness from Thames
+                            university. As the Founder of FGIIT, Gautam is
+                            dedicated to promoting holistic well-being through
+                            personalized training and nutritional guidance.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <GymVideo />
+         {/* PureGo: Where Quality Meets Wellne */}
         <section id="news" className="tg-blog-area pt-80">
           <div className="container">
             <div className="row justify-content-center">
@@ -3797,6 +3852,7 @@ function Home() {
             </div>
           </div>
         </section>
+        {/* faqs */}
         <section id="news" className="blog-post-area">
           <div className="container">
             <div className="blog-inner-wrapper">
@@ -3933,6 +3989,46 @@ function Home() {
           </div>
           <div className="blog-bg-shape one"></div>
           <div className="blog-bg-shape two"></div>
+        </section>
+        {/* banner */}
+        <section id="features" className="features-area">
+          <div className="d-md-block d-none">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/features-bg.webp"}
+              alt="shape"
+              width="100%"
+            />
+          </div>
+          <div className="d-md-none d-block">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/features-bg-mobile.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
+          </div>
+          <div className="d-md-block d-none">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/direct-by-menufacturer.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
+          </div>
+          <div className="d-md-none d-block">
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                "/assets/images/direct-by-menufacturer-mobile.webp"
+              }
+              alt="shape"
+              width="100%"
+            />
+          </div>
         </section>
       </main>
       <HomeNutritionFooter />
