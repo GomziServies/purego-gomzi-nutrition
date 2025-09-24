@@ -281,6 +281,7 @@ function CheckOut() {
         await createPaymentProduct(
           quickData && quickData?.id
             ? [{ product_id: quickData.id, quantity: 1 }]
+            // ? [{ product_id: quickData.id,item_type:'PURE_GO_MEAL_PRODUCT', quantity: 1 }]
             : productDatas,
           updatedUserData,
           coupon_ids,

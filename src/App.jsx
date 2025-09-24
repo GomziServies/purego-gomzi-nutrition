@@ -27,6 +27,7 @@ import ScrollRestoration from "./components/scroll-restoration";
 import PureGoBCAA from "./pages/products/bcaa";
 import PureGoShaker from "./pages/products/shaker-bottle";
 import Cart from "./pages/cart";
+import ThankYou from "./components/thankYou";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
           path="/cancellation-policy-customer"
           element={<CancellationPolicyCustomer />}
         />
+        <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/terms-conditions" element={<TermsConditions />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/add-to-cart" element={<AddToCart />} />

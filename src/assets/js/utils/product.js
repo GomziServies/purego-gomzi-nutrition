@@ -165,44 +165,46 @@ export const createProductOrder = async (
         result.response === "OK" &&
         result.message === "COD Order Created Successfully")
     ) {
-      Swal.fire({
-        title: "Success",
-        text: "Please check your email for the invoice.",
-        icon: "success",
-      }).then(() => {
-        // Remove temporary data and coupon id
+      // Swal.fire({
+      //   title: "Success",
+      //   text: "Please check your email for the invoice.",
+      //   icon: "success",
+      // }).then(() => {
+      //   // Remove temporary data and coupon id
+      //   localStorage.removeItem("tmp_ProductPurchasePayload");
+      //   localStorage.removeItem("coupon_id");
+
+      //   if (apiConfig.BASE_URL === "https://api.fggroup.in") {
+      //     // AddShipmentOrder(address, products, payment_mode, courierId);
+      //   }
+
+      //   // Redirect to Order Page
+      //   window.location.href = "/thank-you";
+      //   localStorage.removeItem("appliedCoupon");
+      //   localStorage.removeItem("productsData");
+      //   localStorage.removeItem("allProductsData");
+      //   localStorage.removeItem("addItemInCart");
+      //   localStorage.removeItem("quickProductData");
+      // });
+
+      return { showLoginModal: false, success: true };
+    } else if (result && result.data) {
+      result.data.data.handler = () => {
+        // Clear all local storage items
         localStorage.removeItem("tmp_ProductPurchasePayload");
         localStorage.removeItem("coupon_id");
-
-        if (apiConfig.BASE_URL === "https://api.fggroup.in") {
-          // AddShipmentOrder(address, products, payment_mode, courierId);
-        }
-
-        // Redirect to Order Page
-        window.location.href = "/user/order";
         localStorage.removeItem("appliedCoupon");
         localStorage.removeItem("productsData");
         localStorage.removeItem("allProductsData");
         localStorage.removeItem("addItemInCart");
         localStorage.removeItem("quickProductData");
-      });
 
-      return { showLoginModal: false, success: true };
-    } else if (result && result.data) {
-      result.data.data.handler = () => {
-        localStorage.removeItem("tmp_ProductPurchasePayload");
-        Swal.fire({
-          title: "Success",
-          text: "Please check your email for the invoice.",
-          icon: "success",
-        }).then(async () => {
-          localStorage.removeItem("coupon_id");
-          if (apiConfig.BASE_URL === "https://api.fggroup.in") {
-            // AddShipmentOrder(address, products, payment_mode, courierId);
-          }
+        if (apiConfig.BASE_URL === "https://api.fggroup.in") {
+          // AddShipmentOrder(address, products, payment_mode, courierId);
+        }
 
-          window.location.href = "/user/order";
-        });
+        // Redirect to thank you page after successful payment
+        window.location.href = "/thank-you";
       };
 
       result.data.data.hidden = {
@@ -213,21 +215,21 @@ export const createProductOrder = async (
       return { showLoginModal: false, success: true };
     } else if (result && result.status === 200) {
       result.data.data.handler = () => {
+        // Clear all local storage items
         localStorage.removeItem("tmp_ProductPurchasePayload");
-        Swal.fire({
-          title: "Success",
-          text: "Please check your email for the invoice.",
-          icon: "success",
-        }).then(async () => {
-          // Remove coupon id
-          localStorage.removeItem("coupon_id");
-          if (apiConfig.BASE_URL === "https://api.fggroup.in") {
-            // AddShipmentOrder(address, products, payment_mode, courierId);
-          }
+        localStorage.removeItem("coupon_id");
+        localStorage.removeItem("appliedCoupon");
+        localStorage.removeItem("productsData");
+        localStorage.removeItem("allProductsData");
+        localStorage.removeItem("addItemInCart");
+        localStorage.removeItem("quickProductData");
 
-          // Redirect to Order Page
-          window.location.href = "/user/order";
-        });
+        if (apiConfig.BASE_URL === "https://api.fggroup.in") {
+          // AddShipmentOrder(address, products, payment_mode, courierId);
+        }
+
+        // Redirect to thank you page after successful payment
+        window.location.href = "/thank-you";
       };
 
       result.data.data.hidden = {
