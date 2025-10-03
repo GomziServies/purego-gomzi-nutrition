@@ -3849,6 +3849,12 @@ function Home() {
                   </div>
                 </div>
               </div>
+              <div className="col-12 text-center">
+                <span className=""></span>
+                <Link className="go-home" to="/blogs">
+                  View All
+                </Link>
+              </div>
             </div>
           </div>
         </section>

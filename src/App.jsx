@@ -28,6 +28,10 @@ import PureGoBCAA from "./pages/products/bcaa";
 import PureGoShaker from "./pages/products/shaker-bottle";
 import Cart from "./pages/cart";
 import ThankYou from "./components/thankYou";
+import AllBlogs from "./pages/all-blogs";
+import Blog4 from "./pages/blog/bcaa-before-after-workout-guide";
+import Blog5 from "./pages/blog/best-whey-protein-india-2025-reviews-price";
+import Blog6 from "./pages/blog/pre-workout-supplement-india-guide-benefits";
 
 function App() {
   return (
@@ -78,9 +82,13 @@ function App() {
           path="/how-supplements-help-you-live-healthy-life"
           element={<Blog2 />}
         />
-        <Route path="/best-whey-protein-in-india" element={<Blog3 />} />
+        <Route path="/best-whey-protein-in-india" element={ <Blog3 /> } />
+        <Route path="/bcaa-before-after-workout-guide" element={ <Blog4 /> } />
+        <Route path="/best-whey-protein-india-2025-reviews-price" element={ <Blog5 /> } />
+        <Route path="/pre-workout-supplement-india-guide-benefits" element={ <Blog6 /> } />
         <Route path="/404" element={<NotFoundPage />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={ <Cart /> } />
+        <Route path="/blogs" element={ <AllBlogs /> } />
       </Routes>
       <ScrollRestoration />
     </>

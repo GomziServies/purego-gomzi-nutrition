@@ -365,7 +365,6 @@ button:focus {
 a:hover,
 .portfolio-cat a:hover,
 .footer -menu li a:hover {
-  color: var(--tg-primary-color);
   text-decoration: none;
 }
 
@@ -13262,6 +13261,10 @@ body.search-visible {
   border-radius: 30px;
   text-transform: capitalize;
   box-shadow: 0 10px 16px 1px rgb(174, 251, 184);
+}
+
+.go-home:hover {
+  color: white;
 }
 
 @media (min-width: 360px) {
