@@ -157,6 +157,7 @@ function UserProfile() {
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
+        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
       </Helmet>
       <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
       <NutritionHeader handleCartOpen={handleCartOpen} />

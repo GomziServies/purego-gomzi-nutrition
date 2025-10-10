@@ -32,6 +32,16 @@ const ThankYou = () => {
                 src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
                 />`}
                 </noscript>
+                <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
+                <script type="text/javascript">
+                    {`window.goaffpro_order = {
+                        number : "#1001",
+                    total: 1000
+                    }
+                    if(typeof window.goaffproTrackConversion !== "undefined"){
+                        window.goaffproTrackConversion(window.goaffpro_order)
+                    }`}
+                </script>
             </Helmet>
             <NutritionHeader handleCartOpen={handleCartOpen} />
             <section className="marginbottom-nutrition py-5 my-5">

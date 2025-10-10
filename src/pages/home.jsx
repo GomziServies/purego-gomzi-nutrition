@@ -332,6 +332,7 @@ function Home() {
             gtag('config', 'G-J50WNKGW38');
           `}
         </script>
+        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
       </Helmet>
       <p className="d-none">
         purego, protein powder, creatine protein powder, preworkout,

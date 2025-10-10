@@ -47,6 +47,7 @@ const NotFoundPage = () => {
           src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
           />`}
         </noscript>
+        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
       </Helmet>
       <NutritionHeader />
       <section className="margintop-nutrition mb-5">

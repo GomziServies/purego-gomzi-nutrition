@@ -296,6 +296,7 @@ function TermsConditions() {
             gtag('config', 'G-J50WNKGW38');
           `}
         </script>
+        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
       </Helmet>
       {/* <WhatsappHeaderApp
         message={
