@@ -32,6 +32,7 @@ import AllBlogs from "./pages/all-blogs";
 import Blog4 from "./pages/blog/bcaa-before-after-workout-guide";
 import Blog5 from "./pages/blog/best-whey-protein-india-2025-reviews-price";
 import Blog6 from "./pages/blog/pre-workout-supplement-india-guide-benefits";
+import Blog7 from "./pages/blog/whey-protein-vs-plant-protein-which-is-better-for-you";
 
 function App() {
   return (
@@ -86,6 +87,7 @@ function App() {
         <Route path="/bcaa-before-after-workout-guide" element={ <Blog4 /> } />
         <Route path="/best-whey-protein-india-2025-reviews-price" element={ <Blog5 /> } />
         <Route path="/pre-workout-supplement-india-guide-benefits" element={ <Blog6 /> } />
+        <Route path="/whey-protein-vs-plant-protein-which-is-better-for-you" element={ <Blog7 /> } />
         <Route path="/404" element={<NotFoundPage />} />
         <Route path="/cart" element={ <Cart /> } />
         <Route path="/blogs" element={ <AllBlogs /> } />

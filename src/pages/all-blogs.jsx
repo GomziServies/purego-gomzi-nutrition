@@ -137,8 +137,9 @@ function AllBlogs() {
         const reverseX = index % 2 === 0 ? -1 : 1;
         const reverseY = index % 2 !== 0 ? -1 : 1;
 
-        shape.style.transform = `translate(${xMove * movementFactor * reverseX
-          }px, ${yMove * movementFactor * reverseY}px)`;
+        shape.style.transform = `translate(${
+          xMove * movementFactor * reverseX
+        }px, ${yMove * movementFactor * reverseY}px)`;
       });
     };
 
@@ -205,12 +206,11 @@ function AllBlogs() {
       handleCartOpen();
       localStorage.removeItem("fromCartPage");
     }
-
   }, []);
 
   const handleCartOpen = async (cart = "addToCart") => {
     setClickATC(true);
-    localStorage.setItem('cartOpenSource', cart);
+    localStorage.setItem("cartOpenSource", cart);
   };
 
   const handleChangeCart = async () => {
@@ -226,9 +226,7 @@ function AllBlogs() {
   return (
     <>
       <Helmet>
-        <title>
-          Blogs | PureGo Nutrition 
-        </title>
+        <title>Blogs | PureGo Nutrition</title>
         <meta
           name="description"
           content="Shop PureGo for high-quality nutrition, fitness supplements & wellness products. Fuel your body & boost performance."
@@ -278,7 +276,10 @@ function AllBlogs() {
             gtag('config', 'G-J50WNKGW38');
           `}
         </script>
-        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
+        <script
+          type="text/javascript"
+          src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"
+        ></script>
       </Helmet>
       <p className="d-none">
         purego, protein powder, creatine protein powder, preworkout,
@@ -431,102 +432,149 @@ function AllBlogs() {
                   </div>
                 </div>
               </div>
-                          <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
-                              <div
-                                  className="tg-blog-post-item mb-30 wow fadeInUp"
-                                  data-wow-delay=".6s"
-                              >
-                                  <div className="tg-blog-post-thumb">
-                                      <a href="/best-whey-protein-india-2025-reviews-price">
-                                          <img
-                                              src={
-                                                  process.env.PUBLIC_URL +
-                                                  "assets/images/blog_post_thumb04.webp"
-                                              }
-                                              alt="blog"
-                                          />
-                                      </a>
-                                  </div>
-                                  <div className="tg-blog-post-content">
-                                      <div className="post-date">
-                                          <i className="far fa-calendar-alt"></i> 3rd October 2025
-                                      </div>
-                                      <h4 className="title">
-                                          <a href="/best-whey-protein-india-2025-reviews-price">
-                                              Best Whey Protein in India 2025 - Expert Reviews &...
-                                          </a>
-                                      </h4>
-                                      <a href="/best-whey-protein-india-2025-reviews-price" className="read-more">
-                                          <span>Read More</span>{ " " }
-                                          <i className="fas fa-arrow-right"></i>
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
-                              <div
-                                  className="tg-blog-post-item mb-30 wow fadeInUp"
-                                  data-wow-delay=".6s"
-                              >
-                                  <div className="tg-blog-post-thumb">
-                                      <a href="/pre-workout-supplement-india-guide-benefits">
-                                          <img
-                                              src={
-                                                  process.env.PUBLIC_URL +
-                                                  "assets/images/blog_post_thumb05.webp"
-                                              }
-                                              alt="blog"
-                                          />
-                                      </a>
-                                  </div>
-                                  <div className="tg-blog-post-content">
-                                      <div className="post-date">
-                                          <i className="far fa-calendar-alt"></i> 3rd October 2025
-                                      </div>
-                                      <h4 className="title">
-                                          <a href="/pre-workout-supplement-india-guide-benefits">
-                                              Pre-Workout Supplement India Guide - Benefits, Side Effects...
-                                          </a>
-                                      </h4>
-                                      <a href="/pre-workout-supplement-india-guide-benefits" className="read-more">
-                                          <span>Read More</span>{ " " }
-                                          <i className="fas fa-arrow-right"></i>
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
-                          <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
-                              <div
-                                  className="tg-blog-post-item mb-30 wow fadeInUp"
-                                  data-wow-delay=".6s"
-                              >
-                                  <div className="tg-blog-post-thumb">
-                                      <a href="/bcaa-before-after-workout-guide">
-                                          <img
-                                              src={
-                                                  process.env.PUBLIC_URL +
-                                                  "assets/images/blog_post_thumb06.webp"
-                                              }
-                                              alt="blog"
-                                          />
-                                      </a>
-                                  </div>
-                                  <div className="tg-blog-post-content">
-                                      <div className="post-date">
-                                          <i className="far fa-calendar-alt"></i> 3rd October 2025
-                                      </div>
-                                      <h4 className="title">
-                                          <a href="/bcaa-before-after-workout-guide">
-                                              BCAA Before or After Workout? Science-Backed Answer
-                                          </a>
-                                      </h4>
-                                      <a href="/bcaa-before-after-workout-guide" className="read-more">
-                                          <span>Read More</span>{ " " }
-                                          <i className="fas fa-arrow-right"></i>
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
+              <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                <div
+                  className="tg-blog-post-item mb-30 wow fadeInUp"
+                  data-wow-delay=".6s"
+                >
+                  <div className="tg-blog-post-thumb">
+                    <a href="/best-whey-protein-india-2025-reviews-price">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "assets/images/blog_post_thumb04.webp"
+                        }
+                        alt="blog"
+                      />
+                    </a>
+                  </div>
+                  <div className="tg-blog-post-content">
+                    <div className="post-date">
+                      <i className="far fa-calendar-alt"></i> 3rd October 2025
+                    </div>
+                    <h4 className="title">
+                      <a href="/best-whey-protein-india-2025-reviews-price">
+                        Best Whey Protein in India 2025 - Expert Reviews &...
+                      </a>
+                    </h4>
+                    <a
+                      href="/best-whey-protein-india-2025-reviews-price"
+                      className="read-more"
+                    >
+                      <span>Read More</span>{" "}
+                      <i className="fas fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                <div
+                  className="tg-blog-post-item mb-30 wow fadeInUp"
+                  data-wow-delay=".6s"
+                >
+                  <div className="tg-blog-post-thumb">
+                    <a href="/pre-workout-supplement-india-guide-benefits">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "assets/images/blog_post_thumb05.webp"
+                        }
+                        alt="blog"
+                      />
+                    </a>
+                  </div>
+                  <div className="tg-blog-post-content">
+                    <div className="post-date">
+                      <i className="far fa-calendar-alt"></i> 3rd October 2025
+                    </div>
+                    <h4 className="title">
+                      <a href="/pre-workout-supplement-india-guide-benefits">
+                        Pre-Workout Supplement India Guide - Benefits, Side
+                        Effects...
+                      </a>
+                    </h4>
+                    <a
+                      href="/pre-workout-supplement-india-guide-benefits"
+                      className="read-more"
+                    >
+                      <span>Read More</span>{" "}
+                      <i className="fas fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                <div
+                  className="tg-blog-post-item mb-30 wow fadeInUp"
+                  data-wow-delay=".6s"
+                >
+                  <div className="tg-blog-post-thumb">
+                    <a href="/bcaa-before-after-workout-guide">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "assets/images/blog_post_thumb06.webp"
+                        }
+                        alt="blog"
+                      />
+                    </a>
+                  </div>
+                  <div className="tg-blog-post-content">
+                    <div className="post-date">
+                      <i className="far fa-calendar-alt"></i> 3rd October 2025
+                    </div>
+                    <h4 className="title">
+                      <a href="/bcaa-before-after-workout-guide">
+                        BCAA Before or After Workout? Science-Backed Answer
+                      </a>
+                    </h4>
+                    <a
+                      href="/bcaa-before-after-workout-guide"
+                      className="read-more"
+                    >
+                      <span>Read More</span>{" "}
+                      <i className="fas fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col"></div>
+              <div className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
+                <div
+                  className="tg-blog-post-item mb-30 wow fadeInUp"
+                  data-wow-delay=".6s"
+                >
+                  <div className="tg-blog-post-thumb">
+                    <a href="/whey-protein-vs-plant-protein-which-is-better-for-you">
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          "assets/images/blog_post_thumb07.webp"
+                        }
+                        alt="blog"
+                      />
+                    </a>
+                  </div>
+                  <div className="tg-blog-post-content">
+                    <div className="post-date">
+                      <i className="far fa-calendar-alt"></i> 13rd October 2025
+                    </div>
+                    <h4 className="title">
+                      <a href="/whey-protein-vs-plant-protein-which-is-better-for-you">
+                        Whey Protein vs. Plant Protein: Which is Better for You?
+                      </a>
+                    </h4>
+                    <a
+                      href="/whey-protein-vs-plant-protein-which-is-better-for-you"
+                      className="read-more"
+                    >
+                      <span>Read More</span>{ " " }
+                      <i className="fas fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col"></div>
             </div>
           </div>
         </section>
