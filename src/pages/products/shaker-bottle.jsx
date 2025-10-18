@@ -30,7 +30,7 @@ import AddToCartPopUp from "../../components/AddToCartPopUp";
 import GymVideo from "../../components/GymVideo";
 
 function PureGoShaker() {
-  const canonicalUrl = window.location.href;
+  const canonicalUrl = "https://purego.gomzilifesciences.in/proteinshaker";
   const [currentProduct, setCurrentProduct] = useState("500ml-Black");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("500ml");
@@ -195,21 +195,45 @@ function PureGoShaker() {
       Demo.discount = "50%";
     } else {
       Demo.mainprice = mainprice;
-      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
-      Demo.discount = "25%";
+      Demo.discountedprice = mainprice - (mainprice * 50) / 100;
+      Demo.discount = "50%";
     }
     return Demo;
+  };
+
+  // Function to generate JSON-LD structured data for the shaker bottle product
+  const generateJsonLd = () => {
+    // Generate the JSON-LD structure
+    const jsonLd = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Shaker Bottle 500ml",
+      "image": "https://purego.gomzilifesciences.in/assets/images/products/shaker-bottle/shaker-bottle-3.webp",
+      "description": "PureGo Premium Shaker – Mix your protein and BCAA effortlessly for smooth, lump-free drinks anytime, anywhere in India.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Purego"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://purego.gomzilifesciences.in/proteinshaker",
+        "priceCurrency": "INR",
+        "price": "90",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    };
+
+    return JSON.stringify(jsonLd, null, 2);
   };
 
   return (
     <>
       <Helmet>
-        <title>
-          Buy PureGo Shaker Bottle - Perfect for Protein Shakes & Supplements
-        </title>
+        <title>PureGo Premium Shaker for Smooth Protein and BCAA Mixes in India</title>
         <meta
           name="description"
-          content="Mix your protein shakes effortlessly with the Gomzi Nutrition Shaker Bottle. Leak-proof, durable, and easy to carry for fitness enthusiasts on the go."
+          content="PureGo Premium Shaker – Mix your protein and BCAA effortlessly for smooth, lump-free drinks anytime, anywhere in India."
         />
         <meta
           name="keyword"
@@ -221,6 +245,10 @@ function PureGoShaker() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         <link rel="canonical" href={canonicalUrl} />
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {generateJsonLd()}
+        </script>
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>

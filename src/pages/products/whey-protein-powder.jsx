@@ -34,11 +34,43 @@ function PureGoWheyProtein() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const ProductFlavor = searchParams.get("flavor");
-  const canonicalUrl = window.location.href;
   const [currentProduct, setCurrentProduct] = useState("1kg-Chocolate");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("1kg");
   const [activeFlavor, setActiveFlavor] = useState("Chocolate");
+  
+  const getCanonicalUrl = () => {
+    // Chocolate flavor
+    if (activeFlavor === "Chocolate" && activeSize === "1kg") {
+      return "https://purego.gomzilifesciences.in/whey-protein-supplement/chocolate";
+    } else if (activeFlavor === "Chocolate" && activeSize === "2kg") {
+      return "https://purego.gomzilifesciences.in/whey-protein-supplement/chocolate-2kg";
+    }
+    // Mawa Kulfi flavor
+    else if (activeFlavor === "Mawa Kulfi" && activeSize === "1kg") {
+      return "https://purego.gomzilifesciences.in/whey-protein-supplement/mawa-kulfi-1kg";
+    } else if (activeFlavor === "Mawa Kulfi" && activeSize === "2kg") {
+      return "https://purego.gomzilifesciences.in/whey-protein-supplement/mawa-kulfi-2kg";
+    }
+    // Mocha Coffee flavor
+    else if (activeFlavor === "Mocha Coffee" && activeSize === "1kg") {
+      return "https://purego.gomzilifesciences.in/whey-protein-supplement/mochacoffee-1kg";
+    } else if (activeFlavor === "Mocha Coffee" && activeSize === "2kg") {
+      return "https://purego.gomzilifesciences.in/whey-protein-supplement/mochacoffee-2kg";
+    }
+    // Mango flavor
+    else if (activeFlavor === "Mango" && activeSize === "1kg") {
+      return "https://purego.gomzilifesciences.in/whey-protein-supplement/mango-1kg";
+    } else if (activeFlavor === "Mango" && activeSize === "2kg") {
+      return "https://purego.gomzilifesciences.in/whey-protein-supplement/mango-2kg";
+    }
+    // Default
+    else {
+      return window.location.href;
+    }
+  };
+
+  const canonicalUrl = getCanonicalUrl();
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
@@ -452,13 +484,184 @@ function PureGoWheyProtein() {
     return Demo;
   };
 
+  const getMetaTitle = () => {
+    // Chocolate flavor
+    if (activeFlavor === "Chocolate" && activeSize === "1kg") {
+      return "PureGo Chocolate Whey Protein 1kg - Buy Online Now";
+    } else if (activeFlavor === "Chocolate" && activeSize === "2kg") {
+      return "PureGo Chocolate Whey Protein 2kg - Premium Quality Online";
+    }
+    // Mawa Kulfi flavor
+    else if (activeFlavor === "Mawa Kulfi" && activeSize === "1kg") {
+      return "PureGo Mawa Kulfi Whey Protein 1kg - Buy Online Now";
+    } else if (activeFlavor === "Mawa Kulfi" && activeSize === "2kg") {
+      return "PureGo Mawa Kulfi Whey Protein 2kg - Shop Now";
+    }
+    // Mocha Coffee flavor
+    else if (activeFlavor === "Mocha Coffee" && activeSize === "1kg") {
+      return "PureGo Mocha Coffee Whey Protein 1kg - Delicious & Nutritious";
+    } else if (activeFlavor === "Mocha Coffee" && activeSize === "2kg") {
+      return "PureGo Mocha Coffee Whey Protein 2kg - Rich Flavor, Real Results";
+    }
+    // Mango flavor
+    else if (activeFlavor === "Mango" && activeSize === "1kg") {
+      return "PureGo Mango Whey Protein 1kg - Delicious Flavor, Real Results";
+    } else if (activeFlavor === "Mango" && activeSize === "2kg") {
+      return "PureGo Mango Whey Protein 2kg - Boost Muscle with Real Flavor";
+    }
+    // Default
+    else {
+      return "Top Whey Protein Powder for Muscle Growth & Recovery";
+    }
+  };
+
+  const getMetaDescription = () => {
+    // Chocolate flavor
+    if (activeFlavor === "Chocolate" && activeSize === "1kg") {
+      return "Get PureGo Chocolate Whey Protein 1kg online with top-quality ingredients for effective results and great taste.";
+    } else if (activeFlavor === "Chocolate" && activeSize === "2kg") {
+      return "Order PureGo Chocolate Whey Protein 2kg online for high-quality nutrition that supports muscle growth and tastes amazing.";
+    }
+    // Mawa Kulfi flavor
+    else if (activeFlavor === "Mawa Kulfi" && activeSize === "1kg") {
+      return "Order PureGo Mawa Kulfi Whey Protein 1kg online for a rich, creamy flavor and real nutrition that helps build muscles effectively.";
+    } else if (activeFlavor === "Mawa Kulfi" && activeSize === "2kg") {
+      return "Enjoy PureGo Mawa Kulfi Whey Protein 2kg with its creamy, authentic flavor while giving your muscles the nutrition they need to grow and recover.";
+    }
+    // Mocha Coffee flavor
+    else if (activeFlavor === "Mocha Coffee" && activeSize === "1kg") {
+      return "Enjoy PureGo Mocha Coffee Whey Protein 1kg with rich coffee flavor and top-quality nutrition that naturally supports muscle growth and recovery.";
+    } else if (activeFlavor === "Mocha Coffee" && activeSize === "2kg") {
+      return "PureGo Mocha Coffee Whey Protein 2kg delivers authentic coffee taste with premium nutrition to naturally support muscle growth and recovery.";
+    }
+    // Mango flavor
+    else if (activeFlavor === "Mango" && activeSize === "1kg") {
+      return "Savor PureGo Mango Whey Protein 1kg with natural mango taste and premium nutrition that helps your muscles grow and recover effectively.";
+    } else if (activeFlavor === "Mango" && activeSize === "2kg") {
+      return "Fuel your workouts with PureGo Mango Whey Protein 2kg, offering authentic mango taste and premium nutrition to help build and recover muscles naturally.";
+    }
+    // Default
+    else {
+      return "Find the best whey protein powder to support muscle growth, boost recovery, and enhance performance. Shop top picks now!";
+    }
+  };
+
+  // Function to generate JSON-LD structured data for the current product
+  const generateJsonLd = () => {
+    // Get the discounted price for the current product
+    const priceData = DiscountCalculate(
+      currentProductData?.name,
+      currentProductData?.price
+    );
+    const discountedPrice = priceData?.discountedprice || "0";
+    
+    // Get the main image for the current product
+    const productImagesArray = productImages[currentProduct] || [];
+    const mainImage = productImagesArray[2] || productImagesArray[0] || ""; // Using the third image (index 2) or first if not available
+    
+    // Construct full image URL
+    const fullImageUrl = mainImage ? `https://purego.gomzilifesciences.in${mainImage}` : "";
+    
+    // Define product data for each variant
+    const productVariants = {
+      "1kg-Chocolate": {
+        name: "Whey Protein 1kg Chocolate",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/whey-protein/whey-protein-chocolate-3.webp",
+        description: "Get PureGo Chocolate Whey Protein 1kg online with top-quality ingredients for effective results and great taste.",
+        url: "https://purego.gomzilifesciences.in/whey-protein-supplement/chocolate",
+        price: "1540"
+      },
+      "2kg-Chocolate": {
+        name: "Whey Protein 2kg Chocolate",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/whey-protein/whey-protein-chocolate-2kg-3.webp",
+        description: "Order PureGo Chocolate Whey Protein 2kg online for high-quality nutrition that supports muscle growth and tastes amazing.",
+        url: "https://purego.gomzilifesciences.in/whey-protein-supplement/chocolate-2kg",
+        price: "2875"
+      },
+      "1kg-Mawa Kulfi": {
+        name: "Whey Protein 1kg Mawa Kulfi",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/whey-protein/whey-protein-mawakulfi-3.webp",
+        description: "Order PureGo Mawa Kulfi Whey Protein 1kg online for a rich, creamy flavor and real nutrition that helps build muscles effectively.",
+        url: "https://purego.gomzilifesciences.in/whey-protein-supplement/mawa-kulfi-1kg",
+        price: "1635"
+      },
+      "2kg-Mawa Kulfi": {
+        name: "Whey Protein 2kg Mawa Kulfi",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/whey-protein/whey-protein-mawakulfi-2kg-3.webp",
+        description: "Enjoy PureGo Mawa Kulfi Whey Protein 2kg with its creamy, authentic flavor while giving your muscles the nutrition they need to grow and recover.",
+        url: "https://purego.gomzilifesciences.in/whey-protein-supplement/mawa-kulfi-2kg",
+        price: "3075"
+      },
+      "1kg-Mocha Coffee": {
+        name: "Whey Protein 1kg Mocha Coffee",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/whey-protein/whey-protein-mochacoffee-3.webp",
+        description: "Enjoy PureGo Mocha Coffee Whey Protein 1kg with rich coffee flavor and top-quality nutrition that naturally supports muscle growth and recovery.",
+        url: "https://purego.gomzilifesciences.in/whey-protein-supplement/mochacoffee-1kg",
+        price: "1635"
+      },
+      "2kg-Mocha Coffee": {
+        name: "Whey Protein 2kg Mocha Coffee",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/whey-protein/whey-protein-mochacoffee-2kg-3.webp",
+        description: "PureGo Mocha Coffee Whey Protein 2kg delivers authentic coffee taste with premium nutrition to naturally support muscle growth and recovery.",
+        url: "https://purego.gomzilifesciences.in/whey-protein-supplement/mochacoffee-2kg",
+        price: "3075"
+      },
+      "1kg-Mango": {
+        name: "Whey Protein 1kg Mango",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/whey-protein/whey-protein-mango-3.webp",
+        description: "Savor PureGo Mango Whey Protein 1kg with natural mango taste and premium nutrition that helps your muscles grow and recover effectively.",
+        url: "https://purego.gomzilifesciences.in/whey-protein-supplement/mango-1kg",
+        price: "1635"
+      },
+      "2kg-Mango": {
+        name: "Whey Protein 2kg Mango",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/whey-protein/whey-protein-mango-2kg-3.webp",
+        description: "Fuel your workouts with PureGo Mango Whey Protein 2kg, offering authentic mango taste and premium nutrition to help build and recover muscles naturally.",
+        url: "https://purego.gomzilifesciences.in/whey-protein-supplement/mango-2kg",
+        price: "3075"
+      }
+    };
+
+    // Get the data for the current product variant
+    const variantData = productVariants[currentProduct] || {
+      name: currentProductData?.name || "Whey Protein",
+      image: fullImageUrl,
+      description: getMetaDescription(),
+      url: canonicalUrl,
+      price: discountedPrice
+    };
+
+    // Generate the JSON-LD structure
+    const jsonLd = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": variantData.name,
+      "image": variantData.image,
+      "description": variantData.description,
+      "brand": {
+        "@type": "Brand",
+        "name": "Purego"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": variantData.url,
+        "priceCurrency": "INR",
+        "price": variantData.price,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    };
+
+    return JSON.stringify(jsonLd, null, 2);
+  };
+
   return (
     <>
       <Helmet>
-        <title>Top Whey Protein Powder for Muscle Growth & Recovery</title>
+        <title>{getMetaTitle()}</title>
         <meta
           name="description"
-          content="Find the best whey protein powder to support muscle growth, boost recovery, and enhance performance. Shop top picks now!"
+          content={getMetaDescription()}
         />
         <meta
           name="keyword"
@@ -470,6 +673,10 @@ function PureGoWheyProtein() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         <link rel="canonical" href={canonicalUrl} />
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {generateJsonLd()}
+        </script>
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>

@@ -34,11 +34,27 @@ function PureGoCreatine() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const ProductFlavor = searchParams.get("flavor");
-  const canonicalUrl = window.location.href;
   const [currentProduct, setCurrentProduct] = useState("250g-Lemon");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("250g");
   const [activeFlavor, setActiveFlavor] = useState("Lemon");
+  
+  const getCanonicalUrl = () => {
+    // Lemon flavor
+    if (activeFlavor === "Lemon") {
+      return "https://purego.gomzilifesciences.in/creatine-suppliment/lemon";
+    }
+    // Unflavored
+    else if (activeFlavor === "Unflavoured") {
+      return "https://purego.gomzilifesciences.in/Creatine-suppliment/unflavoured";
+    }
+    // Default
+    else {
+      return window.location.href;
+    }
+  };
+
+  const canonicalUrl = getCanonicalUrl();
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
@@ -251,13 +267,110 @@ function PureGoCreatine() {
     return Demo;
   };
 
+  const getMetaTitle = () => {
+    // Lemon flavor
+    if (activeFlavor === "Lemon") {
+      return "Buy Lemon Flavored Creatine Online – Best Prices in India";
+    }
+    // Unflavored
+    else if (activeFlavor === "Unflavoured") {
+      return "Buy PureGo Unflavored Creatine – Best Price & Quality Online";
+    }
+    // Default
+    else {
+      return "Best Creatine Supplements for Muscle Growth & Strength";
+    }
+  };
+
+  const getMetaDescription = () => {
+    // Lemon flavor
+    if (activeFlavor === "Lemon") {
+      return "PureGo Lemon Creatine – Enhance Strength & Recovery with High-Quality Creatine Monohydrate at Best Price Online";
+    }
+    // Unflavored
+    else if (activeFlavor === "Unflavoured") {
+      return "PureGo Unflavored Creatine – Maximize Muscle Growth & Performance with Premium Creatine Monohydrate at Best Price";
+    }
+    // Default
+    else {
+      return "Discover the best creatine supplements to boost muscle growth, enhance strength, and improve performance. Shop top picks today!";
+    }
+  };
+
+  // Function to generate JSON-LD structured data for the current product
+  const generateJsonLd = () => {
+    // Get the discounted price for the current product
+    const priceData = DiscountCalculate(
+      "Whey Protein 1kg Mocha Coffee",
+      currentProductData?.price
+    );
+    const discountedPrice = priceData?.discountedprice || "0";
+    
+    // Get the main image for the current product
+    const productImagesArray = productImages[currentProduct] || [];
+    const mainImage = productImagesArray[2] || productImagesArray[0] || ""; // Using the third image (index 2) or first if not available
+    
+    // Construct full image URL
+    const fullImageUrl = mainImage ? `https://purego.gomzilifesciences.in${mainImage}` : "";
+    
+    // Define product data for each variant
+    const productVariants = {
+      "250g-Lemon": {
+        name: "Creatine Monohydrate Lemon",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/creatine/creatine-lemon-4.webp",
+        description: "PureGo Lemon Creatine – Enhance Strength & Recovery with High-Quality Creatine Monohydrate at Best Price Online",
+        url: "https://purego.gomzilifesciences.in/creatine-suppliment/lemon",
+        price: "755"
+      },
+      "250g-Unflavoured": {
+        name: "Creatine Monohydrate Unflavoured",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/creatine/creatine-unflavoured-4.webp",
+        description: "PureGo Unflavored Creatine – Maximize Muscle Growth & Performance with Premium Creatine Monohydrate at Best Price",
+        url: "https://purego.gomzilifesciences.in/Creatine-suppliment/unflavoured",
+        price: "755"
+      }
+    };
+
+    // Get the data for the current product variant
+    const variantData = productVariants[currentProduct] || {
+      name: currentProductData?.name || "Creatine Monohydrate",
+      image: fullImageUrl,
+      description: getMetaDescription(),
+      url: canonicalUrl,
+      price: discountedPrice
+    };
+
+    // Generate the JSON-LD structure
+    const jsonLd = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": variantData.name,
+      "image": variantData.image,
+      "description": variantData.description,
+      "brand": {
+        "@type": "Brand",
+        "name": "Purego"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": variantData.url,
+        "priceCurrency": "INR",
+        "price": variantData.price,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    };
+
+    return JSON.stringify(jsonLd, null, 2);
+  };
+
   return (
     <>
       <Helmet>
-        <title>Best Creatine Supplements for Muscle Growth & Strength</title>
+        <title>{getMetaTitle()}</title>
         <meta
           name="description"
-          content="Discover the best creatine supplements to boost muscle growth, enhance strength, and improve performance. Shop top picks today!"
+          content={getMetaDescription()}
         />
         <meta
           name="keyword"
@@ -269,6 +382,10 @@ function PureGoCreatine() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         <link rel="canonical" href={canonicalUrl} />
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {generateJsonLd()}
+        </script>
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>

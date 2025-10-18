@@ -30,7 +30,17 @@ import AddToCartPopUp from "../../components/AddToCartPopUp";
 import GymVideo from "../../components/GymVideo";
 
 function PureGoEaa() {
-  const canonicalUrl = window.location.href;
+  // Canonical URL for EAA supplements
+  const getCanonicalUrl = () => {
+    // Watermelon flavor (only flavor available)
+    if (activeFlavor === "Watermelon") {
+      return "https://purego.gomzilifesciences.in/eaasuppliment/watermelon";
+    }
+    // Default
+    return window.location.href;
+  };
+
+  const canonicalUrl = getCanonicalUrl();
   const [currentProduct, setCurrentProduct] = useState("250g-Watermelon");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("250g");
@@ -42,6 +52,47 @@ function PureGoEaa() {
   const [addToCartProducts, setAddToCartProducts] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [clickATC, setClickATC] = useState(false);
+
+  const getMetaTitle = () => {
+    return "PureGo EAA Supplements for Fast Muscle Recovery & Strength";
+  };
+
+  const getMetaDescription = () => {
+    return "Boost your workouts with EAA supplements for faster muscle recovery, stronger gains, and peak performance at the gym.";
+  };
+
+  // Function to generate JSON-LD structured data for the current product
+  const generateJsonLd = () => {
+    // Get the discounted price for the current product
+    const priceData = DiscountCalculate(
+      "Whey Protein 1kg Mocha Coffee",
+      currentProductData?.price
+    );
+    const discountedPrice = priceData?.discountedprice || "1075";
+    
+    // Generate the JSON-LD structure
+    const jsonLd = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "EAA Powder",
+      "image": "https://purego.gomzilifesciences.in/assets/images/products/eaa/eaa-4.webp",
+      "description": "Boost your workouts with EAA supplements for faster muscle recovery, stronger gains, and peak performance at the gym.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Purego"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://purego.gomzilifesciences.in/eaasuppliment/watermelon",
+        "priceCurrency": "INR",
+        "price": "1075",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    };
+
+    return JSON.stringify(jsonLd, null, 2);
+  };
 
   const handleCartOpen = async () => {
     setClickATC(true);
@@ -222,10 +273,10 @@ function PureGoEaa() {
   return (
     <>
       <Helmet>
-        <title>Best EAA Supplements for Muscle Recovery & Performance</title>
+        <title>{getMetaTitle()}</title>
         <meta
           name="description"
-          content="Boost muscle recovery, endurance, and performance with the best EAA supplements. Shop top-quality essential amino acids now!"
+          content={getMetaDescription()}
         />
         <meta
           name="keyword"
@@ -237,6 +288,10 @@ function PureGoEaa() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         <link rel="canonical" href={canonicalUrl} />
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {generateJsonLd()}
+        </script>
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>

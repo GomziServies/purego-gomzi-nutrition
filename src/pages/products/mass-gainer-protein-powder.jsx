@@ -34,11 +34,27 @@ function PureGoMassGainer() {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const ProductFlavor = searchParams.get("flavor");
-    const canonicalUrl = window.location.href;
     const [currentProduct, setCurrentProduct] = useState("1kg-Chocolate");
     const [activeImageIndex, setActiveImageIndex] = useState(0);
     const [activeSize, setActiveSize] = useState("1kg");
     const [activeFlavor, setActiveFlavor] = useState("Chocolate");
+    
+    const getCanonicalUrl = () => {
+        // Whey Matrix 1kg Chocolate
+        if (currentProductData.name === "Whey Matrix 1kg Chocolate") {
+            return "https://purego.gomzilifesciences.in/whey-matrix-supplement/chocolate-1kg";
+        }
+        // Mass Gainer 3kg Chocolate
+        else if (currentProductData.name === "Mass Gainer 3kg Chocolate") {
+            return "https://purego.gomzilifesciences.in/whey-matrix-supplement/chocolate-3kg";
+        }
+        // Default
+        else {
+            return window.location.href;
+        }
+    };
+
+    const canonicalUrl = getCanonicalUrl();
     const [opacity, setOpacity] = useState(1);
     const imageRef = useRef(null);
     const [showModal, setShowModal] = useState(false);
@@ -305,15 +321,111 @@ function PureGoMassGainer() {
         }
         return Demo;
     };
+
+    const getMetaTitle = () => {
+        // Whey Matrix 1kg Chocolate
+        if (currentProductData.name === "Whey Matrix 1kg Chocolate") {
+            return "PureGo Chocolate Whey Matrix 1kg – Rich Taste, Strong Muscles";
+        }
+        // Mass Gainer 3kg Chocolate
+        else if (currentProductData.name === "Mass Gainer 3kg Chocolate") {
+            return "PureGo Chocolate Whey Matrix 3kg – Best Whey Protein in India";
+        }
+        // Default
+        else {
+            return "Best Mass Gainer Protein Powder for Muscle & Weight Gain";
+        }
+    };
+
+    const getMetaDescription = () => {
+        // Whey Matrix 1kg Chocolate
+        if (currentProductData.name === "Whey Matrix 1kg Chocolate") {
+            return "Enjoy PureGo Chocolate Whey Matrix 1kg with real chocolate flavor and premium nutrition that helps build muscles and aids recovery naturally.";
+        }
+        // Mass Gainer 3kg Chocolate
+        else if (currentProductData.name === "Mass Gainer 3kg Chocolate") {
+            return "Buy PureGo Chocolate Whey Matrix 3kg online, the best whey protein in India, with rich chocolate taste and premium nutrition for strong muscles.";
+        }
+        // Default
+        else {
+            return "Boost muscle growth and healthy weight gain with the best mass gainer protein powder. Find top-quality options for fast results!";
+        }
+    };
+
+    // Function to generate JSON-LD structured data for the current product
+    const generateJsonLd = () => {
+        // Get the discounted price for the current product
+        const priceData = DiscountCalculate(
+            currentProductData?.name,
+            currentProductData?.price
+        );
+        const discountedPrice = priceData?.discountedprice || "0";
+        
+        // Get the main image for the current product
+        const productImagesArray = productImages[currentProduct] || [];
+        const mainImage = productImagesArray[2] || productImagesArray[0] || ""; // Using the third image (index 2) or first if not available
+        
+        // Construct full image URL
+        const fullImageUrl = mainImage ? `https://purego.gomzilifesciences.in${mainImage}` : "";
+        
+        // Define product data for each variant
+        const productVariants = {
+            "1kg-Chocolate": {
+                name: "Whey Matrix 1kg Chocolate",
+                image: "https://purego.gomzilifesciences.in/assets/images/products/mass-gainer/mass-gainer-3.webp",
+                description: "Enjoy PureGo Chocolate Whey Matrix 1kg with real chocolate flavor and premium nutrition that helps build muscles and aids recovery naturally.",
+                url: "https://purego.gomzilifesciences.in/whey-matrix-supplement/chocolate-1kg",
+                price: "790"
+            },
+            "3kg-Chocolate": {
+                name: "Mass Gainer 3kg Chocolate",
+                image: "https://purego.gomzilifesciences.in/assets/images/products/mass-gainer/mass-gainer-3.webp",
+                description: "Buy PureGo Chocolate Whey Matrix 3kg online, the best whey protein in India, with rich chocolate taste and premium nutrition for strong muscles.",
+                url: "https://purego.gomzilifesciences.in/whey-matrix-supplement/chocolate-3kg",
+                price: "2375"
+            }
+        };
+
+        // Get the data for the current product variant
+        const variantData = productVariants[currentProduct] || {
+            name: currentProductData?.name || "Mass Gainer",
+            image: fullImageUrl,
+            description: getMetaDescription(),
+            url: canonicalUrl,
+            price: discountedPrice
+        };
+
+        // Generate the JSON-LD structure
+        const jsonLd = {
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": variantData.name,
+            "image": variantData.image,
+            "description": variantData.description,
+            "brand": {
+                "@type": "Brand",
+                "name": "Purego"
+            },
+            "offers": {
+                "@type": "Offer",
+                "url": variantData.url,
+                "priceCurrency": "INR",
+                "price": variantData.price,
+                "availability": "https://schema.org/InStock",
+                "itemCondition": "https://schema.org/NewCondition"
+            }
+        };
+
+        return JSON.stringify(jsonLd, null, 2);
+    };
+
     return (
         <>
             <Helmet>
-                <title>
-                    Best Mass Gainer Protein Powder for Muscle & Weight Gain
-                </title>
+                <title>{getMetaTitle()}</title>
                 <meta
                     name="description"
-                    content="Boost muscle growth and healthy weight gain with the best mass gainer protein powder. Find top-quality options for fast results!"
+                    content={getMetaDescription()}
                 />
                 <meta
                     name="keyword"
@@ -325,6 +437,10 @@ function PureGoMassGainer() {
                     content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
                 />
                 <link rel="canonical" href={canonicalUrl} />
+                {/* JSON-LD Structured Data */}
+                <script type="application/ld+json">
+                    {generateJsonLd()}
+                </script>
                 {/* Preconnect to Facebook CDN */}
                 <link rel="preconnect" href="https://connect.facebook.net" />
                 <script>

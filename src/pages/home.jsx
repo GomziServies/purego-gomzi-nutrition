@@ -281,16 +281,18 @@ function Home() {
     <>
       <Helmet>
         <title>
-          PureGo Nutrition | Premium Supplements for Fitness & Health
+          PureGo - Genuine Whey & Creatine Supplements
         </title>
         <meta
           name="description"
-          content="Shop PureGo for high-quality nutrition, fitness supplements & wellness products. Fuel your body & boost performance."
+          content="PureGo whey protein supports muscle growth and recovery with clean, reliable nutrition you can trust every day."
         />
         <meta
           name="keyword"
           content="purego, protein powder, creatine protein powder, preworkout, bodybuilding supplement, lean whey protein powder, whey protein powder, eaa powder, bcaa supplement, protein powder, best protein powder, bcaa, best pre workout, protein powder, whey protein isolate, best protein powder for women, best protein powder, protein powder for weight loss, best protein powder for weight loss, organic protein powder, isolate protein, best supplements for muscle growth, whey isolate protein powder, best pre workout for men, best whey protein powder, best pre workout for women, best whey protein, bcaa powder, protein whey, pre workout for women, creatine monohydrate powder, best protein powder for muscle gain, best muscle building supplements, chocolate protein powder"
         />
+        <meta property="og:url" content="https://purego.gomzilifesciences.in/" />
+        <link rel="canonical" href="https://purego.gomzilifesciences.in/" />
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"

@@ -33,11 +33,27 @@ function PureGoPreWorkout() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const ProductFlavor = searchParams.get("flavor");
-  const canonicalUrl = window.location.href;
   const [currentProduct, setCurrentProduct] = useState("250g-Fruit Punch");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("250g");
   const [activeFlavor, setActiveFlavor] = useState("Fruit Punch");
+  
+  const getCanonicalUrl = () => {
+    // Fruit Punch flavor
+    if (activeFlavor === "Fruit Punch") {
+      return "https://purego.gomzilifesciences.in/pre-workout-suppliment/fruit-punch";
+    }
+    // Cola flavor
+    else if (activeFlavor === "Cola") {
+      return "https://purego.gomzilifesciences.in/pre-workout-supplement/cola";
+    }
+    // Default
+    else {
+      return window.location.href;
+    }
+  };
+
+  const canonicalUrl = getCanonicalUrl();
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
@@ -289,13 +305,111 @@ function PureGoPreWorkout() {
     }
     return Demo;
   };
+
+  const getMetaTitle = () => {
+    // Fruit Punch flavor
+    if (activeFlavor === "Fruit Punch") {
+      return "Buy PureGo Fruit Punch Pre Workout – Best Energy Boost India";
+    }
+    // Cola flavor
+    else if (activeFlavor === "Cola") {
+      return "PureGo Cola Pre Workout Supplement – Boost Energy & Performance";
+    }
+    // Default
+    else {
+      return "Best Weight Loss Supplements for Fast & Effective Results";
+    }
+  };
+
+  const getMetaDescription = () => {
+    // Fruit Punch flavor
+    if (activeFlavor === "Fruit Punch") {
+      return "Energize every session with PureGo Fruit Punch pre workout – India’s best supplement for focus and stamina.";
+    }
+    // Cola flavor
+    else if (activeFlavor === "Cola") {
+      return "Experience unstoppable energy with PureGo Cola pre workout – India’s best supplement for focus and peak performance.";
+    }
+    // Default
+    else {
+      return "Discover the best weight loss supplements to burn fat, boost metabolism, and achieve your fitness goals faster. Shop now!";
+    }
+  };
+
+  // Function to generate JSON-LD structured data for the current product
+  const generateJsonLd = () => {
+    // Get the discounted price for the current product
+    const priceData = DiscountCalculate(
+      currentProductData?.name,
+      currentProductData?.price
+    );
+    const discountedPrice = priceData?.discountedprice || "0";
+    
+    // Get the main image for the current product
+    const productImagesArray = productImages[currentProduct] || [];
+    const mainImage = productImagesArray[2] || productImagesArray[0] || ""; // Using the third image (index 2) or first if not available
+    
+    // Construct full image URL
+    const fullImageUrl = mainImage ? `https://purego.gomzilifesciences.in${mainImage}` : "";
+    
+    // Define product data for each variant
+    const productVariants = {
+      "250g-Fruit Punch": {
+        name: "Pre Workout Fruit Punch",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/pre-workout/pre-workout-fruit-punch-4.webp",
+        description: "Energize every session with PureGo Fruit Punch pre workout – India's best supplement for focus and stamina.",
+        url: "https://purego.gomzilifesciences.in/pre-workout-suppliment/fruit-punch",
+        price: "1275"
+      },
+      "250g-Cola": {
+        name: "Pre Workout Cola",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/pre-workout/pre-workout-cola-4.webp",
+        description: "Experience unstoppable energy with PureGo Cola pre workout – India's best supplement for focus and peak performance.",
+        url: "https://purego.gomzilifesciences.in/pre-workout-supplement/cola",
+        price: "1275"
+      }
+    };
+
+    // Get the data for the current product variant
+    const variantData = productVariants[currentProduct] || {
+      name: currentProductData?.name || "Pre Workout",
+      image: fullImageUrl,
+      description: getMetaDescription(),
+      url: canonicalUrl,
+      price: discountedPrice
+    };
+
+    // Generate the JSON-LD structure
+    const jsonLd = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": variantData.name,
+      "image": variantData.image,
+      "description": variantData.description,
+      "brand": {
+        "@type": "Brand",
+        "name": "Purego"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": variantData.url,
+        "priceCurrency": "INR",
+        "price": variantData.price,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    };
+
+    return JSON.stringify(jsonLd, null, 2);
+  };
+
   return (
     <>
       <Helmet>
-        <title>Best Weight Loss Supplements for Fast & Effective Results</title>
+        <title>{getMetaTitle()}</title>
         <meta
           name="description"
-          content="Discover the best weight loss supplements to burn fat, boost metabolism, and achieve your fitness goals faster. Shop now!"
+          content={getMetaDescription()}
         />
         <meta
           name="keyword"
@@ -307,6 +421,10 @@ function PureGoPreWorkout() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         <link rel="canonical" href={canonicalUrl} />
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {generateJsonLd()}
+        </script>
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>

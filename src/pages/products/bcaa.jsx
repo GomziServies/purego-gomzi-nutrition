@@ -34,11 +34,27 @@ function PureGoBCAA() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const ProductFlavor = searchParams.get("flavor");
-  const canonicalUrl = window.location.href;
   const [currentProduct, setCurrentProduct] = useState("250g-Orange");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("250g");
   const [activeFlavor, setActiveFlavor] = useState("Orange");
+  
+  const getCanonicalUrl = () => {
+    // Orange flavor
+    if (activeFlavor === "Orange") {
+      return "https://purego.gomzilifesciences.in/bcaa-suppliment/orange";
+    }
+    // Cranberry flavor
+    else if (activeFlavor === "Cranberry") {
+      return "https://purego.gomzilifesciences.in/bcaa-suppliment/cranberry";
+    }
+    // Default
+    else {
+      return window.location.href;
+    }
+  };
+
+  const canonicalUrl = getCanonicalUrl();
   const [opacity, setOpacity] = useState(1);
   const imageRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
@@ -245,8 +261,7 @@ function PureGoBCAA() {
     {
       title: "",
       description: "Controls Appetite & Hunger.",
-    },
-    { title: "Caution:", description: "" },
+    }, { title: "Caution:", description: "" },
     {
       title: "",
       description: "Not for use by persons under the age of 18 years.",
@@ -298,15 +313,96 @@ function PureGoBCAA() {
     return Demo;
   };
 
+  const getMetaTitle = () => {
+    // Orange flavor
+    if (activeFlavor === "Orange") {
+      return "PureGo Orange Flavored BCAA Supplement in India for Muscle Recovery";
+    }
+    // Cranberry flavor
+    else if (activeFlavor === "Cranberry") {
+      return "PureGo Cranberry BCAA Powder for Faster Muscle Recovery in India";
+    }
+    // Default
+    else {
+      return "Buy PureGo BCAA Orange Flavor - Muscle Recovery & Electrolytes Support";
+    }
+  };
+
+  const getMetaDescription = () => {
+    // Orange flavor
+    if (activeFlavor === "Orange") {
+      return "PureGo Orange Flavored BCAA – India’s best supplement for muscle recovery, energy, and effective workout support.";
+    }
+    // Cranberry flavor
+    else if (activeFlavor === "Cranberry") {
+      return "PureGo Cranberry Flavored BCAA – Optimize your workouts with India’s top BCAA for recovery, weight management, and strength.";
+    }
+    // Default
+    else {
+      return "Fuel your workouts with PureGo BCAA Orange Flavor - a powerful BCAA supplement for muscle recovery, hydration, and endurance. Enjoy a refreshing electrolyte drink with every scoop.";
+    }
+  };
+
+  // Function to generate JSON-LD structured data for the current product
+  const generateJsonLd = () => {
+    // Define product data for each variant
+    const productVariants = {
+      "Orange": {
+        name: "BCAA Orange",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/bcaa/bcaa-orange-4.webp",
+        description: "PureGo Orange Flavored BCAA – India's best supplement for muscle recovery, energy, and effective workout support.",
+        url: "https://purego.gomzilifesciences.in/bcaa-suppliment/orange",
+        price: "1075"
+      },
+      "Cranberry": {
+        name: "BCAA Cranberry",
+        image: "https://purego.gomzilifesciences.in/assets/images/products/bcaa/bcaa-cranberry-4.webp",
+        description: "PureGo Cranberry Flavored BCAA – Optimize your workouts with India's top BCAA for recovery, weight management, and strength.",
+        url: "https://purego.gomzilifesciences.in/bcaa-suppliment/cranberry",
+        price: "1075"
+      }
+    };
+
+    // Get the data for the current product variant
+    const variantData = productVariants[activeFlavor] || {
+      name: "BCAA " + activeFlavor,
+      image: `https://purego.gomzilifesciences.in/assets/images/products/bcaa/bcaa-${activeFlavor.toLowerCase()}-4.webp`,
+      description: getMetaDescription(),
+      url: getCanonicalUrl(),
+      price: "1075"
+    };
+
+    // Generate the JSON-LD structure
+    const jsonLd = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": variantData.name,
+      "image": variantData.image,
+      "description": variantData.description,
+      "brand": {
+        "@type": "Brand",
+        "name": "Purego"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": variantData.url,
+        "priceCurrency": "INR",
+        "price": variantData.price,
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      }
+    };
+
+    return JSON.stringify(jsonLd, null, 2);
+  };
+
   return (
     <>
       <Helmet>
-        <title>
-          Buy PureGo BCAA Orange Flavor - Muscle Recovery & Electrolytes Support
-        </title>
+        <title>{getMetaTitle()}</title>
         <meta
           name="description"
-          content="Fuel your workouts with PureGo BCAA Orange Flavor - a powerful BCAA supplement for muscle recovery, hydration, and endurance. Enjoy a refreshing electrolyte drink with every scoop."
+          content={getMetaDescription()}
         />
         <meta
           name="keyword"
@@ -318,6 +414,10 @@ function PureGoBCAA() {
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
         <link rel="canonical" href={canonicalUrl} />
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {generateJsonLd()}
+        </script>
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
