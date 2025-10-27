@@ -29,17 +29,18 @@ import AddToCartPopUp from "../../components/AddToCartPopUp";
 import GymVideo from "../../components/GymVideo";
 
 function PureGoEaa() {
-  // Canonical URL for EAA supplements
-  const getCanonicalUrl = () => {
-    // Watermelon flavor (only flavor available)
-    if (activeFlavor === "Watermelon") {
-      return "https://purego.gomzilifesciences.in/eaasuppliment/watermelon";
-    }
-    // Default
-    return window.location.href;
-  };
+  // // Canonical URL for EAA supplements
+  // const getCanonicalUrl = () => {
+  //   // Watermelon flavor (only flavor available)
+  //   if (activeFlavor === "Watermelon") {
+  //     return "https://purego.gomzilifesciences.in/eaasuppliment/watermelon";
+  //   }
+  //   // Default
+  //   return window.location.href;
+  // };
 
-  const canonicalUrl = getCanonicalUrl();
+  // const canonicalUrl = getCanonicalUrl();
+  const canonicalUrl = window.location.href;
   const [currentProduct, setCurrentProduct] = useState("250g-Watermelon");
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("250g");
