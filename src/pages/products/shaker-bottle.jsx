@@ -22,8 +22,6 @@ import SelectableList from "../../components/SelectableList";
 import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 import LoginModal from "../../assets/js/popup/login";
-import Features from "../../components/Features";
-import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";
@@ -195,8 +193,8 @@ function PureGoShaker() {
       Demo.discount = "50%";
     } else {
       Demo.mainprice = mainprice;
-      Demo.discountedprice = mainprice - (mainprice * 50) / 100;
-      Demo.discount = "50%";
+      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+      Demo.discount = "25%";
     }
     return Demo;
   };

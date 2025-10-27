@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -23,7 +23,6 @@ import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 import LoginModal from "../../assets/js/popup/login";
 import Features from "../../components/Features";
-import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";

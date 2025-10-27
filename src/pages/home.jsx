@@ -19,16 +19,13 @@ import HomeNutritionFooter from "../components/partials/Footer/footer";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import ModalVideo from "react-modal-video";
 import { Link, useNavigate } from "react-router-dom";
 import HappyClientReview from "../components/happyClient";
 import { axiosInstance, publicAxiosInstance } from "../assets/js/config/api";
-import LoginModal from "../assets/js/popup/login";
 import Swal from "sweetalert2";
 import AddToCartPopUp from "../components/AddToCartPopUp";
 import FacilitySlider from "../components/facilitySlider";
 import GymVideo from "../components/GymVideo";
-import { use } from "react";
 import WhyChoosePurego from "../components/whyChooseUs";
 
 function Home() {
@@ -271,8 +268,8 @@ function Home() {
       Demo.discount = "50%";
     } else {
       Demo.mainprice = mainprice;
-      Demo.discountedprice = mainprice - (mainprice * 50) / 100;
-      Demo.discount = "50%";
+      Demo.discountedprice = mainprice - (mainprice * 25) / 100;
+      Demo.discount = "25%";
     }
     return Demo;
   };

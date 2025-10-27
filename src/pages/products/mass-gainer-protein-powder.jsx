@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import NutritionHeader from "../../components/partials/Header/nutritionsheader";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -23,7 +23,6 @@ import Review from "../../components/review";
 import ProductPhotoSection1 from "../../components/ProductPhotoSection1";
 import LoginModal from "../../assets/js/popup/login";
 import Features from "../../components/Features";
-import MoreProduct from "../../components/MoreProduct";
 import ProductSelectComponent from "../../components/productSelectComponent";
 import AddToCartButtonsContainer from "../../components/AddToCartButtonsContainer";
 import AddToCartPopUp from "../../components/AddToCartPopUp";
@@ -38,14 +37,12 @@ function PureGoMassGainer() {
     const [activeImageIndex, setActiveImageIndex] = useState(0);
     const [activeSize, setActiveSize] = useState("1kg");
     const [activeFlavor, setActiveFlavor] = useState("Chocolate");
-    
+
     const getCanonicalUrl = () => {
-        // Whey Matrix 1kg Chocolate
-        if (currentProductData.name === "Whey Matrix 1kg Chocolate") {
+        // Chocolate flavor
+        if (activeFlavor === "Chocolate" && activeSize === "1kg") {
             return "https://purego.gomzilifesciences.in/whey-matrix-supplement/chocolate-1kg";
-        }
-        // Mass Gainer 3kg Chocolate
-        else if (currentProductData.name === "Mass Gainer 3kg Chocolate") {
+        } else if (activeFlavor === "Chocolate" && activeSize === "3kg") {
             return "https://purego.gomzilifesciences.in/whey-matrix-supplement/chocolate-3kg";
         }
         // Default
