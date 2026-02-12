@@ -1,22 +1,22 @@
-import { useEffect } from 'react'
-import { Helmet } from 'react-helmet';
-import { useLocation, useNavigate } from 'react-router';
+import { useEffect } from "react";
+import { Helmet } from "react-helmet";
+import { useLocation, useNavigate } from "react-router";
 
 const Cart = () => {
-    const location = useLocation();
-    const productId = location.state;
-    const Navigate = useNavigate();
+  const location = useLocation();
+  const productId = location.state;
+  const Navigate = useNavigate();
 
-    useEffect(() => {
-        localStorage.setItem("fromCartPage", "true");
-        Navigate("/");
-    }, [])
+  useEffect(() => {
+    localStorage.setItem("fromCartPage", "true");
+    Navigate("/");
+  }, []);
 
-    return (
-        <>
-            <Helmet>
-                <script>
-                    {`
+  return (
+    <>
+      <Helmet>
+        <script>
+          {`
                     !function(f,b,e,v,n,t,s)
                     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -25,19 +25,22 @@ const Cart = () => {
                     t.src=v;s=b.getElementsByTagName(e)[0];
                     s.parentNode.insertBefore(t,s)}(window, document,'script',
                     'https://connect.facebook.net/en_US/fbevents.js');
-                    fbq('init', '3713420712287031');
+                    fbq('init', '2773291456345230');
                     fbq('track', 'PageView');
                 `}
-                </script>
-                <noscript>
-                    {`<img height="1" width="1" style="display:none"
-                src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
-                />`}
-                </noscript>
-                <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
-            </Helmet>
-        </>
-    )
-}
+        </script>
+        <noscript>
+          {`<img height="1" width="1" style="display:none"
+                    src="https://www.facebook.com/tr?id=2773291456345230&ev=PageView&noscript=1"
+                    />`}
+        </noscript>
+        <script
+          type="text/javascript"
+          src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"
+        ></script>
+      </Helmet>
+    </>
+  );
+};
 
-export default Cart
+export default Cart;

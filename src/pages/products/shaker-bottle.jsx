@@ -237,44 +237,44 @@ function PureGoShaker() {
           name="keyword"
           content="preworkout, fat burner, amino acid, workout, Orange, weight loss supplement, bodybuilding supplement, best pre workout, best weight loss supplements, best fat burner for men, protein powder for weight loss, best protein powder for weight loss, best fat burner for women, pre workout powder, best fat burner, best supplements for weight loss female, best pre workout for men, fat burner for women"
         />
-        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:url" content={ canonicalUrl } />
         <meta
           property="og:image"
           content="https://www.purego.gomzilifesciences.in/assets/process.env.PUBLIC_URL + '/assets/images/nutrition-logo.png"
         />
-        <link rel="canonical" href={canonicalUrl} />
-        {/* JSON-LD Structured Data */}
+        <link rel="canonical" href={ canonicalUrl } />
+        {/* JSON-LD Structured Data */ }
         <script type="application/ld+json">
-          {generateJsonLd()}
+          { generateJsonLd() }
         </script>
-        {/* Preconnect to Facebook CDN */}
+        {/* Preconnect to Facebook CDN */ }
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
           { `
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '3713420712287031');
-            fbq('track', 'PageView');
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '2773291456345230');
+              fbq('track', 'PageView');
           `}
         </script>
         <noscript>
           { `<img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
-          />`}
+            src="https://www.facebook.com/tr?id=2773291456345230&ev=PageView&noscript=1"
+            />`}
         </noscript>
         <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
       </Helmet>
-      {/* <LoaderComponent /> */}
-      {showModal && <LoginModal onClose={closeModal} />}
-      {fadingItem && <ProductSelectComponent fadingItem={fadingItem} />}
-      <AddToCartPopUp clickATC={clickATC} setClickATC={setClickATC} />
-      <NutritionHeader handleCartOpen={handleCartOpen} />
+      {/* <LoaderComponent /> */ }
+      { showModal && <LoginModal onClose={ closeModal } /> }
+      { fadingItem && <ProductSelectComponent fadingItem={ fadingItem } /> }
+      <AddToCartPopUp clickATC={ clickATC } setClickATC={ setClickATC } />
+      <NutritionHeader handleCartOpen={ handleCartOpen } />
       <button className="scroll-top scroll-to-target" data-target="html">
         <i className="fas fa-angle-up"></i>
       </button>
@@ -286,16 +286,16 @@ function PureGoShaker() {
                 <div className="black-before">
                   <div
                     className="product-image-container"
-                    ref={imageRef}
-                    style={{
+                    ref={ imageRef }
+                    style={ {
                       opacity: opacity,
                       transition: "opacity 0.3s ease-in-out",
-                    }}
+                    } }
                   >
                     <ProductPhotoSection1
-                      images={productImages[currentProduct]}
-                      activeImageIndex={activeImageIndex}
-                      setActiveImageIndex={setActiveImageIndex}
+                      images={ productImages[currentProduct] }
+                      activeImageIndex={ activeImageIndex }
+                      setActiveImageIndex={ setActiveImageIndex }
                     />
                   </div>
                   <div className="mt-4 px-0 d-md-block d-none">
@@ -315,7 +315,7 @@ function PureGoShaker() {
                     />
                   </div>
                   <div className="bg-product px-3 pb-3 pt-3">
-                    <h4 className="title">{currentProductData.name}</h4>
+                    <h4 className="title">{ currentProductData.name }</h4>
                     <div className="inner-shop-details-meta">
                       <ul className="list-wrap">
                         <li>
@@ -335,23 +335,23 @@ function PureGoShaker() {
                     </div>
                     <div className="inner-shop-details-price">
                       <h2 className="price d-flex mb-0">
-                        {(() => {
+                        { (() => {
                           const price = DiscountCalculate(
                             currentProductData?.name,
                             currentProductData?.price
                           );
                           return (
                             <>
-                              ₹{price.discountedprice}/-
+                              ₹{ price.discountedprice }/-
                               <span className="old-prices">
-                                ₹{currentProductData.price}/-
+                                ₹{ currentProductData.price }/-
                               </span>
                               <h5 className="stock-status d-flex align-items-center">
-                                ({price?.discount} OFF)
+                                ({ price?.discount } OFF)
                               </h5>
                             </>
                           );
-                        })()}
+                        })() }
                       </h2>
                     </div>
                     <p>
@@ -363,32 +363,32 @@ function PureGoShaker() {
                     <div className="d-flex">
                       <div className="size-btn">
                         <SelectableList
-                          items={sizeOptions}
-                          activeItem={activeSize}
-                          onItemClick={handleSelectSize}
+                          items={ sizeOptions }
+                          activeItem={ activeSize }
+                          onItemClick={ handleSelectSize }
                           title="Size"
                         />
                       </div>
                       <div>
                         <SelectableList
-                          items={flavorOptions}
-                          activeItem={activeFlavor}
-                          onItemClick={handleSelectFlavor}
+                          items={ flavorOptions }
+                          activeItem={ activeFlavor }
+                          onItemClick={ handleSelectFlavor }
                           title="Flavor"
                         />
                       </div>
                     </div>
                     <div className="inner-shop-perched-info mt-3 row align-items-center ms-0">
                       <AddToCartButtonsContainer
-                        addToCartProductsData={currentProductData}
-                        addToCartProducts={addToCartProducts}
-                        toggleMenu={toggleMenu}
-                        menuOpen={menuOpen}
-                        setMenuOpen={setMenuOpen}
-                        selectedProductId={currentProductData.id}
+                        addToCartProductsData={ currentProductData }
+                        addToCartProducts={ addToCartProducts }
+                        toggleMenu={ toggleMenu }
+                        menuOpen={ menuOpen }
+                        setMenuOpen={ setMenuOpen }
+                        selectedProductId={ currentProductData.id }
                       />
                       <button
-                        onClick={() => handleQuickBuy(currentProductData)}
+                        onClick={ () => handleQuickBuy(currentProductData) }
                         className="col-md-3 col-11 quick-buy-btn m-0 ms-md-3 mx-1 my-1"
                       >
                         <i className="fa-solid fa-bolt me-2"></i> Quick Buy
@@ -405,7 +405,7 @@ function PureGoShaker() {
                     </h4>
                   </div>
                   <div className="px-3">
-                    {/* <Features USPData={USPData} openModal={openModal} /> */}
+                    {/* <Features USPData={USPData} openModal={openModal} /> */ }
                   </div>
                 </div>
               </div>
@@ -548,7 +548,7 @@ function PureGoShaker() {
                       aria-labelledby="review-tab"
                     >
                       <NutritionReviewSection
-                        product_id={products[0].data.id}
+                        product_id={ products[0].data.id }
                       />
                     </div>
                   </div>

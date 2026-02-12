@@ -57,12 +57,12 @@ function AddToCart() {
     setLoading(true);
     try {
       const response = await axiosInstance.get(
-        "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
+        "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true",
       );
       const serverData = response.data.data[0];
       setServerDataID(serverData._id);
       const existingData = JSON.parse(
-        localStorage.getItem("addItemInCart")
+        localStorage.getItem("addItemInCart"),
       ) || { products: [] };
 
       const priceMap = existingData.products.reduce((map, product) => {
@@ -75,7 +75,7 @@ function AddToCart() {
 
       const combinedData = itemDataForGetQty.map((item) => {
         const itemDetails = itemDataForGetImgName.find(
-          (details) => details._id === item.item_id
+          (details) => details._id === item.item_id,
         );
         if (!itemDetails) {
           console.warn(`No details found for item with id: ${item.item_id}`);
@@ -120,7 +120,7 @@ function AddToCart() {
   const totalAmountCalculation = (data) => {
     const amount = data.reduce(
       (sum, product) => sum + product.price * product.quantity,
-      0
+      0,
     );
     setTotalAmount(amount || 0);
   };
@@ -128,16 +128,16 @@ function AddToCart() {
   const handleRemoveProduct = async (cart_id, product_id) => {
     try {
       await axiosInstance.delete(
-        `/order-cart/remove-item?item_id=${product_id}&cart_id=${serverDataID}`
+        `/order-cart/remove-item?item_id=${product_id}&cart_id=${serverDataID}`,
       );
       setProductDataGet((prevData) =>
-        prevData.filter((product) => product._id !== cart_id)
+        prevData.filter((product) => product._id !== cart_id),
       );
       const existingData = JSON.parse(
-        localStorage.getItem("addItemInCart")
+        localStorage.getItem("addItemInCart"),
       ) || { products: [] };
       existingData.products = existingData.products.filter(
-        (product) => product.product_id !== product_id
+        (product) => product.product_id !== product_id,
       );
       localStorage.setItem("addItemInCart", JSON.stringify(existingData));
       fetchProductData();
@@ -162,7 +162,7 @@ function AddToCart() {
       const updatedData = prevData.map((product) =>
         product._id === productId
           ? { ...product, quantity: Math.max(1, product.quantity - 1) }
-          : product
+          : product,
       );
       const changedProducts = updatedData.filter((product) => {
         const originalProduct = prevData.find((p) => p._id === product._id);
@@ -182,7 +182,7 @@ function AddToCart() {
       const updatedData = prevData.map((product) =>
         product._id === productId
           ? { ...product, quantity: product.quantity + 1 }
-          : product
+          : product,
       );
 
       const changedProducts = updatedData.filter((product) => {
@@ -214,7 +214,7 @@ function AddToCart() {
     try {
       const changedProducts = productDataGet.filter((currentProduct) => {
         const previousProduct = previousProductData.find(
-          (p) => p._id === currentProduct._id
+          (p) => p._id === currentProduct._id,
         );
         return (
           previousProduct &&
@@ -236,7 +236,7 @@ function AddToCart() {
 
         const response = await axiosInstance.post(
           "/order-cart/add-item",
-          changedProducts[0]
+          changedProducts[0],
         );
 
         if (response.data.status === 200) {
@@ -247,7 +247,7 @@ function AddToCart() {
               products,
               totalAmount,
               totalMRP,
-            })
+            }),
           );
           localStorage.setItem(
             "allProductsData",
@@ -255,7 +255,7 @@ function AddToCart() {
               allProductsData,
               totalAmount,
               totalMRP,
-            })
+            }),
           );
 
           if (
@@ -286,7 +286,7 @@ function AddToCart() {
             products,
             totalAmount,
             totalMRP,
-          })
+          }),
         );
         localStorage.setItem(
           "allProductsData",
@@ -294,7 +294,7 @@ function AddToCart() {
             allProductsData,
             totalAmount,
             totalMRP,
-          })
+          }),
         );
 
         if (
@@ -331,7 +331,7 @@ function AddToCart() {
   const fetchProductData = async () => {
     try {
       const response = await axiosInstance.get(
-        "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
+        "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true",
       );
       const cartData = response.data.data[0];
       const cartItemData = cartData.items_details.map((data) => data.name);
@@ -361,7 +361,7 @@ function AddToCart() {
 
             setProductReviewsData((prevData) => {
               const filteredData = prevData.filter(
-                (item) => item._id !== product_id
+                (item) => item._id !== product_id,
               );
               const newEntry = {
                 _id: product_id,
@@ -448,7 +448,7 @@ function AddToCart() {
       const payload = { coupon_code: code };
       const response = await publicAxiosInstance.post(
         "/check-coupon-code",
-        payload
+        payload,
       );
 
       const couponData = response.data.data;
@@ -513,23 +513,23 @@ function AddToCart() {
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
-          { `
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '3713420712287031');
-            fbq('track', 'PageView');
+          {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '2773291456345230');
+              fbq('track', 'PageView');
           `}
         </script>
         <noscript>
-          { `<img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
-          />`}
+          {`<img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2773291456345230&ev=PageView&noscript=1"
+            />`}
         </noscript>
         {/* Google tag (gtag.js) */}
         <script
@@ -544,7 +544,10 @@ function AddToCart() {
             gtag('config', 'G-J50WNKGW38');
           `}
         </script>
-        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
+        <script
+          type="text/javascript"
+          src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"
+        ></script>
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
@@ -638,7 +641,7 @@ function AddToCart() {
                               onClick={() =>
                                 handleRemoveProduct(
                                   product._id,
-                                  product.items_id
+                                  product.items_id,
                                 )
                               }
                             >
@@ -725,7 +728,7 @@ function AddToCart() {
                           <span className="text-danger">
                             - {isCouponRupee && "₹"}
                             {totalDiscount !== undefined &&
-                              totalDiscount !== null
+                            totalDiscount !== null
                               ? totalDiscount
                               : 0}
                             {!isCouponRupee ? "%" : " /-"}

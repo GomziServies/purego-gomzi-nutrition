@@ -61,7 +61,7 @@ function Home() {
   const fetchProductData = async () => {
     try {
       const response = await axiosInstance.get(
-        "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true"
+        "/order-cart/get-carts?item_type=PURE_GO_MEAL_PRODUCT&is_purchase=true",
       );
       const cartData = response.data.data[0];
       const cartItemData = cartData.items_details.map((data) => data.name);
@@ -91,7 +91,7 @@ function Home() {
 
             setProductReviewsData((prevData) => {
               const filteredData = prevData.filter(
-                (item) => item._id !== product_id
+                (item) => item._id !== product_id,
               );
               const newEntry = {
                 _id: product_id,
@@ -145,8 +145,9 @@ function Home() {
         const reverseX = index % 2 === 0 ? -1 : 1;
         const reverseY = index % 2 !== 0 ? -1 : 1;
 
-        shape.style.transform = `translate(${xMove * movementFactor * reverseX
-          }px, ${yMove * movementFactor * reverseY}px)`;
+        shape.style.transform = `translate(${
+          xMove * movementFactor * reverseX
+        }px, ${yMove * movementFactor * reverseY}px)`;
       });
     };
 
@@ -213,7 +214,6 @@ function Home() {
       handleCartOpen();
       localStorage.removeItem("fromCartPage");
     }
-
   }, []);
 
   const options = {
@@ -246,7 +246,7 @@ function Home() {
 
   const handleCartOpen = async (cart = "addToCart") => {
     setClickATC(true);
-    localStorage.setItem('cartOpenSource', cart);
+    localStorage.setItem("cartOpenSource", cart);
   };
 
   const handleChangeCart = async () => {
@@ -277,9 +277,7 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>
-          PureGo - Genuine Whey & Creatine Supplements
-        </title>
+        <title>PureGo - Genuine Whey & Creatine Supplements</title>
         <meta
           name="description"
           content="PureGo whey protein supports muscle growth and recovery with clean, reliable nutrition you can trust every day."
@@ -288,7 +286,10 @@ function Home() {
           name="keyword"
           content="purego, protein powder, creatine protein powder, preworkout, bodybuilding supplement, lean whey protein powder, whey protein powder, eaa powder, bcaa supplement, protein powder, best protein powder, bcaa, best pre workout, protein powder, whey protein isolate, best protein powder for women, best protein powder, protein powder for weight loss, best protein powder for weight loss, organic protein powder, isolate protein, best supplements for muscle growth, whey isolate protein powder, best pre workout for men, best whey protein powder, best pre workout for women, best whey protein, bcaa powder, protein whey, pre workout for women, creatine monohydrate powder, best protein powder for muscle gain, best muscle building supplements, chocolate protein powder"
         />
-        <meta property="og:url" content="https://purego.gomzilifesciences.in/" />
+        <meta
+          property="og:url"
+          content="https://purego.gomzilifesciences.in/"
+        />
         <link rel="canonical" href="https://purego.gomzilifesciences.in/" />
         <meta
           property="og:image"
@@ -301,22 +302,22 @@ function Home() {
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
           {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '3713420712287031');
-            fbq('track', 'PageView');
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '2773291456345230');
+              fbq('track', 'PageView');
           `}
         </script>
         <noscript>
           {`<img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
-          />`}
+            src="https://www.facebook.com/tr?id=2773291456345230&ev=PageView&noscript=1"
+            />`}
         </noscript>
         {/* Google tag (gtag.js) */}
         <script
@@ -331,7 +332,10 @@ function Home() {
             gtag('config', 'G-J50WNKGW38');
           `}
         </script>
-        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
+        <script
+          type="text/javascript"
+          src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"
+        ></script>
       </Helmet>
       <p className="d-none">
         purego, protein powder, creatine protein powder, preworkout,
@@ -490,7 +494,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               {/* 4.5 */}
                               <i className="fa-solid fa-star ms-1"></i>
@@ -499,7 +503,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -536,7 +540,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Protein 1kg Chocolate",
-                                3080
+                                3080,
                               );
                               return (
                                 <>
@@ -555,7 +559,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Protein 1kg Chocolate")
+                              item?.includes("Whey Protein 1kg Chocolate"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -564,7 +568,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e7749163f930dcc6a2715d");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -649,7 +653,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -657,7 +661,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -694,7 +698,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Protein 1kg Mawa Kulfi",
-                                3270
+                                3270,
                               );
                               return (
                                 <>
@@ -713,7 +717,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Protein 1kg Mawa Kulfi")
+                              item?.includes("Whey Protein 1kg Mawa Kulfi"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -722,7 +726,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e774a963f930dcc6a2715f");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -807,7 +811,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -815,7 +819,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -852,7 +856,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Protein 1kg Mocha Coffee",
-                                3270
+                                3270,
                               );
                               return (
                                 <>
@@ -871,7 +875,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Protein 1kg Mocha Coffee")
+                              item?.includes("Whey Protein 1kg Mocha Coffee"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -880,7 +884,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e774c463f930dcc6a27161");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -965,7 +969,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -973,7 +977,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -1010,7 +1014,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Protein 1kg Mango",
-                                3270
+                                3270,
                               );
                               return (
                                 <>
@@ -1029,7 +1033,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Protein 1kg Mango")
+                              item?.includes("Whey Protein 1kg Mango"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1038,7 +1042,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68316295f91df040c479acc8");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1123,7 +1127,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7745f63f930dcc6a2715b" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -1131,7 +1135,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7745f63f930dcc6a2715b" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -1169,7 +1173,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Matrix 1kg Chocolate",
-                                1580
+                                1580,
                               );
                               return (
                                 <>
@@ -1188,7 +1192,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Matrix 1kg Chocolate")
+                              item?.includes("Whey Matrix 1kg Chocolate"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1197,7 +1201,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e7745f63f930dcc6a2715b");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1284,7 +1288,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -1292,7 +1296,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -1330,7 +1334,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Pre Workout Fruit Punch 250g",
-                                2550
+                                2550,
                               );
                               return (
                                 <>
@@ -1349,7 +1353,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Fruit Punch")
+                              item?.includes("Fruit Punch"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1358,7 +1362,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e7740363f930dcc6a27157");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1444,7 +1448,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7742d63f930dcc6a27159" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -1452,7 +1456,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7742d63f930dcc6a27159" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -1490,7 +1494,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "EAA Powder 250g",
-                                2150
+                                2150,
                               );
                               return (
                                 <>
@@ -1509,7 +1513,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("EAA Powder")
+                              item?.includes("EAA Powder"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1518,7 +1522,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e7742d63f930dcc6a27159");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1606,7 +1610,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e773f463f930dcc6a27155" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -1614,7 +1618,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e773f463f930dcc6a27155" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -1652,7 +1656,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Creatine Monohydrate Lemon 250g",
-                                1510
+                                1510,
                               );
                               return (
                                 <>
@@ -1671,7 +1675,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Creatine Monohydrate 250g Lemon")
+                              item?.includes("Creatine Monohydrate 250g Lemon"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1680,7 +1684,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("67e773f463f930dcc6a27155");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1767,7 +1771,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "6827168ced4175d21de95c4e" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -1775,7 +1779,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "6827168ced4175d21de95c4e" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -1813,7 +1817,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "BCAA Orange Powder 250g",
-                                2150
+                                2150,
                               );
                               return (
                                 <>
@@ -1832,7 +1836,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("BCAA Powder 250g Orange")
+                              item?.includes("BCAA Powder 250g Orange"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -1841,7 +1845,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("6827168ced4175d21de95c4e");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -1929,7 +1933,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -1937,7 +1941,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -1974,7 +1978,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Protein 2kg Chocolate",
-                                5750
+                                5750,
                               );
                               return (
                                 <>
@@ -1993,7 +1997,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Protein 2kg Chocolate")
+                              item?.includes("Whey Protein 2kg Chocolate"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -2002,7 +2006,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68219edf28bd0ff3b2083fa6");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2088,7 +2092,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -2096,7 +2100,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -2133,7 +2137,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Protein 2kg Mawa Kulfi",
-                                6150
+                                6150,
                               );
                               return (
                                 <>
@@ -2152,7 +2156,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Protein 2kg Mawa Kulfi")
+                              item?.includes("Whey Protein 2kg Mawa Kulfi"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -2161,7 +2165,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68219ef928bd0ff3b2083fa8");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2247,7 +2251,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -2255,7 +2259,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -2292,7 +2296,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Protein 2kg Mocha Coffee",
-                                6150
+                                6150,
                               );
                               return (
                                 <>
@@ -2311,7 +2315,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Protein 2kg Mocha Coffee")
+                              item?.includes("Whey Protein 2kg Mocha Coffee"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -2320,7 +2324,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68219f0d28bd0ff3b2083fad");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2406,7 +2410,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -2414,7 +2418,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7749163f930dcc6a2715d" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -2451,7 +2455,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Protein 2kg Mango",
-                                6150
+                                6150,
                               );
                               return (
                                 <>
@@ -2470,7 +2474,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Whey Protein 2kg Mango")
+                              item?.includes("Whey Protein 2kg Mango"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -2479,7 +2483,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("683162bef91df040c479ace4");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2565,7 +2569,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7745f63f930dcc6a2715b" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -2573,7 +2577,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7745f63f930dcc6a2715b" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -2610,7 +2614,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Mass Gainer 3kg Chocolate",
-                                4750
+                                4750,
                               );
                               return (
                                 <>
@@ -2629,7 +2633,9 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Pure Go Whey Matrix 3kg Chocolate")
+                              item?.includes(
+                                "Pure Go Whey Matrix 3kg Chocolate",
+                              ),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -2638,7 +2644,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68219f4d28bd0ff3b2083fb1");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2725,7 +2731,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -2733,7 +2739,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -2771,7 +2777,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Pre Workout Cola",
-                                2550
+                                2550,
                               );
                               return (
                                 <>
@@ -2790,7 +2796,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Cola")
+                              item?.includes("Cola"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -2799,7 +2805,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("682718b1ed4175d21de95d0b");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -2888,7 +2894,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -2896,7 +2902,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -2933,7 +2939,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Pre Workout Cola",
-                                1510
+                                1510,
                               );
                               return (
                                 <>
@@ -2952,7 +2958,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Unflavoured")
+                              item?.includes("Unflavoured"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -2961,7 +2967,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("6827197bed4175d21de95d5c");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -3048,7 +3054,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -3056,7 +3062,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "67e7740363f930dcc6a27157" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -3095,7 +3101,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "BCAA Cranberry",
-                                2150
+                                2150,
                               );
                               return (
                                 <>
@@ -3114,7 +3120,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Cranberry")
+                              item?.includes("Cranberry"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -3123,7 +3129,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("6827180aed4175d21de95cb9");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -3209,7 +3215,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "68316330f91df040c479ad1e" &&
-                                  product.average_points
+                                  product.average_points,
                               )}
                               <i className="fa-solid fa-star ms-1"></i>
                             </span>
@@ -3217,7 +3223,7 @@ function Home() {
                               {productReviewsData.map(
                                 (product) =>
                                   product._id === "68316330f91df040c479ad1e" &&
-                                  product.total_count
+                                  product.total_count,
                               )}{" "}
                               reviews
                             </div>
@@ -3255,7 +3261,7 @@ function Home() {
                             {(() => {
                               const price = DiscountCalculate(
                                 "Whey Protein 1kg Mocha Coffee",
-                                180
+                                180,
                               );
                               return (
                                 <>
@@ -3274,7 +3280,7 @@ function Home() {
                           </div>
                           <div className="d-flex">
                             {cartItemName.some((item) =>
-                              item.includes("Shaker Bottle")
+                              item?.includes("Shaker Bottle"),
                             ) ? (
                               <button className="product-btn item-add-to-cart-btn">
                                 Item Added
@@ -3283,7 +3289,7 @@ function Home() {
                               <button
                                 onClick={() => {
                                   addProductInCart("68316330f91df040c479ad1e");
-                                  handleCartOpen('addToCart');
+                                  handleCartOpen("addToCart");
                                 }}
                                 className="product-btn item-add-to-cart-btn"
                               >
@@ -3311,7 +3317,7 @@ function Home() {
         <div>
           <FacilitySlider></FacilitySlider>
         </div>
-        
+
         {/* <section class="py-5" style="background-color: #f9f9f9;">
             <div class="container text-center">
               <h2 class="fw-bold mb-4">
@@ -3397,7 +3403,7 @@ function Home() {
             </div>
           </section> */}
 
-          <WhyChoosePurego/>
+        <WhyChoosePurego />
 
         {/* certificates */}
         <section className="formula-area formula-bg">
@@ -3729,7 +3735,7 @@ function Home() {
           </div>
         </section>
         <GymVideo />
-         {/* PureGo: Where Quality Meets Wellne */}
+        {/* PureGo: Where Quality Meets Wellne */}
         <section id="news" className="tg-blog-area pt-80">
           <div className="container">
             <div className="row justify-content-center">

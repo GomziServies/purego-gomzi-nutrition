@@ -37,7 +37,7 @@ function PureGoBCAA() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("250g");
   const [activeFlavor, setActiveFlavor] = useState("Orange");
-  
+
   const getCanonicalUrl = () => {
     // Orange flavor
     if (activeFlavor === "Orange") {
@@ -179,7 +179,7 @@ function PureGoBCAA() {
 
       localStorage.setItem(
         "quickProductData",
-        JSON.stringify(quickProductData)
+        JSON.stringify(quickProductData),
       );
 
       window.location.href = "/check-out";
@@ -195,7 +195,7 @@ function PureGoBCAA() {
         products: [],
       };
       const productExists = existingData.products.some(
-        (product) => product.product_id === currentProductData.id
+        (product) => product.product_id === currentProductData.id,
       );
 
       if (!productExists) {
@@ -206,7 +206,7 @@ function PureGoBCAA() {
       }
 
       const isAuthenticated = localStorage.getItem(
-        "fg_group_user_authorization"
+        "fg_group_user_authorization",
       );
 
       if (!isAuthenticated) {
@@ -260,7 +260,8 @@ function PureGoBCAA() {
     {
       title: "",
       description: "Controls Appetite & Hunger.",
-    }, { title: "Caution:", description: "" },
+    },
+    { title: "Caution:", description: "" },
     {
       title: "",
       description: "Not for use by persons under the age of 18 years.",
@@ -346,20 +347,24 @@ function PureGoBCAA() {
   const generateJsonLd = () => {
     // Define product data for each variant
     const productVariants = {
-      "Orange": {
+      Orange: {
         name: "BCAA Orange",
-        image: "https://purego.gomzilifesciences.in/assets/images/products/bcaa/bcaa-orange-4.webp",
-        description: "PureGo Orange Flavored BCAA – India's best supplement for muscle recovery, energy, and effective workout support.",
+        image:
+          "https://purego.gomzilifesciences.in/assets/images/products/bcaa/bcaa-orange-4.webp",
+        description:
+          "PureGo Orange Flavored BCAA – India's best supplement for muscle recovery, energy, and effective workout support.",
         url: "https://purego.gomzilifesciences.in/bcaa-suppliment/orange",
-        price: "1075"
+        price: "1075",
       },
-      "Cranberry": {
+      Cranberry: {
         name: "BCAA Cranberry",
-        image: "https://purego.gomzilifesciences.in/assets/images/products/bcaa/bcaa-cranberry-4.webp",
-        description: "PureGo Cranberry Flavored BCAA – Optimize your workouts with India's top BCAA for recovery, weight management, and strength.",
+        image:
+          "https://purego.gomzilifesciences.in/assets/images/products/bcaa/bcaa-cranberry-4.webp",
+        description:
+          "PureGo Cranberry Flavored BCAA – Optimize your workouts with India's top BCAA for recovery, weight management, and strength.",
         url: "https://purego.gomzilifesciences.in/bcaa-suppliment/cranberry",
-        price: "1075"
-      }
+        price: "1075",
+      },
     };
 
     // Get the data for the current product variant
@@ -368,28 +373,28 @@ function PureGoBCAA() {
       image: `https://purego.gomzilifesciences.in/assets/images/products/bcaa/bcaa-${activeFlavor.toLowerCase()}-4.webp`,
       description: getMetaDescription(),
       url: getCanonicalUrl(),
-      price: "1075"
+      price: "1075",
     };
 
     // Generate the JSON-LD structure
     const jsonLd = {
       "@context": "https://schema.org/",
       "@type": "Product",
-      "name": variantData.name,
-      "image": variantData.image,
-      "description": variantData.description,
-      "brand": {
+      name: variantData.name,
+      image: variantData.image,
+      description: variantData.description,
+      brand: {
         "@type": "Brand",
-        "name": "Purego"
+        name: "Purego",
       },
-      "offers": {
+      offers: {
         "@type": "Offer",
-        "url": variantData.url,
-        "priceCurrency": "INR",
-        "price": variantData.price,
-        "availability": "https://schema.org/InStock",
-        "itemCondition": "https://schema.org/NewCondition"
-      }
+        url: variantData.url,
+        priceCurrency: "INR",
+        price: variantData.price,
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+      },
     };
 
     return JSON.stringify(jsonLd, null, 2);
@@ -399,10 +404,7 @@ function PureGoBCAA() {
     <>
       <Helmet>
         <title>{getMetaTitle()}</title>
-        <meta
-          name="description"
-          content={getMetaDescription()}
-        />
+        <meta name="description" content={getMetaDescription()} />
         <meta
           name="keyword"
           content="preworkout, fat burner, amino acid, workout, Orange, weight loss supplement, bodybuilding supplement, best pre workout, best weight loss supplements, best fat burner for men, protein powder for weight loss, best protein powder for weight loss, best fat burner for women, pre workout powder, best fat burner, best supplements for weight loss female, best pre workout for men, fat burner for women"
@@ -414,31 +416,32 @@ function PureGoBCAA() {
         />
         <link rel="canonical" href={canonicalUrl} />
         {/* JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {generateJsonLd()}
-        </script>
+        <script type="application/ld+json">{generateJsonLd()}</script>
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
-          { `
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '3713420712287031');
-            fbq('track', 'PageView');
+          {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '2773291456345230');
+              fbq('track', 'PageView');
           `}
         </script>
         <noscript>
-          { `<img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
-          />`}
+          {`<img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2773291456345230&ev=PageView&noscript=1"
+            />`}
         </noscript>
-        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
+        <script
+          type="text/javascript"
+          src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"
+        ></script>
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
@@ -508,7 +511,7 @@ function PureGoBCAA() {
                         {(() => {
                           const price = DiscountCalculate(
                             currentProductData?.name,
-                            currentProductData?.price
+                            currentProductData?.price,
                           );
                           return (
                             <>
@@ -620,16 +623,16 @@ function PureGoBCAA() {
                         <p>
                           BCAA Blend (branched chain amino acid), Citric
                           acid-INS 330, potassium Chloride INS 508, Silicon
-                          dioxide INS 551, Sucralose -INS 955, {activeFlavor} Flavour,
-                          Sunset Yellow color -INS 122.
+                          dioxide INS 551, Sucralose -INS 955, {activeFlavor}{" "}
+                          Flavour, Sunset Yellow color -INS 122.
                         </p>
                         <h4 className="title">DIRECTIONS FOR BCAA POWDER:</h4>
                         <p>
-                          Consume 1 Scoop (05 gm) of BCAA Powder with 200ml water
-                          between meals, 30-45 minutes before workouts and/or
-                          immediately after workouts. Combine with a sensible
-                          diet and regular exercise. For best results consume 2
-                          Scoop per day.
+                          Consume 1 Scoop (05 gm) of BCAA Powder with 200ml
+                          water between meals, 30-45 minutes before workouts
+                          and/or immediately after workouts. Combine with a
+                          sensible diet and regular exercise. For best results
+                          consume 2 Scoop per day.
                         </p>
                         <h4 className="title mt-4">WARNINGS:</h4>
                         <p>

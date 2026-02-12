@@ -37,7 +37,7 @@ function PureGoCreatine() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeSize, setActiveSize] = useState("250g");
   const [activeFlavor, setActiveFlavor] = useState("Lemon");
-  
+
   const getCanonicalUrl = () => {
     // Lemon flavor
     if (activeFlavor === "Lemon") {
@@ -177,7 +177,7 @@ function PureGoCreatine() {
 
       localStorage.setItem(
         "quickProductData",
-        JSON.stringify(quickProductData)
+        JSON.stringify(quickProductData),
       );
 
       window.location.href = "/check-out";
@@ -193,7 +193,7 @@ function PureGoCreatine() {
         products: [],
       };
       const productExists = existingData.products.some(
-        (product) => product.product_id === currentProductData.id
+        (product) => product.product_id === currentProductData.id,
       );
 
       if (!productExists) {
@@ -204,7 +204,7 @@ function PureGoCreatine() {
       }
 
       const isAuthenticated = localStorage.getItem(
-        "fg_group_user_authorization"
+        "fg_group_user_authorization",
       );
 
       if (!isAuthenticated) {
@@ -301,33 +301,39 @@ function PureGoCreatine() {
     // Get the discounted price for the current product
     const priceData = DiscountCalculate(
       "Whey Protein 1kg Mocha Coffee",
-      currentProductData?.price
+      currentProductData?.price,
     );
     const discountedPrice = priceData?.discountedprice || "0";
-    
+
     // Get the main image for the current product
     const productImagesArray = productImages[currentProduct] || [];
     const mainImage = productImagesArray[2] || productImagesArray[0] || ""; // Using the third image (index 2) or first if not available
-    
+
     // Construct full image URL
-    const fullImageUrl = mainImage ? `https://purego.gomzilifesciences.in${mainImage}` : "";
-    
+    const fullImageUrl = mainImage
+      ? `https://purego.gomzilifesciences.in${mainImage}`
+      : "";
+
     // Define product data for each variant
     const productVariants = {
       "250g-Lemon": {
         name: "Creatine Monohydrate Lemon",
-        image: "https://purego.gomzilifesciences.in/assets/images/products/creatine/creatine-lemon-4.webp",
-        description: "PureGo Lemon Creatine – Enhance Strength & Recovery with High-Quality Creatine Monohydrate at Best Price Online",
+        image:
+          "https://purego.gomzilifesciences.in/assets/images/products/creatine/creatine-lemon-4.webp",
+        description:
+          "PureGo Lemon Creatine – Enhance Strength & Recovery with High-Quality Creatine Monohydrate at Best Price Online",
         url: "https://purego.gomzilifesciences.in/creatine-suppliment/lemon",
-        price: "755"
+        price: "755",
       },
       "250g-Unflavoured": {
         name: "Creatine Monohydrate Unflavoured",
-        image: "https://purego.gomzilifesciences.in/assets/images/products/creatine/creatine-unflavoured-4.webp",
-        description: "PureGo Unflavored Creatine – Maximize Muscle Growth & Performance with Premium Creatine Monohydrate at Best Price",
+        image:
+          "https://purego.gomzilifesciences.in/assets/images/products/creatine/creatine-unflavoured-4.webp",
+        description:
+          "PureGo Unflavored Creatine – Maximize Muscle Growth & Performance with Premium Creatine Monohydrate at Best Price",
         url: "https://purego.gomzilifesciences.in/Creatine-suppliment/unflavoured",
-        price: "755"
-      }
+        price: "755",
+      },
     };
 
     // Get the data for the current product variant
@@ -336,28 +342,28 @@ function PureGoCreatine() {
       image: fullImageUrl,
       description: getMetaDescription(),
       url: canonicalUrl,
-      price: discountedPrice
+      price: discountedPrice,
     };
 
     // Generate the JSON-LD structure
     const jsonLd = {
       "@context": "https://schema.org/",
       "@type": "Product",
-      "name": variantData.name,
-      "image": variantData.image,
-      "description": variantData.description,
-      "brand": {
+      name: variantData.name,
+      image: variantData.image,
+      description: variantData.description,
+      brand: {
         "@type": "Brand",
-        "name": "Purego"
+        name: "Purego",
       },
-      "offers": {
+      offers: {
         "@type": "Offer",
-        "url": variantData.url,
-        "priceCurrency": "INR",
-        "price": variantData.price,
-        "availability": "https://schema.org/InStock",
-        "itemCondition": "https://schema.org/NewCondition"
-      }
+        url: variantData.url,
+        priceCurrency: "INR",
+        price: variantData.price,
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+      },
     };
 
     return JSON.stringify(jsonLd, null, 2);
@@ -367,10 +373,7 @@ function PureGoCreatine() {
     <>
       <Helmet>
         <title>{getMetaTitle()}</title>
-        <meta
-          name="description"
-          content={getMetaDescription()}
-        />
+        <meta name="description" content={getMetaDescription()} />
         <meta
           name="keyword"
           content="creatine, creatine monohydrate, micronised, muscle building, best creatine, best creatine for men, best creatine monohydrate, creatine powder, creatine monohydrate powder, best protein powder for muscle gain, best muscle building supplements, muscle building supplements, creatine for women, creatine supplements, micronized creatine, bodybuilding supplements, best creatine for muscle growth, best creatine supplement, muscle growth supplements, micronized creatine monohydrate, best protein powder for muscle growth"
@@ -382,31 +385,32 @@ function PureGoCreatine() {
         />
         <link rel="canonical" href={canonicalUrl} />
         {/* JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {generateJsonLd()}
-        </script>
+        <script type="application/ld+json">{generateJsonLd()}</script>
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
-          { `
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '3713420712287031');
-            fbq('track', 'PageView');
+          {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '2773291456345230');
+              fbq('track', 'PageView');
           `}
         </script>
         <noscript>
-          { `<img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
-          />`}
+          {`<img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2773291456345230&ev=PageView&noscript=1"
+            />`}
         </noscript>
-        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
+        <script
+          type="text/javascript"
+          src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"
+        ></script>
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
@@ -476,7 +480,7 @@ function PureGoCreatine() {
                         {(() => {
                           const price = DiscountCalculate(
                             "Whey Protein 1kg Mocha Coffee",
-                            currentProductData?.price
+                            currentProductData?.price,
                           );
                           return (
                             <>

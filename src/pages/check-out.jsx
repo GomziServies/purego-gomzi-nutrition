@@ -154,7 +154,7 @@ function CheckOut() {
 
         setOffers((prev) => {
           const isAlreadyPresent = prev.some(
-            (offer) => offer.code === promoCode
+            (offer) => offer.code === promoCode,
           );
           if (!isAlreadyPresent) {
             return [...prev, customOffer];
@@ -183,7 +183,7 @@ function CheckOut() {
 
         setOffers((prev) => {
           const isAlreadyPresent = prev.some(
-            (offer) => offer.code === promoCode
+            (offer) => offer.code === promoCode,
           );
           if (!isAlreadyPresent) {
             return [...prev, customOffer];
@@ -281,13 +281,13 @@ function CheckOut() {
         await createPaymentProduct(
           quickData && quickData?.id
             ? [{ product_id: quickData.id, quantity: 1 }]
-            // ? [{ product_id: quickData.id,item_type:'PURE_GO_MEAL_PRODUCT', quantity: 1 }]
-            : productDatas,
+            : // ? [{ product_id: quickData.id,item_type:'PURE_GO_MEAL_PRODUCT', quantity: 1 }]
+              productDatas,
           updatedUserData,
           coupon_ids,
           payment_mode,
           discountCost,
-          courierId
+          courierId,
         );
 
         setManualCouponCode("");
@@ -362,7 +362,7 @@ function CheckOut() {
         const payload = { coupon_code: code };
         const response = await publicAxiosInstance.post(
           "/check-coupon-code",
-          payload
+          payload,
         );
         const couponData = response.data.data;
 
@@ -776,7 +776,7 @@ function CheckOut() {
           const matchedStateName = result[0].stateName.trim().toLowerCase();
 
           const selectedStateData = stateData.find(
-            (data) => data.stateName.toLowerCase() === matchedStateName
+            (data) => data.stateName.toLowerCase() === matchedStateName,
           );
 
           setOrderUserData((prev) => ({
@@ -833,25 +833,28 @@ function CheckOut() {
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
-          { `
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '3713420712287031');
-            fbq('track', 'PageView');
+          {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '2773291456345230');
+              fbq('track', 'PageView');
           `}
         </script>
         <noscript>
-          { `<img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
-          />`}
+          {`<img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2773291456345230&ev=PageView&noscript=1"
+            />`}
         </noscript>
-        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
+        <script
+          type="text/javascript"
+          src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"
+        ></script>
       </Helmet>
       {showModal && <LoginModal onClose={closeModal} />}
       {loading && <LoadingComponent />}

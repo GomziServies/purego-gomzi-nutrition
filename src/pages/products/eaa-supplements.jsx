@@ -66,29 +66,31 @@ function PureGoEaa() {
     // Get the discounted price for the current product
     const priceData = DiscountCalculate(
       "Whey Protein 1kg Mocha Coffee",
-      currentProductData?.price
+      currentProductData?.price,
     );
     const discountedPrice = priceData?.discountedprice || "1075";
-    
+
     // Generate the JSON-LD structure
     const jsonLd = {
       "@context": "https://schema.org/",
       "@type": "Product",
-      "name": "EAA Powder",
-      "image": "https://purego.gomzilifesciences.in/assets/images/products/eaa/eaa-4.webp",
-      "description": "Boost your workouts with EAA supplements for faster muscle recovery, stronger gains, and peak performance at the gym.",
-      "brand": {
+      name: "EAA Powder",
+      image:
+        "https://purego.gomzilifesciences.in/assets/images/products/eaa/eaa-4.webp",
+      description:
+        "Boost your workouts with EAA supplements for faster muscle recovery, stronger gains, and peak performance at the gym.",
+      brand: {
         "@type": "Brand",
-        "name": "Purego"
+        name: "Purego",
       },
-      "offers": {
+      offers: {
         "@type": "Offer",
-        "url": "https://purego.gomzilifesciences.in/eaasuppliment/watermelon",
-        "priceCurrency": "INR",
-        "price": "1075",
-        "availability": "https://schema.org/InStock",
-        "itemCondition": "https://schema.org/NewCondition"
-      }
+        url: "https://purego.gomzilifesciences.in/eaasuppliment/watermelon",
+        priceCurrency: "INR",
+        price: "1075",
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+      },
     };
 
     return JSON.stringify(jsonLd, null, 2);
@@ -185,7 +187,7 @@ function PureGoEaa() {
 
       localStorage.setItem(
         "quickProductData",
-        JSON.stringify(quickProductData)
+        JSON.stringify(quickProductData),
       );
 
       window.location.href = "/check-out";
@@ -201,7 +203,7 @@ function PureGoEaa() {
         products: [],
       };
       const productExists = existingData.products.some(
-        (product) => product.product_id === currentProductData.id
+        (product) => product.product_id === currentProductData.id,
       );
 
       if (!productExists) {
@@ -212,7 +214,7 @@ function PureGoEaa() {
       }
 
       const isAuthenticated = localStorage.getItem(
-        "fg_group_user_authorization"
+        "fg_group_user_authorization",
       );
 
       if (!isAuthenticated) {
@@ -274,10 +276,7 @@ function PureGoEaa() {
     <>
       <Helmet>
         <title>{getMetaTitle()}</title>
-        <meta
-          name="description"
-          content={getMetaDescription()}
-        />
+        <meta name="description" content={getMetaDescription()} />
         <meta
           name="keyword"
           content="eaa, muscle recovery, electrolyte, eaa protein, supplements, eaa supplements, muscular growth, metabolism, protein powder, best collagen supplements, best probiotic for women, best protein powder, probiotics for women, vitamins, mass gainer, fat burner, electrolytes, testosterone supplements, weight loss supplements, best magnesium supplement, berberine supplement, best weight loss supplements, fiber supplement, electrolyte powder, best testosterone booster, BCAA Supplement"
@@ -289,31 +288,32 @@ function PureGoEaa() {
         />
         <link rel="canonical" href={canonicalUrl} />
         {/* JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {generateJsonLd()}
-        </script>
+        <script type="application/ld+json">{generateJsonLd()}</script>
         {/* Preconnect to Facebook CDN */}
         <link rel="preconnect" href="https://connect.facebook.net" />
         <script>
-          { `
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '3713420712287031');
-            fbq('track', 'PageView');
+          {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '2773291456345230');
+              fbq('track', 'PageView');
           `}
         </script>
         <noscript>
-          { `<img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=3713420712287031&ev=PageView&noscript=1"
-          />`}
+          {`<img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2773291456345230&ev=PageView&noscript=1"
+            />`}
         </noscript>
-        <script type="text/javascript" src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"></script>
+        <script
+          type="text/javascript"
+          src="https://api.goaffpro.com/loader.js?shop=vijiwvsmjb"
+        ></script>
       </Helmet>
       {/* <LoaderComponent /> */}
       {showModal && <LoginModal onClose={closeModal} />}
@@ -383,7 +383,7 @@ function PureGoEaa() {
                         {(() => {
                           const price = DiscountCalculate(
                             "Whey Protein 1kg Mocha Coffee",
-                            currentProductData?.price
+                            currentProductData?.price,
                           );
                           return (
                             <>
